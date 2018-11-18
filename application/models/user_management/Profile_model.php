@@ -47,7 +47,9 @@ class Profile_model extends CI_Model {
 
 		$this->db->select($select);
 
-		$query = $this->db->get('user');
+		$this->db->order_by('user_dateCreated', 'DESC');
+
+		$query = $this->db->get('user', 0, 5);
 
 		return $query->result_array() ?? [];
 	}
@@ -66,7 +68,7 @@ class Profile_model extends CI_Model {
 		$select = 'user_firstname, user_middlename, user_lastname, user_email';
 
 		$this->db->select($select);
-		
+
 		if (!empty($this->input->post('user_firstname'))) {
 			$this->db->where('user_firstname', $this->input->post('user_firstname'));
 		}
