@@ -8,7 +8,9 @@ class User_model extends CI_Model {
 
 	public function verify() : bool
 	{
-		$this->db->select('user_firstname, user_email');
+		$select = 'user_id, user_firstname, user_lastname, user_password';
+
+		$this->db->select($select);
 
 		$this->db->where('user_email', $this->input->post('user_email'));
 
@@ -19,8 +21,9 @@ class User_model extends CI_Model {
 		if (count($res) && password_verify($this->input->post('user_password'), $res['user_password'])) 
 		{
 			$data = array(
-		        'username'  => $res['user_firstname'],
-		        'email'     => $res['user_email'],
+		        'user_firstname' => $res['user_firstname'],
+		        'user_lastname' => $res['user_lastname'],
+		        'user_id' => $res['user_id'],
 		        'logged_in' => TRUE
 			);
 

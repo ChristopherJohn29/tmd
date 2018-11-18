@@ -19,7 +19,7 @@ class User extends CI_Controller {
 		}
 		else 
 		{
-			redirect('');
+			redirect('login');
 		}
 	}
 }
