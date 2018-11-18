@@ -1,7 +1,7 @@
 <?php
 
 $config = array(
-    'profile/save' => array(
+    'user_management/profile/save' => array(
         array(
             'field' => 'user_firstname',
             'label' => 'Firstname',
@@ -20,7 +20,10 @@ $config = array(
         array(
             'field' => 'user_email',
             'label' => 'Email',
-            'rules' => 'required|valid_emails|max_length[45]'
+            'rules' => 'required|valid_emails|max_length[45]|is_unique[user.user_email]',
+            'errors' => array(
+                'is_unique' => 'This %s already exists.'
+            )
         ),
         array(
             'field' => 'user_address',
@@ -31,6 +34,11 @@ $config = array(
             'field' => 'password',
             'label' => 'Password',
             'rules' => 'required|min_length[8]|max_length[16]'
+        ),
+        array(
+            'field' => 'confirm_password',
+            'label' => 'Confirm Password',
+            'rules' => 'required|min_length[8]|max_length[16]|matches[password]'
         ),
         array(
             'field' => 'user_roleID',
