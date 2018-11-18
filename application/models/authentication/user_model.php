@@ -24,7 +24,7 @@ class User_model extends CI_Model {
 		        'user_firstname' => $res['user_firstname'],
 		        'user_lastname' => $res['user_lastname'],
 		        'user_id' => $res['user_id'],
-		        'logged_in' => TRUE
+		        'user_logged_in' => true
 			);
 
 			$this->session->set_userdata($data);
