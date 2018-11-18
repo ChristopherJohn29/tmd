@@ -69,19 +69,23 @@ class Profile_model extends CI_Model {
 
 		$this->db->select($select);
 
-		if (!empty($this->input->post('user_firstname'))) {
+		if (!empty($this->input->post('user_firstname'))) 
+		{
 			$this->db->where('user_firstname', $this->input->post('user_firstname'));
 		}
 
-		if (!empty($this->input->post('user_middlename'))) {
+		if (!empty($this->input->post('user_middlename'))) 
+		{
 			$this->db->where('user_middlename', $this->input->post('user_middlename'));
 		}
 
-		if (!empty($this->input->post('user_lastname'))) {
+		if (!empty($this->input->post('user_lastname'))) 
+		{
 			$this->db->where('user_lastname', $this->input->post('user_lastname'));
 		}
 
-		if (!empty($this->input->post('user_email'))) {
+		if (!empty($this->input->post('user_email'))) 
+		{
 			$this->db->where('user_email', $this->input->post('user_email'));
 		}
 

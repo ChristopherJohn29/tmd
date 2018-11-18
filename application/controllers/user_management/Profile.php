@@ -43,7 +43,8 @@ class Profile extends CI_Controller {
 
         $user = $this->profile_model->save();
 
-        if ($user['state']) {
+        if ($user['state']) 
+        {
         	$this->session->set_flashdata('success', $this->lang->line('success_save'));
         } else {
         	$this->session->set_flashdata('error', $this->lang->line('error_save'));
@@ -65,9 +66,12 @@ class Profile extends CI_Controller {
 
         $user = $this->profile_model->update($userID);
 
-        if ($user['state']) {
+        if ($user['state']) 
+        {
         	$this->session->set_flashdata('success', $this->lang->line('success_save'));
-        } else {
+        } 
+        else 
+        {
         	$this->session->set_flashdata('error', $this->lang->line('error_save'));
         }
 
