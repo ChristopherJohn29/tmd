@@ -44,33 +44,15 @@ class Profile extends MY_Controller {
 
 	public function save(string $user_id = '')
 	{
-		$this->check_permission('add_user');
+		$params = array(
+			'check_permission' => 'add_user',
+			'record_id' => $user_id,
+			'table_key' => 'user_id',
+			'save_model' => 'profile_model',
+			'redirect_url' => 'user_management/profile/details/'
+		);
 
-		$this->load->library('form_validation');
-
-		if ($this->form_validation->run() == FALSE)
-        {
-			(empty($user_id)) ? $this->add() : $this->edit();	
-
-			return;
-        }
-
-        $user = (empty($user_id)) ?
-        	$this->profile_model->insert(['data' => $this->profile_model->prepare_data()]) :
-        	$this->profile_model->update([
-        		'data' => $this->profile_model->prepare_data(),
-        		'key' => 'user_id',
-	        	'value' => $user_id
-        	]);
-
-        if ($user) 
-        {
-        	$this->session->set_flashdata('success', $this->lang->line('success_save'));
-        } else {
-        	$this->session->set_flashdata('error', $this->lang->line('error_save'));
-        }
-
-        redirect('user_management/profile/details/' . (empty($user_id)) ? $user : $user_id);
+		parent::save($params);
 	}
 
 	public function details(string $user_id)
@@ -88,10 +70,11 @@ class Profile extends MY_Controller {
 
 	public function search()
 	{
-		$this->check_permission('search_user');
-		
-		$page_data['records'] = $this->profile_model->find([
-			'where_data' => $this->profile_model->prepare_search_data()
-		]);
+		$params = [
+			'check_permission' => 'search_user',
+			'search_model' => 'profile_model'
+		];
+
+		$page_data['records'] = parent::search($params);
 	}
 }

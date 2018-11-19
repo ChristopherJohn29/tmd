@@ -11,15 +11,29 @@ class User extends CI_Controller {
 		));
 	}
 
+	public function index()
+	{
+		// login page
+	}
+
 	public function verify()
 	{
+		$this->load->library('form_validation');
+
+		if ($this->form_validation->run() == FALSE)
+        {
+        	$this->index();
+
+        	return;
+        }
+
 		if ($this->user_model->verify())
 		{
 			redirect('dashboard');
 		}
 		else 
 		{
-			redirect('login');
+			redirect('authentication/user');
 		}
 	}
 }
