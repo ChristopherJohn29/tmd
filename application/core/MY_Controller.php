@@ -9,5 +9,16 @@ class MY_Controller extends CI_Controller {
 		{
 			redirect('login');
 		}
+
+		$this->load->library('acl');
+	}
+
+	public function check_permission(string $permission_name)
+	{
+		if (!$this->acl->has_permission($this->session->userdata('user_role_id'), $permission_name))
+		{
+			// redirect to access denied page
+			// redirect();
+		}
 	}
 }

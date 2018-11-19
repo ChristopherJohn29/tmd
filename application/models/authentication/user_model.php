@@ -20,7 +20,7 @@ class User_model extends My_Model {
 			$data = array(
 		        'user_firstname' => $res['user_firstname'],
 		        'user_lastname' => $res['user_lastname'],
-		        'user_id' => $res['user_id'],
+		        'user_role_id' => $res['user_roleID'],
 		        'user_logged_in' => true
 			);
 
