@@ -1,22 +1,19 @@
 <?php
 
-class User_model extends CI_Model {	
-	function __construct()
+class User_model extends My_Model {
+	protected $table_name = 'user';
+
+	public function __construct()
 	{
 		parent::__construct();
 	}
 
 	public function verify() : bool
 	{
-		$select = 'user_id, user_firstname, user_lastname, user_password';
-
-		$this->db->select($select);
-
-		$this->db->where('user_email', $this->input->post('user_email'));
-
-		$query = $this->db->query('user');
-
-		$res = $query->row_array();
+		$res = $this->record([
+			'key' => 'user_email',
+			'value' => $this->input->post('user_email')
+		]);
 
 		if (count($res) && password_verify($this->input->post('user_password'), $res['user_password'])) 
 		{

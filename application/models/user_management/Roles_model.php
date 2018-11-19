@@ -1,15 +1,10 @@
 <?php
 
-class Roles_model extends CI_Model {	
-	function __construct()
+class Roles_model extends My_Model {
+	protected $table_name = 'roles';
+
+	public function __construct()
 	{
 		parent::__construct();
-	}
-
-	public function records() : array
-	{
-		$query = $this->db->get('roles');
-
-		return $query->result_array() ?? [];
 	}
 }
