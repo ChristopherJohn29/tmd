@@ -17,12 +17,12 @@ class User_model extends My_Model {
 
 		if (count($res) && password_verify($this->input->post('user_password'), $res['user_password'])) 
 		{
-			$data = array(
+			$data = [
 		        'user_firstname' => $res['user_firstname'],
 		        'user_lastname' => $res['user_lastname'],
 		        'user_role_id' => $res['user_roleID'],
 		        'user_logged_in' => true
-			);
+			];
 
 			$this->session->set_userdata($data);
 

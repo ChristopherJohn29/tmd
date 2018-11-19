@@ -23,7 +23,6 @@ class MY_Controller extends CI_Controller {
 	}
 
 	/**
-	* @param array $params['check_permission'] the permission name to check if user has access
 	* @param array $params['record_id'] the record id used for updating data
 	* @param array $params['table_key'] the table column name used for updating data
 	* @param array $params['save_model'] the model name for saving the data
@@ -31,25 +30,14 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function save(array $params)
 	{
-		$required_params = array(
-			'check_permission',
+		$required_params = [
 			'record_id',
 			'table_key',
 			'save_model',
 			'redirect_url'
-		);
+		];
 
-		foreach($required_params as $param_key)
-		{
-			if (!isset($params[$param_key]))
-			{
-				throw new Exception("$param_key key is required in params save parameter");
-
-				break;
-			}
-		}
-
-		$this->check_permission($params['check_permission']);
+		$this->check_required_params($required_params, $params);
 
 		$this->load->library('form_validation');
 
@@ -88,17 +76,75 @@ class MY_Controller extends CI_Controller {
 	}
 
 	/**
-	* @param array $params['check_permission'] the permission name to check if user has access
 	* @param array $params['search_model'] the model name for searching the data
 	*
 	* @return array the searched data
 	*/
 	public function search(array $params) : array
 	{
-		$this->check_permission($params['check_permission']);
+		$required_params = ['search_model'];
+
+		$this->check_required_params($required_params, $params);
 		
 		return $this->$params['search_model']->find([
 			'where_data' => $this->$params['search_model']->prepare_search_data()
 		]);
+	}
+
+	/**
+	* @param array $params['table_key'] the table column name used for fetching data
+	* @param array $params['record_id'] the record id used for fetching data
+	*
+	* @return array the fetched data
+	*/
+	public function get_record(array $params) : array
+	{
+		$required_params = [
+			'table_key',
+			'record_id'
+		];
+
+		$this->check_required_params($required_params, $params);
+
+		return $this->profile_model->record([
+			'key' => $params['table_key'],
+        	'value' => $params['record_id']
+		]);
+	}
+
+	/**
+	* @param array $params['table_key'] the table column name used for fetching latest records data
+	* @param array $params['order_type'] the order type when fetching latest records data
+	* @param array $params['records_model'] the model name for fetching latest records data
+	*
+	* @return array fetched the latest records data
+	*/
+	public function get_latest_records(array $params) : array
+	{
+		$required_params = [
+			'table_key',
+			'order_type',
+			'records_model'
+		];
+
+		$this->check_required_params($required_params, $params);
+
+		return $this->$param['records_model']->records([
+			'key' => $params['table_key'], 
+			'order_by' => $params['order_type']
+		]);
+	}
+
+	private function check_required_params(array $required_params, array $params)
+	{
+		foreach($required_params as $param_key)
+		{
+			if (!isset($params[$param_key]))
+			{
+				throw new Exception("$param_key key is required in params save parameter");
+
+				break;
+			}
+		}
 	}
 }
