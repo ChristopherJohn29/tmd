@@ -58,7 +58,7 @@ $config = array(
             'rules' => 'required|min_length[8]|max_length[16]'
         )
     ),
-    'provider_management/save' => array(
+    'provider_management/profile/save' => array(
         array(
             'field' => 'provider_firstname',
             'label' => 'Firstname',
@@ -148,6 +148,38 @@ $config = array(
             'field' => 'provider_rate_mileage',
             'label' => 'Mileage',
             'rules' => 'required|max_length[10]'
+        )
+    ),
+    'home_health_care_management/profile/save' => array(
+        array(
+            'field' => 'hhc_name',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_contact_name',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_phoneNumber',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_faxNumber',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_email',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_address',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[255]'
         )
     )
 );
