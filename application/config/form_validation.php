@@ -8,11 +8,6 @@ $config = array(
             'rules' => 'required|max_length[45]'
         ),
         array(
-            'field' => 'user_middlename',
-            'label' => 'Middlename',
-            'rules' => 'required|max_length[45]'
-        ),
-        array(
             'field' => 'user_lastname',
             'label' => 'Lastname',
             'rules' => 'required|max_length[45]'
@@ -44,6 +39,11 @@ $config = array(
             'field' => 'user_roleID',
             'label' => 'Role',
             'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'user_contactNum',
+            'label' => 'Role',
+            'rules' => 'required|max_length[45]'
         )
 	),
     'authentication/user/verify' => array(
@@ -62,11 +62,6 @@ $config = array(
         array(
             'field' => 'provider_firstname',
             'label' => 'Firstname',
-            'rules' => 'required|max_length[45]'
-        ),
-        array(
-            'field' => 'provider_middleName',
-            'label' => 'Middlename',
             'rules' => 'required|max_length[45]'
         ),
         array(

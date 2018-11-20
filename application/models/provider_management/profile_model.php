@@ -12,7 +12,6 @@ class Profile_model extends My_Model {
 	{
 		return [
 			'provider_firstname' => $this->input->post('provider_firstname'),
-			'provider_middleName' => $this->input->post('provider_middleName'),
 			'provider_lastname' => $this->input->post('provider_lastname'),
 			'provider_contactNum' => $this->input->post('provider_contactNum'),
 			'provider_email' => $this->input->post('provider_email'),
