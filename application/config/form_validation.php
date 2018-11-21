@@ -228,5 +228,82 @@ $config = array(
             'label' => 'Firstname',
             'rules' => 'required|integer'
         )
+    ),
+    'patient_management/transaction/save' => array(
+        array(
+            'field' => 'pt_tovID',
+            'label' => 'Type of Visit',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'pt_providerID',
+            'label' => 'Provider',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'pt_dateOfService',
+            'label' => 'Date of Service',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_deductible',
+            'label' => 'Deductible',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'pt_aw_ippe_date',
+            'label' => 'AW / IPPE (Date)',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_aw_ippe_performed',
+            'label' => 'Performed',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'pt_acp',
+            'label' => 'ACP',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_diabetes',
+            'label' => 'Diabetes',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_tobacco',
+            'label' => 'Tobacco',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_tcm',
+            'label' => 'TCM',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_others',
+            'label' => 'Others',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'pt_icd10_codes',
+            'label' => 'ICD-10 Codes',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'pt_visitBilled',
+            'label' => 'Visit Billed',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_dateRefEmailed',
+            'label' => 'Date Referral Was Emailed',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_comments',
+            'label' => 'Comments',
+            'rules' => 'required|max_length[255]'
+        )
     )
 );
