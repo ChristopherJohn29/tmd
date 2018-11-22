@@ -38,7 +38,8 @@ class Transaction extends MY_Controller {
 
 		$params = [
 			'table_key' => 'pt_id',
-        	'record_key' => $pt_id
+        	'record_key' => $pt_id,
+        	'record_table' => 'transaction_model'
 		];
 
 		$page_data['record'] = parent::get_record($params);

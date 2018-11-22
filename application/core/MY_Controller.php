@@ -94,6 +94,7 @@ class MY_Controller extends CI_Controller {
 	/**
 	* @param array $params['table_key'] the table column name used for fetching data
 	* @param array $params['record_id'] the record id used for fetching data
+	* @param array $params['record_table'] the table where to fetch the data
 	*
 	* @return array the fetched data
 	*/
@@ -106,7 +107,7 @@ class MY_Controller extends CI_Controller {
 
 		$this->check_required_params($required_params, $params);
 
-		return $this->profile_model->record([
+		return $this->$params['record_table']->record([
 			'key' => $params['table_key'],
         	'value' => $params['record_id']
 		]);

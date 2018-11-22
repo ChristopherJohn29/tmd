@@ -35,7 +35,8 @@ class Profile extends MY_Controller {
 
 		$params = [
 			'table_key' => 'hhc_id',
-        	'record_key' => $hhc_id
+        	'record_key' => $hhc_id,
+        	'record_table' => 'profile_model'
 		];
 
 		$page_data['record'] = parent::get_record($params);
@@ -61,7 +62,8 @@ class Profile extends MY_Controller {
 
 		$params = [
 			'table_key' => 'hhc_id',
-        	'record_key' => $hhc_id
+        	'record_key' => $hhc_id,
+        	'record_table' => 'profile_model'
 		];
 
 		$page_data['record'] = parent::get_record($params);
