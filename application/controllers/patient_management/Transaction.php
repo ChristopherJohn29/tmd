@@ -1,7 +1,6 @@
 <?php
 
 class Transaction extends MY_Controller {
-	
 	public function __construct()
 	{
 		parent::__construct();
@@ -32,13 +31,13 @@ class Transaction extends MY_Controller {
 		$page_data['type_visits'] = $this->type_visits_model->records();
 	}
 
-	public function edit(string $pt_id)
+	public function edit(string $pt_patientID)
 	{
 		$this->check_permission('edit_tr');
 
 		$params = [
-			'table_key' => 'pt_id',
-        	'record_key' => $pt_id,
+			'table_key' => 'pt_patientID',
+        	'record_key' => $pt_patientID,
         	'record_table' => 'transaction_model'
 		];
 
@@ -46,13 +45,13 @@ class Transaction extends MY_Controller {
 		$page_data['type_visits'] = $this->type_visits_model->records();
 	}
 
-	public function save(string $pt_id = '')
+	public function save(string $pt_patientID = '')
 	{
 		$this->check_permission('add_tr');
 
 		$params = [
-			'record_id' => $pt_id,
-			'table_key' => 'pt_id',
+			'record_id' => $pt_patientID,
+			'table_key' => 'pt_patientID',
 			'save_model' => 'transaction_model',
 			'redirect_url' => 'patient_management/transaction/details/'
 		];
@@ -60,15 +59,15 @@ class Transaction extends MY_Controller {
 		parent::save($params);   
 	}
 
-	public function details(string $pt_id)
+	public function details(string $pt_patientID)
 	{
 		$this->check_permission('view_tr');
 
 		$params = [
-			'table_key' => 'pt_id',
-        	'record_key' => $pt_id
+			'table_key' => 'pt_patientID',
+        	'record_key' => $pt_patientID
 		];
 
-		$page_data['record'] = $this->transaction_model->details($pt_id);
+		$page_data['record'] = $this->transaction_model->details($pt_patientID);
 	}
 }

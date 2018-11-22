@@ -1,7 +1,6 @@
 <?php
 
 class Communication_notes extends MY_Controller {
-	
 	public function __construct()
 	{
 		parent::__construct();
@@ -29,26 +28,26 @@ class Communication_notes extends MY_Controller {
 		$this->check_permission('add_cn');
 	}
 
-	public function edit(string $ptcn_id)
+	public function edit(string $ptcn_patientID)
 	{
 		$this->check_permission('edit_cn');
 
 		$params = [
-			'table_key' => 'ptcn_id',
-        	'record_key' => $ptcn_id,
+			'table_key' => 'ptcn_patientID',
+        	'record_key' => $ptcn_patientID,
         	'record_table' => 'cn_model'
 		];
 
 		$page_data['record'] = parent::get_record($params);
 	}
 
-	public function save(string $ptcn_id = '')
+	public function save(string $ptcn_patientID = '')
 	{
 		$this->check_permission('add_cn');
 
 		$params = [
-			'record_id' => $ptcn_id,
-			'table_key' => 'ptcn_id',
+			'record_id' => $ptcn_patientID,
+			'table_key' => 'ptcn_patientID',
 			'save_model' => 'cn_model',
 			'redirect_url' => 'patient_management/communication_notes/details/'
 		];
@@ -56,13 +55,13 @@ class Communication_notes extends MY_Controller {
 		parent::save($params);   
 	}
 
-	public function details(string $ptcn_id)
+	public function details(string $ptcn_patientID)
 	{
 		$this->check_permission('view_cn');
 
 		$params = [
-			'table_key' => 'ptcn_id',
-        	'record_key' => $ptcn_id,
+			'table_key' => 'ptcn_patientID',
+        	'record_key' => $ptcn_patientID,
         	'record_table' => 'cn_model'
 		];
 
