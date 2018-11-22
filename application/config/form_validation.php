@@ -305,5 +305,12 @@ $config = array(
             'label' => 'Comments',
             'rules' => 'required|max_length[255]'
         )
+    ),
+    'patient_management/communication_notes/save' => array(
+        array(
+            'field' => 'ptcn_message',
+            'label' => 'Message',
+            'rules' => 'required|max_length[255]'
+        )
     )
 );
