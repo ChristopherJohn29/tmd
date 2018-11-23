@@ -30,15 +30,6 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function save(array $params)
 	{
-		$required_params = [
-			'record_id',
-			'table_key',
-			'save_model',
-			'redirect_url'
-		];
-
-		$this->check_required_params($required_params, $params);
-
 		$this->load->library('form_validation');
 
 		if ($this->form_validation->run() == FALSE)
@@ -81,11 +72,7 @@ class MY_Controller extends CI_Controller {
 	* @return array the searched data
 	*/
 	public function search(array $params) : array
-	{
-		$required_params = ['search_model'];
-
-		$this->check_required_params($required_params, $params);
-		
+	{		
 		return $this->$params['search_model']->find([
 			'where_data' => $this->$params['search_model']->prepare_search_data()
 		]);
@@ -100,13 +87,6 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function get_record(array $params) : array
 	{
-		$required_params = [
-			'table_key',
-			'record_id'
-		];
-
-		$this->check_required_params($required_params, $params);
-
 		return $this->$params['record_table']->record([
 			'key' => $params['table_key'],
         	'value' => $params['record_id']
@@ -122,30 +102,9 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function get_latest_records(array $params) : array
 	{
-		$required_params = [
-			'table_key',
-			'order_type',
-			'records_model'
-		];
-
-		$this->check_required_params($required_params, $params);
-
 		return $this->$param['records_model']->records([
 			'key' => $params['table_key'], 
 			'order_by' => $params['order_type']
 		]);
-	}
-
-	private function check_required_params(array $required_params, array $params)
-	{
-		foreach($required_params as $param_key)
-		{
-			if (!isset($params[$param_key]))
-			{
-				throw new Exception("$param_key key is required in params save parameter");
-
-				break;
-			}
-		}
 	}
 }
