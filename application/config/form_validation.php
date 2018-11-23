@@ -312,5 +312,42 @@ $config = array(
             'label' => 'Message',
             'rules' => 'required|max_length[255]'
         )
+    ),
+    'patient_management/cpo/save' => array(
+        array(
+            'field' => 'ptcpo_period',
+            'label' => 'Certification Period',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'ptcpo_dateSigned',
+            'label' => '485 Date Signed',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'ptcpo_firstMonthCPO',
+            'label' => '1st Month CPO',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'ptcpo_secondMonthCPO',
+            'label' => '2st Month CPO',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'ptcpo_thirdMonthCPO',
+            'label' => '3st Month CPO',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'ptcpo_dischargeDate',
+            'label' => 'Discharged Date',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'ptcpo_dateBilled',
+            'label' => 'Date Billed',
+            'rules' => 'required'
+        )
     )
 );
