@@ -65,7 +65,7 @@ class My_Model extends CI_Model {
 	public function find(array $params) : array
 	{
 		foreach ($params['where_data'] as $key => $value) {
-			$this->db->where($key, $value);
+			$this->db->like($key, $value);
 		}
 
 		$query = $this->db->get($this->table_name);
