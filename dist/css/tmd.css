@@ -1,0 +1,279 @@
+/*!
+ *   TheMobileDrs.com Custom CSS
+ *   Author: Jayson Arcayna
+ *	 Website: Jaysonarcayna.com
+ */
+ 
+/*
+ * Core: General Layout Style
+ * -------------------------
+ */
+ 
+
+.xrx-round-corners {
+	border-radius:6px !important;
+	}
+	
+.xrx-box-padding {
+	padding: 60px !important;
+	}
+	
+.xrx-row {
+	padding: 20px 0;
+	}
+	
+.xrx-btn-handler,
+.xrx-spacer-top-bottom {
+	padding-top: 30px !important;
+	padding-bottom: 30px !important;
+	}
+	
+.xrx-form-subheader {
+	margin: 20px 0 10px !important;
+	}
+	
+	.xrx-form-subheader p {
+		margin-bottom: 0 !important;	
+		}
+	
+.xrx-btn {
+	border-radius: 6px !important;
+	letter-spacing: 1px;
+	text-transform: uppercase !important;
+	border: 0 !important;
+	padding: 15px 48px !important;
+	}
+	
+.xrx-container {
+	height: 800px;
+	position: relative;
+	}
+	
+.xrx-404 {
+	text-align: center;
+	color: #494949;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	}
+	
+	.xrx-404 img {
+		width: 80%;
+		margin-bottom: 20px;
+		}
+	
+	.xrx-404 h1 {
+		font-size: 120px;
+		margin: 0 !important;
+		line-height: 1;
+		font-weight: 700;
+		}
+		
+	.xrx-404 h1 small {
+		clear: both;
+		display: block;
+		font-size: 21px;
+		text-transform: uppercase;
+		}
+		
+.xrx-no-border {
+	border: 0 !important;
+	}
+	
+.xrx-row-spacer {
+	margin-top: 40px;
+	margin-bottom: 0;
+	}
+	
+.xrx-info-handler {
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #f4f4f4 !important;
+	color: #999999 !important;
+	}
+	
+	.xrx-info-handler .form-group {
+		margin-bottom: 0 !important;
+		}
+		
+	.xrx-info-handler .form-group p.lead {
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 2;
+		margin-bottom: 0 !important;
+		}
+		
+.xrx-info {
+	display: block;
+	}
+	
+	.xrx-info h1.name {
+		font-weight: 300;
+		margin-bottom: 30px;
+		}
+		
+		.xrx-info h1 small {
+			display: block;
+			clear: both;
+			font-size: 14px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			padding: 3px 0;
+			}
+			
+			/*
+			.xrx-info .rs::before {
+				display: block;
+				clear: both;
+				font-size: 14px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				content: 'Route Sheet for';
+				}
+				*/
+	
+	.xrx-info p.lead {
+		font-weight: 400;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #777777;
+		margin-bottom: 15px;
+		}
+		
+	.xrx-info .total {
+		font-weight: 700;
+		font-size: 18px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		}
+		
+		
+		
+.xrx-table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+	}
+	
+	.xrx-table tr {
+		border: 0 !important;
+		}
+		
+.xrx-table > thead > tr > th,
+.xrx-table > tbody > tr > th,
+.xrx-table > tfoot > tr > th,
+.xrx-table > thead > tr > td,
+.xrx-table > tbody > tr > td,
+.xrx-table > tfoot > tr > td {
+	border-top: 0 solid #f4f4f4 !important;
+	padding: 4px 8px 4px 0 !important;
+	}
+	
+.xrx-table > thead > tr > th:first-child,
+.xrx-table > tbody > tr > th:first-child,
+.xrx-table > tfoot > tr > th:first-child,
+.xrx-table > thead > tr > td:first-child,
+.xrx-table > tbody > tr > td:first-child,
+.xrx-table > tfoot > tr > td:first-child {
+	width: 30% !important;
+	}
+
+/*
+.xrx-table > tbody > tr > td,
+.xrx-table > tbody > tr > th,
+.xrx-table > tfoot> tr> td,
+.xrx-table > tfoot> tr> th,
+.xrx-table > thead> tr> td,
+.xrx-table > thead> tr> th {
+    padding: 8px 8px 8px 0;
+	}
+*/
+		
+/* text */
+
+/*
+.proxima {
+	font-family: proxima-nova, sans-serif !important;
+	font-weight: 400;
+	font-style: normal;
+	}
+*/
+
+
+/* over write original css */
+
+body {
+	min-height: 100vh !important;
+	}
+
+body,
+h1, h2, h3, h4, h5, h6 {
+	font-family: proxima-nova, sans-serif !important;
+	} 
+	
+
+	/* logo inside */	
+	.logo-lg img {
+		width: 56% !important;
+		}
+	
+	/* box padding adjustments */
+		.box-header {
+		padding: 15px 0 15px 18px !important;
+		}
+	
+	
+		.box-header .box-title {
+			font-size: 21px !important
+			}
+		
+			
+		.box-header .box-tools {
+			top: 10px !important;
+			}
+			
+	/* content */
+	
+	.content {
+		padding: 30px !important;
+		}
+			
+	/* box border-top adjustment */
+
+	.box {
+		border-top: 0 solid #5b86c5 !important;
+		border-radius: 8px !important;
+		box-shadow: 0 0 0 !important;
+		}
+		
+		.box-body {
+			padding: 20px !important;
+			}
+			
+		.box-footer {
+			border-bottom-right-radius: 8px !important;
+			border-bottom-left-radius: 8px !important;
+			}
+		
+		
+	/* */
+	
+	.dataTables_info,
+	.dataTables_length {
+		padding: 10px 0 10px 8px !important;
+		}
+
+	
+	/* login */
+	
+	.login-box {
+		margin: 12% auto;
+		}
+		
+	.login-logo img {
+		width: 90% !important;
+		}
+
+
