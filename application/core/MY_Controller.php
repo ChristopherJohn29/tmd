@@ -10,7 +10,10 @@ class MY_Controller extends CI_Controller {
 			redirect('login');
 		}
 
-		$this->load->library('acl');
+		$this->load->library(array(
+			'acl',
+			'twig'
+		));
 	}
 
 	public function check_permission(string $permission_name)
