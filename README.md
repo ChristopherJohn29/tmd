@@ -25,8 +25,8 @@ If you are using Mac, please follow the instruction by clicking thru this [link]
 
 ### Cloning this project to your local machine
 
-1. Click the "clone" button on the upper right
-2. Choose the "development" branch from the dropdown list
+1. Choose the "development" branch from the dropdown list
+2. Click the "clone" button on the upper right
 3. Choose your preferred setup (HTTP/SSH)
 4. Copy the command from the popup window
 5. Open up your terminal
