@@ -1,10 +1,12 @@
-{% extends "main.html" %}
+{% extends "main.php" %}
 
 {% 
   set scripts = [
     'dist/js/home'
   ]
 %}
+
+{% set page_title = 'Welcome!' %}
 
 {% block content %}
   <div class="row">   
@@ -13,7 +15,6 @@
       
         <div class="box-header with-border">
           <h3 class="box-title">Recently Added Patients</h3>
-          <?php include("inc/box-tools.php");?>
         </div>
         <!-- /.box-header -->
         

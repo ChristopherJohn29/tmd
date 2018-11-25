@@ -14,8 +14,11 @@ class Twig {
 	);
 
 	private $safe_functions = [
-		'form_open'
+		'form_open',
+		'site_url'
 	];
+
+	private $CI = null;
 
 	public function __construct()
 	{
@@ -35,11 +38,20 @@ class Twig {
 				$this->environment->addFunction($new_function);
 			}
 		}
+
+		$this->CI =& get_instance();
+		$this->CI->load->library('session');
 	}
 
 	public function view(string $filename, array $page_data = [])
 	{
+
+
+		$user_fullname = $this->CI->session->userdata('user_firstname') . ' ';
+		$user_fullname .= $this->CI->session->userdata('user_lastname');
+
 		$page_data['base_url'] = base_url();
+		$page_data['user_fullname'] = $user_fullname;
 
 		echo $this->environment->render($filename . '.php', $page_data);
 	}

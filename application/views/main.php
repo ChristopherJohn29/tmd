@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	{{ include('commons/head_tag.html') }}
+	{{ include('commons/head_tag.php') }}
 	
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -11,14 +11,14 @@
 
 		<header class="main-header">
 
-			{{ include('commons/header.html') }}
+			{{ include('commons/header.php') }}
 			
 		</header>
 		
 		<!-- Left side column. contains the logo and sidebar -->
 		<aside class="main-sidebar">
 			
-			{{ include('commons/sidebar.html') }}
+			{{ include('commons/sidebar.php') }}
 			
 		</aside>
 
@@ -30,7 +30,7 @@
 			<section class="content">
 
 				{% block content %}
-	      {% endblock %}
+	      		{% endblock %}
 
 			</section>
 			<!-- /.content -->
@@ -39,7 +39,7 @@
 		
 		<footer class="main-footer">
 			
-			{{ include('commons/footer.html') }}
+			{{ include('commons/footer.php') }}
 			
 		</footer>
 
@@ -61,9 +61,9 @@
 	<script src="{{ base_url }}dist/js/adminlte.min.js"></script>
 
 	{% if scripts %}
-    {% for scripts in script %}
-    	<script src="{{ base_url }}{{ script }}.js"></script>
-    {% endfor %}
+	    {% for script in scripts %}
+	    	<script src="{{ base_url }}{{ script }}.js"></script>
+	    {% endfor %}
 	{% endif %}
 
 </body>

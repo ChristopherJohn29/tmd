@@ -38,4 +38,11 @@ class User extends CI_Controller {
 			redirect('authentication/user');
 		}
 	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+
+		redirect('authentication/user');
+	}
 }
