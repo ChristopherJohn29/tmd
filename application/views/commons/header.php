@@ -1,9 +1,9 @@
 <!-- Logo -->
-<a href="home.php" class="logo">
+<a href="{{ site_url('dashboard') }}" class="logo">
 	<!-- mini logo for sidebar mini 50x50 pixels -->
 	<span class="logo-mini"><b>TMD</b></span>
 	<!-- logo for regular state and mobile devices -->
-	<span class="logo-lg"><img src="dist/img/tmd_logo_white.png"></span>
+	<span class="logo-lg"><img src="{{ base_url }}dist/img/tmd_logo_white.png"></span>
 </a>
 
 <!-- Header Navbar: style can be found in header.less -->

@@ -12,7 +12,7 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="home.php"><i class="fa fa-angle-right"></i> Home</a></li>
+				<li><a href="{{ site_url('dashboard') }}"><i class="fa fa-angle-right"></i> Home</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -24,9 +24,9 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="patients.php"><i class="fa fa-angle-right"></i> View Patients</a></li>
-				<li><a href="add-patient.php"><i class="fa fa-angle-right"></i> Add New Patient</a></li>
-				<li><a href="search-patient.php"><i class="fa fa-angle-right"></i> Search A Patient</a></li>
+				<li><a href="{{ site_url('patient_management/profile/') }}"><i class="fa fa-angle-right"></i> View Patients</a></li>
+				<li><a href="{{ site_url('patient_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New Patient</a></li>
+				<li><a href="{{ site_url('patient_management/profile/search') }}"><i class="fa fa-angle-right"></i> Search A Patient</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -38,8 +38,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="providers.php"><i class="fa fa-angle-right"></i> View Providers</a></li>
-				<li><a href="add-provider.php"><i class="fa fa-angle-right"></i> Add New Provider</a></li>
+				<li><a href="{{ site_url('provider_management/profile/') }}"><i class="fa fa-angle-right"></i> View Providers</a></li>
+				<li><a href="{{ site_url('provider_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New Provider</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -51,8 +51,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="route-sheet.php"><i class="fa fa-angle-right"></i> View Route Sheets</a></li>
-				<li><a href="create-route-sheet.php"><i class="fa fa-angle-right"></i> Add Route Sheet</a></li>
+				<li><a href="{{ site_url('provider_route_sheet_management/route_sheet') }}"><i class="fa fa-angle-right"></i> View Route Sheets</a></li>
+				<li><a href="{{ site_url('provider_route_sheet_management/route_sheet/add') }}"><i class="fa fa-angle-right"></i> Add Route Sheet</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -64,8 +64,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="home-health.php"><i class="fa fa-angle-right"></i> View Home Health</a></li>
-				<li><a href="add-home-health.php"><i class="fa fa-angle-right"></i> Add New Home Health</a></li>
+				<li><a href="{{ site_url('home_health_care_management/profile') }}"><i class="fa fa-angle-right"></i> View Home Health</a></li>
+				<li><a href="{{ site_url('home_health_care_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New Home Health</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -77,8 +77,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="payroll.php"><i class="fa fa-angle-right"></i> View Payroll</a></li>
-				<li><a href="search-payroll.php"><i class="fa fa-angle-right"></i> Search Payroll</a></li>
+				<li><a href="{{ site_url('payroll_management/payroll') }}"><i class="fa fa-angle-right"></i> View Payroll</a></li>
+				<li><a href="{{ site_url('payroll_management/payroll/search') }}"><i class="fa fa-angle-right"></i> Search Payroll</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -89,10 +89,10 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="superbill-aw.php"><i class="fa fa-angle-right"></i> Annual Wellness</a></li>
-				<li><a href="superbill-hv.php"><i class="fa fa-angle-right"></i> Home Visits</a></li>
-				<li><a href="superbill-fv.php"><i class="fa fa-angle-right"></i> Facility Visits</a></li>
-				<li><a href="superbill-cp0-485.php"><i class="fa fa-angle-right"></i> CPO-485</a></li>
+				<li><a href="{{ site_url('superbill_management/annual_wellness/') }}"><i class="fa fa-angle-right"></i> Annual Wellness</a></li>
+				<li><a href="{{ site_url('superbill_management/home_visits/') }}"><i class="fa fa-angle-right"></i> Home Visits</a></li>
+				<li><a href="{{ site_url('superbill_management/facility_visits/') }}"><i class="fa fa-angle-right"></i> Facility Visits</a></li>
+				<li><a href="{{ site_url('superbill_management/cpo/') }}"><i class="fa fa-angle-right"></i> CPO-485</a></li>
 			</ul>
 		</li>
 		
@@ -105,8 +105,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="users.php"><i class="fa fa-circle-o"></i> View Users</a></li>
-				<li><a href="add-user.php"><i class="fa fa-circle-o"></i> Add New User</a></li>
+				<li><a href="{{ site_url('user_management/profile') }}"><i class="fa fa-circle-o"></i> View Users</a></li>
+				<li><a href="{{ site_url('user_management/profile/add') }}"><i class="fa fa-circle-o"></i> Add New User</a></li>
 			</ul>
 		</li>
 		</ul>
