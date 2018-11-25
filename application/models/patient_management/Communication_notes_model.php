@@ -1,6 +1,6 @@
 <?php
 
-class Communication_notes_model extends My_Model {
+class Communication_notes_model extends MY_Model {
 	protected $table_name = 'patient_communication_notes';
 
 	public function __construct()

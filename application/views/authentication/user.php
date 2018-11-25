@@ -7,16 +7,16 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ base_url }}bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ base_url }}bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{ base_url }}bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="dist/css/tmd.css">
+  <link rel="stylesheet" href="{{ base_url }}dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{ base_url }}dist/css/tmd.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="{{ base_url }}plugins/iCheck/square/blue.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +29,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link rel="stylesheet" href="https://use.typekit.net/gbn7cym.css">
 
-
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -37,15 +36,15 @@
   <!-- /.login-logo -->
   <div class="login-box-body xrx-round-corners xrx-box-padding">
 	<div class="login-logo">
-		<img src="dist/img/tmd_logo.png">
+		<img src="{{ base_url }}dist/img/tmd_logo.png">
 	</div>
 
-    <form action="home.php" method="post">
+    {{ form_open('authentication/user/verify') }}
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" name="user_email" placeholder="Email" required="true">
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="user_password" placeholder="Password" required="true">
       </div>
       <div class="row xrx-row">
         
@@ -68,9 +67,9 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="{{ base_url }}bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ base_url }}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 
 </body>

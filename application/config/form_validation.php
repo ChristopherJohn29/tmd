@@ -53,9 +53,9 @@ $config = array(
             'rules' => 'required|valid_email|max_length[45]'
         ),
         array(
-            'field' => 'password',
+            'field' => 'user_password',
             'label' => 'Password',
-            'rules' => 'required|min_length[8]|max_length[16]'
+            'rules' => 'required|min_length[8]'
         )
     ),
     'provider_management/profile/save' => array(

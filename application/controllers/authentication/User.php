@@ -9,11 +9,13 @@ class User extends CI_Controller {
 		$this->load->model(array(
 			'authentication/user_model'
 		));
+
+		$this->load->library('twig');
 	}
 
 	public function index()
 	{
-		// login page
+		$this->twig->view('authentication/user');
 	}
 
 	public function verify()

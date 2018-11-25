@@ -5,9 +5,9 @@ class MY_Controller extends CI_Controller {
 	{
 		parent::__construct();
 
-		if (!$this->session->userdata('user_logged_in')) 
+		if ( ! $this->session->userdata('user_logged_in')) 
 		{
-			redirect('login');
+			redirect('authentication/user');
 		}
 
 		$this->load->library(array(
@@ -18,7 +18,7 @@ class MY_Controller extends CI_Controller {
 
 	public function check_permission(string $permission_name)
 	{
-		if (!$this->acl->has_permission($this->session->userdata('user_role_id'), $permission_name))
+		if ( ! $this->acl->has_permission($this->session->userdata('user_role_id'), $permission_name))
 		{
 			// redirect to access denied page
 			// redirect();
@@ -37,14 +37,14 @@ class MY_Controller extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
         {
-			(!empty($params['record_id'])) ? $this->edit() : $this->add();	
+			( ! empty($params['record_id'])) ? $this->edit() : $this->add();	
 
 			return;
         }
 
         $save = null;
 
-        if (!empty($params['record_id']))
+        if ( ! empty($params['record_id']))
         {
         	$save = $this->$params['save_model']->update([
         		'data' => $this->$params['save_model']->prepare_data(),

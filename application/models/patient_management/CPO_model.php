@@ -1,6 +1,6 @@
 <?php
 
-class CPO_model extends My_Model {
+class CPO_model extends MY_Model {
 	protected $table_name = 'patient_CPO';
 
 	private $certification_status = 'Certification';

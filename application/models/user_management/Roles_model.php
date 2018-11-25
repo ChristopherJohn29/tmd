@@ -1,6 +1,6 @@
 <?php
 
-class Roles_model extends My_Model {
+class Roles_model extends MY_Model {
 	protected $table_name = 'roles';
 
 	public function __construct()

@@ -1,6 +1,6 @@
 <?php
 
-class Profile_model extends My_Model {
+class Profile_model extends MY_Model {
 	protected $table_name = 'provider';
 
 	public function __construct()
