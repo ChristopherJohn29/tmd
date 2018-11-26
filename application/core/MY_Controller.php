@@ -45,16 +45,16 @@ class MY_Controller extends CI_Controller {
 
         if ( ! empty($params['record_id']))
         {
-        	$save = $this->$params['save_model']->update([
-        		'data' => $this->$params['save_model']->prepare_data(),
+        	$save = $this->{$params['save_model']}->update([
+        		'data' => $this->{$params['save_model']}->prepare_data(),
         		'key' => $params['table_key'],
 	        	'value' => $params['record_id']
         	]);
         }
         else
         {
-        	$save = $this->$params['save_model']->insert([
-        		'data' => $this->$params['save_model']->prepare_data()]
+        	$save = $this->{$params['save_model']}->insert([
+        		'data' => $this->{$params['save_model']}->prepare_data()]
         	);
         }
 
@@ -75,8 +75,8 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function search_data(array $params) : array
 	{		
-		return $this->$params['search_model']->find([
-			'where_data' => $this->$params['search_model']->prepare_search_data()
+		return $this->{$params['search_model']}->find([
+			'where_data' => $this->{$params['search_model']}->prepare_search_data()
 		]);
 	}
 
@@ -89,7 +89,7 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function get_record(array $params) : array
 	{
-		return $this->$params['record_table']->record([
+		return $this->{$params['record_table']}->record([
 			'key' => $params['table_key'],
         	'value' => $params['record_id']
 		]);
@@ -104,7 +104,7 @@ class MY_Controller extends CI_Controller {
 	*/
 	public function get_latest_records(array $params) : array
 	{
-		return $this->$param['records_model']->records([
+		return $this->{$params['records_model']}->records([
 			'key' => $params['table_key'], 
 			'order_by' => $params['order_type']
 		]);

@@ -44,6 +44,6 @@ class Acl {
 
 		$query = $this->CI->db->get('roles_permission');
 
-		return $query->row_array() ?? false;
+		return $query->row_array() ? true : false;
 	}
 }

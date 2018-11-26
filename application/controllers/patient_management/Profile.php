@@ -22,6 +22,8 @@ class Profile extends MY_Controller {
 		];
 
 		$page_data['records'] = parent::get_latest_records($params);
+
+		$this->twig->view('patient_management/profile/list', $page_data);
 	}
 
 	public function add()
