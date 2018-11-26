@@ -49,7 +49,7 @@ If you can't run the project on your local machine, you can email me for help at
 
 ### File Structure
 
-Below are the folders that are safe to touch
+Below are the list of folders that are safe to touch
 
 - application/controllers (for back-end)
 - application/models (for back-end)
