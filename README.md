@@ -33,14 +33,31 @@ If you are using Mac, please follow the instruction by clicking thru this [link]
 6. Locate where the Mamp htdocs are stored
 7. Paste the command on your terminal
 8. Run your Mamp server
-9. Open up your browser to test if all works
+9. Open up your browser and run phpmyadmin
+10. Import the database schema file located in ehr_system/database_schema/mobile_drs.sql
+11. Open up your browser and type localhost/ehr_system/ to test if all works
 
 If you can't run the project on your local machine, you can email me for help at nikkolaifernandez14@gmail.com
 
-### Libraries Documentation
+### Library Documentation
 
 1. [Twig template engine](https://twig.symfony.com/doc/2.x/templates.html)
 
 ### Workflow
 
 1. [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/)
+
+### File Structure
+
+Below are the folders that are safe to touch
+
+- application
+-- controllers (for back-end)
+-- models (for back-end)
+-- libraries (for back-end)
+-- helpers (for back-end)
+-- language (for back-end)
+-- config (for back-end)
+-- views (html pages for web designers)
+- dist (assets files for web designers)
+- backup database schema
