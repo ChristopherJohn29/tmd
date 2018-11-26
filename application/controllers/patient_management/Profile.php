@@ -87,5 +87,7 @@ class Profile extends MY_Controller {
 		$params = ['search_model' => 'profile_model'];
 
 		$page_data['records'] = parent::search_data($params);
+
+		$this->twig->view('patient_management/profile/search', $page_data);
 	}
 }

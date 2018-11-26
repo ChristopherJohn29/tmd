@@ -7,7 +7,7 @@ class Transaction extends MY_Controller {
 
 		$this->load->model(array(
 			'patient_management/transaction_model',
-			'patient_management/type_visits_model'
+			'patient_management/type_visit_model'
 		));
 	}
 
@@ -28,7 +28,9 @@ class Transaction extends MY_Controller {
 	{
 		$this->check_permission('add_tr');
 
-		$page_data['type_visits'] = $this->type_visits_model->records();
+		$page_data['type_visits'] = $this->type_visit_model->records();
+
+		$this->twig->view('patient_management/transaction/add', $page_data);
 	}
 
 	public function edit(string $pt_patientID)
@@ -42,7 +44,7 @@ class Transaction extends MY_Controller {
 		];
 
 		$page_data['record'] = parent::get_record($params);
-		$page_data['type_visits'] = $this->type_visits_model->records();
+		$page_data['type_visits'] = $this->type_visit_model->records();
 	}
 
 	public function save(string $pt_patientID = '')

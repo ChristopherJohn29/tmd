@@ -60,7 +60,7 @@
 	<!-- AdminLTE App -->
 	<script src="{{ base_url }}dist/js/adminlte.min.js"></script>
 
-	{% if scripts %}
+	{% if scripts is defined %}
 	    {% for script in scripts %}
 	    	<script src="{{ base_url }}{{ script }}.js"></script>
 	    {% endfor %}

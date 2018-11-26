@@ -92,7 +92,7 @@
 				<li><a href="{{ site_url('superbill_management/annual_wellness/') }}"><i class="fa fa-angle-right"></i> Annual Wellness</a></li>
 				<li><a href="{{ site_url('superbill_management/home_visits/') }}"><i class="fa fa-angle-right"></i> Home Visits</a></li>
 				<li><a href="{{ site_url('superbill_management/facility_visits/') }}"><i class="fa fa-angle-right"></i> Facility Visits</a></li>
-				<li><a href="{{ site_url('superbill_management/cpo/') }}"><i class="fa fa-angle-right"></i> CPO-485</a></li>
+				<li><a href="{{ site_url('superbill_management/CPO_485/') }}"><i class="fa fa-angle-right"></i> CPO-485</a></li>
 			</ul>
 		</li>
 		

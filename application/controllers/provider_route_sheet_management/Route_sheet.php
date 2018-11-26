@@ -15,12 +15,16 @@ class Route_sheet extends MY_Controller {
 	{
 		$this->check_permission('list_prs');
 
-		$page_data['records'] = $this->rs_model->routes_sheet_list();
+		$page_data['records'] = $this->rs_model->routes_sheet_list([]);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/list', $page_data);
 	}
 
 	public function add()
 	{
 		$this->check_permission('add_prs');
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/add');
 	}
 
 	public function edit(string $prs_id)
@@ -28,6 +32,8 @@ class Route_sheet extends MY_Controller {
 		$this->check_permission('edit_prs');
 
 		$page_data['record'] = $this->rs_model->routes_sheet_record($prs_id);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/edit', $page_data);
 	}
 
 	public function save(string $prs_providerID = '')
@@ -49,6 +55,8 @@ class Route_sheet extends MY_Controller {
 		$this->check_permission('view_prs');
 
 		$page_data['record'] = $this->rs_model->routes_sheet_record($prs_id);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
 	}
 
 	public function search()
@@ -58,6 +66,8 @@ class Route_sheet extends MY_Controller {
 		$page_data['records'] = $this->rs_model->routes_sheet_list(
 			$this->rs_model->prepare_search_data()
 		);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/search', $page_data);
 	}
 
 	public function download(string $prs_providerID)

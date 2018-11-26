@@ -26,7 +26,7 @@ class Route_sheet_model extends MY_Model {
 	{
 		$this->db->join(
 			'provider',
-			'provider_id.provider_id = provider_route_sheet.prs_providerID',
+			'provider.provider_id = provider_route_sheet.prs_providerID',
 			'inner'
 		);
 

@@ -47,7 +47,7 @@ class MY_Model extends CI_Model {
 	* @param array $params['key'] Table key name
 	* @param array $params['order_by'] Order type [ASC | DESC]
 	*/
-	public function records(array $params) : array
+	public function records(array $params = []) : array
 	{
 		if (isset($params['order_by'])) 
 		{

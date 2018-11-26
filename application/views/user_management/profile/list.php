@@ -1,8 +1,8 @@
-{% extends "main.html" %}
+{% extends "main.php" %}
 
 {% set page_title = "User List" %}
 
-{% 
+{%  
   set scripts = [
     'dist/js/user_management/profile/list'
   ]
@@ -32,7 +32,7 @@
         <td>jayson.arcayna@gmail.com</td>
         <td>Jayson Arcayna</td>
         <td>Administrator</td>
-        <td><a href="update-user.php" title="Edit"><span class="label label-primary">Update</span></a></td>
+        <td><a href="{{ site_url('user_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a></td>
       </tr>
       
       

@@ -32,7 +32,7 @@
 						<td>Alexandra Kirtchik</td>
 						<td>13</td>
 						<td>$1,910</td>
-						<td><a href="details-payroll.php"><span class="label label-primary">View Details</span></a</td>
+						<td><a href="{{ site_url('payroll_management/payroll/details/1') }}"><span class="label label-primary">View Details</span></a</td>
 					</tr>
 					
 				</tbody>

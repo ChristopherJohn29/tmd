@@ -82,7 +82,7 @@ class MY_Controller extends CI_Controller {
 
 	/**
 	* @param array $params['table_key'] the table column name used for fetching data
-	* @param array $params['record_id'] the record id used for fetching data
+	* @param array $params['record_key'] the record value used for fetching data
 	* @param array $params['record_table'] the table where to fetch the data
 	*
 	* @return array the fetched data
@@ -91,7 +91,7 @@ class MY_Controller extends CI_Controller {
 	{
 		return $this->{$params['record_table']}->record([
 			'key' => $params['table_key'],
-        	'value' => $params['record_id']
+        	'value' => $params['record_key']
 		]);
 	}
 

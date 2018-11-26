@@ -35,8 +35,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -45,8 +45,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -55,8 +55,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -65,8 +65,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -75,8 +75,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -85,8 +85,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -95,8 +95,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -105,8 +105,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -115,8 +115,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -125,8 +125,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  	                  <tr>
@@ -135,8 +135,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -145,8 +145,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -155,8 +155,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -165,8 +165,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -175,8 +175,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -185,8 +185,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -195,8 +195,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -205,8 +205,8 @@
 	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
 	                    <td>11/06/18</td>
 	                    <td>
-							<a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-							<a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
+							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
+							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
 						</td>
 	                  </tr>
 	                  

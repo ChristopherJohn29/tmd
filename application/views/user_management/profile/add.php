@@ -1,4 +1,4 @@
-{% extends "main.html" %}
+{% extends "main.php" %}
 
 {% set page_title = "Add User" %}
 

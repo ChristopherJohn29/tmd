@@ -3,14 +3,14 @@
 
 {% 
   set scripts = [
-    'bower_components/select2/dist/js/select2.full.min'
-    'plugins/input-mask/jquery.inputmask'
-    'plugins/input-mask/jquery.inputmask.date.extensions'
-    'plugins/input-mask/jquery.inputmask.extensions'
-    'bower_components/moment/min/moment.min'
-    'bower_components/bootstrap-daterangepicker/daterangepicker'
-    'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min'
-    'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min'
+    'bower_components/select2/dist/js/select2.full.min',
+    'plugins/input-mask/jquery.inputmask',
+    'plugins/input-mask/jquery.inputmask.date.extensions',
+    'plugins/input-mask/jquery.inputmask.extensions',
+    'bower_components/moment/min/moment.min',
+    'bower_components/bootstrap-daterangepicker/daterangepicker',
+    'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
+    'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
     'plugins/timepicker/bootstrap-timepicker.min'
   ]
 %}

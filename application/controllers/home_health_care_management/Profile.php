@@ -21,11 +21,15 @@ class Profile extends MY_Controller {
 		];
 
 		$page_data['records'] = parent::get_latest_records($params);
+
+		$this->twig->view('home_health_care_management/profile/list', $page_data);
 	}
 
 	public function add()
 	{
 		$this->check_permission('add_hhc');
+
+		$this->twig->view('home_health_care_management/profile/add');
 	}
 
 	public function edit(string $hhc_id)
@@ -39,6 +43,8 @@ class Profile extends MY_Controller {
 		];
 
 		$page_data['record'] = parent::get_record($params);
+
+		$this->twig->view('home_health_care_management/profile/edit', $page_data);
 	}
 
 	public function save(string $hhc_id = '')
@@ -66,6 +72,8 @@ class Profile extends MY_Controller {
 		];
 
 		$page_data['record'] = parent::get_record($params);
+
+		$this->twig->view('home_health_care_management/profile/details', $page_data);
 	}
 
 	public function search()
@@ -75,5 +83,7 @@ class Profile extends MY_Controller {
 		$params = ['search_model' => 'profile_model'];
 
 		$page_data['records'] = parent::search_data($params);
+
+		$this->twig->view('home_health_care_management/profile/search', $page_data);
 	}
 }
