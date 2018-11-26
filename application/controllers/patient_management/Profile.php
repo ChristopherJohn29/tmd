@@ -31,6 +31,8 @@ class Profile extends MY_Controller {
 		$this->check_permission('add_pt');
 
 		$page_data['hhcm_records'] = $this->hhcm_profile_model->records(['key' => 'hhc_id']);
+
+		$this->twig->view('patient_management/profile/add', $page_data);
 	}
 
 	public function edit(string $patient_id)
@@ -45,6 +47,8 @@ class Profile extends MY_Controller {
 
 		$page_data['record'] = parent::get_record($params);
 		$page_data['hhcm_records'] = $this->hhcm_profile_model->records(['key' => 'hhc_id']);
+
+		$this->twig->view('patient_management/profile/edit', $page_data);
 	}
 
 	public function save(string $patient_id = '')
@@ -58,7 +62,7 @@ class Profile extends MY_Controller {
 			'redirect_url' => 'patient_management/profile/details/'
 		];
 
-		parent::save_data($params);   
+		parent::save_data($params);
 	}
 
 	public function details(string $patient_id)
@@ -72,6 +76,8 @@ class Profile extends MY_Controller {
 		];
 
 		$page_data['record'] = parent::get_record($params);
+
+		$this->twig->view('patient_management/profile/details', $page_data);
 	}
 
 	public function search()
