@@ -1,6 +1,6 @@
 {% extends "main.html" %}
 
-{% set active_menu = "Add User" %}
+{% set page_title = "Add User" %}
 
 {% block content %}
 	<div class="row">
