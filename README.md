@@ -52,12 +52,12 @@ If you can't run the project on your local machine, you can email me for help at
 Below are the folders that are safe to touch
 
 - application
--- controllers (for back-end)
--- models (for back-end)
--- libraries (for back-end)
--- helpers (for back-end)
--- language (for back-end)
--- config (for back-end)
--- views (html pages for web designers)
+- application/controllers (for back-end)
+- application/models (for back-end)
+- application/libraries (for back-end)
+- application/helpers (for back-end)
+- application/language (for back-end)
+- application/config (for back-end)
+- application/views (html pages for web designers)
 - dist (assets files for web designers)
-- backup database schema
+- database_schema (backup database schema)
