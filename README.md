@@ -51,7 +51,6 @@ If you can't run the project on your local machine, you can email me for help at
 
 Below are the folders that are safe to touch
 
-- application
 - application/controllers (for back-end)
 - application/models (for back-end)
 - application/libraries (for back-end)
