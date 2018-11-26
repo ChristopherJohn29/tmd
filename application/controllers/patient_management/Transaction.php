@@ -56,7 +56,7 @@ class Transaction extends MY_Controller {
 			'redirect_url' => 'patient_management/transaction/details/'
 		];
 
-		parent::save($params);   
+		parent::save_data($params);   
 	}
 
 	public function details(string $pt_patientID)

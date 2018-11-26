@@ -52,7 +52,7 @@ class Communication_notes extends MY_Controller {
 			'redirect_url' => 'patient_management/communication_notes/details/'
 		];
 
-		parent::save($params);   
+		parent::save_data($params);   
 	}
 
 	public function details(string $ptcn_patientID)

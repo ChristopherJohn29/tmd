@@ -20,8 +20,7 @@ class MY_Controller extends CI_Controller {
 	{
 		if ( ! $this->acl->has_permission($this->session->userdata('user_role_id'), $permission_name))
 		{
-			// redirect to access denied page
-			// redirect();
+			redirect('errors/access_denied');
 		}
 	}
 
@@ -31,7 +30,7 @@ class MY_Controller extends CI_Controller {
 	* @param array $params['save_model'] the model name for saving the data
 	* @param array $params['redirect_url'] the route url to redirect after successfull save data
 	*/
-	public function save(array $params)
+	public function save_data(array $params)
 	{
 		$this->load->library('form_validation');
 
@@ -74,7 +73,7 @@ class MY_Controller extends CI_Controller {
 	*
 	* @return array the searched data
 	*/
-	public function search(array $params) : array
+	public function search_data(array $params) : array
 	{		
 		return $this->$params['search_model']->find([
 			'where_data' => $this->$params['search_model']->prepare_search_data()

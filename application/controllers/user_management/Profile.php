@@ -57,7 +57,7 @@ class Profile extends MY_Controller {
 			'redirect_url' => 'user_management/profile/details/'
 		];
 
-		parent::save($params);
+		parent::save_data($params);
 	}
 
 	public function details(string $user_id)
@@ -80,6 +80,6 @@ class Profile extends MY_Controller {
 
 		$params = ['search_model' => 'profile_model'];
 
-		$page_data['records'] = parent::search($params);
+		$page_data['records'] = parent::search_data($params);
 	}
 }

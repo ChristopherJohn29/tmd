@@ -30,11 +30,11 @@ class Acl {
 
 	private function get_permission_id() : int
 	{
-		$this->CI->db->where('permission_name', $this->permission_name);
+		$this->CI->db->where('permissions_name', $this->permission_name);
 
 		$query = $this->CI->db->get('permissions');
 
-		return $query->row_array()['permission_id'] ?? -1;
+		return $query->row_array()['permissions_id'] ?? -1;
 	}
 
 	private function get_roles_permissions() : bool 
@@ -44,6 +44,6 @@ class Acl {
 
 		$query = $this->CI->db->get('roles_permission');
 
-		return $query->row_array();
+		return $query->row_array() ?? false;
 	}
 }

@@ -54,6 +54,6 @@ class CPO extends MY_Controller {
 			'redirect_url' => 'patient_management/cpo/details/'
 		];
 
-		parent::save($params);
+		parent::save_data($params);
 	}
 }
