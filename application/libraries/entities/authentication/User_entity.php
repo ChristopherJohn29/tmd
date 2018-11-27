@@ -27,4 +27,9 @@ class User_entity extends Entity {
 	{
 		return $this->user_firstname . ' ' . $this->user_lastname;
 	}
+
+	// public function get_user_email() : string
+	// {
+	// 	return $this->user_email;
+	// }
 }

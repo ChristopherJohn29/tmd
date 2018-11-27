@@ -21,4 +21,14 @@ class Entity {
 
 		return $this->$property_name;
 	}
+
+	public function __isset(string $property_name) : bool
+    {
+    	if ( ! property_exists($this, $property_name))
+		{
+			return false;
+		}
+
+		return true;
+    }
 }
