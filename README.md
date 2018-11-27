@@ -60,3 +60,27 @@ Below are the list of folders that are safe to touch
 - application/views (html pages for web designers)
 - dist (assets files for web designers)
 - database_schema (backup database schema)
+
+### GIT BASICS
+
+#### Check file update status on command line
+
+git status
+
+#### add files to the staging environment
+
+git add .
+
+the command above tells that add all updated files to the staging.
+
+#### commit the files to the staging environment
+
+git commit -m "PLACE YOUR MESSAGE HERE"
+
+#### push to our central repo
+
+git push origin BRANCH_NAME
+
+ex: git push origin feature-template-design
+
+if it prompts for ssh passkey, just enter it.
