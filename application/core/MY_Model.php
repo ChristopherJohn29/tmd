@@ -34,13 +34,14 @@ class MY_Model extends CI_Model {
 	* @param array $params['key'] Table key name
 	* @param array $params['value'] Table column value
 	*/
-	public function record(array $params) : object
+	public function record(array $params) : array
 	{
 		$this->db->where($params['key'], $params['value']);
 
 		$query = $this->db->get($this->table_name);
 
-		return $query->custom_row_object(0, $this->entity);
+		// return $query->custom_row_object(0, $this->entity);
+		return $query->row_array() ?? [];
 	}
 
 	/**
@@ -56,13 +57,14 @@ class MY_Model extends CI_Model {
 
 		$query = $this->db->get($this->table_name, $this->limit, $this->offset);
 
-		return $query->custom_result_object($this->entity);
+		//return $query->custom_result_object($this->entity);
+		return $query->result_array() ?? [];
 	}
 
 	/**
 	* @param array $params['where_data'] an array of key, values to be filtered
 	*/
-	public function find(array $params) : object
+	public function find(array $params) : array
 	{
 		foreach ($params['where_data'] as $key => $value) {
 			$this->db->like($key, $value);
@@ -70,6 +72,7 @@ class MY_Model extends CI_Model {
 
 		$query = $this->db->get($this->table_name);
 
-		return $query->custom_result_object($this->entity);
+		// return $query->custom_result_object($this->entity);
+		return $query->result_array() ?? [];
 	}
 }

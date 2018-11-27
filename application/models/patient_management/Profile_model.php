@@ -3,10 +3,13 @@
 class Profile_model extends MY_Model {
 	
 	protected $table_name = 'patient';
+	protected $entity = 'User_entity';
 
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->library('entities/authentication/' . $this->entity);
 	}
 
 	public function prepare_data() : array
