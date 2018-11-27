@@ -1,6 +1,7 @@
 <?php
 
 class Acl {
+	
 	protected $CI = null;
 
 	private $permission_name = null;

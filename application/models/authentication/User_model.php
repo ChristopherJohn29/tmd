@@ -1,11 +1,14 @@
 <?php
 
 class User_model extends MY_Model {
+	
 	protected $table_name = 'user';
 
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->library('entities/authentication/User');
 	}
 
 	public function verify() : bool

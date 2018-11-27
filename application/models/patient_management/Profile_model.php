@@ -1,6 +1,7 @@
 <?php
 
 class Profile_model extends MY_Model {
+	
 	protected $table_name = 'patient';
 
 	public function __construct()

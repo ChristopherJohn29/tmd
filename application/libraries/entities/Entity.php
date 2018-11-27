@@ -1,6 +1,7 @@
 <?php
 
 class Entity {
+	
 	public function __set(string $property_name, string $property_value)
 	{
 		if ( ! property_exists($this, $property_name)) 

@@ -1,6 +1,7 @@
 <?php
 
 class Transaction_model extends MY_Model {
+	
 	protected $table_name = 'patient_transactions';
 
 	public function __construct()

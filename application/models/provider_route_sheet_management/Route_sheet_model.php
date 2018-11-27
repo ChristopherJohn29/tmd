@@ -1,6 +1,7 @@
 <?php
 
 class Route_sheet_model extends MY_Model {
+	
 	protected $table_name = 'provider_route_sheet';
 
 	public function __construct()

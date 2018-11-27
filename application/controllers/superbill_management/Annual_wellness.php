@@ -1,6 +1,7 @@
 <?php
 
 class Annual_wellness extends MY_Controller {
+	
 	public function __construct()
 	{
 		parent::__construct();

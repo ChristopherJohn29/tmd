@@ -3,6 +3,7 @@
 require_once 'vendor/autoload.php';
 
 class Twig {
+	
 	private $loader = null;
 
 	private $environment = null;

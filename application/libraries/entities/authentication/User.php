@@ -3,6 +3,7 @@
 require_once APPPATH . 'libraries/entities/Entity.php';
 
 class User extends Entity {
+	
 	protected $user_id; 
 	protected $user_firstname;
 	protected $user_lastname;
