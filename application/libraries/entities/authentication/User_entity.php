@@ -22,4 +22,9 @@ class User_entity extends Entity {
 	{
 		return password_verify($password, $this->user_password);
 	}
+
+	public function get_fullname() : string
+	{
+		return $this->user_firstname . ' ' . $this->user_lastname;
+	}
 }

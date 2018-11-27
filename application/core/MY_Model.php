@@ -56,13 +56,13 @@ class MY_Model extends CI_Model {
 
 		$query = $this->db->get($this->table_name, $this->limit, $this->offset);
 
-		return $query->result_array() ?? [];
+		return $query->custom_result_object($this->entity);
 	}
 
 	/**
 	* @param array $params['where_data'] an array of key, values to be filtered
 	*/
-	public function find(array $params) : array
+	public function find(array $params) : object
 	{
 		foreach ($params['where_data'] as $key => $value) {
 			$this->db->like($key, $value);
@@ -70,6 +70,6 @@ class MY_Model extends CI_Model {
 
 		$query = $this->db->get($this->table_name);
 
-		return $query->result_array() ?? [];
+		return $query->custom_result_object($this->entity);
 	}
 }
