@@ -34,13 +34,13 @@ class MY_Model extends CI_Model {
 	* @param array $params['key'] Table key name
 	* @param array $params['value'] Table column value
 	*/
-	public function record(array $params) : array
+	public function record(array $params) : object
 	{
 		$this->db->where($params['key'], $params['value']);
 
 		$query = $this->db->get($this->table_name);
 
-		return $query->row_array() ?? [];
+		return $query->custom_row_object(0, $this->entity);
 	}
 
 	/**

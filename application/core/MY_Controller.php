@@ -18,7 +18,7 @@ class MY_Controller extends CI_Controller {
 
 	public function check_permission(string $permission_name)
 	{
-		if ( ! $this->acl->has_permission($this->session->userdata('user_role_id'), $permission_name))
+		if ( ! $this->acl->has_permission($this->session->userdata('user_roleID'), $permission_name))
 		{
 			redirect('errors/access_denied');
 		}

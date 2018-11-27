@@ -1,8 +1,8 @@
 <?php
 
-require_once APPPATH . 'libraries/entities/Entity.php';
+require APPPATH . 'libraries/entities/Entity.php';
 
-class User extends Entity {
+class User_entity extends Entity {
 	
 	protected $user_id; 
 	protected $user_firstname;
@@ -20,6 +20,6 @@ class User extends Entity {
 
 	public function validate_password(string $password) : bool
 	{
-		return password_hash($password, $this->user_password);
+		return password_verify($password, $this->user_password);
 	}
 }
