@@ -21,19 +21,14 @@ $config = array(
             )
         ),
         array(
-            'field' => 'user_address',
-            'label' => 'Address',
-            'rules' => 'required|max_length[255]'
-        ),
-        array(
-            'field' => 'password',
+            'field' => 'user_password',
             'label' => 'Password',
             'rules' => 'required|min_length[8]|max_length[16]'
         ),
         array(
             'field' => 'confirm_password',
             'label' => 'Confirm Password',
-            'rules' => 'required|min_length[8]|max_length[16]|matches[password]'
+            'rules' => 'required|min_length[8]|max_length[16]|matches[user_password]'
         ),
         array(
             'field' => 'user_roleID',
@@ -41,9 +36,9 @@ $config = array(
             'rules' => 'required|integer'
         ),
         array(
-            'field' => 'user_contactNum',
+            'field' => 'user_dateOfBirth',
             'label' => 'Role',
-            'rules' => 'required|max_length[45]'
+            'rules' => 'required'
         )
 	),
     'authentication/user/verify' => array(

@@ -16,14 +16,26 @@ class Profile extends MY_Controller {
 	public function index()
 	{
 		$this->check_permission('list_user');
-		
-		$params = [
-			'table_key' => 'user_dateCreated',
-			'order_type' => 'DESC',
-			'records_model' => 'profile_model'
-		];
 
-		$page_data['records'] = parent::get_latest_records($params);
+		$params = [
+			'joins' => [
+				[
+					'join_table_name' => 'roles',
+					'join_table_key' => 'roles.roles_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'user.user_roleID',
+					'join_table_type' => 'inner',
+				]
+			],
+			'where' => [
+				'key' => 'user_roleID',
+				'condition' => '<>',
+				'value' => 1
+			],
+			'return_type' => 'result'
+		];
+		
+		$page_data['records'] = $this->profile_model->get_records_by_join($params);
 
 		$this->twig->view('user_management/profile/list', $page_data);
 	}
@@ -32,7 +44,15 @@ class Profile extends MY_Controller {
 	{
 		$this->check_permission('add_user');
 
-		$page_data['roles'] = $this->roles_model->records();
+		$params = [
+			'where' => [
+				'key' => 'roles_id',
+				'condition' => '<>',
+				'value' => '1'
+			]
+		];
+
+		$page_data['roles'] = $this->roles_model->records($params);
 
 		$this->twig->view('user_management/profile/add', $page_data);
 	}
@@ -48,7 +68,16 @@ class Profile extends MY_Controller {
 		];
 
 		$page_data['record'] = parent::get_record($params);
-		$page_data['roles'] = $this->roles_model->records();
+		
+		$role_params = [
+			'where' => [
+				'key' => 'roles_id',
+				'condition' => '<>',
+				'value' => '1'
+			]
+		];
+
+		$page_data['roles'] = $this->roles_model->records($role_params);
 
 		$this->twig->view('user_management/profile/edit', $page_data);
 	}
@@ -61,7 +90,7 @@ class Profile extends MY_Controller {
 			'record_id' => $user_id,
 			'table_key' => 'user_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'user_management/profile/details/'
+			'redirect_url' => 'user_management/profile'
 		];
 
 		parent::save_data($params);
@@ -72,13 +101,24 @@ class Profile extends MY_Controller {
 		$this->check_permission('view_user');
 
 		$params = [
-			'table_key' => 'profile_model',
-        	'record_key' => $user_id,
-        	'record_table' => 'profile_model'
+			'joins' => [
+				[
+					'join_table_name' => 'roles',
+					'join_table_key' => 'roles.roles_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'user.user_roleID',
+					'join_table_type' => 'inner',
+				]
+			],
+			'where' => [
+				'key' => 'user_id',
+				'condition' => '=',
+				'value' => $user_id
+			],
+			'return_type' => 'row'
 		];
-
-		$page_data['record'] = parent::get_record($params);
-		$page_data['roles'] = $this->roles_model->records();
+		
+		$page_data['records'] = $this->profile_model->get_records_by_join($params);
 
 		$this->twig->view('user_management/profile/details', $page_data);
 	}

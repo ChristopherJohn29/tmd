@@ -24,12 +24,6 @@ class MY_Controller extends CI_Controller {
 		}
 	}
 
-	/**
-	* @param array $params['record_id'] the record id used for updating data
-	* @param array $params['table_key'] the table column name used for updating data
-	* @param array $params['save_model'] the model name for saving the data
-	* @param array $params['redirect_url'] the route url to redirect after successfull save data
-	*/
 	public function save_data(array $params)
 	{
 		$this->load->library('form_validation');
@@ -65,29 +59,17 @@ class MY_Controller extends CI_Controller {
         	$this->session->set_flashdata('error', $this->lang->line('error_save'));
         }
 
-        redirect($params['redirect_url'] . (!empty($params['record_id'])) ? $params['user_id'] : $save);
+        redirect($params['redirect_url']);
 	}
 
-	/**
-	* @param array $params['search_model'] the model name for searching the data
-	*
-	* @return array the searched data
-	*/
-	public function search_data(array $params) : array
-	{		
+	public function search_data(array $params)
+	{
 		return $this->{$params['search_model']}->find([
 			'where_data' => $this->{$params['search_model']}->prepare_search_data()
 		]);
 	}
 
-	/**
-	* @param array $params['table_key'] the table column name used for fetching data
-	* @param array $params['record_key'] the record value used for fetching data
-	* @param array $params['record_table'] the table where to fetch the data
-	*
-	* @return array the fetched data
-	*/
-	public function get_record(array $params) : array
+	public function get_record(array $params)
 	{
 		return $this->{$params['record_table']}->record([
 			'key' => $params['table_key'],
@@ -95,14 +77,7 @@ class MY_Controller extends CI_Controller {
 		]);
 	}
 
-	/**
-	* @param array $params['table_key'] the table column name used for fetching latest records data
-	* @param array $params['order_type'] the order type when fetching latest records data
-	* @param array $params['records_model'] the model name for fetching latest records data
-	*
-	* @return array fetched the latest records data
-	*/
-	public function get_latest_records(array $params) : array
+	public function get_latest_records(array $params)
 	{
 		return $this->{$params['records_model']}->records([
 			'key' => $params['table_key'], 

@@ -37,7 +37,7 @@
                   <tr>
                     <td>{{ record.user_email }}</td>
                     <td>{{ record.get_fullname() }}</td>
-                    <td></td>
+                    <td>{{ record.roles_name }}</td>
                     <td><a href="{{ site_url("user_management/profile/edit/#{record.user_id}") }}" title="Edit"><span class="label label-primary">Update</span></a></td>
                   </tr>
 
@@ -47,6 +47,8 @@
               </tbody>
             </table>
 
+          {% else %}
+            No Records Found!
           {% endif %}
 
         </div>
