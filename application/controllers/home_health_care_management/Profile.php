@@ -56,7 +56,7 @@ class Profile extends MY_Controller {
 			'record_id' => $hhc_id,
 			'table_key' => 'hhc_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'home_health_care_management/profile/details/'
+			'redirect_url' => 'home_health_care_management/profile'
 		];
 
 		parent::save_data($params);   

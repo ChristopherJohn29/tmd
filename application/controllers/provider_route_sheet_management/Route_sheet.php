@@ -45,7 +45,7 @@ class Route_sheet extends MY_Controller {
 		// 	'record_id' => $prs_providerID,
 		// 	'table_key' => 'prs_providerID',
 		// 	'save_model' => 'rs_model',
-		// 	'redirect_url' => 'provider_route_sheet_management/route_sheet/details/'
+		// 	'redirect_url' => 'provider_route_sheet_management/route_sheet'
 		// ];
 
 		// parent::save_data($params);   

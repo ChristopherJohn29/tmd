@@ -60,7 +60,7 @@ class Profile extends MY_Controller {
 			'record_id' => $patient_id,
 			'table_key' => 'patient_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'patient_management/profile/details/'
+			'redirect_url' => 'patient_management/profile'
 		];
 
 		parent::save_data($params);

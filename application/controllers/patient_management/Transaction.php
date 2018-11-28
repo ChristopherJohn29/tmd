@@ -56,7 +56,7 @@ class Transaction extends MY_Controller {
 			'record_id' => $pt_patientID,
 			'table_key' => 'pt_patientID',
 			'save_model' => 'transaction_model',
-			'redirect_url' => 'patient_management/transaction/details/'
+			'redirect_url' => 'patient_management/transaction'
 		];
 
 		parent::save_data($params);   

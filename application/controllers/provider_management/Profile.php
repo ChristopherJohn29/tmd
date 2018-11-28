@@ -57,7 +57,7 @@ class Profile extends MY_Controller {
 			'record_id' => $provider_id,
 			'table_key' => 'provider_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'provider_management/profile/details/'
+			'redirect_url' => 'provider_management/profile/'
 		];
 
 		parent::save_data($params);   

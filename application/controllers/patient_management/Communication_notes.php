@@ -50,7 +50,7 @@ class Communication_notes extends MY_Controller {
 			'record_id' => $ptcn_patientID,
 			'table_key' => 'ptcn_patientID',
 			'save_model' => 'cn_model',
-			'redirect_url' => 'patient_management/communication_notes/details/'
+			'redirect_url' => 'patient_management/communication_notes'
 		];
 
 		parent::save_data($params);   
