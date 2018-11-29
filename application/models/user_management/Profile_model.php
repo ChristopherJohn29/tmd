@@ -3,13 +3,11 @@
 class Profile_model extends MY_Model {
 	
 	protected $table_name = 'user';
-	protected $entity = 'Profile_entity';
+	protected $entity = '\Mobiledrs\entities\user_management\Profile_entity';
 
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->load->library('entities/user_management/' . $this->entity);
 	}
 
 	public function prepare_data() : array

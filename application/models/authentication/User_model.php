@@ -1,15 +1,15 @@
 <?php
 
-class User_model extends MY_Model {
+use Mobiledrs\entities\authentication\User_entity;
+
+class User_model extends \MY_Model {
 	
 	protected $table_name = 'user';
-	protected $entity = 'User_entity';
+	protected $entity = '\Mobiledrs\entities\authentication\User_entity';
 
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->load->library('entities/authentication/' . $this->entity);
 	}
 
 	public function verify() : bool

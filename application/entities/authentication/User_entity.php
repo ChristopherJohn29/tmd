@@ -1,6 +1,8 @@
 <?php
 
-require APPPATH . 'libraries/entities/Entity.php';
+namespace Mobiledrs\entities\authentication;
+
+use Mobiledrs\entities\Entity;
 
 class User_entity extends Entity {
 	
