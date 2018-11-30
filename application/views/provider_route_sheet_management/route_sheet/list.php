@@ -11,7 +11,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="" class="table no-margin table-hover">
+                <div class="table-responsive">
+                    <table id="" class="table no-margin table-hover">
 				<thead>
 					<tr>
 						<th>Date of Service</th>
@@ -94,6 +95,7 @@
 					</tr>
 				</tfoot>
                 </table>
+                </div>
             </div>
             <!-- /.box-body -->
           </div>
