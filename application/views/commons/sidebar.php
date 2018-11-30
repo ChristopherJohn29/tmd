@@ -105,8 +105,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('user_management/profile') }}"><i class="fa fa-circle-o"></i> View Users</a></li>
-				<li><a href="{{ site_url('user_management/profile/add') }}"><i class="fa fa-circle-o"></i> Add New User</a></li>
+				<li><a href="{{ site_url('user_management/profile') }}"><i class="fa fa-angle-right"></i> View Users</a></li>
+				<li><a href="{{ site_url('user_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New User</a></li>
 			</ul>
 		</li>
 		</ul>
