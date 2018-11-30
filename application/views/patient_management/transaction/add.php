@@ -20,7 +20,7 @@
 {% block content %}
 	<div class="row">
 
-		  <div class="col-lg-8">
+		  <div class="col-lg-6">
           <div class="box">
           
             <div class="box-header with-border">
@@ -29,190 +29,184 @@
             <!-- /.box-header -->
 				
 				<!-- form start -->
-	            <form class="form-horizontal">
-	              <div class="box-body">
-	              
-	              	<div class="xrx-info-handler">
-		              	<div class="form-group">
-		                  <label for="" class="col-sm-3 control-label">Patient Name</label>
-		                  
-		                  <div class="col-sm-3">
-		                  	<p class="lead">Lorna Tolentino</p>
-		                  </div>
-		                  <label for="" class="col-sm-2 control-label">Date of Birth</label>
-		                  
-		                  <div class="col-sm-2">
-		                  	<p class="lead">04/07/1944</p>
-		                  </div>
-		                </div>
-		                
-		                <div class="form-group">
-		                  <label for="" class="col-sm-3 control-label">Medicare</label>
-		                  
-		                  <div class="col-sm-3">
-		                  	<p class="lead">604384610M</p>
-		                  </div>
-		                  <label for="" class="col-sm-2 control-label">Date of Referral</label>
-		                  
-		                  <div class="col-sm-2">
-		                  	<p class="lead">11/12/2018</p>
-		                  </div>
-		                </div>
-	              	</div>
-	              	
-	              	<div class="form-group">
-	              	
-	                  <label for="" class="col-sm-3 control-label">Type of Visit</label>
-	                  <div class="col-sm-3">
-	                  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Initial Visit (Home)</option>
-		                  <option>Initial Visit (Facility)</option>
-		                  <option>Follow-up Visit</option>
-		                  <option>No Show</option>
-		                  <option>Cancelled</option>
-		                </select>
-	                  </div>
-	                  
-	                  <label for="" class="col-sm-1 control-label">Provider</label>
-	                  
-	                  <div class="col-sm-3">
-	                  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Alexandra Kirtchik</option>
-		                  <option>Fidelia Nchetam</option>
-		                  <option>Grace Adeagbo</option>
-		                  <option>Henry Barraza</option>
-		                  <option>Kaixuan Luo</option>
-		                  <option>Lilibeth Ramirez</option>
-		                  <option>Reynaldo Salcedo</option>
-		                </select>
-	                  </div>
-	                  
-	                </div>
-	                
-	                <div class="form-group">
-	                  
-	                  <label for="" class="col-sm-3 control-label">Date of Service</label>
-	                  <div class="col-sm-3">
-	                  	<div class="input-group date">
-		                  <input type="text" class="form-control pull-right" id="dos">
-		                </div>
-	                  </div>
-	                  
-	                  <label for="" class="col-sm-1 control-label">Deductible</label>
-	                  
-	                  <div class="col-sm-3">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="inputLastName" class="col-sm-3 control-label">AW / IPPE (Date)</label>
-	                  
-	                  <div class="col-sm-2">
-	                  	<div class="input-group date">
-		                  <input type="text" class="form-control pull-right" id="awippe">
-		                </div>
-	                  </div>
-					  <div class="col-sm-2">
-					  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">G0438</option>
-		                  <option>G0439</option>
-		                  <option>G0402</option>
-		                </select>
-					  </div>
-					  
-					  	<label for="inputLastName" class="col-sm-1 control-label">Performed?</label>
-					  
-					  <div class="col-sm-2">
-					  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Yes</option>
-		                  <option>No</option>
-		                </select>
-					  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="inputLastName" class="col-sm-3 control-label">ACP</label>
-	                  
-					  <div class="col-sm-3">
-					  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Yes</option>
-		                  <option>No</option>
-		                </select>
-					  </div>
-					  
-					  <label for="inputLastName" class="col-sm-1 control-label">Diabetes</label>
-					  <div class="col-sm-3">
-					  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Yes</option>
-		                  <option>No</option>
-		                </select>
-					  </div>
-	                </div>
-					  
-					<div class="form-group">
-					  <label for="inputLastName" class="col-sm-3 control-label">Tobacco</label>
-					  <div class="col-sm-3">
-					  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Yes</option>
-		                  <option>No</option>
-		                </select>
-					  </div>
-					  
-					  <label for="inputLastName" class="col-sm-1 control-label">TCM</label>
-					  <div class="col-sm-3">
-					  	<select class="form-control select2" style="width: 100%;">
-		                  <option selected="selected">Yes</option>
-		                  <option>No</option>
-		                </select>
-					  </div>
-					  
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="inputMedicare" class="col-sm-3 control-label">Others</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="inputMedicare" class="col-sm-3 control-label">ICD-10 Codes</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="inputphone" class="col-sm-3 control-label">Date Referral was Emailed</label>
-	                  
-	                  <div class="col-sm-7">
-		                  <input type="text" class="form-control" id="drwe" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="inputAddress1" class="col-sm-3 control-label">Comments</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<textarea class="form-control" rows="3" placeholder=""></textarea>
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group xrx-btn-handler">
-	              		<div class="col-sm-3"></div>
-	              		<div class="col-sm-7">
-		              		<button type="button" class="btn btn-primary xrx-btn">
-								<i class="fa fa-check"></i> Add Transaction
-							</button>
-	              		</div>
-	              	</div>
-	                
-	              </div>
-	              
-	            </form>
+	            <div class="row">
+					<div class="col-lg-12">
+						<div class="box-body">
+						
+							<form class="xrx-form">
+							
+								<div class="row">
+								
+									<!-- This is the patient's information -->
+									<div class="xrx-info">
+									
+										<div class="col-lg-6">
+											<p class="lead"><span>Patient Name: </span> Cuneta, Sharon</p>
+										</div>
+										
+										<div class="col-lg-6">
+											<p class="lead"><span>Date of Birth: </span> 04/07/1974</p>
+										</div>
+										
+										<div class="col-lg-6">
+											<p class="lead"><span>Medicare: </span> 604384610M</p>
+										</div>
+										
+										<div class="col-lg-6">
+											<p class="lead"><span>Home Health: </span> Advance Home Care</p>
+										</div>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Type of Visit</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">Initial Visit (Home)</option>
+											<option>Initial Visit (Facility)</option>
+											<option>Follow-up Visit</option>
+											<option>No Show</option>
+											<option>Cancelled</option>
+										</select>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Provider</label>
+										<select class="form-control select2" style="width: 100%;">
+											<option selected="selected">Alexandra Kirtchik</option>
+											<option>Fidelia Nchetam</option>
+											<option>Grace Adeagbo</option>
+											<option>Henry Barraza</option>
+											<option>Kaixuan Luo</option>
+											<option>Lilibeth Ramirez</option>
+											<option>Reynaldo Salcedo</option>
+										</select>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+										<label>Date of Service</label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Deductible</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">AW/IPPE Date</label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										
+									</div>
+									
+									<div class="col-md-3 form-group">
+									
+										<label class="control-label">AW or IPPE?</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">G0438</option>
+											<option>G0439</option>
+											<option>G0402</option>
+										</select>
+						                
+									</div>
+									
+									<div class="col-md-3 form-group">
+									
+										<label class="control-label">Performed?</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">Yes</option>
+											<option>No</option>
+										</select>
+						                
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">ACP</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">Yes</option>
+											<option>No</option>
+										</select>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Diabetes</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">Yes</option>
+											<option>No</option>
+										</select>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Tobacco</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">Yes</option>
+											<option>No</option>
+										</select>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">TCM</label>
+										<select class="form-control" style="width: 100%;">
+											<option selected="selected">Yes</option>
+											<option>No</option>
+										</select>
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Others</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">ICD-10 Codes</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Date Referral was Emailed</label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Notes</label>
+										<textarea class="form-control" id="" placeholder=""></textarea>
+										
+									</div>
+									
+									<div class="col-md-12 form-group xrx-btn-handler">
+					              		<button type="button" class="btn btn-primary xrx-btn">
+											<i class="fa fa-check"></i> Add Transaction
+										</button>
+					              	</div>
+								
+								</div>
+								
+							</form>
+							
+						</div>
+					</div>
+				</div>
             
           </div>
           <!-- /.box -->
