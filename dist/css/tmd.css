@@ -241,13 +241,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: proxima-nova, sans-serif !important;
 	} 
 	
-
-	/* logo inside */	
-	.logo-lg img {
-		width: 56% !important;
-		}
-	
-	/* box padding adjustments */
+    /* box padding adjustments */
 		.box-header {
 		padding: 15px 0 15px 18px !important;
 		}
@@ -301,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 		
 	.login-logo img {
-		width: 90% !important;
+/*		width: 90% !important;*/
 		}
 		
 		
@@ -369,3 +363,79 @@ li.user-header p span a {
     }
 
 
+
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+    
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg img {
+        width: 40%;
+        }
+    
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 40%;
+        }
+    
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 60%;
+        }
+    
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 60%;
+        }
+    
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 60%;
+        }
+    
+}
