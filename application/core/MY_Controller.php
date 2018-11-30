@@ -1,14 +1,13 @@
 <?php
 
-class MY_Controller extends CI_Controller {
+namespace Mobiledrs\core;
+
+class MY_Controller extends \CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
 
-		if ( ! $this->session->userdata('user_logged_in')) 
-		{
-			redirect('authentication/user');
-		}
+		$this->is_logged_in();
 
 		$this->load->library(array(
 			'acl',
@@ -16,11 +15,19 @@ class MY_Controller extends CI_Controller {
 		));
 	}
 
+	public function is_logged_in()
+	{
+		if ( ! $this->session->userdata('user_logged_in')) 
+		{
+			return redirect('authentication/user');
+		}
+	}
+
 	public function check_permission(string $permission_name)
 	{
 		if ( ! $this->acl->has_permission($this->session->userdata('user_roleID'), $permission_name))
 		{
-			redirect('errors/access_denied');
+			return redirect('errors/access_denied');
 		}
 	}
 
@@ -30,9 +37,7 @@ class MY_Controller extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
         {
-			( ! empty($params['record_id'])) ? $this->edit() : $this->add();	
-
-			return;
+			return ( ! empty($params['record_id'])) ? $this->edit() : $this->add();
         }
 
         $save = null;
@@ -55,7 +60,9 @@ class MY_Controller extends CI_Controller {
         if ($save) 
         {
         	$this->session->set_flashdata('success', $this->lang->line('success_save'));
-        } else {
+        } 
+        else 
+        {
         	$this->session->set_flashdata('error', $this->lang->line('error_save'));
         }
 

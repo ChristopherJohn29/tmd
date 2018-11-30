@@ -2,9 +2,7 @@
 
 namespace Mobiledrs\entities\authentication;
 
-use Mobiledrs\entities\Entity;
-
-class User_entity extends Entity {
+class User_entity extends \Mobiledrs\entities\Entity {
 	
 	protected $user_id; 
 	protected $user_firstname;

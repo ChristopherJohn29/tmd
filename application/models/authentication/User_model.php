@@ -1,8 +1,6 @@
 <?php
 
-use Mobiledrs\entities\authentication\User_entity;
-
-class User_model extends \MY_Model {
+class User_model extends MY_Model {
 	
 	protected $table_name = 'user';
 	protected $entity = '\Mobiledrs\entities\authentication\User_entity';

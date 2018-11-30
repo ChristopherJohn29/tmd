@@ -4,6 +4,7 @@ use  Mobiledrs\entities\user_management\Profile_entity;
 
 class ProfileEntityTest extends \Codeception\Test\Unit
 {
+    
     private $profile_entity = null;
     
     protected function _before()

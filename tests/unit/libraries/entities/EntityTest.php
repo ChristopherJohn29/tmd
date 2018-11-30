@@ -4,6 +4,7 @@ use Mobiledrs\entities\Entity;
 
 class EntityTest extends \Codeception\Test\Unit
 {
+    
     private $entity = null;
 
     protected function _before()

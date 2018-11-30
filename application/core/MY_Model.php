@@ -1,6 +1,6 @@
 <?php
 
-class MY_Model extends CI_Model {
+class MY_Model extends \CI_Model {
 	protected $table_name = '';
 	protected $limit = 0;
 	protected $offset = 5;

@@ -1,1 +1,1 @@
-../codeception/codeception/codecept
+./vendor/bin/codecept
