@@ -37,8 +37,8 @@
              			<div class="col-md-12">
              			
              				<p class="lead">Transactions</p>
-             				
-             				<table class="table no-margin table-striped">
+             				<div class="table-responsive">
+             				   <table class="table no-margin table-striped">
 								<thead>
 									<tr>
 										<th width="200px">Patient Name</th>
@@ -120,8 +120,8 @@
 										<td>R26.81,F32.5,I10,E78.2,I25.3,F02.81,R32,M54.5</td>
 									</tr>
 								</tbody>
-							</table>
-					
+                                </table>
+                            </div>
              			</div>
              		</div>
              		
