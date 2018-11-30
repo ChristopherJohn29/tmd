@@ -23,35 +23,15 @@
 				</a>
 				<ul class="dropdown-menu">
 					<!-- User image -->
-					<li class="user-header">
-						<img src="{{ base_url }}dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-						<p>
-							{{ user_fullname }}
-						</p>
-					</li>
-					<!-- Menu Body -->
-					<li class="user-body">
-						<div class="row">
-							<div class="col-xs-4 text-center">
-								<a href="#">Followers</a>
-							</div>
-							<div class="col-xs-4 text-center">
-								<a href="#">Sales</a>
-							</div>
-							<div class="col-xs-4 text-center">
-								<a href="#">Friends</a>
-							</div>
-						</div>
-						<!-- /.row -->
-					</li>
+                    <li class="user-header">
+                        <p>{{ user_fullname }}<br>
+                        <span>jayson.arcayna@gmail.com</span>
+                        <span><a href="{{ site_url('user_management/profile/edit/1') }}" title="Manage Account">Manage Account</a></span></p>
+                    </li>
 					<!-- Menu Footer-->
 					<li class="user-footer">
 						<div class="pull-left">
-							<a href="#" class="btn btn-default btn-flat">Profile</a>
-						</div>
-						<div class="pull-right">
-							<a href="{{ site_url('authentication/user/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+							<a href="{{ site_url('authentication/user/logout') }}"><i class="glyphicon glyphicon-off"></i> Sign out</a>
 						</div>
 					</li>
 				</ul>
