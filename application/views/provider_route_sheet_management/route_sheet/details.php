@@ -22,8 +22,9 @@
              			<div class="col-md-12">
              				
              				<p class="lead">Route Sheet</p>
-             				
-             				<table id="" class="table no-margin table-striped">
+                            
+             				<div class="table-responsive">
+             				   <table id="" class="table no-margin table-striped">
 								<thead>
 									<tr>
 										<th>Time</th>
@@ -70,7 +71,7 @@
 									</tr>
 								</tbody>
 							</table>
-             				
+                            </div>
              			</div>
              		</div>
              		
