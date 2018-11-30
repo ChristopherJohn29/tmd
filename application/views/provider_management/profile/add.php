@@ -1,10 +1,19 @@
 {% extends "main.php" %}
 
+{% 
+  set scripts = [
+    'bower_components/select2/dist/js/select2.full.min',
+    'plugins/input-mask/jquery.inputmask',
+    'plugins/input-mask/jquery.inputmask.date.extensions',
+    'plugins/input-mask/jquery.inputmask.extensions'
+  ]
+%}
+
 {% set page_title = 'Add Provider' %}
 
 {% block content %}
 	<div class="row">
-	  <div class="col-lg-8">
+	  <div class="col-lg-6">
           <div class="box">
           
             <div class="box-header with-border">
@@ -13,188 +22,165 @@
             <!-- /.box-header -->
 				
 				<!-- form start -->
-	            <form class="form-horizontal">
-	              <div class="box-body">
-	                
-	                <div class="form-group xrx-form-subheader">
-	              		<div class="col-sm-3"></div>
-	              		<div class="col-sm-7"><p class="lead">Personal Information</p></div>
-	              	</div>
-	              	
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">First Name</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Last Name</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Phone No</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Email</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Address Line 1</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Address Line 2</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Date of Birth</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                  
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Languages</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Areas</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group xrx-form-subheader">
-	              		<div class="col-sm-3"></div>
-	              		<div class="col-sm-7"><p class="lead">Credentials</p></div>
-	              	</div>
-	              	
-	              	<div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">National Provider Identifier</label>
-	                  	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">DEA Registration Number</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">License</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group xrx-form-subheader">
-	              		<div class="col-sm-3"></div>
-	              		<div class="col-sm-7"><p class="lead">Rates</p></div>
-	              	</div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Initial Visit</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Follow-up Visit</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">AW</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">ACP</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">No Show Patients</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Others</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Mileage</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group xrx-btn-handler">
-	              		<div class="col-sm-3"></div>
-	              		<div class="col-sm-7">
-		              		<button type="button" class="btn btn-primary xrx-btn">
-								<i class="fa fa-check"></i> Add Provider
-							</button>
-	              		</div>
-	              	</div>
-	                
-	              </div>
-	              
-	            </form>
+	            <div class="row">
+					<div class="col-lg-12">
+						<div class="box-body">
+						
+							<form class="xrx-form">
+							
+								<div class="row">
+								
+									<div class="col-md-12">
+										<p class="lead">Personal Information</p>
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">First Name</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Last Name</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Phone Number</label>
+										<input type="phone" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Email</label>
+										<input type="email" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Date of Birth</label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Languages</label>
+										<input type="text" class="form-control" id="" placeholder="">
+						                
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Areas</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Address</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12">
+										<p class="lead subheader">Credentials</p>
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">National Provider Identifier</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">DEA Registration Number</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">License</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12">
+										<p class="lead subheader">Rates</p>
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">Initial Visit</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">Follow-up Visit</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">Annual Wellness</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">ACP</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">No Show</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">Others</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-4 form-group">
+									
+										<label class="control-label">Mileage</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group xrx-btn-handler">
+					              		<button type="button" class="btn btn-primary xrx-btn">
+											<i class="fa fa-check"></i> Add Provider
+										</button>
+					              	</div>
+								
+								</div>
+								
+							</form>
+							
+						</div>
+					</div>
+				</div>
             
           </div>
           <!-- /.box -->
