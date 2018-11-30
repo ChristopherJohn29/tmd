@@ -8,7 +8,7 @@ class Entity {
 	{
 		if ( ! property_exists($this, $property_name)) 
 		{
-			throw new Exception("'{$property_name}' is not a part of the User class");
+			throw new \Exception("'{$property_name}' is not a part of the class");
 		}
 
 		$this->$property_name = $property_value;
@@ -18,7 +18,7 @@ class Entity {
 	{
 		if ( ! property_exists($this, $property_name))
 		{
-			throw new Exception("'{$property_name}' is not a part of this User class");	
+			throw new \Exception("'{$property_name}' is not a part of the class");	
 		}
 
 		return $this->$property_name;
