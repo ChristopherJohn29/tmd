@@ -1,6 +1,6 @@
 <?php
 
-class Profile_model extends MY_Model {
+class Profile_model extends \Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'user';
 	protected $entity = '\Mobiledrs\entities\user_management\Profile_entity';

@@ -66,7 +66,7 @@ class MY_Controller extends \CI_Controller {
         	$this->session->set_flashdata('error', $this->lang->line('error_save'));
         }
 
-        redirect($params['redirect_url']);
+        return redirect($params['redirect_url']);
 	}
 
 	public function search_data(array $params)

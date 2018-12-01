@@ -6,6 +6,8 @@ require_once('support/myControllerTest/CI_Controller.php');
 require_once('support/myControllerTest/utils.php');
 require_once('support/myControllerTest/LoaderMock.php');
 
+use \Codeception\Stub\Expected;
+
 class MyControllerTest extends \Codeception\Test\Unit
 {
     private $myController = null;
@@ -52,7 +54,6 @@ class MyControllerTest extends \Codeception\Test\Unit
     public function testUserIsLoggedIn()
     {
         $params = [
-            'acl' => new \AclMock(),
             'session' => new class {
                 public function userdata(string $sessionName)
                 {
@@ -72,7 +73,6 @@ class MyControllerTest extends \Codeception\Test\Unit
     public function testUserIsNotLoggedIn()
     {
         $params = [
-            'acl' => new \AclMock(),
             'session' => new class {
                 public function userdata(string $sessionName)
                 {
@@ -92,7 +92,6 @@ class MyControllerTest extends \Codeception\Test\Unit
     public function testFormFailedValidationOnAddPage()
     {
         $params = [
-            'acl' => new \AclMock(),
             'form_validation' => new class {
                 public function run()
                 {
@@ -116,7 +115,6 @@ class MyControllerTest extends \Codeception\Test\Unit
     public function testFormFailedValidationOnEditPage()
     {
         $params = [
-            'acl' => new \AclMock(),
             'form_validation' => new class {
                 public function run()
                 {
@@ -137,10 +135,9 @@ class MyControllerTest extends \Codeception\Test\Unit
         $this->assertEquals('edit page', $result);
     }
 
-    public function testFormSaveSuccess()
+    public function testFormSaveSuccessOnAddPage()
     {
         $params = [
-            'acl' => new \AclMock(),
             'form_validation' => new class {
                 public function run()
                 {
@@ -178,12 +175,12 @@ class MyControllerTest extends \Codeception\Test\Unit
         $result = $this->myController->save_data($save_params);
 
         $this->assertEquals('Saved Successfully', $this->myController->session->flashdata('success'));
+        $this->assertTrue($result);
     }
 
-    public function testFormSaveNotSuccess()
+    public function testFormSaveNotSuccessOnAddPage()
     {
         $params = [
-            'acl' => new \AclMock(),
             'form_validation' => new class {
                 public function run()
                 {
@@ -221,5 +218,126 @@ class MyControllerTest extends \Codeception\Test\Unit
         $result = $this->myController->save_data($save_params);
 
         $this->assertEquals('Error Saving Data', $this->myController->session->flashdata('error'));
+        $this->assertTrue($result);
+    }
+
+    public function testFormSaveSuccessOnEditPage()
+    {
+        $params = [
+            'form_validation' => new class {
+                public function run()
+                {
+                    return true;
+                }
+            },
+            'load' => new \LoaderMock(),
+            'lang' => new class {
+                public function line($message)
+                {
+                    return 'Saved Successfully';
+                }
+            },
+            'sample_model' => new class {
+                public function update($data)
+                {
+                    return true;
+                }
+
+                public function prepare_data()
+                {
+                    
+                }
+            },
+            'session' => new \SessionMock()
+        ];
+
+        $this->myController = $this->make('\Mobiledrs\core\MY_Controller', $params);
+
+        $save_params = [
+            'record_id' => '1',
+            'save_model' => 'sample_model',
+            'redirect_url' => 'test/test',
+            'table_key' => 'test_key'
+        ];
+
+        $result = $this->myController->save_data($save_params);
+
+        $this->assertEquals('Saved Successfully', $this->myController->session->flashdata('success'));
+        $this->assertTrue($result);
+    }
+
+    public function testSearchDataWithValidParams()
+    {
+        $params = [
+            'sample_model' => new class {
+                public function find($data)
+                {
+                    return true;
+                }
+
+                public function prepare_search_data()
+                {
+                    
+                }
+            }
+        ];
+
+        $this->myController = $this->make('\Mobiledrs\core\MY_Controller', $params);
+
+        $save_params = [
+            'search_model' => 'sample_model',
+        ];
+
+        $result = $this->myController->search_data($save_params);
+
+        $this->assertTrue($result);
+    }
+
+    public function testGetRecordWithValidParams()
+    {
+        $params = [
+            'sample_model' => new class {
+                public function record($data)
+                {
+                    return true;
+                }
+            }
+        ];
+
+        $this->myController = $this->make('\Mobiledrs\core\MY_Controller', $params);
+
+        $save_params = [
+            'record_table' => 'sample_model',
+            'table_key' => 'sample_key',
+            'record_key' => '1',
+        ];
+
+        $result = $this->myController->get_record($save_params);
+
+        $this->assertTrue($result);
+    }
+
+    public function testGetLatestRecordWithValidParams()
+    {
+        $params = [
+            'sample_model' => new class {
+                public function records($data)
+                {
+                    return true;
+                }
+            }
+        ];
+
+        $this->myController = $this->make('\Mobiledrs\core\MY_Controller', $params);
+
+        $save_params = [
+            'records_model' => 'sample_model',
+            'table_key' => 'sample_key',
+            'order_type' => 'DESC',
+        ];
+
+        $result = $this->myController->get_latest_records($save_params);
+
+        $this->assertTrue($result);
     }
 }

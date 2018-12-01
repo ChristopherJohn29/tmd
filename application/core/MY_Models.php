@@ -1,6 +1,8 @@
 <?php
 
-class MY_Model extends \CI_Model {
+namespace Mobiledrs\core;
+
+class MY_Models extends \CI_Model {
 	protected $table_name = '';
 	protected $limit = 0;
 	protected $offset = 5;

@@ -46,10 +46,21 @@ class EntityTest extends \Codeception\Test\Unit
     {
         $this->entity->lastname;
     }
+
     public function getMyEntityObject()
     {
         return new class extends Entity {
             protected $firstname = 'Nikkolai';
         };
+    }
+
+    public function testIssetWithPropertyNotExist()
+    {
+        $this->assertFalse(isset($this->entity->lastname));
+    }
+
+    public function testIssetWithPropertyExist()
+    {
+        $this->assertTrue(isset($this->entity->firstname));
     }
 }
