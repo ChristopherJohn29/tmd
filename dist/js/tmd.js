@@ -1,17 +1,14 @@
-/**
- * AdminLTE Demo Menu
- * ------------------
- * You should not use this file in production.
- * This file is for demo purposes only.
- */
- 
 $(function () {
-    $('#patient-list').DataTable({
-      'paging'      : false,
-      'lengthChange': true,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : false,
-      'autoWidth'   : false
-    })
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
 })
+
+

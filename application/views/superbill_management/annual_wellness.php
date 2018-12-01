@@ -37,8 +37,8 @@
              			<div class="col-md-12">
              			
              				<p class="lead">Transactions</p>
-             				
-             				<table id="all-patient-list" class="table no-margin table-striped">
+             				<div class="table-responsive">
+             				   <table id="all-patient-list" class="table no-margin table-striped">
 								<thead>
 									<tr>
 										<th width="200px">Patient Name</th>
@@ -121,7 +121,7 @@
 									</tr>
 								</tbody>
 							</table>
-					
+                            </div>
              			</div>
              		</div>
              		

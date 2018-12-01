@@ -19,7 +19,8 @@
         <!-- /.box-header -->
         
         <div class="box-body">
-          <table id="" class="table no-margin table-hover">
+            <div class="table-responsive">
+                <table id="" class="table no-margin table-hover">
             <thead>
               <tr>
                 <th>Patient Name</th>
@@ -133,6 +134,7 @@
               </tr>
               </tbody>
             </table>
+            </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer text-center">
@@ -339,36 +341,36 @@
                 <td>Prestige Home Health</td>
                 <td>+1 22313198786</td>
                 <td>
-                  <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
-        <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
-      </td>
+                    <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
+                    <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
+                </td>
               </tr>
               
               <tr>
                 <td>Advance Home Care</td>
                 <td>+1 22313198786</td>
                 <td>
-                  <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
-        <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
-      </td>
+                    <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
+                    <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
+                </td>
               </tr>
               
               <tr>
                 <td>Healthy Choice Home Care</td>
                 <td>+1 22313198786</td>
                 <td>
-                  <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
-        <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
-      </td>
+                    <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
+                    <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
+                </td>
               </tr>
               
               <tr>
                 <td>R &amp; G Home Health Care</td>
                 <td>+1 22313198786</td>
                 <td>
-                  <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
-        <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
-      </td>
+                    <a href="details-home-health.php"><span class="label label-primary">View Details</span></a>
+                    <a href="update-home-health.php" title=""><span class="label label-primary">Update</span></a>
+                </td>
               </tr>
               
               </tbody>

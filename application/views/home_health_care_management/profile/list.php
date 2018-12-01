@@ -17,7 +17,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="" class="table no-margin table-hover">
+                <div class="table-responsive">
+                    <table id="" class="table no-margin table-hover">
 				<thead>
 					<tr>
 						<th>Home Health</th>
@@ -130,6 +131,7 @@
 					</tr>
 				</tbody>
                 </table>
+                </div>
             </div>
             <!-- /.box-body -->
           </div>
