@@ -17,14 +17,15 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-				<table id="all-patient-list" class="table no-margin table-hover">
+                <div class="table-responsive">
+				    <table id="all-patient-list" class="table no-margin table-hover">
 					<thead>
 						<tr>
 							<th>Provider Name</th>
 							<th>Phone</th>
 							<th>Email</th>
 							<th>Address</th>
-							<th width="50px">Action</th>
+							<th width="120px">Action</th>
 						</tr>
 					</thead>
 	                  
@@ -35,7 +36,8 @@
 							<td>alexandra.kirtchik@email.com</td>
 							<td>38 Poplar St., Watsonville, CA 95076</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
@@ -45,7 +47,8 @@
 							<td>henry.arraza@email.com</td>
 							<td>567 Longbranch Drive, Daly City, CA 94015</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
@@ -55,7 +58,8 @@
 							<td>henry.arraza@email.com</td>
 							<td>7234 Del Monte Street, Oxnard, CA 93030</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
@@ -65,7 +69,8 @@
 							<td>lilibeth.ramirez@email.com</td>
 							<td>9433 East Glenridge Drive, San Francisco, CA 94109</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
@@ -75,7 +80,8 @@
 							<td>fidelia.nchetam@email.com</td>
 							<td>26 Arlington Drive, Spring Valley, CA 91977</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
@@ -85,7 +91,8 @@
 							<td>gracea.adeagbo@email.com</td>
 							<td>520 Berkshire Drive, Alameda, CA 94501</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
@@ -95,12 +102,14 @@
 							<td>kaixuan.luo@email.com</td>
 							<td>9690 Grandrose Street, Ontario, CA 91762</td>
 							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
+                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
 							</td>
 						</tr>
 						
 					</tbody>
                 </table>
+                </div>
             </div>
             <!-- /.box-body -->
           </div>

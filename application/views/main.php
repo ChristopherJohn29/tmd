@@ -46,7 +46,7 @@
 	</div>
 	<!-- ./wrapper -->
 
-	<!-- jQuery 3 -->
+    <!-- jQuery 3 -->
 	<script src="{{ base_url }}bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="{{ base_url }}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -59,12 +59,30 @@
 	<script src="{{ base_url }}bower_components/fastclick/lib/fastclick.js"></script>
 	<!-- AdminLTE App -->
 	<script src="{{ base_url }}dist/js/adminlte.min.js"></script>
+    
+{% if scripts is defined %}
+    {% for script in scripts %}
+    <script src="{{ base_url }}{{ script }}.js"></script>
+    {% endfor %}
+{% endif %}
+    
+    <!-- Page script -->
+    <script>
+      $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
 
-	{% if scripts is defined %}
-	    {% for script in scripts %}
-	    	<script src="{{ base_url }}{{ script }}.js"></script>
-	    {% endfor %}
-	{% endif %}
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+
+
+      })
+    </script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 {% block content %}
 	 <div class="row">
 
-		  <div class="col-lg-8">
+	  	<div class="col-lg-6">
           <div class="box">
           
             <div class="box-header with-border">
@@ -20,78 +20,74 @@
             <!-- /.box-header -->
 				
 				<!-- form start -->
-	            <form class="form-horizontal">
-	              <div class="box-body">
-	              
-	              	<div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Home Health</label>
-	                  
-	                  <div class="col-sm-7">
-						  <input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Contact Person</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Phone No</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Fax No</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                  
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Email</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                  
-	                </div>
-	                
-	                <div class="form-group">
-	                  <label for="" class="col-sm-3 control-label">Address</label>
-	                  
-	                  <div class="col-sm-7">
-	                  	<input type="text" class="form-control" id="" placeholder="">
-	                  </div>
-	                  
-	                </div>
-	                
-	                
-	                <div class="form-group xrx-btn-handler">
-	              		<div class="col-sm-3"></div>
-	              		<div class="col-sm-7">
-		              		<button type="button" class="btn btn-primary xrx-btn">
-								<i class="fa fa-check"></i> Update
-							</button>
-	              		</div>
-	              	</div>
-	                
-	              </div>
-	              
-	            </form>
+	            <div class="row">
+					<div class="col-lg-12">
+						<div class="box-body">
+						
+							<form class="xrx-form">
+							
+								<div class="row">
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Home Health</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Contact Person</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Phone Number</label>
+										<input type="phone" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Fax</label>
+										<input type="email" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Email</label>
+										<input type="text" class="form-control" id="" placeholder="">
+						                
+									</div>
+									
+									<div class="col-md-12 form-group">
+									
+										<label class="control-label">Address</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+									
+									<div class="col-md-12 form-group xrx-btn-handler">
+					              		<button type="button" class="btn btn-primary xrx-btn">
+											<i class="fa fa-check"></i> Update Home Health
+										</button>
+					              	</div>
+								
+								</div>
+								
+							</form>
+							
+						</div>
+					</div>
+				</div>
             
           </div>
           <!-- /.box -->
 
       </div>
 
-      </div>
+  </div>
 {% endblock %}
