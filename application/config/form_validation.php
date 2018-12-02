@@ -33,12 +33,27 @@ $config = array(
         array(
             'field' => 'user_roleID',
             'label' => 'Role',
-            'rules' => 'required|integer'
+            'rules' => 'required'
         ),
         array(
             'field' => 'user_dateOfBirth',
-            'label' => 'Role',
+            'label' => 'Date of Birth',
             'rules' => 'required'
+        ),
+        array(
+            'field' => 'user_phone',
+            'label' => 'Phone',
+            'rules' => 'required|max_length[20]'
+        ),
+        array(
+            'field' => 'user_address',
+            'label' => 'Address',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'user_gender',
+            'label' => 'Gender',
+            'rules' => 'required|max_length[10]'
         )
 	),
     'authentication/user/verify' => array(

@@ -63,7 +63,7 @@ class MY_Controller extends \CI_Controller {
         } 
         else 
         {
-        	$this->session->set_flashdata('error', $this->lang->line('error_save'));
+        	$this->session->set_flashdata('danger', $this->lang->line('danger_save'));
         }
 
         return redirect($params['redirect_url']);

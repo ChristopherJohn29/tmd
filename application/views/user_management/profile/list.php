@@ -10,6 +10,13 @@
 
 {% block content %}
   <div class="row">
+
+    <div class="col-xs-12">
+      {% if states is defined %}
+        {{ include('commons/alerts.php') }}
+      {% endif %}
+    </div>
+
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header with-border">
@@ -32,17 +39,29 @@
                   </thead>
 
                   <tbody>
-                    <tr>
-                        <td>Jayson Arcayna</td>
-                        <td>jayson.arcayna@gmail.com</td>
-                        <td>+63 9158826474</td>
-                        <td>10/28/1979</td>
-                        <td>Administrator</td>
-                        <td>
-                            <a href="{{ site_url('user_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-                            <a href="#"><span class="label label-primary">Delete</span></a>
-                        </td>
-                    </tr>
+
+                    {% if records is defined %}
+
+                      {% for record in records %}
+                        
+                        <tr>
+                            <td>{{ record.get_fullname }}</td>
+                            <td>{{ record.user_email }}</td>
+                            <td>{{ record.user_phone }}</td>
+                            <td>{{ record.user_dateOfBirth }}</td>
+                            <td>{{ record.roles_name }}</td>
+                            <td>
+                                <a href="{{ site_url('user_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
+                                <a href="#"><span class="label label-primary">Delete</span></a>
+                            </td>
+                        </tr>
+
+                      {% endfor %}
+
+                    {% else %}
+                      No Records Found!
+                    {% endif %}
+
                   </tbody>
 
                 </table>
@@ -56,3 +75,4 @@
   </div>
 
 {% endblock %}
+

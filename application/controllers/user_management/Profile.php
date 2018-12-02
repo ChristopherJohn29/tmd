@@ -36,6 +36,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		];
 		
 		$page_data['records'] = $this->profile_model->get_records_by_join($params);
+		$page_data['states'] = $this->session->flashdata();
 
 		$this->twig->view('user_management/profile/list', $page_data);
 	}
