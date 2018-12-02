@@ -26,7 +26,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
+							{{ form_open('user_management/profile/save', {"class": "xrx-form"}) }}
 							
 								<div class="row">
 								
@@ -37,14 +37,14 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">First Name</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Last Name</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true">
 										
 									</div>
                                     
@@ -55,14 +55,14 @@
                                     <div class="col-md-6 form-group">
 									
 										<label class="control-label">Date of Birth</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true">
 										
 									</div>
                                     
                                     <div class="col-md-6 form-group">
 									
 										<label class="control-label">Gender</label>
-										<select class="form-control" style="width: 100%;" name="gender" id="dob" required>
+										<select class="form-control" style="width: 100%;" name="gender" id="dob" required="true">
 						                  <option selected="selected">Male</option>
 						                  <option>Female</option>
 						                </select>
@@ -76,21 +76,21 @@
                                     <div class="col-md-6 form-group">
 									
 										<label class="control-label">Phone</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Email</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true">
 										
 									</div>
                                     
                                     <div class="col-md-12 form-group">
 									
 										<label class="control-label">Address</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true">
 										
 									</div>
                                     
@@ -102,7 +102,7 @@
 									
 										<label class="control-label">Account Type</label>
 										
-										<select class="form-control" style="width: 100%;" required>
+										<select class="form-control" style="width: 100%;" required="true">
 											<option selected="selected">Administrator</option>
 											<option>Normal</option>
 										</select>
@@ -112,19 +112,19 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Password</label>
-										<input type="password" class="form-control" id="" placeholder="" required>
+										<input type="password" class="form-control" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Confirm Password</label>
-										<input type="password" class="form-control" id="" placeholder="" required>
+										<input type="password" class="form-control" required="true">
 										
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
+					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Add User
 										</button>
 					              	</div>
