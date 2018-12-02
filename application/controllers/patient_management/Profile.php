@@ -1,6 +1,6 @@
 <?php
 
-class Profile extends MY_Controller {
+class Profile extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{

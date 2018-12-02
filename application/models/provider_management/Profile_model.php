@@ -1,15 +1,13 @@
 <?php
 
-class Profile_model extends MY_Model {
+class Profile_model extends Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'provider';
-	protected $entity = 'Profile_entity';
+	protected $entity = '\Mobiledrs\entities\provider_management\Profile_entity';
 
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->load->library('provider_management/profile/' . $this->entity);
 	}
 
 	public function prepare_data() : array

@@ -1,6 +1,6 @@
 <?php
 
-class Transaction_model extends MY_Model {
+class Transaction_model extends \Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'patient_transactions';
 

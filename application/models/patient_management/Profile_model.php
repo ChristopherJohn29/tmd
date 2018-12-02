@@ -1,15 +1,13 @@
 <?php
 
-class Profile_model extends MY_Model {
+class Profile_model extends \Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'patient';
-	protected $entity = 'User_entity';
+	protected $entity = '\Mobiledrs\entities\patient_management\Profile_entity';
 
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->load->library('entities/authentication/' . $this->entity);
 	}
 
 	public function prepare_data() : array

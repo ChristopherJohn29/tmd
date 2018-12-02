@@ -1,6 +1,8 @@
 <?php
 
-class User_model extends MY_Model {
+require_once(APPPATH . 'core/MY_Models.php');
+
+class User_model extends \Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'user';
 	protected $entity = '\Mobiledrs\entities\authentication\User_entity';

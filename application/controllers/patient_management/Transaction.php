@@ -1,6 +1,6 @@
 <?php
 
-class Transaction extends MY_Controller {
+class Transaction extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{

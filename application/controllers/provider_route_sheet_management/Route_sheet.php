@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Route_sheet extends MY_Controller {
+class Route_sheet extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{

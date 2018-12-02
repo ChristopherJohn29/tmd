@@ -139,35 +139,4 @@
             
           </div>
           <!-- /.box -->
->>>>>>> feature-template-design
-
-												{% for role in roles %}
-													<option value="{{ role.roles_id }}">{{ role.roles_name }}</option>
-												{% endfor %}
-
-											</select>
-										</div>
-									</div>
-									
-									<input type="password" name="user_password">
-									<input type="password" name="confirm_password">
-									
-									
-									<div class="form-group xrx-btn-handler">
-										<div class="col-sm-3"></div>
-										<div class="col-sm-7">
-											<button type="submit" class="btn btn-primary xrx-btn">
-												<i class="fa fa-check"></i> Add User
-											</button>
-										</div>
-									</div>
-									
-								</div>
-								
-							</form>
-						
-					</div>
-					<!-- /.box -->
-
-			</div>
 {% endblock %}

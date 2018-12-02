@@ -1,6 +1,6 @@
 <?php
 
-class Route_sheet_model extends MY_Model {
+class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'provider_route_sheet';
 
