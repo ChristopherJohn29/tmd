@@ -60,8 +60,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Type of Visit</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">Type of Visit <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Initial Visit (Home)</option>
 											<option>Initial Visit (Facility)</option>
 											<option>Follow-up Visit</option>
@@ -73,8 +73,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Provider</label>
-										<select class="form-control select2" style="width: 100%;">
+										<label class="control-label">Provider <span>*</span></label>
+										<select class="form-control select2" style="width: 100%;" required>
 											<option selected="selected">Alexandra Kirtchik</option>
 											<option>Fidelia Nchetam</option>
 											<option>Grace Adeagbo</option>
@@ -87,7 +87,7 @@
 									</div>
 									
 									<div class="col-md-6 form-group">
-										<label>Date of Service</label>
+										<label>Date of Service <span>*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 									</div>
 									
@@ -118,8 +118,8 @@
 									
 									<div class="col-md-3 form-group">
 									
-										<label class="control-label">Performed?</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">Performed? <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Yes</option>
 											<option>No</option>
 										</select>
@@ -128,8 +128,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">ACP</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">ACP <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Yes</option>
 											<option>No</option>
 										</select>
@@ -138,8 +138,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Diabetes</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">Diabetes <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Yes</option>
 											<option>No</option>
 										</select>
@@ -148,8 +148,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Tobacco</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">Tobacco <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Yes</option>
 											<option>No</option>
 										</select>
@@ -158,8 +158,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">TCM</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">TCM <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Yes</option>
 											<option>No</option>
 										</select>
@@ -175,15 +175,15 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">ICD-10 Codes</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">ICD-10 Codes <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Date Referral was Emailed</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<label class="control-label">Date Referral was Emailed <span>*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 										
 									</div>
 									
