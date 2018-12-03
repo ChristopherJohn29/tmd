@@ -77,8 +77,7 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('payroll_management/payroll') }}"><i class="fa fa-angle-right"></i> View Payroll</a></li>
-				<li><a href="{{ site_url('payroll_management/payroll/search') }}"><i class="fa fa-angle-right"></i> Search Payroll</a></li>
+				<li><a href="{{ site_url('payroll_management/payroll/search') }}"><i class="fa fa-angle-right"></i> Create Payroll</a></li>
 			</ul>
 		</li>
 		<li class="treeview">

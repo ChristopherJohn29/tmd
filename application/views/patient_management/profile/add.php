@@ -43,9 +43,10 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group has-error">
 										<label>Date of Referral <span>*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
+                                        <span class="help-block">This field is required.</span>
 									</div>
 									
 									<div class="col-md-6 form-group">
@@ -58,8 +59,9 @@
 									
 										<label class="control-label">Last Name <span>*</span></label>
 										<input type="text" class="form-control" name="lastname" id="lastname" placeholder="" required>
+                                        
 									</div>
-									
+                                    
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date of Birth <span>*</span></label>
