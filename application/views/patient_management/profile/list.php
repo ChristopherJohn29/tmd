@@ -10,6 +10,13 @@
 
 {% block content %}
 	 <div class="row">
+
+	 	<div class="col-xs-12">
+	      {% if states %}
+	        {{ include('commons/alerts.php') }}
+	      {% endif %}
+	    </div>
+
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
@@ -30,186 +37,25 @@
                   </thead>
                   
                   <tbody>
-	                  <tr>
-	                    <td>Tolentino, Lorna</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Concepcion, Gabby</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Soriano, Maricel</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Bautista, Herbert</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Cuneta, Sharon</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Bonnevie, Dina</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Muhlach, Aga</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Salonga, Lea</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Fernandez, Rudy</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Quizon, Dolphy</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  	                  <tr>
-	                    <td>Tolentino, Lorna</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Concepcion, Gabby</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Soriano, Maricel</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Bautista, Herbert</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Cuneta, Sharon</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Bonnevie, Dina</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Muhlach, Aga</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Salonga, Lea</td>
-	                    <td>10/29/18</td>
-	                    <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-	                    <td>11/06/18</td>
-	                    <td>
-							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-						</td>
-	                  </tr>
+
+	                  {% if records %}
+
+	                  	{% for record in records %}
+
+                  			<tr>
+			                    <td>{{ record.get_reverse_fullname() }}</td>
+			                    <td>{{ record.get_date_format(record.patient_referralDate) }}</td>
+			                    <td>{{ '' }}</td>
+			                    <td>{{ '' }}</td>
+			                    <td>
+									<a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
+									<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
+								</td>
+			                </tr>
+
+	                  	{% endfor %}
+
+	                  {% endif %}
 	                  
 					  </tbody>
 					  <tfoot>

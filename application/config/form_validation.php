@@ -215,8 +215,8 @@ $config = array(
             'rules' => 'required|max_length[45]'
         ),
         array(
-            'field' => 'patient_sex',
-            'label' => 'Sex',
+            'field' => 'patient_gender',
+            'label' => 'Gender',
             'rules' => 'required|max_length[2]'
         ),
         array(
@@ -247,7 +247,7 @@ $config = array(
         array(
             'field' => 'patient_hhcID',
             'label' => 'Firstname',
-            'rules' => 'required|integer'
+            'rules' => 'required'
         )
     ),
     'patient_management/transaction/save' => array(

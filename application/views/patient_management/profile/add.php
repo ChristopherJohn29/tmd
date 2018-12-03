@@ -28,53 +28,52 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
+							{{ form_open("patient_management/profile/save", {"class": "xrx-form"}) }}
 							
-								<div class="row">
-									
-									<div class="col-lg-12">
-										<div class="alert alert-success" role="alert"> <strong>Well done!</strong> You successfully read this important alert message. </div>
-										<div class="alert alert-info" role="alert"> <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important. </div>
-										<div class="alert alert-warning" role="alert"> <strong>Warning!</strong> Better check yourself, you're <a href="#" class="alert-link">not looking too good</a>. </div>
-										<div class="alert alert-danger" role="alert"> <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again. </div>
-									</div>
+								<div class="row">									
 								
 									<div class="col-md-12">
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-12 form-group has-error">
+									<div class="col-md-12 form-group">
 										<label>Date of Referral <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
-                                        <span class="help-block">This field is required.</span>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate">
 									</div>
+
+									<!-- <div class="col-md-12 form-group has-error">
+										<label>Date of Referral <span>*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true">
+                                        <span class="help-block">This field is required.</span>
+									</div> -->
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">First Name <span>*</span></label>
-										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="" required>
+										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="" required="true" name="patient_firstname">
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Last Name <span>*</span></label>
-										<input type="text" class="form-control" name="lastname" id="lastname" placeholder="" required>
+										<input type="text" class="form-control" name="lastname" id="lastname" placeholder="" required="true" name="patient_lastname">
                                         
 									</div>
                                     
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" name="dob" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
+										<input type="text" class="form-control" name="dob" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Gender <span>*</span></label>
-										<select class="form-control" style="width: 100%;" name="gender" id="dob" required>
-						                  <option selected="selected">Male</option>
-						                  <option>Female</option>
+										<select class="form-control" style="width: 100%;" name="patient_gender" id="dob" required="true">
+											<option value="" selected="true">Please select</option>
+						                  	<option value="Male">Male</option>
+						                  	<option value="Female">Female</option>
 						                </select>
 						                
 									</div>
@@ -82,28 +81,28 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Medicare <span>*</span></label>
-										<input type="text" class="form-control" name="medicare" id="medicare" placeholder="" required>
+										<input type="text" class="form-control" name="medicare" id="medicare" placeholder="" required="true" name="patient_medicareNum">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Phone <span>*</span></label>
-										<input type="text" class="form-control" name="phone" id="phone" placeholder="" required>
+										<input type="text" class="form-control" name="phone" id="phone" placeholder="" required="true" name="patient_phoneNum">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" name="address" id="address" placeholder="" required>
+										<input type="text" class="form-control" name="address" id="address" placeholder="" required="true" name="patient_address">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Caregiver/Family</label>
-										<input type="text" class="form-control" name="caregiver" id="caregiver" placeholder="">
+										<input type="text" class="form-control" name="caregiver" id="caregiver" placeholder="" name="patient_caregiver_family">
 										
 									</div>
 									
@@ -114,16 +113,7 @@
 									<div class="col-md-12 form-group">
 										<label class="control-label">Home Health <span>*</span></label>
 										
-										<select class="form-control select2" style="width: 100%;" name="homehealth" id="homehealth" required>
-											<option selected="selected">Advance Home Care</option>
-											<option>Divine Care Home Health</option>
-											<option>Faith and Hope</option>
-											<option>GMO Home Health</option>
-											<option>Healthy Choice Home Care</option>
-											<option>Millenium Home Health</option>
-											<option>Nightingle Home Health</option>
-											<option>Prestige Home Health</option>
-											<option>R & G Home Health Care</option>
+										<select class="form-control select2" style="width: 100%;" name="homehealth" id="homehealth" required="true" name="patient_hhcID">
 										</select>
 										
 									</div>

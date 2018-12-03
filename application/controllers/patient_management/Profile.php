@@ -7,8 +7,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
-			'patient_management/profile_model' => 'profile_model',
-			'home_health_care_management/profile_model' => 'hhcm_profile_model'
+			'patient_management/profile_model' => 'profile_model'
 		));
 	}
 
@@ -18,11 +17,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$params = [
 			'table_key' => 'patient_dateCreated',
-			'order_type' => 'DESC',
-			'records_model' => 'profile_model'
+			'order_type' => 'DESC'
 		];
 
-		$page_data['records'] = parent::get_latest_records($params);
+		$page_data['records'] = $this->profile_model->records($params);
 
 		$this->twig->view('patient_management/profile/list', $page_data);
 	}
@@ -31,9 +29,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_pt');
 
-		$page_data['hhcm_records'] = $this->hhcm_profile_model->records(['key' => 'hhc_id']);
-
-		$this->twig->view('patient_management/profile/add', $page_data);
+		$this->twig->view('patient_management/profile/add');
 	}
 
 	public function edit(string $patient_id)
@@ -41,13 +37,16 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('edit_pt');
 
 		$params = [
-			'table_key' => 'patient_id',
-        	'record_key' => $patient_id,
-        	'record_table' => 'profile_model'
+			'key' => 'patient_id',
+        	'value' => $patient_id
 		];
 
-		$page_data['record'] = parent::get_record($params);
-		$page_data['hhcm_records'] = $this->hhcm_profile_model->records(['key' => 'hhc_id']);
+		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
 
 		$this->twig->view('patient_management/profile/edit', $page_data);
 	}
@@ -60,7 +59,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'record_id' => $patient_id,
 			'table_key' => 'patient_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'patient_management/profile'
+			'redirect_url' => 'patient_management/profile',
+			'validation_group' => 'patient_management/profile/save'
 		];
 
 		parent::save_data($params);
@@ -71,12 +71,16 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('view_pt');
 
 		$params = [
-			'table_key' => 'patient_id',
-        	'record_key' => $patient_id,
-        	'record_table' => 'profile_model'
+			'key' => 'patient_id',
+        	'value' => $patient_id
 		];
 
-		$page_data['record'] = parent::get_record($params);
+		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
 
 		$this->twig->view('patient_management/profile/details', $page_data);
 	}
@@ -85,10 +89,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('search_pt');
 
-		$params = ['search_model' => 'profile_model'];
-
-		$page_data['records'] = parent::search_data($params);
-
-		$this->twig->view('patient_management/profile/search', $page_data);
+		$this->twig->view('patient_management/profile/search');
 	}
 }
