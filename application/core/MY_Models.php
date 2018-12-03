@@ -106,7 +106,7 @@ class MY_Models extends \CI_Model {
 	{
 		foreach($this->input->post() as $key => $value)
 		{
-			if (in_array($key, $this->excludes_list))
+			if (isset($this->excludes_list) && in_array($key, $this->excludes_list))
 			{
 				continue;
 			}

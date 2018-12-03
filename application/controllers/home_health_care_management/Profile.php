@@ -17,11 +17,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$params = [
 			'table_key' => 'hhc_dateCreated',
-			'order_type' => 'DESC',
-			'records_model' => 'profile_model'
+			'order_type' => 'DESC'
 		];
 
-		$page_data['records'] = parent::get_latest_records($params);
+		$page_data['records'] = $this->profile_model->records($params);
 
 		$this->twig->view('home_health_care_management/profile/list', $page_data);
 	}
@@ -38,12 +37,16 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('edit_hhc');
 
 		$params = [
-			'table_key' => 'hhc_id',
-        	'record_key' => $hhc_id,
-        	'record_table' => 'profile_model'
+			'key' => 'hhc_id',
+        	'value' => $hhc_id
 		];
 
-		$page_data['record'] = parent::get_record($params);
+		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
 
 		$this->twig->view('home_health_care_management/profile/edit', $page_data);
 	}
@@ -56,35 +59,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'record_id' => $hhc_id,
 			'table_key' => 'hhc_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'home_health_care_management/profile'
+			'redirect_url' => 'home_health_care_management/profile',
+			'validation_group' => 'home_health_care_management/profile/save'
 		];
 
 		parent::save_data($params);   
-	}
-
-	public function details(string $hhc_id)
-	{
-		$this->check_permission('view_hhc');
-
-		$params = [
-			'table_key' => 'hhc_id',
-        	'record_key' => $hhc_id,
-        	'record_table' => 'profile_model'
-		];
-
-		$page_data['record'] = parent::get_record($params);
-
-		$this->twig->view('home_health_care_management/profile/details', $page_data);
-	}
-
-	public function search()
-	{
-		$this->check_permission('search_hhc');
-
-		$params = ['search_model' => 'profile_model'];
-
-		$page_data['records'] = parent::search_data($params);
-
-		$this->twig->view('home_health_care_management/profile/search', $page_data);
 	}
 }

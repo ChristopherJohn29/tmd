@@ -24,49 +24,49 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
+							{{ form_open("home_health_care_management/profile/save", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Home Health <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control"  required="true" name="hhc_name">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Contact Person <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" " required="true" name="hhc_contact_name">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Phone Number <span>*</span></label>
-										<input type="phone" class="form-control" id="" placeholder="" required>
+										<input type="phone" class="form-control"  required="true" name="hhc_phoneNumber">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Fax</label>
-										<input type="email" class="form-control" id="" placeholder="">
+										<input type="phone" class="form-control" name="hhc_faxNumber">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Email <span>*</span></label>
-										<input type="email" class="form-control" id="" placeholder="" required>
+										<input type="email" class="form-control"  required="true" name="hhc_email">
 						                
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control"  required="true" name="hhc_address">
 										
 									</div>
 									

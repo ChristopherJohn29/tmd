@@ -171,32 +171,35 @@ $config = array(
     'home_health_care_management/profile/save' => array(
         array(
             'field' => 'hhc_name',
-            'label' => 'Firstname',
+            'label' => 'Name',
             'rules' => 'required|max_length[45]'
         ),
         array(
             'field' => 'hhc_contact_name',
-            'label' => 'Firstname',
+            'label' => 'Contact Name',
             'rules' => 'required|max_length[45]'
         ),
         array(
             'field' => 'hhc_phoneNumber',
-            'label' => 'Firstname',
+            'label' => 'Phone Number',
             'rules' => 'required|max_length[45]'
         ),
         array(
             'field' => 'hhc_faxNumber',
-            'label' => 'Firstname',
-            'rules' => 'required|max_length[45]'
+            'label' => 'Fax Number',
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'hhc_email',
-            'label' => 'Firstname',
-            'rules' => 'required|max_length[45]'
+            'label' => 'Email',
+            'rules' => 'required|valid_email|max_length[45]|is_unique[home_health_care.hhc_email]',
+            'errors' => array(
+                'is_unique' => 'This %s already exists.'
+            )
         ),
         array(
             'field' => 'hhc_address',
-            'label' => 'Firstname',
+            'label' => 'Address',
             'rules' => 'required|max_length[255]'
         )
     ),

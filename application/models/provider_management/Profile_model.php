@@ -5,7 +5,6 @@ class Profile_model extends Mobiledrs\core\MY_Models {
 	protected $table_name = 'provider';
 	protected $entity = '\Mobiledrs\entities\provider_management\Profile_entity';
 	protected $record_entity = null;
-	protected $excludes_list = [];
 
 	public function __construct()
 	{
