@@ -200,15 +200,19 @@
              		
              		<div class="row no-print">
           	
-					<div class="col-xs-12 xrx-btn-handler">
-						<a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
-						
-						<button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
-						<i class="fa fa-download"></i> Generate PDF
-						</button>
-					</div>
-		          
-		        </div>
+                        <div class="col-xs-12 xrx-btn-handler">
+                            <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+
+                            <button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+                            <i class="fa fa-download"></i> Generate PDF
+                            </button>
+
+                            <button type="button" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
+                            <i class="fa fa-credit-card"></i> Paid
+                            </button>
+                        </div>
+
+                    </div>
              		
              	</section>
               

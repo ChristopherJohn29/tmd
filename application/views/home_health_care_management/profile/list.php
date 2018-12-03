@@ -22,8 +22,10 @@
 				<thead>
 					<tr>
 						<th>Home Health</th>
-						<th>Contact Name</th>
+						<th>Contact Person</th>
 						<th>Phone</th>
+                        <th>Fax</th>
+                        <th>Email</th>
 						<th>Address</th>
 						<th width="80px">Action</th>
 					</tr>
@@ -34,6 +36,8 @@
 						<td>GMO Home Health</td>
 						<td>Marina</td>
 						<td>808 909 2599</td>
+                        <td></td>
+                        <td>gmahomehealth@yahoo.com</td>
 						<td>605 Roberts Road, San Francisco, CA 94112</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -44,6 +48,8 @@
 						<td>Faith and Hope</td>
 						<td>Hilda</td>
 						<td>808 920 8482</td>
+                        <td></td>
+                        <td>fnhgroupinc@gmail.com</td>
 						<td>7526 Mechanic Street, Westminster, CA 92683</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -54,6 +60,8 @@
 						<td>Divine Care Home Health</td>
 						<td>Jean</td>
 						<td>805 578 9481</td>
+                        <td></td>
+                        <td>divinecarehh@yahoo.com</td>
 						<td>9898 Coffee St., Chino, CA 91710</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -64,6 +72,8 @@
 						<td>White Shield Home Health</td>
 						<td>Kristina</td>
 						<td>818 241 7404</td>
+                        <td></td>
+                        <td>whiteshieldhhc@gmail.com</td>
 						<td>5 S. School Drive, San Diego, CA 92126</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -74,6 +84,8 @@
 						<td>Millenium Home Health</td>
 						<td>Mike</td>
 						<td>323 868 1034</td>
+                        <td></td>
+                        <td>milleniumhh@yahoo.com</td>
 						<td>751 Thorne Avenue, Livermore, CA 94550</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -84,6 +96,8 @@
 						<td>Nightingle Home Health</td>
 						<td>Anika</td>
 						<td>818 245 6900</td>
+                        <td></td>
+                        <td>nightingalehhc13@yahoo.com</td>
 						<td>61 Wilson Road, Indio, CA 92201</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -94,6 +108,8 @@
 						<td>Prestige Home Health</td>
 						<td>Alvita</td>
 						<td>323 644 0607</td>
+                        <td></td>
+                        <td>notes4prestige@gmail.conm</td>
 						<td>36 Canterbury Street, Long Beach, CA 90813</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -104,6 +120,8 @@
 						<td>Advance Home Care</td>
 						<td>Seda</td>
 						<td>818 848 2100</td>
+                        <td></td>
+                        <td>advancehomecareinc@gmail.com</td>
 						<td>7056 North Foster Court, Ontario, CA 91761</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -114,6 +132,8 @@
 						<td>Healthy Choice Home Care</td>
 						<td>Karina</td>
 						<td>818 787 2482</td>
+                        <td></td>
+                        <td>healthychoicehhc@yahoo.com</td>
 						<td>68 Pacific St., Compton, CA 90221</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
@@ -121,9 +141,11 @@
 					</tr>
 					
 					<tr>
-						<td>R & G Home Health Care</td>
+						<td>R &amp; G Home Health Care</td>
 						<td>Rita</td>
 						<td>818 840 0900</td>
+                        <td>818 840 0999</td>
+                        <td></td>
 						<td>8192 Windsor Drive, Simi Valley, CA 93065</td>
 						<td>
 							<a href="{{ site_url('home_health_care_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>

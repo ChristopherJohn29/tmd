@@ -13,7 +13,6 @@
         <div class="col-md-12">
           <div class="box">
             
-            <!-- /.box-header -->
             <div class="box-body">
               
              	<section class="xrx-info">
@@ -131,7 +130,7 @@
 							</table>
                             </div>
                             
-							<a href="add-transaction.php">
+							<a href="{{ site_url('patient_management/transaction/add') }}" title="">
 								<button type="button" class="btn btn-default">
 									<i class="fa fa-plus"></i> Add Transaction
 								</button>
@@ -178,7 +177,7 @@
 									<tr>
 										<th>Re-Certification</th>
 										<td>6/18/2018 - 8/16/2018</td>
-										<td>02/07/201</td>
+										<td>02/07/2018</td>
 										<td>7/3 - 7/19</td>
 										<td>8/2 - 8/14</td>
 										<td>-</td>
@@ -187,10 +186,10 @@
 									</tr>
 								</tbody>
 								
-							</table>
+							 </table>
                             </div>
                             
-							<a href="add-certification.php">
+							<a href="{{ site_url('patient_management/CPO/add') }}" title="">
 								<button type="button" class="btn btn-default">
 									<i class="fa fa-plus"></i> Add Certification
 								</button>
@@ -202,16 +201,61 @@
              		
              		
              		
-             		<div class="row xrx-row-spacer">
+             		<div class="row xrx-row-spacer last-row">
              		
-             			<div class="col-md-7">
+             			<div class="col-md-12">
              			
              				<p class="lead">Communication Notes</p>
              				
-             					<ul>
-             						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-			 						<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-             					</ul>
+                            <div class="table-responsive">
+             				   <table class="table no-margin table-hover">
+								<thead>
+									<tr>
+										<th>Note Added</th>
+										<th>Note</th>
+										<th width="90px">Actions</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<tr>
+										<th>11/25/2018</th>
+										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										<td>
+                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
+									</tr>
+                                    <tr>
+										<th>11/26/2018</th>
+										<td>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+										<td>
+                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
+									</tr>
+                                    <tr>
+										<th>11/27/2018</th>
+										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										<td>
+                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
+									</tr>
+                                    <tr>
+										<th>11/29/2018</th>
+										<td>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+										<td>
+                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
+									</tr>
+								</tbody>
+								
+							 </table>
+                            </div>
+                            
+                            <a href="{{ site_url('patient_management/notes/add') }}" title="">
+								<button type="button" class="btn btn-default">
+									<i class="fa fa-plus"></i> Add Notes
+								</button>
+							</a>
              				
              			</div>
              			
@@ -220,15 +264,15 @@
              
 					<div class="row no-print">
           	
-					<div class="col-xs-12 xrx-btn-handler">
-						<a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
-						
-						<button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
-						<i class="fa fa-download"></i> Generate PDF
-						</button>
-					</div>
-		          
-		        </div>
+                        <div class="col-xs-12 xrx-btn-handler">
+                            <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+
+                            <button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+                            <i class="fa fa-download"></i> Generate PDF
+                            </button>
+                        </div>
+
+                    </div>
              		
              	</section>
               

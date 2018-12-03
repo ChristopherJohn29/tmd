@@ -65,6 +65,7 @@
 		margin-bottom: 0 !important;	
 		}
 	
+/* xrx buttons */
 .xrx-btn {
 	border-radius: 6px !important;
 	letter-spacing: 1px;
@@ -76,6 +77,33 @@
 	.btn-no-border {
 		border: 0 !important;
 		}
+
+.xrx-upload-file {
+    position: relative !important;
+    overflow: hidden !important;
+    }
+
+.xrx-upload-file input[type=file] {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    font-size: 100px !important;
+    text-align: right !important;
+    filter: alpha(opacity=0) !important;
+    opacity: 0 !important;
+    outline: none !important;
+    background: white !important;
+    cursor: inherit !important;
+    display: block !important;
+    }
+
+#img-upload{
+    width: 200px !important;
+    height: auto ! important;
+    margin: 0 auto;
+    }
 	
 .xrx-container {
 	height: 800px;
@@ -116,7 +144,7 @@
 	
 .xrx-row-spacer {
 	margin-top: 40px;
-	margin-bottom: 0;
+	margin-bottom: 20px;
 	}
 	
 .xrx-info-handler {
@@ -137,7 +165,6 @@
 .xrx-info {
 	display: block;
 	min-height: 70px;
-	margin-bottom: 20px;
 	}
 	
 	.xrx-info h1.name {
@@ -195,6 +222,45 @@
     .xrx-info .spacer-bottom {
         margin-bottom: 20px;
         }
+
+    .xrx-info .no-print {
+        border-top: 1px solid #efefef;
+        border-width: 90%;
+        }
+
+    .xrx-info .search-handler {
+        padding: 70px 0 0;
+        min-height: 180px;
+        }
+
+        .xrx-info .search-handler input {
+            border-top: 0 !important;
+            border-right: 0 !important;
+            border-left: 0 !important;
+            border-bottom: 0 !important;
+            font-size: 26px;
+            font-weight: 300;
+            }
+
+            .xrx-info .search-handler .input-group-addon {
+                border-top: 0 !important;
+                border-right: 0 !important;
+                border-left: 0 !important;
+                border-bottom: 0 !important;
+                }
+
+            .xrx-info .search-handler .input-group {
+                 border-bottom: 1px solid #efefef;
+                }
+
+        .xrx-info .search-handler .payroll input {
+            border-top: 1px !important;
+            border-right: 0 !important;
+            border-left: 0 !important;
+            border-bottom: 0 !important;
+            font-size: 26px;
+            font-weight: 300;
+            }
 		
 		
 		
@@ -325,7 +391,32 @@ h1, h2, h3, h4, h5, h6 {
 		border-color: #ebccd1 !important
 		}
 
-    /* user profile */
+/* forms */
+
+textarea {
+    resize: none !important;
+    }
+
+label span {
+    color: #a94442 !important;
+    }
+
+/*
+input[type="file"] {
+    display: none;
+    }
+
+    .xrx-file-upload-btn {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        }
+*/
+    
+
+
+/* user profile */
 
 .navbar-nav>.user-menu>.dropdown-menu {
     width: 250px !important;
@@ -378,6 +469,20 @@ li.user-header p span a {
         width: 40%;
         }
     
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 24px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 12px !important;
+        border-radius: 4px !important;
+        padding: 12px 30px !important;
+        }
+    
 }
 
 /* Extra Small Devices, Phones */ 
@@ -391,6 +496,20 @@ li.user-header p span a {
     /* inside logo */
     .main-header .logo .logo-lg  img {
         width: 40%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 24px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 12px !important;
+        border-radius: 4px !important;
+        padding: 15px 48px !important;
         }
     
 }
@@ -408,6 +527,20 @@ li.user-header p span a {
         width: 60%;
         }
     
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 24px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        padding: 15px 48px !important;
+        }
+    
 }
 
 /* Medium Devices, Desktops */
@@ -423,6 +556,20 @@ li.user-header p span a {
         width: 60%;
         }
     
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 30px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        padding: 15px 48px !important;
+        }
+    
 }
 
 /* Large Devices, Wide Screens */
@@ -436,6 +583,20 @@ li.user-header p span a {
     /* inside logo */
     .main-header .logo .logo-lg  img {
         width: 60%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 36px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        padding: 15px 48px !important;
         }
     
 }
