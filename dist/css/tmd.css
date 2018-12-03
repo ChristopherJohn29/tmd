@@ -397,6 +397,10 @@ textarea {
     resize: none !important;
     }
 
+label span {
+    color: #a94442 !important;
+    }
+
 /*
 input[type="file"] {
     display: none;
