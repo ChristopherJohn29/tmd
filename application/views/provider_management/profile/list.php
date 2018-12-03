@@ -10,6 +10,13 @@
 
 {% block content %}
 	 <div class="row">
+
+	 	<div class="col-xs-12">
+	      {% if states is defined %}
+	        {{ include('commons/alerts.php') }}
+	      {% endif %}
+	    </div>
+
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
@@ -30,83 +37,26 @@
 					</thead>
 	                  
 					<tbody>
-						<tr>
-							<td>Alexandra Kirtchik</td>
-							<td>202-555-0162</td>
-							<td>alexandra.kirtchik@email.com</td>
-							<td>38 Poplar St., Watsonville, CA 95076</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
 						
-						<tr>
-							<td>Henry Barraza</td>
-							<td>202-555-0166</td>
-							<td>henry.arraza@email.com</td>
-							<td>567 Longbranch Drive, Daly City, CA 94015</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Shohreh Nourollah</td>
-							<td>202-555-0145</td>
-							<td>henry.arraza@email.com</td>
-							<td>7234 Del Monte Street, Oxnard, CA 93030</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Lilibeth Ramirez</td>
-							<td>202-555-0128</td>
-							<td>lilibeth.ramirez@email.com</td>
-							<td>9433 East Glenridge Drive, San Francisco, CA 94109</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Fidelia Nchetam</td>
-							<td>202-555-0119</td>
-							<td>fidelia.nchetam@email.com</td>
-							<td>26 Arlington Drive, Spring Valley, CA 91977</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Grace Adeagbo</td>
-							<td>202-555-0159</td>
-							<td>gracea.adeagbo@email.com</td>
-							<td>520 Berkshire Drive, Alameda, CA 94501</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Kaixuan Luo</td>
-							<td>202-535-0551</td>
-							<td>kaixuan.luo@email.com</td>
-							<td>9690 Grandrose Street, Ontario, CA 91762</td>
-							<td>
-								<a href="{{ site_url('provider_management/profile/details/1') }}" title="Edit"><span class="label label-primary">View Details</span></a>
-                                <a href="{{ site_url('provider_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-							</td>
-						</tr>
-						
+						{% if records is defined %}
+
+							{% for record in records %}
+
+								<tr>
+									<td>{{ record.get_fullname() }}</td>
+									<td>{{ record.provider_contactNum }}</td>
+									<td>{{ record.provider_email }}</td>
+									<td>{{ record.provider_address }}</td>
+									<td>
+										<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View Details</span></a>
+		                                <a href="{{ site_url("provider_management/profile/edit/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+									</td>
+								</tr>
+
+							{% endfor %}
+
+						{% endif %}
+
 					</tbody>
                 </table>
                 </div>

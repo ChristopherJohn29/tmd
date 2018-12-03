@@ -68,27 +68,4 @@ class MY_Controller extends \CI_Controller {
 
         return redirect($params['redirect_url']);
 	}
-
-	public function search_data(array $params)
-	{
-		return $this->{$params['search_model']}->find([
-			'where_data' => $this->{$params['search_model']}->prepare_search_data()
-		]);
-	}
-
-	public function get_record(array $params)
-	{
-		return $this->{$params['record_table']}->record([
-			'key' => $params['table_key'],
-        	'value' => $params['record_key']
-		]);
-	}
-
-	public function get_latest_records(array $params)
-	{
-		return $this->{$params['records_model']}->records([
-			'key' => $params['table_key'], 
-			'order_by' => $params['order_type']
-		]);
-	}
 }

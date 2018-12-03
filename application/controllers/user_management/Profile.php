@@ -36,7 +36,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		];
 		
 		$page_data['records'] = $this->profile_model->get_records_by_join($params);
-		$page_data['states'] = $this->session->flashdata();
 
 		$this->twig->view('user_management/profile/list', $page_data);
 	}
@@ -64,11 +63,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$params = [
 			'table_key' => 'user_id',
-        	'record_key' => $user_id,
-        	'record_table' => 'profile_model'
+        	'record_key' => $user_id
 		];
 
-		$page_data['record'] = parent::get_record($params);
+		$page_data['record'] = $this->profile_model->record($params);
 		
 		$role_params = [
 			'where' => [

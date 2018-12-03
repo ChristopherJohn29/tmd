@@ -18,11 +18,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$params = [
 			'table_key' => 'provider_dateCreated',
-			'order_type' => 'DESC',
-			'records_model' => 'profile_model'
+			'order_type' => 'DESC'
 		];
 
-		$page_data['records'] = parent::get_latest_records($params);
+		$page_data['records'] = $this->profile_model->records($params);
 
 		$this->twig->view('provider_management/profile/list', $page_data);
 	}
@@ -57,7 +56,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'record_id' => $provider_id,
 			'table_key' => 'provider_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'provider_management/profile/'
+			'redirect_url' => 'provider_management/profile/',
+			'validation_group' => 'provider_management/profile/save'
 		];
 
 		parent::save_data($params);   

@@ -57,9 +57,7 @@
                         </tr>
 
                       {% endfor %}
-
-                    {% else %}
-                      No Records Found!
+                      
                     {% endif %}
 
                   </tbody>

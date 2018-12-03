@@ -62,12 +62,12 @@
 
 	<script src="{{ base_url }}dist/js/main.js"></script>
     
-{% if scripts is defined %}
-    {% for script in scripts %}
-    <script src="{{ base_url }}{{ script }}.js"></script>
-    {% endfor %}
-{% endif %}
-    
+	{% if scripts is defined %}
+	    {% for script in scripts %}
+	    <script src="{{ base_url }}{{ script }}.js"></script>
+	    {% endfor %}
+	{% endif %}
+	    
     <!-- Page script -->
     <script>
       $(function () {
