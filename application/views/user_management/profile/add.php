@@ -5,7 +5,8 @@
     'bower_components/select2/dist/js/select2.full.min',
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
-    'plugins/input-mask/jquery.inputmask.extensions'
+    'plugins/input-mask/jquery.inputmask.extensions',
+    'dist/js/tmd'
   ]
 %}
 
@@ -36,17 +37,37 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">First Name <span class="field-required">*</span></label>
+
+										<label class="control-label">First Name <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_firstname">
+
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Last Name <span class="field-required">*</span></label>
+
+										<label class="control-label">Last Name <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_lastname">
+
 										
 									</div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                        
+                                        <label>Upload Image</label>
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <span class="btn btn-default xrx-upload-file">
+                                                Browse... <input type="file" id="imgInp">
+                                                </span>
+                                            </span>
+                                            <input type="text" class="form-control" disabled>
+                                        </div>
+                                        <span class="help-block">Suggested image size is 200px x 200px only.</span>
+                                        <img id="img-upload" class="img-circle" />
+                                        
+                                    </div>
                                     
                                     <div class="col-md-12 subheader">
 										<p class="lead">Basic Information</p>
@@ -54,18 +75,22 @@
                                     
                                     <div class="col-md-6 form-group">
 									
-										<label class="control-label">Date of Birth <span class="field-required">*</span></label>
+
+										<label class="control-label">Date of Birth <span>*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth">
+
 										
 									</div>
                                     
                                     <div class="col-md-6 form-group">
 									
-										<label class="control-label">Gender <span class="field-required">*</span></label>
+<
+										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
 											<option value="" selected="true">Please select</option>
 						                  <option value="Male">Male</option>
 						                  <option value="Female">Female</option>
+
 						                </select>
 										
 									</div>
@@ -76,22 +101,28 @@
                                     
                                     <div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone <span class="field-required">*</span></label>
+
+										<label class="control-label">Phone <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_phone">
+
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Email <span class="field-required">*</span></label>
+
+										<label class="control-label">Email <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_email">
+
 										
 									</div>
                                     
                                     <div class="col-md-12 form-group">
 									
-										<label class="control-label">Address <span class="field-required">*</span></label>
+
+										<label class="control-label">Address <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_address">
+
 										
 									</div>
                                     
@@ -101,7 +132,9 @@
                                     
                                     <div class="col-md-12 form-group">
 									
-										<label class="control-label">Account Type <span class="field-required">*</span></label>
+
+										<label class="control-label">Account Type <span>*</span></label>
+
 										
 										<select class="form-control" style="width: 100%;" required="true" name="user_roleID">
 											<option value="" selected="true">Please Select</option>
@@ -116,15 +149,19 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Password <span class="field-required">*</span></label>
+
+										<label class="control-label">Password <span>*</span></label>
 										<input type="password" class="form-control" required="true" name="user_password">
+
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Confirm Password <span class="field-required">*</span></label>
+
+										<label class="control-label">Confirm Password <span>*</span></label>
 										<input type="password" class="form-control" required="true" name="confirm_password">
+
 										
 									</div>
 									

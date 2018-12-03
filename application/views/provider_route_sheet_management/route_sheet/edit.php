@@ -42,8 +42,8 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label>Provider Name</label>
-										<select class="form-control select2" style="width: 100%;">
+										<label>Provider Name <span>*</span></label>
+										<select class="form-control select2" style="width: 100%;" required>
 											<option selected="selected">Alexandra Kirtchik</option>
 											<option>Fidelia Nchetam</option>
 											<option>Grace Adeagbo</option>
@@ -61,8 +61,8 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Date of Service</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<label class="control-label">Date of Service <span>*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 										
 									</div>
 									
@@ -72,16 +72,16 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Time of Visit</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Time of Visit <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Type of Visit</label>
+										<label class="control-label">Type of Visit <span>*</span></label>
 										
-										<select class="form-control" style="width: 100%;">
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Initial Visit (Home)</option>
 											<option>Initial Visit (Facility)</option>
 											<option>Follow-up Visit</option>
@@ -91,8 +91,8 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Patient Name</label>
-										<select class="form-control select2" style="width: 100%;">
+										<label class="control-label">Patient Name <span>*</span></label>
+										<select class="form-control select2" style="width: 100%;" required>
 											<option selected="selected">Cuneta, Sharon</option>
 											<option>Tolentino, Lorna</option>
 											<option>Soriano, Maricel</option>
@@ -105,9 +105,9 @@
 									</div>
 									
 									<div class="col-md-12 form-group">
-										<label class="control-label">Home Health</label>
+										<label class="control-label">Home Health <span>*</span></label>
 										
-										<select class="form-control" style="width: 100%;">
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Advance Home Care</option>
 											<option>Divine Care Home Health</option>
 											<option>Faith and Hope</option>
@@ -123,14 +123,14 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Notes</label>
+										<label class="control-label">Notes <span>*</span></label>
 										<textarea class="form-control" id="" placeholder=""></textarea>
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 										
-					                  	<button type="button" class="btn btn-default">
+					                  	<button type="submit" class="btn btn-default">
 											<i class="fa fa-plus"></i> Add Patient
 										</button>
 					                  

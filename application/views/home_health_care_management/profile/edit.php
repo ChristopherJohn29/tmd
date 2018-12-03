@@ -30,22 +30,22 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Home Health</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Home Health <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Contact Person</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Contact Person <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone Number</label>
-										<input type="phone" class="form-control" id="" placeholder="">
+										<label class="control-label">Phone Number <span>*</span></label>
+										<input type="phone" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
@@ -58,20 +58,20 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Email</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Email <span>*</span></label>
+										<input type="email" class="form-control" id="" placeholder="" required>
 						                
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Address</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Address <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
+					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Update Home Health
 										</button>
 					              	</div>

@@ -60,8 +60,8 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Type of Certification</label>
-										<select class="form-control" style="width: 100%;">
+										<label class="control-label">Type of Certification <span>*</span></label>
+										<select class="form-control" style="width: 100%;" required>
 											<option selected="selected">Certification</option>
 											<option>Re-Certification</option>
 										</select>
@@ -72,36 +72,36 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Certification Period</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Certification Period <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">485 Date Signed</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<label class="control-label">485 Date Signed <span>*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">1st Month CPO</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">1st Month CPO <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">2nd Month CPO</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">2nd Month CPO <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">3rd Month CPO</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">3rd Month CPO <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
