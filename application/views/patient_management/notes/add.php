@@ -53,8 +53,8 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Date</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<label class="control-label">Date <span>*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 										
 									</div>
 									
@@ -62,8 +62,8 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Note</label>
-                                        <textarea class="form-control" rows="7"></textarea>
+										<label class="control-label">Note <span>*</span></label>
+                                        <textarea class="form-control" rows="7" required></textarea>
 										
 									</div>
 									
