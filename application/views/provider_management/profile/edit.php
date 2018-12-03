@@ -26,7 +26,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
+							{{ form_open("provider_management/profile/save/#{ record.provider_id }", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 								
@@ -36,57 +36,57 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">First Name</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">First Name <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_firstname" value="{{ set_value('provider_firstname', record.provider_firstname) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Last Name</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Last Name <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_lastname" value="{{ set_value('provider_lastname', record.provider_lastname) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone Number</label>
-										<input type="phone" class="form-control" id="" placeholder="">
+										<label class="control-label">Phone Number <span class="field-required">*</span></label>
+										<input type="phone" class="form-control" name="provider_contactNum" value="{{ set_value('provider_contactNum', record.provider_contactNum) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Email</label>
-										<input type="email" class="form-control" id="" placeholder="">
+										<label class="control-label">Email <span class="field-required">*</span></label>
+										<input type="email" class="form-control" name="provider_email" value="{{ set_value('provider_email', record.provider_email) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Date of Birth</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<label class="control-label">Date of Birth <span class="field-required">*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" value="{{ set_value('provider_dateOfBirth', record.provider_dateOfBirth) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Languages</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Languages <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_languages" value="{{ set_value('provider_languages', record.provider_languages) }}">
 						                
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Areas</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Areas <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_areas" value="{{ set_value('provider_areas', record.provider_areas) }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Address</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Address <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_address" value="{{ set_value('provider_address', record.provider_address) }}">
 										
 									</div>
 									
@@ -96,22 +96,22 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">National Provider Identifier</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">National Provider Identifier <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_npi" value="{{ set_value('provider_npi', record.provider_npi) }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">DEA Registration Number</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">DEA Registration Number <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_dea" value="{{ set_value('provider_dea', record.provider_dea) }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">License</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">License <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_license" value="{{ set_value('provider_license', record.provider_license) }}">
 										
 									</div>
 									
@@ -121,55 +121,55 @@
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Initial Visit</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Initial Visit <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_initialVisit" value="{{ set_value('provider_rate_initialVisit', record.provider_rate_initialVisit) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Follow-up Visit</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Follow-up Visit <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_followUpVisit" value="{{ set_value('provider_rate_followUpVisit', record.provider_rate_followUpVisit) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Annual Wellness</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Annual Wellness <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_aw" value="{{ set_value('provider_rate_aw', record.provider_rate_aw) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">ACP</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">ACP <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_acp" value="{{ set_value('provider_rate_acp', record.provider_rate_acp) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">No Show</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">No Show <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_noShowPT" value="{{ set_value('provider_rate_noShowPT', record.provider_rate_noShowPT) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Others</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Others <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_others" value="{{ set_value('provider_rate_others', record.provider_rate_others) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Mileage</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Mileage <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_mileage" value="{{ set_value('provider_rate_mileage', record.provider_rate_mileage) }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
+					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Update Provider
 										</button>
 					              	</div>

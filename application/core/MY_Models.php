@@ -101,4 +101,17 @@ class MY_Models extends \CI_Model {
 	{
 		return $this->db->delete($this->table_name, [$params['table_key'] => $params['record_id']]);
 	}
+
+	public function prepare_entity_data()
+	{
+		foreach($this->input->post() as $key => $value)
+		{
+			if (in_array($key, $this->excludes_list))
+			{
+				continue;
+			}
+
+			$this->record_entity->$key = $value;
+		}
+	}
 }

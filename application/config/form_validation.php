@@ -87,7 +87,10 @@ $config = array(
         array(
             'field' => 'provider_email',
             'label' => 'Email',
-            'rules' => 'required|valid_email|max_length[45]'
+            'rules' => 'required|valid_email|max_length[45]|is_unique[provider.provider_email]',
+            'errors' => array(
+                'is_unique' => 'This %s already exists.'
+            )
         ),
         array(
             'field' => 'provider_address',
@@ -127,7 +130,7 @@ $config = array(
         array(
             'field' => 'provider_rate_initialVisit',
             'label' => 'Initial Visit',
-            'rules' => 'required'
+            'rules' => 'required|max_length[10]'
         ),
         array(
             'field' => 'provider_rate_followUpVisit',
@@ -157,6 +160,11 @@ $config = array(
         array(
             'field' => 'provider_rate_mileage',
             'label' => 'Mileage',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_gender',
+            'label' => 'Gender',
             'rules' => 'required|max_length[10]'
         )
     ),

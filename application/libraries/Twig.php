@@ -49,6 +49,7 @@ class Twig {
 	{
 		$page_data['base_url'] = base_url();
 		$page_data['session'] = $this->CI->session->userdata();
+		$page_data['states'] = $this->CI->session->flashdata();
 
 		echo $this->environment->render($filename . '.php', $page_data);
 	}

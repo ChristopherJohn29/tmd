@@ -38,12 +38,16 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('edit_provider');
 
 		$params = [
-			'table_key' => 'provider_id',
-        	'record_key' => $provider_id,
-        	'record_table' => 'profile_model'
+			'key' => 'provider_id',
+        	'value' => $provider_id,
 		];
 
-		$page_data['record'] = parent::get_record($params);
+		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
 
 		$this->twig->view('provider_management/profile/edit', $page_data);
 	}
@@ -68,24 +72,17 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('view_provider');
 
 		$params = [
-			'table_key' => 'provider_id',
-        	'record_key' => $provider_id,
-        	'record_table' => 'profile_model'
+			'key' => 'provider_id',
+        	'value' => $provider_id,
 		];
 
-		$page_data['record'] = parent::get_record($params);
+		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
 
 		$this->twig->view('provider_management/profile/details', $page_data);
-	}
-
-	public function search()
-	{
-		$this->check_permission('search_provider');
-
-		$params = ['search_model' => 'profile_model'];
-
-		$page_data['records'] = parent::search_data($params);
-
-		$this->twig->view('provider_management/profile/search', $page_data);
 	}
 }

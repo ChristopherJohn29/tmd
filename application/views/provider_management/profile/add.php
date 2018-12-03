@@ -26,7 +26,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("", {"class": "xrx-form"}) }}
+							{{ form_open("provider_management/profile/save", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 								
@@ -36,57 +36,57 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">First Name</label>
-										<input type="text" class="form-control" name="provider_firstname">
+										<label class="control-label">First Name <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_firstname" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Last Name</label>
-										<input type="text" class="form-control" name="provider_lastname">
+										<label class="control-label">Last Name <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_lastname" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone Number</label>
-										<input type="phone" class="form-control" name="provider_contactNum">
+										<label class="control-label">Phone Number <span class="field-required">*</span></label>
+										<input type="phone" class="form-control" name="provider_contactNum" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Email</label>
-										<input type="email" class="form-control" name="provider_email">
+										<label class="control-label">Email <span class="field-required">*</span></label>
+										<input type="email" class="form-control" name="provider_email" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Date of Birth</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth">
+										<label class="control-label">Date of Birth <span class="field-required">*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" required="true">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Languages</label>
-										<input type="text" class="form-control" name="provider_languages">
+										<label class="control-label">Languages <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_languages" required="true">
 						                
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Areas</label>
-										<input type="text" class="form-control" name="provider_areas">
+										<label class="control-label">Areas <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_areas" required="true">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Address</label>
-										<input type="text" class="form-control" name="provider_address">
+										<label class="control-label">Address <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_address" required="true">
 										
 									</div>
 									
@@ -96,22 +96,22 @@
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">National Provider Identifier</label>
-										<input type="text" class="form-control" name="provider_npi">
+										<label class="control-label">National Provider Identifier <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_npi" required="true">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">DEA Registration Number</label>
-										<input type="text" class="form-control" name="provider_dea">
+										<label class="control-label">DEA Registration Number <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_dea" required="true">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">License</label>
-										<input type="text" class="form-control" name="provider_license">
+										<label class="control-label">License <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_license" required="true">
 										
 									</div>
 									
@@ -121,50 +121,50 @@
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Initial Visit</label>
-										<input type="text" class="form-control" name="provider_rate_initialVisit">
+										<label class="control-label">Initial Visit <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_initialVisit" required="true">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Follow-up Visit</label>
-										<input type="text" class="form-control" name="provider_rate_followUpVisit">
+										<label class="control-label">Follow-up Visit <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_followUpVisit" required="true">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Annual Wellness</label>
-										<input type="text" class="form-control" name="provider_rate_aw">
+										<label class="control-label">Annual Wellness <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_aw" required="true">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">ACP</label>
-										<input type="text" class="form-control" name="provider_rate_acp">
+										<label class="control-label">ACP <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_acp" required="true">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">No Show</label>
-										<input type="text" class="form-control" name="provider_rate_noShow">
+										<label class="control-label">No Show <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_noShowPT" required="true">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Others</label>
-										<input type="text" class="form-control" name="provider_rate_others">
+										<label class="control-label">Others <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_others" required="true">
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Mileage</label>
-										<input type="text" class="form-control" name="provider_rate_mileage">
+										<label class="control-label">Mileage <span class="field-required">*</span></label>
+										<input type="text" class="form-control" name="provider_rate_mileage" required="true">
 										
 									</div>
 									

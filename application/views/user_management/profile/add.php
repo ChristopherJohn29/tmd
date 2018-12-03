@@ -36,14 +36,14 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">First Name</label>
+										<label class="control-label">First Name <span class="field-required">*</span></label>
 										<input type="text" class="form-control" required="true" name="user_firstname">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Last Name</label>
+										<label class="control-label">Last Name <span class="field-required">*</span></label>
 										<input type="text" class="form-control" required="true" name="user_lastname">
 										
 									</div>
@@ -54,14 +54,14 @@
                                     
                                     <div class="col-md-6 form-group">
 									
-										<label class="control-label">Date of Birth</label>
+										<label class="control-label">Date of Birth <span class="field-required">*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth">
 										
 									</div>
                                     
                                     <div class="col-md-6 form-group">
 									
-										<label class="control-label">Gender</label>
+										<label class="control-label">Gender <span class="field-required">*</span></label>
 										<select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
 											<option value="" selected="true">Please select</option>
 						                  <option value="Male">Male</option>
@@ -76,21 +76,21 @@
                                     
                                     <div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone</label>
+										<label class="control-label">Phone <span class="field-required">*</span></label>
 										<input type="text" class="form-control" required="true" name="user_phone">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Email</label>
+										<label class="control-label">Email <span class="field-required">*</span></label>
 										<input type="text" class="form-control" required="true" name="user_email">
 										
 									</div>
                                     
                                     <div class="col-md-12 form-group">
 									
-										<label class="control-label">Address</label>
+										<label class="control-label">Address <span class="field-required">*</span></label>
 										<input type="text" class="form-control" required="true" name="user_address">
 										
 									</div>
@@ -101,7 +101,7 @@
                                     
                                     <div class="col-md-12 form-group">
 									
-										<label class="control-label">Account Type</label>
+										<label class="control-label">Account Type <span class="field-required">*</span></label>
 										
 										<select class="form-control" style="width: 100%;" required="true" name="user_roleID">
 											<option value="" selected="true">Please Select</option>
@@ -116,14 +116,14 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Password</label>
+										<label class="control-label">Password <span class="field-required">*</span></label>
 										<input type="password" class="form-control" required="true" name="user_password">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Confirm Password</label>
+										<label class="control-label">Confirm Password <span class="field-required">*</span></label>
 										<input type="password" class="form-control" required="true" name="confirm_password">
 										
 									</div>

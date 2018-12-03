@@ -43,4 +43,9 @@ class Entity {
     {
     	return date_format(date_create($date), 'F j, Y l');
     }
+
+    public function get_number_format(string $number) : string
+    {
+		return number_format($number, 2);
+    }
 }

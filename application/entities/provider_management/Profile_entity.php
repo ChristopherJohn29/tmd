@@ -16,6 +16,7 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_npi;
 	protected $provider_dea;
 	protected $provider_license;
+	protected $provider_gender;
 	protected $provider_dateCreated;
 	protected $provider_rate_initialVisit;
 	protected $provider_rate_followUpVisit;
@@ -28,5 +29,10 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	public function get_fullname() : string
 	{
 		return $this->provider_firstname . ' ' . $this->provider_lastname;
+	}
+
+	public function get_reverse_fullname() : string
+	{
+		return $this->provider_lastname . ', ' . $this->provider_firstname;
 	}
 }

@@ -62,11 +62,16 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('edit_user');
 
 		$params = [
-			'table_key' => 'user_id',
-        	'record_key' => $user_id
+			'key' => 'user_id',
+        	'value' => $user_id
 		];
 
 		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
 		
 		$role_params = [
 			'where' => [

@@ -17,7 +17,7 @@
                     <div class="row">
 
                         <div class="col-lg-12">
-                            <h1 class="name">Kirtchik, Alexandra<small>Provider Name</small></h1>
+                            <h1 class="name">{{ record.get_reverse_fullname() }}<small>Provider Name</small></h1>
                         </div>
 
                         <div class="col-md-4">
@@ -27,15 +27,15 @@
                                 <table class="table xrx-table">
                                     <tr>
                                         <th>Address:</th>
-                                        <td>38 Poplar St., Watsonville, CA 95076</td>
+                                        <td>{{ record.provider_address }}</td>
                                     </tr>
                                     <tr>
                                         <th>Phone:</th>
-                                        <td>202-555-0162</td>
+                                        <td>{{ record.provider_contactNum }}</td>
                                     </tr>
                                     <tr>
                                         <th>Email:</th>
-                                        <td>alexandra.kirtchik@email.com</td>
+                                        <td>{{ record.provider_email }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -48,19 +48,19 @@
                                 <table class="table xrx-table">
                                     <tr>
                                         <th>Date of Birth:</th>
-                                        <td>04/07/1944</td>
+                                        <td>{{ record.get_date_format(record.provider_dateOfBirth) }}</td>
                                     </tr>
                                     <tr>
                                         <th>Gender:</th>
-                                        <td>Female</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <th>Languages:</th>
-                                        <td>English, Spanish, Filipino</td>
+                                        <td>{{ record.provider_languages }}</td>
                                     </tr>
                                     <tr>
                                         <th>Areas:</th>
-                                        <td>Downtown L.A.</td>
+                                        <td>{{ record.provider_areas }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -73,15 +73,15 @@
                                 <table class="table xrx-table">
                                     <tr>
                                         <th>National Provider Identifier:</th>
-                                        <td>N09909812-Jh818</td>
+                                        <td>{{ record.provider_npi }}</td>
                                     </tr>
                                     <tr>
                                         <th>DEA Registration Number:</th>
-                                        <td>09287615389109-918817-221</td>
+                                        <td>{{ record.provider_dea }}</td>
                                     </tr>
                                     <tr>
                                         <th>License:</th>
-                                        <td>0918230981Youq089</td>
+                                        <td>{{ record.provider_license }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -110,13 +110,13 @@
 								
 								<tbody>
 									<tr>
-										<td>$120.00</td>
-										<td>$80.00</td>
-										<td>$20.00</td>
-										<td>$10.00</td>
-                                        <td>$20.00</td>
-										<td>10¢</td>
-										<td>-</td>
+										<td>${{ record.get_number_format(record.provider_rate_initialVisit) }}</td>
+										<td>${{ record.get_number_format(record.provider_rate_followUpVisit) }}</td>
+										<td>${{ record.get_number_format(record.provider_rate_aw) }}</td>
+										<td>${{ record.get_number_format(record.provider_rate_acp) }}</td>
+                                        <td>${{ record.get_number_format(record.provider_rate_noShowPT) }}</td>
+										<td>${{ record.get_number_format(record.provider_rate_mileage) }}</td>
+										<td>${{ record.get_number_format(record.provider_rate_others) }}</td>
 									</tr>
 								</tbody>
 							</table>

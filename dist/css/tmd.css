@@ -29,6 +29,11 @@
 	}
 	
 /* forms */
+
+.field-required {
+		color: #a94442;
+	}
+
 .xrx-form {
 	display:block;
     padding: 20px 0;
