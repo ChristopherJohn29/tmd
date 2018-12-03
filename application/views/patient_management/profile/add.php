@@ -44,34 +44,32 @@
 									</div>
 									
 									<div class="col-md-12 form-group">
-										<label>Date of Referral</label>
+										<label>Date of Referral <span>*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">First Name</label>
+										<label class="control-label">First Name <span>*</span></label>
 										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="" required>
-										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Last Name</label>
+										<label class="control-label">Last Name <span>*</span></label>
 										<input type="text" class="form-control" name="lastname" id="lastname" placeholder="" required>
-										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Date of Birth</label>
+										<label class="control-label">Date of Birth <span>*</span></label>
 										<input type="text" class="form-control" name="dob" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Gender</label>
+										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" name="gender" id="dob" required>
 						                  <option selected="selected">Male</option>
 						                  <option>Female</option>
@@ -81,21 +79,21 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Medicare</label>
+										<label class="control-label">Medicare <span>*</span></label>
 										<input type="text" class="form-control" name="medicare" id="medicare" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone</label>
+										<label class="control-label">Phone <span>*</span></label>
 										<input type="text" class="form-control" name="phone" id="phone" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Address</label>
+										<label class="control-label">Address <span>*</span></label>
 										<input type="text" class="form-control" name="address" id="address" placeholder="" required>
 										
 									</div>
@@ -112,7 +110,7 @@
 									</div>
 									
 									<div class="col-md-12 form-group">
-										<label class="control-label">Home Health</label>
+										<label class="control-label">Home Health <span>*</span></label>
 										
 										<select class="form-control select2" style="width: 100%;" name="homehealth" id="homehealth" required>
 											<option selected="selected">Advance Home Care</option>
