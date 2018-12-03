@@ -59,7 +59,7 @@
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <span class="btn btn-default xrx-upload-file">
-                                                Browse... <input type="file" id="imgInp">
+                                                Browse... <input type="file" id="imgInp" accept=".jpg">
                                                 </span>
                                             </span>
                                             <input type="text" class="form-control" disabled>
@@ -84,7 +84,7 @@
                                     
                                     <div class="col-md-6 form-group">
 									
-<
+
 										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
 											<option value="" selected="true">Please select</option>
