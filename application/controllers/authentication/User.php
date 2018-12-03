@@ -36,6 +36,11 @@ class User extends CI_Controller {
 		}
 		else 
 		{
+			$this->session->set_flashdata(
+				'danger', 
+				$this->lang->line('danger_authentication_invalid_user')
+			);
+
 			redirect('authentication/user');
 		}
 	}

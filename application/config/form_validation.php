@@ -23,12 +23,12 @@ $config = array(
         array(
             'field' => 'user_password',
             'label' => 'Password',
-            'rules' => 'required|min_length[8]|max_length[16]'
+            'rules' => 'required|min_length[8]'
         ),
         array(
             'field' => 'confirm_password',
             'label' => 'Confirm Password',
-            'rules' => 'required|min_length[8]|max_length[16]|matches[user_password]'
+            'rules' => 'required|min_length[8]|matches[user_password]'
         ),
         array(
             'field' => 'user_roleID',
@@ -65,7 +65,7 @@ $config = array(
         array(
             'field' => 'user_password',
             'label' => 'Password',
-            'rules' => 'required|min_length[8]|max_length[16]'
+            'rules' => 'required|min_length[8]'
         )
     ),
     'provider_management/profile/save' => array(

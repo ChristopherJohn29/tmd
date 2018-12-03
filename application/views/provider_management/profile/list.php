@@ -12,7 +12,7 @@
 	 <div class="row">
 
 	 	<div class="col-xs-12">
-	      {% if states is defined %}
+	      {% if states %}
 	        {{ include('commons/alerts.php') }}
 	      {% endif %}
 	    </div>

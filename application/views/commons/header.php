@@ -26,7 +26,11 @@
                     <li class="user-header">
                         <p>{{ session['user_fullname'] }}<br>
                         <span>{{ session['user_email'] }}</span>
-                        <span><a href="{{ site_url("user_management/profile/edit/#{ session['user_id'] }") }}" title="Manage Account">Manage Account</a></span></p>
+
+                        {% if session['user_roleID'] != '1' %}
+                        	<span><a href="{{ site_url("user_management/profile/edit/#{ session['user_id'] }") }}" title="Manage Account">Manage Account</a></span></p>
+                        {% endif %}
+                        
                     </li>
 					<!-- Menu Footer-->
 					<li class="user-footer">
