@@ -36,57 +36,67 @@
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">First Name</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">First Name <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Last Name</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Last Name <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Phone Number</label>
-										<input type="phone" class="form-control" id="" placeholder="">
+										<label class="control-label">Phone Number <span>*</span></label>
+										<input type="phone" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Email</label>
-										<input type="email" class="form-control" id="" placeholder="">
+										<label class="control-label">Email <span>*</span></label>
+										<input type="email" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
+                                    <div class="col-md-6 form-group">
+									
+										<label class="control-label">Gender <span>*</span></label>
+										<select class="form-control" style="width: 100%;" name="gender" id="dob" required>
+						                  <option selected="selected">Male</option>
+						                  <option>Female</option>
+						                </select>
+						                
+									</div>
+                                    
 									<div class="col-md-6 form-group">
 									
-										<label class="control-label">Date of Birth</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<label class="control-label">Date of Birth <span>*</span></label>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Languages</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Languages <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 						                
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Areas</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Areas <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
-										<label class="control-label">Address</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Address <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
@@ -121,55 +131,55 @@
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Initial Visit</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Initial Visit <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Follow-up Visit</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Follow-up Visit <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Annual Wellness</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Annual Wellness <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">ACP</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">ACP <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">No Show</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">No Show <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Others</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Others <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-4 form-group">
 									
-										<label class="control-label">Mileage</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<label class="control-label">Mileage <span>*</span></label>
+										<input type="text" class="form-control" id="" placeholder="" required>
 										
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
+					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Add Provider
 										</button>
 					              	</div>
