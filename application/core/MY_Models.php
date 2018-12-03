@@ -96,4 +96,9 @@ class MY_Models extends \CI_Model {
 			$query->custom_row_object(0, $this->entity) :
 			$query->custom_result_object($this->entity);
 	}
+
+	public function delete_data(array $params)
+	{
+		return $this->db->delete($this->table_name, [$params['table_key'] => $params['record_id']]);
+	}
 }

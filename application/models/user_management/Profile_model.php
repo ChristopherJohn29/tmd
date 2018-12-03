@@ -31,19 +31,11 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 			'user_email' => $this->profile_entity->user_email,
 			'user_password' => $this->profile_entity->encrypt_password(),
 			'user_roleID' => $this->profile_entity->user_roleID,
-			'user_dateOfBirth' => $this->profile_entity->user_dateOfBirth,
+			'user_dateOfBirth' => $this->profile_entity->set_date_format(
+				$this->profile_entity->user_dateOfBirth),
 			'user_phone' => $this->profile_entity->user_phone,
 			'user_address' => $this->profile_entity->user_address,
 			'user_gender' => $this->profile_entity->user_gender
-		];
-	}
-
-	public function prepare_search_data() : array
-	{
-		return [
-			'user_firstname' => $this->input->post('user_firstname'),
-			'user_lastname' => $this->input->post('user_lastname'),
-			'user_email' => $this->input->post('user_email')
 		];
 	}
 }

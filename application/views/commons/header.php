@@ -19,14 +19,14 @@
 			<li class="dropdown user user-menu">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="{{ base_url }}dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-					<span class="hidden-xs">{{ user_fullname }}</span>
+					<span class="hidden-xs">{{ session['user_fullname'] }}</span>
 				</a>
 				<ul class="dropdown-menu">
 					<!-- User image -->
                     <li class="user-header">
-                        <p>{{ user_fullname }}<br>
-                        <span>jayson.arcayna@gmail.com</span>
-                        <span><a href="{{ site_url('user_management/profile/edit/1') }}" title="Manage Account">Manage Account</a></span></p>
+                        <p>{{ session['user_fullname'] }}<br>
+                        <span>{{ session['user_email'] }}</span>
+                        <span><a href="{{ site_url("user_management/profile/edit/#{ session['user_id'] }") }}" title="Manage Account">Manage Account</a></span></p>
                     </li>
 					<!-- Menu Footer-->
 					<li class="user-footer">

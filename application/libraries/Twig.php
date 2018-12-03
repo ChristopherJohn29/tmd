@@ -16,7 +16,8 @@ class Twig {
 
 	private $safe_functions = [
 		'form_open',
-		'site_url'
+		'site_url',
+		'set_value'
 	];
 
 	private $CI = null;
@@ -46,13 +47,8 @@ class Twig {
 
 	public function view(string $filename, array $page_data = [])
 	{
-
-
-		$user_fullname = $this->CI->session->userdata('user_firstname') . ' ';
-		$user_fullname .= $this->CI->session->userdata('user_lastname');
-
 		$page_data['base_url'] = base_url();
-		$page_data['user_fullname'] = $user_fullname;
+		$page_data['session'] = $this->CI->session->userdata();
 
 		echo $this->environment->render($filename . '.php', $page_data);
 	}

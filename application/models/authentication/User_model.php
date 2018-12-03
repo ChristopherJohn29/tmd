@@ -25,8 +25,9 @@ class User_model extends \Mobiledrs\core\MY_Models {
 		if ($validate_password)
 		{
 			$data = [
-		        'user_firstname' => $user_entity->user_firstname,
-		        'user_lastname' => $user_entity->user_lastname,
+				'user_id' => $user_entity->user_id,
+		        'user_fullname' => $user_entity->get_fullname(),
+		        'user_email' => $user_entity->user_email,
 		        'user_roleID' => $user_entity->user_roleID,
 		        'user_logged_in' => true
 			];

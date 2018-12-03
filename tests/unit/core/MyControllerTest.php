@@ -93,7 +93,7 @@ class MyControllerTest extends \Codeception\Test\Unit
     {
         $params = [
             'form_validation' => new class {
-                public function run()
+                public function run($validation_group)
                 {
                     return false;
                 }
@@ -104,7 +104,7 @@ class MyControllerTest extends \Codeception\Test\Unit
         $this->myController = $this->make('\Mobiledrs\core\MY_Controller', $params);
 
         $save_params = [
-
+            'validation_group' => 'test'
         ];
 
         $result = $this->myController->save_data($save_params);
@@ -116,7 +116,7 @@ class MyControllerTest extends \Codeception\Test\Unit
     {
         $params = [
             'form_validation' => new class {
-                public function run()
+                public function run($validation_group)
                 {
                     return false;
                 }
@@ -127,7 +127,8 @@ class MyControllerTest extends \Codeception\Test\Unit
         $this->myController = $this->make('\Mobiledrs\core\MY_Controller', $params);
 
         $save_params = [
-            'record_id' => 1
+            'record_id' => 1,
+            'validation_group' => 'test'
         ];
 
         $result = $this->myController->save_data($save_params);
@@ -139,7 +140,7 @@ class MyControllerTest extends \Codeception\Test\Unit
     {
         $params = [
             'form_validation' => new class {
-                public function run()
+                public function run($validation_group)
                 {
                     return true;
                 }
@@ -169,7 +170,8 @@ class MyControllerTest extends \Codeception\Test\Unit
 
         $save_params = [
             'save_model' => 'sample_model',
-            'redirect_url' => 'test/test'
+            'redirect_url' => 'test/test',
+            'validation_group' => 'test'
         ];
 
         $result = $this->myController->save_data($save_params);
@@ -182,7 +184,7 @@ class MyControllerTest extends \Codeception\Test\Unit
     {
         $params = [
             'form_validation' => new class {
-                public function run()
+                public function run($validation_group)
                 {
                     return true;
                 }
@@ -212,12 +214,13 @@ class MyControllerTest extends \Codeception\Test\Unit
 
         $save_params = [
             'save_model' => 'sample_model',
-            'redirect_url' => 'test/test'
+            'redirect_url' => 'test/test',
+            'validation_group' => 'test'
         ];
 
         $result = $this->myController->save_data($save_params);
 
-        $this->assertEquals('Error Saving Data', $this->myController->session->flashdata('error'));
+        $this->assertEquals('Error Saving Data', $this->myController->session->flashdata('danger'));
         $this->assertTrue($result);
     }
 
@@ -225,7 +228,7 @@ class MyControllerTest extends \Codeception\Test\Unit
     {
         $params = [
             'form_validation' => new class {
-                public function run()
+                public function run($validation_group)
                 {
                     return true;
                 }
@@ -257,7 +260,8 @@ class MyControllerTest extends \Codeception\Test\Unit
             'record_id' => '1',
             'save_model' => 'sample_model',
             'redirect_url' => 'test/test',
-            'table_key' => 'test_key'
+            'table_key' => 'test_key',
+            'validation_group' => 'test'
         ];
 
         $result = $this->myController->save_data($save_params);

@@ -1,7 +1,7 @@
 <?php
 
 $config = array(
-    'user_management/profile/save' => array(
+    'user_management/profile/save/' => array(
         array(
             'field' => 'user_firstname',
             'label' => 'Firstname',
@@ -65,7 +65,7 @@ $config = array(
         array(
             'field' => 'user_password',
             'label' => 'Password',
-            'rules' => 'required|min_length[8]'
+            'rules' => 'required|min_length[8]|max_length[16]'
         )
     ),
     'provider_management/profile/save' => array(

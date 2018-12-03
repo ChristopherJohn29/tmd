@@ -91,47 +91,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'record_id' => $user_id,
 			'table_key' => 'user_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'user_management/profile'
+			'redirect_url' => 'user_management/profile',
+			'validation_group' => 'user_management/profile/save/'
 		];
 
 		parent::save_data($params);
-	}
-
-	public function details(string $user_id)
-	{
-		$this->check_permission('view_user');
-
-		$params = [
-			'joins' => [
-				[
-					'join_table_name' => 'roles',
-					'join_table_key' => 'roles.roles_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'user.user_roleID',
-					'join_table_type' => 'inner',
-				]
-			],
-			'where' => [
-				'key' => 'user_id',
-				'condition' => '=',
-				'value' => $user_id
-			],
-			'return_type' => 'row'
-		];
-		
-		$page_data['records'] = $this->profile_model->get_records_by_join($params);
-
-		$this->twig->view('user_management/profile/details', $page_data);
-	}
-
-	public function search()
-	{
-		$this->check_permission('add_user');
-
-		$params = ['search_model' => 'profile_model'];
-
-		$page_data['records'] = parent::search_data($params);
-
-		$this->twig->view('user_management/profile/search', $page_data);
 	}
 }

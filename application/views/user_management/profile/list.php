@@ -48,11 +48,11 @@
                             <td>{{ record.get_fullname }}</td>
                             <td>{{ record.user_email }}</td>
                             <td>{{ record.user_phone }}</td>
-                            <td>{{ record.user_dateOfBirth }}</td>
+                            <td>{{ record.get_date_format(record.user_dateOfBirth) }}</td>
                             <td>{{ record.roles_name }}</td>
                             <td>
-                                <a href="{{ site_url('user_management/profile/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-                                <a href="#"><span class="label label-primary">Delete</span></a>
+                                <a href="{{ site_url("user_management/profile/edit/#{ record.user_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+                                <a href="{{ site_url("ajax/user_management/profile/delete/#{ record.user_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
                             </td>
                         </tr>
 

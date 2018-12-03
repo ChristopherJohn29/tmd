@@ -59,6 +59,8 @@
 	<script src="{{ base_url }}bower_components/fastclick/lib/fastclick.js"></script>
 	<!-- AdminLTE App -->
 	<script src="{{ base_url }}dist/js/adminlte.min.js"></script>
+
+	<script src="{{ base_url }}dist/js/main.js"></script>
     
 {% if scripts is defined %}
     {% for script in scripts %}

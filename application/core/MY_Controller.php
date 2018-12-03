@@ -35,9 +35,9 @@ class MY_Controller extends \CI_Controller {
 	{
 		$this->load->library('form_validation');
 
-		if ($this->form_validation->run() == FALSE)
+		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
-			return ( ! empty($params['record_id'])) ? $this->edit() : $this->add();
+			return ( ! empty($params['record_id'])) ? $this->edit($params['record_id']) : $this->add();
         }
 
         $save = null;

@@ -12,131 +12,136 @@
 {% set page_title = "Update User" %}
 
 {% block content %}
-	<div class="row">
+    <div class="row">
 
-		  <div class="col-lg-6">
+          <div class="col-lg-6">
           <div class="box">
           
             <div class="box-header with-border">
               <h3 class="box-title">Update User</h3>
             </div>
             <!-- /.box-header -->
-				
-				<!-- form start -->
-	            <div class="row">
-					<div class="col-lg-12">
-						<div class="box-body">
-						
-							<form class="xrx-form">
-							
-								<div class="row">
-								
-									<div class="col-md-12">
-										<p class="lead">Personal Information</p>
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">First Name</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
-										
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Last Name</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
-										
-									</div>
+                
+                <!-- form start -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box-body">
+                        
+                            {{ form_open("user_management/profile/save/#{ record.user_id }", {"class": "xrx-form"}) }}
+                            
+                                <div class="row">
+                                
+                                    <div class="col-md-12">
+                                        <p class="lead">Personal Information</p>
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                    
+                                        <label class="control-label">First Name</label>
+                                        <input type="text" class="form-control" required="true" name="user_firstname" value="{{ set_value('user_firstname', record.user_firstname) }}">
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                    
+                                        <label class="control-label">Last Name</label>
+                                        <input type="text" class="form-control" required="true" name="user_lastname" value="{{ set_value('user_lastname', record.user_lastname) }}">
+                                        
+                                    </div>
                                     
                                     <div class="col-md-12 subheader">
-										<p class="lead">Basic Information</p>
-									</div>
+                                        <p class="lead">Basic Information</p>
+                                    </div>
                                     
                                     <div class="col-md-6 form-group">
-									
-										<label class="control-label">Date of Birth</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
-										
-									</div>
+                                    
+                                        <label class="control-label">Date of Birth</label>
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth" value="{{ set_value('user_dateOfBirth', record.user_dateOfBirth) }}">
+                                        
+                                    </div>
                                     
                                     <div class="col-md-6 form-group">
-									
-										<label class="control-label">Gender</label>
-										<select class="form-control" style="width: 100%;" name="gender" id="dob" required>
-						                  <option selected="selected">Male</option>
-						                  <option>Female</option>
-						                </select>
-										
-									</div>
+                                    
+                                        <label class="control-label">Gender</label>
+                                        <select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
+                                            <option value="">Please select</option>
+                                            <option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
+                                            <option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
+                                        </select>
+                                        
+                                    </div>
                                     
                                     <div class="col-md-12 subheader">
-										<p class="lead">Contact Information</p>
-									</div>
+                                        <p class="lead">Contact Information</p>
+                                    </div>
                                     
                                     <div class="col-md-6 form-group">
-									
-										<label class="control-label">Phone</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
-										
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Email</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
-										
-									</div>
+                                    
+                                        <label class="control-label">Phone</label>
+                                        <input type="text" class="form-control" required="true" name="user_phone" value="{{ set_value('user_phone', record.user_phone) }}">
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                    
+                                        <label class="control-label">Email</label>
+                                        <input type="text" class="form-control" required="true" name="user_email" value="{{ set_value('user_email', record.user_email) }}">
+                                        
+                                    </div>
                                     
                                     <div class="col-md-12 form-group">
-									
-										<label class="control-label">Address</label>
-										<input type="text" class="form-control" id="" placeholder="" required>
-										
-									</div>
+                                    
+                                        <label class="control-label">Address</label>
+                                        <input type="text" class="form-control" required="true" name="user_address" value="{{ set_value('user_address', record.user_address) }}">
+                                        
+                                    </div>
                                     
                                     <div class="col-md-12 subheader">
-										<p class="lead">Access Details</p>
-									</div>
+                                        <p class="lead">Access Details</p>
+                                    </div>
                                     
                                     <div class="col-md-12 form-group">
-									
-										<label class="control-label">Account Type</label>
-										
-										<select class="form-control" style="width: 100%;" required>
-											<option selected="selected">Administrator</option>
-											<option>Normal</option>
-										</select>
-										
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Password</label>
-										<input type="password" class="form-control" id="" placeholder="" required>
-										
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Confirm Password</label>
-										<input type="password" class="form-control" id="" placeholder="" required>
-										
-									</div>
-									
-									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
-											<i class="fa fa-check"></i> Update
-										</button>
-					              	</div>
-								
-								</div>
-								
-							</form>
-							
-						</div>
-					</div>
-				</div>
+                                    
+                                        <label class="control-label">Account Type</label>
+                                        
+                                        <select class="form-control" style="width: 100%;" required="true" name="user_roleID">
+                                            <option value="">Please Select</option>
+                                            
+                                            {% for role in roles %}
+                                                <option value="{{ role.roles_id }}" {{ record.get_selected_role(role.roles_id) }}>{{ role.roles_name }}</option>
+                                            {% endfor %}
+
+                                        </select>
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                    
+                                        <label class="control-label">Password</label>
+                                        <input type="password" class="form-control" required="true" name="user_password">
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                    
+                                        <label class="control-label">Confirm Password</label>
+                                        <input type="password" class="form-control" required="true" name="confirm_password">
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-12 form-group xrx-btn-handler">
+                                        <button type="submit" class="btn btn-primary xrx-btn">
+                                            <i class="fa fa-check"></i> Update
+                                        </button>
+                                    </div>
+                                
+                                </div>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
             
           </div>
           <!-- /.box -->

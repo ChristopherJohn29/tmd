@@ -33,4 +33,14 @@ class Entity {
 
 		return true;
     }
+
+    public function set_date_format(string $date) : string
+    {
+    	return date_format(date_create($date), 'Y-m-d');
+    }
+
+    public function get_date_format(string $date) : string
+    {
+    	return date_format(date_create($date), 'F j, Y l');
+    }
 }

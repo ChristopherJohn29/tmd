@@ -28,8 +28,13 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 		return password_hash($this->user_password, PASSWORD_BCRYPT);
 	}
 
-	public function set_birthday_format()
+	public function get_selected_role(string $role_id) : string
 	{
-		return date_format(date_create($this->user_dateOfBirth), 'Y-m-d');
+		return ($role_id == $this->user_roleID) ? 'selected=true' : '';
+	}
+
+	public function get_selected_gender(string $gender) : string
+	{
+		return ($gender == $this->user_gender) ? 'selected=true' : '';
 	}
 }
