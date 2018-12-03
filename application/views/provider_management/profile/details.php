@@ -52,7 +52,7 @@
                                     </tr>
                                     <tr>
                                         <th>Gender:</th>
-                                        <td></td>
+                                        <td>{{ record.provider_gender }}</td>
                                     </tr>
                                     <tr>
                                         <th>Languages:</th>

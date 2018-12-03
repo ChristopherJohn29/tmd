@@ -35,4 +35,9 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	{
 		return $this->provider_lastname . ', ' . $this->provider_firstname;
 	}
+
+	public function get_selected_gender(string $gender) : string
+	{
+		return ($gender == $this->provider_gender) ? 'selected=true' : '';
+	}
 }
