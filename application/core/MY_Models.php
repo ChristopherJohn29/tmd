@@ -56,13 +56,13 @@ class MY_Models extends \CI_Model {
 
 	public function find(array $params)
 	{
-		foreach ($params['where_data'] as $key => $value) {
-			$this->db->like($key, $value);
+		foreach ($params['where_data'] as $search) {
+			$this->db->like($search['key'], $search['value']);
 		}
 
 		$query = $this->db->get($this->table_name);
 
-		return $query->custom_result_object($this->entity);
+		return $query->result_array();
 	}
 
 	public function get_records_by_join(array $params)

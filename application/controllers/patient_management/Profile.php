@@ -7,7 +7,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
-			'patient_management/profile_model' => 'profile_model'
+			'patient_management/profile_model'
 		));
 	}
 

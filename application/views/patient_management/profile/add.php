@@ -3,7 +3,6 @@
 {% 
   set scripts = [
     'dist/js/patient_management/profile/add',
-    'bower_components/select2/dist/js/select2.full.min',
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions'
@@ -50,20 +49,20 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">First Name <span>*</span></label>
-										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="" required="true" name="patient_firstname">
+										<input type="text" class="form-control" id="firstname" placeholder="" required="true" name="patient_firstname">
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Last Name <span>*</span></label>
-										<input type="text" class="form-control" name="lastname" id="lastname" placeholder="" required="true" name="patient_lastname">
+										<input type="text" class="form-control" id="lastname" placeholder="" required="true" name="patient_lastname">
                                         
 									</div>
                                     
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" name="dob" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth">
+										<input type="text" class="form-control" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth">
 										
 									</div>
 									
@@ -81,28 +80,28 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Medicare <span>*</span></label>
-										<input type="text" class="form-control" name="medicare" id="medicare" placeholder="" required="true" name="patient_medicareNum">
+										<input type="text" class="form-control" id="medicare" placeholder="" required="true" name="patient_medicareNum">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Phone <span>*</span></label>
-										<input type="text" class="form-control" name="phone" id="phone" placeholder="" required="true" name="patient_phoneNum">
+										<input type="text" class="form-control" id="phone" placeholder="" required="true" name="patient_phoneNum">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" name="address" id="address" placeholder="" required="true" name="patient_address">
+										<input type="text" class="form-control" id="address" placeholder="" required="true" name="patient_address">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Caregiver/Family</label>
-										<input type="text" class="form-control" name="caregiver" id="caregiver" placeholder="" name="patient_caregiver_family">
+										<input type="text" class="form-control" id="caregiver" placeholder="" name="patient_caregiver_family">
 										
 									</div>
 									
@@ -113,9 +112,12 @@
 									<div class="col-md-12 form-group">
 										<label class="control-label">Home Health <span>*</span></label>
 										
-										<select class="form-control select2" style="width: 100%;" name="homehealth" id="homehealth" required="true" name="patient_hhcID">
-										</select>
-										
+										<input type="hidden" name="patient_hhcID" required="true">
+
+										<div class="dropdown">
+										  <input type="text" class="form-control" data-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID">
+										  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;">
+									  	  </ul>										
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">

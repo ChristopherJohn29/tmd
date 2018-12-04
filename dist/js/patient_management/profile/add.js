@@ -7,6 +7,5 @@ $(function () {
     
     $('#dateofbirth').datepicker({
       autoclose: true
-    })
-
-  })
+    });
+  });

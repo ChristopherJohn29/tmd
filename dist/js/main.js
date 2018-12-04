@@ -26,4 +26,32 @@
 			});
 		}
 	});
+
+	$('[data-autosuggest-select]').on('keyup', function(e) {
+		var minInputLength = 2;
+
+		if ($(this).val().length >= minInputLength) 
+		{
+			$.ajax({
+				url: window.location.origin + $(this).attr('data-action-url') + '/' + $(this).val(),
+				method: "GET",
+				success: function(data) {
+					var result = JSON.parse(data);
+
+					if (result.state)
+					{
+						for (var i = 0; i < result.data.length; i++) {
+							var str = '<li>';
+							str	+= '<a data-id="' + result.data[i].hhc_id + '">' + result.data[i].hhc_name + '</a>';
+							str += '</li>';
+
+							$('.dropdown-menu').html('');
+							$('.dropdown-menu').css('display', 'block');
+							$('.dropdown-menu').append(str);
+						}
+					}
+				} 
+			});
+		}
+	});
 })();
