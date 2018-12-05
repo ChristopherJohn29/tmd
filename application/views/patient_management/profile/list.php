@@ -25,7 +25,7 @@
                     <th>Referral Date</th>
                     <th>ICD10 - Code Diagnoses</th>
                     <th>Date of Service</th>
-                    <th width="200px">Actions</th>
+                    <th width="210px">Actions</th>
                   </tr>
                   </thead>
                   
@@ -38,7 +38,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -49,7 +49,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -60,7 +60,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -71,7 +71,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -82,7 +82,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -93,7 +93,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -104,7 +104,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -115,7 +115,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -126,7 +126,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -137,7 +137,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  	                  <tr>
@@ -148,7 +148,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -159,7 +159,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -170,7 +170,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -181,7 +181,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -192,7 +192,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -203,7 +203,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -214,7 +214,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  <tr>
@@ -225,7 +225,7 @@
 	                    <td>
 							<a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
 							<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+                            <a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Update</span></a>
 						</td>
 	                  </tr>
 	                  
