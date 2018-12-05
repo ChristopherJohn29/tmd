@@ -63,7 +63,12 @@
                                             <input type="text" class="form-control" disabled>
                                         </div>
                                         <span class="help-block">Suggested image size is 200px x 200px only.</span>
-                                        <img id="img-upload" class="img-circle" />
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group">
+                                        
+                                        <center><img id="img-upload" class="img-circle" /></center>
                                         
                                     </div>
                                     

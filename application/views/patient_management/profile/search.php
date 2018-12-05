@@ -16,9 +16,11 @@
 
                 <div class="row">
                     
-                    <div class="col-lg-6 col-lg-offset-3">
+                    <div class="col-lg-4 col-lg-offset-4">
                         <div class="search-handler">
                             
+                            <form class="xrx-form">
+                                
                             <label><p class="lead">Search a Patient</p></label>
                             <div class="input-group">
                               <div class="input-group-addon">
@@ -26,6 +28,8 @@
                               </div>
                               <input type="text" class="form-control input-lg">
                             </div>
+                            
+                            </form>
                             
                         </div>
                     </div>
