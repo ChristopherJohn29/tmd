@@ -7,28 +7,48 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
+			'patient_management/profile_model',
 			'patient_management/transaction_model',
 			'patient_management/type_visit_model'
 		));
 	}
 
-	public function index()
-	{
-		$this->check_permission('list_tr');
+	// public function index()
+	// {
+	// 	$this->check_permission('list_tr');
 
-		$params = [
-			'table_key' => 'pt_dateCreated',
-			'order_type' => 'DESC',
-			'records_model' => 'transaction_model'
-		];
+	// 	$params = [
+	// 		'table_key' => 'pt_dateCreated',
+	// 		'order_type' => 'DESC',
+	// 		'records_model' => 'transaction_model'
+	// 	];
 
-		$page_data['records'] = parent::get_latest_records($params);
-	}
+	// 	$page_data['records'] = parent::get_latest_records($params);
+	// }
 
-	public function add()
+	public function add(string $pt_patientID)
 	{
 		$this->check_permission('add_tr');
 
+		$params = [
+			'joins' => [
+				[
+					'join_table_name' => 'home_health_care',
+					'join_table_key' => 'home_health_care.hhc_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_hhcID',
+					'join_table_type' => 'inner'
+				]
+			],
+			'where' => [
+				'key' => 'patient_id',
+				'condition' => '',
+        		'value' => $pt_patientID
+			],
+			'return_type' => 'row'
+		];
+
+		$page_data['record'] = $this->profile_model->get_records_by_join($params);
 		$page_data['type_visits'] = $this->type_visit_model->records();
 
 		$this->twig->view('patient_management/transaction/add', $page_data);
@@ -62,15 +82,15 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 		parent::save_data($params);   
 	}
 
-	public function details(string $pt_patientID)
-	{
-		$this->check_permission('view_tr');
+	// public function details(string $pt_patientID)
+	// {
+	// 	$this->check_permission('view_tr');
 
-		$params = [
-			'table_key' => 'pt_patientID',
-        	'record_key' => $pt_patientID
-		];
+	// 	$params = [
+	// 		'table_key' => 'pt_patientID',
+ //        	'record_key' => $pt_patientID
+	// 	];
 
-		$page_data['record'] = $this->transaction_model->details($pt_patientID);
-	}
+	// 	$page_data['record'] = $this->transaction_model->details($pt_patientID);
+	// }
 }

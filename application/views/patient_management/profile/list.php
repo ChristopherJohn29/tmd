@@ -37,7 +37,7 @@
                   </thead>
                   
                   <tbody>
-                  	
+
 	                  {% if records %}
 
 	                  	{% for record in records %}
@@ -49,8 +49,8 @@
 			                    <td>{{ '' }}</td>
 			                    <td>
 									<a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
-									<a href="{{ site_url('patient_management/transaction/add') }}" title=""><span class="label label-primary">Add Transaction</span></a>
-									<a href="{{ site_url('patient_management/profile/edit/1') }}"><span class="label label-primary">Edit</span></a>
+									<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+									<a href="{{ site_url("patient_management/profile/edit/#{ record.patient_id }") }}"><span class="label label-primary">Edit</span></a>
 								</td>
 			                </tr>
 

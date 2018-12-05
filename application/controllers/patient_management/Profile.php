@@ -71,11 +71,24 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('view_pt');
 
 		$params = [
-			'key' => 'patient_id',
-        	'value' => $patient_id
+			'joins' => [
+				[
+					'join_table_name' => 'home_health_care',
+					'join_table_key' => 'home_health_care.hhc_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_hhcID',
+					'join_table_type' => 'inner'
+				]
+			],
+			'where' => [
+				'key' => 'patient_id',
+				'condition' => '',
+        		'value' => $patient_id
+			],
+			'return_type' => 'row'
 		];
 
-		$page_data['record'] = $this->profile_model->record($params);
+		$page_data['record'] = $this->profile_model->get_records_by_join($params);
 
 		if ( ! $page_data['record'])
 		{

@@ -41,19 +41,19 @@
 									<div class="xrx-info">
 									
 										<div class="col-lg-6">
-											<p class="lead"><span>Patient Name: </span> Cuneta, Sharon</p>
+											<p class="lead"><span>Patient Name: </span> {{ record.get_reverse_fullname() }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Date of Birth: </span> 04/07/1974</p>
+											<p class="lead"><span>Date of Birth: </span> {{ record.get_date_format(record.patient_dateOfBirth) }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Medicare: </span> 604384610M</p>
+											<p class="lead"><span>Medicare: </span> {{ record.patient_medicareNum }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Home Health: </span> Advance Home Care</p>
+											<p class="lead"><span>Home Health: </span> {{ record.hhc_name }}</p>
 										</div>
 										
 									</div>
@@ -62,11 +62,14 @@
 									
 										<label class="control-label">Type of Visit <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required>
-											<option selected="selected">Initial Visit (Home)</option>
-											<option>Initial Visit (Facility)</option>
-											<option>Follow-up Visit</option>
-											<option>No Show</option>
-											<option>Cancelled</option>
+											<option value="" selected="true">Please select</option>
+
+											{% for type_visit in type_visits %}
+
+												<option value="{{ type_visit.tov_id }}">{{ type_visit.tov_name }}</option>
+
+											{% endfor %}
+
 										</select>
 										
 									</div>

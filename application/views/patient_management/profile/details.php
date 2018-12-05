@@ -19,7 +19,7 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-             				<h1 class="name">Cuneta, Sharon<small>Patient Name</small></h1>
+             				<h1 class="name">{{ record.get_reverse_fullname() }}<small>Patient Name</small></h1>
              			</div>
              			
              			<div class="col-md-4">
@@ -28,19 +28,19 @@
              				<table class="table xrx-table">
              					<tr>
              						<th>Referral Date:</th>
-             						<td>11/07/2018</td>
+             						<td>{{ record.get_date_format(record.patient_referralDate) }}</td>
              					</tr>
              					<tr>
              						<th>Medicare:</th>
-             						<td>604384610M</td>
+             						<td>{{ record.patient_medicareNum }}</td>
              					</tr>
              					<tr>
              						<th>Date of Birth:</th>
-             						<td>04/07/1944</td>
+             						<td>{{ record.get_date_format(record.patient_dateOfBirth) }}</td>
              					</tr>
              					<tr>
              						<th>Gender:</th>
-             						<td>Female</td>
+             						<td>{{ record.patient_gender }}</td>
              					</tr>
              				</table>
              			</div>
@@ -51,15 +51,15 @@
              				<table class="table xrx-table">
              					<tr>
              						<th>Address:</th>
-             						<td>340 E. Harvard Rd., Apt 509, Burbank,<br>CA 91502-1036</td>
+             						<td>{{ record.patient_address }}</td>
              					</tr>
              					<tr>
              						<th>Phone:</th>
-             						<td>818.846.4843</td>
+             						<td>{{ record.patient_phoneNum }}</td>
              					</tr>
              					<tr>
              						<th>Caregiver/Family:</th>
-             						<td>-</td>
+             						<td>{{ record.patient_caregiver_family }}</td>
              					</tr>
              				</table>
              			</div>
@@ -70,19 +70,19 @@
              				<table class="table xrx-table">
              					<tr>
              						<th>Home Health:</th>
-             						<td>GMO Home Health</td>
+             						<td>{{ record.hhc_name }}</td>
              					</tr>
              					<tr>
              						<th>Contact Person:</th>
-             						<td>Marina</td>
+             						<td>{{ record.hhc_contact_name }}</td>
              					</tr>
              					<tr>
              						<th>Phone:</th>
-             						<td>818.909.2599</td>
+             						<td>{{ record.hhc_phoneNumber }}</td>
              					</tr>
              					<tr>
              						<th>Email:</th>
-             						<td>gmahomehealth@yahoo.com</td>
+             						<td>{{ record.hhc_email }}</td>
              					</tr>
              				</table>
              			</div>
@@ -130,7 +130,7 @@
 							</table>
                             </div>
                             
-							<a href="{{ site_url('patient_management/transaction/add') }}" title="">
+							<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title="">
 								<button type="button" class="btn btn-default">
 									<i class="fa fa-plus"></i> Add Transaction
 								</button>
