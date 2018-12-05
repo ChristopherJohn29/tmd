@@ -10,7 +10,6 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
-			// 'patient_management/profile_model' => 'pt_profile_model',
 			'home_health_care_management/profile_model' => 'hhc_model'
 		));
 	}
@@ -27,11 +26,21 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 		$res = $this->hhc_model->find($params);
 
+		$search_data = [];
+
+		for ($i = 0; $i < count($res); $i++) 
+		{ 
+			$search_data[] = [
+				'id' => $res[$i]['hhc_id'],
+				'text' => $res[$i]['hhc_name']				
+			];
+		}
+
 		if ($res)
 		{
 			echo json_encode([
 				'state' => true,
-				'data' => $res
+				'data' => $search_data
 			]);
 		}
 		else

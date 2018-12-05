@@ -1,4 +1,4 @@
-{% extends "main.php" %}
+ {% extends "main.php" %}
 
 {% 
   set scripts = [
@@ -113,12 +113,11 @@
 										<label class="control-label">Home Health <span>*</span></label>
 										
 										<input type="hidden" name="patient_hhcID" required="true">
-
-										<div class="dropdown">
-										  <input type="text" class="form-control" data-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID">
-										  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;">
+										<div class="dropdown mobiledrs-autosuggest-select">
+										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID">
+										  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
-									</div>
+										</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
 					              		<button type="submit" class="btn btn-primary xrx-btn">
