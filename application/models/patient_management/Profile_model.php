@@ -15,17 +15,19 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 	public function prepare_data() : array
 	{
+		$this->prepare_entity_data();		
+
 		return [
-			'patient_firstname' => $this->input->post('patient_firstname'),
-			'patient_lastname' => $this->input->post('patient_lastname'),
-			'patient_gender' => $this->input->post('patient_gender'),
-			'patient_referralDate' => $this->input->post('patient_referralDate'),
-			'patient_medicareNum' => $this->input->post('patient_medicareNum'),
-			'patient_dateOfBirth' => $this->input->post('patient_dateOfBirth'),
-			'patient_phoneNum' => $this->input->post('patient_phoneNum'),
-			'patient_address' => $this->input->post('patient_address'),
-			'patient_hhcID' => $this->input->post('patient_hhcID'),
-			'patient_caregiver_family' => $this->input->post('patient_caregiver_family')
+			'patient_firstname' => $this->record_entity->patient_firstname,
+			'patient_lastname' => $this->record_entity->patient_lastname,
+			'patient_gender' => $this->record_entity->patient_gender,
+			'patient_referralDate' => $this->record_entity->set_date_format($this->record_entity->patient_referralDate),
+			'patient_medicareNum' => $this->record_entity->patient_medicareNum,
+			'patient_dateOfBirth' => $this->record_entity->set_date_format($this->record_entity->patient_dateOfBirth),
+			'patient_phoneNum' => $this->record_entity->patient_phoneNum,
+			'patient_address' => $this->record_entity->patient_address,
+			'patient_hhcID' => $this->record_entity->patient_hhcID,
+			'patient_caregiver_family' => $this->record_entity->patient_caregiver_family
 		];
 	}
 

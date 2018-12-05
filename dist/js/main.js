@@ -26,7 +26,9 @@
 			});
 		}
 	});
+})();
 
+(function() {
 	$('[data-mobiledrs-autosuggest-select]').on('keyup', function(e) {
 		var minInputLength = 2;
 
@@ -69,7 +71,7 @@
 					else 
 					{
 						str = '<li>';
-						str	+= '<a>No Search Result!</a>';
+						str	+= '<a>No Search Result</a>';
 						str += '</li>';
 					}
 
@@ -79,5 +81,9 @@
 				} 
 			});
 		}
+	});
+
+	$('body').on('click', function() {
+		$('.dropdown-menu').css('display', 'none');
 	});
 })();

@@ -5,7 +5,8 @@
     'bower_components/select2/dist/js/select2.full.min',
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
-    'plugins/input-mask/jquery.inputmask.extensions'
+    'plugins/input-mask/jquery.inputmask.extensions',
+    'dist/js/provider_management/profile/add'
   ]
 %}
 

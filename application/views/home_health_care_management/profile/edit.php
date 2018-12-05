@@ -2,12 +2,6 @@
 
 {% set page_title = 'Update Home Health Care' %}
 
-{% 
-  set scripts = [
-    'dist/js/home_health_care_management/profile/edit'
-  ]
-%}
-
 {% block content %}
 	 <div class="row">
 

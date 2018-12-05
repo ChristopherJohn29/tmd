@@ -217,7 +217,7 @@ $config = array(
         array(
             'field' => 'patient_gender',
             'label' => 'Gender',
-            'rules' => 'required|max_length[2]'
+            'rules' => 'required|max_length[10]'
         ),
         array(
             'field' => 'patient_referralDate',
@@ -227,7 +227,10 @@ $config = array(
         array(
             'field' => 'patient_medicareNum',
             'label' => 'Medicare Number',
-            'rules' => 'required|max_length[45]'
+            'rules' => 'required|max_length[45]|is_unique[patient.patient_medicareNum]',
+            'errors' => array(
+                'is_unique' => 'This %s already exists.'
+            )
         ),
         array(
             'field' => 'patient_dateOfBirth',
@@ -246,7 +249,7 @@ $config = array(
         ),
         array(
             'field' => 'patient_hhcID',
-            'label' => 'Firstname',
+            'label' => 'Home Health',
             'rules' => 'required'
         )
     ),
