@@ -78,6 +78,10 @@
 		border: 0 !important;
 		}
 
+.xrx-custom-btn-payroll {
+    margin-top: 25px;
+    }
+
 .xrx-upload-file {
     position: relative !important;
     overflow: hidden !important;
@@ -483,6 +487,13 @@ li.user-header p span a {
         padding: 12px 30px !important;
         }
     
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 0;
+        min-height: 180px;
+        }
+    
 }
 
 /* Extra Small Devices, Phones */ 
@@ -512,6 +523,13 @@ li.user-header p span a {
         padding: 15px 48px !important;
         }
     
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 0;
+        min-height: 180px;
+        }
+    
 }
 
 /* Small Devices, Tablets */
@@ -519,7 +537,7 @@ li.user-header p span a {
     
     /* login logo */
     .login-logo img {
-        width: 100% !important;
+        width: 40% !important;
 		}
     
     /* inside logo */
@@ -539,6 +557,13 @@ li.user-header p span a {
         font-size: 14px !important;
         border-radius: 6px !important;
         padding: 15px 48px !important;
+        }
+    
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 40px 0 0;
+        min-height: 180px;
         }
     
 }
@@ -569,6 +594,13 @@ li.user-header p span a {
         border-radius: 6px !important;
         padding: 15px 48px !important;
         }
+
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 70px 0 0;
+        min-height: 180px;
+        }
     
 }
 
@@ -597,6 +629,13 @@ li.user-header p span a {
         font-size: 14px !important;
         border-radius: 6px !important;
         padding: 15px 48px !important;
+        }
+    
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 70px 0 0;
+        min-height: 180px;
         }
     
 }
