@@ -32,7 +32,7 @@
                     <th>Referral Date</th>
                     <th>ICD10 - Code Diagnoses</th>
                     <th>Date of Service</th>
-                    <th width="200px">Actions</th>
+                    <th width="210px">Actions</th>
                   </tr>
                   </thead>
                   
@@ -58,7 +58,6 @@
 
 	                  {% endif %}
 
-	                  
 					  </tbody>
 					  <tfoot>
 		                <tr>

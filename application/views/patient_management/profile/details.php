@@ -109,6 +109,7 @@
 										<th>Tobacco</th>
 										<th>ICD-Code Diagnoses</th>
 										<th>Date Billed</th>
+                                        <th width="90px">Actions</th>
 									</tr>
 								</thead>
 								
@@ -125,6 +126,9 @@
 										<td>No</td>
 										<td>J45.51,R06.02,M54.5,R42,R60.1,M79.1,R26.81</td>
 										<td>-</td>
+                                        <td>
+                                            <a href="{{ site_url('patient_management/transaction/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
 									</tr>
 								</tbody>
 							</table>
@@ -159,6 +163,7 @@
 										<th>3rd Month CPO</th>
 										<th>Discharged</th>
 										<th>Date Billed</th>
+                                        <th width="90px">Actions</th>
 									</tr>
 								</thead>
 								
@@ -172,6 +177,9 @@
 										<td>6/1 - 6/14</td>
 										<td>-</td>
 										<td>-</td>
+                                        <td>
+                                            <a href="{{ site_url('patient_management/CPO/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
 									</tr>
 									
 									<tr>
@@ -183,6 +191,9 @@
 										<td>-</td>
 										<td>-</td>
 										<td>-</td>
+                                        <td>
+                                            <a href="{{ site_url('patient_management/CPO/edit/1') }}"><span class="label label-primary">Update</span></a>
+                                        </td>
 									</tr>
 								</tbody>
 								
@@ -211,7 +222,7 @@
              				   <table class="table no-margin table-hover">
 								<thead>
 									<tr>
-										<th>Note Added</th>
+										<th>Notes Added</th>
 										<th>Note</th>
 										<th width="90px">Actions</th>
 									</tr>
