@@ -262,7 +262,7 @@ $config = array(
         array(
             'field' => 'pt_providerID',
             'label' => 'Provider',
-            'rules' => 'required|integer'
+            'rules' => 'required'
         ),
         array(
             'field' => 'pt_dateOfService',

@@ -75,9 +75,9 @@ class MY_Controller extends \CI_Controller {
 
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
-			$func = ($params['page_type'] == 'edit') ? 'edit' : 'add';
-
-            return $this->$func($params['page_type'], $params['record_id'], $params['sub_data_id']);
+            return ($params['page_type'] == 'edit') ?
+                $this->edit($params['page_type'], $params['record_id'], $params['sub_data_id']) :
+                $this->add($params['page_type'], $params['record_id']);
         }
 
         $save = null;
