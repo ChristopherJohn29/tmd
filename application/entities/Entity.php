@@ -21,7 +21,7 @@ class Entity {
 			throw new \Exception("'{$property_name}' is not a part of the class");	
 		}
 
-		return $this->$property_name;
+		return $this->$property_name ?? '';
 	}
 
 	public function __isset(string $property_name) : bool

@@ -83,7 +83,7 @@
 		}
 	});
 
-	$('body').on('click', function() {
-		$('.dropdown-menu').css('display', 'none');
-	});
+	// $('body').on('click', function() {
+	// 	$('.dropdown-menu').css('display', 'none');
+	// });
 })();

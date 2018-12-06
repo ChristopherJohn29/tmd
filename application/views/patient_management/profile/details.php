@@ -114,22 +114,28 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<td>Initial (Home)</td>
-										<td>Alexandra Kirtchik</td>
-										<td>06/10/2018</td>
-										<td>QMB-0</td>
-										<td>AW-8 (11/21/2018)</td>
-										<td>-</td>
-										<td>Yes</td>
-										<td>No</td>
-										<td>No</td>
-										<td>J45.51,R06.02,M54.5,R42,R60.1,M79.1,R26.81</td>
-										<td>-</td>
-                                        <td>
-                                            <a href="{{ site_url('patient_management/transaction/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
+
+                                    {% for transaction in transactions %}
+
+    									<tr>
+    										<td>{{ transaction.tov_name }}</td>
+    										<td>{{ transaction.get_provider_fullname() }}</td>
+    										<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
+    										<td>{{ transaction.pt_deductible }}</td>
+    										<td>{{ transaction.pt_aw_ippe_code }}</td>
+                                            <td>{{ transaction.pt_aw_ippe_date }}</td>
+                                            <td>{{ transaction.get_selected_choice_format(transaction.pt_acp) }}</td>
+                                            <td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) }}</td>
+                                            <td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) }}</td>
+                                            <td>{{ transaction.pt_icd10_codes }}</td>
+                                            <td>{{ transaction.pt_dateBilled }}</td>
+                                            <td>
+                                                <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}"><span class="label label-primary">Update</span></a>
+                                            </td>
+    									</tr>
+
+                                    {% endfor %}
+
 								</tbody>
 							</table>
                             </div>

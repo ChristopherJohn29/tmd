@@ -56,8 +56,10 @@ class MY_Models extends \CI_Model {
 
 	public function find(array $params)
 	{
-		foreach ($params['where_data'] as $search) {
-			$this->db->like($search['key'], $search['value']);
+		foreach ($params['where_data'] as $i => $search) {
+			$like_func = ($i > 0) ? 'or_like' : 'like';
+
+			$this->db->$like_func($search['key'], $search['value']);
 		}
 
 		$query = $this->db->get($this->table_name);

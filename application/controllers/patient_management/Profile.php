@@ -7,7 +7,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
-			'patient_management/profile_model'
+			'patient_management/profile_model',
+			'patient_management/transaction_model'
 		));
 	}
 
@@ -70,7 +71,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('view_pt');
 
-		$params = [
+		$record_params = [
 			'joins' => [
 				[
 					'join_table_name' => 'home_health_care',
@@ -88,7 +89,33 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'return_type' => 'row'
 		];
 
-		$page_data['record'] = $this->profile_model->get_records_by_join($params);
+		$transaction_params = [
+			'joins' => [
+				[
+					'join_table_name' => 'type_of_visits',
+					'join_table_key' => 'type_of_visits.tov_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_transactions.pt_tovID',
+					'join_table_type' => 'inner'
+				],
+				[
+					'join_table_name' => 'provider',
+					'join_table_key' => 'provider.provider_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_transactions.pt_providerID',
+					'join_table_type' => 'inner'
+				]
+			],
+			'where' => [
+				'key' => 'patient_transactions.pt_patientID',
+				'condition' => '',
+        		'value' => $patient_id
+			],
+			'return_type' => 'object'
+		];
+
+		$page_data['record'] = $this->profile_model->get_records_by_join($record_params);
+		$page_data['transactions'] = $this->transaction_model->get_records_by_join($transaction_params);
 
 		if ( ! $page_data['record'])
 		{

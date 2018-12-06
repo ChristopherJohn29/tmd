@@ -68,4 +68,44 @@ class MY_Controller extends \CI_Controller {
 
         return redirect($params['redirect_url']);
 	}
+
+	public function save_sub_data(array $params)
+	{
+		$this->load->library('form_validation');
+
+		if ($this->form_validation->run($params['validation_group']) == FALSE)
+        {
+			$func = ($params['page_type'] == 'edit') ? 'edit' : 'add';
+
+            return $this->$func($params['page_type'], $params['record_id'], $params['sub_data_id']);
+        }
+
+        $save = null;
+
+        if ($params['page_type'] == 'edit')
+        {
+        	$save = $this->{$params['save_model']}->update([
+        		'data' => $this->{$params['save_model']}->prepare_data(),
+        		'key' => $params['table_key'],
+	        	'value' => $params['record_id']
+        	]);
+        }
+        else
+        {
+        	$save = $this->{$params['save_model']}->insert([
+        		'data' => $this->{$params['save_model']}->prepare_data()]
+        	);
+        }
+
+        if ($save) 
+        {
+        	$this->session->set_flashdata('success', $this->lang->line('success_save'));
+        } 
+        else 
+        {
+        	$this->session->set_flashdata('danger', $this->lang->line('danger_save'));
+        }
+
+        return redirect($params['redirect_url']);
+	}
 }

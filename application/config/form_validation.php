@@ -257,7 +257,7 @@ $config = array(
         array(
             'field' => 'pt_tovID',
             'label' => 'Type of Visit',
-            'rules' => 'required|integer'
+            'rules' => 'required'
         ),
         array(
             'field' => 'pt_providerID',
@@ -270,17 +270,7 @@ $config = array(
             'rules' => 'required'
         ),
         array(
-            'field' => 'pt_deductible',
-            'label' => 'Deductible',
-            'rules' => 'required|max_length[10]'
-        ),
-        array(
-            'field' => 'pt_aw_ippe_date',
-            'label' => 'AW / IPPE (Date)',
-            'rules' => 'required'
-        ),
-        array(
-            'field' => 'pt_aw_ippe_performed',
+            'field' => 'pt_performed',
             'label' => 'Performed',
             'rules' => 'required|max_length[45]'
         ),
@@ -307,7 +297,7 @@ $config = array(
         array(
             'field' => 'pt_others',
             'label' => 'Others',
-            'rules' => 'required|max_length[45]'
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'pt_icd10_codes',
@@ -315,19 +305,14 @@ $config = array(
             'rules' => 'required|max_length[255]'
         ),
         array(
-            'field' => 'pt_visitBilled',
-            'label' => 'Visit Billed',
-            'rules' => 'required'
-        ),
-        array(
             'field' => 'pt_dateRefEmailed',
             'label' => 'Date Referral Was Emailed',
             'rules' => 'required'
         ),
         array(
-            'field' => 'pt_comments',
-            'label' => 'Comments',
-            'rules' => 'required|max_length[255]'
+            'field' => 'pt_notes',
+            'label' => 'Notes',
+            'rules' => 'max_length[255]'
         )
     ),
     'patient_management/communication_notes/save' => array(
