@@ -73,8 +73,9 @@
 									
 										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" name="gender" id="dob" required>
-						                  <option selected="selected">Male</option>
-						                  <option>Female</option>
+						                  <option value="" selected="">Please select</option>
+                                            <option value="Male">Male</option>
+						                  <option value="Female">Female</option>
 						                </select>
 						                
 									</div>

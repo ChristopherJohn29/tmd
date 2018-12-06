@@ -91,7 +91,7 @@
 										<td>SHOHREH NOUROLLAH</td>
 										<td>22/10/2018</td>
 										<td>99328 (POS13)</td>
-										<td>F03.90,E11.9,R26.81,R01.1,G30.9,I10,E55.0,I10,F41.1,J45.51,R42,F31.9</td>
+										<td>F03.90, E11.9, R26.81, R01.1, G30.9, I10, E55.0, I10,F41.1, J45.51, R42, F31.9</td>
 									</tr>
 									
 									<tr>
@@ -132,8 +132,18 @@
              			<div class="col-md-6">
              				<p class="lead">Notes</p>
              				
-             				<p class="text-muted well well-sm no-shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+             				<p class="text-muted well well-sm no-shadow">Notes will be added here.</p>
 							
+                            <div class="form-handler">
+                                <form>
+                                    <textarea class="form-control" id="" placeholder=""></textarea>
+                                </form>
+                                <div class="xrx-btn-handler">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-check"></i> Add Note
+                                </button></div>
+                            </div>
+                            
              			</div>
              			
              			<div class="col-md-6">
@@ -185,7 +195,7 @@
                         <div class="col-xs-12 xrx-btn-handler">
                             <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
-                            <button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> Generate PDF
                             </button>
                             
