@@ -19,7 +19,9 @@
              		
              		<div class="row">
              			<div class="col-md-12">
+
              				<h1 class="name">{{ record.get_reverse_fullname() }}<small>Patient Name</small></h1>
+
              			</div>
              			
              			<div class="col-md-4">
@@ -108,12 +110,13 @@
 										<th>Diabetes</th>
 										<th>Tobacco</th>
 										<th>ICD-Code Diagnoses</th>
-										<th>Date Billed</th>
+										<th>Visit Billed</th>
                                         <th width="90px">Actions</th>
 									</tr>
 								</thead>
 								
 								<tbody>
+
 
                                     {% for transaction in transactions %}
 
@@ -135,6 +138,7 @@
     									</tr>
 
                                     {% endfor %}
+
 
 								</tbody>
 							</table>
@@ -284,7 +288,7 @@
                         <div class="col-xs-12 xrx-btn-handler">
                             <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
-                            <button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> Generate PDF
                             </button>
                         </div>

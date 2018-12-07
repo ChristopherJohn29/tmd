@@ -171,7 +171,14 @@
 										
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Mileage</label>
+										<input type="text" class="form-control" id="" placeholder="">
+										
+									</div>
+                                    
+                                    <div class="col-md-6 form-group">
 									
 										<label class="control-label">Others</label>
 										<input type="text" class="form-control" name="pt_others" value="{{ set_value('pt_others', transaction.pt_others) }}">
