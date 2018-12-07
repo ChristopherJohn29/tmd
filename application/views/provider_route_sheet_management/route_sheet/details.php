@@ -14,9 +14,15 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-             				<h1 class="name rs">Alexandra Kirtchik<small>Date of Service: November 23, 2018</small></h1>
+             				<h1 class="name rs">Alexandra Kirtchik<small>Provider Name</small></h1>
              			</div>
              		</div>
+                    
+                    <div class="row spacer-bottom">
+                        <div class="col-md-12">
+                            <h4>Date of Service: Nov 23, 2018</h4>
+                        </div>
+                    </div>
              		
              		<div class="row">
              			<div class="col-md-12">
@@ -24,7 +30,7 @@
              				<p class="lead">Route Sheet</p>
                             
              				<div class="table-responsive">
-             				   <table id="" class="table no-margin table-striped">
+             				   <table id="" class="table no-margin table-striped route-sheet">
 								<thead>
 									<tr>
 										<th>Time</th>
@@ -37,37 +43,37 @@
 								<tbody>
 									<tr>
 										<td>9 AM - 11 AM</td>
-										<td><b>Lorna Tolentino</b><br>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</td>
-										<td><b>Advance Home Care</b><br>Seda<br>818 848 2100</td>
-										<td>Type of Visit : Initial Visit w/ AW<br>Other Notes: Call the son first 818-498-6000</td>
+										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
+                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
+										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
 									</tr>
 									
 									<tr>
 										<td>11 AM - 12 PM</td>
-										<td><b>Lorna Tolentino</b><br>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</td>
-										<td><b>Advance Home Care</b><br>Seda<br>818 848 2100</td>
-										<td>Type of Visit : Initial Visit w/ AW<br>Other Notes: Call the son first 818-498-6000</td>
+                                        <td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
+                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
+										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
 									</tr>
 									
 									<tr>
 										<td>12 PM - 2 PM</td>
-										<td><b>Lorna Tolentino</b><br>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</td>
-										<td><b>Advance Home Care</b><br>Seda<br>818 848 2100</td>
-										<td>Type of Visit : Initial Visit w/ AW<br>Other Notes: Call the son first 818-498-6000</td>
+										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
+                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
+										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
 									</tr>
 									
 									<tr>
 										<td>2 PM - 3 PM</td>
-										<td><b>Lorna Tolentino</b><br>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</td>
-										<td><b>Advance Home Care</b><br>Seda<br>818 848 2100</td>
-										<td>Type of Visit : Initial Visit w/ AW<br>Other Notes: Call the son first 818-498-6000</td>
+										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
+                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
+										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
 									</tr>
 									
 									<tr>
 										<td>3 PM - 5 PM</td>
-										<td><b>Lorna Tolentino</b><br>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</td>
-										<td><b>Advance Home Care</b><br>Seda<br>818 848 2100</td>
-										<td>Type of Visit : Initial Visit w/ AW<br>Other Notes: Call the son first 818-498-6000</td>
+										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
+                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
+										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
 									</tr>
 								</tbody>
 							</table>
@@ -81,9 +87,13 @@
 					<div class="col-xs-12 xrx-btn-handler">
 						<a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 						
-						<button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+						<button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
 						<i class="fa fa-download"></i> Generate PDF
 						</button>
+                        
+                        <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+                                <i class="fa fa-envelope-o"></i> Email to Provider
+                                </button>
 					</div>
 		          
 		        </div>

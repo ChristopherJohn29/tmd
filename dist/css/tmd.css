@@ -175,7 +175,7 @@
 		font-weight: 300;
 		margin-bottom: 30px;
 		}
-		
+
 		.xrx-info h1 small {
 			display: block;
 			clear: both;
@@ -184,9 +184,14 @@
 			letter-spacing: 1px;
 			padding: 3px 0;
 			}
+
+            .xrx-info .success {
+                color: #3c763d !important;
+                font-weight: bold;
+                }
 			
-			/*
-			.xrx-info .rs::before {
+            /*
+			.xrx-info h1::after {
 				display: block;
 				clear: both;
 				font-size: 14px;
@@ -194,8 +199,8 @@
 				letter-spacing: 1px;
 				content: 'Route Sheet for';
 				}
-				*/
-	
+                */
+
 	.xrx-info p.lead {
 		font-weight: 400;
 		font-size: 14px;
@@ -211,6 +216,18 @@
 			letter-spacing: normal !important;
 			font-weight: 700 !important;
 			}
+
+        .xrx-info .route-sheet p {
+            font-size: 18px;
+            font-weight: 700;
+            }
+
+            .xrx-info .route-sheet p span {
+                display: block;
+                clear: both;
+                font-size: 14px;
+                font-weight: 500 !important;
+                }
 		
 	.xrx-info .total {
 		font-weight: 700;

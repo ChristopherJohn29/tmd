@@ -19,7 +19,7 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-             				<h1 class="name">Cuneta, Sharon<small>Patient Name</small></h1>
+                            <h1 class="name">Cuneta, Sharon<small>Patient Name</small></h1>
              			</div>
              			
              			<div class="col-md-4">
@@ -108,7 +108,7 @@
 										<th>Diabetes</th>
 										<th>Tobacco</th>
 										<th>ICD-Code Diagnoses</th>
-										<th>Date Billed</th>
+										<th>Visit Billed</th>
                                         <th width="90px">Actions</th>
 									</tr>
 								</thead>
@@ -120,12 +120,12 @@
 										<td>06/10/2018</td>
 										<td>QMB-0</td>
 										<td>AW-8 (11/21/2018)</td>
-										<td>-</td>
+										<td><span class="success">12/05/2018</span></td>
 										<td>Yes</td>
 										<td>No</td>
 										<td>No</td>
 										<td>J45.51,R06.02,M54.5,R42,R60.1,M79.1,R26.81</td>
-										<td>-</td>
+										<td><span class="success">12/05/2018</span></td>
                                         <td>
                                             <a href="{{ site_url('patient_management/transaction/edit/1') }}"><span class="label label-primary">Update</span></a>
                                         </td>
@@ -278,7 +278,7 @@
                         <div class="col-xs-12 xrx-btn-handler">
                             <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
-                            <button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> Generate PDF
                             </button>
                         </div>

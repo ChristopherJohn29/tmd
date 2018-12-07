@@ -14,9 +14,17 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-             				<h1 class="name">Alexandra Kirtchik<small>Pay Period: November 1 - 15, 2018</small></h1>
+             				<h1 class="name">Alexandra Kirtchik<small>Provider Name</small></h1>
              			</div>
-             			
+                    </div>
+                    
+                    <div class="row spacer-bottom">
+                        <div class="col-md-12">
+                            <h4>Pay Period: November 1 - 15, 2018</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
              			<div class="col-md-6">
              				<p class="lead">Contact Information</p>
              				
@@ -42,7 +50,8 @@
              			<div class="col-md-12">
              			
              				<p class="lead">Transactions</p>
-             				
+                            
+             				<div class="table-responsive">
              				<table class="table no-margin table-striped">
 								<thead>
 									<tr>
@@ -147,7 +156,7 @@
 								</tbody>
 								
 							</table>
-					
+                            </div>
              			</div>
              		</div>
              		
@@ -158,14 +167,24 @@
              			<div class="col-md-6">
              				<p class="lead">Notes</p>
              				
-             				<p class="text-muted well well-sm no-shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+             				<p class="text-muted well well-sm no-shadow">Notes will be added here.</p>
 							
+                            <div class="form-handler">
+                                <form>
+                                    <textarea class="form-control" id="" placeholder=""></textarea>
+                                </form>
+                                <div class="xrx-btn-handler">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-check"></i> Add Note
+                                </button></div>
+                            </div>
+                            
              			</div>
              			
              			<div class="col-md-6">
              			
              				<p class="lead">Payment Summary</p>
-             			
+             			    <div class="table-responsive">
              				<table class="table no-margin">
 								<thead>
 									<tr>
@@ -232,7 +251,7 @@
 								</tbody>
 								
 							</table>
-             			
+                            </div>
              			</div>
              			
              			
@@ -244,8 +263,12 @@
                             <div>
                                 <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
-                                <button type="button" class="btn btn-success xrx-btn" style="margin-right: 5px;">
+                                <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Generate PDF
+                                </button>
+                                
+                                <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+                                <i class="fa fa-envelope-o"></i> Email to Provider
                                 </button>
 
                                 <button type="button" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
