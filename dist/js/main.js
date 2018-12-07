@@ -40,7 +40,7 @@
 				success: function(data) {
 					var result = JSON.parse(data);
 					var str = null;
-					var dropdownMenu = $('.dropdown-menu');
+					var dropdownMenu = $('.mobiledrs-autosuggest-select-dropdown');
 					var mobiledrsAutosuggest = $('[data-mobiledrs-autosuggest-select]');
 
 					if (result.state)

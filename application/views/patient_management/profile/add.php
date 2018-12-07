@@ -117,7 +117,7 @@
 										<input type="hidden" name="patient_hhcID" required="true">
 										<div class="dropdown mobiledrs-autosuggest-select">
 										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID">
-										  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;">
+										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>
 									

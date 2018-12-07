@@ -25,6 +25,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_dateRefEmailed;
 	protected $pt_notes;
 	protected $pt_dateCreated;
+	protected $pt_mileage;
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -53,7 +54,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
     public function get_selected_choice_format(string $choice) : string
     {
-		return ((bool) $choice) ? 'Yes' : 'No';
+		return ($choice == '1') ? 'Yes' : (($choice == '2') ? 'No' : '');
     }
 
     public function get_provider_fullname() : string

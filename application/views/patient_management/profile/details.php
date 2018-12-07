@@ -123,7 +123,7 @@
     									<tr>
     										<td>{{ transaction.tov_name }}</td>
     										<td>{{ transaction.get_provider_fullname() }}</td>
-    										<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
+    										<td>{{ transaction.pt_dateOfService }}</td>
     										<td>{{ transaction.pt_deductible }}</td>
     										<td>{{ transaction.pt_aw_ippe_code }}</td>
                                             <td>{{ transaction.pt_aw_ippe_date }}</td>

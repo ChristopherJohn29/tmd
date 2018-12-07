@@ -6,7 +6,8 @@
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions',
-    'dist/js/patient_management/transaction/add'
+    'dist/js/patient_management/transaction/add',
+    'dist/js/patient_management/transaction/form'
   ]
 %}
 
@@ -79,7 +80,7 @@
 										<input type="hidden" name="pt_providerID" required="true" value="{{ transaction.pt_providerID }}">
 										<div class="dropdown mobiledrs-autosuggest-select">
 										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/transaction/search') }}" data-input-target-name="pt_providerID">
-										  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;">
+										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>
 										
@@ -122,7 +123,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_performed">
 											<option value="" selected="true">Please select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_performed, '1') }}>Yes</option>
-											<option value="0"  {{ transaction.get_selected_choice(transaction.pt_performed, '0') }}>No</option>
+											<option value="2"  {{ transaction.get_selected_choice(transaction.pt_performed, '2') }}>No</option>
 										</select>
 						                
 									</div>
@@ -133,7 +134,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_acp">
 											<option value="" selected="true">Please select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_acp, '1') }}>Yes</option>
-											<option value="0" {{ transaction.get_selected_choice(transaction.pt_acp, '0') }}>No</option>
+											<option value="2" {{ transaction.get_selected_choice(transaction.pt_acp, '2') }}>No</option>
 										</select>
 										
 									</div>
@@ -144,7 +145,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_diabetes">
 											<option value="" selected="true">Please select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_diabetes, '1') }}>Yes</option>
-											<option value="0" {{ transaction.get_selected_choice(transaction.pt_diabetes, '0') }}>No</option>
+											<option value="2" {{ transaction.get_selected_choice(transaction.pt_diabetes, '2') }}>No</option>
 										</select>
 										
 									</div>
@@ -155,7 +156,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tobacco">
 											<option value="" selected="true">Please select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_tobacco, '1') }}>Yes</option>
-											<option value="0" {{ transaction.get_selected_choice(transaction.pt_tobacco, '0') }}>No</option>
+											<option value="2" {{ transaction.get_selected_choice(transaction.pt_tobacco, '2') }}>No</option>
 										</select>
 										
 									</div>
@@ -166,7 +167,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tcm">
 											<option value="" selected="true">Please select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_tcm, '1') }}>Yes</option>
-											<option value="0" {{ transaction.get_selected_choice(transaction.pt_tcm, '0') }}>No</option>
+											<option value="2" {{ transaction.get_selected_choice(transaction.pt_tcm, '2') }}>No</option>
 										</select>
 										
 									</div>

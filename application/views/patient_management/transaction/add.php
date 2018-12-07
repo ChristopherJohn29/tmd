@@ -6,7 +6,8 @@
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions',
-    'dist/js/patient_management/transaction/add'
+    'dist/js/patient_management/transaction/add',
+    'dist/js/patient_management/transaction/form'
   ]
 %}
 
@@ -78,7 +79,7 @@
 										<input type="hidden" name="pt_providerID" required="true">
 										<div class="dropdown mobiledrs-autosuggest-select">
 										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/transaction/search') }}" data-input-target-name="pt_providerID">
-										  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;">
+										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>
 										
@@ -86,7 +87,7 @@
 									
 									<div class="col-md-6 form-group">
 										<label>Date of Service <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateOfService">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateOfService" value="">
 									</div>
 									
 									<div class="col-md-6 form-group">
@@ -99,7 +100,7 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">AW/IPPE Date</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_aw_ippe_date">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_aw_ippe_date" value="">
 										
 									</div>
 									
@@ -121,7 +122,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_performed">
 											<option value="" selected="true">Please select</option>
 											<option value="1">Yes</option>
-											<option value="0">No</option>
+											<option value="2">No</option>
 										</select>
 						                
 									</div>
@@ -132,7 +133,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_acp">
 											<option value="" selected="true">Please select</option>
 											<option value="1">Yes</option>
-											<option value="0">No</option>
+											<option value="2">No</option>
 										</select>
 										
 									</div>
@@ -143,7 +144,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_diabetes">
 											<option value="" selected="true">Please select</option>
 											<option value="1">Yes</option>
-											<option value="0">No</option>
+											<option value="2">No</option>
 										</select>
 										
 									</div>
@@ -154,7 +155,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tobacco">
 											<option value="" selected="true">Please select</option>
 											<option value="1">Yes</option>
-											<option value="0">No</option>
+											<option value="2">No</option>
 										</select>
 										
 									</div>
@@ -165,7 +166,7 @@
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tcm">
 											<option value="" selected="true">Please select</option>
 											<option value="1">Yes</option>
-											<option value="0">No</option>
+											<option value="2">No</option>
 										</select>
 										
 									</div>
@@ -194,7 +195,7 @@
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Date Referral was Emailed <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateRefEmailed">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateRefEmailed" value="">
 										
 									</div>
 									

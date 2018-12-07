@@ -315,6 +315,28 @@ $config = array(
             'rules' => 'max_length[255]'
         )
     ),
+    'patient_management/transaction/save_noShow_cancelled' => array(
+        array(
+            'field' => 'pt_tovID',
+            'label' => 'Type of Visit',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_providerID',
+            'label' => 'Provider',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_dateOfService',
+            'label' => 'Date of Service',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'pt_notes',
+            'label' => 'Notes',
+            'rules' => 'max_length[255]'
+        )
+    ),
     'patient_management/communication_notes/save' => array(
         array(
             'field' => 'ptcn_message',

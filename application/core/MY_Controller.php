@@ -76,8 +76,8 @@ class MY_Controller extends \CI_Controller {
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
             return ($params['page_type'] == 'edit') ?
-                $this->edit($params['page_type'], $params['record_id'], $params['sub_data_id']) :
-                $this->add($params['page_type'], $params['record_id']);
+                $this->edit($params['record_id'], $params['sub_data_id']) :
+                $this->add($params['record_id']);
         }
 
         $save = null;
@@ -87,7 +87,7 @@ class MY_Controller extends \CI_Controller {
         	$save = $this->{$params['save_model']}->update([
         		'data' => $this->{$params['save_model']}->prepare_data(),
         		'key' => $params['table_key'],
-	        	'value' => $params['record_id']
+	        	'value' => $params['sub_data_id']
         	]);
         }
         else

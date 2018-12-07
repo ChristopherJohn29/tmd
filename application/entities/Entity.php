@@ -4,7 +4,7 @@ namespace Mobiledrs\entities;
 
 class Entity {
 	
-	public function __set(string $property_name, string $property_value)
+	public function __set(string $property_name, string $property_value = null)
 	{
 		if ( ! property_exists($this, $property_name)) 
 		{
@@ -34,9 +34,9 @@ class Entity {
 		return true;
     }
 
-    public function set_date_format(string $date) : string
+    public function set_date_format(string $date)
     {
-    	return date_format(date_create($date), 'Y-m-d');
+    	return ( ! empty($date)) ? date_format(date_create($date), 'Y-m-d') : NULL;
     }
 
     public function get_date_format(string $date) : string

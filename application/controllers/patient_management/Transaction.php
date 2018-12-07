@@ -79,12 +79,22 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_tr');
 
+		$noShow = 4;
+		$cancelled = 5;
+
+		$validation_group = 'patient_management/transaction/save';
+		if ($this->input->post('pt_tovID') == $noShow ||
+			$this->input->post('pt_tovID') == $cancelled) 
+		{
+			$validation_group = 'patient_management/transaction/save_noShow_cancelled';
+		}
+
 		$params = [
 			'record_id' => $pt_patientID,
-			'table_key' => 'pt_patientID',
+			'table_key' => 'pt_id',
 			'save_model' => 'transaction_model',
 			'redirect_url' => 'patient_management/profile/details/' . $pt_patientID,
-			'validation_group' => 'patient_management/transaction/save',
+			'validation_group' => $validation_group,
 			'page_type' => $page_type,
 			'sub_data_id' => $pt_id
 		];
