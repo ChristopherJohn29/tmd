@@ -1,6 +1,6 @@
 <?php
 
-class Home_visits extends MY_Controller {
+class Home_visits extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{

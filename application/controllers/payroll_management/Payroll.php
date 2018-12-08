@@ -1,6 +1,6 @@
 <?php
 
-class Payroll extends MY_Controller {
+class Payroll extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{
@@ -13,7 +13,7 @@ class Payroll extends MY_Controller {
 		$this->check_permission('generate_pr');
 
 
-		$this->twig->view('payroll_management/payroll/list');
+		$this->twig->view('payroll_management/payroll/search');
 	}
 
 	public function details(string $patient_id)

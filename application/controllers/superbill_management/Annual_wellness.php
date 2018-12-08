@@ -1,6 +1,6 @@
 <?php
 
-class Annual_wellness extends MY_Controller {
+class Annual_wellness extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{

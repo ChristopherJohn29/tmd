@@ -1,6 +1,6 @@
 <?php
 
-class CPO_485 extends MY_Controller {
+class CPO_485 extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{
