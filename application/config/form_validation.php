@@ -200,11 +200,6 @@ $config = array(
             'rules' => 'required|max_length[10]'
         ),
         array(
-            'field' => 'provider_rate_others',
-            'label' => 'Others',
-            'rules' => 'required|max_length[10]'
-        ),
-        array(
             'field' => 'provider_rate_mileage',
             'label' => 'Mileage',
             'rules' => 'required|max_length[10]'
@@ -289,11 +284,6 @@ $config = array(
         array(
             'field' => 'provider_rate_noShowPT',
             'label' => 'No Show Patient',
-            'rules' => 'required|max_length[10]'
-        ),
-        array(
-            'field' => 'provider_rate_others',
-            'label' => 'Others',
             'rules' => 'required|max_length[10]'
         ),
         array(

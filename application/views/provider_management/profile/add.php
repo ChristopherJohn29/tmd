@@ -195,8 +195,8 @@
 									<div class="col-md-4 form-group">
 									
 
-										<label class="control-label">Others <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_others" required="true" value="{{ set_value('provider_rate_others') }}">
+										<label class="control-label">Others</label>
+										<input type="text" class="form-control" name="provider_rate_others" value="{{ set_value('provider_rate_others') }}">
 
 										
 									</div>
