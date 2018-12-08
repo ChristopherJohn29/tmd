@@ -31,6 +31,13 @@
 							{{ form_open('user_management/profile/save', {"class": "xrx-form"}) }}
 							
 								<div class="row">
+
+					            	<div class="col-xs-12">
+								      {% if states %}
+								        {{ include('commons/alerts.php') }}
+								      {% endif %}
+								    </div>
+					            	
 								
 									<div class="col-md-12">
 										<p class="lead">Personal Information</p>
@@ -40,7 +47,7 @@
 									
 
 										<label class="control-label">First Name <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="user_firstname">
+										<input type="text" class="form-control" required="true" name="user_firstname" value="{{ set_value('user_firstname') }}">
 
 										
 									</div>
@@ -49,7 +56,7 @@
 									
 
 										<label class="control-label">Last Name <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="user_lastname">
+										<input type="text" class="form-control" required="true" name="user_lastname" value="{{ set_value('user_lastname') }}">
 
 										
 									</div>
@@ -83,7 +90,7 @@
 									
 
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth" value="{{ set_value('user_dateOfBirth') }}">
 
 										
 									</div>
@@ -109,7 +116,7 @@
 									
 
 										<label class="control-label">Phone <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="user_phone">
+										<input type="text" class="form-control" required="true" name="user_phone" value="{{ set_value('user_phone') }}">
 
 										
 									</div>
@@ -118,7 +125,7 @@
 									
 
 										<label class="control-label">Email <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="user_email">
+										<input type="text" class="form-control" required="true" name="user_email" value="{{ set_value('user_email') }}">
 
 										
 									</div>
@@ -127,7 +134,7 @@
 									
 
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="user_address">
+										<input type="text" class="form-control" required="true" name="user_address" value="{{ set_value('user_address') }}">
 
 										
 									</div>
@@ -157,7 +164,7 @@
 									
 
 										<label class="control-label">Password <span>*</span></label>
-										<input type="password" class="form-control" required="true" name="user_password">
+										<input type="password" class="form-control" required="true" name="user_password" value="{{ set_value('user_password') }}">
 
 										
 									</div>
@@ -166,7 +173,7 @@
 									
 
 										<label class="control-label">Confirm Password <span>*</span></label>
-										<input type="password" class="form-control" required="true" name="confirm_password">
+										<input type="password" class="form-control" required="true" name="confirm_password" value="{{ set_value('confirm_password') }}">
 
 										
 									</div>

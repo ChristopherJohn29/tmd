@@ -93,7 +93,7 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Deductible</label>
-										<input type="text" class="form-control" name="pt_deductible">
+										<input type="text" class="form-control" name="pt_deductible" value="{{ set_value('pt_deductible') }}">
 										
 									</div>
 									
@@ -174,21 +174,21 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Mileage</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<input type="text" class="form-control" value="{{ set_value('pt_mileage') }}" name="pt_mileage">
 										
 									</div>
                                     
                                     <div class="col-md-6 form-group">
 									
 										<label class="control-label">Others</label>
-										<input type="text" class="form-control" name="pt_others">
+										<input type="text" class="form-control" name="pt_others" value="{{ set_value('pt_others') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">ICD-10 Codes <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="pt_icd10_codes">
+										<input type="text" class="form-control" required="true" name="pt_icd10_codes" value="{{ set_value('pt_icd10_codes') }}">
 										
 									</div>
 									
@@ -202,7 +202,7 @@
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Notes</label>
-										<textarea class="form-control" name="pt_notes"></textarea>
+										<textarea class="form-control" name="pt_notes">{{ set_value('pt_notes') }}</textarea>
 										
 									</div>
 									

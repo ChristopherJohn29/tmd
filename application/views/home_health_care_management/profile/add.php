@@ -25,42 +25,42 @@
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Home Health <span>*</span></label>
-										<input type="text" class="form-control"  required="true" name="hhc_name">
+										<input type="text" class="form-control"  required="true" name="hhc_name" value="{{ set_value('hhc_name') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Contact Person <span>*</span></label>
-										<input type="text" class="form-control" " required="true" name="hhc_contact_name">
+										<input type="text" class="form-control" " required="true" name="hhc_contact_name" value="{{ set_value('hhc_name') }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Phone Number <span>*</span></label>
-										<input type="phone" class="form-control"  required="true" name="hhc_phoneNumber">
+										<input type="phone" class="form-control"  required="true" name="hhc_phoneNumber" value="{{ set_value('hhc_phoneNumber') }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Fax</label>
-										<input type="phone" class="form-control" name="hhc_faxNumber">
+										<input type="phone" class="form-control" name="hhc_faxNumber" value="{{ set_value('hhc_faxNumber') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Email <span>*</span></label>
-										<input type="email" class="form-control"  required="true" name="hhc_email">
+										<input type="email" class="form-control"  required="true" name="hhc_email" value="{{ set_value('hhc_email') }}">
 						                
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control"  required="true" name="hhc_address">
+										<input type="text" class="form-control"  required="true" name="hhc_address" value="{{ set_value('hhc_address') }}">
 										
 									</div>
 									

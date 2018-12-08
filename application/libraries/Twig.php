@@ -17,7 +17,8 @@ class Twig {
 	private $safe_functions = [
 		'form_open',
 		'site_url',
-		'set_value'
+		'set_value',
+		'form_error'
 	];
 
 	private $CI = null;

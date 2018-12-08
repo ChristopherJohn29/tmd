@@ -32,7 +32,12 @@
                             {{ form_open("user_management/profile/save/#{ record.user_id }", {"class": "xrx-form"}) }}
                             
                                 <div class="row">
-                                
+                                    <div class="col-xs-12">
+                                      {% if states %}
+                                        {{ include('commons/alerts.php') }}
+                                      {% endif %}
+                                    </div>
+
                                     <div class="col-md-12">
                                         <p class="lead">Personal Information</p>
                                     </div>

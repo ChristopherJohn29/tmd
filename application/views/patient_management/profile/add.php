@@ -1,4 +1,4 @@
- {% extends "main.php" %}
+{% extends "main.php" %}
 
 {% 
   set scripts = [
@@ -37,7 +37,7 @@
 									
 									<div class="col-md-12 form-group">
 										<label>Date of Referral <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate" value="{{ set_value('patient_referralDate') }}">
 									</div>
 
 									<!-- <div class="col-md-12 form-group has-error">
@@ -49,20 +49,20 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">First Name <span>*</span></label>
-										<input type="text" class="form-control" id="firstname" placeholder="" required="true" name="patient_firstname">
+										<input type="text" class="form-control" id="firstname" placeholder="" required="true" name="patient_firstname" value="{{ set_value('patient_firstname') }}">
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Last Name <span>*</span></label>
-										<input type="text" class="form-control" id="lastname" placeholder="" required="true" name="patient_lastname">
+										<input type="text" class="form-control" id="lastname" placeholder="" required="true" name="patient_lastname" value="{{ set_value('patient_lastname') }}">
                                         
 									</div>
                                     
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth">
+										<input type="text" class="form-control" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth" value="{{ set_value('patient_dateOfBirth') }}">
 										
 									</div>
 									
@@ -82,28 +82,28 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Medicare <span>*</span></label>
-										<input type="text" class="form-control" id="medicare" placeholder="" required="true" name="patient_medicareNum">
+										<input type="text" class="form-control" id="medicare" placeholder="" required="true" name="patient_medicareNum" value="{{ set_value('patient_medicareNum') }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Phone <span>*</span></label>
-										<input type="text" class="form-control" id="phone" placeholder="" required="true" name="patient_phoneNum">
+										<input type="text" class="form-control" id="phone" placeholder="" required="true" name="patient_phoneNum" value="{{ set_value('patient_phoneNum') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" id="address" placeholder="" required="true" name="patient_address">
+										<input type="text" class="form-control" id="address" placeholder="" required="true" name="patient_address" value="{{ set_value('patient_address') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Caregiver/Family</label>
-										<input type="text" class="form-control" id="caregiver" placeholder="" name="patient_caregiver_family">
+										<input type="text" class="form-control" id="caregiver" placeholder="" name="patient_caregiver_family" value="{{ set_value('patient_caregiver_family') }}">
 										
 									</div>
 									

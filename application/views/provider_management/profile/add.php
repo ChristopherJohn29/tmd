@@ -39,7 +39,7 @@
 									
 
 										<label class="control-label">First Name <span>*</span></label>
-										<input type="text" class="form-control" name="provider_firstname" required="true">
+										<input type="text" class="form-control" name="provider_firstname" required="true" value="{{ set_value('provider_firstname') }}">
 
 										
 									</div>
@@ -48,7 +48,7 @@
 									
 
 										<label class="control-label">Last Name <span>*</span></label>
-										<input type="text" class="form-control" name="provider_lastname" required="true">
+										<input type="text" class="form-control" name="provider_lastname" required="true" value="{{ set_value('provider_lastname') }}">
 
 										
 									</div>
@@ -57,7 +57,7 @@
 									
 
 										<label class="control-label">Phone Number <span>*</span></label>
-										<input type="phone" class="form-control" name="provider_contactNum" required="true">
+										<input type="phone" class="form-control" name="provider_contactNum" required="true" value="{{ set_value('provider_contactNum') }}">
 
 										
 									</div>
@@ -66,7 +66,7 @@
 									
 
 										<label class="control-label">Email <span>*</span></label>
-										<input type="email" class="form-control" name="provider_email" required="true">
+										<input type="email" class="form-control" name="provider_email" required="true" value="{{ set_value('provider_email') }}">
 
 										
 									</div>
@@ -86,7 +86,7 @@
 									
 
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" required="true">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" required="true" value="{{ set_value('provider_dateOfBirth') }}">
 
 										
 									</div>
@@ -95,7 +95,7 @@
 									
 
 										<label class="control-label">Languages <span>*</span></label>
-										<input type="text" class="form-control" name="provider_languages" required="true">
+										<input type="text" class="form-control" name="provider_languages" required="true" value="{{ set_value('provider_languages') }}">
 
 						                
 									</div>
@@ -104,7 +104,7 @@
 									
 
 										<label class="control-label">Areas <span>*</span></label>
-										<input type="text" class="form-control" name="provider_areas" required="true">
+										<input type="text" class="form-control" name="provider_areas" required="true" value="{{ set_value('provider_areas') }}">
 
 										
 									</div>
@@ -113,7 +113,7 @@
 									
 
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" name="provider_address" required="true">
+										<input type="text" class="form-control" name="provider_address" required="true" value="{{ set_value('provider_address') }}">
 
 										
 									</div>
@@ -125,21 +125,21 @@
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">National Provider Identifier <span>*</span></label>
-										<input type="text" class="form-control" name="provider_npi" required="true">
+										<input type="text" class="form-control" name="provider_npi" required="true" value="{{ set_value('provider_npi') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">DEA Registration Number <span>*</span></label>
-										<input type="text" class="form-control" name="provider_dea" required="true">
+										<input type="text" class="form-control" name="provider_dea" required="true" value="{{ set_value('provider_dea') }}">
 										
 									</div>
 									
 									<div class="col-md-12 form-group">
 									
 										<label class="control-label">License <span>*</span></label>
-										<input type="text" class="form-control" name="provider_license" required="true">
+										<input type="text" class="form-control" name="provider_license" required="true" value="{{ set_value('provider_license') }}">
 										
 									</div>
 									
@@ -151,7 +151,7 @@
 									
 
 										<label class="control-label">Initial Visit <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_initialVisit" required="true">
+										<input type="text" class="form-control" name="provider_rate_initialVisit" required="true" value="{{ set_value('provider_rate_initialVisit') }}">
 
 										
 									</div>
@@ -160,7 +160,7 @@
 									
 
 										<label class="control-label">Follow-up Visit <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_followUpVisit" required="true">
+										<input type="text" class="form-control" name="provider_rate_followUpVisit" required="true" value="{{ set_value('provider_rate_followUpVisit') }}">
 
 										
 									</div>
@@ -169,7 +169,7 @@
 									
 
 										<label class="control-label">Annual Wellness <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_aw" required="true">
+										<input type="text" class="form-control" name="provider_rate_aw" required="true" value="{{ set_value('provider_rate_aw') }}">
 
 										
 									</div>
@@ -178,7 +178,7 @@
 									
 
 										<label class="control-label">ACP <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_acp" required="true">
+										<input type="text" class="form-control" name="provider_rate_acp" required="true" value="{{ set_value('provider_rate_acp') }}">
 
 										
 									</div>
@@ -187,7 +187,7 @@
 									
 
 										<label class="control-label">No Show <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_noShowPT" required="true">
+										<input type="text" class="form-control" name="provider_rate_noShowPT" required="true" value="{{ set_value('provider_rate_noShowPT') }}">
 
 										
 									</div>
@@ -196,7 +196,7 @@
 									
 
 										<label class="control-label">Others <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_others" required="true">
+										<input type="text" class="form-control" name="provider_rate_others" required="true" value="{{ set_value('provider_rate_others') }}">
 
 										
 									</div>
@@ -205,7 +205,7 @@
 									
 
 										<label class="control-label">Mileage <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_mileage" required="true">
+										<input type="text" class="form-control" name="provider_rate_mileage" required="true" value="{{ set_value('provider_rate_mileage') }}">
 
 										
 									</div>
