@@ -43,22 +43,27 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('user_firstname') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">First Name <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_firstname" value="{{ set_value('user_firstname') }}">
-
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('user_lastname') ? 'has-error' : '' }}">
 									
-
 										<label class="control-label">Last Name <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_lastname" value="{{ set_value('user_lastname') }}">
 
-										
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_firstname') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_lastname') }}</span>
 									</div>
                                     
                                     <div class="col-md-6 form-group">
@@ -86,7 +91,7 @@
 										<p class="lead">Basic Information</p>
 									</div>
                                     
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_error('user_dateOfBirth') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Date of Birth <span>*</span></label>
@@ -95,7 +100,7 @@
 										
 									</div>
                                     
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_error('user_gender') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Gender <span>*</span></label>
@@ -107,12 +112,20 @@
 						                </select>
 										
 									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_dateOfBirth') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_gender') }}</span>
+									</div>
                                     
                                     <div class="col-md-12 subheader">
 										<p class="lead">Contact Information</p>
 									</div>
                                     
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_error('user_phone') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Phone <span>*</span></label>
@@ -121,30 +134,38 @@
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('user_email') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Email <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_email" value="{{ set_value('user_email') }}">
-
-										{{ form_error('user_email') }}
 										
 									</div>
-                                    
-                                    <div class="col-md-12 form-group">
-									
 
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_phone') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_email') }}</span>
+									</div>
+                                    
+                                    <div class="col-md-12 form-group {{ form_error('user_address') ? 'has-error' : '' }}">
+									
 										<label class="control-label">Address <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_address" value="{{ set_value('user_address') }}">
 
-										
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_address') }}</span>
 									</div>
                                     
                                     <div class="col-md-12 subheader">
 										<p class="lead">Access Details</p>
 									</div>
                                     
-                                    <div class="col-md-12 form-group">
+                                    <div class="col-md-12 form-group {{ form_error('user_roleID') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Account Type <span>*</span></label>
@@ -160,8 +181,12 @@
 										</select>
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('user_roleID') }}</span>
+									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('user_password') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Password <span>*</span></label>
@@ -170,13 +195,21 @@
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('confirm_password') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Confirm Password <span>*</span></label>
 										<input type="password" class="form-control" required="true" name="confirm_password" value="{{ set_value('confirm_password') }}">
 
 										
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('user_password') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('confirm_password') }}</span>
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">

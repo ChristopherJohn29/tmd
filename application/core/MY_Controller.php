@@ -35,6 +35,8 @@ class MY_Controller extends \CI_Controller {
 	{
 		$this->load->library('form_validation');
 
+        $this->form_validation->set_error_delimiters('', '');
+
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
           //  $this->session->set_flashdata('danger', validation_errors());
@@ -74,6 +76,8 @@ class MY_Controller extends \CI_Controller {
 	public function save_sub_data(array $params)
 	{
 		$this->load->library('form_validation');
+
+        $this->form_validation->set_error_delimiters('', '');
 
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {

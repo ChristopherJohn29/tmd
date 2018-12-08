@@ -36,38 +36,43 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('patient_referralDate') ? 'has-error' : '' }}">
 										<label>Date of Referral <span>*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate" value="{{ set_value('patient_referralDate', record.patient_referralDate) }}">
 									</div>
 
-									<!-- <div class="col-md-12 form-group has-error">
-										<label>Date of Referral <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true">
-                                        <span class="help-block">This field is required.</span>
-									</div> -->
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('patient_referralDate') }}</span>
+									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('patient_firstname') ? 'has-error' : '' }}">
 									
 										<label class="control-label">First Name <span>*</span></label>
 										<input type="text" class="form-control" id="firstname" placeholder="" required="true" name="patient_firstname" value="{{ set_value('patient_firstname', record.patient_firstname) }}">
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('patient_lastname') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Last Name <span>*</span></label>
 										<input type="text" class="form-control" id="lastname" placeholder="" required="true" name="patient_lastname" value="{{ set_value('patient_lastname', record.patient_lastname) }}">
                                         
 									</div>
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_firstname') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_lastname') }}</span>
+									</div>
                                     
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('patient_dateOfBirth') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Date of Birth <span>*</span></label>
 										<input type="text" class="form-control" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth" value="{{ set_value('patient_dateOfBirth', record.patient_dateOfBirth) }}">
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('patient_gender') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" name="patient_gender" id="dob" required="true">
@@ -78,39 +83,63 @@
 						                
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_dateOfBirth') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_gender') }}</span>
+									</div>
+
+									<div class="col-md-6 form-group {{ form_error('patient_medicareNum') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Medicare <span>*</span></label>
 										<input type="text" class="form-control" id="medicare" placeholder="" required="true" name="patient_medicareNum" value="{{ set_value('patient_medicareNum', record.patient_medicareNum) }}">
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('patient_phoneNum') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Phone <span>*</span></label>
 										<input type="text" class="form-control" id="phone" placeholder="" required="true" name="patient_phoneNum" value="{{ set_value('patient_phoneNum', record.patient_phoneNum) }}">
 										
 									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_medicareNum') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_phoneNum') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('patient_address') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Address <span>*</span></label>
 										<input type="text" class="form-control" id="address" placeholder="" required="true" name="patient_address" value="{{ set_value('patient_address', record.patient_address) }}">
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('patient_address') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('patient_caregiver_family') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Caregiver/Family</label>
 										<input type="text" class="form-control" id="caregiver" placeholder="" name="patient_caregiver_family" value="{{ set_value('patient_caregiver_family', record.patient_caregiver_family) }}">
 										
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('patient_caregiver_family') }}</span>
 									</div>
 									
 									<div class="col-md-12 subheader">
 										<p class="lead ">Home Health Care</p>
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('patient_hhcID') ? 'has-error' : '' }}">
 										<label class="control-label">Home Health <span>*</span></label>
 										
 										<input type="hidden" name="patient_hhcID" required="true" value="{{ record.patient_hhcID }}">
@@ -119,6 +148,11 @@
 										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('patient_hhcID') }}</span>
+									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
 					              		<button type="submit" class="btn btn-primary xrx-btn">

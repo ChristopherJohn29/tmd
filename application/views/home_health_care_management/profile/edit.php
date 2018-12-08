@@ -22,46 +22,70 @@
 							
 								<div class="row">
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('hhc_name') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Home Health <span>*</span></label>
 										<input type="text" class="form-control"  required="true" name="hhc_name" value="{{ set_value('hhc_name', record.hhc_name) }}">
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('hhc_name') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('hhc_contact_name') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Contact Person <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="hhc_contact_name" value="{{ set_value('hhc_contact_name', record.hhc_contact_name) }}">
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('hhc_contact_name') }}</span>
+									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('hhc_phoneNumber') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Phone Number <span>*</span></label>
 										<input type="phone" class="form-control"  required="true" name="hhc_phoneNumber" value="{{ set_value('hhc_phoneNumber', record.hhc_phoneNumber) }}">
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('hhc_faxNumber') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Fax</label>
 										<input type="phone" class="form-control" name="hhc_faxNumber" value="{{ set_value('hhc_faxNumber', record.hhc_faxNumber) }}">
 										
 									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('hhc_phoneNumber') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('hhc_faxNumber') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('hhc_email') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Email <span>*</span></label>
 										<input type="email" class="form-control"  required="true" name="hhc_email" value="{{ set_value('hhc_email', record.hhc_email) }}">
 						                
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('hhc_email') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('hhc_address') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Address <span>*</span></label>
 										<input type="text" class="form-control"  required="true" name="hhc_address" value="{{ set_value('hhc_address', record.hhc_address) }}">
 										
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('hhc_address') }}</span>
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">

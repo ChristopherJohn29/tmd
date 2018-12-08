@@ -35,7 +35,7 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('provider_firstname') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">First Name <span>*</span></label>
@@ -44,7 +44,7 @@
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('provider_lastname') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Last Name <span>*</span></label>
@@ -52,8 +52,16 @@
 
 										
 									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('provider_firstname') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('provider_lastname') }}</span>
+									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('provider_contactNum') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Phone Number <span>*</span></label>
@@ -62,7 +70,7 @@
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('provider_email') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Email <span>*</span></label>
@@ -70,8 +78,16 @@
 
 										
 									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('provider_contactNum') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('provider_email') }}</span>
+									</div>
 									
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_error('provider_gender') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" name="provider_gender" id="dob" required="true">
@@ -82,7 +98,7 @@
 						                
 									</div>
                                     
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error('provider_dateOfBirth') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Date of Birth <span>*</span></label>
@@ -90,8 +106,16 @@
 
 										
 									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('provider_gender') }}</span>
+									</div>
+
+									<div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('provider_dateOfBirth') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('provider_languages') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Languages <span>*</span></label>
@@ -99,8 +123,12 @@
 
 						                
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_languages') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('provider_areas') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Areas <span>*</span></label>
@@ -108,8 +136,12 @@
 
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_areas') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('provider_address') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Address <span>*</span></label>
@@ -117,37 +149,53 @@
 
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_address') }}</span>
+									</div>
 									
 									<div class="col-md-12">
 										<p class="lead subheader">Credentials</p>
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('provider_npi') ? 'has-error' : '' }}">
 									
 										<label class="control-label">National Provider Identifier <span>*</span></label>
 										<input type="text" class="form-control" name="provider_npi" required="true" value="{{ set_value('provider_npi') }}">
 										
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_npi') }}</span>
+									</div>
+
+									<div class="col-md-12 form-group {{ form_error('provider_dea') ? 'has-error' : '' }}">
 									
 										<label class="control-label">DEA Registration Number <span>*</span></label>
 										<input type="text" class="form-control" name="provider_dea" required="true" value="{{ set_value('provider_dea') }}">
 										
 									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_dea') }}</span>
+									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('provider_license') ? 'has-error' : '' }}">
 									
 										<label class="control-label">License <span>*</span></label>
 										<input type="text" class="form-control" name="provider_license" required="true" value="{{ set_value('provider_license') }}">
 										
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_license') }}</span>
 									</div>
 									
 									<div class="col-md-12">
 										<p class="lead subheader">Rates</p>
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_initialVisit') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Initial Visit <span>*</span></label>
@@ -156,7 +204,7 @@
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_followUpVisit') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Follow-up Visit <span>*</span></label>
@@ -165,7 +213,7 @@
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Annual Wellness <span>*</span></label>
@@ -173,8 +221,20 @@
 
 										
 									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_initialVisit') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_followUpVisit') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_aw') }}</span>
+									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_acp') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">ACP <span>*</span></label>
@@ -183,7 +243,7 @@
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_noShowPT') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">No Show <span>*</span></label>
@@ -192,7 +252,7 @@
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_others') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Others</label>
@@ -200,14 +260,30 @@
 
 										
 									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_acp') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_noShowPT') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_others') }}</span>
+									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Mileage <span>*</span></label>
 										<input type="text" class="form-control" name="provider_rate_mileage" required="true" value="{{ set_value('provider_rate_mileage') }}">
 
 										
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
