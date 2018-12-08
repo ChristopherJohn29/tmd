@@ -57,7 +57,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('add_pt');
 
 		// only check for duplicate medicare number when the medicare number field has been changed
-		$validation_group = 'patient_management/profile/save_update';
+		$validation_group = '';
 		if ($formtype == 'edit')
 		{
 			$params = [
@@ -76,6 +76,14 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			{
 				$validation_group = 'patient_management/profile/save';
 			}
+			else
+			{
+				$validation_group = 'patient_management/profile/save_update';
+			}
+		}
+		else
+		{
+			$validation_group = 'patient_management/profile/save';
 		}
 
 		$params = [

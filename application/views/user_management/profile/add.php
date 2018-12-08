@@ -127,6 +127,7 @@
 										<label class="control-label">Email <span>*</span></label>
 										<input type="text" class="form-control" required="true" name="user_email" value="{{ set_value('user_email') }}">
 
+										{{ form_error('user_email') }}
 										
 									</div>
                                     
