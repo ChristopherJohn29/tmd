@@ -52,16 +52,38 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('provider_management/profile/edit', $page_data);
 	}
 
-	public function save(string $provider_id = '')
+	public function save(string $formtype, string $provider_id = '')
 	{
 		$this->check_permission('add_provider');
+
+		// only check for duplicate emails when the email field has been changed
+		$validation_group = 'provider_management/profile/save_update';
+		if ($formtype == 'edit')
+		{
+			$params = [
+				'key' => 'provider_id',
+	        	'value' => $provider_id,
+			];
+
+			$provider_record = $this->profile_model->record($params);
+
+			if ( ! $provider_record)
+			{
+				redirect('errors/page_not_found');
+			}
+
+			if ($this->input->post('provider_email') != $provider_record->provider_email)
+			{
+				$validation_group = 'provider_management/profile/save';
+			}
+		}
 
 		$params = [
 			'record_id' => $provider_id,
 			'table_key' => 'provider_id',
 			'save_model' => 'profile_model',
 			'redirect_url' => 'provider_management/profile/',
-			'validation_group' => 'provider_management/profile/save'
+			'validation_group' => $validation_group
 		];
 
 		parent::save_data($params);   

@@ -29,7 +29,7 @@
                     <div class="col-lg-12">
                         <div class="box-body">
                         
-                            {{ form_open("user_management/profile/save/#{ record.user_id }", {"class": "xrx-form"}) }}
+                            {{ form_open("user_management/profile/save/edit/#{ record.user_id }", {"class": "xrx-form"}) }}
                             
                                 <div class="row">
                                     <div class="col-xs-12">

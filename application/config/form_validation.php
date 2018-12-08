@@ -1,7 +1,7 @@
 <?php
 
 $config = array(
-    'user_management/profile/save/' => array(
+    'user_management/profile/save' => array(
         array(
             'field' => 'user_firstname',
             'label' => 'Firstname',
@@ -56,6 +56,53 @@ $config = array(
             'rules' => 'required|max_length[10]'
         )
 	),
+    'user_management/profile/save_update' => array(
+        array(
+            'field' => 'user_firstname',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'user_lastname',
+            'label' => 'Lastname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'user_password',
+            'label' => 'Password',
+            'rules' => 'required|min_length[8]'
+        ),
+        array(
+            'field' => 'confirm_password',
+            'label' => 'Confirm Password',
+            'rules' => 'required|min_length[8]|matches[user_password]'
+        ),
+        array(
+            'field' => 'user_roleID',
+            'label' => 'Role',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'user_dateOfBirth',
+            'label' => 'Date of Birth',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'user_phone',
+            'label' => 'Phone',
+            'rules' => 'required|max_length[20]'
+        ),
+        array(
+            'field' => 'user_address',
+            'label' => 'Address',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'user_gender',
+            'label' => 'Gender',
+            'rules' => 'required|max_length[10]'
+        )
+    ),
     'authentication/user/verify' => array(
         array(
             'field' => 'user_email',
@@ -168,6 +215,98 @@ $config = array(
             'rules' => 'required|max_length[10]'
         )
     ),
+    'provider_management/profile/save_update' => array(
+        array(
+            'field' => 'provider_firstname',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'provider_lastname',
+            'label' => 'Lastname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'provider_contactNum',
+            'label' => 'Contact Number',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'provider_address',
+            'label' => 'Address',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'provider_dateOfBirth',
+            'label' => 'Date of Birth',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'provider_languages',
+            'label' => 'Languages',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'provider_areas',
+            'label' => 'Areas',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'provider_npi',
+            'label' => 'NPI',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'provider_dea',
+            'label' => 'DEA',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'provider_license',
+            'label' => 'License',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'provider_rate_initialVisit',
+            'label' => 'Initial Visit',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_rate_followUpVisit',
+            'label' => 'Follow up visit',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_rate_aw',
+            'label' => 'AW',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_rate_acp',
+            'label' => 'ACP',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_rate_noShowPT',
+            'label' => 'No Show Patient',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_rate_others',
+            'label' => 'Others',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_rate_mileage',
+            'label' => 'Mileage',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'provider_gender',
+            'label' => 'Gender',
+            'rules' => 'required|max_length[10]'
+        )
+    ),
     'home_health_care_management/profile/save' => array(
         array(
             'field' => 'hhc_name',
@@ -196,6 +335,33 @@ $config = array(
             'errors' => array(
                 'is_unique' => 'This %s already exists.'
             )
+        ),
+        array(
+            'field' => 'hhc_address',
+            'label' => 'Address',
+            'rules' => 'required|max_length[255]'
+        )
+    ),
+    'home_health_care_management/profile/save_update' => array(
+        array(
+            'field' => 'hhc_name',
+            'label' => 'Name',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_contact_name',
+            'label' => 'Contact Name',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_phoneNumber',
+            'label' => 'Phone Number',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'hhc_faxNumber',
+            'label' => 'Fax Number',
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'hhc_address',

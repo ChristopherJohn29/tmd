@@ -51,16 +51,38 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('home_health_care_management/profile/edit', $page_data);
 	}
 
-	public function save(string $hhc_id = '')
+	public function save(string $formtype, string $hhc_id = '')
 	{
 		$this->check_permission('add_hhc');
+
+		// only check for duplicate emails when the email field has been changed
+		$validation_group = 'home_health_care_management/profile/save_update';
+		if ($formtype == 'edit')
+		{
+			$params = [
+				'key' => 'hhc_id',
+	        	'value' => $hhc_id
+			];
+
+			$hhc_record = $this->profile_model->record($params);
+
+			if ( ! $hhc_record)
+			{
+				redirect('errors/page_not_found');
+			}
+
+			if ($this->input->post('hhc_address') != $hhc_record->hhc_address)
+			{
+				$validation_group = 'home_health_care_management/profile/save';
+			}
+		}
 
 		$params = [
 			'record_id' => $hhc_id,
 			'table_key' => 'hhc_id',
 			'save_model' => 'profile_model',
 			'redirect_url' => 'home_health_care_management/profile',
-			'validation_group' => 'home_health_care_management/profile/save'
+			'validation_group' => $validation_group
 		];
 
 		parent::save_data($params);   

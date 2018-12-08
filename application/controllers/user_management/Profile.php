@@ -86,16 +86,38 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('user_management/profile/edit', $page_data);
 	}
 
-	public function save(string $user_id = '')
+	public function save(string $formtype, string $user_id = '')
 	{
 		$this->check_permission('add_user');
+
+		// only check for duplicate emails when the email field has been changed
+		$validation_group = 'user_management/profile/save_update';
+		if ($formtype == 'edit')
+		{
+			$params = [
+				'key' => 'user_id',
+	        	'value' => $user_id
+			];
+
+			$user_record = $this->profile_model->record($params);
+
+			if ( ! $user_record)
+			{
+				redirect('errors/page_not_found');
+			}
+
+			if ($this->input->post('user_email') != $user_record->user_email)
+			{
+				$validation_group = 'user_management/profile/save';
+			}
+		}
 
 		$params = [
 			'record_id' => $user_id,
 			'table_key' => 'user_id',
 			'save_model' => 'profile_model',
 			'redirect_url' => 'user_management/profile',
-			'validation_group' => 'user_management/profile/save/'
+			'validation_group' => $validation_group
 		];
 
 		parent::save_data($params);

@@ -26,7 +26,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("provider_management/profile/save/#{ record.provider_id }", {"class": "xrx-form"}) }}
+							{{ form_open("provider_management/profile/save/edit/#{ record.provider_id }", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 								

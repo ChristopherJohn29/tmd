@@ -18,7 +18,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("home_health_care_management/profile/save/#{ record.hhc_id }", {"class": "xrx-form"}) }}
+							{{ form_open("home_health_care_management/profile/save/edit/#{ record.hhc_id }", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 									
