@@ -40,4 +40,9 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	{
 		return ($gender == $this->provider_gender) ? 'selected=true' : '';
 	}
+
+	public function has_changed_email(string $email) : bool
+	{
+		return ($this->provider_email != $email) ? true : false;
+	}
 }

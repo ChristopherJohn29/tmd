@@ -71,7 +71,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				redirect('errors/page_not_found');
 			}
 
-			if ($this->input->post('hhc_address') != $hhc_record->hhc_address)
+			if ($hhc_record->has_changed_email($this->input->post('hhc_email')))
 			{
 				$validation_group = 'home_health_care_management/profile/save';
 			}

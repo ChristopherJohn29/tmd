@@ -106,7 +106,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				redirect('errors/page_not_found');
 			}
 
-			if ($this->input->post('user_email') != $user_record->user_email)
+			if ($user_record->has_changed_email($this->input->post('user_email')))
 			{
 				$validation_group = 'user_management/profile/save';
 			}

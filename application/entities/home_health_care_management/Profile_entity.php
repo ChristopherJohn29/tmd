@@ -13,4 +13,8 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $hhc_address;
 	protected $hhc_dateCreated;
 
+	public function has_changed_email(string $email) : bool
+	{
+		return ($this->hhc_email != $email) ? true : false;
+	}
 }

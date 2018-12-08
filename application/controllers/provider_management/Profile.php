@@ -72,7 +72,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				redirect('errors/page_not_found');
 			}
 
-			if ($this->input->post('provider_email') != $provider_record->provider_email)
+			if ($provider_record->has_changed_email($this->input->post('provider_email')))
 			{
 				$validation_group = 'provider_management/profile/save';
 			}

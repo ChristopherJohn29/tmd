@@ -52,16 +52,38 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('patient_management/profile/edit', $page_data);
 	}
 
-	public function save(string $patient_id = '')
+	public function save(string $formtype, string $patient_id = '')
 	{
 		$this->check_permission('add_pt');
+
+		// only check for duplicate medicare number when the medicare number field has been changed
+		$validation_group = 'patient_management/profile/save_update';
+		if ($formtype == 'edit')
+		{
+			$params = [
+				'key' => 'patient_id',
+	        	'value' => $patient_id
+			];
+
+			$patient_record = $this->profile_model->record($params);
+
+			if ( ! $patient_record)
+			{
+				redirect('errors/page_not_found');
+			}
+
+			if ($patient_record->has_changed_medicareNum($this->input->post('patient_medicareNum')))
+			{
+				$validation_group = 'patient_management/profile/save';
+			}
+		}
 
 		$params = [
 			'record_id' => $patient_id,
 			'table_key' => 'patient_id',
 			'save_model' => 'profile_model',
 			'redirect_url' => 'patient_management/profile',
-			'validation_group' => 'patient_management/profile/save'
+			'validation_group' => $validation_group
 		];
 
 		parent::save_data($params);

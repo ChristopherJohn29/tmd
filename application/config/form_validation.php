@@ -419,6 +419,48 @@ $config = array(
             'rules' => 'required'
         )
     ),
+    'patient_management/profile/save_update' => array(
+        array(
+            'field' => 'patient_firstname',
+            'label' => 'Firstname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'patient_lastname',
+            'label' => 'Lastname',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'patient_gender',
+            'label' => 'Gender',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'patient_referralDate',
+            'label' => 'Referral Date',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'patient_dateOfBirth',
+            'label' => 'Date of Birth',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'patient_phoneNum',
+            'label' => 'Phone Number',
+            'rules' => 'required|max_length[45]'
+        ),
+        array(
+            'field' => 'patient_address',
+            'label' => 'Address',
+            'rules' => 'required|max_length[255]'
+        ),
+        array(
+            'field' => 'patient_hhcID',
+            'label' => 'Home Health',
+            'rules' => 'required'
+        )
+    ),
     'patient_management/transaction/save' => array(
         array(
             'field' => 'pt_tovID',

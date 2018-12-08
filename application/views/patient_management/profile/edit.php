@@ -28,7 +28,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("patient_management/profile/save/#{ record.patient_id }", {"class": "xrx-form"}) }}
+							{{ form_open("patient_management/profile/save/edit/#{ record.patient_id }", {"class": "xrx-form"}) }}
 							
 								<div class="row">									
 								
