@@ -99,29 +99,25 @@
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateOfService" value="{{ set_value('pt_dateOfService', transaction.pt_dateOfService) }}">
 									</div>
 									
-									<div class="col-md-6 form-group {{ form_error('pt_deductible') ? 'has-error' : '' }}">
+									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Deductible</label>
 										<input type="text" class="form-control" name="pt_deductible" value="{{ set_value('pt_deductible', transaction.pt_deductible) }}">
 										
 									</div>
 
-									<div class="col-md-6 has-error">
+									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('pt_dateOfService') }}</span>
 									</div>
 
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_deductible') }}</span>
-									</div>
-									
-									<div class="col-md-6 form-group {{ form_error('pt_aw_ippe_date') ? 'has-error' : '' }}">
+									<div class="col-md-6 form-group">
 									
 										<label class="control-label">AW/IPPE Date</label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_aw_ippe_date" value="{{ set_value('pt_aw_ippe_date', transaction.pt_aw_ippe_date) }}">
 										
 									</div>
 									
-									<div class="col-md-3 form-group {{ form_error('pt_aw_ippe_code') ? 'has-error' : '' }}">
+									<div class="col-md-3 form-group">
 									
 										<label class="control-label">AW or IPPE?</label>
 										<select class="form-control" style="width: 100%;" name="pt_aw_ippe_code">
@@ -144,16 +140,8 @@
 						                
 									</div>
 
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_aw_ippe_date') }}</span>
-									</div>
-
-									<div class="col-md-3 has-error">
-										<span class="help-block">{{ form_error('pt_aw_ippe_code') }}</span>
-									</div>
-
-									<div class="col-md-3 has-error">
-										<span class="help-block">{{ form_error('pt_performed') }}</span>
+									<div class="col-md-12 has-error">
+										<span class="help-block text-right">{{ form_error('pt_performed') }}</span>
 									</div>
 									
 									<div class="col-md-6 form-group {{ form_error('pt_acp') ? 'has-error' : '' }}">
@@ -217,26 +205,18 @@
 									</div>
 									
 									
-									<div class="col-md-6 form-group {{ form_error('pt_mileage') ? 'has-error' : '' }}">
+									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Mileage</label>
 										<input type="text" class="form-control" id="" placeholder="">
 										
 									</div>
                                     
-                                    <div class="col-md-6 form-group {{ form_error('pt_others') ? 'has-error' : '' }}">
+                                    <div class="col-md-6 form-group">
 									
 										<label class="control-label">Others</label>
 										<input type="text" class="form-control" name="pt_others" value="{{ set_value('pt_others', transaction.pt_others) }}">
 										
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_mileage') }}</span>
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_others') }}</span>
 									</div>
 									
 									<div class="col-md-12 form-group {{ form_error('pt_icd10_codes') ? 'has-error' : '' }}">
@@ -262,15 +242,11 @@
 										<span class="help-block">{{ form_error('pt_dateRefEmailed') }}</span>
 									</div>
 									
-									<div class="col-md-12 form-group {{ form_error('pt_notes') ? 'has-error' : '' }}">
+									<div class="col-md-12 form-group">
 									
 										<label class="control-label">Notes</label>
 										<textarea class="form-control" name="pt_notes">{{ set_value('pt_notes', transaction.pt_notes) }}</textarea>
 										
-									</div>
-
-									<div class="col-md-12 has-error">
-										<span class="help-block">{{ form_error('pt_notes') }}</span>
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">

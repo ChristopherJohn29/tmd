@@ -252,7 +252,7 @@
 										
 									</div>
 									
-									<div class="col-md-4 form-group {{ form_error('provider_rate_others') ? 'has-error' : '' }}">
+									<div class="col-md-4 form-group">
 									
 
 										<label class="control-label">Others</label>
@@ -265,12 +265,8 @@
 										<span class="help-block">{{ form_error('provider_rate_acp') }}</span>
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-8 has-error">
 										<span class="help-block">{{ form_error('provider_rate_noShowPT') }}</span>
-									</div>
-
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('provider_rate_others') }}</span>
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
@@ -282,7 +278,7 @@
 										
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
 									
