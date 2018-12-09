@@ -830,7 +830,6 @@ $config = array(
                 'required' => 'This field is required.'
             )
         )
-
     ),
     'patient_management/cpo/save' => array(
         array(
@@ -869,22 +868,6 @@ $config = array(
             'field' => 'ptcpo_thirdMonthCPO',
             'label' => '3st Month CPO',
             'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'ptcpo_dischargeDate',
-            'label' => 'Discharged Date',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'ptcpo_dateBilled',
-            'label' => 'Date Billed',
-            'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'
             )

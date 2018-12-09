@@ -11,7 +11,8 @@
     'bower_components/bootstrap-daterangepicker/daterangepicker',
     'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
     'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
-    'plugins/timepicker/bootstrap-timepicker.min'
+    'plugins/timepicker/bootstrap-timepicker.min',
+    'dist/js/patient_management/CPO/form'
   ]
 %}
 
@@ -33,75 +34,66 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
-							
+							{{ form_open("patient_management/profile/save/edit", {"class": "xrx-form"}) }}
+								
+								<input type="hidden" name="ptcpo_id" value="">
+								<input type="hidden" name="ptcpo_patientID" value="">
+
 								<div class="row">
 								
 									<!-- This is the patient's information -->
 									<div class="xrx-info">
 									
 										<div class="col-lg-6">
-											<p class="lead"><span>Patient Name: </span> Cuneta, Sharon</p>
+											<p class="lead"><span>Patient Name: </span> {{ record.get_reverse_fullname() }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Date of Birth: </span> 04/07/1974</p>
+											<p class="lead"><span>Date of Birth: </span> {{ record.get_date_format(record.patient_dateOfBirth) }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Medicare: </span> 604384610M</p>
+											<p class="lead"><span>Medicare: </span> {{ record.patient_medicareNum }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Home Health: </span> Advance Home Care</p>
+											<p class="lead"><span>Home Health: </span> {{ record.hhc_name }}</p>
 										</div>
 										
-									</div>
+									</div>									
 									
-									<div class="col-md-12 form-group">
-									
-										<label class="control-label">Type of Certification <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required>
-											<option selected="selected">Certification</option>
-											<option>Re-Certification</option>
-										</select>
-										
-									</div>
-									
-									
-									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">Certification Period <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true" name="ptcpo_period">
 										
 									</div>
 									
-									<div class="col-md-6 form-group">
+									<div class="col-md-6 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">485 Date Signed <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned">
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">1st Month CPO <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true" name="ptcpo_firstMonthCPO">
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">2nd Month CPO <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true" name="ptcpo_secondMonthCPO">
 										
 									</div>
 									
-									<div class="col-md-4 form-group">
+									<div class="col-md-4 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">3rd Month CPO <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+										<input type="text" class="form-control" required="true" name="ptcpo_thirdMonthCPO">
 										
 									</div>
 									
@@ -110,19 +102,19 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Discharged Date</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date Billed</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
 										
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
+					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Update Certification
 										</button>
 					              	</div>
