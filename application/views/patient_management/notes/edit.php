@@ -26,49 +26,47 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
+								{{ form_open("patient_management/communication_notes/save/edit/#{ record.patient_id }/#{ communication_note.ptcn_id }", {"class": "xrx-form"}) }}
 							
 								<div class="row">
+
+									<input type="hidden" name="ptcn_patientID" value="{{ record.patient_id }}">
+									<input type="hidden" name="ptcn_id" value="{{ communication_note.ptcn_id }}">
 								
 									<!-- This is the patient's information -->
 									<div class="xrx-info">
 									
 										<div class="col-lg-6">
-											<p class="lead"><span>Patient Name: </span> Cuneta, Sharon</p>
+											<p class="lead"><span>Patient Name: </span> {{ record.get_reverse_fullname() }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Date of Birth: </span> 04/07/1974</p>
+											<p class="lead"><span>Date of Birth: </span> {{ record.get_date_format(record.patient_dateOfBirth) }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Medicare: </span> 604384610M</p>
+											<p class="lead"><span>Medicare: </span> {{ record.patient_medicareNum }}</p>
 										</div>
 										
 										<div class="col-lg-6">
-											<p class="lead"><span>Home Health: </span> Advance Home Care</p>
+											<p class="lead"><span>Home Health: </span> {{ record.hhc_name }}</p>
 										</div>
 										
 									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Date <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
-										
-									</div>
-									
-									
-									
-									<div class="col-md-12 form-group">
+
+									<div class="col-md-12 form-group {{ form_error('ptcn_message') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Note <span>*</span></label>
-                                        <textarea class="form-control" rows="7" required></textarea>
+                                        <textarea class="form-control" rows="7" required="true" name="ptcn_message">{{ set_value('ptcn_message', communication_note.ptcn_message) }}</textarea>
 										
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('ptcn_message') }}</span>
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-					              		<button type="button" class="btn btn-primary xrx-btn">
+					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Update Note
 										</button>
 					              	</div>

@@ -39,8 +39,6 @@ class MY_Controller extends \CI_Controller {
 
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
-          //  $this->session->set_flashdata('danger', validation_errors());
-
 			return ( ! empty($params['record_id'])) ? $this->edit($params['record_id']) : $this->add();
         }
 
@@ -81,8 +79,6 @@ class MY_Controller extends \CI_Controller {
 
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
-            // $this->session->set_flashdata('danger', validation_errors());
-
             return ($params['page_type'] == 'edit') ?
                 $this->edit($params['record_id'], $params['sub_data_id']) :
                 $this->add($params['record_id']);

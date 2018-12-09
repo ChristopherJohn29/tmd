@@ -830,6 +830,7 @@ $config = array(
                 'required' => 'This field is required.'
             )
         )
+
     ),
     'patient_management/cpo/save' => array(
         array(

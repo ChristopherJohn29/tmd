@@ -1,8 +1,9 @@
 <?php
 
-class Communication_notes_model extends MY_Model {
+class Communication_notes_model extends \Mobiledrs\core\MY_Models {
 	
 	protected $table_name = 'patient_communication_notes';
+	protected $entity = '\Mobiledrs\entities\patient_management\Communication_notes_entity';
 
 	public function __construct()
 	{
@@ -12,7 +13,8 @@ class Communication_notes_model extends MY_Model {
 	public function prepare_data() : array
 	{
 		return [
-			'ptcn_patientID' => $this->uri->segment(3),
+			'ptcn_id' => $this->input->post('ptcn_id'),
+			'ptcn_patientID' => $this->input->post('ptcn_patientID'),
 			'ptcn_message' => $this->input->post('ptcn_message')
 		];
 	}

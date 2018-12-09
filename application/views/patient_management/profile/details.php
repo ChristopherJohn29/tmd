@@ -239,40 +239,25 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<th>11/25/2018</th>
-										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-										<td>
-                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
-                                    <tr>
-										<th>11/26/2018</th>
-										<td>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
-										<td>
-                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
-                                    <tr>
-										<th>11/27/2018</th>
-										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-										<td>
-                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
-                                    <tr>
-										<th>11/29/2018</th>
-										<td>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
-										<td>
-                                            <a href="{{ site_url('patient_management/profile/notes/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
+									
+                                    {% for cn in communication_notes %}
+
+                                        <tr>
+    										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
+    										<td>{{ cn.ptcn_message }}</td>
+    										<td>
+                                                <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+                                            </td>
+    									</tr>
+
+                                    {% endfor %}
+
 								</tbody>
 								
 							 </table>
                             </div>
                             
-                            <a href="{{ site_url('patient_management/notes/add') }}" title="">
+                            <a href="{{ site_url("patient_management/communication_notes/add/#{ record.patient_id }") }}" title="">
 								<button type="button" class="btn btn-default">
 									<i class="fa fa-plus"></i> Add Notes
 								</button>
