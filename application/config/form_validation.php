@@ -213,14 +213,6 @@ $config = array(
             )
         ),
         array(
-            'field' => 'provider_dateOfBirth',
-            'label' => 'Date of Birth',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
             'field' => 'provider_languages',
             'label' => 'Languages',
             'rules' => 'max_length[255]'
@@ -297,14 +289,6 @@ $config = array(
             'field' => 'provider_rate_others',
             'label' => 'Others',
             'rules' => 'max_length[10]'
-        ),
-        array(
-            'field' => 'provider_gender',
-            'label' => 'Gender',
-            'rules' => 'required|max_length[10]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
         )
     ),
     'provider_management/profile/save_update' => array(
@@ -336,14 +320,6 @@ $config = array(
             'field' => 'provider_address',
             'label' => 'Address',
             'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'provider_dateOfBirth',
-            'label' => 'Date of Birth',
-            'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -425,14 +401,6 @@ $config = array(
             'field' => 'provider_rate_others',
             'label' => 'Others',
             'rules' => 'max_length[10]',
-        ),
-        array(
-            'field' => 'provider_gender',
-            'label' => 'Gender',
-            'rules' => 'required|max_length[10]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
         )
     ),
     'home_health_care_management/profile/save' => array(

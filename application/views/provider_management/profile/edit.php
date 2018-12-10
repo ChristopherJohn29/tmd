@@ -88,8 +88,8 @@
 									
                                     <div class="col-md-6 form-group {{ form_error('provider_gender') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Gender <span>*</span></label>
-										<select class="form-control" style="width: 100%;" name="provider_gender" id="dob" required="true">
+										<label class="control-label">Gender</label>
+										<select class="form-control" style="width: 100%;" name="provider_gender" id="dob">
 											<option value="">Please select</option>
 						                  	<option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
 						                  	<option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
@@ -100,7 +100,7 @@
 									<div class="col-md-6 form-group {{ form_error('provider_dateOfBirth') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Date of Birth <span>*</span></label>
+										<label class="control-label">Date of Birth</label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" value="{{ set_value('provider_dateOfBirth', record.get_field_date_format(record.provider_dateOfBirth)) }}">
 
 										
