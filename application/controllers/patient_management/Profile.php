@@ -173,6 +173,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$page_data['communication_notes'] = $this->communication_notes_model->records($communication_params);
 		$page_data['cpos'] = $this->CPO_model->records($cpo_params);
 
+		$profile_details_entity = new \Mobiledrs\entities\patient_management\pages\Profile_details_entity();
+		$profile_details_entity->set_cpo_data($page_data['cpos']);
+
+		$page_data['profile_details_entity'] = $profile_details_entity;
+
 		$this->twig->view('patient_management/profile/details', $page_data);
 	}
 

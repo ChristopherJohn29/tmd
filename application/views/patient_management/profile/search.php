@@ -21,13 +21,13 @@
                             
                             <form class="xrx-form">
                                 
-                            <label><p class="lead">Search a Patient</p></label>
-                            <div class="input-group">
-                              <div class="input-group-addon">
-                                <i class="fa fa-search"></i>
-                              </div>
-                              <input type="text" class="form-control input-lg">
-                            </div>
+                                <label><p class="lead">Search a Patient</p></label>
+                                <div class="input-group">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                  </div>
+                                  <input type="text" class="form-control input-lg">
+                                </div>
                             
                             </form>
                             

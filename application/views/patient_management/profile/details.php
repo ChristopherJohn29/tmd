@@ -201,12 +201,16 @@
 								
 							 </table>
                             </div>
-                            
-							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
-								<button type="button" class="btn btn-default">
-									<i class="fa fa-plus"></i> Add Certification
-								</button>
-							</a>  
+                                
+                            {% if profile_details_entity.cpo_cert_button() %}
+
+    							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
+    								<button type="button" class="btn btn-default">
+    									<i class="fa fa-plus"></i> Add Certification
+    								</button>
+    							</a>
+
+                            {% endif %}
 							         				
              			</div>
              			
