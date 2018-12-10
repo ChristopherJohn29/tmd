@@ -50,9 +50,16 @@
                                     </td>
                                 </tr>
 
+
                             {% endfor %}
 
-                        {% endif %}
+					{% else %}
+
+						<tr>
+							<td colspan="7" class="text-center">No data available in table</td>
+						</tr>
+
+					{% endif %}
 
                     </tbody>
                     <tfoot>
