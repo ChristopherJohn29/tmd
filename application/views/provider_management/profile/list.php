@@ -58,6 +58,17 @@
 						{% endif %}
 
 					</tbody>
+                        
+                    <tfoot>
+		                <tr>
+		                  	<th>Provider Name</th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th>Action</th>
+		                </tr>
+		              </tfoot>
+                        
                 </table>
                 </div>
             </div>

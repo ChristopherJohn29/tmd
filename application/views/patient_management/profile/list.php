@@ -32,7 +32,7 @@
                     <th>Referral Date</th>
                     <th>ICD10 - Code Diagnoses</th>
                     <th>Date of Service</th>
-                    <th width="210px">Actions</th>
+                    <th width="230px">Actions</th>
                   </tr>
                   </thead>
                   
@@ -50,7 +50,7 @@
 			                    <td>
 									<a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
 									<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
-									<a href="{{ site_url("patient_management/profile/edit/#{ record.patient_id }") }}"><span class="label label-primary">Edit</span></a>
+									<a href="{{ site_url("patient_management/profile/edit/#{ record.patient_id }") }}"><span class="label label-primary">Update</span></a>
 								</td>
 			                </tr>
 
