@@ -44,6 +44,11 @@ class Entity {
     	return date_format(date_create($date), 'M j, Y');
     }
 
+    public function get_field_date_format(string $date) : string
+    {
+    	return ( ! empty($date)) ? date_format(date_create($date), 'm/d/Y') : '';
+    }
+
     public function get_number_format(string $number) : string
     {
 		return ( ! empty($number)) ? ('$' . number_format($number, 2)) : '';

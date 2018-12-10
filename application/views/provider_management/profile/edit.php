@@ -101,7 +101,7 @@
 									
 
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" value="{{ set_value('provider_dateOfBirth', record.provider_dateOfBirth) }}">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="provider_dateOfBirth" value="{{ set_value('provider_dateOfBirth', record.get_field_date_format(record.provider_dateOfBirth)) }}">
 
 										
 									</div>
