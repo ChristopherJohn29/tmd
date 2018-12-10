@@ -65,6 +65,10 @@
 	.xrx-form .subheader p {
 		margin-bottom: 0 !important;	
 		}
+
+    .xrx-form .form-group {
+        margin-bottom: 0 !important;
+        }
 	
 /* xrx buttons */
 .xrx-btn {
