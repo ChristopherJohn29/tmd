@@ -15,7 +15,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 	public function prepare_data() : array
 	{
-		$this->prepare_entity_data();		
+		$this->prepare_entity_data();
 
 		return [
 			'patient_firstname' => $this->record_entity->patient_firstname,

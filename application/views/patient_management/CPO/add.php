@@ -34,8 +34,10 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("patient_management/profile/save/add", {"class": "xrx-form"}) }}
+							{{ form_open("patient_management/CPO/save/add/#{ record.patient_id }", {"class": "xrx-form"}) }}
 							
+								<input type="hidden" name="ptcpo_patientID" value="{{ record.patient_id }}">
+
 								<div class="row">
 								
 									<!-- This is the patient's information -->
@@ -69,7 +71,7 @@
 									<div class="col-md-6 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">485 Date Signed <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned" value="">
 										
 									</div>
 									
@@ -99,14 +101,14 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Discharged Date</label>
-										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date Billed</label>
-										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="">
 										
 									</div>
 									

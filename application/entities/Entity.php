@@ -41,7 +41,7 @@ class Entity {
 
     public function get_date_format(string $date) : string
     {
-    	return date_format(date_create($date), 'M j, Y');
+    	return ( ! empty($date)) ? date_format(date_create($date), 'M j, Y') : '';
     }
 
     public function get_field_date_format(string $date) : string
