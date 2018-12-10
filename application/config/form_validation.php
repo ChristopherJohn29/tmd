@@ -223,42 +223,27 @@ $config = array(
         array(
             'field' => 'provider_languages',
             'label' => 'Languages',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[255]'
         ),
         array(
             'field' => 'provider_areas',
             'label' => 'Areas',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[255]'
         ),
         array(
             'field' => 'provider_npi',
             'label' => 'NPI',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'provider_dea',
             'label' => 'DEA',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'provider_license',
             'label' => 'License',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'provider_rate_initialVisit',
@@ -307,6 +292,11 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
+        ),
+        array(
+            'field' => 'provider_rate_others',
+            'label' => 'Others',
+            'rules' => 'max_length[10]'
         ),
         array(
             'field' => 'provider_gender',
@@ -361,42 +351,27 @@ $config = array(
         array(
             'field' => 'provider_languages',
             'label' => 'Languages',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[255]'
         ),
         array(
             'field' => 'provider_areas',
             'label' => 'Areas',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[255]'
         ),
         array(
             'field' => 'provider_npi',
             'label' => 'NPI',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'provider_dea',
             'label' => 'DEA',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'provider_license',
             'label' => 'License',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[45]'
         ),
         array(
             'field' => 'provider_rate_initialVisit',
@@ -445,6 +420,11 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
+        ),
+        array(
+            'field' => 'provider_rate_others',
+            'label' => 'Others',
+            'rules' => 'max_length[10]',
         ),
         array(
             'field' => 'provider_gender',

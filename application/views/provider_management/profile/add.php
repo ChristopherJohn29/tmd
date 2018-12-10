@@ -118,8 +118,8 @@
 									<div class="col-md-12 form-group {{ form_error('provider_languages') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Languages <span>*</span></label>
-										<input type="text" class="form-control" name="provider_languages" required="true" value="{{ set_value('provider_languages') }}">
+										<label class="control-label">Languages</label>
+										<input type="text" class="form-control" name="provider_languages" value="{{ set_value('provider_languages') }}">
 
 						                
 									</div>
@@ -131,8 +131,8 @@
 									<div class="col-md-12 form-group {{ form_error('provider_areas') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Areas <span>*</span></label>
-										<input type="text" class="form-control" name="provider_areas" required="true" value="{{ set_value('provider_areas') }}">
+										<label class="control-label">Areas</label>
+										<input type="text" class="form-control" name="provider_areas" value="{{ set_value('provider_areas') }}">
 
 										
 									</div>
@@ -160,8 +160,8 @@
 									
 									<div class="col-md-12 form-group {{ form_error('provider_npi') ? 'has-error' : '' }}">
 									
-										<label class="control-label">National Provider Identifier <span>*</span></label>
-										<input type="text" class="form-control" name="provider_npi" required="true" value="{{ set_value('provider_npi') }}">
+										<label class="control-label">National Provider Identifier</label>
+										<input type="text" class="form-control" name="provider_npi" value="{{ set_value('provider_npi') }}">
 										
 									</div>
 									
@@ -171,8 +171,8 @@
 
 									<div class="col-md-12 form-group {{ form_error('provider_dea') ? 'has-error' : '' }}">
 									
-										<label class="control-label">DEA Registration Number <span>*</span></label>
-										<input type="text" class="form-control" name="provider_dea" required="true" value="{{ set_value('provider_dea') }}">
+										<label class="control-label">DEA Registration Number</label>
+										<input type="text" class="form-control" name="provider_dea" value="{{ set_value('provider_dea') }}">
 										
 									</div>
 
@@ -182,8 +182,8 @@
 									
 									<div class="col-md-12 form-group {{ form_error('provider_license') ? 'has-error' : '' }}">
 									
-										<label class="control-label">License <span>*</span></label>
-										<input type="text" class="form-control" name="provider_license" required="true" value="{{ set_value('provider_license') }}">
+										<label class="control-label">License</label>
+										<input type="text" class="form-control" name="provider_license" value="{{ set_value('provider_license') }}">
 										
 									</div>
 

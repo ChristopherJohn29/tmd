@@ -110,13 +110,13 @@
 								
 								<tbody>
 									<tr>
-										<td>${{ record.get_number_format(record.provider_rate_initialVisit) }}</td>
-										<td>${{ record.get_number_format(record.provider_rate_followUpVisit) }}</td>
-										<td>${{ record.get_number_format(record.provider_rate_aw) }}</td>
-										<td>${{ record.get_number_format(record.provider_rate_acp) }}</td>
-                                        <td>${{ record.get_number_format(record.provider_rate_noShowPT) }}</td>
-										<td>${{ record.get_number_format(record.provider_rate_mileage) }}</td>
-										<td>${{ record.get_number_format(record.provider_rate_others) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_initialVisit) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_followUpVisit) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_aw) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_acp) }}</td>
+                                        <td>{{ record.get_number_format(record.provider_rate_noShowPT) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_mileage) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_others) }}</td>
 									</tr>
 								</tbody>
 							</table>

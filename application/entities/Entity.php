@@ -46,6 +46,6 @@ class Entity {
 
     public function get_number_format(string $number) : string
     {
-		return number_format($number, 2);
+		return ( ! empty($number)) ? ('$' . number_format($number, 2)) : '';
     }
 }

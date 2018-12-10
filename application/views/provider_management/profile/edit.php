@@ -117,7 +117,7 @@
 									<div class="col-md-12 form-group {{ form_error('provider_languages') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Languages <span>*</span></label>
+										<label class="control-label">Languages</label>
 										<input type="text" class="form-control" name="provider_languages" value="{{ set_value('provider_languages', record.provider_languages) }}">
 
 						                
@@ -130,7 +130,7 @@
 									<div class="col-md-12 form-group {{ form_error('provider_areas') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Areas <span>*</span></label>
+										<label class="control-label">Areas</label>
 										<input type="text" class="form-control" name="provider_areas" value="{{ set_value('provider_areas', record.provider_areas) }}">
 
 										
@@ -159,7 +159,7 @@
 									
 									<div class="col-md-12 form-group {{ form_error('provider_npi') ? 'has-error' : '' }}">
 									
-										<label class="control-label">National Provider Identifier <span>*</span></label>
+										<label class="control-label">National Provider Identifier</label>
 										<input type="text" class="form-control" name="provider_npi" value="{{ set_value('provider_npi', record.provider_npi) }}">
 										
 									</div>
@@ -170,7 +170,7 @@
 									
 									<div class="col-md-12 form-group {{ form_error('provider_dea') ? 'has-error' : '' }}">
 									
-										<label class="control-label">DEA Registration Number <span>*</span></label>
+										<label class="control-label">DEA Registration Number</label>
 										<input type="text" class="form-control" name="provider_dea" value="{{ set_value('provider_dea', record.provider_dea) }}">
 										
 									</div>
@@ -181,7 +181,7 @@
 									
 									<div class="col-md-12 form-group {{ form_error('provider_license') ? 'has-error' : '' }}">
 									
-										<label class="control-label">License <span>*</span></label>
+										<label class="control-label">License</label>
 										<input type="text" class="form-control" name="provider_license" value="{{ set_value('provider_license', record.provider_license) }}">
 										
 									</div>
