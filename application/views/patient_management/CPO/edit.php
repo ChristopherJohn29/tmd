@@ -34,10 +34,10 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("patient_management/profile/save/edit", {"class": "xrx-form"}) }}
+							{{ form_open("patient_management/CPO/save/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }", {"class": "xrx-form"}) }}
 								
-								<input type="hidden" name="ptcpo_id" value="">
-								<input type="hidden" name="ptcpo_patientID" value="">
+								<input type="hidden" name="ptcpo_id" value="{{ cpo.ptcpo_id }}">
+								<input type="hidden" name="ptcpo_patientID" value="{{ record.patient_id }}">
 
 								<div class="row">
 								
@@ -65,35 +65,35 @@
 									<div class="col-md-6 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">Certification Period <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_period">
+										<input type="text" class="form-control" required="true" name="ptcpo_period" value="{{ set_value('ptcpo_period', cpo.ptcpo_period) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">485 Date Signed <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned" value="{{ set_value('ptcpo_dateSigned', cpo.get_field_date_format(cpo.ptcpo_dateSigned)) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">1st Month CPO <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_firstMonthCPO">
+										<input type="text" class="form-control" required="true" name="ptcpo_firstMonthCPO" value="{{ set_value('ptcpo_firstMonthCPO', cpo.ptcpo_firstMonthCPO) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">2nd Month CPO <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_secondMonthCPO">
+										<input type="text" class="form-control" required="true" name="ptcpo_secondMonthCPO" value="{{ set_value('ptcpo_secondMonthCPO', cpo.ptcpo_secondMonthCPO) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">3rd Month CPO <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_thirdMonthCPO">
+										<input type="text" class="form-control" required="true" name="ptcpo_thirdMonthCPO" value="{{ set_value('ptcpo_thirdMonthCPO', cpo.ptcpo_thirdMonthCPO) }}">
 										
 									</div>
 									
@@ -102,14 +102,14 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Discharged Date</label>
-										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dischargeDate', cpo.get_field_date_format(cpo.ptcpo_dischargeDate)) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date Billed</label>
-										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dateBilled', cpo.get_field_date_format(cpo.ptcpo_dateBilled)) }}">
 										
 									</div>
 									

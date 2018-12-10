@@ -178,33 +178,25 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<th>Certification</th>
-										<td>4/19/2018 - 6/17/2018</td>
-										<td>03/05/2018</td>
-										<td>4/23 - 4/30</td>
-										<td>5/22 - 5/28</td>
-										<td>6/1 - 6/14</td>
-										<td>-</td>
-										<td>-</td>
-                                        <td>
-                                            <a href="{{ site_url('patient_management/CPO/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
-									
-									<tr>
-										<th>Re-Certification</th>
-										<td>6/18/2018 - 8/16/2018</td>
-										<td>02/07/2018</td>
-										<td>7/3 - 7/19</td>
-										<td>8/2 - 8/14</td>
-										<td>-</td>
-										<td>-</td>
-										<td>-</td>
-                                        <td>
-                                            <a href="{{ site_url('patient_management/CPO/edit/1') }}"><span class="label label-primary">Update</span></a>
-                                        </td>
-									</tr>
+									   
+                                   {% for cpo in cpos %}
+
+                                        <tr>
+    										<th>{{ cpo.ptcpo_status }}</th>
+    										<td>{{ cpo.ptcpo_period }}</td>
+    										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
+    										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
+    										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
+    										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
+    										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
+    										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
+                                            <td>
+                                                <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
+                                            </td>
+    									</tr>
+
+                                    {% endfor %}
+
 								</tbody>
 								
 							 </table>

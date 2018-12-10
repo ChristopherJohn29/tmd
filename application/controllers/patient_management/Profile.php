@@ -9,7 +9,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->load->model(array(
 			'patient_management/profile_model',
 			'patient_management/transaction_model',
-			'patient_management/communication_notes_model'
+			'patient_management/communication_notes_model',
+			'patient_management/CPO_model'
 		));
 	}
 
@@ -150,17 +151,27 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				'key' => 'patient_communication_notes.ptcn_patientID',
 				'condition' => '',
         		'value' => $patient_id
-			],
+			]
+		];
+
+		$cpo_params = [
+			'where' => [
+				'key' => 'patient_CPO.ptcpo_patientID',
+				'condition' => '',
+        		'value' => $patient_id
+			]
 		];
 
 		$page_data['record'] = $this->profile_model->get_records_by_join($record_params);
-		$page_data['transactions'] = $this->transaction_model->get_records_by_join($transaction_params);
-		$page_data['communication_notes'] = $this->communication_notes_model->records($communication_params);
 
 		if ( ! $page_data['record'])
 		{
 			redirect('errors/page_not_found');
 		}
+
+		$page_data['transactions'] = $this->transaction_model->get_records_by_join($transaction_params);
+		$page_data['communication_notes'] = $this->communication_notes_model->records($communication_params);
+		$page_data['cpos'] = $this->CPO_model->records($cpo_params);
 
 		$this->twig->view('patient_management/profile/details', $page_data);
 	}
