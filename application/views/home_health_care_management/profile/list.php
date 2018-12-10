@@ -19,42 +19,53 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="" class="table no-margin table-hover">
-				<thead>
-					<tr>
-						<th>Home Health</th>
-						<th>Contact Person</th>
-						<th>Phone</th>
-                        <th>Fax</th>
-                        <th>Email</th>
-						<th>Address</th>
-						<th width="80px">Action</th>
-					</tr>
-				</thead>
+                <table id="" class="table no-margin table-hover">
+                    <thead>
+                        <tr>
+                            <th>Home Health</th>
+                            <th>Contact Person</th>
+                            <th>Phone</th>
+                            <th>Fax</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th width="80px">Action</th>
+                        </tr>
+                    </thead>
                   
-				<tbody>
-					
-					{% if records %}					
+                    <tbody>
 
-						{% for record in records %}
+                        {% if records %}					
 
-							<tr>
-								<td>{{ record.hhc_name }}</td>
-								<td>{{ record.hhc_contact_name }}</td>
-								<td>{{ record.hhc_phoneNumber }}</td>
-		                        <td>{{ record.hhc_faxNumber }}</td>
-		                        <td>{{ record.hhc_email }}</td>
-								<td>{{ record.hhc_address }}</td>
-								<td>
-									<a href="{{ site_url("home_health_care_management/profile/edit/#{ record.hhc_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
-								</td>
-							</tr>
+                            {% for record in records %}
 
-						{% endfor %}
+                                <tr>
+                                    <td>{{ record.hhc_name }}</td>
+                                    <td>{{ record.hhc_contact_name }}</td>
+                                    <td>{{ record.hhc_phoneNumber }}</td>
+                                    <td>{{ record.hhc_faxNumber }}</td>
+                                    <td>{{ record.hhc_email }}</td>
+                                    <td>{{ record.hhc_address }}</td>
+                                    <td>
+                                        <a href="{{ site_url("home_health_care_management/profile/edit/#{ record.hhc_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+                                    </td>
+                                </tr>
 
-					{% endif %}
+                            {% endfor %}
 
-				</tbody>
+                        {% endif %}
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Home Health</th>
+                            <th>Contact Person</th>
+                            <th>Phone</th>
+                            <th>Fax</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
                 </table>
                 </div>
             </div>
