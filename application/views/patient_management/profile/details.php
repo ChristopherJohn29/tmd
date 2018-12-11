@@ -232,7 +232,7 @@
              				   <table class="table no-margin table-hover">
 								<thead>
 									<tr>
-										<th>Notes Added</th>
+										<th width="150px">Note Added</th>
 										<th>Note</th>
 										<th width="90px">Actions</th>
 									</tr>
