@@ -19,14 +19,14 @@
                     <div class="col-lg-4 col-lg-offset-4">
                         <div class="search-handler">
                             
-                            <form class="xrx-form">
+                           {{ form_open("patient_management/profile/search", {"class": "xrx-form"}) }}
                                 
                                 <label><p class="lead">Search a Patient</p></label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
                                     <i class="fa fa-search"></i>
                                   </div>
-                                  <input type="text" class="form-control input-lg">
+                                  <input type="text" class="form-control input-lg" name="search_term" required="true">
                                 </div>
                             
                             </form>
@@ -55,15 +55,31 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Salonga, Lea</td>
-                                        <td>10/29/18</td>
-                                        <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                                        <td>11/06/18</td>
-                                        <td>
-                                            <a href="{{ site_url('patient_management/profile/details/1') }}"><span class="label label-primary">View Details</span></a>
-                                        </td>
-                                    </tr>
+
+                                    {% if records %}
+
+                                        {% for record in records %}
+
+                                            <tr>
+                                                <td>{{ record.get_fullname() }}</td>
+                                                <td>{{ record.get_date_format(record.patient_referralDate) }}</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>
+                                                    <a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
+                                                </td>
+                                            </tr>
+
+                                        {% endfor %}
+
+                                    {% else %}
+
+                                        <tr>
+                                            <td colspan="5" class="text-center">No data available in table</td>
+                                        </tr>
+
+                                    {% endif %}
+
                                 </tbody>
                             </table>
                         </div>

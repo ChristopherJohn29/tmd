@@ -185,6 +185,30 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('search_pt');
 
-		$this->twig->view('patient_management/profile/search');
+		$page_data['records'] = null;
+
+		if ( ! empty($this->input->post('search_term')))
+		{
+			$params = [
+				'where_data' => [
+					[ 
+						'key' => 'patient.patient_firstname', 
+						'value' => $this->input->post('search_term')
+					],
+					[ 
+						'key' => 'patient.patient_lastname', 
+						'value' => $this->input->post('search_term') 
+					],
+					[ 
+						'key' => 'patient.patient_medicareNum', 
+						'value' => $this->input->post('search_term') 
+					]
+				]
+			];
+
+			$page_data['records'] = $this->profile_model->find($params);
+		}
+
+		$this->twig->view('patient_management/profile/search', $page_data);
 	}
 }

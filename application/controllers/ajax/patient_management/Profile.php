@@ -29,10 +29,10 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		$search_data = [];
 
 		for ($i = 0; $i < count($res); $i++) 
-		{ 
+		{
 			$search_data[] = [
-				'id' => $res[$i]['hhc_id'],
-				'text' => $res[$i]['hhc_name']				
+				'id' => $res[$i]->hhc_id,
+				'text' => $res[$i]->hhc_name
 			];
 		}
 

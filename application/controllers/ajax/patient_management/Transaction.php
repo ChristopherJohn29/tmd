@@ -30,8 +30,8 @@ class Transaction extends \Mobiledrs\core\MY_AJAX_Controller {
 		for ($i = 0; $i < count($res); $i++) 
 		{ 
 			$search_data[] = [
-				'id' => $res[$i]['provider_id'],
-				'text' => $res[$i]['provider_firstname'] . ' ' . $res[$i]['provider_lastname']
+				'id' => $res[$i]->provider_id,
+				'text' => $res[$i]->get_fullname()
 			];
 		}
 

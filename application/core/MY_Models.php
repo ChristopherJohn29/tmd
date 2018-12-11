@@ -64,7 +64,7 @@ class MY_Models extends \CI_Model {
 
 		$query = $this->db->get($this->table_name);
 
-		return $query->result_array();
+		return $query->custom_result_object($this->entity);
 	}
 
 	public function get_records_by_join(array $params)
