@@ -25,7 +25,8 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="all-patient-list" class="table no-margin table-hover">
+                    
+                <table id="all-patient-list" class="table no-margin table-hover">
                 <thead>
                   <tr>
                     <th>Patient Name</th>

@@ -219,6 +219,10 @@
 										
 									</div>
 									
+                                    <div class="col-md-12 has-error">
+										<span class="help-block"></span>
+									</div>
+                                    
 									<div class="col-md-12 form-group {{ form_error('pt_icd10_codes') ? 'has-error' : '' }}">
 									
 										<label class="control-label">ICD-10 Codes <span>*</span></label>
