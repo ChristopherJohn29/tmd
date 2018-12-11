@@ -120,6 +120,35 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			$validation_group = 'user_management/profile/save';
 		}
 
+		if ($_FILES['user_photo']['size'])
+		{
+			$photo_entity = new \Mobiledrs\entities\user_management\Photo_entity();
+			$photo_entity->user_photo = $this->input->post('user_photo');
+
+			$config['upload_path'] = './uploads/users';
+            $config['allowed_types'] = 'jpeg|jpg|JPG';
+            $config['max_width'] = 200;
+            $config['max_height'] = 200;
+            $config['file_name'] = $photo_entity->generate_filename();
+
+            $this->load->library('upload', $config);
+
+            if ($photo_entity->has_exiting_photo())
+            {
+            	$photo_entity->delete_photo();	
+            }
+
+            if ( ! $this->upload->do_upload('user_photo'))
+            {
+            	$this->session->set_flashdata('danger', $this->upload->display_errors('', ''));
+
+            	return ($formtype == 'edit') ? 
+            		$this->edit($user_id) : $this->add();
+            }
+
+            $_POST['user_photo'] = $config['file_name'];
+		}
+
 		$params = [
 			'record_id' => $user_id,
 			'table_key' => 'user_id',

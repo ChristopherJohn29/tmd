@@ -28,7 +28,8 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				$this->record_entity->user_dateOfBirth),
 			'user_phone' => $this->record_entity->user_phone,
 			'user_address' => $this->record_entity->user_address,
-			'user_gender' => $this->record_entity->user_gender
+			'user_gender' => $this->record_entity->user_gender,
+			'user_photo' => $this->input->post('user_photo')
 		];
 	}
 }
