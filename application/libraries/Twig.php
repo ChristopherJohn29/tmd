@@ -18,7 +18,8 @@ class Twig {
 		'form_open',
 		'site_url',
 		'set_value',
-		'form_error'
+		'form_error',
+		'form_open_multipart'
 	];
 
 	private $CI = null;

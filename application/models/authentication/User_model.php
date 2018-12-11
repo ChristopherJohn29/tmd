@@ -29,6 +29,7 @@ class User_model extends \Mobiledrs\core\MY_Models {
 		        'user_fullname' => $user_entity->get_fullname(),
 		        'user_email' => $user_entity->user_email,
 		        'user_roleID' => $user_entity->user_roleID,
+		        'user_photo' => $user_entity->user_photo,
 		        'user_logged_in' => true
 			];
 

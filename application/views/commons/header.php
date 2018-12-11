@@ -18,7 +18,7 @@
 			
 			<li class="dropdown user user-menu">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<img src="{{ base_url }}dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+					<img src="{{ base_url }}/uploads/users/{{ session['user_photo'] ? session['user_photo'] : 'default.jpeg' }}" class="user-image" alt="User Image">
 					<span class="hidden-xs">{{ session['user_fullname'] }}</span>
 				</a>
 				<ul class="dropdown-menu">

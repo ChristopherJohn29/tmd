@@ -28,8 +28,10 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open('user_management/profile/save/add', {"class": "xrx-form"}) }}
-							
+							{{ form_open_multipart('user_management/profile/save/add', {"class": "xrx-form"}) }}
+								
+								<input type="hidden" name="user_photo" value="">
+
 								<div class="row">
 
 					            	<div class="col-xs-12">
@@ -72,7 +74,7 @@
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <span class="btn btn-default xrx-upload-file">
-                                                Browse... <input type="file" id="imgInp" accept=".jpg">
+                                                Browse... <input type="file" id="imgInp" accept=".jpg, .jpeg" name="user_photo">
                                                 </span>
                                             </span>
                                             <input type="text" class="form-control" disabled>

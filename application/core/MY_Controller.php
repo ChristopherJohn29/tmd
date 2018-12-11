@@ -11,8 +11,11 @@ class MY_Controller extends \CI_Controller {
 
 		$this->load->library(array(
 			'acl',
-			'twig'
+			'twig',
+            'form_validation'
 		));
+
+        $this->form_validation->set_error_delimiters('', '');
 	}
 
 	public function is_logged_in()
@@ -33,10 +36,6 @@ class MY_Controller extends \CI_Controller {
 
 	public function save_data(array $params)
 	{
-		$this->load->library('form_validation');
-
-        $this->form_validation->set_error_delimiters('', '');
-
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
 			return ( ! empty($params['record_id'])) ? $this->edit($params['record_id']) : $this->add();
@@ -73,10 +72,6 @@ class MY_Controller extends \CI_Controller {
 
 	public function save_sub_data(array $params)
 	{
-		$this->load->library('form_validation');
-
-        $this->form_validation->set_error_delimiters('', '');
-
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
             return ($params['page_type'] == 'edit') ?

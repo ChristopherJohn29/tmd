@@ -26,6 +26,11 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $hhc_address;
 	protected $hhc_dateCreated;
 
+	public function get_fullname() : string
+	{
+		return $this->patient_firstname . ' ' . $this->patient_lastname;
+	}
+
 	public function get_reverse_fullname() : string
 	{
 		return $this->patient_lastname . ', ' . $this->patient_firstname;
