@@ -24,9 +24,9 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('patient_management/profile/') }}"><i class="fa fa-angle-right"></i> View Patients</a></li>
-				<li><a href="{{ site_url('patient_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New Patient</a></li>
-				<li><a href="{{ site_url('patient_management/profile/search') }}"><i class="fa fa-angle-right"></i> Search A Patient</a></li>
+				<li><a href="{{ site_url('patient_management/profile/') }}"><i class="fa fa-angle-right"></i> View</a></li>
+				<li><a href="{{ site_url('patient_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add</a></li>
+				<li><a href="{{ site_url('patient_management/profile/search') }}"><i class="fa fa-angle-right"></i> Search </a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -38,8 +38,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('provider_management/profile/') }}"><i class="fa fa-angle-right"></i> View Providers</a></li>
-				<li><a href="{{ site_url('provider_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New Provider</a></li>
+				<li><a href="{{ site_url('provider_management/profile/') }}"><i class="fa fa-angle-right"></i> View</a></li>
+				<li><a href="{{ site_url('provider_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -51,21 +51,21 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('provider_route_sheet_management/route_sheet') }}"><i class="fa fa-angle-right"></i> View Route Sheets</a></li>
-				<li><a href="{{ site_url('provider_route_sheet_management/route_sheet/add') }}"><i class="fa fa-angle-right"></i> Add Route Sheet</a></li>
+				<li><a href="{{ site_url('provider_route_sheet_management/route_sheet') }}"><i class="fa fa-angle-right"></i> View</a></li>
+				<li><a href="{{ site_url('provider_route_sheet_management/route_sheet/add') }}"><i class="fa fa-angle-right"></i> Add</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
 			<a href="#">
 				<i class="fa fa-heartbeat"></i>
-				<span>Home Health</span>
+				<span>Facilities</span>
 				<span class="pull-right-container">
 					<i class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('home_health_care_management/profile') }}"><i class="fa fa-angle-right"></i> View Home Health</a></li>
-				<li><a href="{{ site_url('home_health_care_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New Home Health</a></li>
+				<li><a href="{{ site_url('home_health_care_management/profile') }}"><i class="fa fa-angle-right"></i> View</a></li>
+				<li><a href="{{ site_url('home_health_care_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add</a></li>
 			</ul>
 		</li>
 		<li class="treeview">
@@ -104,8 +104,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ site_url('user_management/profile') }}"><i class="fa fa-angle-right"></i> View Users</a></li>
-				<li><a href="{{ site_url('user_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add New User</a></li>
+				<li><a href="{{ site_url('user_management/profile') }}"><i class="fa fa-angle-right"></i> View</a></li>
+				<li><a href="{{ site_url('user_management/profile/add') }}"><i class="fa fa-angle-right"></i> Add</a></li>
 			</ul>
 		</li>
 		</ul>

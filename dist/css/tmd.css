@@ -224,7 +224,7 @@
 
         .xrx-info .route-sheet p {
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 500;
             }
 
             .xrx-info .route-sheet p span {
@@ -489,6 +489,13 @@ li.user-header p span a {
 		max-height: 100px;
 		overflow-y: scroll;
 	}
+
+/* tables */
+
+table thead {
+    background: #548bb8 !important;
+    color: #fff !important;
+    }
 	
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {

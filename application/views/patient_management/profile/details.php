@@ -105,10 +105,12 @@
 										<th>Date of Service</th>
 										<th>Deductible</th>
 										<th>AW/IPPE</th>
+                                        <th>Performed</th>
 										<th>Date Billed</th>
 										<th>ACP</th>
 										<th>Diabetes</th>
 										<th>Tobacco</th>
+                                        <th>Others</th>
 										<th>ICD-Code Diagnoses</th>
 										<th>Visit Billed</th>
                                         <th width="90px">Actions</th>
@@ -126,10 +128,12 @@
     										<td>{{ transaction.pt_dateOfService }}</td>
     										<td>{{ transaction.pt_deductible }}</td>
     										<td>{{ transaction.pt_aw_ippe_code }}</td>
+                                            <td> </td>
                                             <td>{{ transaction.pt_aw_ippe_date }}</td>
                                             <td>{{ transaction.get_selected_choice_format(transaction.pt_acp) }}</td>
                                             <td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) }}</td>
                                             <td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) }}</td>
+                                            <td> </td>
                                             <td>{{ transaction.pt_icd10_codes }}</td>
                                             <td>{{ transaction.pt_dateBilled }}</td>
                                             <td>

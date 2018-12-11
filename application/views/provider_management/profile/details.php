@@ -72,11 +72,11 @@
                             <div class="table-responsive">
                                 <table class="table xrx-table">
                                     <tr>
-                                        <th>National Provider Identifier:</th>
+                                        <th>NPI:</th>
                                         <td>{{ record.provider_npi }}</td>
                                     </tr>
                                     <tr>
-                                        <th>DEA Registration Number:</th>
+                                        <th>DEA:</th>
                                         <td>{{ record.provider_dea }}</td>
                                     </tr>
                                     <tr>
