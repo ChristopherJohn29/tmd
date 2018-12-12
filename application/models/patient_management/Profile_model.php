@@ -31,12 +31,48 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 		];
 	}
 
-	public function prepare_search_data() : array
+	public function search() : array
 	{
-		return [
-			'patient_firstname' => $this->input->post('patient_firstname'),
-			'patient_lastname' => $this->input->post('patient_lastname'),
-			'patient_medicareNum' => $this->input->post('patient_medicareNum')
+		$patients_params = [
+			'where_data' => [
+				[ 
+					'key' => 'patient.patient_firstname', 
+					'value' => $this->input->post('search_term')
+				],
+				[ 
+					'key' => 'patient.patient_lastname', 
+					'value' => $this->input->post('search_term') 
+				],
+				[ 
+					'key' => 'patient.patient_medicareNum', 
+					'value' => $this->input->post('search_term') 
+				]
+			]
 		];
+
+		$records = $this->find($patients_params);
+
+		$new_records = [];
+
+		for ($i = 0; $i < count($records); $i++) {
+			$trans_params = [
+				'order_key' => 'patient_transactions.pt_dateOfService',
+				'order_by' => 'DESC',
+				'key' => 'patient_transactions.pt_patientID',
+				'value' => $records[$i]->patient_id
+			];
+
+			$patient_trans = $this->transaction_model->record($trans_params);
+
+			$new_records[] = [
+				'patientId' => $records[$i]->patient_id,
+				'patientName' => $records[$i]->get_fullname(),
+				'patientReferralDate' => $records[$i]->get_date_format($records[$i]->patient_referralDate),
+				'ICD10' => $patient_trans->pt_icd10_codes,
+				'dateOfService' => $patient_trans->get_date_format($patient_trans->pt_dateOfService)
+			];
+		}
+
+		return $new_records;
 	}
 }

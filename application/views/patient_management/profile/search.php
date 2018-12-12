@@ -61,12 +61,12 @@
                                         {% for record in records %}
 
                                             <tr>
-                                                <td>{{ record.get_fullname() }}</td>
-                                                <td>{{ record.get_date_format(record.patient_referralDate) }}</td>
-                                                <td>-</td>
-                                                <td>-</td>
+                                                <td>{{ record['patientName'] }}</td>
+                                                <td>{{ record['patientReferralDate'] }}</td>
+                                                <td>{{ record['ICD10'] }}</td>
+                                                <td>{{ record['dateOfService'] }}</td>
                                                 <td>
-                                                    <a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
+                                                    <a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
                                                 </td>
                                             </tr>
 
