@@ -25,13 +25,15 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="all-patient-list" class="table no-margin table-hover">
+                    
+                <table id="all-patient-list" class="table no-margin table-hover">
                 <thead>
                   <tr>
                     <th>Patient Name</th>
                     <th>Referral Date</th>
                     <th>ICD10 - Code Diagnoses</th>
                     <th>Date of Service</th>
+                    <th>Provider</th>
                     <th width="230px">Actions</th>
                   </tr>
                   </thead>
@@ -47,6 +49,7 @@
 			                    <td>{{ record.get_date_format(record.patient_referralDate) }}</td>
 			                    <td>{{ '' }}</td>
 			                    <td>{{ '' }}</td>
+                                <td>{{ '' }}</td>
 			                    <td>
 									<a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
 									<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
@@ -65,6 +68,7 @@
 		                    <th>Referral Date</th>
 		                    <th>ICD10 - Code Diagnoses</th>
 		                    <th>Date of Service</th>
+                            <th>Provider</th>
 		                    <th>Actions</th>
 		                </tr>
 		              </tfoot>
