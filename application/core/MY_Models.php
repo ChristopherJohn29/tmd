@@ -28,6 +28,11 @@ class MY_Models extends \CI_Model {
 	{
 		$this->db->where($params['key'], $params['value']);
 
+		if (isset($params['order_by'])) 
+		{
+			$this->db->order_by($params['order_key'], $params['order_by']);
+		}
+
 		$query = $this->db->get($this->table_name);
 
 		return $query->custom_row_object(0, $this->entity);
