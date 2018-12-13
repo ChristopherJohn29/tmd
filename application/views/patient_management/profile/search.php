@@ -50,6 +50,7 @@
                                         <th>Referral Date</th>
                                         <th>ICD10 - Code Diagnoses</th>
                                         <th>Date of Service</th>
+                                        <th>Provider</th>
                                         <th width="120px">Actions</th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,7 @@
                                                 <td>{{ record['patientReferralDate'] }}</td>
                                                 <td>{{ record['ICD10'] }}</td>
                                                 <td>{{ record['dateOfService'] }}</td>
+                                                <td>{{ record['provider'] }}</td>
                                                 <td>
                                                     <a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
                                                 </td>
