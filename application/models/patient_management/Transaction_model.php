@@ -31,6 +31,7 @@ class Transaction_model extends \Mobiledrs\core\MY_Models {
 			'pt_diabetes' => $this->record_entity->pt_diabetes,
 			'pt_tobacco' => $this->record_entity->pt_tobacco,
 			'pt_tcm' => $this->record_entity->pt_tcm,
+			'pt_mileage' => $this->record_entity->pt_mileage,
 			'pt_others' => $this->record_entity->pt_others,
 			'pt_icd10_codes' => $this->record_entity->pt_icd10_codes,
 			'pt_dateRefEmailed' => $this->record_entity->set_date_format($this->record_entity->pt_dateRefEmailed),
