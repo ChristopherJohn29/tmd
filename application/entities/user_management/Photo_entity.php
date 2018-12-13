@@ -16,11 +16,11 @@ class Photo_entity extends \Mobiledrs\entities\Entity {
 
 	public function has_exiting_photo() : bool
 	{
-		return file_exists($this->upload_dir . DIRECTORY_SEPARATOR . $this->user_photo);
+		return file_exists($this->upload_dir . '/' . $this->user_photo);
 	}
 
 	public function delete_photo() : bool
 	{
-		return unlink($this->upload_dir . DIRECTORY_SEPARATOR . $this->user_photo);
+		return unlink($this->upload_dir . '/' . $this->user_photo);
 	}
 }
