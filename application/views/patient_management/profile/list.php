@@ -2,7 +2,7 @@
 
 {% 
   set scripts = [
-    'dist/js/patient_management/profile/list'
+	'dist/js/patient_management/profile/list'
   ]
 %}
 
@@ -11,74 +11,74 @@
 {% block content %}
 	 <div class="row">
 
-	 	<div class="col-xs-12">
-	      {% if states %}
-	        {{ include('commons/alerts.php') }}
-	      {% endif %}
-	    </div>
+		<div class="col-xs-12">
+		  {% if states %}
+			{{ include('commons/alerts.php') }}
+		  {% endif %}
+		</div>
 
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Patients</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <div class="table-responsive">
-                    
-                <table id="all-patient-list" class="table no-margin table-hover">
-                <thead>
-                  <tr>
-                    <th>Patient Name</th>
-                    <th>Referral Date</th>
-                    <th>ICD10 - Code Diagnoses</th>
-                    <th>Date of Service</th>
-                    <th>Provider</th>
-                    <th width="230px">Actions</th>
-                  </tr>
-                  </thead>
-                  
-                  <tbody>
+		<div class="col-xs-12">
+		  <div class="box">
+			<div class="box-header with-border">
+			  <h3 class="box-title">Patients</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="table-responsive">
+					
+				<table id="all-patient-list" class="table no-margin table-hover">
+				<thead>
+				  <tr>
+					<th>Patient Name</th>
+					<th>Referral Date</th>
+					<th>ICD10 - Code Diagnoses</th>
+					<th>Date of Service</th>
+					<th>Provider</th>
+					<th width="230px">Actions</th>
+				  </tr>
+				  </thead>
+				  
+				  <tbody>
 
-	                  {% if records %}
+					  {% if records %}
 
-	                  	{% for record in records %}
+						{% for record in records %}
 
-                  			<tr>
-			                    <td>{{ record.get_reverse_fullname() }}</td>
-			                    <td>{{ record.get_date_format(record.patient_referralDate) }}</td>
-			                    <td>{{ '' }}</td>
-			                    <td>{{ '' }}</td>
-                                <td>{{ '' }}</td>
-			                    <td>
-									<a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}"><span class="label label-primary">View Details</span></a>
-									<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
-									<a href="{{ site_url("patient_management/profile/edit/#{ record.patient_id }") }}"><span class="label label-primary">Update</span></a>
+							<tr>
+								<td>{{ record['patientName'] }}</td>
+								<td>{{ record['patientReferralDate'] }}</td>
+								<td>{{ record['ICD10'] }}</td>
+								<td>{{ record['dateOfService'] }}</td>
+								<td>{{ record['provider'] }}</td>
+								<td>
+									<a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+									<a href="{{ site_url("patient_management/transaction/add/#{ record['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+									<a href="{{ site_url("patient_management/profile/edit/#{ record['patientId'] }") }}"><span class="label label-primary">Update</span></a>
 								</td>
-			                </tr>
+							</tr>
 
-	                  	{% endfor %}
+						{% endfor %}
 
-	                  {% endif %}
+					  {% endif %}
 
 					  </tbody>
 					  <tfoot>
-		                <tr>
-		                  	<th>Patient Name</th>
-		                    <th>Referral Date</th>
-		                    <th>ICD10 - Code Diagnoses</th>
-		                    <th>Date of Service</th>
-                            <th>Provider</th>
-		                    <th>Actions</th>
-		                </tr>
-		              </tfoot>
-                </table>
-                </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-         </div> 
+						<tr>
+							<th>Patient Name</th>
+							<th>Referral Date</th>
+							<th>ICD10 - Code Diagnoses</th>
+							<th>Date of Service</th>
+							<th>Provider</th>
+							<th>Actions</th>
+						</tr>
+					  </tfoot>
+				</table>
+				</div>
+			</div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		 </div> 
 
-         </div> 
+		 </div> 
 {% endblock %}

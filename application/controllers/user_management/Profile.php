@@ -127,8 +127,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 			$config['upload_path'] = './uploads/users';
             $config['allowed_types'] = 'jpeg|jpg|JPG';
-            $config['max_width'] = 200;
-            $config['max_height'] = 200;
             $config['file_name'] = $photo_entity->generate_filename();
 
             $this->load->library('upload', $config);

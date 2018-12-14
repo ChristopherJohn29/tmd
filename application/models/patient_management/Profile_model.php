@@ -52,6 +52,11 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 		$records = $this->find($patients_params);
 
+		return $this->get_pt_profile_trans($records);
+	}
+	
+	public function get_pt_profile_trans(array $records) : array
+	{
 		$new_records = [];
 
 		for ($i = 0; $i < count($records); $i++) {
@@ -59,7 +64,16 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'order_key' => 'patient_transactions.pt_dateOfService',
 				'order_by' => 'DESC',
 				'key' => 'patient_transactions.pt_patientID',
-				'value' => $records[$i]->patient_id
+				'value' => $records[$i]->patient_id,
+				'joins' => [
+					[
+						'join_table_name' => 'provider',
+						'join_table_key' => 'provider.provider_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'patient_transactions.pt_providerID',
+						'join_table_type' => 'inner'
+					]
+				]
 			];
 
 			$patient_trans = $this->transaction_model->record($trans_params);
@@ -68,8 +82,9 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'patientId' => $records[$i]->patient_id,
 				'patientName' => $records[$i]->get_fullname(),
 				'patientReferralDate' => $records[$i]->get_date_format($records[$i]->patient_referralDate),
-				'ICD10' => $patient_trans->pt_icd10_codes,
-				'dateOfService' => $patient_trans->get_date_format($patient_trans->pt_dateOfService)
+				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
+				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',
+				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : ''
 			];
 		}
 

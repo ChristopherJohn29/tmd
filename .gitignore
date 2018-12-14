@@ -65,3 +65,4 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 composer.phar
+/uploads/users/*.jpg

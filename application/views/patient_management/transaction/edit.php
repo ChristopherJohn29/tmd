@@ -208,7 +208,7 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Mileage</label>
-										<input type="text" class="form-control" id="" placeholder="">
+										<input type="text" class="form-control" name="pt_mileage" value="{{ set_value('pt_mileage', transaction.pt_mileage) }}">
 										
 									</div>
                                     

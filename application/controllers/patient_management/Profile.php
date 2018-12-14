@@ -23,7 +23,9 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'order_type' => 'DESC'
 		];
 
-		$page_data['records'] = $this->profile_model->records($params);
+		$patients = $this->profile_model->records($params);
+
+		$page_data['records'] = $this->profile_model->get_pt_profile_trans($patients);
 
 		$this->twig->view('patient_management/profile/list', $page_data);
 	}
