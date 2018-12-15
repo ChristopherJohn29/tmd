@@ -101,7 +101,7 @@
                                 {% for transaction in transactions %}
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
-                                    <li><a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}"><span class="label label-primary">Update</span></a></li>
+                                    <li><a href="#tab_2" data-toggle="tab">Follow-up Visit</a></li>
                                 </ul>
 
                                 <div class="tab-content">
@@ -164,6 +164,14 @@
                                                 </tbody>
 
                                             </table>
+                                        </div>
+                                        
+                                        <div class="text-center">
+                                            <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}">
+                                                <button type="button" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-edit"></i> Update Entry
+                                                </button>
+                                            </a>
                                         </div>
 
                                     </div>
