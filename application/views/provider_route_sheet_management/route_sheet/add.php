@@ -10,7 +10,8 @@
   	'bower_components/bootstrap-daterangepicker/daterangepicker',
   	'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
   	'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
-  	'plugins/timepicker/bootstrap-timepicker.min'
+  	'plugins/timepicker/bootstrap-timepicker.min',
+  	'dist/js/provider_route_sheet_management/route_sheet/form'
   ]
 %}
 
@@ -66,71 +67,80 @@
 										
 									</div>
 									
-									<div class="col-md-12 subheader">
-										<p class="lead">Patient Details</p>
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Time of Visit <span>*</span></label>
-										<input type="text" class="form-control" id="" placeholder="" required>
+
+									<div class="patient-details-container">
 										
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Type of Visit <span>*</span></label>
-										
-										<select class="form-control" style="width: 100%;" required>
-											<option selected="selected">Initial Visit (Home)</option>
-											<option>Initial Visit (Facility)</option>
-											<option>Follow-up Visit</option>
-										</select>
-										
+										<div class="patient-details-item">
+
+											<div class="col-md-12 subheader">
+												<p class="lead">Patient Details</p>
+											</div>									
+
+											<div class="col-md-6 form-group">
+											
+												<label class="control-label">Time of Visit <span>*</span></label>
+												<input type="text" class="form-control" id="" placeholder="" required>
+												
+											</div>
+											
+											<div class="col-md-6 form-group">
+											
+												<label class="control-label">Type of Visit <span>*</span></label>
+												
+												<select class="form-control" style="width: 100%;" required>
+													<option selected="selected">Initial Visit (Home)</option>
+													<option>Initial Visit (Facility)</option>
+													<option>Follow-up Visit</option>
+												</select>
+												
+											</div>
+											
+											<div class="col-md-12 form-group">
+											
+												<label class="control-label">Patient Name <span>*</span></label>
+												<select class="form-control select2" style="width: 100%;" required>
+													<option selected="selected">Cuneta, Sharon</option>
+													<option>Tolentino, Lorna</option>
+													<option>Soriano, Maricel</option>
+													<option>Padilla, Zsa Zsa</option>
+													<option>Concepcion, Gabby</option>
+													<option>Rickets, Ronnie</option>
+													<option>Gibbs, Janno</option>
+												</select>
+												
+											</div>
+											
+											<div class="col-md-12 form-group">
+												<label class="control-label">Home Health <span>*</span></label>
+												
+												<select class="form-control" style="width: 100%;" required>
+													<option selected="selected">Advance Home Care</option>
+													<option>Divine Care Home Health</option>
+													<option>Faith and Hope</option>
+													<option>GMO Home Health</option>
+													<option>Healthy Choice Home Care</option>
+													<option>Millenium Home Health</option>
+													<option>Nightingle Home Health</option>
+													<option>Prestige Home Health</option>
+													<option>R & G Home Health Care</option>
+												</select>
+												
+											</div>
+											
+											<div class="col-md-12 form-group">
+											
+												<label class="control-label">Notes <span>*</span></label>
+												<textarea class="form-control" id="" placeholder="" required></textarea>
+												
+											</div>
+
+										</div>
+
 									</div>
 									
 									<div class="col-md-12 form-group">
-									
-										<label class="control-label">Patient Name <span>*</span></label>
-										<select class="form-control select2" style="width: 100%;" required>
-											<option selected="selected">Cuneta, Sharon</option>
-											<option>Tolentino, Lorna</option>
-											<option>Soriano, Maricel</option>
-											<option>Padilla, Zsa Zsa</option>
-											<option>Concepcion, Gabby</option>
-											<option>Rickets, Ronnie</option>
-											<option>Gibbs, Janno</option>
-										</select>
 										
-									</div>
-									
-									<div class="col-md-12 form-group">
-										<label class="control-label">Home Health <span>*</span></label>
-										
-										<select class="form-control" style="width: 100%;" required>
-											<option selected="selected">Advance Home Care</option>
-											<option>Divine Care Home Health</option>
-											<option>Faith and Hope</option>
-											<option>GMO Home Health</option>
-											<option>Healthy Choice Home Care</option>
-											<option>Millenium Home Health</option>
-											<option>Nightingle Home Health</option>
-											<option>Prestige Home Health</option>
-											<option>R & G Home Health Care</option>
-										</select>
-										
-									</div>
-									
-									<div class="col-md-12 form-group">
-									
-										<label class="control-label">Notes <span>*</span></label>
-										<textarea class="form-control" id="" placeholder="" required></textarea>
-										
-									</div>
-									
-									<div class="col-md-12 form-group">
-										
-					                  	<button type="button" class="btn btn-default">
+					                  	<button type="button" class="btn btn-default" id="addPatientBtn">
 											<i class="fa fa-plus"></i> Add Patient
 										</button>
 					                  
