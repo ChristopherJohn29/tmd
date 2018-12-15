@@ -79,7 +79,7 @@
 
 										<input type="hidden" name="pt_providerID" required="true" value="{{ transaction.pt_providerID }}">
 										<div class="dropdown mobiledrs-autosuggest-select">
-										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/transaction/search') }}" data-input-target-name="pt_providerID">
+										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/transaction/search') }}" data-input-target-name="pt_providerID" value="{{ transaction.get_provider_fullname() }}">
 										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>
