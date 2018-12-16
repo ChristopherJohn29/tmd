@@ -90,7 +90,7 @@
 									
 										<label class="control-label">Gender</label>
 										<select class="form-control" style="width: 100%;" name="provider_gender" id="dob">
-											<option value="">Please select</option>
+											<option value="">Select</option>
 						                  	<option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
 						                  	<option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
 						                </select>

@@ -61,7 +61,7 @@
 									
 										<label class="control-label">Type of Visit <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tovID">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 
 											{% for type_visit in type_visits %}
 
@@ -121,7 +121,7 @@
 									
 										<label class="control-label">AW or IPPE?</label>
 										<select class="form-control" style="width: 100%;" name="pt_aw_ippe_code">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 											<option value="G0438" {{ transaction.get_selected_aw_ippe_code('G0438') }}>G0438</option>
 											<option value="G0439" {{ transaction.get_selected_aw_ippe_code('G0439') }}>G0439</option>
 											<option value="G0402" {{ transaction.get_selected_aw_ippe_code('G0402') }}>G0402</option>
@@ -133,7 +133,7 @@
 									
 										<label class="control-label">Performed? <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required="true" name="pt_performed">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_performed, '1') }}>Yes</option>
 											<option value="2"  {{ transaction.get_selected_choice(transaction.pt_performed, '2') }}>No</option>
 										</select>
@@ -148,7 +148,7 @@
 									
 										<label class="control-label">ACP <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required="true" name="pt_acp">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_acp, '1') }}>Yes</option>
 											<option value="2" {{ transaction.get_selected_choice(transaction.pt_acp, '2') }}>No</option>
 										</select>
@@ -159,7 +159,7 @@
 									
 										<label class="control-label">Diabetes <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required="true" name="pt_diabetes">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_diabetes, '1') }}>Yes</option>
 											<option value="2" {{ transaction.get_selected_choice(transaction.pt_diabetes, '2') }}>No</option>
 										</select>
@@ -178,7 +178,7 @@
 									
 										<label class="control-label">Tobacco <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tobacco">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_tobacco, '1') }}>Yes</option>
 											<option value="2" {{ transaction.get_selected_choice(transaction.pt_tobacco, '2') }}>No</option>
 										</select>
@@ -189,7 +189,7 @@
 									
 										<label class="control-label">TCM <span>*</span></label>
 										<select class="form-control" style="width: 100%;" required="true" name="pt_tcm">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 											<option value="1" {{ transaction.get_selected_choice(transaction.pt_tcm, '1') }}>Yes</option>
 											<option value="2" {{ transaction.get_selected_choice(transaction.pt_tcm, '2') }}>No</option>
 										</select>

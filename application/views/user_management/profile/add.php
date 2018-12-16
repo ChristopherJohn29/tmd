@@ -107,7 +107,7 @@
 
 										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
-											<option value="" selected="true">Please select</option>
+											<option value="" selected="true">Select</option>
 						                  <option value="Male">Male</option>
 						                  <option value="Female">Female</option>
 
@@ -174,7 +174,7 @@
 
 										
 										<select class="form-control" style="width: 100%;" required="true" name="user_roleID">
-											<option value="" selected="true">Please Select</option>
+											<option value="" selected="true">Select</option>
 
 											{% for role in roles %}
 												<option value="{{ role.roles_id }}">{{ role.roles_name }}</option>
