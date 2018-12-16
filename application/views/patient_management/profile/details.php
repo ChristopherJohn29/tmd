@@ -223,7 +223,8 @@
 								
 								<tbody>
 									   
-                                   {% for cpo in cpos %}
+                                    {% if cpos %}	
+                                    {% for cpo in cpos %}
 
                                         <tr>
     										<th>{{ cpo.ptcpo_status }}</th>
@@ -240,8 +241,15 @@
     									</tr>
 
                                     {% endfor %}
+                                        
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="9" class="text-center">No data available in table</td>
+                                        </tr>
+                                    {% endif %}
 
 								</tbody>
+                                   
 								
 							 </table>
                             </div>
@@ -280,6 +288,7 @@
 								
 								<tbody>
 									
+                                    {% if communication_notes %}	
                                     {% for cn in communication_notes %}
 
                                         <tr>
@@ -291,6 +300,12 @@
     									</tr>
 
                                     {% endfor %}
+                                    
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="3" class="text-center">No data available in table</td>
+                                        </tr>
+                                    {% endif %}
 
 								</tbody>
 								
