@@ -100,16 +100,21 @@
 
                                 <div class="nav-tabs-custom">
                                     
-                                    {% for transaction in transactions %}
+                                    <ul class="nav nav-tabs">
 
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
-                                            <li><a href="#tab_2" data-toggle="tab">Follow-up Visit</a></li>
-                                        </ul>
+                                        {% for transaction in transactions %}
 
-                                        <div class="tab-content">
+                                            <li class="active"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
 
-                                            <div class="tab-pane active" id="tab_1">
+                                        {% endfor %}
+
+                                    </ul>
+
+                                    <div class="tab-content">
+
+                                        {% for transaction in transactions %}
+
+                                            <div class="tab-pane active" id="tab_{{ transaction.tov_id }}">
 
                                                 <div class="table-responsive">
                                                     <table class="table no-margin table-hover">
@@ -178,18 +183,10 @@
                                                 </div>
 
                                             </div>
-                                            
-                                            <div class="tab-pane" id="tab_2">
 
-                                                <div class="table-responsive">
-                                                    
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    {% endfor %}
+                                        {% endfor %}
+                                    
+                                    </div>
 
                                 </div>
 
