@@ -53,13 +53,13 @@
 
                             {% endfor %}
 
-					{% else %}
+                        {% else %}
 
-						<tr>
-							<td colspan="7" class="text-center">No data available in table</td>
-						</tr>
+                            <tr>
+                                <td colspan="7" class="text-center">No data available in table</td>
+                            </tr>
 
-					{% endif %}
+                        {% endif %}
 
                     </tbody>
                     <tfoot>
