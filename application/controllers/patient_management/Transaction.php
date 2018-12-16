@@ -64,12 +64,25 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$transaction_params = [
-			'key' => 'pt_id',
-			'value' => $pt_id
+			'joins' => [
+				[
+					'join_table_name' => 'provider',
+					'join_table_key' => 'provider.provider_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_transactions.pt_providerID',
+					'join_table_type' => 'inner'
+				]
+			],
+			'where' => [
+				'key' => 'pt_id',
+				'condition' => '',
+        		'value' => $pt_id
+			],
+			'return_type' => 'row'
 		];
 
 		$page_data['record'] = $this->profile_model->get_records_by_join($profile_params);
-		$page_data['transaction'] = $this->transaction_model->record($transaction_params);
+		$page_data['transaction'] = $this->transaction_model->get_records_by_join($transaction_params);
 		$page_data['type_visits'] = $this->type_visit_model->records();
 
 		$this->twig->view('patient_management/transaction/edit', $page_data);

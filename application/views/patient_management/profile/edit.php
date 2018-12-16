@@ -38,7 +38,7 @@
 									
 									<div class="col-md-12 form-group {{ form_error('patient_referralDate') ? 'has-error' : '' }}">
 										<label>Date of Referral <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate" value="{{ set_value('patient_referralDate', record.get_field_date_format(record.patient_referralDate)) }}">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate" value="{{ set_value('patient_referralDate', record.get_date_format(record.patient_referralDate)) }}">
 									</div>
 
 									<div class="col-md-12 has-error">
@@ -68,7 +68,7 @@
 									<div class="col-md-6 form-group {{ form_error('patient_dateOfBirth') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Date of Birth <span>*</span></label>
-										<input type="text" class="form-control" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth" value="{{ set_value('patient_dateOfBirth', record.get_field_date_format(record.patient_dateOfBirth)) }}">
+										<input type="text" class="form-control" id="dob" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_dateOfBirth" value="{{ set_value('patient_dateOfBirth', record.get_date_format(record.patient_dateOfBirth)) }}">
 										
 									</div>
 									
@@ -78,7 +78,7 @@
 										<select class="form-control" style="width: 100%;" name="patient_gender" id="dob" required="true">
 											<option value="">Please select</option>
 						                  	<option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
-						                  	<option value="Female" {{ record.get_selected_gender('Male') }}>Female</option>
+						                  	<option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
 						                </select>
 						                
 									</div>
@@ -144,7 +144,7 @@
 										
 										<input type="hidden" name="patient_hhcID" required="true" value="{{ record.patient_hhcID }}">
 										<div class="dropdown mobiledrs-autosuggest-select">
-										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID">
+										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID" value="{{ record.hhc_name }}">
 										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>

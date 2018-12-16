@@ -95,7 +95,7 @@
 
                                     
                                         <label class="control-label">Date of Birth <span>*</span></label>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth" value="{{ set_value('user_dateOfBirth', record.get_field_date_format(record.user_dateOfBirth)) }}">
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth" value="{{ set_value('user_dateOfBirth', record.get_date_format(record.user_dateOfBirth)) }}">
                                         
                                     </div>
                                     
