@@ -103,7 +103,7 @@
                                     
                                         <label class="control-label">Gender <span>*</span></label>
                                         <select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
-                                            <option value="">Please select</option>
+                                            <option value="">Select</option>
                                             <option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
                                             <option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
                                         </select>
@@ -166,7 +166,7 @@
                                         <label class="control-label">Account Type <span>*</span></label>
                                         
                                         <select class="form-control" style="width: 100%;" required="true" name="user_roleID">
-                                            <option value="">Please Select</option>
+                                            <option value="">Select</option>
                                             
                                             {% for role in roles %}
                                                 <option value="{{ role.roles_id }}" {{ record.get_selected_role(role.roles_id) }}>{{ role.roles_name }}</option>

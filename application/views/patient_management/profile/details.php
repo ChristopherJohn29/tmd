@@ -96,97 +96,108 @@
              				
              				<p class="lead">Transactions</p>
                             
-                            <div class="nav-tabs-custom">
-                                
-                                {% for transaction in transactions %}
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
-                                    <li><a href="#tab_2" data-toggle="tab">Follow-up Visit</a></li>
-                                </ul>
+                            {% if transactions %}
 
-                                <div class="tab-content">
-
-                                    <div class="tab-pane active" id="tab_1">
-
-                                        <div class="table-responsive">
-                                            <table class="table no-margin table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Provider</th>
-                                                        <th>Date of Service</th>
-                                                        <th>Deductible</th>
-                                                        <th>AW/IPPE</th>
-                                                        <th>Performed</th>
-                                                        <th>AW/IPPE Date</th>
-                                                        <th width="110px">Date Billed</th>
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                    <tr>
-                                                        <td>{{ transaction.get_provider_fullname() }}</td>
-                                                        <td>{{ transaction.pt_dateOfService }}</td>
-                                                        <td>{{ transaction.pt_deductible }}</td>
-                                                        <td>{{ transaction.pt_aw_ippe_code }}</td>
-                                                        <td>{{ transaction.get_selected_choice_format(transaction.pt_performed) }}</td>
-                                                        <td>{{ transaction.pt_aw_ippe_date }}</td>
-                                                        <td> </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        
-                                        <div class="table-responsive">
-                                            <table class="table no-margin table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ACP</th>
-                                                        <th>Diabetes</th>
-                                                        <th>Tobacco</th>
-                                                        <th>Others</th>
-                                                        <th>ICD-Code Diagnoses</th>
-                                                        <th>Date Referral was Emailed</th>
-                                                        <th width="110px">Visit Billed</th>
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-
-                                                    <tr>
-                                                        <td>{{ transaction.get_selected_choice_format(transaction.pt_acp) }}</td>
-                                                        <td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) }}</td>
-                                                        <td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) }}</td>
-                                                        <td>{{ transaction.pt_others }}</td>
-                                                        <td>{{ transaction.pt_icd10_codes }}</td>
-                                                        <td>{{ transaction.pt_dateRefEmailed }}</td>
-                                                        <td>{{ transaction.pt_dateBilled }}</td>
-                                                    </tr>
-                                                </tbody>
-
-                                            </table>
-                                        </div>
-                                        
-                                        <div class="text-center">
-                                            <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}">
-                                                <button type="button" class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-edit"></i> Update Entry
-                                                </button>
-                                            </a>
-                                        </div>
-
-                                    </div>
+                                <div class="nav-tabs-custom">
                                     
-                                    <div class="tab-pane" id="tab_2">
+                                    {% for transaction in transactions %}
 
-                                        <div class="table-responsive">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                            <li><a href="#tab_2" data-toggle="tab">Follow-up Visit</a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+
+                                            <div class="tab-pane active" id="tab_1">
+
+                                                <div class="table-responsive">
+                                                    <table class="table no-margin table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Provider</th>
+                                                                <th>Date of Service</th>
+                                                                <th>Deductible</th>
+                                                                <th>AW/IPPE</th>
+                                                                <th>Performed</th>
+                                                                <th>AW/IPPE Date</th>
+                                                                <th width="110px">Date Billed</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{ transaction.get_provider_fullname() }}</td>
+                                                                <td>{{ transaction.pt_dateOfService }}</td>
+                                                                <td>{{ transaction.pt_deductible }}</td>
+                                                                <td>{{ transaction.pt_aw_ippe_code }}</td>
+                                                                <td>{{ transaction.get_selected_choice_format(transaction.pt_performed) }}</td>
+                                                                <td>{{ transaction.pt_aw_ippe_date }}</td>
+                                                                <td> </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                
+                                                <div class="table-responsive">
+                                                    <table class="table no-margin table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ACP</th>
+                                                                <th>Diabetes</th>
+                                                                <th>Tobacco</th>
+                                                                <th>Others</th>
+                                                                <th>ICD-Code Diagnoses</th>
+                                                                <th>Date Referral was Emailed</th>
+                                                                <th width="110px">Visit Billed</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <td>{{ transaction.get_selected_choice_format(transaction.pt_acp) }}</td>
+                                                                <td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) }}</td>
+                                                                <td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) }}</td>
+                                                                <td>{{ transaction.pt_others }}</td>
+                                                                <td>{{ transaction.pt_icd10_codes }}</td>
+                                                                <td>{{ transaction.pt_dateRefEmailed }}</td>
+                                                                <td>{{ transaction.pt_dateBilled }}</td>
+                                                            </tr>
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+                                                
+                                                <div class="text-center">
+                                                    <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}">
+                                                        <button type="button" class="btn btn-primary btn-sm">
+                                                            <i class="fa fa-edit"></i> Update Entry
+                                                        </button>
+                                                    </a>
+                                                </div>
+
+                                            </div>
                                             
+                                            <div class="tab-pane" id="tab_2">
+
+                                                <div class="table-responsive">
+                                                    
+                                                </div>
+
+                                            </div>
+
                                         </div>
 
-                                    </div>
+                                    {% endfor %}
 
                                 </div>
-                                {% endfor %}
-                            </div>
+
+                            {% else %}
+
+                                <p class="text-center">No Data available</p>
+
+                            {% endif %}
                            
 							<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title="">
 								<button type="button" class="btn btn-default">
@@ -222,23 +233,23 @@
 								</thead>
 								
 								<tbody>
-									   
+
                                     {% if cpos %}	
                                     {% for cpo in cpos %}
 
-                                        <tr>
-    										<th>{{ cpo.ptcpo_status }}</th>
-    										<td>{{ cpo.ptcpo_period }}</td>
-    										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
-    										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
-    										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
-    										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
-    										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
-    										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
-                                            <td>
-                                                <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
-                                            </td>
-    									</tr>
+                                            <tr>
+        										<th>{{ cpo.ptcpo_status }}</th>
+        										<td>{{ cpo.ptcpo_period }}</td>
+        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
+        										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
+        										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
+        										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
+        										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
+        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
+                                                <td>
+                                                    <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
+                                                </td>
+        									</tr>
 
                                     {% endfor %}
                                         
@@ -287,17 +298,17 @@
 								</thead>
 								
 								<tbody>
-									
-                                    {% if communication_notes %}	
-                                    {% for cn in communication_notes %}
 
-                                        <tr>
-    										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
-    										<td>{{ cn.ptcn_message }}</td>
-    										<td>
-                                                <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
-                                            </td>
-    									</tr>
+                                    {% if communication_notes %}
+                                        {% for cn in communication_notes %}
+
+                                            <tr>
+        										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
+        										<td>{{ cn.ptcn_message }}</td>
+        										<td>
+                                                    <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+                                                </td>
+        									</tr>
 
                                     {% endfor %}
                                     

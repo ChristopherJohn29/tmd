@@ -76,7 +76,7 @@
 									
 										<label class="control-label">Gender <span>*</span></label>
 										<select class="form-control" style="width: 100%;" name="patient_gender" id="dob" required="true">
-											<option value="">Please select</option>
+											<option value="">Select</option>
 						                  	<option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
 						                  	<option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
 						                </select>
