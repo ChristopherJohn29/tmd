@@ -295,7 +295,10 @@
             }
 
             .xrx-info .nav-tabs-custom ul.nav-tabs li {
-                font-weight: 700 !important;
+                /* font-weight: 700 !important; */
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+                font-size: 17px !important;
                 }
 		
 .xrx-table {
