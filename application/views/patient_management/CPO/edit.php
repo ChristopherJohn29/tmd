@@ -72,7 +72,7 @@
 									<div class="col-md-6 form-group {{ form_error() ? 'has-error' : '' }}">
 									
 										<label class="control-label">485 Date Signed <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned" value="{{ set_value('ptcpo_dateSigned', cpo.get_field_date_format(cpo.ptcpo_dateSigned)) }}">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="ptcpo_dateSigned" value="{{ set_value('ptcpo_dateSigned', cpo.get_date_format(cpo.ptcpo_dateSigned)) }}">
 										
 									</div>
 									
@@ -102,14 +102,14 @@
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Discharged Date</label>
-										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dischargeDate', cpo.get_field_date_format(cpo.ptcpo_dischargeDate)) }}">
+										<input type="text" class="form-control" name="ptcpo_dischargeDate" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dischargeDate', cpo.get_date_format(cpo.ptcpo_dischargeDate)) }}">
 										
 									</div>
 									
 									<div class="col-md-6 form-group">
 									
 										<label class="control-label">Date Billed</label>
-										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dateBilled', cpo.get_field_date_format(cpo.ptcpo_dateBilled)) }}">
+										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dateBilled', cpo.get_date_format(cpo.ptcpo_dateBilled)) }}">
 										
 									</div>
 									
