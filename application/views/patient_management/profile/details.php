@@ -235,28 +235,31 @@
 								<tbody>
 
                                     {% if cpos %}	
-                                    {% for cpo in cpos %}
 
-                                            <tr>
-        										<th>{{ cpo.ptcpo_status }}</th>
-        										<td>{{ cpo.ptcpo_period }}</td>
-        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
-        										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
-        										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
-        										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
-        										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
-        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
-                                                <td>
-                                                    <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
-                                                </td>
-        									</tr>
+                                        {% for cpo in cpos %}
 
-                                    {% endfor %}
+                                                <tr>
+            										<th>{{ cpo.ptcpo_status }}</th>
+            										<td>{{ cpo.ptcpo_period }}</td>
+            										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
+            										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
+            										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
+            										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
+            										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
+            										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
+                                                    <td>
+                                                        <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
+                                                    </td>
+            									</tr>
+
+                                        {% endfor %}
                                         
                                     {% else %}
+
                                         <tr>
                                             <td colspan="9" class="text-center">No data available in table</td>
                                         </tr>
+
                                     {% endif %}
 
 								</tbody>
@@ -300,6 +303,7 @@
 								<tbody>
 
                                     {% if communication_notes %}
+
                                         {% for cn in communication_notes %}
 
                                             <tr>
@@ -310,12 +314,14 @@
                                                 </td>
         									</tr>
 
-                                    {% endfor %}
+                                        {% endfor %}
                                     
                                     {% else %}
+
                                         <tr>
                                             <td colspan="3" class="text-center">No data available in table</td>
                                         </tr>
+                                        
                                     {% endif %}
 
 								</tbody>

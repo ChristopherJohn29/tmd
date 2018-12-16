@@ -88,7 +88,7 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-                <li><a href="{{ site_url('superbill_management/annual_wellness/') }}"><i class="fa fa-angle-right"></i> Create</a></li>
+                <li><a href="{{ site_url('superbill_management/create/') }}"><i class="fa fa-angle-right"></i> Create</a></li>
 				<li><a href="{{ site_url('superbill_management/annual_wellness/') }}"><i class="fa fa-angle-right"></i> Annual Wellness</a></li>
 				<li><a href="{{ site_url('superbill_management/home_visits/') }}"><i class="fa fa-angle-right"></i> Home Visits</a></li>
 				<li><a href="{{ site_url('superbill_management/facility_visits/') }}"><i class="fa fa-angle-right"></i> Facility Visits</a></li>
