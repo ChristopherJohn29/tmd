@@ -33,7 +33,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							<form class="xrx-form">
+							{{ form_open("", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 								
@@ -41,98 +41,121 @@
 										<p class="lead">Provider</p>
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('prs_providerID') ? 'has-error' : '' }}">
 									
 										<label>Provider Name <span>*</span></label>
-										<select class="form-control select2" style="width: 100%;" required>
-											<option selected="selected">Alexandra Kirtchik</option>
-											<option>Fidelia Nchetam</option>
-											<option>Grace Adeagbo</option>
-											<option>Henry Barraza</option>
-											<option>Kaixuan Luo</option>
-											<option>Lilibeth Ramirez</option>
-											<option>Reynaldo Salcedo</option>
-										</select>
+
+										<input type="hidden" name="prs_providerID" required="true">
+										<div class="dropdown mobiledrs-autosuggest-select">
+										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/provider_management/profile/search') }}" data-input-target-name="prs_providerID">
+										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
+									  	  </ul>
+										</div>
 										
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('prs_providerID') }}</span>
 									</div>
 									
 									<div class="col-md-12 subheader">
 										<p class="lead">Schedule</p>
 									</div>
 									
-									<div class="col-md-12 form-group">
+									<div class="col-md-12 form-group {{ form_error('prs_dateOfService') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Date of Service <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required>
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prs_dateOfService">
 										
 									</div>
-									
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('prs_dateOfService') }}</span>
+									</div>									
 
 									<div class="patient-details-container">
 										
 										<div class="patient-details-item">
 
 											<div class="col-md-12 subheader">
-												<p class="lead">Patient Details</p>
+												<p class="lead">Patient <span class="item-num">1</span> Details</p>
 											</div>									
 
-											<div class="col-md-6 form-group">
+											<div class="col-md-6 form-group {{ form_error('prsl_time') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Time of Visit <span>*</span></label>
-												<input type="text" class="form-control" id="" placeholder="" required>
+												<input type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time">
 												
 											</div>
 											
-											<div class="col-md-6 form-group">
+											<div class="col-md-6 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Type of Visit <span>*</span></label>
 												
-												<select class="form-control" style="width: 100%;" required>
-													<option selected="selected">Initial Visit (Home)</option>
-													<option>Initial Visit (Facility)</option>
-													<option>Follow-up Visit</option>
+												<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID">
+													<option value="">Select</option>
+
+													{% for tov in tovs %}
+
+														<option value="{{ tov.tov_id }}">{{ tov.tov_name }}</option>
+
+													{% endfor %}
+
 												</select>
 												
 											</div>
+
+											<div class="col-md-6 has-error">
+												<span class="help-block">{{ form_error('prsl_time') }}</span>
+											</div>
+
+											<div class="col-md-6 has-error">
+												<span class="help-block">{{ form_error('prsl_tovID') }}</span>
+											</div>	
 											
-											<div class="col-md-12 form-group">
+											<div class="col-md-12 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Patient Name <span>*</span></label>
-												<select class="form-control select2" style="width: 100%;" required>
-													<option selected="selected">Cuneta, Sharon</option>
-													<option>Tolentino, Lorna</option>
-													<option>Soriano, Maricel</option>
-													<option>Padilla, Zsa Zsa</option>
-													<option>Concepcion, Gabby</option>
-													<option>Rickets, Ronnie</option>
-													<option>Gibbs, Janno</option>
-												</select>
+
+												<input type="hidden" name="prsl_patientID" required="true">
+												<div class="dropdown mobiledrs-autosuggest-select">
+												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="prsl_patientID">
+												  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
+											  	  </ul>										
+												</div>
 												
 											</div>
+
+											<div class="col-md-12 has-error">
+												<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+											</div>	
 											
-											<div class="col-md-12 form-group">
+											<div class="col-md-12 form-group {{ form_error('prsl_hhcID') ? 'has-error' : '' }}">
 												<label class="control-label">Home Health <span>*</span></label>
 												
-												<select class="form-control" style="width: 100%;" required>
-													<option selected="selected">Advance Home Care</option>
-													<option>Divine Care Home Health</option>
-													<option>Faith and Hope</option>
-													<option>GMO Home Health</option>
-													<option>Healthy Choice Home Care</option>
-													<option>Millenium Home Health</option>
-													<option>Nightingle Home Health</option>
-													<option>Prestige Home Health</option>
-													<option>R & G Home Health Care</option>
-												</select>
+												<input type="hidden" name="prsl_hhcID" required="true">
+												<div class="dropdown mobiledrs-autosuggest-select">
+												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/home_health_care_management/profile/search') }}" data-input-target-name="prsl_hhcID">
+												  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
+											  	  </ul>										
+												</div>
 												
 											</div>
+
+											<div class="col-md-12 has-error">
+												<span class="help-block">{{ form_error('prsl_hhcID') }}</span>
+											</div>	
 											
-											<div class="col-md-12 form-group">
+											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Notes <span>*</span></label>
-												<textarea class="form-control" id="" placeholder="" required></textarea>
+												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes"></textarea>
 												
 											</div>
+
+											<div class="col-md-12 has-error">
+												<span class="help-block">{{ form_error('prsl_notes') }}</span>
+											</div>	
 
 										</div>
 

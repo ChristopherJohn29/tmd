@@ -163,17 +163,21 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$communication_params = [
 			'where' => [
-				'key' => 'patient_communication_notes.ptcn_patientID',
-				'condition' => '',
-        		'value' => $patient_id
+				[
+					'key' => 'patient_communication_notes.ptcn_patientID',
+					'condition' => '',
+	        		'value' => $patient_id
+        		]
 			]
 		];
 
 		$cpo_params = [
 			'where' => [
-				'key' => 'patient_CPO.ptcpo_patientID',
-				'condition' => '',
-        		'value' => $patient_id
+				[
+					'key' => 'patient_CPO.ptcpo_patientID',
+					'condition' => '',
+	        		'value' => $patient_id
+				]
 			]
 		];
 

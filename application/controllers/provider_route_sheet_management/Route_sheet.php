@@ -8,7 +8,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
-			'provider_route_sheet_management/route_sheet_model' => 'rs_model'
+			'provider_route_sheet_management/route_sheet_model' => 'rs_model',
+			'patient_management/Type_visit_model' => 'tov_model'
 		));
 	}
 
@@ -25,7 +26,24 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_prs');
 
-		$this->twig->view('provider_route_sheet_management/route_sheet/add');
+		$tov_params = [
+			'where' => [
+				[
+					'key' => 'type_of_visits.tov_id',
+					'condition' => '<>',
+					'value' => '5'
+				],
+				[
+					'key' => 'type_of_visits.tov_id',
+					'condition' => '<>',
+					'value' => '6'
+				]
+			]
+		];
+
+		$page_data['tovs'] = $this->tov_model->records($tov_params);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/add', $page_data);
 	}
 
 	public function edit(string $prs_id)
@@ -58,17 +76,6 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		$page_data['record'] = $this->rs_model->routes_sheet_record($prs_id);
 
 		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
-	}
-
-	public function search()
-	{
-		$this->check_permission('search_prs');
-
-		$page_data['records'] = $this->rs_model->routes_sheet_list(
-			$this->rs_model->prepare_search_data()
-		);
-
-		$this->twig->view('provider_route_sheet_management/route_sheet/search', $page_data);
 	}
 
 	public function download(string $prs_providerID)

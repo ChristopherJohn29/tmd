@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once(APPPATH . 'core/MY_AJAX_Controller.php');
 
-class Transaction extends \Mobiledrs\core\MY_AJAX_Controller {
+class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 	
 	public function __construct()
 	{

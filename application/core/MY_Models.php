@@ -61,11 +61,13 @@ class MY_Models extends \CI_Model {
 
 		if (isset($params['where'])) 
 		{
-			$this->db->where(
-				$params['where']['key'] . ' ' .
-				$params['where']['condition'],
-				$params['where']['value']
-			);
+			foreach ($params['where'] as $key => $value) {
+				$this->db->where(
+					$value['key'] . ' ' .
+					$value['condition'],
+					$value['value']
+				);
+			}
 		}
 
 		$query = $this->db->get($this->table_name, $this->limit, $this->offset);

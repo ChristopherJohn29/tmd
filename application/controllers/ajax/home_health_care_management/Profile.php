@@ -9,29 +9,30 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model('patient_management/Profile_model', 'pt_model');
+		$this->load->model(array(
+			'home_health_care_management/profile_model' => 'hhc_model'
+		));
 	}
 
 	public function search(string $search_term)
 	{
-		$this->check_permission('add_tr');
+		$this->check_permission('add_pt');
 
 		$params = [
 			'where_data' => [
-				['key' => 'patient_firstname', 'value' => $search_term],
-				['key' => 'patient_lastname', 'value' => $search_term]
+				['key' => 'hhc_name', 'value' => $search_term]
 			]
 		];
 
-		$res = $this->pt_model->find($params);
+		$res = $this->hhc_model->find($params);
 
 		$search_data = [];
 
 		for ($i = 0; $i < count($res); $i++) 
-		{ 
+		{
 			$search_data[] = [
-				'id' => $res[$i]->patient_id,
-				'text' => $res[$i]->get_fullname()
+				'id' => $res[$i]->hhc_id,
+				'text' => $res[$i]->hhc_name
 			];
 		}
 

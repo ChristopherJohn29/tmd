@@ -144,7 +144,7 @@
 										
 										<input type="hidden" name="patient_hhcID" required="true" value="{{ record.patient_hhcID }}">
 										<div class="dropdown mobiledrs-autosuggest-select">
-										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="patient_hhcID" value="{{ record.hhc_name }}">
+										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/home_health_care_management/profile/search') }}" data-input-target-name="patient_hhcID" value="{{ record.hhc_name }}">
 										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 									  	  </ul>										
 										</div>

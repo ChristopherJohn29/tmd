@@ -820,5 +820,63 @@ $config = array(
                 'required' => 'This field is required.'
             )
         )
+    ),
+    'provider_route_sheet_management/route_sheet/' => array(
+        array(
+            'field' => 'prs_providerID',
+            'label' => 'Provider',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'prs_dateOfService',
+            'label' => 'Date of Service',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'prsl_time',
+            'label' => 'Time',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'prsl_tovID',
+            'label' => 'Type of Visit',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'prsl_patientID',
+            'label' => 'Patient',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'prsl_hhcID',
+            'label' => 'Home Healt Care',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'prsl_notes',
+            'label' => 'Notes',
+            'rules' => 'required|max_length[255]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        )
     )
 );
