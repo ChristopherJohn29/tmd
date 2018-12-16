@@ -11,13 +11,15 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 			'patient_management/transaction_model',
 			'patient_management/type_visit_model'
 		));
+
+
 	}
 
 	public function add(string $pt_patientID)
 	{
 		$this->check_permission('add_tr');
 
-		$params = [
+		$record_params = [
 			'joins' => [
 				[
 					'join_table_name' => 'home_health_care',
@@ -35,8 +37,25 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 			'return_type' => 'row'
 		];
 
-		$page_data['record'] = $this->profile_model->get_records_by_join($params);
+		$records_params = [
+			'where' => [
+				[
+					'key' => 'patient_transactions.pt_patientID',
+					'condition' => '',
+					'value' => $pt_patientID
+				]
+			]
+		];
+
+		$page_data['record'] = $this->profile_model->get_records_by_join($record_params);
 		$page_data['type_visits'] = $this->type_visit_model->records();
+		
+		$initial_records = $this->transaction_model->records($records_params);
+
+		$transactions_entity = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();
+		$transactions_entity->set_datas($initial_records);
+
+		$page_data['transactions'] = $transactions_entity;
 
 		$this->twig->view('patient_management/transaction/add', $page_data);
 	}
@@ -84,6 +103,11 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 		$page_data['record'] = $this->profile_model->get_records_by_join($profile_params);
 		$page_data['transaction'] = $this->transaction_model->get_records_by_join($transaction_params);
 		$page_data['type_visits'] = $this->type_visit_model->records();
+
+		$transactions_entity = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();
+		$transactions_entity->set_datas($page_data['transaction']);
+
+		$page_data['transactions'] = $transactions_entity;
 
 		$this->twig->view('patient_management/transaction/edit', $page_data);
 	}
