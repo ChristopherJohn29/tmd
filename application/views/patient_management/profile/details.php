@@ -146,8 +146,8 @@
                                                                 <td>{{ transaction.pt_deductible }}</td>
                                                                 <td>{{ transaction.pt_aw_ippe_code }}</td>
                                                                 <td>{{ transaction.get_selected_choice_format(transaction.pt_performed) }}</td>
-                                                                <td>{{ transaction.pt_aw_ippe_date }}</td>
-                                                                <td> </td>
+                                                                <td>{{ transaction.get_date_format(transaction.pt_aw_ippe_date) }}</td>
+                                                                <td></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
