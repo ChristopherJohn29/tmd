@@ -59,17 +59,15 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_prs');
 
-		// $params = [
-		// 	'record_id' => $prs_providerID,
-		// 	'table_key' => 'prs_providerID',
-		// 	'save_model' => 'rs_model',
-		// 	'redirect_url' => 'provider_route_sheet_management/route_sheet',
-		// 	'validation_group' => 'provider_route_sheet_management/route_sheet/save'
-		// ];
+		$params = [
+			'record_id' => $prs_providerID,
+			'table_key' => 'prs_providerID',
+			'save_model' => 'rs_model',
+			'redirect_url' => 'provider_route_sheet_management/route_sheet',
+			'validation_group' => 'provider_route_sheet_management/route_sheet/save'
+		];
 
-		// parent::save_data($params);   
-
-		echo 'save';
+		parent::save_data($params);
 	}
 
 	public function details(string $prs_id)
