@@ -9,20 +9,6 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function prepare_data() : array
-	{
-		return [
-		];
-	}
-
-	public function prepare_search_data() : array
-	{
-		return [
-			'provider_firstname' => $this->input->post('provider_firstname'),
-			'provider_lastname' => $this->input->post('provider_lastname')
-		];
-	}
-
 	public function routes_sheet_list(array $search_data) : array
 	{
 		$this->db->join(
@@ -57,5 +43,19 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 		$query = $this->db->get('provider_route_sheet_list');
 
 		return $query->row_array() ?? [];
+	}
+
+	public function save_route_sheet() : bool
+	{
+		$this->db->trans_start();
+
+		$this->db->insert('provider_route_sheet', [
+			'prs_providerID' => '',
+			'prs_dateOfService' => ''
+		]);
+
+		$this->db->trans_complete();
+
+		return $this->db->trans_status();
 	}
 }

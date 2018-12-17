@@ -11,7 +11,9 @@
   	'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
   	'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
   	'plugins/timepicker/bootstrap-timepicker.min',
-  	'dist/js/provider_route_sheet_management/route_sheet/form'
+  	'dist/js/provider_route_sheet_management/route_sheet/form',
+  	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_validator',
+  	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_adder'
   ]
 %}
 
@@ -33,7 +35,7 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("", {"class": "xrx-form"}) }}
+							{{ form_open("provider_route_sheet_management/route_sheet/save", {"class": "xrx-form"}) }}
 							
 								<div class="row">
 								
@@ -84,7 +86,7 @@
 											<div class="col-md-6 form-group {{ form_error('prsl_time') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Time of Visit <span>*</span></label>
-												<input type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time">
+												<input type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time[]">
 												
 											</div>
 											
@@ -92,7 +94,7 @@
 											
 												<label class="control-label">Type of Visit <span>*</span></label>
 												
-												<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID">
+												<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]">
 													<option value="">Select</option>
 
 													{% for tov in tovs %}
@@ -117,9 +119,9 @@
 											
 												<label class="control-label">Patient Name <span>*</span></label>
 
-												<input type="hidden" name="prsl_patientID" required="true">
+												<input type="hidden" name="prsl_patientID[]" required="true">
 												<div class="dropdown mobiledrs-autosuggest-select">
-												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="prsl_patientID">
+												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="prsl_patientID[]">
 												  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 											  	  </ul>										
 												</div>
@@ -133,9 +135,9 @@
 											<div class="col-md-12 form-group {{ form_error('prsl_hhcID') ? 'has-error' : '' }}">
 												<label class="control-label">Home Health <span>*</span></label>
 												
-												<input type="hidden" name="prsl_hhcID" required="true">
+												<input type="hidden" name="prsl_hhcID[]" required="true">
 												<div class="dropdown mobiledrs-autosuggest-select">
-												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/home_health_care_management/profile/search') }}" data-input-target-name="prsl_hhcID">
+												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/home_health_care_management/profile/search') }}" data-input-target-name="prsl_hhcID[]">
 												  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
 											  	  </ul>										
 												</div>
@@ -149,7 +151,7 @@
 											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Notes <span>*</span></label>
-												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes"></textarea>
+												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]"></textarea>
 												
 											</div>
 

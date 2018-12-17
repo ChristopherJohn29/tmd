@@ -821,7 +821,7 @@ $config = array(
             )
         )
     ),
-    'provider_route_sheet_management/route_sheet/' => array(
+    'provider_route_sheet_management/route_sheet/save' => array(
         array(
             'field' => 'prs_providerID',
             'label' => 'Provider',
@@ -839,15 +839,15 @@ $config = array(
             )
         ),
         array(
-            'field' => 'prsl_time',
+            'field' => 'prsl_time[]',
             'label' => 'Time',
-            'rules' => 'required',
+            'rules' => 'required|max_length[10]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
         ),
         array(
-            'field' => 'prsl_tovID',
+            'field' => 'prsl_tovID[]',
             'label' => 'Type of Visit',
             'rules' => 'required',
             'errors' => array(
@@ -855,7 +855,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'prsl_patientID',
+            'field' => 'prsl_patientID[]',
             'label' => 'Patient',
             'rules' => 'required',
             'errors' => array(
@@ -863,7 +863,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'prsl_hhcID',
+            'field' => 'prsl_hhcID[]',
             'label' => 'Home Healt Care',
             'rules' => 'required',
             'errors' => array(
@@ -871,7 +871,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'prsl_notes',
+            'field' => 'prsl_notes[]',
             'label' => 'Notes',
             'rules' => 'required|max_length[255]',
             'errors' => array(

@@ -63,10 +63,13 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		// 	'record_id' => $prs_providerID,
 		// 	'table_key' => 'prs_providerID',
 		// 	'save_model' => 'rs_model',
-		// 	'redirect_url' => 'provider_route_sheet_management/route_sheet'
+		// 	'redirect_url' => 'provider_route_sheet_management/route_sheet',
+		// 	'validation_group' => 'provider_route_sheet_management/route_sheet/save'
 		// ];
 
 		// parent::save_data($params);   
+
+		echo 'save';
 	}
 
 	public function details(string $prs_id)
@@ -78,10 +81,10 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
 	}
 
-	public function download(string $prs_providerID)
-	{
-		$this->check_permission('download_prs');
+	// public function download(string $prs_providerID)
+	// {
+	// 	$this->check_permission('download_prs');
 
-		// prepare records in pdf then send directly to browser to download
-	}
+	// 	// prepare records in pdf then send directly to browser to download
+	// }
 }
