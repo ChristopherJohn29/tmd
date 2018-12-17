@@ -40,8 +40,9 @@
 				method: "GET",
 				success: function(data) {
 					var result = JSON.parse(data);
-					var str = null;
 					var dropdownMenu = thisObj.next();
+
+					dropdownMenu.html('');
 
 					if (result.state)
 					{
@@ -66,6 +67,8 @@
 
 								dropdownMenu.css('display', 'none');	
 							});
+
+							dropdownMenu.append(str);
 						}
 					}
 					else 
@@ -73,11 +76,11 @@
 						str = '<li>';
 						str	+= '<a>No Search Result</a>';
 						str += '</li>';
+
+						dropdownMenu.append(str);
 					}
 
-					dropdownMenu.html('');
 					dropdownMenu.css('display', 'block');
-					dropdownMenu.append(str);
 				} 
 			});
 		}
