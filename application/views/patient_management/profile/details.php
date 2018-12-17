@@ -102,11 +102,11 @@
                                     
                                     <ul class="nav nav-tabs">
 
-                                        {% for transaction in transactions %}
+                                        {% for index, transaction in transactions %}
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <li class="active"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
 
                                             {% endif %}
 
@@ -116,11 +116,11 @@
 
                                     <div class="tab-content">
 
-                                        {% for transaction in transactions %}
+                                        {% for index, transaction in transactions %}
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <div class="tab-pane active" id="tab_{{ transaction.tov_id }}">
+                                                <div class="tab-pane {{ index < 1 ? 'active' : '' }}" id="tab_{{ transaction.tov_id }}">
 
                                             {% endif %}
 
