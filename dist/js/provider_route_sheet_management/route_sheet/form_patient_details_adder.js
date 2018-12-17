@@ -2,7 +2,7 @@ var Mobiledrs =  Mobiledrs || {};
 
 Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 	var tpl = null;
-	var patientCount = 1;
+	var patientCount = 0;
 
 	var init = function () {
 		tpl = $('.patient-details-container')
@@ -16,7 +16,12 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 		tpl.find('.lead')
 			.append('<a class="removeItemBtn" href="#" style="float:right;clear:both;">Remove Item</a>');
 
+		patientCount = $('.patient-details-container')
+			.find('.patient-details-item').length;				
+
 		addPatient();
+
+		removePatientItem($('.removeItemBtn'));
 	};
 
 	var addPatient = function() {

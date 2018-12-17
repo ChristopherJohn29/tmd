@@ -4,6 +4,13 @@
 
 {% block content %}
 	<div class="row">
+
+		<div class="col-xs-12">
+		  {% if states %}
+			{{ include('commons/alerts.php') }}
+		  {% endif %}
+		</div>
+		
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
@@ -22,69 +29,30 @@
 				</thead>
                   
 				<tbody>
-					<tr>
-						<td>Nov 23, 2018</td>
-						<td>Alexandra Kirtchik</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>Nov 23, 2018</td>
-						<td>Henry Barraza</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>Nov 24, 2018</td>
-						<td>Shohreh Nourollah</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>Nov 25, 2018</td>
-						<td>Lilibeth Ramirez</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>Nov 25, 2018</td>
-						<td>Fidelia Nchetam</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>Nov 27, 2018</td>
-						<td>Grace Adeagbo</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>Nov 27, 2018</td>
-						<td>Kaixuan Luo</td>
-						<td>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/details/1') }}"><span class="label label-primary">View Details</span></a>
-							<a href="{{ site_url('provider_route_sheet_management/route_sheet/edit/1') }}" title="Edit"><span class="label label-primary">Update</span></a>
-						</td>
-					</tr>
-					
+
+					{% if records %}
+
+						{% for record in records %}
+
+							<tr>
+								<td>{{ record.get_date_format(record.prs_dateOfService) }}</td>
+								<td>{{ record.get_provider_fullname() }}</td>
+								<td>
+									<a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View Details</span></a>
+									<a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ record.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
+								</td>
+							</tr>
+
+						{% endfor %}	
+
+					{% else %}
+						
+						<tr>
+	                        <td colspan="3" class="text-center">No data available in table</td>
+	                    </tr>
+
+					{% endif %}
+
 				</tbody>
 				
 				<tfoot>

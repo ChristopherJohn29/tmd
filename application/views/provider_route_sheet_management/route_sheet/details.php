@@ -14,13 +14,13 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-             				<h1 class="name rs">Alexandra Kirtchik<small>Provider Name</small></h1>
+             				<h1 class="name rs">{{ record.get_provider_fullname() }}<small>Provider Name</small></h1>
              			</div>
              		</div>
                     
                     <div class="row spacer-bottom">
                         <div class="col-md-12">
-                            <h4>Date of Service: Nov 23, 2018</h4>
+                            <h4>Date of Service: {{ record.get_date_format(record.prs_dateOfService) }}</h4>
                         </div>
                     </div>
              		
@@ -41,40 +41,18 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<td>9 AM - 11 AM</td>
-										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
-                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
-										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
-									</tr>
-									
-									<tr>
-										<td>11 AM - 12 PM</td>
-                                        <td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
-                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
-										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
-									</tr>
-									
-									<tr>
-										<td>12 PM - 2 PM</td>
-										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
-                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
-										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
-									</tr>
-									
-									<tr>
-										<td>2 PM - 3 PM</td>
-										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
-                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
-										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
-									</tr>
-									
-									<tr>
-										<td>3 PM - 5 PM</td>
-										<td><p>Lorna Tolentino<span>910 E. Harvard St., Apt. 2, Glendale, CA 91205-4501<br>818.913.9139</span></p></td>
-                                        <td><p>Advance Home Care<span>Seda<br>818 848 2100</span></p></td>
-										<td><p>Type of Visit : Initial Visit w/ AW<span>Other Notes: Call the son first 818-498-6000</span></p></td>
-									</tr>
+
+									{% for list in lists %}
+
+										<tr>
+											<td>{{ list.prsl_time }}</td>
+											<td><p>{{ list.get_patient_fullname() }}<span>{{ list.patient_address }}<br>{{ list.patient_phoneNum }}</span></p></td>
+	                                        <td><p>{{ list.hhc_name }}<span>{{ list.hhc_contact_name }}<br>{{ list.hhc_phoneNumber }}</span></p></td>
+											<td><p>Type of Visit : {{ list.tov_name }}<span>Other Notes: {{ list.prsl_notes }}</span></p></td>
+										</tr>
+
+									{% endfor %}
+
 								</tbody>
 							</table>
                             </div>
@@ -85,15 +63,15 @@
 					<div class="row no-print">
           	
 					<div class="col-xs-12 xrx-btn-handler">
-						<a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+						<a href="#" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 						
 						<button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-						<i class="fa fa-download"></i> Generate PDF
+							<i class="fa fa-download"></i> Generate PDF
 						</button>
                         
                         <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-                                <i class="fa fa-envelope-o"></i> Email to Provider
-                                </button>
+                        	<i class="fa fa-envelope-o"></i> Email to Provider
+                        </button>
 					</div>
 		          
 		        </div>

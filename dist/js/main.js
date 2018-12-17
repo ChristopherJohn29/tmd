@@ -61,9 +61,9 @@
 								var text = elemClicked.html();
 
 								thisObj.val(text);
-								var targetInput = thisObj.attr('data-input-target-name');
+								//var targetInput = thisObj.attr('data-input-target-name');
 
-								$('[name="' + targetInput +'"]').val(id);
+								thisObj.parent().prev().val(id);
 
 								dropdownMenu.css('display', 'none');	
 							});

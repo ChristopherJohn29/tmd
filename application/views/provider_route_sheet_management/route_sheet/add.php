@@ -35,9 +35,15 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("provider_route_sheet_management/route_sheet/save", {"class": "xrx-form"}) }}
+							{{ form_open("provider_route_sheet_management/route_sheet/save/add", {"class": "xrx-form"}) }}
 							
 								<div class="row">
+
+									<div class="col-xs-12">
+									  {% if states %}
+										{{ include('commons/alerts.php') }}
+									  {% endif %}
+									</div>
 								
 									<div class="col-md-12">
 										<p class="lead">Provider</p>

@@ -841,7 +841,7 @@ $config = array(
         array(
             'field' => 'prsl_time[]',
             'label' => 'Time',
-            'rules' => 'required|max_length[10]',
+            'rules' => 'required|max_length[30]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
