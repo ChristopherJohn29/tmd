@@ -113,6 +113,11 @@ class MY_Models extends \CI_Model {
 			);
 		}
 
+		if (isset($params['order'])) 
+		{
+			$this->db->order_by($params['order']['key'], $params['order']['by']);
+		}
+
 		$query = $this->db->get($this->table_name);
 
 		return (isset($params['return_type']) && $params['return_type'] == 'row') ?

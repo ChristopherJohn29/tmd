@@ -7,6 +7,7 @@ class Transactions_entity {
 	private $datas = null;
 	private $initialVisitHome = 1;
 	private $initialVisitFacility = 2;
+	private $tab_lists = [];
 
 	public function set_datas($datas)
 	{
@@ -31,7 +32,8 @@ class Transactions_entity {
 		$new_tovs = [];
 
 		foreach ($tovs as $tov) {
-			// record type of visit selected is initial (Home / Facility) 
+			// record type of visit selected is initial (Home / Facility)
+			// include it in the dropdown list
 			if ($this->initialVisitHome == $sel_tov_id || $this->initialVisitFacility == $sel_tov_id)
 			{
 				$new_tovs[] = $tov;
@@ -39,6 +41,7 @@ class Transactions_entity {
 				continue;
 			}
 			// record type of visit selected is NOT initial (Home / Facility)
+			// do NOT include it in the dropdown list
 			else if (($sel_tov_id != $this->initialVisitHome || $sel_tov_id != $this->initialVisitFacility) &&
 				($this->initialVisitHome == $tov->tov_id || $this->initialVisitFacility == $tov->tov_id))
 			{
@@ -49,5 +52,10 @@ class Transactions_entity {
 		}
 
 		return $new_tovs;
+	}
+
+	public function not_in_tab_list(string $tov_id) : bool
+	{
+		return ! in_array($tov_id, $this->tab_lists);
 	}
 }

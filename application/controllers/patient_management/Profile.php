@@ -137,6 +137,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$transaction_params = [
+			'order' => [
+				'key' => 'patient_transactions.pt_tovID',
+				'by' => 'DESC'
+			],
 			'joins' => [
 				[
 					'join_table_name' => 'type_of_visits',
@@ -192,10 +196,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$page_data['communication_notes'] = $this->communication_notes_model->records($communication_params);
 		$page_data['cpos'] = $this->CPO_model->records($cpo_params);
 
-		$profile_details_entity = new \Mobiledrs\entities\patient_management\pages\Profile_details_entity();
-		$profile_details_entity->set_cpo_data($page_data['cpos']);
+		$CPO_entity = new \Mobiledrs\entities\patient_management\pages\CPO_entity();
+		$CPO_entity->set_data($page_data['cpos']);
 
-		$page_data['profile_details_entity'] = $profile_details_entity;
+		$page_data['CPO_entity'] = $CPO_entity;
+		$page_data['transaction_entity'] = new \Mobiledrs\entities\patient_management\pages\Transactions_entity(); 
 
 		$this->twig->view('patient_management/profile/details', $page_data);
 	}

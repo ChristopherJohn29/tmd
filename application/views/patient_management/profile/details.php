@@ -104,7 +104,11 @@
 
                                         {% for transaction in transactions %}
 
-                                            <li class="active"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                            {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
+
+                                                <li class="active"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+
+                                            {% endif %}
 
                                         {% endfor %}
 
@@ -114,7 +118,11 @@
 
                                         {% for transaction in transactions %}
 
-                                            <div class="tab-pane active" id="tab_{{ transaction.tov_id }}">
+                                            {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
+
+                                                <div class="tab-pane active" id="tab_{{ transaction.tov_id }}">
+
+                                            {% endif %}
 
                                                 <div class="table-responsive">
                                                     <table class="table no-margin table-hover">
@@ -128,6 +136,7 @@
                                                                 <th>AW/IPPE Date</th>
                                                                 <th width="110px">Date Billed</th>
                                                             </tr>
+
                                                         </thead>
 
                                                         <tbody>
@@ -182,7 +191,11 @@
                                                     </a>
                                                 </div>
 
-                                            </div>
+                                            {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
+
+                                                </div>
+
+                                            {% endif %}
 
                                         {% endfor %}
                                     
@@ -265,7 +278,7 @@
 							 </table>
                             </div>
                                 
-                            {% if profile_details_entity.cpo_cert_button() %}
+                            {% if CPO_entity.cpo_cert_button() %}
 
     							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
     								<button type="button" class="btn btn-default">
