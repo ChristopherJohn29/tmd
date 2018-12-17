@@ -193,7 +193,7 @@
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
 					              		<button type="submit" class="btn btn-primary xrx-btn">
-											<i class="fa fa-check"></i> Add Route Sheet
+											<i class="fa fa-check"></i> update Route Sheet
 										</button>
 					              	</div>
 								
