@@ -297,9 +297,17 @@
             .xrx-info .nav-tabs-custom ul.nav-tabs li {
                 /* font-weight: 700 !important; */
                 text-transform: uppercase !important;
-                letter-spacing: 1px !important;
-                font-size: 17px !important;
+                
                 }
+
+                .xrx-info .nav-tabs-custom ul.nav-tabs li a {
+                    color: #333 !important;
+                    }
+
+                .xrx-info .nav-tabs-custom ul.nav-tabs li.active a {
+                    font-weight: 700 !important;
+                    color: #548bb8 !important;
+                    }
 		
 .xrx-table {
 	width: 100%;
