@@ -6,7 +6,7 @@
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions',
-    'dist/js/patient_management/transaction/add',
+    'dist/js/patient_management/transaction/main',
     'dist/js/patient_management/transaction/form'
   ]
 %}

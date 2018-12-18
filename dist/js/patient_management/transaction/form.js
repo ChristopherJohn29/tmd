@@ -1,8 +1,8 @@
 var Mobiledrs = {} || Mobiledrs;
 
 Mobiledrs.PT_trans_form = (function() {
-	var noShow = 4;
-	var cancelled = 5;
+	var noShow = 5;
+	var cancelled = 6;
 
 	var init = function() {
 		typeVisitsEvnt();
