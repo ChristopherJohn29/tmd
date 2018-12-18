@@ -25,7 +25,7 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="table-responsive">
-                <table id="all-patient-list" class="table no-margin table-hover">
+                <table id="" class="table no-margin table-hover">
 
                   <thead>
                     <tr>
@@ -40,7 +40,7 @@
 
                   <tbody>
 
-                    {% if records is defined %}
+                    {% if records %}
 
                       {% for record in records %}
                         
@@ -58,7 +58,13 @@
 
                       {% endfor %}
                       
-                    {% endif %}
+                    {% else %}
+						
+						<tr>
+	                        <td colspan="6" class="text-center">No data available in table</td>
+	                    </tr>
+
+					{% endif %}
 
                   </tbody>
                     
