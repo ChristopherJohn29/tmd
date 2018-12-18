@@ -79,7 +79,7 @@
                                 
                                 <div class="col-md-3 form-group">
 					              		<button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
-											Create Payroll
+											Submit
 										</button>
 					              	</div>
                                 
