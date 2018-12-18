@@ -7,10 +7,6 @@ use \Mobiledrs\entities\patient_management\Type_visit_entity;
 class Transactions_entity {
 
 	private $datas = null;
-	private $initialVisitHome = 1;
-	private $initialVisitFacility = 2;
-	private $noShow = 5;
-	private $cancelled = 6;
 	private $tab_lists = [];
 
 	public function set_datas($datas)
