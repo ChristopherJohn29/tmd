@@ -63,6 +63,6 @@ class Transactions_entity {
 
 	public function is_tov_sel_noshow_cancelled(string $tov_id) : bool
 	{
-		return ($tov_id == $this->noShow || $tov_id == $this->cancelled) ? true : false;
+		return $tov_id == $this->noShow || $tov_id == $this->cancelled;
 	}
 }

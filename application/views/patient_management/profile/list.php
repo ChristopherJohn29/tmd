@@ -47,7 +47,17 @@
 							<tr>
 								<td>{{ record['patientName'] }}</td>
 								<td>{{ record['patientReferralDate'] }}</td>
-								<td>{{ record['ICD10'] }}</td>
+
+								{% if profile_entity.is_sel_noshow_cancelled(record['pt_tovID']) %}
+
+									<td><span class="text-red">{{ record['notes'] }}</span></td>
+
+								{% else %}
+
+									<td>{{ record['ICD10'] }}</td>
+
+								{% endif %}
+
 								<td>{{ record['dateOfService'] }}</td>
 								<td>{{ record['provider'] }}</td>
 								<td>

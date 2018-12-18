@@ -80,9 +80,11 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 			$new_records[] = [
 				'patientId' => $records[$i]->patient_id,
+				'pt_tovID' => $patient_trans ? $patient_trans->pt_tovID : '',
 				'patientName' => $records[$i]->get_fullname(),
 				'patientReferralDate' => $records[$i]->get_date_format($records[$i]->patient_referralDate),
 				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
+				'notes' => $patient_trans ? $patient_trans->pt_notes : '',
 				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',
 				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : ''
 			];

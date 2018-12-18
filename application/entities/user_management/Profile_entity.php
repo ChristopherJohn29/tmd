@@ -42,6 +42,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 
 	public function has_changed_email(string $email) : bool
 	{
-		return ($this->user_email != $email) ? true : false;
+		return $this->user_email != $email;
 	}
 }

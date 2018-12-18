@@ -43,6 +43,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 
 	public function has_changed_medicareNum(string $medicareNum) : bool
 	{
-		return ($this->patient_medicareNum != $medicareNum) ? true : false;
+		return $this->patient_medicareNum != $medicareNum;
 	}
 }
