@@ -1,5 +1,7 @@
 <?php
 
+use \Mobiledrs\entities\patient_management\Type_visit_entity;
+
 class Transaction extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
@@ -114,12 +116,9 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_tr');
 
-		$noShow = 5;
-		$cancelled = 6;
-
 		$validation_group = 'patient_management/transaction/save';
-		if ($this->input->post('pt_tovID') == $noShow ||
-			$this->input->post('pt_tovID') == $cancelled) 
+		if ($this->input->post('pt_tovID') == Type_visit_entity::NO_SHOW ||
+			$this->input->post('pt_tovID') == Type_visit_entity::CANCELLED) 
 		{
 			$validation_group = 'patient_management/transaction/save_noShow_cancelled';
 		}

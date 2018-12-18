@@ -2,6 +2,8 @@
 
 namespace Mobiledrs\entities\patient_management\pages;
 
+use \Mobiledrs\entities\patient_management\Type_visit_entity;
+
 class Transactions_entity {
 
 	private $datas = null;
@@ -19,8 +21,10 @@ class Transactions_entity {
 	public function has_initial_records(string $tov_id) : bool
 	{
 		foreach ($this->datas as $data) {
-			if (($tov_id == $this->initialVisitHome || $tov_id == $this->initialVisitFacility) && 
-				($data->pt_tovID == $this->initialVisitHome || $data->pt_tovID == $this->initialVisitFacility))
+			if (($tov_id == Type_visit_entity::INITIAL_VISIT_HOME || 
+				$tov_id == Type_visit_entity::INITIAL_VISIT_FACILITY) && 
+				($data->pt_tovID == Type_visit_entity::INITIAL_VISIT_HOME || 
+				$data->pt_tovID == Type_visit_entity::INITIAL_VISIT_FACILITY))
 			{
 				return true;
 			}
@@ -36,7 +40,8 @@ class Transactions_entity {
 		foreach ($tovs as $tov) {
 			// record type of visit selected is initial (Home / Facility)
 			// include it in the dropdown list
-			if ($this->initialVisitHome == $sel_tov_id || $this->initialVisitFacility == $sel_tov_id)
+			if (Type_visit_entity::INITIAL_VISIT_HOME == $sel_tov_id || 
+				Type_visit_entity::INITIAL_VISIT_FACILITY == $sel_tov_id)
 			{
 				$new_tovs[] = $tov;
 
@@ -44,8 +49,10 @@ class Transactions_entity {
 			}
 			// record type of visit selected is NOT initial (Home / Facility)
 			// do NOT include it in the dropdown list
-			else if (($sel_tov_id != $this->initialVisitHome || $sel_tov_id != $this->initialVisitFacility) &&
-				($this->initialVisitHome == $tov->tov_id || $this->initialVisitFacility == $tov->tov_id))
+			else if (($sel_tov_id != Type_visit_entity::INITIAL_VISIT_HOME || 
+				$sel_tov_id != Type_visit_entity::INITIAL_VISIT_FACILITY) &&
+				(Type_visit_entity::INITIAL_VISIT_HOME == $tov->tov_id || 
+				Type_visit_entity::INITIAL_VISIT_FACILITY == $tov->tov_id))
 			{
 				continue;
 			}
@@ -63,6 +70,6 @@ class Transactions_entity {
 
 	public function is_tov_sel_noshow_cancelled(string $tov_id) : bool
 	{
-		return $tov_id == $this->noShow || $tov_id == $this->cancelled;
+		return $tov_id == Type_visit_entity::NO_SHOW || $tov_id == Type_visit_entity::CANCELLED;
 	}
 }
