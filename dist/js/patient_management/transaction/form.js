@@ -9,7 +9,7 @@ Mobiledrs.PT_trans_form = (function() {
 
 		var currentVal = $('[name="pt_tovID"]').val();
 
-		if (currentVal == noShow || currentVal == cancelled)
+		if (currentVal != '')
 		{
 			$('[name="pt_tovID"]').trigger('change');
 		}
@@ -29,10 +29,13 @@ Mobiledrs.PT_trans_form = (function() {
 				$('[name="pt_tovID"]').removeAttr('disabled');
 				$('[name="pt_patientID"]').removeAttr('disabled');
 				$('[name="pt_id"]').removeAttr('disabled');
+				$('[name="pt_notes"]').removeAttr('disabled');
 			}
 			else 
 			{
-				$('input, select').removeAttr('disabled');			
+				$('input, select').removeAttr('disabled');
+
+				$('[name="pt_notes"]').attr('disabled', 'true');
 			}
 
 			$(this).val(value);
