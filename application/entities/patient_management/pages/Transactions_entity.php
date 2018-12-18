@@ -7,6 +7,8 @@ class Transactions_entity {
 	private $datas = null;
 	private $initialVisitHome = 1;
 	private $initialVisitFacility = 2;
+	private $noShow = 5;
+	private $cancelled = 6;
 	private $tab_lists = [];
 
 	public function set_datas($datas)
@@ -57,5 +59,10 @@ class Transactions_entity {
 	public function not_in_tab_list(string $tov_id) : bool
 	{
 		return ! in_array($tov_id, $this->tab_lists);
+	}
+
+	public function is_tov_sel_noshow_cancelled(string $tov_id) : bool
+	{
+		return ($tov_id == $this->noShow || $tov_id == $this->cancelled) ? true : false;
 	}
 }

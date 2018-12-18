@@ -11,8 +11,6 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 			'patient_management/transaction_model',
 			'patient_management/type_visit_model'
 		));
-
-
 	}
 
 	public function add(string $pt_patientID)
@@ -116,8 +114,8 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_tr');
 
-		$noShow = 4;
-		$cancelled = 5;
+		$noShow = 5;
+		$cancelled = 6;
 
 		$validation_group = 'patient_management/transaction/save';
 		if ($this->input->post('pt_tovID') == $noShow ||
