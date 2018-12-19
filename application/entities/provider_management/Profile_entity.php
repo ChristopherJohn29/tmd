@@ -23,7 +23,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_aw;
 	protected $provider_rate_acp;
 	protected $provider_rate_noShowPT;
-	protected $provider_rate_others;
 	protected $provider_rate_mileage;
 
 	public function get_fullname() : string

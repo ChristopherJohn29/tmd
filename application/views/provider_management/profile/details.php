@@ -104,7 +104,6 @@
 										<th>ACP</th>
 										<th>No Show</th>
                                         <th>Mileage</th>
-										<th>Others</th>
 									</tr>
 								</thead>
 								
@@ -116,7 +115,6 @@
 										<td>{{ record.get_number_format(record.provider_rate_acp) }}</td>
                                         <td>{{ record.get_number_format(record.provider_rate_noShowPT) }}</td>
 										<td>{{ record.get_number_format(record.provider_rate_mileage) }}</td>
-										<td>{{ record.get_number_format(record.provider_rate_others) }}</td>
 									</tr>
 								</tbody>
 							</table>

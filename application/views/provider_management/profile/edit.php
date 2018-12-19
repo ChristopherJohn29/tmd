@@ -251,11 +251,11 @@
 										
 									</div>
 									
-									<div class="col-md-4">
+									<div class="col-md-4 {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Others</label>
-										<input type="text" class="form-control" name="provider_rate_others" value="{{ set_value('provider_rate_others', record.provider_rate_others) }}">
+										<label class="control-label">Mileage <span>*</span></label>
+										<input type="text" class="form-control" name="provider_rate_mileage" value="{{ set_value('provider_rate_mileage', record.provider_rate_mileage) }}">
 
 										
 									</div>
@@ -266,15 +266,6 @@
 
 									<div class="col-md-8 has-error">
 										<span class="help-block">{{ form_error('provider_rate_noShowPT') }}</span>
-									</div>
-									
-									<div class="col-md-4 {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
-									
-
-										<label class="control-label">Mileage <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_mileage" value="{{ set_value('provider_rate_mileage', record.provider_rate_mileage) }}">
-
-										
 									</div>
 
 									<div class="col-md-12 has-error">

@@ -284,11 +284,6 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
-        ),
-        array(
-            'field' => 'provider_rate_others',
-            'label' => 'Others',
-            'rules' => 'max_length[10]'
         )
     ),
     'provider_management/profile/save_update' => array(
@@ -396,11 +391,6 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
-        ),
-        array(
-            'field' => 'provider_rate_others',
-            'label' => 'Others',
-            'rules' => 'max_length[10]',
         )
     ),
     'home_health_care_management/profile/save' => array(
