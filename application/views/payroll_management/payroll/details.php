@@ -189,7 +189,7 @@
 								<thead>
 									<tr>
 										<th>Description</th>
-										<th>Quantity</th>
+										<th width="140px">Quantity</th>
 										<th>Amount</th>
 										<th>Total Amount</th>
 									</tr>
@@ -240,8 +240,13 @@
 									</tr>
 									<tr>
 										<th>Others</th>
-										<td>-</td>
-										<td>-</td>
+										<td></td>
+										<td>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">$</span>
+                                                <input type="text" class="form-control" style="width:50px">
+                                              </div>
+                                        </td>
 										<td>-</td>
 									</tr>
 									<tr class="total">
