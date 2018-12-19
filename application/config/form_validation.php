@@ -853,14 +853,6 @@ $config = array(
             )
         ),
         array(
-            'field' => 'prsl_hhcID[]',
-            'label' => 'Home Healt Care',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
             'field' => 'prsl_notes[]',
             'label' => 'Notes',
             'rules' => 'required|max_length[255]',

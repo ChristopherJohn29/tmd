@@ -70,11 +70,19 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 		for ($i = 0; $i < count($inputPost['prsl_time']); $i++) 
 		{
+			// get patient home health id from record
+			$pt_hhc_params = [
+				'key' => 'patient.patient_hhcID',
+				'value' => $inputPost['prsl_patientID'][$i]
+			];
+
+			$patient_record = $this->pt_model->record($pt_hhc_params);
+
 			$data[] = [
 				'prsl_prsID' => $prsl_prsID,
 				'prsl_time' => $inputPost['prsl_time'][$i],
 				'prsl_patientID' => $inputPost['prsl_patientID'][$i],
-				'prsl_hhcID' => $inputPost['prsl_hhcID'][$i],
+				'prsl_hhcID' => $patient_record->patient_hhcID,
 				'prsl_tovID' => $inputPost['prsl_tovID'][$i],
 				'prsl_notes' => $inputPost['prsl_notes'][$i]
 			];

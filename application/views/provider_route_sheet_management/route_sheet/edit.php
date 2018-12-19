@@ -148,23 +148,7 @@
 
 												<div class="col-md-12 has-error">
 													<span class="help-block">{{ form_error('prsl_patientID') }}</span>
-												</div>	
-												
-												<div class="col-md-12 form-group {{ form_error('prsl_hhcID') ? 'has-error' : '' }}">
-													<label class="control-label">Home Health <span>*</span></label>
-													
-													<input type="hidden" name="prsl_hhcID[]" required="true" value="{{ list.hhc_id }}">
-													<div class="dropdown mobiledrs-autosuggest-select">
-													  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/home_health_care_management/profile/search') }}" data-input-target-name="prsl_hhcID[]" value="{{ list.hhc_name }}">
-													  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
-												  	  </ul>										
-													</div>
-													
 												</div>
-
-												<div class="col-md-12 has-error">
-													<span class="help-block">{{ form_error('prsl_hhcID') }}</span>
-												</div>	
 												
 												<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
 												

@@ -10,7 +10,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		$this->load->model(array(
 			'provider_route_sheet_management/route_sheet_model' => 'rs_model',
 			'provider_route_sheet_management/Route_sheet_list_model' => 'rs_list_model',
-			'patient_management/Type_visit_model' => 'tov_model'
+			'patient_management/Type_visit_model' => 'tov_model',
+			'patient_management/Profile_model' => 'pt_model'
 		));
 	}
 
@@ -257,11 +258,4 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 
 		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
 	}
-
-	// public function download(string $prs_providerID)
-	// {
-	// 	$this->check_permission('download_prs');
-
-	// 	// prepare records in pdf then send directly to browser to download
-	// }
 }
