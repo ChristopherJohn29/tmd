@@ -789,7 +789,7 @@ $config = array(
         array(
             'field' => 'ptcpo_firstMonthCPO',
             'label' => '1st Month CPO',
-            'rules' => 'required|max_length[45]',
+            'rules' => 'max_length[45]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -797,7 +797,7 @@ $config = array(
         array(
             'field' => 'ptcpo_secondMonthCPO',
             'label' => '2st Month CPO',
-            'rules' => 'required|max_length[45]',
+            'rules' => 'max_length[45]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -805,7 +805,7 @@ $config = array(
         array(
             'field' => 'ptcpo_thirdMonthCPO',
             'label' => '3st Month CPO',
-            'rules' => 'required|max_length[45]',
+            'rules' => 'max_length[45]',
             'errors' => array(
                 'required' => 'This field is required.'
             )

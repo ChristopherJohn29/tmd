@@ -61,7 +61,6 @@
 								var text = elemClicked.html();
 
 								thisObj.val(text);
-								//var targetInput = thisObj.attr('data-input-target-name');
 
 								thisObj.parent().prev().val(id);
 

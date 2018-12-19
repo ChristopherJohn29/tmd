@@ -86,22 +86,22 @@
 									
 									<div class="col-md-4 form-group {{ form_error('ptcpo_firstMonthCPO') ? 'has-error' : '' }}">
 									
-										<label class="control-label">1st Month CPO <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_firstMonthCPO" value="{{ set_value('ptcpo_firstMonthCPO', cpo.ptcpo_firstMonthCPO) }}">
+										<label class="control-label">1st Month CPO</label>
+										<input type="text" class="form-control" name="ptcpo_firstMonthCPO" value="{{ set_value('ptcpo_firstMonthCPO', cpo.ptcpo_firstMonthCPO) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error('ptcpo_secondMonthCPO') ? 'has-error' : '' }}">
 									
-										<label class="control-label">2nd Month CPO <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_secondMonthCPO" value="{{ set_value('ptcpo_secondMonthCPO', cpo.ptcpo_secondMonthCPO) }}">
+										<label class="control-label">2nd Month CPO</label>
+										<input type="text" class="form-control" name="ptcpo_secondMonthCPO" value="{{ set_value('ptcpo_secondMonthCPO', cpo.ptcpo_secondMonthCPO) }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error('ptcpo_thirdMonthCPO') ? 'has-error' : '' }}">
 									
-										<label class="control-label">3rd Month CPO <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_thirdMonthCPO" value="{{ set_value('ptcpo_thirdMonthCPO', cpo.ptcpo_thirdMonthCPO) }}">
+										<label class="control-label">3rd Month CPO</label>
+										<input type="text" class="form-control" name="ptcpo_thirdMonthCPO" value="{{ set_value('ptcpo_thirdMonthCPO', cpo.ptcpo_thirdMonthCPO) }}">
 										
 									</div>
 									
