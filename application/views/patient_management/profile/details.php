@@ -155,8 +155,12 @@
                                 </div>
 
                             {% else %}
+                                
+                                <div class="no-data-handler">
 
-                                <p class="text-center">No Data available</p>
+                                    <p class="text-center">No Data available</p>
+                                    
+                                </div>
 
                             {% endif %}
                            
