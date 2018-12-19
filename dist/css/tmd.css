@@ -308,6 +308,17 @@
                     font-weight: 700 !important;
                     color: #548bb8 !important;
                     }
+
+    .xrx-info .no-data-handler {
+        display: block;
+        padding: 20px 0 !important;
+        border: 1px solid #efefef !important;
+        margin-bottom: 20px;
+        }
+
+        .xrx-info .no-data-handler p {
+            margin-bottom: 0 !important;
+            }
 		
 .xrx-table {
 	width: 100%;
