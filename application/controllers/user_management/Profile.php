@@ -77,9 +77,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		
 		$role_params = [
 			'where' => [
-				'key' => 'roles_id',
-				'condition' => '<>',
-				'value' => '1'
+				[
+					'key' => 'roles_id',
+					'condition' => '<>',
+					'value' => '1'
+				]
 			]
 		];
 
