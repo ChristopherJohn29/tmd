@@ -1,11 +1,5 @@
 {% extends "main.php" %}
 
-{% 
-  set scripts = [
-    'dist/js/patient_management/profile/add'
-  ]
-%}
-
 {% set page_title = 'Patients Details' %}
 
 {% block content %}
@@ -181,57 +175,59 @@
              				
              				<p class="lead">Certifications</p>
              				
-                            <div class="table-responsive">
-             				   <table class="table no-margin table-hover">
-								<thead>
-									<tr>
-										<th></th>
-										<th>Period</th>
-										<th>485 Date Signed</th>
-										<th>1st Month CPO</th>
-										<th>2nd Month CPO</th>
-										<th>3rd Month CPO</th>
-										<th>Discharged</th>
-										<th>Date Billed</th>
-                                        <th width="90px">Actions</th>
-									</tr>
-								</thead>
-								
-								<tbody>
+                            {% if cpos %}
 
-                                    {% if cpos %}	
+                                <div class="table-responsive">
+                 				   <table class="table no-margin table-hover">
+    								<thead>
+    									<tr>
+    										<th></th>
+    										<th>Period</th>
+    										<th>485 Date Signed</th>
+    										<th>1st Month CPO</th>
+    										<th>2nd Month CPO</th>
+    										<th>3rd Month CPO</th>
+    										<th>Discharged</th>
+    										<th>Date Billed</th>
+                                            <th width="90px">Actions</th>
+    									</tr>
+    								</thead>
+    								
+    								<tbody>
 
                                         {% for cpo in cpos %}
 
-                                                <tr>
-            										<th>{{ cpo.ptcpo_status }}</th>
-            										<td>{{ cpo.ptcpo_period }}</td>
-            										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
-            										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
-            										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
-            										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
-            										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
-            										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
-                                                    <td>
-                                                        <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
-                                                    </td>
-            									</tr>
+                                            <tr>
+        										<th>{{ cpo.ptcpo_status }}</th>
+        										<td>{{ cpo.ptcpo_period }}</td>
+        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
+        										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
+        										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
+        										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
+        										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
+        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
+                                                <td>
+                                                    <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
+                                                </td>
+        									</tr>
 
                                         {% endfor %}
-                                        
-                                    {% else %}
+                                             
+    								</tbody>
+                                    
+    							 </table>
+                                </div>
 
-                                        <tr>
-                                            <td colspan="9" class="text-center">No data available in table</td>
-                                        </tr>
+                            {% else %}
 
-                                    {% endif %}
+                                <div class="no-data-handler">
 
-								</tbody>
-                                   
-								
-							 </table>
-                            </div>
+                                    <p class="text-center">No Data available</p>
+                                    
+                                </div>
+
+                            {% endif %}
+
                                 
                             {% if CPO_entity.cpo_cert_button() %}
 
@@ -254,7 +250,9 @@
              			<div class="col-md-12">
              			
              				<p class="lead">Communication Notes</p>
-             				
+         				   
+                            {% if communication_notes %}
+
                             <div class="table-responsive">
              				   <table class="table no-margin table-hover">
 								<thead>
@@ -267,32 +265,32 @@
 								
 								<tbody>
 
-                                    {% if communication_notes %}
-
-                                        {% for cn in communication_notes %}
-
-                                            <tr>
-        										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
-        										<td>{{ cn.ptcn_message }}</td>
-        										<td>
-                                                    <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
-                                                </td>
-        									</tr>
-
-                                        {% endfor %}
-                                    
-                                    {% else %}
+                                    {% for cn in communication_notes %}
 
                                         <tr>
-                                            <td colspan="3" class="text-center">No data available in table</td>
-                                        </tr>
-                                        
-                                    {% endif %}
+    										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
+    										<td>{{ cn.ptcn_message }}</td>
+    										<td>
+                                                <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+                                            </td>
+    									</tr>
 
+                                    {% endfor %}
+                                    
 								</tbody>
 								
 							 </table>
                             </div>
+
+                            {% else %}
+
+                                <div class="no-data-handler">
+
+                                    <p class="text-center">No Data available</p>
+                                    
+                                </div>
+                                
+                            {% endif %}
                             
                             <a href="{{ site_url("patient_management/communication_notes/add/#{ record.patient_id }") }}" title="">
 								<button type="button" class="btn btn-default">
