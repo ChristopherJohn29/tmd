@@ -31,4 +31,11 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 		$this->twig->view('payroll_management/payroll/search');
 	}
+
+	public function print()
+	{
+		$this->check_permission('print_pr');
+		
+		$this->twig->view('payroll_management/payroll/print');
+	}
 }

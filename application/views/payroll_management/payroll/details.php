@@ -266,7 +266,7 @@
           	
                         <div class="col-xs-12 xrx-btn-handler">
                             <div>
-                                <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+                                <a href="{{ site_url('payroll_management/payroll/print') }}" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
                                 <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Generate PDF
