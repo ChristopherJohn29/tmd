@@ -39,9 +39,20 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 
 			removePatientItem(tmpTpl.find('.removeItemBtn'));
 
+			var autosuggest_input = tmpTpl.find('[data-mobiledrs_autosuggest]');
+			var autosuggest_dropdown_id = autosuggest_input.attr('data-mobiledrs_autosuggest_dropdown_id');
+			var new_autosuggest_dropdown_id = autosuggest_dropdown_id + '_' + patientCount;
+
+			autosuggest_input.attr('data-mobiledrs_autosuggest_dropdown_id', new_autosuggest_dropdown_id);
+
+			// autosuggest dropdown
+			autosuggest_input.next().attr('id', new_autosuggest_dropdown_id);
+
 			$(this).parent()
 				.prev()
 				.append(tmpTpl);
+
+			Mobiledrs.Main.autosuggest();
 		});
 	};
 

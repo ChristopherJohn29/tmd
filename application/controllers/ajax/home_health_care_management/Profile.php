@@ -14,13 +14,13 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		));
 	}
 
-	public function search(string $search_term)
+	public function search()
 	{
 		$this->check_permission('add_pt');
 
 		$params = [
 			'where_data' => [
-				['key' => 'hhc_name', 'value' => $search_term]
+				['key' => 'hhc_name', 'value' => $this->input->get('term')]
 			]
 		];
 
@@ -28,27 +28,17 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 		$search_data = [];
 
-		for ($i = 0; $i < count($res); $i++) 
-		{
-			$search_data[] = [
-				'id' => $res[$i]->hhc_id,
-				'text' => $res[$i]->hhc_name
-			];
-		}
-
 		if ($res)
 		{
-			echo json_encode([
-				'state' => true,
-				'data' => $search_data
-			]);
+			for ($i = 0; $i < count($res); $i++) 
+			{
+				$search_data[] = [
+					'id' => $res[$i]->hhc_id,
+					'value' => $res[$i]->hhc_name
+				];
+			}
 		}
-		else
-		{
-			echo json_encode([
-				'state' => false,
-				'data' => []
-			]);
-		}
+
+		echo json_encode($search_data);
 	}
 }

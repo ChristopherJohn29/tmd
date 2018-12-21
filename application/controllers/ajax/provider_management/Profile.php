@@ -12,14 +12,14 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		$this->load->model('provider_management/Profile_model', 'pt_model');
 	}
 
-	public function search(string $search_term)
+	public function search()
 	{
 		$this->check_permission('add_tr');
 
 		$params = [
 			'where_data' => [
-				['key' => 'provider_firstname', 'value' => $search_term],
-				['key' => 'provider_lastname', 'value' => $search_term]
+				['key' => 'provider_firstname', 'value' =>  $this->input->get('term')],
+				['key' => 'provider_lastname', 'value' =>  $this->input->get('term')]
 			]
 		];
 
@@ -27,27 +27,17 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 		$search_data = [];
 
-		for ($i = 0; $i < count($res); $i++) 
-		{ 
-			$search_data[] = [
-				'id' => $res[$i]->provider_id,
-				'text' => $res[$i]->get_fullname()
-			];
-		}
-
 		if ($res)
 		{
-			echo json_encode([
-				'state' => true,
-				'data' => $search_data
-			]);
+			for ($i = 0; $i < count($res); $i++) 
+			{ 
+				$search_data[] = [
+					'id' => $res[$i]->provider_id,
+					'value' => $res[$i]->get_fullname()
+				];
+			}
 		}
-		else
-		{
-			echo json_encode([
-				'state' => false,
-				'data' => []
-			]);
-		}
+
+		echo json_encode($search_data);
 	}
 }

@@ -1,87 +1,76 @@
-(function() {
-	$('[data-delete-btn]').on('click', function(e) {
-		e.preventDefault();
+var Mobiledrs =  Mobiledrs || {};
 
-		var action_url = $(this).attr('href');
+Mobiledrs.Main =  (function() {
+	var init = function () {
+		delete_btn();
 
-		if (confirm('Are you sure you want to delete this data?'))
-		{
-			$.ajax({
-				"method": "POST",
-				"url": action_url,
-				"success": function(data) {
-					var result = JSON.parse(data);
+		autosuggest();
+	};
 
-					if (result.state) 
-					{
-						alert(result.msg);
+	var delete_btn = function() {
+		$('[data-delete-btn]').on('click', function(e) {
+			e.preventDefault();
 
-						window.location.href = window.location.href;
-					}
-					else 
-					{
-						alert(result.msg);
-					}
-				}
-			});
-		}
-	});
-})();
+			var action_url = $(this).attr('href');
 
-(function() {
-	$('[data-mobiledrs-autosuggest-select]').on('keyup', function(e) {
-		var minInputLength = 2;
-		var thisObj = $(this);
+			if (confirm('Are you sure you want to delete this data?'))
+			{
+				$.ajax({
+					"method": "POST",
+					"url": action_url,
+					"success": function(data) {
+						var result = JSON.parse(data);
 
-		if ($(this).val().length >= minInputLength) 
-		{
-			$.ajax({
-				url: window.location.origin + $(this).attr('data-action-url') + '/' + $(this).val(),
-				method: "GET",
-				success: function(data) {
-					var result = JSON.parse(data);
-					var dropdownMenu = thisObj.next();
+						if (result.state) 
+						{
+							alert(result.msg);
 
-					dropdownMenu.html('');
-
-					if (result.state)
-					{
-						for (var i = 0; i < result.data.length; i++) {
-							str = '<li>';
-							str	+= '<a data-id="' + result.data[i].id + '">' + result.data[i].text + '</a>';
-							str += '</li>';
-
-							// add event
-							str = $(str);
-							str.on('click', function(e) {
-								e.preventDefault();
-
-								var elemClicked = $(this).find('a');
-								var id = elemClicked.attr('data-id');
-								var text = elemClicked.html();
-
-								thisObj.val(text);
-
-								thisObj.parent().prev().val(id);
-
-								dropdownMenu.css('display', 'none');	
-							});
-
-							dropdownMenu.append(str);
+							window.location.href = window.location.href;
+						}
+						else 
+						{
+							alert(result.msg);
 						}
 					}
-					else 
-					{
-						str = '<li>';
-						str	+= '<a>No Search Result</a>';
-						str += '</li>';
+				});
+			}
+		});
+	};
 
-						dropdownMenu.append(str);
-					}
+	var autosuggest = function() {
+		var mobiledrs_autosuggest_list = $('.mobiledrs-autosuggest-select');
 
-					dropdownMenu.css('display', 'block');
-				} 
-			});
-		}
-	});
+		$.each(mobiledrs_autosuggest_list, function(indeex, value) {
+			var autosuggest_parent = $(value);
+
+			var mobiledrs_autosuggest = autosuggest_parent.find('[data-mobiledrs_autosuggest]');
+			var url = window.location.origin + mobiledrs_autosuggest.attr('data-mobiledrs_autosuggest_url');
+			var dropdown = '#' + mobiledrs_autosuggest.attr('data-mobiledrs_autosuggest_dropdown_id');
+
+			mobiledrs_autosuggest.autocomplete({
+		      	source: url,
+		      	minLength: 2,
+		      	appendTo: dropdown,
+		      	select: function( event, ui) {
+					var input = $(event.target).prev();
+
+		        	input.val(ui.item.id);
+		      	},
+				_renderItem: function( ul, item ) {
+				    return $( "<li>" )
+					    .attr("data-value", item.value )
+					    .attr("data-id", item.id)
+					    .append( item.label )
+					    .appendTo( ul );
+				}
+		    });
+		});
+	};
+
+	return {
+		init: init,
+		autosuggest: autosuggest
+	};
 })();
+
+Mobiledrs.Main.init();

@@ -511,13 +511,16 @@ li.user-header p span a {
 
 
 /* Mobiledrs-autosuggest-select plugin */
-.mobiledrs-autosuggest-select .dropdown-menu li:hover {
-		cursor: pointer;
+[data-mobiledrs_autosuggest_dropdown] {
+	position: relative;
+	top: 0;
 	}
 
-.mobiledrs-autosuggest-select .dropdown-menu {
-		max-height: 100px;
-		overflow-y: scroll;
+[data-mobiledrs_autosuggest_dropdown] ul {
+	max-height: 160px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: auto;
 	}
 
 /* tables */

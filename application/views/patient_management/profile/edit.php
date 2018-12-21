@@ -142,11 +142,18 @@
 									<div class="col-md-12 form-group {{ form_error('patient_hhcID') ? 'has-error' : '' }}">
 										<label class="control-label">Home Health <span>*</span></label>
 										
-										<input type="hidden" name="patient_hhcID" required="true" value="{{ record.patient_hhcID }}">
 										<div class="dropdown mobiledrs-autosuggest-select">
-										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/home_health_care_management/profile/search') }}" data-input-target-name="patient_hhcID" value="{{ record.hhc_name }}">
-										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
-									  	  </ul>										
+											<input type="hidden" name="patient_hhcID" required="true" value="{{ record.patient_hhcID }}">
+
+										  	<input class="form-control" 
+										  		type="text" 
+										  		data-mobiledrs_autosuggest 
+										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/home_health_care_management/profile/search') }}"
+										  		data-mobiledrs_autosuggest_dropdown_id="patient_hhcID_dropdown"
+										  		value="{{ record.hhc_name }}">
+
+										  	<div data-mobiledrs_autosuggest_dropdown id="patient_hhcID_dropdown" style="width: 100%;">
+									  	  	</div>
 										</div>
 									</div>
 

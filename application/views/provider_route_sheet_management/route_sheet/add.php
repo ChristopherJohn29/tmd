@@ -53,11 +53,17 @@
 									
 										<label>Provider Name <span>*</span></label>
 
-										<input type="hidden" name="prs_providerID" required="true">
 										<div class="dropdown mobiledrs-autosuggest-select">
-										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/provider_management/profile/search') }}" data-input-target-name="prs_providerID">
-										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
-									  	  </ul>
+											<input type="hidden" name="prs_providerID" required="true">
+
+										  	<input class="form-control" 
+										  		type="text" 
+										  		data-mobiledrs_autosuggest 
+										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/search') }}"
+										  		data-mobiledrs_autosuggest_dropdown_id="prs_providerID_dropdown">
+
+										  	<div data-mobiledrs_autosuggest_dropdown id="prs_providerID_dropdown" style="width: 100%;">
+									  	  	</div>
 										</div>
 										
 									</div>
@@ -125,11 +131,17 @@
 											
 												<label class="control-label">Patient Name <span>*</span></label>
 
-												<input type="hidden" name="prsl_patientID[]" required="true">
 												<div class="dropdown mobiledrs-autosuggest-select">
-												  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="prsl_patientID[]">
-												  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
-											  	  </ul>										
+													<input type="hidden" name="prsl_patientID[]" required="true">
+
+												  	<input class="form-control" 
+												  		type="text" 
+												  		data-mobiledrs_autosuggest 
+												  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
+												  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown">
+
+												  	<div data-mobiledrs_autosuggest_dropdown id="prsl_patientID_dropdown" style="width: 100%;">
+											  	  	</div>
 												</div>
 												
 											</div>

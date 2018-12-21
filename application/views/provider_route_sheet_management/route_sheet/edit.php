@@ -53,11 +53,18 @@
 									
 										<label>Provider Name <span>*</span></label>
 
-										<input type="hidden" name="prs_providerID" required="true" value="{{ record.provider_id }}">
 										<div class="dropdown mobiledrs-autosuggest-select">
-										  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/provider_management/profile/search') }}" data-input-target-name="prs_providerID" value="{{ record.get_provider_fullname() }}">
-										  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
-									  	  </ul>
+											<input type="hidden" name="prs_providerID" required="true" value="{{ record.provider_id }}">
+
+										  	<input class="form-control" 
+										  		type="text" 
+										  		data-mobiledrs_autosuggest 
+										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/search') }}"
+										  		data-mobiledrs_autosuggest_dropdown_id="prs_providerID_dropdown"
+										  		value="{{ record.get_provider_fullname() }}">
+
+										  	<div data-mobiledrs_autosuggest_dropdown id="prs_providerID_dropdown" style="width: 100%;">
+									  	  	</div>
 										</div>
 										
 									</div>
@@ -137,12 +144,19 @@
 												
 													<label class="control-label">Patient Name <span>*</span></label>
 
-													<input type="hidden" name="prsl_patientID[]" required="true" value="{{ list.patient_id }}">
 													<div class="dropdown mobiledrs-autosuggest-select">
-													  	<input type="text" class="form-control" data-mobiledrs-autosuggest-select data-action-url="{{ site_url('ajax/patient_management/profile/search') }}" data-input-target-name="prsl_patientID[]" value="{{ list.get_patient_fullname() }}">
-													  	<ul class="dropdown-menu mobiledrs-autosuggest-select-dropdown" aria-labelledby="dropdownMenu1" style="width:100%;">
-												  	  </ul>										
-													</div>
+													<input type="hidden" name="prsl_patientID[]" required="true" value="{{ list.patient_id }}">
+
+												  	<input class="form-control" 
+												  		type="text" 
+												  		data-mobiledrs_autosuggest 
+												  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
+												  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}"
+												  		value="{{ list.get_patient_fullname() }}">
+
+												  	<div data-mobiledrs_autosuggest_dropdown id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}" style="width: 100%;">
+											  	  	</div>
+												</div>
 													
 												</div>
 

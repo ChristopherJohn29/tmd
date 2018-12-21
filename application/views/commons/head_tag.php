@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="{{ base_url }}plugins/iCheck/all.css">
 <!-- Bootstrap Color Picker -->
 <link rel="stylesheet" href="{{ base_url }}bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+
+<link rel="stylesheet" href="{{ base_url }}bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+
 <!-- Bootstrap time Picker -->
 <link rel="stylesheet" href="{{ base_url }}plugins/timepicker/bootstrap-timepicker.min.css">
 <!-- Select2 -->
