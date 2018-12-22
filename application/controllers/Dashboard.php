@@ -6,10 +6,44 @@ class Dashboard extends \Mobiledrs\core\MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->model(array(
+			'patient_management/profile_model' => 'pt_profile_model',
+			'patient_management/transaction_model' => 'transaction_model',
+			'provider_route_sheet_management/route_sheet_model' => 'rs_model',
+		));
 	}
 
 	public function index()
 	{
-		$this->twig->view('home');
+		$pt_params = [
+			'table_key' => 'patient_dateCreated',
+			'order_type' => 'DESC'
+		];
+
+		$patients = $this->pt_profile_model->records($pt_params);
+
+		$prs_params = [
+			'joins' => [
+				[
+					'join_table_name' => 'provider',
+					'join_table_key' => 'provider.provider_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'provider_route_sheet.prs_providerID',
+					'join_table_type' => 'inner'
+				]
+			],
+			'order' => [
+				'key' => 'provider_route_sheet.prs_dateOfService',
+				'by' => 'DESC'
+			],
+			'return_type' => 'object'
+		];
+
+		$page_data['patients'] = $this->pt_profile_model->get_pt_profile_trans($patients);
+		$page_data['pt_profile_entity'] = new \Mobiledrs\entities\patient_management\pages\Profile_entity();
+		$page_data['provider_route_sheets'] = $this->rs_model->get_records_by_join($prs_params);
+
+		$this->twig->view('home', $page_data);
 	}
 }

@@ -37,116 +37,43 @@
                     </thead>
 
                     <tbody>
+
+                        {% if patients %}
+
+                            {% for patient in patients %}
                         
-                        <tr>
-                            <td>Tolentino, Lorna</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Concepcion, Gabby</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Soriano, Maricel</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Bautista, Herbert</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Cuneta, Sharon</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Bonnevie, Dina</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Muhlach, Aga</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Salonga, Lea</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Fernandez, Rudy</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Quizon, Dolphy</td>
-                            <td>10/29/18</td>
-                            <td>J45.51, R06.02, M54.5, R42, R60.1, M79.1, R26.81</td>
-                            <td>11/06/18</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="add-transaction.php" title=""><span class="label label-primary">Add Transaction</span></a>
-                            </td>
-                        </tr>
+                                <tr>
+                                    <td>{{ patient['patientName'] }}</td>
+                                    <td>{{ patient['patientReferralDate'] }}</td>
+                                    
+                                    {% if pt_profile_entity.is_sel_noshow_cancelled(patient['pt_tovID']) %}
+
+                                        <td><span class="text-red">{{ patient['notes'] }}</span></td>
+
+                                    {% else %}
+
+                                        <td>{{ patient['ICD10'] }}</td>
+
+                                    {% endif %}
+
+                                    <td>{{ patient['dateOfService'] }}</td>
+
+                                    <td>
+                                        <a href="{{ site_url("patient_management/profile/details/#{ patient['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+
+                                        <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <tr>
+                                <td colspan="5" class="text-center">No data available in table</td>
+                            </tr>
+
+                        {% endif %}
                         
                     </tbody>
                     
@@ -193,50 +120,29 @@
 
                     <tbody>
                         
-                        <tr>
-                            <td>01/03/2019</td>
-                            <td>Alexandra Kirtchik</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="details-patient.php"><span class="label label-primary">Update</span></a>
-                            </td>
-                        </tr>
+                        {% if provider_route_sheets %}
+
+                            {% for provider_route_sheet in provider_route_sheets %}
+
+                                <tr>
+                                   <td>{{ provider_route_sheet.get_date_format(provider_route_sheet.prs_dateOfService) }}</td>
+                                    <td>{{ provider_route_sheet.get_provider_fullname() }}</td>
+                                    <td>
+                                        <a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ provider_route_sheet.prs_id }") }}'><span class="label label-primary">View Details</span></a>
+                                        
+                                        <a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ provider_route_sheet.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
                         
-                        <tr>
-                            <td>01/03/2019</td>
-                            <td>Alexandra Kirtchik</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="details-patient.php"><span class="label label-primary">Update</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>01/03/2019</td>
-                            <td>Alexandra Kirtchik</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="details-patient.php"><span class="label label-primary">Update</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>01/03/2019</td>
-                            <td>Alexandra Kirtchik</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="details-patient.php"><span class="label label-primary">Update</span></a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>01/03/2019</td>
-                            <td>Alexandra Kirtchik</td>
-                            <td>
-                                <a href="details-patient.php"><span class="label label-primary">View Details</span></a>
-                                <a href="details-patient.php"><span class="label label-primary">Update</span></a>
-                            </td>
-                        </tr>
+                       {% else %}
+
+                            <tr>
+                                <td colspan="5" class="text-center">No data available in table</td>
+                            </tr>
+
+                        {% endif %}
                         
                         
                     </tbody>
