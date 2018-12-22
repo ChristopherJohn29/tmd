@@ -129,11 +129,17 @@
                                                 {% endif %}
                                                 
                                                 <div class="text-center">
-                                                    <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}">
-                                                        <button type="button" class="btn btn-primary btn-sm">
-                                                            <i class="fa fa-edit"></i> Update Entry
-                                                        </button>
-                                                    </a>
+
+                                                    {% if roles_permission_entity.has_permission_name(['edit_tr']) %}
+
+                                                        <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}">
+                                                            <button type="button" class="btn btn-primary btn-sm">
+                                                                <i class="fa fa-edit"></i> Update Entry
+                                                            </button>
+                                                        </a>
+
+                                                    {% endif %}
+                                                    
                                                 </div>
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
@@ -157,12 +163,16 @@
                                 </div>
 
                             {% endif %}
-                           
-							<a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title="">
-								<button type="button" class="btn btn-default">
-									<i class="fa fa-plus"></i> Add Transaction
-								</button>
-							</a>
+                            
+                            {% if roles_permission_entity.has_permission_name(['add_tr']) %}
+
+					           <a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title="">
+    								<button type="button" class="btn btn-default">
+    									<i class="fa fa-plus"></i> Add Transaction
+    								</button>
+					           </a>
+
+                            {% endif %}
              				
              			</div>
              		</div>
@@ -207,7 +217,12 @@
         										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
         										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
                                                 <td>
-                                                    <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
+                                                    {% if roles_permission_entity.has_permission_name(['edit_cpo']) %}
+
+                                                        <a href="{{ site_url("patient_management/CPO/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }") }}"><span class="label label-primary">Update</span></a>
+
+                                                    {% endif %}
+
                                                 </td>
         									</tr>
 
@@ -231,11 +246,15 @@
                                 
                             {% if CPO_entity.cpo_cert_button() %}
 
-    							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
-    								<button type="button" class="btn btn-default">
-    									<i class="fa fa-plus"></i> Add Certification
-    								</button>
-    							</a>
+                                {% if roles_permission_entity.has_permission_name(['add_cpo']) %}
+
+        							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
+        								<button type="button" class="btn btn-default">
+        									<i class="fa fa-plus"></i> Add Certification
+        								</button>
+        							</a>
+
+                                {% endif %}
 
                             {% endif %}
 							         				
@@ -271,7 +290,13 @@
     										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
     										<td>{{ cn.ptcn_message }}</td>
     										<td>
-                                                <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+
+                                                {% if roles_permission_entity.has_permission_name(['edit_cn']) %}
+
+                                                    <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+
+                                                {% endif %}
+
                                             </td>
     									</tr>
 
@@ -292,11 +317,15 @@
                                 
                             {% endif %}
                             
-                            <a href="{{ site_url("patient_management/communication_notes/add/#{ record.patient_id }") }}" title="">
-								<button type="button" class="btn btn-default">
-									<i class="fa fa-plus"></i> Add Notes
-								</button>
-							</a>
+                            {% if roles_permission_entity.has_permission_name(['add_cn']) %}
+                                
+                                <a href="{{ site_url("patient_management/communication_notes/add/#{ record.patient_id }") }}" title="">
+    								<button type="button" class="btn btn-default">
+    									<i class="fa fa-plus"></i> Add Notes
+    								</button>
+    							</a>
+
+                            {% endif %}
              				
              			</div>
              			
@@ -306,11 +335,21 @@
 					<div class="row no-print">
           	
                         <div class="col-xs-12 xrx-btn-handler">
-                            <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
-                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
-                            </button>
+                            {% if roles_permission_entity.has_permission_name(['print_pt']) %}
+                                
+                                <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+
+                            {% endif %}
+
+                            {% if roles_permission_entity.has_permission_name(['downoad_pt']) %}
+
+                                <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+                                    <i class="fa fa-download"></i> Generate PDF
+                                </button>
+
+                            {% endif %}
+
                         </div>
 
                     </div>

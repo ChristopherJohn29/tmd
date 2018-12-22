@@ -61,11 +61,24 @@
 								<td>{{ record['dateOfService'] }}</td>
 								<td>{{ record['provider'] }}</td>
 								<td>
-									<a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
-
-									<a href="{{ site_url("patient_management/transaction/add/#{ record['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
 									
-									<a href="{{ site_url("patient_management/profile/edit/#{ record['patientId'] }") }}"><span class="label label-primary">Update</span></a>
+									{% if roles_permission_entity.has_permission_name(['view_pt']) %}
+										
+										<a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+									{% endif %}
+
+									{% if roles_permission_entity.has_permission_name(['add_tr']) %}
+
+										<a href="{{ site_url("patient_management/transaction/add/#{ record['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+
+									{% endif %}
+									
+									{% if roles_permission_entity.has_permission_name(['edit_pt']) %}
+										
+										<a href="{{ site_url("patient_management/profile/edit/#{ record['patientId'] }") }}"><span class="label label-primary">Update</span></a>
+
+									{% endif %}
+
 								</td>
 							</tr>
 

@@ -63,15 +63,29 @@
 					<div class="row no-print">
           	
 					<div class="col-xs-12 xrx-btn-handler">
-						<a href="#" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+
+                        {% if roles_permission_entity.has_permission_name(['print_prs']) %}
+						  
+                          <a href="#" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+
+                        {% endif %}
 						
-						<button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-							<i class="fa fa-download"></i> Generate PDF
-						</button>
+                        {% if roles_permission_entity.has_permission_name(['download_prs']) %}
+				            
+                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+				                <i class="fa fa-download"></i> Generate PDF
+				            </button>
+
+                        {% endif %}
                         
-                        <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-                        	<i class="fa fa-envelope-o"></i> Email to Provider
-                        </button>
+                        {% if roles_permission_entity.has_permission_name(['email_prs']) %}
+
+                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+                            	<i class="fa fa-envelope-o"></i> Email to Provider
+                            </button>
+
+                        {% endif %}
+                        
 					</div>
 		          
 		        </div>

@@ -59,9 +59,18 @@
                                     <td>{{ patient['dateOfService'] }}</td>
 
                                     <td>
-                                        <a href="{{ site_url("patient_management/profile/details/#{ patient['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
 
-                                        <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+                                        {% if roles_permission_entity.has_permission_name(['view_pt']) %}
+                                            
+                                            <a href="{{ site_url("patient_management/profile/details/#{ patient['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+
+                                        {% endif %}
+
+                                        {% if roles_permission_entity.has_permission_name(['add_tr']) %}
+
+                                            <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+
+                                        {% endif %}
                                     </td>
                                 </tr>
 
@@ -84,7 +93,13 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer text-center">
-            <a href="{{ site_url('patient_management/profile/') }}">View All Patients</a>
+
+            {% if roles_permission_entity.has_permission_module(['PTPM']) %}
+
+                <a href="{{ site_url('patient_management/profile/') }}">View All Patients</a>
+
+            {% endif %}
+
         </div>
           
         </div>
@@ -92,6 +107,8 @@
     </div>
       
 </div>
+
+{% if roles_permission_entity.has_permission_module(['PRSM']) %}
 
 <div class="row"> 
     
@@ -128,15 +145,25 @@
                                    <td>{{ provider_route_sheet.get_date_format(provider_route_sheet.prs_dateOfService) }}</td>
                                     <td>{{ provider_route_sheet.get_provider_fullname() }}</td>
                                     <td>
-                                        <a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ provider_route_sheet.prs_id }") }}'><span class="label label-primary">View Details</span></a>
                                         
-                                        <a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ provider_route_sheet.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
+                                        {% if roles_permission_entity.has_permission_name(['view_prs']) %}
+
+                                            <a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ provider_route_sheet.prs_id }") }}'><span class="label label-primary">View Details</span></a>
+                                        
+                                        {% endif %}
+
+                                        {% if roles_permission_entity.has_permission_name(['edit_prs']) %}
+
+                                            <a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ provider_route_sheet.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
+
+                                        {% endif %}
+
                                     </td>
                                 </tr>
 
                             {% endfor %}
                         
-                       {% else %}
+                        {% else %}
 
                             <tr>
                                 <td colspan="5" class="text-center">No data available in table</td>
@@ -154,7 +181,13 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer text-center">
-            <a href="{{ site_url('provider_route_sheet_management/route_sheet/') }}">View All Route Sheet</a>
+
+            {% if roles_permission_entity.has_permission_module(['PRSM']) %}
+
+                <a href="{{ site_url('provider_route_sheet_management/route_sheet/') }}">View All Route Sheet</a>
+
+            {% endif %}
+
         </div>
           
         </div>
@@ -163,6 +196,7 @@
       
 </div>
 
+{% endif %}
 
 
 {% endblock %}

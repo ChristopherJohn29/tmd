@@ -46,7 +46,13 @@
                                     <td>{{ record.hhc_email }}</td>
                                     <td>{{ record.hhc_address }}</td>
                                     <td>
-                                        <a href="{{ site_url("home_health_care_management/profile/edit/#{ record.hhc_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+
+                                        {% if roles_permission_entity.has_permission_name(['edit_hhc']) %}
+                                        
+                                            <a href="{{ site_url("home_health_care_management/profile/edit/#{ record.hhc_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+
+                                        {% endif %}
+
                                     </td>
                                 </tr>
 

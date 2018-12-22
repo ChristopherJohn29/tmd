@@ -48,8 +48,19 @@
 									<td>{{ record.provider_email }}</td>
 									<td>{{ record.provider_address }}</td>
 									<td>
-										<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View Details</span></a>
-		                                <a href="{{ site_url("provider_management/profile/edit/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+										
+										{% if roles_permission_entity.has_permission_name(['view_provider']) %}
+
+											<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View Details</span></a>
+
+										{% endif %}
+
+										{% if roles_permission_entity.has_permission_name(['edit_provider']) %}
+
+		                                	<a href="{{ site_url("provider_management/profile/edit/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+
+	                                	{% endif %}
+
 									</td>
 								</tr>
 

@@ -68,7 +68,13 @@
                                                 <td>{{ record['dateOfService'] }}</td>
                                                 <td>{{ record['provider'] }}</td>
                                                 <td>
-                                                    <a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+
+                                                    {% if roles_permission_entity.has_permission_name(['view_pt']) %}
+                                                        
+                                                        <a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+
+                                                    {% endif %}
+                                                    
                                                 </td>
                                             </tr>
 

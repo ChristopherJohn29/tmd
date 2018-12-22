@@ -51,8 +51,19 @@
                             <td>{{ record.get_date_format(record.user_dateOfBirth) }}</td>
                             <td>{{ record.roles_name }}</td>
                             <td>
-                                <a href="{{ site_url("user_management/profile/edit/#{ record.user_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
-                                <a href="{{ site_url("ajax/user_management/profile/delete/#{ record.user_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+
+                                {% if roles_permission_entity.has_permission_name(['edit_user']) %}
+
+                                    <a href="{{ site_url("user_management/profile/edit/#{ record.user_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
+
+                                {% endif %}
+
+                                {% if roles_permission_entity.has_permission_name(['delete_user']) %}
+
+                                    <a href="{{ site_url("ajax/user_management/profile/delete/#{ record.user_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+
+                                {% endif %}
+
                             </td>
                         </tr>
 
