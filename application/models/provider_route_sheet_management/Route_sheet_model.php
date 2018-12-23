@@ -72,7 +72,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 		{
 			// get patient home health id from record
 			$pt_hhc_params = [
-				'key' => 'patient.patient_hhcID',
+				'key' => 'patient.patient_id',
 				'value' => $inputPost['prsl_patientID'][$i]
 			];
 

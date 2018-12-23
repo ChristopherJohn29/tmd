@@ -10,7 +10,7 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 			.eq(0)
 			.clone(true);
 
-		tpl.find('input, select')
+		tpl.find('input, select, textarea')
 			.val('');
 
 		tpl.find('.lead')
