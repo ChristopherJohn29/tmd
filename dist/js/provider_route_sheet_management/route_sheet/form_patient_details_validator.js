@@ -3,25 +3,30 @@ var Mobiledrs =  Mobiledrs || {};
 Mobiledrs.Routesheet_form_patient_details_validator =  (function() {
 
 	var init = function () {			
-		timeVisit();
+		patientsName();
 	};
 
-	var timeVisit = function() {
-		var timeVisitList = [];
+	var patientsName = function() {
+		var patientsNameList = [];
 
-		$('[name="prsl_time[]"]').on('blur', function() {
-			var value = $(this).val().trim().toLowerCase().replace(' ', '');
+		$('[data-mobiledrs_autosuggest]').on('blur', function() {
+			var value = $(this).prev().val();
 
-			if (timeVisitList.includes(value))
+			if (value == '')
 			{
-				alert('Duplication of Time of visit is not allowed.');
+				return false;
+			}
+
+			if (patientsNameList.includes(value))
+			{
+				alert('Duplication of Patient Name is not allowed.');
 
 				$(this).val('');
 
 				return false;
 			}
 
-			timeVisitList.push(value);
+			patientsNameList.push(value);
 		});
 	};
 
