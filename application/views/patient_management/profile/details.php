@@ -278,7 +278,7 @@
 									<tr>
 										<th width="150px">Note Added</th>
 										<th>Note</th>
-										<th width="90px">Actions</th>
+										<th width="120px">Actions</th>
 									</tr>
 								</thead>
 								
@@ -294,6 +294,12 @@
                                                 {% if roles_permission_entity.has_permission_name(['edit_cn']) %}
 
                                                     <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+
+                                                {% endif %}
+
+                                                {% if roles_permission_entity.has_permission_name(['delete_cn']) %}
+
+                                                    <a href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
 
                                                 {% endif %}
 
