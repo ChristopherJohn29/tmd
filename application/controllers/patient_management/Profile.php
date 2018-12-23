@@ -140,7 +140,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_tovID',
-				'by' => 'DESC'
+				'by' => 'ASC'
 			],
 			'joins' => [
 				[
