@@ -58,6 +58,7 @@
 
 										  	<input class="form-control" 
 										  		type="text" 
+										  		required="true"
 										  		data-mobiledrs_autosuggest 
 										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/search') }}"
 										  		data-mobiledrs_autosuggest_dropdown_id="prs_providerID_dropdown">
@@ -136,6 +137,7 @@
 
 												  	<input class="form-control" 
 												  		type="text" 
+												  		required="true" 
 												  		data-mobiledrs_autosuggest 
 												  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
 												  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown">
