@@ -1,6 +1,6 @@
 var Mobiledrs =  Mobiledrs || {};
 
-Mobiledrs.Routesheet_form_patient_details_validator =  (function() {
+Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 
 	var init = function () {			
 		patientsName();

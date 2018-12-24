@@ -12,7 +12,6 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('generate_pr');
 
-
 		$this->twig->view('payroll_management/payroll/search');
 	}
 
