@@ -1,6 +1,7 @@
 var Mobiledrs =  Mobiledrs || {};
 
 Mobiledrs.Payroll_searchBar =  (function() {
+	var month = $('name="month"');
 	var fromDate = $('[name="fromDate"]');
 	var toDate = $('[name="toDate"]');
 	var firstCutOff = '1';

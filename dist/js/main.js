@@ -58,6 +58,14 @@ Mobiledrs.Main =  (function() {
 
 		        	input.val(ui.item.id);
 		      	},
+		      	response: function( event, ui ) {
+					if ( ! ui.content.length)
+					{
+						alert('No search results found.');
+
+						$(event.target).val('');
+					}
+				},
 				_renderItem: function( ul, item ) {
 				    return $( "<li>" )
 					    .attr("data-value", item.value )

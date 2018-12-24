@@ -9,7 +9,7 @@ Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 	var patientsName = function() {
 		var patientsNameList = [];
 
-		$('[data-mobiledrs_autosuggest]').on('blur', function() {
+		$('.patient-details-container [data-mobiledrs_autosuggest]').on('blur', function() {
 			var value = $(this).prev().val();
 
 			if (value == '')
