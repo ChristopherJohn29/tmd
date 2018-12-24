@@ -12,29 +12,20 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('generate_pr');
 
-		$this->twig->view('payroll_management/payroll/search');
+		$page_data['results'] = [];
+
+		if ( ! empty($this->input->post()))
+		{
+			$page_data['results'] = [1,2,3];
+		}
+
+		$this->twig->view('payroll_management/payroll/search', $page_data);
 	}
 
 	public function details(string $patient_id)
 	{
 		$this->check_permission('generate_pr');
-
 		
 		$this->twig->view('payroll_management/payroll/details');
-	}
-
-	public function search()
-	{
-		$this->check_permission('send_pr');
-
-
-		$this->twig->view('payroll_management/payroll/search');
-	}
-
-	public function print()
-	{
-		$this->check_permission('print_pr');
-		
-		$this->twig->view('payroll_management/payroll/print');
 	}
 }

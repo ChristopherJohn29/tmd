@@ -545,19 +545,19 @@ INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissi
 INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (126, 3, 31);
 INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (127, 1, 55);
 INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (128, 2, 55);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (128, 1, 56);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (129, 2, 56);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (130, 1, 57);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (131, 2, 57);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (132, 1, 58);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (133, 1, 59);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (134, 2, 58);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (135, 2, 59);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (136, 3, 58);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (137, 3, 59);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (138, 1, 60);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (139, 2, 60);
-INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (140, 3, 60);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (129, 1, 56);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (130, 2, 56);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (131, 1, 57);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (132, 2, 57);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (133, 1, 58);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (134, 1, 59);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (135, 2, 58);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (136, 2, 59);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (137, 3, 58);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (138, 3, 59);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (139, 1, 60);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (140, 2, 60);
+INSERT INTO `mobile_drs`.`roles_permission` (`rp_id`, `rp_rolesID`, `rp_permissionsID`) VALUES (141, 3, 60);
 
 COMMIT;
 
