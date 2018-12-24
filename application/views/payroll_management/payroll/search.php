@@ -34,18 +34,18 @@
                                         <div class="col-md-3 form-group">
                                             <label class="control-label">Month <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="month" id="dob" required="true">
-                                                <option selected="selected">January</option>
-                                                <option>February</option>
-                                                <option>March</option>
-                                                <option>April</option>
-                                                <option>May</option>
-                                                <option>June</option>
-                                                <option>July</option>
-                                                <option>August</option>
-                                                <option>September</option>
-                                                <option>October</option>
-                                                <option>November</option>
-                                                <option>Decemer</option>
+                                                <option selected="selected" value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">Decemer</option>
                                             </select>
                                         </div>
                                         
@@ -60,8 +60,6 @@
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">To <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="toDate" id="dob" disabled required="true">
-                                                <option selected="selected">15</option>
-                                                <option>30</option>
                                             </select>
                                         </div>
                                         

@@ -1,27 +1,47 @@
 var Mobiledrs =  Mobiledrs || {};
 
 Mobiledrs.Payroll_searchBar =  (function() {
-	var month = $('name="month"');
-	var fromDate = $('[name="fromDate"]');
+	var monthSelector = '[name="month"]';
+	var fromDateSelector = '[name="fromDate"]';
+	var yearSelector = '[name="year"]';
+	var month = $(monthSelector);
+	var fromDate = $(fromDateSelector);
 	var toDate = $('[name="toDate"]');
+	var year = $(yearSelector);
 	var firstCutOff = '1';
 
 	var init = function () {
-		fromDate.on('change', function() {
-			var value = $(this).val();
-			var options = toDate.find('option');
-			
-			options.removeAttr('selected');
+		var selectors = monthSelector + ', ' + 
+			fromDateSelector + ', ' +
+			yearSelector;
 
-			if (value == firstCutOff)
+		$(selectors).on('change', function() {
+			var fromDateVal = fromDate.val();
+			var toDateVal = '';
+			
+			if (fromDateVal == firstCutOff)
 			{
-				options.eq(0).attr('selected', true);
+				toDateVal = '15';
 			}
 			else
 			{
-				options.eq(1).attr('selected', true);
+				var date = new Date(
+					year.val(), 
+					month.val(), 
+					0
+				);
+
+				var toDateVal = date.getDate();
 			}
+
+			var option = '<option value="' + toDateVal + '" selected="true">';
+			option += toDateVal + '</option>';
+
+			toDate.val('');
+			toDate.append(option);
 		});
+
+		fromDate.trigger('change');
 	};
 
 	return {
