@@ -6,7 +6,6 @@
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions',
-    'dist/js/provider_management/profile/add'
   ]
 %}
 

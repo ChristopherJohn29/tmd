@@ -11,7 +11,6 @@
   	'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
   	'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
   	'plugins/timepicker/bootstrap-timepicker.min',
-  	'dist/js/provider_route_sheet_management/route_sheet/form',
   	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_validator',
   	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_adder'
   ]

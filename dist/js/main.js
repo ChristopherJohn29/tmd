@@ -5,6 +5,8 @@ Mobiledrs.Main =  (function() {
 		delete_btn();
 
 		autosuggest();
+
+		inputMask();
 	};
 
 	var delete_btn = function() {
@@ -65,6 +67,15 @@ Mobiledrs.Main =  (function() {
 				}
 		    });
 		});
+	};
+
+	var inputMask = function() {
+		var dataMasks = $('[data-mask]');
+
+		if (dataMasks.length)
+		{
+			$('[data-mask]').inputmask();
+		}
 	};
 
 	return {
