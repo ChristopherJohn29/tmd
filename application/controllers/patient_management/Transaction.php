@@ -30,9 +30,11 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_id',
-				'condition' => '',
-        		'value' => $pt_patientID
+				[
+					'key' => 'patient_id',
+					'condition' => '',
+	        		'value' => $pt_patientID
+        		]
 			],
 			'return_type' => 'row'
 		];
@@ -75,9 +77,11 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_id',
-				'condition' => '',
-        		'value' => $pt_patientID
+				[
+					'key' => 'patient_id',
+					'condition' => '',
+	        		'value' => $pt_patientID
+        		]
 			],
 			'return_type' => 'row'
 		];
@@ -93,9 +97,11 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'pt_id',
-				'condition' => '',
-        		'value' => $pt_id
+				[
+					'key' => 'pt_id',
+					'condition' => '',
+	        		'value' => $pt_id
+        		]
 			],
 			'return_type' => 'row'
 		];

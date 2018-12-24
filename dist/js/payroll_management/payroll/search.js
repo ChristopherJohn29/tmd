@@ -38,6 +38,7 @@ Mobiledrs.Payroll_searchBar =  (function() {
 			option += toDateVal + '</option>';
 
 			toDate.val('');
+			toDate.find('option').remove();
 			toDate.append(option);
 		});
 

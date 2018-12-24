@@ -80,9 +80,11 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'provider_route_sheet.prs_id',
-				'condition' =>  '=',
-				'value' => $prs_id
+				[
+					'key' => 'provider_route_sheet.prs_id',
+					'condition' =>  '=',
+					'value' => $prs_id
+				]
 			],
 			'return_type' => 'row'
 		];
@@ -112,9 +114,11 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'provider_route_sheet_list.prsl_prsID',
-				'condition' =>  '=',
-				'value' => $prs_id
+				[
+					'key' => 'provider_route_sheet_list.prsl_prsID',
+					'condition' =>  '=',
+					'value' => $prs_id
+				]
 			],
 			'return_type' => 'object'
 		];
@@ -208,9 +212,11 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'provider_route_sheet.prs_id',
-				'condition' =>  '=',
-				'value' => $prs_id
+				[
+					'key' => 'provider_route_sheet.prs_id',
+					'condition' =>  '=',
+					'value' => $prs_id
+				]
 			],
 			'return_type' => 'row'
 		];
@@ -240,9 +246,11 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'provider_route_sheet_list.prsl_prsID',
-				'condition' =>  '=',
-				'value' => $prs_id
+				[
+					'key' => 'provider_route_sheet_list.prsl_prsID',
+					'condition' =>  '=',
+					'value' => $prs_id
+				]
 			],
 			'return_type' => 'object'
 		];

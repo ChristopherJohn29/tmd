@@ -28,9 +28,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'user_roleID',
-				'condition' => '<>',
-				'value' => 1
+				[
+					'key' => 'user_roleID',
+					'condition' => '<>',
+					'value' => 1
+				]
 			],
 			'return_type' => 'result'
 		];

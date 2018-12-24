@@ -27,9 +27,11 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_id',
-				'condition' => '',
-        		'value' => $ptcpo_patientID
+				[
+					'key' => 'patient_id',
+					'condition' => '',
+	        		'value' => $ptcpo_patientID
+        		]
 			],
 			'return_type' => 'row'
 		];
@@ -54,9 +56,11 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_id',
-				'condition' => '',
-        		'value' => $ptcpo_patientID
+				[
+					'key' => 'patient_id',
+					'condition' => '',
+	        		'value' => $ptcpo_patientID
+        		]
 			],
 			'return_type' => 'row'
 		];

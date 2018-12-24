@@ -46,9 +46,11 @@ class User extends CI_Controller {
 					]
 				],
 				'where' => [
-					'key' => 'roles_permission.rp_rolesID',
-					'condition' => '=',
-					'value' => $this->session->userdata('user_roleID')
+					[
+						'key' => 'roles_permission.rp_rolesID',
+						'condition' => '=',
+						'value' => $this->session->userdata('user_roleID')
+					]
 				],
 				'return_type' => 'object'
 			];

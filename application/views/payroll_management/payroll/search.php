@@ -59,7 +59,7 @@
                                         
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">To <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="toDate" id="dob" disabled required="true">
+                                            <select class="form-control" style="width: 100%;" name="toDate" id="dob" readonly="true" required="true">
                                             </select>
                                         </div>
                                         
@@ -99,9 +99,17 @@
 
                     <div class="row xrx-row-spacer">
 
-                        {% if results %}
+                        {% if results is defined and results|length > 0 %}
 
                             {{ include('payroll_management/payroll/list.php') }}
+
+                        {% elseif results is defined and results|length == 0 %}
+
+                            <div class="no-data-handler">
+
+                                <p class="text-center">No search results found.</p>
+                                
+                            </div>
 
                         {% endif %}
 

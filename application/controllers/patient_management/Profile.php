@@ -53,9 +53,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_id',
-				'condition' => '',
-        		'value' => $patient_id
+				[
+					'key' => 'patient_id',
+					'condition' => '',
+	        		'value' => $patient_id
+        		]
 			],
 			'return_type' => 'row'
 		];
@@ -130,9 +132,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_id',
-				'condition' => '',
-        		'value' => $patient_id
+				[
+					'key' => 'patient_id',
+					'condition' => '',
+	        		'value' => $patient_id
+        		]
 			],
 			'return_type' => 'row'
 		];
@@ -159,9 +163,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'where' => [
-				'key' => 'patient_transactions.pt_patientID',
-				'condition' => '',
-        		'value' => $patient_id
+				[
+					'key' => 'patient_transactions.pt_patientID',
+					'condition' => '',
+	        		'value' => $patient_id
+        		]
 			],
 			'return_type' => 'object'
 		];
