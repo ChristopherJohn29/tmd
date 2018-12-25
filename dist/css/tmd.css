@@ -357,6 +357,17 @@
 		
 /* text */
 
+/* for print */
+
+body.print {
+    font-size: 13px !important;
+    }
+
+body.print h3 small {display: block; clear: both;}
+body.print table tr td,
+body.print table tr th {
+    padding: 3px !important;
+    }
 
 /* over write original css */
 
@@ -537,6 +548,11 @@ li.user-header p span a {
 .bootstrap-timepicker-widget table tr .separator  {
 	display: none !important;
 	}
+
+.bootstrap-timepicker-hour,
+.bootstrap-timepicker-meridian{
+    border: 0 !important;
+    }
 
 /* tables */
 
