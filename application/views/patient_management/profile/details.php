@@ -19,7 +19,7 @@
              			</div>
              			
              			<div class="col-md-4">
-             				<p class="lead">Basic Information</p>
+             				<p class="lead blue-bg">Basic Information</p>
              				
              				<table class="table xrx-table">
              					<tr>
@@ -42,7 +42,7 @@
              			</div>
              			
              			<div class="col-md-4">
-             				<p class="lead">Contact Information</p>
+             				<p class="lead blue-bg">Contact Information</p>
              				
              				<table class="table xrx-table">
              					<tr>
@@ -61,7 +61,7 @@
              			</div>
              			
              			<div class="col-md-4">
-             				<p class="lead">Home Health Information</p>
+             				<p class="lead blue-bg">Home Health Information</p>
              				
              				<table class="table xrx-table">
              					<tr>
@@ -82,13 +82,21 @@
              					</tr>
              				</table>
              			</div>
+                        
+                        <div class="col-md-12 text-center">
+                            <a href="#">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-edit"></i> Update Entry
+                                </button>
+                            </a>
+                        </div>
              			
              		</div>
              		
              		<div class="row xrx-row-spacer">
              			<div class="col-md-12">
              				
-             				<p class="lead">Transactions</p>
+             				<p class="lead">Visits</p>
                             
                             {% if transactions %}
 
@@ -168,7 +176,7 @@
 
 					           <a href="{{ site_url("patient_management/transaction/add/#{ record.patient_id }") }}" title="">
     								<button type="button" class="btn btn-default">
-    									<i class="fa fa-plus"></i> Add Transaction
+    									<i class="fa fa-plus"></i> Add Visit
     								</button>
 					           </a>
 
