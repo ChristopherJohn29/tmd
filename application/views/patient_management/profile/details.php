@@ -84,7 +84,7 @@
              			</div>
                         
                         <div class="col-md-12 text-center">
-                            <a href="#">
+                            <a href="{{ site_url("patient_management/profile/edit/#{ record.patient_id }") }}">
                                 <button type="button" class="btn btn-primary btn-sm">
                                     <i class="fa fa-edit"></i> Update Entry
                                 </button>
