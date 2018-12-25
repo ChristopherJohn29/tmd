@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            <p class="lead">Contact Information</p>
+                            <p class="lead blue-bg">Contact Information</p>
 
                             <div class="table-responsive">
                                 <table class="table xrx-table">
@@ -42,7 +42,7 @@
                         </div>
                         
                         <div class="col-md-4">
-                            <p class="lead">Basic Information</p>
+                            <p class="lead blue-bg">Basic Information</p>
 
                             <div class="table-responsive">
                                 <table class="table xrx-table">
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            <p class="lead">Credentials</p>
+                            <p class="lead blue-bg">Credentials</p>
 
                             <div class="table-responsive">
                                 <table class="table xrx-table">
