@@ -222,6 +222,12 @@
 			font-weight: 700 !important;
 			}
 
+        .xrx-info .blue-bg {
+            background: #548bb8 !important;
+            padding: 5px 0 5px 8px !important;
+            color: #ffffff !important;
+            }
+
         .xrx-info .route-sheet p {
             font-size: 18px;
             font-weight: 500;

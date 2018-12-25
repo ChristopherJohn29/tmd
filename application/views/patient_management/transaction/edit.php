@@ -10,7 +10,7 @@
   ]
 %}
 
-{% set page_title = 'Update Transaction' %}
+{% set page_title = 'Update Visit' %}
 
 {% block content %}
 	<div class="row">
@@ -19,7 +19,7 @@
           <div class="box">
           
             <div class="box-header with-border">
-              <h3 class="box-title">Update Transaction</h3>
+              <h3 class="box-title">Update Visit</h3>
             </div>
             <!-- /.box-header -->
 				
@@ -261,7 +261,7 @@
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
 					              		<button type="submit" class="btn btn-primary xrx-btn">
-											<i class="fa fa-check"></i> Update Transaction
+											<i class="fa fa-check"></i> Update Visit
 										</button>
 					              	</div>
 								
