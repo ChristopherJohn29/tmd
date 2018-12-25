@@ -55,209 +55,213 @@
 										
 									</div>
 									
-									<div class="col-md-6 form-group {{ form_error('pt_tovID') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Type of Visit <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required="true" name="pt_tovID">
-											<option value="" selected="true">Select</option>
+									<div class="form-container">
 
-											{% for type_visit in type_visits %}
-
-												{% if transactions.has_initial_records(type_visit.tov_id) %}
-												{% else %}
-
-													<option value="{{ type_visit.tov_id }}">{{ type_visit.tov_name }}</option>
-
-												{% endif %}
-
-											{% endfor %}
-
-										</select>
+										<div class="col-md-6 form-group {{ form_error('pt_tovID') ? 'has-error' : '' }}">
 										
-									</div>
-									
-									<div class="col-md-6 form-group {{ form_error('pt_providerID') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Provider <span>*</span></label>
+											<label class="control-label">Type of Visit <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_tovID">
+												<option value="" selected="true">Select</option>
 
-										<div class="dropdown mobiledrs-autosuggest-select">
-											<input type="hidden" name="pt_providerID" required="true">
+												{% for type_visit in type_visits %}
 
-										  	<input class="form-control" 
-										  		type="text" 
-										  		data-mobiledrs_autosuggest 
-										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/search') }}"
-										  		data-mobiledrs_autosuggest_dropdown_id="pt_providerID_dropdown">
+													{% if transactions.has_initial_records(type_visit.tov_id) %}
+													{% else %}
 
-										  	<div data-mobiledrs_autosuggest_dropdown id="pt_providerID_dropdown" style="width: 100%;">
-									  	  	</div>
+														<option value="{{ type_visit.tov_id }}">{{ type_visit.tov_name }}</option>
+
+													{% endif %}
+
+												{% endfor %}
+
+											</select>
+											
 										</div>
 										
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_tovID') }}</span>
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_providerID') }}</span>
-									</div>
-									
-									<div class="col-md-6 form-group {{ form_error('pt_dateOfService') ? 'has-error' : '' }}">
-										<label>Date of Service <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateOfService" value="">
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Deductible</label>
-										<input type="text" class="form-control" name="pt_deductible" value="{{ set_value('pt_deductible') }}">
+										<div class="col-md-6 form-group {{ form_error('pt_providerID') ? 'has-error' : '' }}">
 										
-									</div>
+											<label class="control-label">Provider <span>*</span></label>
 
-									<div class="col-md-12 has-error">
-										<span class="help-block">{{ form_error('pt_dateOfService') }}</span>
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">AW/IPPE Date</label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_aw_ippe_date" value="">
-										
-									</div>
-									
-									<div class="col-md-3 form-group">
-									
-										<label class="control-label">AW or IPPE?</label>
-										<select class="form-control" style="width: 100%;" name="pt_aw_ippe_code">
-											<option value="" selected="true">Select</option>
-											<option value="G0438">G0438</option>
-											<option value="G0439">G0439</option>
-											<option value="G0402">G0402</option>
-										</select>
-						                
-									</div>
-									
-									<div class="col-md-3 form-group {{ form_error('pt_performed') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Performed? <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required="true" name="pt_performed">
-											<option value="" selected="true">Select</option>
-											<option value="1">Yes</option>
-											<option value="2">No</option>
-										</select>
-						                
-									</div>
+											<div class="dropdown mobiledrs-autosuggest-select">
+												<input type="hidden" name="pt_providerID" required="true">
 
-									<div class="col-md-12 has-error">
-										<span class="help-block text-right">{{ form_error('pt_performed') }}</span>
-									</div>
-									
-									<div class="col-md-6 form-group {{ form_error('pt_acp') ? 'has-error' : '' }}">
-									
-										<label class="control-label">ACP <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required="true" name="pt_acp">
-											<option value="" selected="true">Select</option>
-											<option value="1">Yes</option>
-											<option value="2">No</option>
-										</select>
-										
-									</div>
-									
-									<div class="col-md-6 form-group {{ form_error('pt_diabetes') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Diabetes <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required="true" name="pt_diabetes">
-											<option value="" selected="true">Select</option>
-											<option value="1">Yes</option>
-											<option value="2">No</option>
-										</select>
-										
-									</div>
+											  	<input class="form-control" 
+											  		type="text" 
+											  		data-mobiledrs_autosuggest 
+											  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/search') }}"
+											  		data-mobiledrs_autosuggest_dropdown_id="pt_providerID_dropdown">
 
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_acp') }}</span>
-									</div>
+											  	<div data-mobiledrs_autosuggest_dropdown id="pt_providerID_dropdown" style="width: 100%;">
+										  	  	</div>
+											</div>
+											
+										</div>
 
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_diabetes') }}</span>
-									</div>
-									
-									<div class="col-md-6 form-group {{ form_error('pt_tobacco') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Tobacco <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required="true" name="pt_tobacco">
-											<option value="" selected="true">Select</option>
-											<option value="1">Yes</option>
-											<option value="2">No</option>
-										</select>
-										
-									</div>									
-									
-									<div class="col-md-6 form-group {{ form_error('pt_tcm') ? 'has-error' : '' }}">
-									
-										<label class="control-label">TCM <span>*</span></label>
-										<select class="form-control" style="width: 100%;" required="true" name="pt_tcm">
-											<option value="" selected="true">Select</option>
-											<option value="1">Yes</option>
-											<option value="2">No</option>
-										</select>
-										
-									</div>
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_tovID') }}</span>
+										</div>
 
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_tobacco') }}</span>
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('pt_tcm') }}</span>
-									</div>
-									
-									<div class="col-md-6 form-group">
-									
-										<label class="control-label">Mileage</label>
-										<input type="text" class="form-control" value="{{ set_value('pt_mileage') }}" name="pt_mileage">
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_providerID') }}</span>
+										</div>
 										
-									</div>
-                                    
-                                    <div class="col-md-6 form-group {{ form_error('pt_others') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Others</label>
-										<input type="text" class="form-control" name="pt_others" value="{{ set_value('pt_others') }}">
+										<div class="col-md-6 form-group {{ form_error('pt_dateOfService') ? 'has-error' : '' }}">
+											<label>Date of Service <span>*</span></label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateOfService" value="">
+										</div>
 										
-									</div>
-
-									<div class="col-md-12 has-error">
-										<span class="help-block">{{ form_error('pt_others') }}</span>
-									</div>
-
-									<div class="col-md-12 form-group {{ form_error('pt_icd10_codes') ? 'has-error' : '' }}">
-									
-										<label class="control-label">ICD-10 Codes <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="pt_icd10_codes" value="{{ set_value('pt_icd10_codes') }}">
+										<div class="col-md-6 form-group">
 										
-									</div>
+											<label class="control-label">Deductible</label>
+											<input type="text" class="form-control" name="pt_deductible" value="{{ set_value('pt_deductible') }}">
+											
+										</div>
 
-									<div class="col-md-12 has-error">
-										<span class="help-block">{{ form_error('pt_icd10_codes') }}</span>
-									</div>
-									
-									<div class="col-md-12 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Date Referral was Emailed <span>*</span></label>
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateRefEmailed" value="">
+										<div class="col-md-12 has-error">
+											<span class="help-block">{{ form_error('pt_dateOfService') }}</span>
+										</div>
 										
-									</div>
+										<div class="col-md-6 form-group">
+										
+											<label class="control-label">AW/IPPE Date</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_aw_ippe_date" value="">
+											
+										</div>
+										
+										<div class="col-md-3 form-group">
+										
+											<label class="control-label">AW or IPPE?</label>
+											<select class="form-control" style="width: 100%;" name="pt_aw_ippe_code">
+												<option value="" selected="true">Select</option>
+												<option value="G0438">G0438</option>
+												<option value="G0439">G0439</option>
+												<option value="G0402">G0402</option>
+											</select>
+							                
+										</div>
+										
+										<div class="col-md-3 form-group {{ form_error('pt_performed') ? 'has-error' : '' }}">
+										
+											<label class="control-label">Performed? <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_performed">
+												<option value="" selected="true">Select</option>
+												<option value="1">Yes</option>
+												<option value="2">No</option>
+											</select>
+							                
+										</div>
 
-									<div class="col-md-12 has-error">
-										<span class="help-block">{{ form_error('pt_dateRefEmailed') }}</span>
-									</div>
-									
-									<div class="col-md-12 form-group">
-									
-										<label class="control-label">Notes</label>
-										<textarea class="form-control" name="pt_notes">{{ set_value('pt_notes') }}</textarea>
+										<div class="col-md-12 has-error">
+											<span class="help-block text-right">{{ form_error('pt_performed') }}</span>
+										</div>
 										
+										<div class="col-md-6 form-group {{ form_error('pt_acp') ? 'has-error' : '' }}">
+										
+											<label class="control-label">ACP <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_acp">
+												<option value="" selected="true">Select</option>
+												<option value="1">Yes</option>
+												<option value="2">No</option>
+											</select>
+											
+										</div>
+										
+										<div class="col-md-6 form-group {{ form_error('pt_diabetes') ? 'has-error' : '' }}">
+										
+											<label class="control-label">Diabetes <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_diabetes">
+												<option value="" selected="true">Select</option>
+												<option value="1">Yes</option>
+												<option value="2">No</option>
+											</select>
+											
+										</div>
+
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_acp') }}</span>
+										</div>
+
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_diabetes') }}</span>
+										</div>
+										
+										<div class="col-md-6 form-group {{ form_error('pt_tobacco') ? 'has-error' : '' }}">
+										
+											<label class="control-label">Tobacco <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_tobacco">
+												<option value="" selected="true">Select</option>
+												<option value="1">Yes</option>
+												<option value="2">No</option>
+											</select>
+											
+										</div>									
+										
+										<div class="col-md-6 form-group {{ form_error('pt_tcm') ? 'has-error' : '' }}">
+										
+											<label class="control-label">TCM <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_tcm">
+												<option value="" selected="true">Select</option>
+												<option value="1">Yes</option>
+												<option value="2">No</option>
+											</select>
+											
+										</div>
+
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_tobacco') }}</span>
+										</div>
+
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_tcm') }}</span>
+										</div>
+										
+										<div class="col-md-6 form-group">
+										
+											<label class="control-label">Mileage</label>
+											<input type="text" class="form-control" value="{{ set_value('pt_mileage') }}" name="pt_mileage">
+											
+										</div>
+	                                    
+	                                    <div class="col-md-6 form-group {{ form_error('pt_others') ? 'has-error' : '' }}">
+										
+											<label class="control-label">Others</label>
+											<input type="text" class="form-control" name="pt_others" value="{{ set_value('pt_others') }}">
+											
+										</div>
+
+										<div class="col-md-12 has-error">
+											<span class="help-block">{{ form_error('pt_others') }}</span>
+										</div>
+
+										<div class="col-md-12 form-group {{ form_error('pt_icd10_codes') ? 'has-error' : '' }}">
+										
+											<label class="control-label">ICD-10 Codes <span>*</span></label>
+											<input type="text" class="form-control" required="true" name="pt_icd10_codes" value="{{ set_value('pt_icd10_codes') }}">
+											
+										</div>
+
+										<div class="col-md-12 has-error">
+											<span class="help-block">{{ form_error('pt_icd10_codes') }}</span>
+										</div>
+										
+										<div class="col-md-12 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
+										
+											<label class="control-label">Date Referral was Emailed <span>*</span></label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateRefEmailed" value="">
+											
+										</div>
+
+										<div class="col-md-12 has-error">
+											<span class="help-block">{{ form_error('pt_dateRefEmailed') }}</span>
+										</div>
+										
+										<div class="col-md-12 form-group">
+										
+											<label class="control-label">Notes</label>
+											<textarea class="form-control" name="pt_notes">{{ set_value('pt_notes') }}</textarea>
+											
+										</div>
+
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
