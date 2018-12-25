@@ -529,6 +529,15 @@ li.user-header p span a {
 	height: auto;
 	}
 
+/* Mobiledrs-timepicker plugin */
+.bootstrap-timepicker-widget table tr td:nth-child(3) {
+ 	display: none !important;
+ 	}
+
+.bootstrap-timepicker-widget table tr .separator  {
+	display: none !important;
+	}
+
 /* tables */
 
 table thead {

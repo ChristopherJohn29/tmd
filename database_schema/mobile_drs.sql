@@ -337,7 +337,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mobile_drs`;
-INSERT INTO `mobile_drs`.`user` (`user_id`, `user_firstname`, `user_lastname`, `user_email`, `user_dateCreated`, `user_password`, `user_roleID`, `user_dateOfBirth`, `user_phone`, `user_address`, `user_gender`, `user_photo`) VALUES (1, 'Nikkolai', 'Fernandez', 'nikkolaifernandez14@gmaiml.com', '2018/11/25', '$2y$10$NRfEbjlqjRpXiSZaw.DzW.d5.Zw2I5q8HOODaKPvsfAM3HFmgrOrW', 1, '1992/11/14', NULL, NULL, NULL, NULL);
+INSERT INTO `mobile_drs`.`user` (`user_id`, `user_firstname`, `user_lastname`, `user_email`, `user_dateCreated`, `user_password`, `user_roleID`, `user_dateOfBirth`, `user_phone`, `user_address`, `user_gender`, `user_photo`) VALUES (1, 'Nikkolai', 'Fernandez', 'nikkolaifernandez14@gmail.com', '2018/11/25', '$2y$10$NRfEbjlqjRpXiSZaw.DzW.d5.Zw2I5q8HOODaKPvsfAM3HFmgrOrW', 1, '1992/11/14', NULL, NULL, NULL, NULL);
 INSERT INTO `mobile_drs`.`user` (`user_id`, `user_firstname`, `user_lastname`, `user_email`, `user_dateCreated`, `user_password`, `user_roleID`, `user_dateOfBirth`, `user_phone`, `user_address`, `user_gender`, `user_photo`) VALUES (2, 'Jayson', 'Arcayna', 'jayson.arcayna@gmail.com', '2018/11/25', '$2y$10$CVTPVGMFB4QcC4OXyQcYMOsDdxjRQ57E0/nGNrn3P3QVdLS3b0zZq', 1, '1992/11/14', NULL, NULL, NULL, NULL);
 
 COMMIT;

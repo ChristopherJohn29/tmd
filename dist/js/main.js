@@ -7,6 +7,8 @@ Mobiledrs.Main =  (function() {
 		autosuggest();
 
 		inputMask();
+
+		timePicker();
 	};
 
 	var delete_btn = function() {
@@ -83,6 +85,17 @@ Mobiledrs.Main =  (function() {
 		if (dataMasks.length)
 		{
 			$('[data-mask]').inputmask();
+		}
+	};
+
+	var timePicker = function() {
+		var timePickers = $('[data-timepicker]');
+
+		if (timePickers.length)
+		{
+			$('[data-timepicker]').timepicker({
+				minuteStep: 60
+			});
 		}
 	};
 
