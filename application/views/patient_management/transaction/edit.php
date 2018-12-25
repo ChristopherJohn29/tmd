@@ -218,7 +218,7 @@
 										
 									</div>
                                     
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group  {{ form_error('pt_others') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Others</label>
 										<input type="text" class="form-control" name="pt_others" value="{{ set_value('pt_others', transaction.pt_others) }}">
@@ -226,7 +226,7 @@
 									</div>
 									
                                     <div class="col-md-12 has-error">
-										<span class="help-block"></span>
+										<span class="help-block">{{ form_error('pt_others') }}</span>
 									</div>
                                     
 									<div class="col-md-12 form-group {{ form_error('pt_icd10_codes') ? 'has-error' : '' }}">
