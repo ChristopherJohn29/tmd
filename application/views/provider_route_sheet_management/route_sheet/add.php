@@ -95,10 +95,17 @@
 												<p class="lead">Patient <span class="item-num">1</span> Details</p>
 											</div>									
 
-											<div class="col-md-6 form-group {{ form_error('prsl_time') ? 'has-error' : '' }}">
+											<div class="col-md-3 form-group {{ form_error('prsl_time') ? 'has-error' : '' }}">
 											
-												<label class="control-label">Time of Visit <span>*</span></label>
-												<input type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time[]">
+												<label class="control-label">Time of Visit from<span>*</span></label>
+												<input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time[]">
+												
+											</div>
+                                            
+                                            <div class="col-md-3 form-group {{ form_error('prsl_time') ? 'has-error' : '' }}">
+											
+												<label class="control-label">Time of Visit to<span>*</span></label>
+                                                <input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time[]">
 												
 											</div>
 											

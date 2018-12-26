@@ -52,6 +52,19 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_others;
 	protected $provider_rate_mileage;
 
+	protected $patient_id;
+	protected $patient_firstname;
+	protected $patient_lastname;
+	protected $patient_gender;
+	protected $patient_referralDate; 
+	protected $patient_medicareNum; 
+	protected $patient_dateOfBirth; 
+	protected $patient_phoneNum;
+	protected $patient_address;
+	protected $patient_hhcID;
+	protected $patient_dateCreated;
+	protected $patient_caregiver_family;
+
     public function get_selected_choice_format(string $choice) : string
     {
 		return ($choice == '1') ? 'Yes' : (($choice == '2') ? 'No' : '');
@@ -60,6 +73,11 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
     public function get_provider_fullname() : string
 	{
 		return $this->provider_firstname . ' ' . $this->provider_lastname;
+	}
+
+	public function get_patient_fullname() : string
+	{
+		return $this->patient_firstname . ' ' . $this->patient_lastname;
 	}
 
 	public function get_selected_aw_ippe_code(string $code) : string
