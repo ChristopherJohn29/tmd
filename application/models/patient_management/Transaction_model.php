@@ -21,7 +21,8 @@ class Transaction_model extends \Mobiledrs\core\MY_Models {
 			'pt_id' => $this->record_entity->pt_id,
 			'pt_tovID' => $this->record_entity->pt_tovID,
 			'pt_patientID' => $this->record_entity->pt_patientID,
-			'pt_providerID' => $this->record_entity->pt_providerID,
+			'pt_providerID' => empty($this->record_entity->pt_providerID) ? 
+				NULL : $this->record_entity->pt_providerID,
 			'pt_dateOfService' => $this->record_entity->set_date_format($this->record_entity->pt_dateOfService),
 			'pt_deductible' => $this->record_entity->pt_deductible,
 			'pt_aw_ippe_date' => $this->record_entity->set_date_format($this->record_entity->pt_aw_ippe_date),

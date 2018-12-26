@@ -80,10 +80,10 @@
 										
 										<div class="col-md-6 form-group {{ form_error('pt_providerID') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Provider <span>*</span></label>
+											<label class="control-label">Provider</label>
 
 											<div class="dropdown mobiledrs-autosuggest-select">
-												<input type="hidden" name="pt_providerID" required="true">
+												<input type="hidden" name="pt_providerID">
 
 											  	<input class="form-control" 
 											  		type="text" 
@@ -142,8 +142,8 @@
 										
 										<div class="col-md-3 form-group {{ form_error('pt_performed') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Performed? <span>*</span></label>
-											<select class="form-control" style="width: 100%;" required="true" name="pt_performed">
+											<label class="control-label">Performed?</label>
+											<select class="form-control" style="width: 100%;" name="pt_performed">
 												<option value="" selected="true">Select</option>
 												<option value="1">Yes</option>
 												<option value="2">No</option>
@@ -157,8 +157,8 @@
 										
 										<div class="col-md-6 form-group {{ form_error('pt_acp') ? 'has-error' : '' }}">
 										
-											<label class="control-label">ACP <span>*</span></label>
-											<select class="form-control" style="width: 100%;" required="true" name="pt_acp">
+											<label class="control-label">ACP</label>
+											<select class="form-control" style="width: 100%;" name="pt_acp">
 												<option value="" selected="true">Select</option>
 												<option value="1">Yes</option>
 												<option value="2">No</option>
@@ -168,8 +168,8 @@
 										
 										<div class="col-md-6 form-group {{ form_error('pt_diabetes') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Diabetes <span>*</span></label>
-											<select class="form-control" style="width: 100%;" required="true" name="pt_diabetes">
+											<label class="control-label">Diabetes</label>
+											<select class="form-control" style="width: 100%;" name="pt_diabetes">
 												<option value="" selected="true">Select</option>
 												<option value="1">Yes</option>
 												<option value="2">No</option>
@@ -187,8 +187,8 @@
 										
 										<div class="col-md-6 form-group {{ form_error('pt_tobacco') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Tobacco <span>*</span></label>
-											<select class="form-control" style="width: 100%;" required="true" name="pt_tobacco">
+											<label class="control-label">Tobacco</label>
+											<select class="form-control" style="width: 100%;" name="pt_tobacco">
 												<option value="" selected="true">Select</option>
 												<option value="1">Yes</option>
 												<option value="2">No</option>
@@ -198,8 +198,8 @@
 										
 										<div class="col-md-6 form-group {{ form_error('pt_tcm') ? 'has-error' : '' }}">
 										
-											<label class="control-label">TCM <span>*</span></label>
-											<select class="form-control" style="width: 100%;" required="true" name="pt_tcm">
+											<label class="control-label">TCM</label>
+											<select class="form-control" style="width: 100%;" name="pt_tcm">
 												<option value="" selected="true">Select</option>
 												<option value="1">Yes</option>
 												<option value="2">No</option>
@@ -235,8 +235,8 @@
 
 										<div class="col-md-12 form-group {{ form_error('pt_icd10_codes') ? 'has-error' : '' }}">
 										
-											<label class="control-label">ICD-10 Codes <span>*</span></label>
-											<input type="text" class="form-control" required="true" name="pt_icd10_codes" value="{{ set_value('pt_icd10_codes') }}">
+											<label class="control-label">ICD-10 Codes</label>
+											<input type="text" class="form-control" name="pt_icd10_codes" value="{{ set_value('pt_icd10_codes') }}">
 											
 										</div>
 
@@ -246,8 +246,8 @@
 										
 										<div class="col-md-12 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Date Referral was Emailed <span>*</span></label>
-											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateRefEmailed" value="">
+											<label class="control-label">Date Referral was Emailed</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateRefEmailed" value="">
 											
 										</div>
 
