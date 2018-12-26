@@ -187,8 +187,8 @@
 											</tr>
 											<tr class="total">
 												<th colspan="3">Total</th>
-												<input type="hidden" name="total" value="{{ provider_payment_summary['total'] }}">
-												<td>$ <span class="total-amount">{{ provider_payment_summary['total'] }}</span></td>
+												<input type="hidden" name="total" value="{{ provider_payment_summary['total_salary'] }}">
+												<td>$ <span class="total-amount">{{ provider_payment_summary['total_salary'] }}</span></td>
 											</tr>
 										</tbody>
 										

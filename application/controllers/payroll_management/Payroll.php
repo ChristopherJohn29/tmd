@@ -23,36 +23,23 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 		if ( ! empty($this->input->post()))
 		{
-			$transaction_params = [
-				'order' => [
-					'key' => 'patient_transactions.pt_dateOfService',
-					'by' => 'DESC'
-				],
-				'joins' => [
-					[
-						'join_table_name' => 'provider',
-						'join_table_key' => 'provider.provider_id',
-						'join_table_condition' => '=',
-						'join_table_value' => 'patient_transactions.pt_providerID',
-						'join_table_type' => 'inner'
-					]
-				],
-				'where' => [
-					[
-						'key' => 'patient_transactions.pt_dateOfService',
-						'condition' => '>=',
-		        		'value' => $this->input->post('fromDate')
-					],
-					[
-						'key' => 'patient_transactions.pt_dateOfService',
-						'condition' => '<=',
-		        		'value' => $this->input->post('toDate')
-					]
-				],
-				'return_type' => 'object'
-			];
 
-			$page_data['results'] = $this->transaction_model->get_records_by_join($transaction_params);
+			$page_data['fromDate'] = implode('/', [
+				$this->input->post('year'),
+				$this->input->post('month'),
+				$this->input->post('fromDate')
+			]);
+
+			$page_data['toDate'] = implode('/', [
+				$this->input->post('year'),
+				$this->input->post('month'),
+				$this->input->post('toDate')
+			]);
+
+			$page_data['results'] = $this->payroll_model->list(
+				$page_data['fromDate'], 
+				$page_data['toDate']
+			);
 		}
 
 		$this->twig->view('payroll_management/payroll/search', $page_data);

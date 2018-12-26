@@ -2,7 +2,6 @@
 
 {% 
   set scripts = [
-    'dist/js/patient_management/profile/add',
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions'

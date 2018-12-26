@@ -61,7 +61,8 @@ class Payroll_entity {
 				'amount' => $this->provider_details->provider_rate_mileage,
 				'total' => 0
 			],
-			'total' => 0
+			'total_salary' => 0,
+			'total_visits' => 0
 		];
 
 		foreach ($this->provider_transactions as $provider_transaction) 
@@ -69,22 +70,32 @@ class Payroll_entity {
 			if ((int) $provider_transaction->tov_id == $this->type_of_visits::INITIAL_VISIT_HOME)
 			{
 				$computed['initial_visit_home']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
 			}
 			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::INITIAL_VISIT_FACILITY)
 			{
 				$computed['initial_visit_facility']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
 			}
 			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_HOME)
 			{
 				$computed['follow_up_home']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
 			}
 			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_FACILITY)
 			{
 				$computed['follow_up_facility']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
 			}
 			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::NO_SHOW)
 			{
 				$computed['no_show']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
 			}
 
 			if ( ! empty($provider_transaction->pt_aw_ippe_code)) {
@@ -103,44 +114,43 @@ class Payroll_entity {
 		$computed['initial_visit_home']['total'] = $computed['initial_visit_home']['qty'] * 
 			$computed['initial_visit_home']['amount'];
 
-		$computed['total'] += $computed['initial_visit_home']['total'];
+		$computed['total_salary'] += $computed['initial_visit_home']['total'];
 
 		$computed['initial_visit_facility']['total'] = $computed['initial_visit_facility']['qty'] * 
 			$computed['initial_visit_facility']['amount'];
 		
-		$computed['total'] += $computed['initial_visit_facility']['total'];
+		$computed['total_salary'] += $computed['initial_visit_facility']['total'];
 
 		$computed['follow_up_home']['total'] = $computed['follow_up_home']['qty'] * 
 			$computed['follow_up_home']['amount'];
 
-		$computed['total'] += $computed['follow_up_home']['total'];
+		$computed['total_salary'] += $computed['follow_up_home']['total'];
 		
 		$computed['follow_up_facility']['total'] = $computed['follow_up_facility']['qty'] * 
 			$computed['follow_up_facility']['amount'];
 
-		$computed['total'] += $computed['follow_up_facility']['total'];
+		$computed['total_salary'] += $computed['follow_up_facility']['total'];
 		
 		$computed['no_show']['total'] = $computed['no_show']['qty'] * 
 			$computed['no_show']['amount'];
 
-		$computed['total'] += $computed['no_show']['total'];
+		$computed['total_salary'] += $computed['no_show']['total'];
 		
 		$computed['aw_ippe']['total'] = $computed['aw_ippe']['qty'] * 
 			$computed['aw_ippe']['amount'];
 
-		$computed['total'] += $computed['aw_ippe']['total'];
+		$computed['total_salary'] += $computed['aw_ippe']['total'];
 		
 		$computed['acp']['total'] = $computed['acp']['qty'] * 
 			$computed['acp']['amount'];
 
-		$computed['total'] += $computed['acp']['total'];
+		$computed['total_salary'] += $computed['acp']['total'];
 		
 		$computed['mileage']['total'] = $computed['mileage']['qty'] * 
 			$computed['mileage']['amount'];
 
-		$computed['total'] += $computed['mileage']['total'];
+		$computed['total_salary'] += $computed['mileage']['total'];
 
 		return $computed;
 	}
-
 }
