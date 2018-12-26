@@ -637,56 +637,8 @@ $config = array(
             )
         ),
         array(
-            'field' => 'pt_providerID',
-            'label' => 'Provider',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
             'field' => 'pt_dateOfService',
             'label' => 'Date of Service',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_performed',
-            'label' => 'Performed',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_acp',
-            'label' => 'ACP',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_diabetes',
-            'label' => 'Diabetes',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_tobacco',
-            'label' => 'Tobacco',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_tcm',
-            'label' => 'TCM',
             'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'
@@ -703,15 +655,7 @@ $config = array(
         array(
             'field' => 'pt_icd10_codes',
             'label' => 'ICD-10 Codes',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_dateRefEmailed',
-            'label' => 'Date Referral Was Emailed',
-            'rules' => 'required',
+            'rules' => 'max_length[255]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -729,14 +673,6 @@ $config = array(
         array(
             'field' => 'pt_tovID',
             'label' => 'Type of Visit',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_providerID',
-            'label' => 'Provider',
             'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'

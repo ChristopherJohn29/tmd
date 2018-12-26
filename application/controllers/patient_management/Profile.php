@@ -159,7 +159,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_key' => 'provider.provider_id',
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient_transactions.pt_providerID',
-					'join_table_type' => 'inner'
+					'join_table_type' => 'left'
 				]
 			],
 			'where' => [
