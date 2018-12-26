@@ -7,7 +7,7 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function details(string $provider_id) : array
+	public function details(string $provider_id, string $fromDate, string $toDate) : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -21,6 +21,20 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient_transactions.pt_providerID',
 					'join_table_type' => 'inner'
+				],
+				[
+					'join_table_name' => 'type_of_visits',
+					'join_table_key' => 'type_of_visits.tov_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_transactions.pt_tovID',
+					'join_table_type' => 'inner'
+				],
+				[
+					'join_table_name' => 'patient',
+					'join_table_key' => 'patient.patient_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_transactions.pt_patientID',
+					'join_table_type' => 'inner'
 				]
 			],
 			'where' => [
@@ -28,17 +42,17 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_providerID',
 					'condition' => '=',
 	        		'value' => $provider_id
-				]/*,
+				],
 				[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '>=',
-	        		'value' => $this->input->post('fromDate')
+	        		'value' => $fromDate
 				],
 				[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
-	        		'value' => $this->input->post('toDate')
-				]*/
+	        		'value' => $toDate
+				]
 			],
 			'return_type' => 'object'
 		];
