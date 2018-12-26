@@ -24,6 +24,8 @@ Mobiledrs.PT_trans_form = (function() {
 			{
 				formContainerFields.attr('disabled', true);
 
+				$('[name="pt_providerID"]').removeAttr('disabled');
+				$('[data-mobiledrs_autosuggest]').removeAttr('disabled');
 				$('[name="pt_dateOfService"]').removeAttr('disabled');
 				$('[name="pt_tovID"]').removeAttr('disabled');
 				$('[name="pt_notes"]').removeAttr('disabled');
