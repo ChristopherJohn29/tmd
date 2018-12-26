@@ -13,12 +13,16 @@
 
             <tbody>
 
-                <tr>
-                    <td>Alexandra Kirtchik</td>
-                    <td>13</td>
-                    <td>$1,910</td>
-                    <td><a href="{{ site_url('payroll_management/payroll/details/1') }}"><span class="label label-primary">View Details</span></a></td>
-                </tr>
+                {% for result in results %}
+
+                    <tr>
+                        <td>{{ result['provider_name'] }}</td>
+                        <td>{{ result['total_visits'] }}</td>
+                        <td>{{ result['total_salary'] }}</td>
+                        <td><a href="{{ site_url("payroll_management/payroll/details/1/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View Details</span></a></td>
+                    </tr>
+
+                {% endfor %}
 
             </tbody>
         </table>

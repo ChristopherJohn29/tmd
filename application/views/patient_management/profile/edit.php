@@ -2,7 +2,6 @@
 
 {% 
   set scripts = [
-    'dist/js/patient_management/profile/add',
     'bower_components/select2/dist/js/select2.full.min',
     'plugins/input-mask/jquery.inputmask',
     'plugins/input-mask/jquery.inputmask.date.extensions',
