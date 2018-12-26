@@ -369,6 +369,10 @@ body.print table tr th {
     padding: 3px !important;
     }
 
+body.print table th {
+    background: none !Important;
+}
+
 /* over write original css */
 
 body {
