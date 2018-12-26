@@ -64,7 +64,7 @@
 										</tr>
 
 									{% endfor %}
-									
+
 								</tbody>
 								
 							</table>
@@ -142,17 +142,12 @@
 									<tr>
 										<th>Others</th>
 										<td></td>
-										<td>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">$</span>
-                                                <input type="text" class="form-control" style="width:50px">
-                                              </div>
-                                        </td>
-										<td>-</td>
+										<td></td>
+										<td>{{ others }}</td>
 									</tr>
 									<tr class="total">
 										<th colspan="3">Total</th>
-										<td>${{ provider_payment_summary['total'] }}</td>
+										<td>${{ total }}</td>
 									</tr>
 								</tbody>
 								
@@ -162,8 +157,20 @@
              			
              			<div class="col-md-6">
              				<p class="lead">Notes</p>
-             				
-             				<p class="text-muted well well-sm no-shadow">Notes will be added here.</p>
+         					
+         					<p class="text-muted well well-sm no-shadow">
+         						
+         						{% if notes %}
+
+             						{{ notes }}
+
+	         					{% else %}
+
+	         						Notes will be added here.
+
+	         					{% endif %}
+
+         					</p>
                             
              			</div>
 			 		</div>
