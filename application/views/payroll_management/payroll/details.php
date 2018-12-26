@@ -93,7 +93,7 @@
              			<div class="col-md-6">
              				<p class="lead">Notes</p>
              				
-             				<p class="text-muted well well-sm no-shadow">Add your notes below</p>
+             				<p class="text-muted well well-sm no-shadow">Notes will be added here.</p>
 							
                             <div class="form-handler">
                                 <form>
@@ -194,7 +194,7 @@
           	
                         <div class="col-xs-12 xrx-btn-handler">
                             <div>
-                                <a href="{{ site_url('payroll_management/payroll/print') }}" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+                                <a href="{{ site_url("payroll_management/payroll/print/#{ provider_details.provider_id }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
                                 <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Generate PDF

@@ -68,7 +68,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		);
 	}
 
-	public function print()
+	public function print(string $provider_id, string $fromDate, string $toDate)
 	{
 		$this->check_permission('print_pr');
 		
