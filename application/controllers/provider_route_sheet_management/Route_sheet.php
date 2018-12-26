@@ -13,6 +13,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'patient_management/Type_visit_model' => 'tov_model',
 			'patient_management/Profile_model' => 'pt_model'
 		));
+
+		$this->load->library('Time_converter');
 	}
 
 	public function index()
@@ -251,6 +253,10 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 					'condition' =>  '=',
 					'value' => $prs_id
 				]
+			],
+			'order' => [
+				'key' => 'provider_route_sheet_list.prsl_fromTime',
+				'by' => 'ASC'
 			],
 			'return_type' => 'object'
 		];
