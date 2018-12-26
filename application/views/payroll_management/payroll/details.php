@@ -2,6 +2,12 @@
 
 {% set page_title = 'Payroll Details' %}
 
+{% 
+  set scripts = [
+    'dist/js/payroll_management/payroll/details'
+  ]
+%}
+
 {% block content %}
 <div class="row">
         <div class="col-md-12">
@@ -170,15 +176,19 @@
 												<td>
 		                                            <div class="input-group">
 		                                                <span class="input-group-addon">$</span>
-		                                                <input type="text" class="form-control" style="width:50px" name="others">
+		                                                <input type="text" 
+		                                                	class="form-control" 
+		                                                	style="width:50px" 
+		                                                	name="others"
+		                                                	data-action-url="{{ site_url('ajax/payroll_management/payroll/compute_others') }}">
 		                                              </div>
 		                                        </td>
-												<td>-</td>
+												<td class="others-amount">-</td>
 											</tr>
 											<tr class="total">
 												<th colspan="3">Total</th>
 												<input type="hidden" name="total" value="{{ provider_payment_summary['total'] }}">
-												<td>${{ provider_payment_summary['total'] }}</td>
+												<td>$ <span class="total-amount">{{ provider_payment_summary['total'] }}</span></td>
 											</tr>
 										</tbody>
 										
