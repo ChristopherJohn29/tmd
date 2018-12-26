@@ -68,7 +68,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 	{
 		$data = [];
 
-		for ($i = 0; $i < count($inputPost['prsl_time']); $i++) 
+		for ($i = 0; $i < count($inputPost['prsl_fromTime']); $i++) 
 		{
 			// get patient home health id from record
 			$pt_hhc_params = [
@@ -80,7 +80,10 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 			$data[] = [
 				'prsl_prsID' => $prsl_prsID,
-				'prsl_time' => $inputPost['prsl_time'][$i],
+				'prsl_fromTime' => $this->time_converter->convert_to_twentyfour_hrs_time(
+					$inputPost['prsl_fromTime'][$i]),
+				'prsl_toTime' => $this->time_converter->convert_to_twentyfour_hrs_time(
+					$inputPost['prsl_toTime'][$i]),
 				'prsl_patientID' => $inputPost['prsl_patientID'][$i],
 				'prsl_hhcID' => $patient_record->patient_hhcID,
 				'prsl_tovID' => $inputPost['prsl_tovID'][$i],

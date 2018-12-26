@@ -108,14 +108,21 @@
 													</p>
 												</div>									
 
-												<div class="col-md-6 form-group {{ form_error('prsl_time') ? 'has-error' : '' }}">
+												<div class="col-md-4 form-group {{ form_error('prsl_fromTime') ? 'has-error' : '' }}">
+											
+													<label class="control-label">Time of Visit from<span>*</span></label>
+													<input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_fromTime[]" value="{{ list.get_fromTime() }}"">
+													
+												</div>
+	                                            
+	                                            <div class="col-md-4 form-group {{ form_error('prsl_toTime') ? 'has-error' : '' }}">
 												
-													<label class="control-label">Time of Visit <span>*</span></label>
-													<input type="text" class="form-control" id="" placeholder="" required="true" name="prsl_time[]" value="{{ set_value('prsl_time[]', list.prsl_time) }}">
+													<label class="control-label">Time of Visit to<span>*</span></label>
+	                                                <input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_toTime[]" value="{{ list.get_toTime() }}">
 													
 												</div>
 												
-												<div class="col-md-6 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
+												<div class="col-md-4 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
 												
 													<label class="control-label">Type of Visit <span>*</span></label>
 													
@@ -132,11 +139,15 @@
 													
 												</div>
 
-												<div class="col-md-6 has-error">
-													<span class="help-block">{{ form_error('prsl_time') }}</span>
+												<div class="col-md-4 has-error">
+													<span class="help-block">{{ form_error('prsl_fromTime') }}</span>
 												</div>
 
-												<div class="col-md-6 has-error">
+												<div class="col-md-4 has-error">
+													<span class="help-block">{{ form_error('prsl_toTime') }}</span>
+												</div>
+
+												<div class="col-md-4 has-error">
 													<span class="help-block">{{ form_error('prsl_tovID') }}</span>
 												</div>	
 												

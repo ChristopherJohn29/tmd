@@ -94,14 +94,16 @@ Mobiledrs.Main =  (function() {
 		if (timePickers.length)
 		{
 			$('[data-timepicker]').timepicker({
-				minuteStep: 60
+				minuteStep: 60,
+				defaultTime: '8:00 AM'
 			});
 		}
 	};
 
 	return {
 		init: init,
-		autosuggest: autosuggest
+		autosuggest: autosuggest,
+		timePicker: timePicker
 	};
 })();
 
