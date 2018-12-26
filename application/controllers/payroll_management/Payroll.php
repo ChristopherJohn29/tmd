@@ -68,14 +68,23 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		);
 	}
 
-	public function print(string $provider_id, string $fromDate, string $toDate)
+	public function form(string $provider_id, string $fromDate, string $toDate)
 	{
 		$this->check_permission('print_pr');
-		
-		$this->twig->view(
-			'payroll_management/payroll/print', 
-			$this->get_provider_details_data($provider_id, $fromDate, $toDate)
-		);
+
+		$page_data = $this->get_provider_details_data($provider_id, $fromDate, $toDate);
+		$page_data['notes'] = $this->input->post('notes');
+		$page_data['others'] = $this->input->post('others');
+		$page_data['total'] = $this->input->post('total');
+
+		if ($this->input->post('submit_type') == 'print')
+		{
+			$this->twig->view('payroll_management/payroll/print', $page_data);
+		}
+		else
+		{
+			redirect('errors/page_not_found');
+		}
 	}
 
 	private function get_provider_details_data(string $provider_id, string $fromDate, string $toDate) : array
