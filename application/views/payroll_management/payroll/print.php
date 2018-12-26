@@ -54,7 +54,7 @@
              		</div>
 -->
              		
-             		<div class="row xrx-row-spacer">
+             		<div class="row">
              		
              			<div class="col-md-12">
              			
