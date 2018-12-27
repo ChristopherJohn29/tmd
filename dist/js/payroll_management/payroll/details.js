@@ -7,10 +7,14 @@ Mobiledrs.Payroll_details = (function() {
 	};
 
 	var	others = function() {
+		var hasFirstAdd = false;
+		var defaultTotalAmount = $('[name="total"]').val();
+
 		$('[name="others"]').on('change', function() {
 			var others = $(this).val();
 			var actionUrl = $(this).attr('data-action-url');
 			var total = $('[name="total"]');
+			var totalAmount = total.val();
 
 			if (others == '')
 			{
@@ -24,10 +28,19 @@ Mobiledrs.Payroll_details = (function() {
 				return false;
 			}
 
+			if (hasFirstAdd)
+			{
+				totalAmount = defaultTotalAmount;
+			}
+			else
+			{
+				hasFirstAdd =  true;
+			}
+
 			$.ajax({
 				method: 'GET',
 				url: actionUrl,
-				data: '&total=' + total.val() + '&others=' + others,
+				data: '&total=' + totalAmount + '&others=' + others,
 				success: function(data) {
 					var newTotal = JSON.parse(data);
 
