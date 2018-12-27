@@ -8,7 +8,7 @@ class Facility_visits extends \Mobiledrs\core\MY_Controller {
 
 	}
 
-	public function index()
+	public function details(string $fromDate, string $toDate)
 	{
 		$this->check_permission('generate_sbfvr');
 
