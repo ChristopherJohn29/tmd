@@ -272,4 +272,13 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 
 		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
 	}
+
+	public function print(string $prs_id)
+	{
+		$this->check_permission('print_prs');
+		
+		$page_data = [];
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/print', $page_data);
+	}
 }

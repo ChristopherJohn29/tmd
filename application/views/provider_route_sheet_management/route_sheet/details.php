@@ -66,7 +66,7 @@
 
                         {% if roles_permission_entity.has_permission_name(['print_prs']) %}
 						  
-                          <a href="#" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+                          <a href="{{ site_url("provider_route_sheet_management/route_sheet/print/#{ record.prs_id }") }}" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
                         {% endif %}
 						

@@ -17,8 +17,8 @@ class Dashboard extends \Mobiledrs\core\MY_Controller {
 	public function index()
 	{
 		$pt_params = [
-			'table_key' => 'patient_dateCreated',
-			'order_type' => 'DESC'
+			'key' => 'patient.patient_dateCreated',
+			'order_by' => 'DESC'
 		];
 
 		$patients = $this->pt_profile_model->records($pt_params);
