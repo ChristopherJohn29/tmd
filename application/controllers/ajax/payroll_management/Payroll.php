@@ -12,7 +12,7 @@ class Payroll extends \Mobiledrs\core\MY_AJAX_Controller {
 
 	public function compute_others()
 	{
-		$total = (float) $this->input->get('others') + (float) $this->input->get('total');
+		$total =  (float) $this->input->get('total') + (float) $this->input->get('others');
 
 		echo json_encode($total);
 	}
