@@ -61,8 +61,6 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 		for ($i = 0; $i < count($records); $i++) {
 			$trans_params = [
-				'order_key' => 'patient_transactions.pt_dateOfService',
-				'order_by' => 'DESC',
 				'key' => 'patient_transactions.pt_patientID',
 				'value' => $records[$i]->patient_id,
 				'joins' => [
