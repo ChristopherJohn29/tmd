@@ -99,9 +99,7 @@
 	             			<div class="col-md-6">
 	             				<p class="lead">Notes</p>
 	             				
-	             				<p class="text-muted well well-sm no-shadow">Notes will be added here.</p>
-								
-	                            <div class="form-handler">
+	             				<div class="form-handler">
                                     <textarea class="form-control" name="notes"></textarea>
 	                            </div>
 	                            
