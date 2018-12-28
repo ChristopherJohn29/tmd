@@ -203,6 +203,22 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('view_prs');
 
+		$page_data = $this->get_routesheet_details_data($prs_id);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
+	}
+
+	public function print(string $prs_id)
+	{
+		$this->check_permission('print_prs');
+		
+		$page_data = $this->get_routesheet_details_data($prs_id);
+
+		$this->twig->view('provider_route_sheet_management/route_sheet/print', $page_data);
+	}
+
+	private function get_routesheet_details_data(string $prs_id) : array
+	{
 		$record_params = [
 			'joins' => [
 				[
@@ -270,15 +286,6 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['lists'] = $this->rs_list_model->get_records_by_join($lists_params);
 
-		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
-	}
-
-	public function print(string $prs_id)
-	{
-		$this->check_permission('print_prs');
-		
-		$page_data = [];
-
-		$this->twig->view('provider_route_sheet_management/route_sheet/print', $page_data);
+		return $page_data;
 	}
 }
