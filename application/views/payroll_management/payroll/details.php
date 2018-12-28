@@ -55,7 +55,7 @@
              		
              			<div class="col-md-12">
              			
-             				<p class="lead">Transactions</p>
+             				<p class="lead">Visits</p>
                             
              				<div class="table-responsive">
              				<table class="table no-margin table-striped">
@@ -100,7 +100,7 @@
 	             				<p class="lead">Notes</p>
 	             				
 	             				<div class="form-handler">
-                                    <textarea class="form-control" name="notes"></textarea>
+                                    <textarea class="form-control" name="notes" rows="5"></textarea>
 	                            </div>
 	                            
 	             			</div>
