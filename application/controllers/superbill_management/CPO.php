@@ -1,6 +1,6 @@
 <?php
 
-class CPO_485 extends \Mobiledrs\core\MY_Controller {
+class CPO extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
 	{
@@ -8,7 +8,7 @@ class CPO_485 extends \Mobiledrs\core\MY_Controller {
 
 	}
 
-	public function index()
+	public function details(string $fromDate, string $toDate)
 	{
 		$this->check_permission('generate_sbcpor');
 
