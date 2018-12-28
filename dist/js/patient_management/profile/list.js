@@ -2,7 +2,7 @@
     $('#all-patient-list').DataTable({
       	'paging'      : true,
       	'lengthChange': true,
-      	'searching'   : true,
+      	'searching'   : false,
       	'info'        : true,
       	'autoWidth'   : false,
   		  "columnDefs": [
