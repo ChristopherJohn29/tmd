@@ -5,7 +5,7 @@
 {% block content %}
 	 <div class="row">
 
-	  	<div class="col-lg-6">
+	  	<div class="col-lg-8">
           <div class="box">
           
             <div class="box-header with-border">
