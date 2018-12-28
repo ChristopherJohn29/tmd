@@ -166,7 +166,7 @@
 
 	         					{% else %}
 
-	         						Notes will be added here.
+	         						There are no additional notes.
 
 	         					{% endif %}
 
