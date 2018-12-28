@@ -32,7 +32,7 @@
                             <th>Referral Date</th>
                             <th>ICD10 - Code Diagnoses</th>
                             <th>Date of Service</th>
-                            <th width="200px">Actions</th>
+                            <th width="170px">Actions</th>
                         </tr>
                     </thead>
 
@@ -68,7 +68,7 @@
 
                                         {% if roles_permission_entity.has_permission_name(['add_tr']) %}
 
-                                            <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add Transaction</span></a>
+                                            <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add Visit</span></a>
 
                                         {% endif %}
                                     </td>
