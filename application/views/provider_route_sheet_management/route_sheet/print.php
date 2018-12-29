@@ -20,7 +20,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="name rs">{{ record.get_provider_fullname() }}<small>Provider Name</small></h1>
+                        <h3 class="name rs">{{ record.get_provider_fullname() }}</h3>
                     </div>
                 </div>
 
