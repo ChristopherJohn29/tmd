@@ -7,7 +7,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function get_pt_transaction(string $fromDate, string $toDate) : array
+	public function get_transaction(string $fromDate, string $toDate, array $type_of_visit = []) : array
 	{
 		$transaction_params = [
 			'joins' => [
@@ -23,6 +23,13 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'join_table_key' => 'provider.provider_id',
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient_transactions.pt_providerID',
+					'join_table_type' => 'left'
+				],
+				[
+					'join_table_name' => 'patient',
+					'join_table_key' => 'patient.patient_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_transactions.pt_patientID',
 					'join_table_type' => 'left'
 				]
 			],
@@ -41,7 +48,14 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			'return_type' => 'object'
 		];
 
-		return $this->transaction_model->get_records_by_join($transaction_params);
+		if ( ! empty($type_of_visit))
+		{
+			$transaction_params['where_in_list'] = [
+				'key' => 'patient_transactions.pt_tovID',
+				'values' => $type_of_visit
+			];
+		}
 
+		return $this->transaction_model->get_records_by_join($transaction_params);
 	}
 }

@@ -106,13 +106,21 @@ class MY_Models extends \CI_Model {
 
 		if (isset($params['where']))
 		{
-			foreach ($params['where'] as $key => $value) {
+			foreach ($params['where'] as $value) {
 				$this->db->where(
 					$value['key'] . ' ' .
 					$value['condition'],
 					$value['value']
 				);
 			}
+		}
+
+		if (isset($params['where_in_list'])) 
+		{
+			$this->db->where_in(
+				$params['where_in_list']['key'], 
+				$params['where_in_list']['values']
+			);
 		}
 
 		if (isset($params['order'])) 

@@ -1,10 +1,19 @@
 <?php
 
+use \Mobiledrs\entities\superbill_management\Superbill_entity;
+
 class Superbill extends \Mobiledrs\core\MY_Controller {
+
+	private $transactions = ['aw', 'hv', 'fv'];
 
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->model(array(
+			'patient_management/transaction_model',
+			'superbill_management/superbill_model'
+		));
 	}
 
 	public function index()
@@ -38,33 +47,101 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			$this->check_permission($roles_permission);	
 		}
 
-		$fromDate = implode('_', [
+		$page_data['fromDate'] = implode('/', [
 			$this->input->post('year'),
 			$this->input->post('month'),
 			$this->input->post('fromDate')
 		]);
 
-		$toDate = implode('_', [
+		$page_data['toDate'] = implode('/', [
 			$this->input->post('year'),
 			$this->input->post('month'),
 			$this->input->post('toDate')
 		]);
 
-		if ($this->input->post('type') == 'aw')
+		$Superbill_data = $this->get_superbill_data(
+			$this->input->post('type'),
+			$page_data['fromDate'],
+			$page_data['toDate']
+		);
+
+		$page_data = array_merge($page_data, $Superbill_data);
+
+		$page_data['table_name_page'] = $this->input->post('type');
+
+		$this->twig->view('superbill_management/create', $page_data);
+	}
+
+	public function details(string $type, string $fromDate, string $toDate)
+	{
+		$roles_permissions = [
+			'generate_sbawr',
+			'generate_sbhvr',
+			'generate_sbfvr',
+			'generate_sbcpor'
+		];
+
+		foreach ($roles_permissions as $roles_permission)
 		{
-			redirect('superbill_management/annual_wellness/list/' . $fromDate . '/' . $toDate);
+			$this->check_permission($roles_permission);	
 		}
-		else if ($this->input->post('type') == 'hv')
+
+		$this->load->library('Date_formatter');
+
+		$new_fromDate = str_replace('_', '/', $fromDate);
+		$new_toDate = str_replace('_', '/', $toDate);
+
+		$date_formatter = new Date_formatter();
+		$date_formatter->set_date($new_fromDate, $new_toDate);
+
+		$page_data['date_billed'] = $date_formatter->format();
+
+		$superbill_data = $this->get_superbill_data(
+			$type,
+			$new_fromDate,
+			$new_toDate
+		);
+
+		$page_data = array_merge($page_data, $superbill_data);
+
+		$this->twig->view('superbill_management/details_' . $type, $page_data);
+	}
+
+	private function get_superbill_data(
+		string $type,
+		string $fromDate,
+		string $toDate
+	)
+	{
+		if (in_array($type, $this->transactions))
 		{
-			redirect('superbill_management/home_visits/list/' . $fromDate . '/' . $toDate);
+			$type_of_visit = [];
+			if ($type == 'hv' || $type == 'fv')
+			{
+				$type_of_visit = (new Superbill_entity())->get_sel_type_visit($type);
+			}
+
+			$page_data['transactions'] = $this->superbill_model->get_transaction(
+				$fromDate,
+				$toDate,
+				empty($type_of_visit) ? [] : $type_of_visit 
+			);
+
+			$superbill_entity = new Superbill_entity($page_data['transactions']);
+
+			$summary_func = 'compute_transaction_' . $type . '_summary';
+
+			$page_data['summary'] = $superbill_entity->$summary_func();
 		}
-		else if ($this->input->post('type') == 'fv')
+		else if ($type == 'cpo')
 		{
-			redirect('superbill_management/facility_visits/list/' . $fromDate . '/' . $toDate);
+			
 		}
-		else if ($this->input->post('type') == 'cpo')
+		else 
 		{
-			redirect('superbill_management/CPO/list/' . $fromDate . '/' . $toDate);
+			redirect('errors/page_not_found');
 		}
+
+		return $page_data;
 	}
 }

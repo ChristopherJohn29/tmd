@@ -169,11 +169,11 @@
                             
                             <div class="table-responsive">
                                 
-                                {% if results is defined and results|length > 0 %}
+                                {% if summary is defined and summary|length > 0 %}
 
-                                    {{ include("superbill_management/mixins/superbill_table_#{ table_name_page }.php") }}
+                                    {{ include("superbill_management/mixins/list_#{ table_name_page }.php") }}
 
-                                 {% elseif results is defined and results|length == 0 %}
+                                 {% elseif summary is defined and summary|length == 0 %}
 
                                     <div class="no-data-handler">
 
