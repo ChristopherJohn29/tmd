@@ -103,7 +103,10 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			$CPO,
 			$prof_trans
 		);
-
+// echo '<pre>';
+// echo var_dump( $pat_trans_entity->format_display());
+// echo '<pre>';
+// exit;
 		return [
 			'transactions' => $pat_trans_entity->format_display(),
 			'CPOs' => $CPO

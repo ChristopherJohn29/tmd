@@ -83,7 +83,12 @@ class Superbill_cpo_pat_trans_entity {
 				'first_Month_CPO' => $cpo->ptcpo_firstMonthCPO,
 				'second_Month_CPO' => $cpo->ptcpo_secondMonthCPO,
 				'third_Month_CPO' => $cpo->ptcpo_thirdMonthCPO,
-				'discharge_Date' => $cpo->ptcpo_dischargeDate
+				'discharge_Date' => $cpo->ptcpo_dischargeDate,
+				'Recert_Period' => '',
+				'Recert_Date_Signed' => '',
+				'Refirst_Month_CPO' => '',
+				'Resecond_Month_CPO' => '',
+				'Rethird_Month_CPO' => ''
 			];
 
 			foreach ($this->pat_trans as $pat_tran)
@@ -91,7 +96,7 @@ class Superbill_cpo_pat_trans_entity {
 				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID && 
 					in_array($pat_tran->pt_tovID, Type_visit_entity::get_visits_list()))
 				{
-					$data[$i]['patien_name'] = $pat_tran->get_patient_fullname();
+					$data[$i]['patient_name'] = $pat_tran->get_patient_fullname();
 					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
 
 					break;

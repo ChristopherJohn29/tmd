@@ -58,7 +58,7 @@
 									{% for transaction in transactions %}
 
 										<tr>
-											<td>{{ transaction['patien_name'] }}</td>
+											<td>{{ transaction['patient_name'] }}</td>
 											<td>{{ transaction['icd10'] }}</td>
 											<td>{{ transaction['cert_Period'] }}</td>
 											<td>{{ transaction['date_Signed'] }}</td>
