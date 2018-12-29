@@ -69,12 +69,12 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			'order_by' => 'ASC',
 			'where' => [
 				[
-					'key' => 'ptcpo_dateCreated',
+					'key' => 'patient_cpo.ptcpo_dateCreated',
 					'condition' => '>=',
 					'value' => $fromDate
 				],
 				[
-					'key' => 'ptcpo_dateCreated',
+					'key' => 'patient_cpo.ptcpo_dateCreated',
 					'condition' => '<=',
 					'value' => $toDate
 				]
@@ -103,10 +103,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			$CPO,
 			$prof_trans
 		);
-// echo '<pre>';
-// echo var_dump( $pat_trans_entity->format_display());
-// echo '<pre>';
-// exit;
+
 		return [
 			'transactions' => $pat_trans_entity->format_display(),
 			'CPOs' => $CPO
