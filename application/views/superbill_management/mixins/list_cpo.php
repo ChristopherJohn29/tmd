@@ -18,16 +18,16 @@
     <tbody>
         <tr>
             <td>CPO-485</td>
-            <td class="text-center">5</td>
-            <td class="text-center">5</td>
-            <td class="text-center">5</td>
-            <td class="text-center">5</td>
-            <td class="text-center">4</td>
-            <td class="text-center">4</td>
-            <td class="text-center">4</td>
-            <td class="text-center">0</td>
-            <td class="text-center">32</td>
-            <td><a href="{{ site_url('superbill_management/CPO_485/') }}"><span class="label label-primary">View Details</span></a></td>
+            <td class="text-center">{{ summary['date_Signed'] }}</td>
+            <td class="text-center">{{ summary['first_Month_CPO'] }}</td>
+            <td class="text-center">{{ summary['second_Month_CPO'] }}</td>
+            <td class="text-center">{{ summary['third_Month_CPO'] }}</td>
+            <td class="text-center">{{ summary['Recert_Date_Signed'] }}</td>
+            <td class="text-center">{{ summary['Refirst_Month_CPO'] }}</td>
+            <td class="text-center">{{ summary['Resecond_Month_CPO'] }}</td>
+            <td class="text-center">{{ summary['Rethird_Month_CPO'] }}</td>
+            <td class="text-center">{{ summary['total'] }}</td>
+            <td><a href="{{ site_url("superbill_management/superbill/details/#{ table_name_page }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View Details</span></a></td>
         </tr>
     </tbody>
 </table>

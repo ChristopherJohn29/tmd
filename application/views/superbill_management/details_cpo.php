@@ -22,11 +22,7 @@
              				<table class="table xrx-table">
              					<tr>
              						<th>Date Billed:</th>
-             						<td></td>
-             					</tr>
-             					<tr>
-             						<th>Place of Service:</th>
-             						<td></td>
+             						<td>{{ date_billed }}</td>
              					</tr>
              				</table>
              			</div>
@@ -58,195 +54,128 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<td>Tolentino, Lorna</td>
-										<td>I25.10, I10, M15.0, M54.5, E11.9, I10, N40.0, J44.1</td>
-										<td>4/19/2018 - 6/17/2018</td>
-										<td>03/05/2018</td>
-										<td>4/23 - 4/30</td>
-										<td>5/22 - 5/28</td>
-										<td>6/1 - 6/14</td>
-										<td>6/18/2018 - 8/16/2018</td>
-										<td>02/07/2018</td>
-										<td>7/3 - 7/19</td>
-										<td>8/2 - 8/14</td>
-										<td></td>
-										<td></td>
-									</tr>
-									
-									<tr>
-										<td>Tolentino, Lorna</td>
-										<td>I25.10, Z74.01, M15.8, E78.2, I10</td>
-										<td>4/24/2018 - 6/22/2018</td>
-										<td>08/05/2018</td>
-										<td>4/26 - 4/30</td>
-										<td>5/2 - 5/17</td>
-										<td>6/4 - 6/15</td>
-										<td>6/23/2018 - 8/21/2018</td>
-										<td>09/07/2018</td>
-										<td>7/2 - 7/17</td>
-										<td>8/3 - 8/16</td>
-										<td></td>
-										<td></td>
-									</tr>
-									
-									<tr>
-										<td>Tolentino, Lorna</td>
-										<td>M15.8, I10, R26.2, E78.6, I25.10, R84.5</td>
-										<td>4/24/2018 - 6/22/2018</td>
-										<td>08/05/201</td>
-										<td>4/26/ - 4/30</td>
-										<td>5/4 - 5/21</td>
-										<td>6/4 - 6/19</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									
-									<tr>
-										<td>Tolentino, Lorna</td>
-										<td>F03.90, F32.1, 125.10, M15.9, R07.89</td>
-										<td>5/6/2018 - 7/04/2018</td>
-										<td>18/05/2018</td>
-										<td>5/10 - 5/28</td>
-										<td>6/11 - 6/28</td>
-										<td>7/2 - 7/4</td>
-										<td>7/05/2018 - 9/02/2018</td>
-										<td>19/07/2018</td>
-										<td>8/16 - 8/28</td>
-										<td>9/1 - 9/2</td>
-										<td></td>
-										<td>29/08/2018</td>
-									</tr>
-									
-									<tr>
-										<td>Tolentino, Lorna</td>
-										<td>I10, M25.561, M25.562, K21.9, G47.01, H25.12, M54.5, R07.1, I25.10, E78.2</td>
-										<td>4/22/2018 - 6/20/2018</td>
-										<td>07/05/2018</td>
-										<td>4/23 - 4/30</td>
-										<td>5/4 - 5/23</td>
-										<td>6/1 - 6/18</td>
-										<td>6/21/2018 - 8/19/2018</td>
-										<td>05/07/2018</td>
-										<td>7/3 - 7/21</td>
-										<td>8/2 - 8/15</td>
-										<td></td>
-										<td></td>
-									</tr>
+
+									{% for transaction in transactions %}
+
+										<tr>
+											<td>{{ transaction['patien_name'] }}</td>
+											<td>{{ transaction['icd10'] }}</td>
+											<td>{{ transaction['cert_Period'] }}</td>
+											<td>{{ transaction['date_Signed'] }}</td>
+											<td>{{ transaction['first_Month_CPO'] }}</td>
+											<td>{{ transaction['second_Month_CPO'] }}</td>
+											<td>{{ transaction['third_Month_CPO'] }}</td>
+											<td>{{ transaction['Recert_Period'] }}</td>
+											<td>{{ transaction['Recert_Date_Signed'] }}</td>
+											<td>{{ transaction['Refirst_Month_CPO'] }}</td>
+											<td>{{ transaction['Resecond_Month_CPO'] }}</td>
+											<td>{{ transaction['Rethird_Month_CPO'] }}</td>
+											<td>{{ transaction['discharge_Date'] }}</td>
+										</tr>
+
+									{% endfor %}
+
 								</tbody>
 							</table>
                             </div>
              			</div>
              		</div>
              		
-             		
+             		<form>
 					
-					<div class="row xrx-row-spacer">
-					
-             			<div class="col-md-6">
-             				<p class="lead">Notes</p>
-             				
-             				<p class="text-muted well well-sm no-shadow">Notes will be added here.</p>
-							
-                            <div class="form-handler">
-                                <form>
-                                    <textarea class="form-control" id="" placeholder=""></textarea>
-                                </form>
-                                <div class="xrx-btn-handler">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-check"></i> Add Note
-                                </button></div>
-                            </div>
-                            
-             			</div>
-             			
-             			<div class="col-md-6">
-             			
-             				<p class="lead">Summary</p>
-             			
-             				<table class="table no-margin">
-					
-				 				<tbody>
-									<tr>
-										<th>G0180</th>
-										<td>485 Signed</td>
-										<td>5</td>
-									</tr>
-									
-									<tr>
-										<th>G0181</th>
-										<td>1st Month CPO</td>
-										<td>5</td>
-									</tr>
-									
-									<tr>
-										<th>G0181</th>
-										<td>2nd Month CPO</td>
-										<td>5</td>
-									</tr>
-									
-									<tr>
-										<th>G0181</th>
-										<td>3rd Month CPO</td>
-										<td>5</td>
-									</tr>
-									
-									<tr>
-										<th>G0179</th>
-										<td>Re-cert Signed</td>
-										<td>4</td>
-									</tr>
-									
-									<tr>
-										<th>G0181</th>
-										<td>1st Month CPO</td>
-										<td>4</td>
-									</tr>
-									
-									<tr>
-										<th>G0181</th>
-										<td>2nd Month CPO</td>
-										<td>4</td>
-									</tr>
-									
-									<tr>
-										<th>G0181</th>
-										<td>3rd Month CPO</td>
-										<td>0</td>
-									</tr>
-									
-									<tr class="total">
-										<th colspan="2">TOTAL</th>
-										<th>32</th>
-									</tr>
-								</tbody>
-					
-             				</table>
-             			
-             			</div>
-             			
-             			
-			 		</div>
-             		
-             		<div class="row no-print">
-          	
-                        <div class="col-xs-12 xrx-btn-handler">
-                            <a href="cpo_485.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+						<div class="row xrx-row-spacer">
+						
+	             			<div class="col-md-6">
+	             				<p class="lead">Notes</p>
+	             				
+	                            <div class="form-handler">
+	                                <textarea class="form-control" name="notes"></textarea>
+	                            </div>
+	                            
+	             			</div>
+	             			
+	             			<div class="col-md-6">
+	             			
+	             				<p class="lead">Summary</p>
+	             			
+	             				<table class="table no-margin">
+						
+					 				<tbody>
+										<tr>
+											<th>G0180</th>
+											<td>485 Signed</td>
+											<td>{{ summary['date_Signed'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>1st Month CPO</td>
+											<td>{{ summary['first_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>2nd Month CPO</td>
+											<td>{{ summary['second_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>3rd Month CPO</td>
+											<td>{{ summary['third_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0179</th>
+											<td>Re-cert Signed</td>
+											<td>{{ summary['Recert_Date_Signed'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>1st Month CPO</td>
+											<td>{{ summary['Refirst_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>2nd Month CPO</td>
+											<td>{{ summary['Resecond_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>3rd Month CPO</td>
+											<td>{{ summary['Rethird_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr class="total">
+											<th colspan="2">TOTAL</th>
+											<th>{{ summary['total'] }}</th>
+										</tr>
+									</tbody>
+						
+	             				</table>
+	             			
+	             			</div>	             			
+	             			
+				 		</div>
+	             		
+	             		<div class="row no-print">
+	          	
+	                        <div class="col-xs-12 xrx-btn-handler">
+	                            <button type="submit" value="pdf" formtarget="_blank" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+	                            	<i class="fa fa-download"></i> Generate PDF
+	                            </button>
 
-                            <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
-                            </button>
+	                            <button type="submit" value="paid" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
+	                            	<i class="fa fa-credit-card"></i> Paid
+	                            </button>
+	                        </div>
 
-                            <button type="button" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-credit-card"></i> Paid
-                            </button>
-                        </div>
+	                    </div>
 
-                    </div>
+                    </form>
              		
              	</section>
               

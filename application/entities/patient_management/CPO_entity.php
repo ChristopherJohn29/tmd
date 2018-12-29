@@ -15,4 +15,7 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	protected $ptcpo_dateBilled;
 	protected $ptcpo_status;
 	protected $ptcpo_dateCreated;
+
+	public const CERTIFICATION = 'Certification';
+	public const RECERTIFICATION = 'Re-Certification';
 }

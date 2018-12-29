@@ -1,7 +1,10 @@
 <?php
 
 class Superbill_model extends \Mobiledrs\core\MY_Models {
-	
+
+	protected $table_name = 'patient';
+	protected $entity = '\Mobiledrs\entities\superbill_management\Superbill_cpo_pat_trans_entity';
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -57,5 +60,53 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		}
 
 		return $this->transaction_model->get_records_by_join($transaction_params);
+	}
+
+	public function get_CPO(string $fromDate, string $toDate) : array
+	{
+		$cpo_trans = [
+			'key' => 'ptcpo_patientID',
+			'order_by' => 'ASC',
+			'where' => [
+				[
+					'key' => 'ptcpo_dateCreated',
+					'condition' => '>=',
+					'value' => $fromDate
+				],
+				[
+					'key' => 'ptcpo_dateCreated',
+					'condition' => '<=',
+					'value' => $toDate
+				]
+			]
+		];
+
+		$CPO =  $this->CPO_model->records($cpo_trans);
+
+		$pat_trans_params = [
+			'joins' => [
+				[
+					'join_table_name' => 'patient_transactions',
+					'join_table_key' => 'patient_transactions.pt_patientID',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_id',
+					'join_table_type' => 'inner'
+				]
+			],
+			'return_type' => 'object'
+		];
+
+		$prof_trans = $this->get_records_by_join($pat_trans_params);
+
+		$pat_trans_entity = new \Mobiledrs\entities\superbill_management\Superbill_cpo_pat_trans_entity();
+		$pat_trans_entity->set_display_data(
+			$CPO,
+			$prof_trans
+		);
+
+		return [
+			'transactions' => $pat_trans_entity->format_display(),
+			'CPOs' => $CPO
+		];
 	}
 }

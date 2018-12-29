@@ -11,6 +11,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
+			'patient_management/CPO_model',
+			'patient_management/profile_model',
 			'patient_management/transaction_model',
 			'superbill_management/superbill_model'
 		));
@@ -86,15 +88,10 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			$this->check_permission($roles_permission);	
 		}
 
-		$this->load->library('Date_formatter');
-
 		$new_fromDate = str_replace('_', '/', $fromDate);
 		$new_toDate = str_replace('_', '/', $toDate);
 
-		$date_formatter = new Date_formatter();
-		$date_formatter->set_date($new_fromDate, $new_toDate);
-
-		$page_data['date_billed'] = $date_formatter->format();
+		$page_data['date_billed'] = date('m/d/y');
 
 		$superbill_data = $this->get_superbill_data(
 			$type,
@@ -127,15 +124,36 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 				empty($type_of_visit) ? [] : $type_of_visit 
 			);
 
-			$superbill_entity = new Superbill_entity($page_data['transactions']);
+			if ( ! empty($page_data['transactions']))
+			{
+				$superbill_entity = new Superbill_entity($page_data['transactions'], []);
 
-			$summary_func = 'compute_transaction_' . $type . '_summary';
+				$summary_func = 'compute_transaction_' . $type . '_summary';
 
-			$page_data['summary'] = $superbill_entity->$summary_func();
+				$page_data['summary'] = $superbill_entity->$summary_func();
+			}
+			else
+			{
+				$page_data['summary'] = [];
+			}
 		}
 		else if ($type == 'cpo')
 		{
-			
+			$page_data = $this->superbill_model->get_CPO(
+				$fromDate,
+				$toDate
+			);
+
+			if ( ! empty($page_data['CPOs']))
+			{
+				$superbill_entity = new Superbill_entity([], $page_data['CPOs']);
+
+				$page_data['summary'] = $superbill_entity->compute_CPO();
+			}
+			else
+			{
+				$page_data['summary'] = [];
+			}
 		}
 		else 
 		{
