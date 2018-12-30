@@ -85,10 +85,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		];
 
 		$CPO =  $this->CPO_model->records($cpo_trans);
-echo $this->db->last_query();
-        echo '<hr>';
-        
-        echo var_dump($CPO);exit;
+
 		$pat_trans_params = [
 			'joins' => [
 				[
