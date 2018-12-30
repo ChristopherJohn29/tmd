@@ -134,6 +134,7 @@ set scripts = [
                                                 <option>28</option>
                                                 <option>29</option>
                                                 <option>30</option>
+                                                <option>31</option>
                                             </select>
                                         </div>
                                         
