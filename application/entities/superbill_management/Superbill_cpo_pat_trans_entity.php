@@ -72,7 +72,7 @@ class Superbill_cpo_pat_trans_entity {
 				$data[$i - 1]['Recert_Date_Signed'] = $cpo->ptcpo_dateSigned;
 				$data[$i - 1]['Refirst_Month_CPO'] = $cpo->ptcpo_firstMonthCPO;
 				$data[$i - 1]['Resecond_Month_CPO'] = $cpo->ptcpo_secondMonthCPO;
-				$data[$i - 1]['Rethird_Month_CPO'] = $cpo->ptcpo_dischargeDate;
+				$data[$i - 1]['Rethird_Month_CPO'] = $cpo->ptcpo_thirdMonthCPO;
 
 				continue;
 			}

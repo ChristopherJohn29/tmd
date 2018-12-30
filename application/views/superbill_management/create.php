@@ -2,6 +2,14 @@
 
 {% set page_title = 'Superbill Create' %}
 
+{%
+
+set scripts = [
+    'dist/js/superbill_management/superbill/create'
+]
+
+%}
+
 {% block content %}
 
 <div class="row">
