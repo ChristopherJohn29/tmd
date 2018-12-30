@@ -64,6 +64,9 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_CPO(string $fromDate, string $toDate) : array
 	{
+		$new_fromDate = str_replace('/', '-', $fromDate) . ' 00:00:00';
+		$new_toDate = str_replace('/', '-', $toDate) . ' 00:00:00';
+
 		$cpo_trans = [
 			'key' => 'ptcpo_patientID',
 			'order_by' => 'ASC',
@@ -71,12 +74,12 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 				[
 					'key' => 'patient_cpo.ptcpo_dateCreated',
 					'condition' => '>=',
-					'value' => $fromDate
+					'value' => $new_fromDate
 				],
 				[
 					'key' => 'patient_cpo.ptcpo_dateCreated',
 					'condition' => '<=',
-					'value' => $toDate
+					'value' => $new_toDate
 				]
 			]
 		];
