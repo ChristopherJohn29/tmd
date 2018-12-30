@@ -58,7 +58,7 @@ set scripts = [
                                                 <option value="9">September</option>
                                                 <option value="10">October</option>
                                                 <option value="11">November</option>
-                                                <option value="12">Decemer</option>
+                                                <option value="12">December</option>
                                             </select>
                                         </div>
                                         
