@@ -65,7 +65,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 	public function get_CPO(string $fromDate, string $toDate) : array
 	{
 		$new_fromDate = str_replace('/', '-', $fromDate) . ' 00:00:00';
-		$new_toDate = str_replace('/', '-', $toDate) . ' 00:00:00';
+		$new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
 
 		$cpo_trans = [
 			'key' => 'ptcpo_patientID',
