@@ -92,61 +92,59 @@
 								
 								<tbody>
 									<tr>
-										<th>Initial Visit (Home)</th>
+										<td><strong>Initial Visit (Home)</strong></td>
 										<td>{{ provider_payment_summary['initial_visit_home']['qty'] }}</td>
 										<td>{{ provider_payment_summary['initial_visit_home']['amount'] }}</td>
 										<td>{{ provider_payment_summary['initial_visit_home']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>Initial Visit (Facility)</th>
+										<td><strong>Initial Visit (Facility)</strong></td>
 										<td>{{ provider_payment_summary['initial_visit_facility']['qty'] }}</td>
 										<td>{{ provider_payment_summary['initial_visit_facility']['amount'] }}</td>
 										<td>{{ provider_payment_summary['initial_visit_facility']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>Follow-Up Visit (Home)</th>
+										<td><strong>Follow-Up Visit (Home)</strong></td>
 										<td>{{ provider_payment_summary['follow_up_home']['qty'] }}</td>
 										<td>{{ provider_payment_summary['follow_up_home']['amount'] }}</td>
 										<td>{{ provider_payment_summary['follow_up_home']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>Follow-Up Visit (Facility)</th>
+										<td><strong>Follow-Up Visit (Facility)</strong></td>
 										<td>{{ provider_payment_summary['follow_up_facility']['qty'] }}</td>
 										<td>{{ provider_payment_summary['follow_up_facility']['amount'] }}</td>
 										<td>{{ provider_payment_summary['follow_up_facility']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>No Show</th>
+										<td><strong>No Show</strong></td>
 										<td>{{ provider_payment_summary['no_show']['qty'] }}</td>
 										<td>{{ provider_payment_summary['no_show']['amount'] }}</td>
 										<td>{{ provider_payment_summary['no_show']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>AW / IPPE</th>
+										<td><strong>AW / IPPE</strong></td>
 										<td>{{ provider_payment_summary['aw_ippe']['qty'] }}</td>
 										<td>{{ provider_payment_summary['aw_ippe']['amount'] }}</td>
 										<td>{{ provider_payment_summary['aw_ippe']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>ACP</th>
+										<td><strong>ACP</strong></td>
 										<td>{{ provider_payment_summary['acp']['qty'] }}</td>
 										<td>{{ provider_payment_summary['acp']['amount'] }}</td>
 										<td>{{ provider_payment_summary['acp']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>Mileage</th>
+										<td><strong>Mileage</strong></td>
 										<td>{{ provider_payment_summary['mileage']['qty'] }}</td>
 										<td>{{ provider_payment_summary['mileage']['amount'] }}</td>
 										<td>{{ provider_payment_summary['mileage']['total'] }}</td>
 									</tr>
 									<tr>
-										<th>Others</th>
-										<td></td>
-										<td></td>
+										<td colspan="3"><strong>Others</strong></td>
 										<td>{{ others }}</td>
 									</tr>
 									<tr class="total">
-										<th colspan="3">Total</th>
+										<td colspan="3"><strong>Total</strong></td>
 										<td>${{ total }}</td>
 									</tr>
 								</tbody>

@@ -371,12 +371,23 @@ body.print table tr th {
 
 body.print table th {
     background: none !Important;
-}
+    }
+
+body.print table td {
+    border-color: #bababa !important;
+    }
+
+body.print .xrx-info .route-sheet p {
+    font-size: 14px !important;
+    }
+
+
 
 /* over write original css */
 
 body {
 	min-height: 100vh !important;
+    font-size: 13px !important;
 	}
 
 body,
