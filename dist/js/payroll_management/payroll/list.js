@@ -7,7 +7,7 @@ Mobiledrs.Payroll_list =  (function() {
 
   var tableList = function() {
     $('#all-patient-list').DataTable({
-      'paging'      : true,
+      'paging'      : false,
       'lengthChange': false,
       'searching'   : false,
       'ordering'    : false,
