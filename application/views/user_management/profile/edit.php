@@ -29,8 +29,6 @@
                         <div class="box-body">
                         
                             {{ form_open_multipart("user_management/profile/save/edit/#{ record.user_id }", {"class": "xrx-form"}) }}
-
-                                <input type="hidden" name="user_photo" value="{{ record.user_photo }}">
                             
                                 <div class="row">
                                     <div class="col-xs-12">
@@ -64,95 +62,20 @@
                                     <div class="col-md-6 has-error">
                                         <span class="help-block">{{ form_error('user_lastname') }}</span>
                                     </div>
-                                    
-                                    <div class="col-md-6 form-group">
-                                        
-                                        <label>Upload Image</label>
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <span class="btn btn-default xrx-upload-file">
-                                                Browse... <input type="file" id="imgInp" name="user_photo" accept=".jpg, .jpeg">
-                                                </span>
-                                            </span>
-                                            <input type="text" class="form-control" disabled>
-                                        </div>
-                                        <span class="help-block">Suggested image size is 200px x 200px only.</span>
-                                        
-                                    </div>
-                                    
-                                    <div class="col-md-6 form-group">
-                                        
-                                        <center><img id="img-upload" class="img-circle" /></center>
-                                        
-                                    </div>
-                                    
-                                    <div class="col-md-12 subheader">
-                                        <p class="lead">Basic Information</p>
-                                    </div>
-                                    
-                                    <div class="col-md-6 form-group {{ form_error('user_dateOfBirth') ? 'has-error' : '' }}">
-
-                                    
-                                        <label class="control-label">Date of Birth <span>*</span></label>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="user_dateOfBirth" value="{{ set_value('user_dateOfBirth', record.get_date_format(record.user_dateOfBirth)) }}">
-                                        
-                                    </div>
-                                    
-                                    <div class="col-md-6 form-group {{ form_error('user_gender') ? 'has-error' : '' }}">
-                                    
-                                        <label class="control-label">Gender <span>*</span></label>
-                                        <select class="form-control" style="width: 100%;" id="dob" required="true" name="user_gender">
-                                            <option value="">Select</option>
-                                            <option value="Male" {{ record.get_selected_gender('Male') }}>Male</option>
-                                            <option value="Female" {{ record.get_selected_gender('Female') }}>Female</option>
-                                        </select>
-                                        
-                                    </div>
-
-                                    <div class="col-md-6 has-error">
-                                        <span class="help-block">{{ form_error('user_dateOfBirth') }}</span>
-                                    </div>
-
-                                    <div class="col-md-6 has-error">
-                                        <span class="help-block">{{ form_error('user_gender') }}</span>
-                                    </div>
-
-                                    
+                                                                        
                                     <div class="col-md-12 subheader">
                                         <p class="lead">Contact Information</p>
                                     </div>
                                     
-                                    <div class="col-md-6 form-group {{ form_error('user_phone') ? 'has-error' : '' }}">
-                                    
-                                        <label class="control-label">Phone <span>*</span></label>
-                                        <input type="text" class="form-control" required="true" name="user_phone" value="{{ set_value('user_phone', record.user_phone) }}">
-                                        
-                                    </div>
-                                    
-                                    <div class="col-md-6 form-group {{ form_error('user_email') ? 'has-error' : '' }}">
+                                    <div class="col-md-12 form-group {{ form_error('user_email') ? 'has-error' : '' }}">
                                     
                                         <label class="control-label">Email <span>*</span></label>
                                         <input type="text" class="form-control" required="true" name="user_email" value="{{ set_value('user_email', record.user_email) }}">
                                         
                                     </div>
 
-                                    <div class="col-md-6 has-error">
-                                        <span class="help-block">{{ form_error('user_phone') }}</span>
-                                    </div>
-
-                                    <div class="col-md-6 has-error">
+                                    <div class="col-md-12 has-error">
                                         <span class="help-block">{{ form_error('user_email') }}</span>
-                                    </div>
-                                    
-                                    <div class="col-md-12 form-group {{ form_error('user_address') ? 'has-error' : '' }}">
-                                    
-                                        <label class="control-label">Address <span>*</span></label>
-                                        <input type="text" class="form-control" required="true" name="user_address" value="{{ set_value('user_address', record.user_address) }}">
-                                        
-                                    </div>
-
-                                    <div class="col-md-6 has-error">
-                                        <span class="help-block">{{ form_error('user_address') }}</span>
                                     </div>
                                     
                                     <div class="col-md-12 subheader">

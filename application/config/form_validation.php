@@ -50,38 +50,6 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
-        ),
-        array(
-            'field' => 'user_dateOfBirth',
-            'label' => 'Date of Birth',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_phone',
-            'label' => 'Phone',
-            'rules' => 'required|max_length[20]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_address',
-            'label' => 'Address',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_gender',
-            'label' => 'Gender',
-            'rules' => 'required|max_length[10]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
         )
 	),
     'user_management/profile/save_update' => array(
@@ -121,38 +89,6 @@ $config = array(
             'field' => 'user_roleID',
             'label' => 'Role',
             'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_dateOfBirth',
-            'label' => 'Date of Birth',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_phone',
-            'label' => 'Phone',
-            'rules' => 'required|max_length[20]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_address',
-            'label' => 'Address',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'user_gender',
-            'label' => 'Gender',
-            'rules' => 'required|max_length[10]',
             'errors' => array(
                 'required' => 'This field is required.'
             )

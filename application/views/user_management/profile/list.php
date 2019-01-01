@@ -31,8 +31,6 @@
 					<tr>
 						<th>Full Name</th>
 						<th>Email</th>
-						<th>Phone</th>
-						<th>Birthday</th>
 						<th>Account Type</th>
 						<th width="120px">Actions</th>
 					</tr>
@@ -47,8 +45,6 @@
 						<tr>
 							<td>{{ record.get_fullname }}</td>
 							<td>{{ record.user_email }}</td>
-							<td>{{ record.user_phone }}</td>
-							<td>{{ record.get_date_format(record.user_dateOfBirth) }}</td>
 							<td>{{ record.roles_name }}</td>
 							<td>
 
@@ -72,7 +68,7 @@
 					{% else %}
 						
 						<tr>
-							<td colspan="6" class="text-center">No data available in table</td>
+							<td colspan="4" class="text-center">No data available in table</td>
 						</tr>
 
 					{% endif %}

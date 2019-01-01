@@ -11,11 +11,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $user_dateCreated;
 	protected $user_password;
 	protected $user_roleID;
-	protected $user_dateOfBirth;
-	protected $user_phone;
-	protected $user_address;
-	protected $user_gender;
-	protected $user_photo;
 
 	protected $roles_id;
 	protected $roles_name;
@@ -33,11 +28,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	public function get_selected_role(string $role_id) : string
 	{
 		return ($role_id == $this->user_roleID) ? 'selected=true' : '';
-	}
-
-	public function get_selected_gender(string $gender) : string
-	{
-		return ($gender == $this->user_gender) ? 'selected=true' : '';
 	}
 
 	public function has_changed_email(string $email) : bool

@@ -23,13 +23,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 			'user_lastname' => $this->record_entity->user_lastname,
 			'user_email' => $this->record_entity->user_email,
 			'user_password' => $this->record_entity->encrypt_password(),
-			'user_roleID' => $this->record_entity->user_roleID,
-			'user_dateOfBirth' => $this->record_entity->set_date_format(
-				$this->record_entity->user_dateOfBirth),
-			'user_phone' => $this->record_entity->user_phone,
-			'user_address' => $this->record_entity->user_address,
-			'user_gender' => $this->record_entity->user_gender,
-			'user_photo' => $this->input->post('user_photo')
+			'user_roleID' => $this->record_entity->user_roleID
 		];
 	}
 }
