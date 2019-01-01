@@ -67,7 +67,7 @@
 											<td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) == 'Yes' ? 1 : '0' }}</td>
 											<td>{{ transaction.get_provider_fullname }}</td>
 											<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
-											<td>{{ transaction.tov_name }}</td>
+											<td>{{ transaction.get_tov_code(transaction.tov_id) }}</td>
 											<td>{{ transaction.pt_icd10_codes }}</td>
 										</tr>
 
@@ -113,7 +113,7 @@
 										
 										<tr>
 											<th>99497</th>
-											<td>ACP – 9</td>
+											<td>ACP</td>
 											<td>{{ summary['ACP'] }}</td>
 										</tr>
 										

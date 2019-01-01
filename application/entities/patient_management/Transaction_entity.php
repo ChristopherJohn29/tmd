@@ -30,6 +30,11 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $tov_id; 
 	protected $tov_name;
 
+	private $tov_codes = [
+		'1' => '99345', // Initial Visit (Home)
+		'3' => '99350' // Facility Visit (Home)
+	];
+
 	protected $provider_id;
 	protected $provider_firstname;
 	protected $provider_lastname;
@@ -93,5 +98,10 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	public function get_selected_tov(string $tov) : string
 	{
 		return $this->pt_tovID == $tov ? 'selected=true' : '';
+	}
+
+	public function get_tov_code(string $tov_id) : string
+	{
+		return $this->tov_codes[$tov_id] ?? '';
 	}
 }
