@@ -18,62 +18,73 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+
+            	<div class="row">
+        			<div class="col-md-12">
+        				<div class="text-right">
+        					<a href="{{ site_url('provider_route_sheet_management/route_sheet/add') }}"><span class="label label-primary">Add</span></a>
+        				</div>
+        				<br>
+        			</div>
+            	</div>
+
                 <div class="table-responsive">
+
                     <table id="" class="table no-margin table-hover">
-				<thead>
-					<tr>
-						<th>Date of Service</th>
-						<th>Provider</th>
-						<th width="160px">Action</th>
-					</tr>
-				</thead>
-                  
-				<tbody>
-
-					{% if records %}
-
-						{% for record in records %}
-
+						<thead>
 							<tr>
-								<td>{{ record.get_date_format(record.prs_dateOfService) }}</td>
-								<td>{{ record.get_provider_fullname() }}</td>
-								<td>
-									
-									{% if roles_permission_entity.has_permission_name(['view_prs']) %}
-
-										<a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View Details</span></a>
-
-									{% endif %}
-
-									{% if roles_permission_entity.has_permission_name(['edit_prs']) %}
-										
-										<a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ record.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
-
-									{% endif %}
-
-								</td>
+								<th>Date of Service</th>
+								<th>Provider</th>
+								<th width="160px">Action</th>
 							</tr>
+						</thead>
+                  
+						<tbody>
 
-						{% endfor %}	
+							{% if records %}
 
-					{% else %}
+								{% for record in records %}
+
+									<tr>
+										<td>{{ record.get_date_format(record.prs_dateOfService) }}</td>
+										<td>{{ record.get_provider_fullname() }}</td>
+										<td>
+											
+											{% if roles_permission_entity.has_permission_name(['view_prs']) %}
+
+												<a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View Details</span></a>
+
+											{% endif %}
+
+											{% if roles_permission_entity.has_permission_name(['edit_prs']) %}
+												
+												<a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ record.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
+
+											{% endif %}
+
+										</td>
+									</tr>
+
+								{% endfor %}	
+
+							{% else %}
+								
+								<tr>
+			                        <td colspan="3" class="text-center">No data available in table</td>
+			                    </tr>
+
+							{% endif %}
+
+						</tbody>
 						
-						<tr>
-	                        <td colspan="3" class="text-center">No data available in table</td>
-	                    </tr>
-
-					{% endif %}
-
-				</tbody>
-				
-				<tfoot>
-					<tr>
-						<th>Date of Service</th>
-						<th>Provider</th>
-						<th>Actions</th>
-					</tr>
-				</tfoot>
-                </table>
+						<tfoot>
+							<tr>
+								<th>Date of Service</th>
+								<th>Provider</th>
+								<th>Actions</th>
+							</tr>
+						</tfoot>
+	                </table>
                 </div>
             </div>
             <!-- /.box-body -->

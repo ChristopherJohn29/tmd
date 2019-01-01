@@ -2,6 +2,7 @@
 
 {% 
   set scripts = [
+	'bower_components/datatables.net/js/dataTables.buttons.min',
 	'dist/js/patient_management/profile/list'
   ]
 %}

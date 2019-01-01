@@ -18,6 +18,16 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-right">
+                            <a href="{{ site_url('home_health_care_management/profile/add') }}"><span class="label label-primary">Add</span></a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                
                 <div class="table-responsive">
                 <table id="" class="table no-margin table-hover">
                     <thead>

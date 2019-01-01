@@ -569,6 +569,16 @@ li.user-header p span a {
     border: 0 !important;
     }
 
+/* datatables toolbar buttons */
+.table-responsive .toolbar {
+	text-align: right;
+	}
+
+.table-responsive .toolbar a span {
+	padding: 5px 17px 6px 16px;
+	}
+
+
 /* tables */
 
 table thead {

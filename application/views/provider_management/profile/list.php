@@ -4,6 +4,7 @@
 
 {% 
   set scripts = [
+    'bower_components/datatables.net/js/dataTables.buttons.min',
     'dist/js/provider_management/profile/list'
   ]
 %}
