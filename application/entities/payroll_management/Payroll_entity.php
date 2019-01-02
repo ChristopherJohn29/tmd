@@ -9,7 +9,7 @@ class Payroll_entity {
 	private $type_of_visits = null;
 
 	public function __construct(
-		object $provider_details,
+		$provider_details,
 		array $provider_transactions
 	)
 	{
@@ -152,5 +152,24 @@ class Payroll_entity {
 		$computed['total_salary'] += $computed['mileage']['total'];
 
 		return $computed;
+	}
+
+	public function format_display_list() : array
+	{
+		$new_providers_list = [];
+		$providers_added = [];
+
+		for ($i = 0; $i < count($this->provider_transactions); $i++)
+		{
+			if (in_array($this->provider_transactions[$i]['provider_id'], $providers_added))
+			{
+				continue;
+			}
+
+			$new_providers_list[] = $this->provider_transactions[$i];
+			$providers_added[] = $this->provider_transactions[$i]['provider_id'];
+		}
+
+		return $new_providers_list;
 	}
 }
