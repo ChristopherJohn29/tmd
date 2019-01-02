@@ -1,5 +1,7 @@
 <?php
 
+use \Mobiledrs\entities\payroll_management\Payroll_entity;
+
 class Payroll extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
@@ -36,10 +38,14 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 				$this->input->post('toDate')
 			]);
 
-			$page_data['results'] = $this->payroll_model->list(
+			$results = $this->payroll_model->list(
 				$page_data['fromDate'], 
 				$page_data['toDate']
 			);
+
+			$payroll_entity = new Payroll_entity([], $results);
+
+			$page_data['results'] = $payroll_entity->format_display_list();
 		}
 
 		$this->twig->view('payroll_management/payroll/search', $page_data);
@@ -101,7 +107,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['provider_details'] = $this->profile_model->record($provider_params);
 
-		$payroll_entity = new \Mobiledrs\entities\payroll_management\Payroll_entity(
+		$payroll_entity = new Payroll_entity(
 			$page_data['provider_details'],
 			$page_data['provider_transactions']
 		);
