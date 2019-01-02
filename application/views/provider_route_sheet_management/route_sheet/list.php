@@ -2,6 +2,13 @@
 
 {% set page_title = 'Route List' %}
 
+{% 
+  set scripts = [
+    'bower_components/datatables.net/js/dataTables.buttons.min',
+    'dist/js/provider_route_sheet_management/route_sheet/list'
+  ]
+%}
+
 {% block content %}
 	<div class="row">
 
@@ -19,18 +26,8 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-            	<div class="row">
-        			<div class="col-md-12">
-        				<div class="text-right">
-        					<a href="{{ site_url('provider_route_sheet_management/route_sheet/add') }}"><span class="label label-primary">Add</span></a>
-        				</div>
-        				<br>
-        			</div>
-            	</div>
-
                 <div class="table-responsive">
-
-                    <table id="" class="table no-margin table-hover">
+                    <table id="all-routesheet-list" class="table no-margin table-hover">
 						<thead>
 							<tr>
 								<th>Date of Service</th>
@@ -65,13 +62,7 @@
 										</td>
 									</tr>
 
-								{% endfor %}	
-
-							{% else %}
-								
-								<tr>
-			                        <td colspan="3" class="text-center">No data available in table</td>
-			                    </tr>
+								{% endfor %}
 
 							{% endif %}
 
