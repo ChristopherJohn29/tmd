@@ -571,6 +571,9 @@ li.user-header p span a {
 
 /* datatables toolbar buttons */
 .table-responsive .toolbar {
+    display: block;
+    min-height: 50px;
+    padding: 10px 8px 10px 0 !important;
 	text-align: right;
 	}
 
