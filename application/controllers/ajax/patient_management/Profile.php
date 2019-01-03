@@ -33,7 +33,7 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			{ 
 				$search_data[] = [
 					'id' => $res[$i]->patient_id,
-					'value' => $res[$i]->get_fullname()
+					'value' => $res[$i]->patient_name
 				];
 			}
 		}

@@ -5,7 +5,7 @@
       	'info'        : true,
         'dom': "<'row'<'col-sm-6'l><'col-sm-6'<\".toolbar\">>>",
         initComplete: function(){
-          var url = window.location.href  + 'add';
+          var url = window.location.href  + '/add';
           var button = $('<a href="#"><span class="label label-primary">Add</span></a>');
           
           button.attr('href', url);

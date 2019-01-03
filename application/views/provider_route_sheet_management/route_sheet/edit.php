@@ -164,7 +164,7 @@
 												  		data-mobiledrs_autosuggest 
 												  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
 												  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}"
-												  		value="{{ list.get_patient_fullname() }}">
+												  		value="{{ list.patient_name }}">
 
 												  	<div data-mobiledrs_autosuggest_dropdown id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}" style="width: 100%;">
 											  	  	</div>

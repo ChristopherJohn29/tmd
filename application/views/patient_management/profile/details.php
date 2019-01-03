@@ -14,7 +14,7 @@
              		<div class="row">
              			<div class="col-md-12">
 
-             				<h1 class="name">{{ record.get_reverse_fullname() }}<small>Patient Name</small></h1>
+             				<h1 class="name">{{ record.patient_name }}<small>Patient Name</small></h1>
 
              			</div>
              			
@@ -108,7 +108,7 @@
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ index }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
 
                                             {% endif %}
 
@@ -122,7 +122,7 @@
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <div class="tab-pane {{ index < 1 ? 'active' : '' }}" id="tab_{{ transaction.tov_id }}">
+                                                <div class="tab-pane {{ index < 1 ? 'active' : '' }}" id="tab_{{ index }}">
 
                                             {% endif %}
 

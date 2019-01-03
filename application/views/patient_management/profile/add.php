@@ -43,25 +43,14 @@
 										<span class="help-block">{{ form_error('patient_referralDate') }}</span>
 									</div>
 									
-									<div class="col-md-6 form-group {{ form_error('patient_firstname') ? 'has-error' : '' }}">
+									<div class="col-md-12 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
 									
-										<label class="control-label">First Name <span>*</span></label>
-										<input type="text" class="form-control" id="firstname" placeholder="" required="true" name="patient_firstname" value="{{ set_value('patient_firstname') }}">
+										<label class="control-label">Name <span>*</span></label>
+										<input type="text" class="form-control" id="name" placeholder="" required="true" name="patient_name" value="{{ set_value('patient_name') }}">
 									</div>
 									
-									<div class="col-md-6 form-group {{ form_error('patient_lastname') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Last Name <span>*</span></label>
-										<input type="text" class="form-control" id="lastname" placeholder="" required="true" name="patient_lastname" value="{{ set_value('patient_lastname') }}">
-                                        
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('patient_firstname') }}</span>
-									</div>
-
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('patient_lastname') }}</span>
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('patient_name') }}</span>
 									</div>
                                     
 									<div class="col-md-6 form-group {{ form_error('patient_dateOfBirth') ? 'has-error' : '' }}">

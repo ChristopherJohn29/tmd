@@ -30,7 +30,7 @@
 
 					{% if roles_permission_entity.has_permission_name(['view_pt']) %}
 					
-						<li><a href="{{ site_url('patient_management/profile/') }}"><i class="fa fa-angle-right"></i> View</a></li>
+						<li><a href="{{ site_url('patient_management/profile') }}"><i class="fa fa-angle-right"></i> View</a></li>
 
 					{% endif %}
 

@@ -8,8 +8,7 @@ use \Mobiledrs\entities\patient_management\CPO_entity;
 class Superbill_cpo_pat_trans_entity {
 
 	protected $patient_id;
-	protected $patient_firstname;
-	protected $patient_lastname;
+	protected $patient_name;
 	protected $patient_gender;
 	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
@@ -45,11 +44,6 @@ class Superbill_cpo_pat_trans_entity {
 
 	private $cpo = null;
 	private $pat_trans = null;
-
-	public function get_patient_fullname() : string
-	{
-		return $this->patient_firstname . ' ' . $this->patient_lastname;
-	}
 
 	public function set_display_data(array $CPO, array $pat_trans)
 	{
@@ -96,7 +90,7 @@ class Superbill_cpo_pat_trans_entity {
 				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID && 
 					in_array($pat_tran->pt_tovID, Type_visit_entity::get_visits_list()))
 				{
-					$data[$i]['patient_name'] = $pat_tran->get_patient_fullname();
+					$data[$i]['patient_name'] = $pat_tran->patient_name;
 					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
 
 					break;

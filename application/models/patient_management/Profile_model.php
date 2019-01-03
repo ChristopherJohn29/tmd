@@ -18,8 +18,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 		$this->prepare_entity_data();
 
 		return [
-			'patient_firstname' => $this->record_entity->patient_firstname,
-			'patient_lastname' => $this->record_entity->patient_lastname,
+			'patient_name' => $this->record_entity->patient_name,
 			'patient_gender' => $this->record_entity->patient_gender,
 			'patient_referralDate' => $this->record_entity->set_date_format($this->record_entity->patient_referralDate),
 			'patient_medicareNum' => $this->record_entity->patient_medicareNum,
@@ -79,7 +78,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 			$new_records[] = [
 				'patientId' => $records[$i]->patient_id,
 				'pt_tovID' => $patient_trans ? $patient_trans->pt_tovID : '',
-				'patientName' => $records[$i]->get_fullname(),
+				'patientName' => $records[$i]->patient_name,
 				'patientReferralDate' => $records[$i]->get_date_format($records[$i]->patient_referralDate),
 				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
 				'notes' => $patient_trans ? $patient_trans->pt_notes : '',

@@ -14,8 +14,7 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $prsl_notes;
 
 	protected $patient_id;
-	protected $patient_firstname;
-	protected $patient_lastname;
+	protected $patient_name;
 	protected $patient_gender;
 	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
@@ -37,12 +36,7 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 
 	protected $tov_id; 
 	protected $tov_name;
-
-	public function get_patient_fullname() : string
-	{
-		return $this->patient_firstname . ' ' . $this->patient_lastname;
-	}
-
+	
 	public function get_selected_tov(string $tov_id) : string
 	{
 		return ($tov_id == $this->tov_id) ? 'selected=true' : '';

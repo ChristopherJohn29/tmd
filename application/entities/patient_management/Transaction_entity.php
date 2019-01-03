@@ -58,8 +58,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_mileage;
 
 	protected $patient_id;
-	protected $patient_firstname;
-	protected $patient_lastname;
+	protected $patient_name;
 	protected $patient_gender;
 	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
@@ -80,11 +79,6 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->provider_firstname . ' ' . $this->provider_lastname;
 	}
 
-	public function get_patient_fullname() : string
-	{
-		return $this->patient_firstname . ' ' . $this->patient_lastname;
-	}
-
 	public function get_selected_aw_ippe_code(string $code) : string
 	{
 		return $this->pt_aw_ippe_code == $code ? 'selected=true' : '';
@@ -103,5 +97,30 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	public function get_tov_code(string $tov_id) : string
 	{
 		return $this->tov_codes[$tov_id] ?? '';
+	}
+
+	public function is_aw_performed() : bool
+	{
+		return $this->pt_performed == '1';
+	}
+
+	public function is_acp_selected() : bool
+	{
+		return $this->pt_acp == '1';
+	}
+
+	public function is_diabetes_selected() : bool
+	{
+		return $this->pt_diabetes == '1';
+	}
+
+	public function is_tobacco_selected() : bool
+	{
+		return $this->pt_tobacco == '1';
+	}
+
+	public function has_mileage() : bool
+	{
+		return (float) $this->pt_mileage > 0;
 	}
 }

@@ -424,17 +424,9 @@ $config = array(
     ),
     'patient_management/profile/save' => array(
         array(
-            'field' => 'patient_firstname',
-            'label' => 'Firstname',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'patient_lastname',
-            'label' => 'Lastname',
-            'rules' => 'required|max_length[45]',
+            'field' => 'patient_name',
+            'label' => 'Name',
+            'rules' => 'required|max_length[90]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -499,17 +491,9 @@ $config = array(
     ),
     'patient_management/profile/save_update' => array(
         array(
-            'field' => 'patient_firstname',
-            'label' => 'Firstname',
-            'rules' => 'required|max_length[45]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'patient_lastname',
-            'label' => 'Lastname',
-            'rules' => 'required|max_length[45]',
+            'field' => 'patient_name',
+            'label' => 'Name',
+            'rules' => 'required|max_length[90]',
             'errors' => array(
                 'required' => 'This field is required.'
             )

@@ -76,19 +76,19 @@ class Superbill_entity {
 				$summary['total'] += 1;
 			}
 
-			if ($transaction->pt_acp == '1')
+			if ($transaction->is_acp_selected())
 			{
 				$summary['ACP'] += 1;
 				$summary['total'] += 1;
 			}
 
-			if ($transaction->pt_diabetes == '1')
+			if ($transaction->is_diabetes_selected())
 			{
 				$summary['DM'] += 1;
 				$summary['total'] += 1;
 			}
 
-			if ($transaction->pt_tobacco == '1')
+			if ($transaction->is_tobacco_selected())
 			{
 				$summary['TOBACCO'] += 1;
 				$summary['total'] += 1;
