@@ -2,8 +2,8 @@
     $('#all-patient-list').DataTable({
       	'paging'      : true,
         "pageLength": 100,
-      	'lengthChange': true,
       	'info'        : true,
+        "order": [[ 1, 'desc' ]]
         'dom': "<'row'<'col-sm-12'<\".toolbar\">>>",
         initComplete: function(){
           var url = window.location.href  + '/add';

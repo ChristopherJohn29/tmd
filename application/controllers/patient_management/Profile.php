@@ -19,8 +19,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('list_pt');
 
 		$params = [
-			'table_key' => 'patient_dateCreated',
-			'order_type' => 'DESC'
+			'key' => 'patient_referralDate',
+			'order_by' => 'DESC'
 		];
 
 		$patients = $this->profile_model->records($params);
