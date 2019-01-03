@@ -62,10 +62,6 @@
                                     <div class="col-md-6 has-error">
                                         <span class="help-block">{{ form_error('user_lastname') }}</span>
                                     </div>
-                                                                        
-                                    <div class="col-md-12 subheader">
-                                        <p class="lead">Contact Information</p>
-                                    </div>
                                     
                                     <div class="col-md-12 form-group {{ form_error('user_email') ? 'has-error' : '' }}">
                                     
