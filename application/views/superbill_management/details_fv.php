@@ -63,7 +63,7 @@
 											<td>{{ transaction.pt_aw_ippe_code }}</td>
 											<td>{{ transaction.get_provider_fullname }}</td>
 											<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
-											<td>{{ transaction.tov_name }}</td>
+											<td>{{ transaction.get_tov_code(transaction.tov_id) }}</td>
 											<td>{{ transaction.pt_icd10_codes }}</td>
 										</tr>
 

@@ -32,7 +32,9 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 	private $tov_codes = [
 		'1' => '99345', // Initial Visit (Home)
-		'3' => '99350' // Facility Visit (Home)
+		'3' => '99350', // Facility Visit (Home)
+		'2' => '99328', // Initial Visit (Facility)
+		'4' => '99337' // Facility Visit (Facility)
 	];
 
 	protected $provider_id;
