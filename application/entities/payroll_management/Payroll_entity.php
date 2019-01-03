@@ -98,15 +98,15 @@ class Payroll_entity {
 				$computed['total_visits'] += 1;
 			}
 
-			if ( ! empty($provider_transaction->pt_aw_ippe_code)) {
+			if ($provider_transaction->is_aw_performed()) {
 				$computed['aw_ippe']['qty'] += 1;
 			}
 			
-			if ((bool) $provider_transaction->pt_acp) {
+			if ($provider_transaction->is_acp_selected()) {
 				$computed['acp']['qty'] += 1;
 			}
 			
-			if ((float) $provider_transaction->pt_mileage > 0) {
+			if ($provider_transaction->has_mileage()) {
 				$computed['mileage']['qty'] += ((float) $provider_transaction->pt_mileage);
 			}
 		}

@@ -104,4 +104,19 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	{
 		return $this->tov_codes[$tov_id] ?? '';
 	}
+
+	public function is_aw_performed() : bool
+	{
+		return $this->pt_performed == '1';
+	}
+
+	public function is_acp_selected() : bool
+	{
+		return $this->pt_acp == '1';
+	}
+
+	public function has_mileage() : bool
+	{
+		return (float) $this->pt_mileage > 0;
+	}
 }
