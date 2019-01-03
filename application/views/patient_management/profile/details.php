@@ -108,7 +108,7 @@
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ transaction.tov_id }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ index }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
 
                                             {% endif %}
 
@@ -122,7 +122,7 @@
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <div class="tab-pane {{ index < 1 ? 'active' : '' }}" id="tab_{{ transaction.tov_id }}">
+                                                <div class="tab-pane {{ index < 1 ? 'active' : '' }}" id="tab_{{ index }}">
 
                                             {% endif %}
 
