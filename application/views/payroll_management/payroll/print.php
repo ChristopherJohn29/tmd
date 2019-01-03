@@ -21,7 +21,7 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-                            <h3 class="name">{{ provider_details.get_fullname() }}</h3>
+                            <h3 class="name">{{ provider_details.patient_name }}</h3>
              			</div>
                     </div>
                     
@@ -59,7 +59,7 @@
 											<td>{{ provider_transaction.tov_name }}</td>
 											<td>{{ provider_transaction.pt_aw_ippe_code }}</td>
 											<td>{{ provider_transaction.get_selected_choice_format(provider_transaction.pt_acp) }}</td>
-											<td>{{ provider_transaction.get_patient_fullname() }}</td>
+											<td>{{ provider_transaction.patient_name }}</td>
 											<td>{{ provider_transaction.pt_mileage }}</td>
 										</tr>
 

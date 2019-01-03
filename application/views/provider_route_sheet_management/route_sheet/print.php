@@ -52,7 +52,7 @@
 
                                     <tr>
                                         <td>{{ list.get_combined_time() }}</td>
-                                        <td><p>{{ list.get_patient_fullname() }}<span>{{ list.patient_address }}<br>{{ list.patient_phoneNum }}</span></p></td>
+                                        <td><p>{{ list.patient_name }}<span>{{ list.patient_address }}<br>{{ list.patient_phoneNum }}</span></p></td>
                                         <td><p>{{ list.hhc_name }}<span>{{ list.hhc_contact_name }}<br>{{ list.hhc_phoneNumber }}</span></p></td>
                                         <td><p>Type of Visit : {{ list.tov_name }}<span>Other Notes: {{ list.prsl_notes }}</span></p></td>
                                     </tr>

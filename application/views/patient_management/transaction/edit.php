@@ -39,7 +39,7 @@
 										<input type="hidden" name="pt_id" value="{{ transaction.pt_id }}">
 									
 										<div class="col-lg-6">
-											<p class="lead"><span>Patient Name: </span> {{ record.get_reverse_fullname() }}</p>
+											<p class="lead"><span>Patient Name: </span> {{ record.patient_name }}</p>
 										</div>
 										
 										<div class="col-lg-6">

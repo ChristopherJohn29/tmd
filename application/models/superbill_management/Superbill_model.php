@@ -72,12 +72,12 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			'order_by' => 'ASC',
 			'where' => [
 				[
-					'key' => 'patient_cpo.ptcpo_dateCreated',
+					'key' => 'patient_CPO.ptcpo_dateCreated',
 					'condition' => '>=',
 					'value' => $new_fromDate
 				],
 				[
-					'key' => 'patient_cpo.ptcpo_dateCreated',
+					'key' => 'patient_CPO.ptcpo_dateCreated',
 					'condition' => '<=',
 					'value' => $new_toDate
 				]

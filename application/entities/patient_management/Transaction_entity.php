@@ -58,8 +58,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_mileage;
 
 	protected $patient_id;
-	protected $patient_firstname;
-	protected $patient_lastname;
+	protected $patient_name;
 	protected $patient_gender;
 	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
@@ -78,11 +77,6 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
     public function get_provider_fullname() : string
 	{
 		return $this->provider_firstname . ' ' . $this->provider_lastname;
-	}
-
-	public function get_patient_fullname() : string
-	{
-		return $this->patient_firstname . ' ' . $this->patient_lastname;
 	}
 
 	public function get_selected_aw_ippe_code(string $code) : string

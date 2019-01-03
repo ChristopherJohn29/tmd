@@ -55,7 +55,7 @@
 										{% for transaction in transactions %}
 
 											<tr>
-												<td>{{ transaction.get_patient_fullname() }}</td>
+												<td>{{ transaction.patient_name }}</td>
 												<td>{{ transaction.patient_medicareNum }}</td>
 												<td>{{ transaction.get_date_format(transaction.patient_dateOfBirth) }}</td>
 												<td>{{ transaction.patient_address }}</td>
