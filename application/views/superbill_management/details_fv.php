@@ -96,13 +96,13 @@
 						
 									<tbody>
 										<tr>
-											<th>99345</th>
+											<th>99328</th>
 											<td>INITIAL VISIT</td>
 											<td>{{ summary['INITIAL_VISIT_FACILITY'] }}</td>
 										</tr>
 										
 										<tr>
-											<th>99350</th>
+											<th>99337</th>
 											<td>FOLLOW UP</td>
 											<td>{{ summary['FOLLOW_UP_FACILITY'] }}</td>
 										</tr>
