@@ -80,8 +80,6 @@
 						<th>Full Name</th>
 						<th>Email</th>
 						<th>Phone</th>
-						<th>Birthday</th>
-						<th>Account Type</th>
 						<th>Actions</th>
 					</tr>
 				  </tfoot>
