@@ -115,6 +115,16 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->pt_acp == '1';
 	}
 
+	public function is_diabetes_selected() : bool
+	{
+		return $this->pt_diabetes == '1';
+	}
+
+	public function is_tobacco_selected() : bool
+	{
+		return $this->pt_tobacco == '1';
+	}
+
 	public function has_mileage() : bool
 	{
 		return (float) $this->pt_mileage > 0;

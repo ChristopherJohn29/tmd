@@ -127,7 +127,7 @@
 										
 										<tr class="total">
 											<th colspan="2">TOTAL</th>
-											<th>10</th>
+											<th>{{ summary['total'] }}</th>
 										</tr>
 									</tbody>
 									
