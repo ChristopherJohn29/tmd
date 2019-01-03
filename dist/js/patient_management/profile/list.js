@@ -3,7 +3,7 @@
       	'paging'      : true,
         "pageLength": 100,
       	'info'        : true,
-        "order": [[ 1, 'desc' ]]
+        "order": [[ 1, 'desc' ]],
         'dom': "<'row'<'col-sm-12'<\".toolbar\">>>",
         initComplete: function(){
           var url = window.location.href  + '/add';
