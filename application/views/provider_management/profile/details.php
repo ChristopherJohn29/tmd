@@ -17,7 +17,7 @@
                     <div class="row">
 
                         <div class="col-lg-12">
-                            <h1 class="name">{{ record.get_reverse_fullname() }}<small>Provider Name</small></h1>
+                            <h1 class="name">{{ record.get_fullname() }}<small>Provider Name</small></h1>
                         </div>
 
                         <div class="col-md-4">
