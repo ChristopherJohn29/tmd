@@ -35,23 +35,27 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-12 form-group {{ form_error('patient_referralDate') ? 'has-error' : '' }}">
+									
+
+									
+									
+									<div class="col-md-6 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Last name, First name <span>*</span></label>
+										<input type="text" class="form-control" id="name" placeholder="" required="true" name="patient_name" value="{{ set_value('patient_name', record.patient_name) }}">
+									</div>
+                                    
+                                    <div class="col-md-6 form-group {{ form_error('patient_referralDate') ? 'has-error' : '' }}">
 										<label>Date of Referral <span>*</span></label>
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="patient_referralDate" value="{{ set_value('patient_referralDate', record.get_date_format(record.patient_referralDate)) }}">
 									</div>
-
-									<div class="col-md-12 has-error">
-										<span class="help-block">{{ form_error('patient_referralDate') }}</span>
-									</div>
 									
-									<div class="col-md-12 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Name <span>*</span></label>
-										<input type="text" class="form-control" id="name" placeholder="" required="true" name="patient_name" value="{{ set_value('patient_name', record.patient_name) }}">
-									</div>
-									
-									<div class="col-md-12 has-error">
+									<div class="col-md-6 has-error">
 										<span class="help-block">{{ form_error('patient_name') }}</span>
+									</div>
+                                    
+                                    <div class="col-md-6 has-error">
+										<span class="help-block">{{ form_error('patient_referralDate') }}</span>
 									</div>
                                     
 									<div class="col-md-6 form-group {{ form_error('patient_dateOfBirth') ? 'has-error' : '' }}">
