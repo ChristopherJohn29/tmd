@@ -3,7 +3,8 @@
 {% 
   set scripts = [
     'dist/js/payroll_management/payroll/search',
-    'dist/js/payroll_management/payroll/list'
+    'dist/js/payroll_management/payroll/list',
+    'dist/js/libraries/year_incrementor'
   ]
 %}
 
@@ -66,19 +67,7 @@
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">Year <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="year" id="dob" required="true">
-                                                <option selected="selected">2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                                <option>2024</option>
-                                                <option>2025</option>
-                                                <option>2026</option>
-                                                <option>2027</option>
-                                                <option>2028</option>
-                                                <option>2029</option>
-                                                <option>2030</option>
+                                                <option>Select</option>
                                             </select>
                                         </div>
                                         

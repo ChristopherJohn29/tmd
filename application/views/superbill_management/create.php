@@ -5,7 +5,7 @@
 {%
 
 set scripts = [
-    'dist/js/superbill_management/superbill/create'
+    'dist/js/libraries/year_incrementor'
 ]
 
 %}
@@ -142,19 +142,6 @@ set scripts = [
                                             <label class="control-label">Year <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="year" required="true">
                                                 <option value selected="true">Select</option>
-                                                <option>2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                                <option>2024</option>
-                                                <option>2025</option>
-                                                <option>2026</option>
-                                                <option>2027</option>
-                                                <option>2028</option>
-                                                <option>2029</option>
-                                                <option>2030</option>
                                             </select>
                                         </div>
                                         
