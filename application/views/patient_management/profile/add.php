@@ -34,10 +34,6 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									
-
-									
-									
 									<div class="col-md-6 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Last name, First name <span>*</span></label>
@@ -133,7 +129,7 @@
 
 											{% for pos in place_of_service %}
 
-												<option value="{{ pos.pos_id }}">{{ pos.pos_code }}</option>
+												<option value="{{ pos.pos_id }}">{{ pos.pos_name }}</option>
 
 											{% endfor %}
 

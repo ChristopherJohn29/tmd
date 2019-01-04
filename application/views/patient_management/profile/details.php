@@ -40,7 +40,7 @@
              					</tr>
                                 <tr>
                                     <th>Place of Service:</th>
-                                    <td>{{ record.pos_code }}</td>
+                                    <td>{{ record.get_fullpos_name() }}</td>
                                 </tr>
              				</table>
              			</div>

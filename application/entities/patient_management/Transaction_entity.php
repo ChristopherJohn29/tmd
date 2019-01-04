@@ -70,6 +70,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_hhcID;
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
+	protected $patient_placeOfService;
 
     public function get_selected_choice_format(string $choice) : string
     {

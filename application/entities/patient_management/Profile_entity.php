@@ -44,4 +44,9 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	{
 		return $pos_id == $this->patient_placeOfService ? 'selected=true' : '';
 	}
+
+	public function get_fullpos_name() : string
+	{
+		return $this->pos_name .  ' (' . $this->pos_code . ')' ;
+	}
 }
