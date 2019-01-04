@@ -5,7 +5,8 @@
 {%
 
 set scripts = [
-    'dist/js/libraries/year_incrementor'
+    'dist/js/libraries/year_incrementor',
+    'dist/js/libraries/month_day_incrementor'
 ]
 
 %}
@@ -46,7 +47,6 @@ set scripts = [
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">Month <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="month" required="true">
-                                                <option value selected="true">Select</option>
                                                 <option value="1">January</option>
                                                 <option value="2">February</option>
                                                 <option value="3">March</option>
@@ -65,7 +65,6 @@ set scripts = [
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">From <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="fromDate" required="true">
-                                                <option value selected="true">Select</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -102,46 +101,13 @@ set scripts = [
                                         
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">To <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="toDate" required="true">
-                                                <option value selected="true">Select</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                                <option>11</option>
-                                                <option>12</option>
-                                                <option>13</option>
-                                                <option>14</option>
-                                                <option>15</option>
-                                                <option>16</option>
-                                                <option>17</option>
-                                                <option>18</option>
-                                                <option>19</option>
-                                                <option>20</option>
-                                                <option>21</option>
-                                                <option>22</option>
-                                                <option>23</option>
-                                                <option>24</option>
-                                                <option>25</option>
-                                                <option>26</option>
-                                                <option>27</option>
-                                                <option>28</option>
-                                                <option>29</option>
-                                                <option>30</option>
-                                                <option>31</option>
+                                            <select class="form-control" style="width: 100%;" name="toDate" required="true" data-month-day-incrementor>
                                             </select>
                                         </div>
                                         
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">Year <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="year" required="true">
-                                                <option value selected="true">Select</option>
                                             </select>
                                         </div>
                                         

@@ -67,7 +67,6 @@
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">Year <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="year" id="dob" required="true">
-                                                <option>Select</option>
                                             </select>
                                         </div>
                                         
