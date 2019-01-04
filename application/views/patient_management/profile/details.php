@@ -38,6 +38,10 @@
              						<th>Gender:</th>
              						<td>{{ record.patient_gender }}</td>
              					</tr>
+                                <tr>
+                                    <th>Place of Service:</th>
+                                    <td>{{ record.pos_code }}</td>
+                                </tr>
              				</table>
              			</div>
              			

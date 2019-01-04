@@ -35,10 +35,6 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									
-
-									
-									
 									<div class="col-md-6 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Last name, First name <span>*</span></label>
@@ -117,14 +113,30 @@
 										<span class="help-block">{{ form_error('patient_address') }}</span>
 									</div>
 									
-									<div class="col-md-12 form-group {{ form_error('patient_caregiver_family') ? 'has-error' : '' }}">
+									<div class="col-md-6 form-group {{ form_error('patient_caregiver_family') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Caregiver/Family</label>
 										<input type="text" class="form-control" id="caregiver" placeholder="" name="patient_caregiver_family" value="{{ set_value('patient_caregiver_family', record.patient_caregiver_family) }}">
 										
 									</div>
 
-									<div class="col-md-12 has-error">
+									<div class="col-md-6 form-group">
+										
+										<label class="control-label">Place of Service</label>
+										<select class="form-control" name="patient_placeOfService">
+											<option value="">Select</option>
+
+											{% for pos in place_of_service %}
+
+												<option value="{{ pos.pos_id }}" {{ record.get_selected_pos(pos.pos_id) }} >{{ pos.pos_code }}</option>
+
+											{% endfor %}
+
+										</select>
+
+									</div>
+
+									<div class="col-md-6 has-error">
 										<span class="help-block">{{ form_error('patient_caregiver_family') }}</span>
 									</div>
 									

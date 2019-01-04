@@ -10,7 +10,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'patient_management/profile_model',
 			'patient_management/transaction_model',
 			'patient_management/communication_notes_model',
-			'patient_management/CPO_model'
+			'patient_management/CPO_model',
+			'patient_management/POS_model'
 		));
 	}
 
@@ -35,7 +36,9 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_pt');
 
-		$this->twig->view('patient_management/profile/add');
+		$page_data['place_of_service'] = $this->POS_model->records();
+
+		$this->twig->view('patient_management/profile/add', $page_data);
 	}
 
 	public function edit(string $patient_id)
@@ -50,6 +53,13 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient.patient_hhcID',
 					'join_table_type' => 'inner'
+				],
+				[
+					'join_table_name' => 'place_of_service',
+					'join_table_key' => 'place_of_service.pos_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_placeOfService',
+					'join_table_type' => 'left'
 				]
 			],
 			'where' => [
@@ -68,6 +78,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		{
 			redirect('errors/page_not_found');
 		}
+
+		$page_data['place_of_service'] = $this->POS_model->records();
 
 		$this->twig->view('patient_management/profile/edit', $page_data);
 	}
@@ -129,6 +141,13 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient.patient_hhcID',
 					'join_table_type' => 'inner'
+				],
+				[
+					'join_table_name' => 'place_of_service',
+					'join_table_key' => 'place_of_service.pos_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_placeOfService',
+					'join_table_type' => 'left'
 				]
 			],
 			'where' => [
