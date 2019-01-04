@@ -15,6 +15,8 @@ Mobiledrs.Month_day_incrementor = (function() {
 
 			var lastMonthDay = parseInt(date.getDate());
 
+			monthDay.html('');
+
 			for (var i = 1; i < lastMonthDay + 1; i++) {
 				monthDay.append('<option>' + i + '</option>');
 			}
