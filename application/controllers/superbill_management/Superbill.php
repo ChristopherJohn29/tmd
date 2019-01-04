@@ -1,6 +1,7 @@
 <?php
 
 use \Mobiledrs\entities\superbill_management\Superbill_entity;
+use \Mobiledrs\entities\patient_management\POS_entity;
 
 class Superbill extends \Mobiledrs\core\MY_Controller {
 
@@ -123,6 +124,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 				$toDate,
 				empty($type_of_visit) ? [] : $type_of_visit 
 			);
+
+			$page_data['POS_entity'] = new POS_entity();
 
 			if ( ! empty($page_data['transactions']))
 			{

@@ -46,6 +46,7 @@
 										<th>Provider</th>
 										<th>Date of Service</th>
 										<th>Type of Visit</th>
+										<th>Place of Service</th>
 										<th>ICD-Code Diagnoses</th>
 									</tr>
 								</thead>
@@ -64,6 +65,7 @@
 											<td>{{ transaction.get_provider_fullname }}</td>
 											<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
 											<td>{{ transaction.get_tov_code(transaction.tov_id) }}</td>
+											<td>{{ POS_entity.get_pos_name(transaction.patient_placeOfService) }}</td>
 											<td>{{ transaction.pt_icd10_codes }}</td>
 										</tr>
 
