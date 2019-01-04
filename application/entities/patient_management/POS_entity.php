@@ -17,6 +17,6 @@ class POS_entity extends \Mobiledrs\entities\Entity {
 
 	public function get_pos_name(string $pos_id) : string
 	{
-		return $this->pos_list[$pos_id];
+		return $this->pos_list[$pos_id] ?? '';
 	}
 }

@@ -47,6 +47,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 
 	public function get_fullpos_name() : string
 	{
-		return $this->pos_name .  ' (' . $this->pos_code . ')' ;
+		return ($this->patient_placeOfService) ? ($this->pos_name .  ' (' . $this->pos_code . ')') : '' ;
 	}
 }
