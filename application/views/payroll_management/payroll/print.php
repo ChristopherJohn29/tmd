@@ -5,10 +5,9 @@
 
 {% block content %}
  
-
- <script type="text/javascript">
- 	window.print();
- </script>
+<script type="text/javascript">
+	window.print();
+</script>
 
 <div class="row">
         <div class="col-md-12">
@@ -21,7 +20,7 @@
              		
              		<div class="row">
              			<div class="col-md-12">
-                            <h3 class="name">{{ provider_details.patient_name }}</h3>
+                            <h3 class="name">{{ provider_details.get_fullname() }}</h3>
              			</div>
                     </div>
                     

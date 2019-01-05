@@ -8,8 +8,10 @@
  * Core: General Layout Style
  * -------------------------
  */
- 
 
+/* Remove date, page title, page url in a print page */
+@page { size: auto;  margin: 0mm; }
+ 
 .xrx-round-corners {
 	border-radius:6px !important;
 	}

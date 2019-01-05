@@ -36,12 +36,8 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 		$patients_params = [
 			'where_data' => [
 				[ 
-					'key' => 'patient.patient_firstname', 
+					'key' => 'patient.patient_name', 
 					'value' => $this->input->post('search_term')
-				],
-				[ 
-					'key' => 'patient.patient_lastname', 
-					'value' => $this->input->post('search_term') 
 				],
 				[ 
 					'key' => 'patient.patient_medicareNum', 
