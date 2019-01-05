@@ -36,7 +36,7 @@
 									<div class="col-md-12 form-group {{ form_error('hhc_contact_name') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Contact Person <span>*</span></label>
-										<input type="text" class="form-control" " required="true" name="hhc_contact_name" value="{{ set_value('hhc_name') }}">
+										<input type="text" class="form-control" required="true" name="hhc_contact_name" value="{{ set_value('hhc_name') }}">
 										
 									</div>
 
@@ -89,6 +89,10 @@
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
+                                        <button type="submit" class="btn btn-default xrx-btn cancel">
+											Cancel
+										</button>
+                                                                                                    
 					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Add Home Health
 										</button>

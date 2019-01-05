@@ -273,6 +273,10 @@
 									</div>
 									
 									<div class="col-md-12 xrx-btn-handler">
+                                        <button type="submit" class="btn btn-default xrx-btn cancel">
+											Cancel
+										</button>
+                                        
 					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Update Provider
 										</button>
