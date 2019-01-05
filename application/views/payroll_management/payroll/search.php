@@ -86,20 +86,28 @@
                     </div>
 
                     <div class="row xrx-row-spacer">
+                        
+                        <div class="box-body">
+                            
+                            <div class="table-responsive">
 
-                        {% if results is defined and results|length > 0 %}
+                                {% if results is defined and results|length > 0 %}
 
-                            {{ include('payroll_management/payroll/list.php') }}
+                                    {{ include('payroll_management/payroll/list.php') }}
 
-                        {% elseif results is defined and results|length == 0 %}
+                                {% elseif results is defined and results|length == 0 %}
 
-                            <div class="no-data-handler">
+                                    <div class="no-data-handler">
 
-                                <p class="text-center">No search results found.</p>
+                                        <p class="text-center">No search results found.</p>
+
+                                    </div>
+
+                                {% endif %}
                                 
                             </div>
-
-                        {% endif %}
+                            
+                        </div>
 
                     </div>
 
