@@ -30,8 +30,8 @@
 	padding-bottom: 0px !important;
 	}
 
-.xrx-btn-handler button.cancel {
-    margin-right: 8px !important;
+.xrx-btn-handler a.cancel {
+    margin-right: 6px !important;
     }
 	
 /* forms */
