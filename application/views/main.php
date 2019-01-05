@@ -40,6 +40,7 @@
 		<footer class="main-footer">
 			
 			{{ include('commons/footer.php') }}
+			{{ include('modules/alert_user_autologout.php') }}
 			
 		</footer>
 
@@ -70,6 +71,7 @@
 	{% endif %}
 
 	<script src="{{ base_url }}dist/js/main.js"></script>
+	<script src="{{ base_url }}dist/js/libraries/event_listener.js"></script>
 	 
 </body>
 </html>

@@ -11,6 +11,7 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $user_dateCreated;
 	protected $user_password;
 	protected $user_roleID;
+	protected $user_sessionID;
 
 	protected $roles_id;
 	protected $roles_name;

@@ -11,11 +11,7 @@ class User_entity extends \Mobiledrs\entities\Entity {
 	protected $user_dateCreated;
 	protected $user_password;
 	protected $user_roleID;
-	protected $user_dateOfBirth;
-	protected $user_phone;
-	protected $user_address;
-	protected $user_gender;
-	protected $user_photo;
+	protected $user_sessionID;
 
 	public function validate_password(string $password) : bool
 	{
@@ -25,5 +21,10 @@ class User_entity extends \Mobiledrs\entities\Entity {
 	public function get_fullname() : string
 	{
 		return $this->user_firstname . ' ' . $this->user_lastname;
+	}
+
+	public function not_valid_sessionID(string $sessionID) : bool
+	{
+		return $this->user_sessionID != $sessionID;
 	}
 }

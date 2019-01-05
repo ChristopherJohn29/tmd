@@ -2,6 +2,9 @@
 
 namespace Mobiledrs\core;
 
+require_once(APPPATH . 'entities/Entity.php');
+require_once(APPPATH . 'entities/authentication/User_entity.php');
+
 class MY_Controller extends \CI_Controller {
 	public function __construct()
 	{
@@ -20,9 +23,18 @@ class MY_Controller extends \CI_Controller {
 
 	public function is_logged_in()
 	{
-		if ( ! $this->session->userdata('user_logged_in')) 
+        $this->load->model('authentication/user_model');
+
+        $user_params = [
+            'key' => 'user.user_id',
+            'value' => $this->session->userdata('user_id')
+        ];
+
+        $user_entity = $this->user_model->record($user_params);
+
+		if ( ! isset($user_entity) || $user_entity->not_valid_sessionID(session_id())) 
 		{
-			return redirect('authentication/user');
+			return redirect('authentication/user/logout');
 		}
 	}
 

@@ -14,23 +14,31 @@ class User_model extends \Mobiledrs\core\MY_Models {
 
 	public function verify() : bool
 	{
-		$user_entity = $this->record([
+		$user_params = [
 			'key' => 'user_email',
 			'value' => $this->input->post('user_email')
-		]);
+		];
+
+		$user_entity = $this->record($user_params);
 
 		$validate_password = $user_entity->user_id && 
 			$user_entity->validate_password($this->input->post('user_password'));
 
 		if ($validate_password)
 		{
+			$user_record_params = [
+				'key' => 'user.user_id',
+				'value' => $user_entity->user_id,
+				'data' => ['user_sessionID' => session_id()]
+			];
+
+			$this->update($user_record_params);
+
 			$data = [
 				'user_id' => $user_entity->user_id,
 		        'user_fullname' => $user_entity->get_fullname(),
 		        'user_email' => $user_entity->user_email,
-		        'user_roleID' => $user_entity->user_roleID,
-		        'user_photo' => $user_entity->user_photo,
-		        'user_logged_in' => true
+		        'user_roleID' => $user_entity->user_roleID
 			];
 
 			$this->session->set_userdata($data);
