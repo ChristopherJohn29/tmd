@@ -65,9 +65,9 @@
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-                                        <button type="submit" class="btn btn-default xrx-btn cancel">
+                                        <a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}" class="btn btn-default xrx-btn cancel">
 											Cancel
-										</button>
+										</a>
                                         
 					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Add Note

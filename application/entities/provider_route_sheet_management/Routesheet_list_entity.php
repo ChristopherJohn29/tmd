@@ -24,6 +24,7 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_hhcID;
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
+	protected $patient_placeOfService;
 
 	protected $hhc_id;
 	protected $hhc_name;

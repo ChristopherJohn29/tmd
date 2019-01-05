@@ -18,8 +18,7 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 		$params = [
 			'where_data' => [
-				['key' => 'patient_firstname', 'value' => $this->input->get('term')],
-				['key' => 'patient_lastname', 'value' => $this->input->get('term')]
+				['key' => 'patient_name', 'value' => $this->input->get('term')]
 			]
 		];
 
