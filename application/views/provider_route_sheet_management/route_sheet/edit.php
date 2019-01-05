@@ -111,7 +111,7 @@
 												<div class="col-md-4 form-group {{ form_error('prsl_fromTime') ? 'has-error' : '' }}">
 											
 													<label class="control-label">Time of Visit from<span>*</span></label>
-													<input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_fromTime[]" value="{{ list.get_fromTime() }}"">
+													<input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_fromTime[]" value="{{ list.get_fromTime() }}">
 													
 												</div>
 	                                            
@@ -202,6 +202,10 @@
 					                </div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
+                                        <button type="submit" class="btn btn-default xrx-btn cancel">
+											Cancel
+										</button>
+                                        
 					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> update Route Sheet
 										</button>
