@@ -273,9 +273,9 @@
 									</div>
 									
 									<div class="col-md-12 xrx-btn-handler">
-                                        <button type="submit" class="btn btn-default xrx-btn cancel">
+                                        <a href="{{ site_url('provider_management/profile') }}" class="btn btn-default xrx-btn cancel">
 											Cancel
-										</button>
+										</a>
                                         
 					              		<button type="submit" class="btn btn-primary xrx-btn">
 											<i class="fa fa-check"></i> Add Provider
