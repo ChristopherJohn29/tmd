@@ -27,7 +27,7 @@
                         <span>{{ session['user_email'] }}</span>
 
                         {% if session['user_roleID'] != '1' %}
-                        	<span><a href="{{ site_url("user_management/profile/edit/#{ session['user_id'] }") }}" title="Manage Account">Manage Account</a></span></p>
+                        	<span><a href="{{ site_url("account_management/account/edit/#{ session['user_id'] }") }}" title="Manage Account">Manage Account</a></span></p>
                         {% endif %}
                         
                     </li>
