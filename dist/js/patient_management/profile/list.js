@@ -1,10 +1,8 @@
  $(function () {
     $('#all-patient-list').DataTable({
-      	'paging'      : true,
-        "pageLength": 100,
-      	'info'        : true,
         "order": [[ 1, 'desc' ]],
-        'dom': "<'row'<'col-sm-12'<\".toolbar\">>>",
+        "pageLength": 100,
+        'dom': "<'row'<'col-sm-12'<\".toolbar\">>>tp",
         initComplete: function(){
           var url = window.location.href  + '/add';
           var button = $('<a href="#"><span class="label label-primary">Add</span></a>');
