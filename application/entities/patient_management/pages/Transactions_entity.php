@@ -8,6 +8,12 @@ class Transactions_entity {
 
 	private $datas = null;
 	private $tab_lists = [];
+	private $type_visit_entity = null;
+
+	public function __construct()
+	{
+		$this->type_visit_entity = new Type_visit_entity();
+	}
 
 	public function set_datas($datas)
 	{
@@ -17,10 +23,8 @@ class Transactions_entity {
 	public function has_initial_records(string $tov_id) : bool
 	{
 		foreach ($this->datas as $data) {
-			if (($tov_id == Type_visit_entity::INITIAL_VISIT_HOME || 
-				$tov_id == Type_visit_entity::INITIAL_VISIT_FACILITY) && 
-				($data->pt_tovID == Type_visit_entity::INITIAL_VISIT_HOME || 
-				$data->pt_tovID == Type_visit_entity::INITIAL_VISIT_FACILITY))
+			if ((in_array($tov_id, $this->type_visit_entity->get_initial_list())) && 
+				(in_array($data->pt_tovID, $this->type_visit_entity->get_initial_list())))
 			{
 				return true;
 			}
@@ -32,24 +36,23 @@ class Transactions_entity {
 	public function get_type_visits(array $tovs, string $sel_tov_id) : array
 	{
 		$new_tovs = [];
-
 		foreach ($tovs as $tov) {
-			// record type of visit selected is initial (Home / Facility)
+			// record type of visit selected is initial (Home / Facility / Office)
 			// include it in the dropdown list
-			if (Type_visit_entity::INITIAL_VISIT_HOME == $sel_tov_id || 
-				Type_visit_entity::INITIAL_VISIT_FACILITY == $sel_tov_id)
+			if (in_array($sel_tov_id, $this->type_visit_entity->get_initial_list()) &&
+				(in_array($tov->tov_id, $this->type_visit_entity->get_initial_list())))
 			{
 				$new_tovs[] = $tov;
 
 				continue;
 			}
-			// record type of visit selected is NOT initial (Home / Facility)
+			// record type of visit selected is NOT initial (Home / Facility / Office)
 			// do NOT include it in the dropdown list
-			else if (($sel_tov_id != Type_visit_entity::INITIAL_VISIT_HOME || 
-				$sel_tov_id != Type_visit_entity::INITIAL_VISIT_FACILITY) &&
-				(Type_visit_entity::INITIAL_VISIT_HOME == $tov->tov_id || 
-				Type_visit_entity::INITIAL_VISIT_FACILITY == $tov->tov_id))
+			else if (in_array($sel_tov_id, $this->type_visit_entity->get_followup_list()) && 
+				in_array($tov->tov_id, $this->type_visit_entity->get_followup_list()))
 			{
+				$new_tovs[] = $tov;
+
 				continue;
 			}
 
@@ -66,6 +69,6 @@ class Transactions_entity {
 
 	public function is_tov_sel_noshow_cancelled(string $tov_id) : bool
 	{
-		return $tov_id == Type_visit_entity::NO_SHOW || $tov_id == Type_visit_entity::CANCELLED;
+		return $tov_id == $this->type_visit_entity::NO_SHOW || $tov_id == $this->type_visit_entity::CANCELLED;
 	}
 }
