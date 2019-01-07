@@ -595,7 +595,8 @@ li.user-header p span a {
 
 /* tables */
 
-table thead {
+table thead,
+table tfoot{
     background: #548bb8 !important;
     color: #fff !important;
     }
