@@ -47,6 +47,8 @@
 						<li><a href="{{ site_url('patient_management/profile/search') }}"><i class="fa fa-angle-right"></i> Search </a></li>
 
 					{% endif %}
+                    
+                        <li><a href="{{ site_url('patient_management/profile/search') }}"><i class="fa fa-angle-right"></i> Headcount </a></li>
 					
 				</ul>
 			</li>
