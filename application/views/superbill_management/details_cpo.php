@@ -44,6 +44,7 @@
 										<th>1st Month CPO</th>
 										<th>2nd Month CPO</th>
 										<th>3rd Month CPO</th>
+										<th>Discharge Date</th>
 										<th>Re-cert Period</th>
 										<th>485 Re-cert Date Signed</th>
 										<th>1st Month CPO</th>
@@ -65,12 +66,13 @@
 											<td>{{ transaction['first_Month_CPO'] }}</td>
 											<td>{{ transaction['second_Month_CPO'] }}</td>
 											<td>{{ transaction['third_Month_CPO'] }}</td>
+											<td>{{ transaction['discharge_Date'] }}</td>
 											<td>{{ transaction['Recert_Period'] }}</td>
 											<td>{{ transaction['Recert_Date_Signed'] }}</td>
 											<td>{{ transaction['Refirst_Month_CPO'] }}</td>
 											<td>{{ transaction['Resecond_Month_CPO'] }}</td>
 											<td>{{ transaction['Rethird_Month_CPO'] }}</td>
-											<td>{{ transaction['discharge_Date'] }}</td>
+											<td>{{ transaction['Redischarge_date'] }}</td>
 										</tr>
 
 									{% endfor %}
