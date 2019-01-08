@@ -67,7 +67,9 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 						'join_table_value' => 'patient_transactions.pt_providerID',
 						'join_table_type' => 'left'
 					]
-				]
+				],
+				'order_key' => 'patient_transactions.pt_dateOfService',
+				'order_by' => 'DESC'
 			];
 
 			$patient_trans = $this->transaction_model->record($trans_params);
