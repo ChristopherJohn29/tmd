@@ -44,6 +44,10 @@
 										<th>Address</th>
 										<th>Phone</th>
 										<th>AW/IPPE</th>
+										<th>ACP</th>
+										<th>Diabetes</th>
+										<th>Tobacco</th>
+										<th>TCM</th>
 										<th>Provider</th>
 										<th>Date of Service</th>
 										<th>Type of Visit</th>
@@ -64,6 +68,10 @@
 											<td>{{ transaction.patient_address }}</td>
 											<td>{{ transaction.patient_phoneNum }}</td>
 											<td>{{ transaction.pt_aw_ippe_code }}</td>
+											<td>{{ transaction.get_selected_choice_format(transaction.pt_acp) == 'Yes' ? 1 : '0' }}</td>
+											<td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) == 'Yes' ? 1 : '0' }}</td>
+											<td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) == 'Yes' ? 1 : '0' }}</td>
+											<td>{{ transaction.get_selected_choice_format(transaction.pt_tcm) == 'Yes' ? 1 : '0' }}</td>
 											<td>{{ transaction.get_provider_fullname }}</td>
 											<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
 											<td>{{ transaction.get_tov_code(transaction.tov_id) }}</td>
