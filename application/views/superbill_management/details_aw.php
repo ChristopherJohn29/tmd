@@ -54,18 +54,22 @@
 
 										{% for transaction in transactions %}
 
-											<tr>
-												<td>{{ transaction.patient_name }}</td>
-												<td>{{ transaction.patient_medicareNum }}</td>
-												<td>{{ transaction.get_date_format(transaction.patient_dateOfBirth) }}</td>
-												<td>{{ transaction.patient_address }}</td>
-												<td>{{ transaction.patient_phoneNum }}</td>
-												<td>{{ transaction.pt_aw_ippe_code }}</td>
-												<td>{{ transaction.get_provider_fullname }}</td>
-												<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
-												<td>{{ POS_entity.get_pos_name(transaction.patient_placeOfService) }}</td>
-												<td>{{ transaction.pt_icd10_codes }}</td>
-											</tr>
+											{% if transaction.has_selected_aw_ippe() %}
+
+												<tr>
+													<td>{{ transaction.patient_name }}</td>
+													<td>{{ transaction.patient_medicareNum }}</td>
+													<td>{{ transaction.get_date_format(transaction.patient_dateOfBirth) }}</td>
+													<td>{{ transaction.patient_address }}</td>
+													<td>{{ transaction.patient_phoneNum }}</td>
+													<td>{{ transaction.pt_aw_ippe_code }}</td>
+													<td>{{ transaction.get_provider_fullname }}</td>
+													<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
+													<td>{{ POS_entity.get_pos_name(transaction.patient_placeOfService) }}</td>
+													<td>{{ transaction.pt_icd10_codes }}</td>
+												</tr>
+
+											{% endif %}
 
 										{% endfor %}
 
