@@ -128,7 +128,7 @@
 
 											{% for pos in place_of_service %}
 
-												<option value="{{ pos.pos_id }}" {{ record.get_selected_pos(pos.pos_id) }} >{{ pos.pos_code }}</option>
+												<option value="{{ pos.pos_id }}" {{ record.get_selected_pos(pos.pos_id) }} >{{ pos.get_pos_completename(pos.pos_id) }}</option>
 
 											{% endfor %}
 

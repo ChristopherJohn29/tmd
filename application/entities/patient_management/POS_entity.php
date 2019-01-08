@@ -19,4 +19,9 @@ class POS_entity extends \Mobiledrs\entities\Entity {
 	{
 		return $this->pos_list[$pos_id] ?? '';
 	}
+
+	public function get_pos_completename(string $pos_id) : string
+	{
+		return $this->pos_list[$pos_id] . ' - ' . $this->pos_name;
+	}
 }
