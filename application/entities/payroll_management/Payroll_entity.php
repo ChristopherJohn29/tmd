@@ -31,12 +31,22 @@ class Payroll_entity {
 				'amount' => $this->provider_details->provider_rate_initialVisit,
 				'total' => 0
 			],
+			'initial_visit_office' => [
+				'qty' => 0,
+				'amount' => $this->provider_details->provider_rate_initialVisit,
+				'total' => 0
+			],
 			'follow_up_home' => [
 				'qty' => 0,
 				'amount' => $this->provider_details->provider_rate_followUpVisit,
 				'total' => 0
 			],
 			'follow_up_facility' => [
+				'qty' => 0,
+				'amount' => $this->provider_details->provider_rate_followUpVisit,
+				'total' => 0
+			],
+			'follow_up_office' => [
 				'qty' => 0,
 				'amount' => $this->provider_details->provider_rate_followUpVisit,
 				'total' => 0
@@ -79,6 +89,12 @@ class Payroll_entity {
 
 				$computed['total_visits'] += 1;
 			}
+			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::INITIAL_VISIT_OFFICE)
+			{
+				$computed['initial_visit_office']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
+			}
 			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_HOME)
 			{
 				$computed['follow_up_home']['qty'] += 1;
@@ -88,6 +104,12 @@ class Payroll_entity {
 			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_FACILITY)
 			{
 				$computed['follow_up_facility']['qty'] += 1;
+
+				$computed['total_visits'] += 1;
+			}
+			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_OFFICE)
+			{
+				$computed['follow_up_office']['qty'] += 1;
 
 				$computed['total_visits'] += 1;
 			}
@@ -121,6 +143,11 @@ class Payroll_entity {
 		
 		$computed['total_salary'] += $computed['initial_visit_facility']['total'];
 
+		$computed['initial_visit_office']['total'] = $computed['initial_visit_office']['qty'] * 
+			$computed['initial_visit_office']['amount'];
+		
+		$computed['total_salary'] += $computed['initial_visit_office']['total'];
+
 		$computed['follow_up_home']['total'] = $computed['follow_up_home']['qty'] * 
 			$computed['follow_up_home']['amount'];
 
@@ -130,6 +157,11 @@ class Payroll_entity {
 			$computed['follow_up_facility']['amount'];
 
 		$computed['total_salary'] += $computed['follow_up_facility']['total'];
+
+		$computed['follow_up_office']['total'] = $computed['follow_up_office']['qty'] * 
+			$computed['follow_up_office']['amount'];
+
+		$computed['total_salary'] += $computed['follow_up_office']['total'];
 		
 		$computed['no_show']['total'] = $computed['no_show']['qty'] * 
 			$computed['no_show']['amount'];

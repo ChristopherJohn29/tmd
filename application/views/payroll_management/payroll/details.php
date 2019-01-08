@@ -133,6 +133,12 @@
 												<td>${{ provider_payment_summary['initial_visit_facility']['total'] }}</td>
 											</tr>
 											<tr>
+												<th>Initial Visit (Office)</th>
+												<td>{{ provider_payment_summary['initial_visit_office']['qty'] }}</td>
+												<td>${{ provider_payment_summary['initial_visit_office']['amount'] }}</td>
+												<td>${{ provider_payment_summary['initial_visit_office']['total'] }}</td>
+											</tr>
+											<tr>
 												<th>Follow-Up Visit (Home)</th>
 												<td>{{ provider_payment_summary['follow_up_home']['qty'] }}</td>
 												<td>${{ provider_payment_summary['follow_up_home']['amount'] }}</td>
@@ -143,6 +149,12 @@
 												<td>{{ provider_payment_summary['follow_up_facility']['qty'] }}</td>
 												<td>${{ provider_payment_summary['follow_up_facility']['amount'] }}</td>
 												<td>${{ provider_payment_summary['follow_up_facility']['total'] }}</td>
+											</tr>
+											<tr>
+												<th>Follow-Up Visit (Office)</th>
+												<td>{{ provider_payment_summary['follow_up_office']['qty'] }}</td>
+												<td>${{ provider_payment_summary['follow_up_office']['amount'] }}</td>
+												<td>${{ provider_payment_summary['follow_up_office']['total'] }}</td>
 											</tr>
 											<tr>
 												<th>No Show</th>
