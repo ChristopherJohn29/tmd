@@ -21,6 +21,13 @@ Mobiledrs.Payroll_details = (function() {
 				return false;
 			}
 
+			if (parseInt(others) < 0)
+			{
+				alert('Negative numbers is only allowed.');
+
+				return
+			}
+
 			if (isNaN(others))
 			{
 				alert('Numbers is only allowed.');
@@ -43,6 +50,7 @@ Mobiledrs.Payroll_details = (function() {
 				data: '&total=' + totalAmount + '&others=' + others,
 				success: function(data) {
 					var newTotal = JSON.parse(data);
+					var moneySign = (parseInt(others) > 0) ? '$' : '';
 
 					total.val(newTotal);
 
