@@ -29,6 +29,11 @@ Mobiledrs.PT_trans_form = (function() {
 				$('[name="pt_dateOfService"]').removeAttr('disabled');
 				$('[name="pt_tovID"]').removeAttr('disabled');
 				$('[name="pt_notes"]').removeAttr('disabled');
+
+				if (value == noShow)
+				{
+					$('[name="pt_mileage"]').removeAttr('disabled');
+				}
 			}
 			else 
 			{
