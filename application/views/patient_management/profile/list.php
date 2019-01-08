@@ -36,6 +36,7 @@
 					<th>Date of Service</th>
 					<th>Provider</th>
 					<th>PAID</th>
+					<th width="70px">CPO Billed</th>
 					<th width="210px">Actions</th>
 				  </tr>
 				  </thead>
@@ -62,6 +63,7 @@
 
 								<td>{{ record['dateOfService'] }}</td>
 								<td>{{ record['provider'] }}</td>
+								<td></td>
 								<td></td>
 								<td>
 									
@@ -98,6 +100,7 @@
 							<th>Date of Service</th>
 							<th>Provider</th>
 							<th>PAID</th>
+							<th>CPO Billed</th>
 							<th>Actions</th>
 						</tr>
 					  </tfoot>
