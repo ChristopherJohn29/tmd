@@ -30,6 +30,7 @@
                     <table id="all-homehealthcare-list" class="table no-margin table-hover">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Home Health</th>
                                 <th>Contact Person</th>
                                 <th>Phone</th>
@@ -47,6 +48,7 @@
                                 {% for record in records %}
 
                                     <tr>
+                                        <td class="text-center">{{ loop.index }}</td>
                                         <td>{{ record.hhc_name }}</td>
                                         <td>{{ record.hhc_contact_name }}</td>
                                         <td>{{ record.hhc_phoneNumber }}</td>
@@ -78,6 +80,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <td></td>
                                 <th>Home Health</th>
                                 <th>Contact Person</th>
                                 <th>Phone</th>
