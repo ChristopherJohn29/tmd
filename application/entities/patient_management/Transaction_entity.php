@@ -87,9 +87,21 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->pt_aw_ippe_code == $code ? 'selected=true' : '';
 	}
 
-	public function has_selected_aw_ippe() : bool
+	public function has_selected_aw_ippe_list(array $transactions) : array
 	{
-		return ! empty($this->pt_aw_ippe_code);
+		$data = [];
+
+		foreach ($transactions as $transaction)
+		{
+			if (empty($transaction->pt_aw_ippe_code))
+			{
+				continue;
+			}
+
+			$data[] = $transaction;
+		}
+
+		return $data;
 	}
 
 	public function get_selected_choice(string $data, string $choice) : string

@@ -37,6 +37,7 @@
              				   <table class="table no-margin table-striped">
 								<thead>
 									<tr>
+										<td></td>
 										<th width="200px">Patient Name</th>
 										<th>Medicare</th>
 										<th>DOB</th>
@@ -56,6 +57,7 @@
 									{% for transaction in transactions %}
 
 										<tr>
+											<td class="text-center">{{ loop.index }}</td>
 											<td>{{ transaction.patient_name }}</td>
 											<td>{{ transaction.patient_medicareNum }}</td>
 											<td>{{ transaction.get_date_format(transaction.patient_dateOfBirth) }}</td>
