@@ -68,8 +68,8 @@
 									
 									<div class="col-md-12 form-group {{ form_error('hhc_email') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Email <span>*</span></label>
-										<input type="email" class="form-control"  required="true" name="hhc_email" value="{{ set_value('hhc_email') }}">
+										<label class="control-label">Email</label>
+										<input type="email" class="form-control" name="hhc_email" value="{{ set_value('hhc_email') }}">
 						                
 									</div>
 
@@ -79,8 +79,8 @@
 									
 									<div class="col-md-12 form-group {{ form_error('hhc_address') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control"  required="true" name="hhc_address" value="{{ set_value('hhc_address') }}">
+										<label class="control-label">Address</label>
+										<input type="text" class="form-control" name="hhc_address" value="{{ set_value('hhc_address') }}">
 										
 									</div>
 

@@ -365,19 +365,15 @@ $config = array(
         array(
             'field' => 'hhc_email',
             'label' => 'Email',
-            'rules' => 'required|valid_email|max_length[45]|is_unique[home_health_care.hhc_email]',
+            'rules' => 'valid_email|max_length[45]|is_unique[home_health_care.hhc_email]',
             'errors' => array(
-                'is_unique' => 'This %s already exists.',
-                'required' => 'This field is required.'
+                'is_unique' => 'This %s already exists.'
             )
         ),
         array(
             'field' => 'hhc_address',
             'label' => 'Address',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[255]'
         )
     ),
     'home_health_care_management/profile/save_update' => array(
@@ -416,10 +412,7 @@ $config = array(
         array(
             'field' => 'hhc_address',
             'label' => 'Address',
-            'rules' => 'required|max_length[255]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
+            'rules' => 'max_length[255]'
         )
     ),
     'patient_management/profile/save' => array(
