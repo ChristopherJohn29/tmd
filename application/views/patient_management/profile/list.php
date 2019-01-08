@@ -35,6 +35,7 @@
 					<th>ICD10 - Code Diagnoses</th>
 					<th>Date of Service</th>
 					<th>Provider</th>
+					<th>PAID</th>
 					<th width="210px">Actions</th>
 				  </tr>
 				  </thead>
@@ -61,6 +62,7 @@
 
 								<td>{{ record['dateOfService'] }}</td>
 								<td>{{ record['provider'] }}</td>
+								<td></td>
 								<td>
 									
 									{% if roles_permission_entity.has_permission_name(['view_pt']) %}
@@ -95,6 +97,7 @@
 							<th>ICD10 - Code Diagnoses</th>
 							<th>Date of Service</th>
 							<th>Provider</th>
+							<th>PAID</th>
 							<th>Actions</th>
 						</tr>
 					  </tfoot>
