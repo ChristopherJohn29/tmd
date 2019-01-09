@@ -37,7 +37,7 @@
 					<th>Provider</th>
 					<th>PAID</th>
 					<th>CPO Billed</th>
-					<th width="110px">Actions</th>
+					<th width="140px">Actions</th>
 				  </tr>
 				  </thead>
 				  
