@@ -53,7 +53,7 @@
 									
 									<tbody>
 
-										{% for transaction in transaction_entity.has_selected_aw_ippe_list(transactions) %}
+										{% for transaction in transaction_entity.has_performed_in_list(transactions) %}
 
 											<tr>
 												<td class="text-center">{{ loop.index }}</td>

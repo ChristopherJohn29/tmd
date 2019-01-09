@@ -87,13 +87,13 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->pt_aw_ippe_code == $code ? 'selected=true' : '';
 	}
 
-	public function has_selected_aw_ippe_list(array $transactions) : array
+	public function has_performed_in_list(array $transactions) : array
 	{
 		$data = [];
 
 		foreach ($transactions as $transaction)
 		{
-			if (empty($transaction->pt_aw_ippe_code))
+			if ( ! $transaction->is_aw_performed())
 			{
 				continue;
 			}

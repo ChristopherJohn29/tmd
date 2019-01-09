@@ -32,6 +32,11 @@ class Superbill_entity {
 
 		foreach ($this->transactions as $transaction)
 		{
+			if ( ! $transaction->is_aw_performed())
+			{
+				continue;
+			}
+
 			if ($transaction->pt_aw_ippe_code == self::AW_CODES_G0402)
 			{
 				$summary['AW_CODES_G0402'] += 1;
