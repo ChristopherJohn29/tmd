@@ -32,7 +32,7 @@
 							<tr>
 								<th>Date of Service</th>
 								<th>Provider</th>
-								<th width="160px">Action</th>
+								<th width="80px">Action</th>
 							</tr>
 						</thead>
                   
@@ -49,7 +49,7 @@
 											
 											{% if roles_permission_entity.has_permission_name(['view_prs']) %}
 
-												<a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View Details</span></a>
+												<a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View</span></a>
 
 											{% endif %}
 

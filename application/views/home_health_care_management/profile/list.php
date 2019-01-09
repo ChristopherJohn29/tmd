@@ -37,7 +37,7 @@
                                 <th>Fax</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th width="80px">Action</th>
+                                <th width="50px">Action</th>
                             </tr>
                         </thead>
                       

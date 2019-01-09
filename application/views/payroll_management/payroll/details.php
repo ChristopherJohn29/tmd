@@ -66,7 +66,7 @@
 										<th>AW / IPPE</th>
 										<th>ACP</th>
 										<th>Patient Name</th>
-										<th>Mileage</th>
+										<th width="120px">Mileage</th>
 									</tr>
 								</thead>
 								
@@ -113,9 +113,9 @@
 										<thead>
 											<tr>
 												<th>Description</th>
-												<th width="140px">Quantity</th>
+												<th>Quantity</th>
 												<th>Amount</th>
-												<th>Total Amount</th>
+												<th width="120px">Total Amount</th>
 											</tr>
 										</thead>
 										
@@ -177,7 +177,7 @@
 											<tr>
 												<th>Mileage</th>
 												<td>{{ provider_payment_summary['mileage']['qty'] }}</td>
-												<td>${{ provider_payment_summary['mileage']['amount'] }}</td>
+												<td>{{ provider_payment_summary['mileage']['amount'] }}¢</td>
 												<td>${{ provider_payment_summary['mileage']['total'] }}</td>
 											</tr>
 											<tr>

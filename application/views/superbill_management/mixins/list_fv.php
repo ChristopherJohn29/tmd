@@ -8,7 +8,7 @@
             <th class="text-center">G0438</th>
             <th class="text-center">G0439</th>
             <th class="text-center">Total</th>
-            <th width="100px">Action</th>
+            <th width="70px">Action</th>
         </tr>
     </thead>
 
@@ -21,7 +21,7 @@
             <td class="text-center">{{ summary['AW_CODE_G0438'] }}</td>
             <td class="text-center">{{ summary['AW_CODE_G0439'] }}</td>
             <td class="text-center">{{ summary['total'] }}</td>
-            <td><a href="{{ site_url("superbill_management/superbill/details/#{ table_name_page }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View Details</span></a></td>
+            <td><a href="{{ site_url("superbill_management/superbill/details/#{ table_name_page }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View</span></a></td>
         </tr>
     </tbody>
 </table>

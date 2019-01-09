@@ -37,7 +37,7 @@
              				   <table id="all-patient-list" class="table no-margin table-striped">
 									<thead>
 										<tr>
-											<td></td>
+											<th>&nbsp;</th>
 											<th width="200px">Patient Name</th>
 											<th>Medicare</th>
 											<th>DOB</th>

@@ -33,7 +33,7 @@
 							<th>Phone</th>
 							<th>Email</th>
 							<th>Address</th>
-							<th width="120px">Action</th>
+							<th width="80px">Action</th>
 						</tr>
 					</thead>
 	                  
@@ -52,7 +52,7 @@
 										
 										{% if roles_permission_entity.has_permission_name(['view_provider']) %}
 
-											<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View Details</span></a>
+											<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View</span></a>
 
 										{% endif %}
 

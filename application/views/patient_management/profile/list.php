@@ -36,8 +36,8 @@
 					<th>Date of Service</th>
 					<th>Provider</th>
 					<th>PAID</th>
-					<th width="70px">CPO Billed</th>
-					<th width="210px">Actions</th>
+					<th>CPO Billed</th>
+					<th width="110px">Actions</th>
 				  </tr>
 				  </thead>
 				  
@@ -69,12 +69,12 @@
 									
 									{% if roles_permission_entity.has_permission_name(['view_pt']) %}
 										
-										<a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+										<a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View</span></a>
 									{% endif %}
 
 									{% if roles_permission_entity.has_permission_name(['add_tr']) %}
 
-										<a href="{{ site_url("patient_management/transaction/add/#{ record['patientId'] }") }}" title=""><span class="label label-primary">Add Visit</span></a>
+										<a href="{{ site_url("patient_management/transaction/add/#{ record['patientId'] }") }}" title=""><span class="label label-primary">Add</span></a>
 
 									{% endif %}
 									
