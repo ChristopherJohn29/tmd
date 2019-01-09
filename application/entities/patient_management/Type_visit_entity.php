@@ -28,6 +28,20 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 		];
 	}
 
+	public static function get_all_visits_list() : array
+	{
+		return [
+			self::INITIAL_VISIT_HOME,
+			self::INITIAL_VISIT_FACILITY,
+			self::FOLLOW_UP_HOME,
+			self::FOLLOW_UP_FACILITY,
+			self::INITIAL_VISIT_OFFICE,
+			self::FOLLOW_UP_OFFICE,
+			self::NO_SHOW,
+			self::CANCELLED,
+		];
+	}
+
 	public function get_initial_list() : array
 	{
 		return [
