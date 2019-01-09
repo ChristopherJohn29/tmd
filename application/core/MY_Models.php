@@ -70,6 +70,11 @@ class MY_Models extends \CI_Model {
 			}
 		}
 
+		if (isset($params['where_in']))
+		{
+			$this->db->where_in($params['where_in']['column'], $params['where_in']['values']);
+		}
+
 		$query = $this->db->get($this->table_name, $this->limit, $this->offset);
 
 		return $query->custom_result_object($this->entity);

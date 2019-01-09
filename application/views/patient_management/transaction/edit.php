@@ -64,7 +64,7 @@
 											<select class="form-control" style="width: 100%;" required="true" name="pt_tovID">
 												<option value="" selected="true">Select</option>
 
-												{% for type_visit in transactions.get_type_visits(type_visits, transaction.pt_tovID) %}
+												{% for type_visit in type_visits %}
 
 													<option value="{{ type_visit.tov_id }}" {{ transaction.get_selected_tov(type_visit.tov_id) }}>{{ type_visit.tov_name }}</option>
 

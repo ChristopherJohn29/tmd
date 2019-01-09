@@ -15,7 +15,7 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 
 	protected $tov_id; 
 	protected $tov_name;
-
+	
 	public static function get_visits_list() : array
 	{
 		return [

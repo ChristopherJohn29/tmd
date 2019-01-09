@@ -63,14 +63,9 @@
 											<select class="form-control" style="width: 100%;" required="true" name="pt_tovID">
 												<option value="" selected="true">Select</option>
 
-												{% for type_visit in type_visits %}
+												{% for type_visit in type_visit_entity.get_list() %}
 
-													{% if transactions.has_initial_records(type_visit.tov_id) %}
-													{% else %}
-
-														<option value="{{ type_visit.tov_id }}">{{ type_visit.tov_name }}</option>
-
-													{% endif %}
+													<option value="{{ type_visit.tov_id }}">{{ type_visit.tov_name }}</option>
 
 												{% endfor %}
 

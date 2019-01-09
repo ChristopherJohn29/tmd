@@ -46,18 +46,20 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 					'condition' => '',
 					'value' => $pt_patientID
 				]
+			],
+			'where_in' => [
+				'column' => 'patient_transactions.pt_tovID',
+				'values' => (new Type_visit_entity())->get_visits_list(),
 			]
 		];
 
 		$page_data['record'] = $this->profile_model->get_records_by_join($record_params);
-		$page_data['type_visits'] = $this->type_visit_model->records();
 		
-		$initial_records = $this->transaction_model->records($records_params);
+		$initial_followup_records = $this->transaction_model->records($records_params);
+		$type_visits = $this->type_visit_model->records();
 
-		$transactions_entity = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();
-		$transactions_entity->set_datas($initial_records);
-
-		$page_data['transactions'] = $transactions_entity;
+		$page_data['type_visit_entity'] = new \Mobiledrs\entities\patient_management\pages\Type_visit_entity(
+			$initial_followup_records, $type_visits);
 
 		$this->twig->view('patient_management/transaction/add', $page_data);
 	}
@@ -109,11 +111,6 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 		$page_data['record'] = $this->profile_model->get_records_by_join($profile_params);
 		$page_data['transaction'] = $this->transaction_model->get_records_by_join($transaction_params);
 		$page_data['type_visits'] = $this->type_visit_model->records();
-
-		$transactions_entity = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();
-		$transactions_entity->set_datas($page_data['transaction']);
-
-		$page_data['transactions'] = $transactions_entity;
 
 		$this->twig->view('patient_management/transaction/edit', $page_data);
 	}
