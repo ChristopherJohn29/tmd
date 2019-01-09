@@ -17,7 +17,9 @@
   	    	{ "orderable": false, "targets": 2 },
   	    	{ "orderable": true, "targets": 3 },
   	    	{ "orderable": true, "targets": 4 },
-  	    	{ "orderable": false, "targets": 5 }
+          { "orderable": false, "targets": 5 },
+          { "orderable": false, "targets": 6 },
+  	    	{ "orderable": false, "targets": 7 }
 		    ]
     })
   })
