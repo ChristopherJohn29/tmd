@@ -77,7 +77,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'patientId' => $records[$i]->patient_id,
 				'pt_tovID' => $patient_trans ? $patient_trans->pt_tovID : '',
 				'patientName' => $records[$i]->patient_name,
-				'patientReferralDate' => ($patient_trans && $patient_trans->pt_dateRef != '0000-00-00') ? $patient_trans->pt_dateRef : '',
+				'patientReferralDate' => ($patient_trans && $patient_trans->pt_dateRef != '0000-00-00') ? $patient_trans->get_date_format($patient_trans->pt_dateRef) : '',
 				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
 				'notes' => $patient_trans ? $patient_trans->pt_notes : '',
 				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',
