@@ -135,7 +135,7 @@
 											<tr>
 												<th>Initial Visit (Office)</th>
 												<td>{{ provider_payment_summary['initial_visit_office']['qty'] }}</td>
-												<td>${{ provider_payment_summary['initial_visit_office']['amount'] }}</td>
+												<td>${{ provider_payment_summary['initial_visit_office']['amount'] != '' ? provider_payment_summary['initial_visit_office']['amount'] : 0 }}</td>
 												<td>${{ provider_payment_summary['initial_visit_office']['total'] }}</td>
 											</tr>
 											<tr>
@@ -153,7 +153,7 @@
 											<tr>
 												<th>Follow-Up Visit (Office)</th>
 												<td>{{ provider_payment_summary['follow_up_office']['qty'] }}</td>
-												<td>${{ provider_payment_summary['follow_up_office']['amount'] }}</td>
+												<td>${{ provider_payment_summary['follow_up_office']['amount'] != '' ? provider_payment_summary['follow_up_office']['amount'] : 0 }}</td>
 												<td>${{ provider_payment_summary['follow_up_office']['total'] }}</td>
 											</tr>
 											<tr>

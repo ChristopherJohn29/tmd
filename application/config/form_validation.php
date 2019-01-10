@@ -184,7 +184,7 @@ $config = array(
         array(
             'field' => 'provider_rate_initialVisitOffice',
             'label' => 'Initial Visit Office',
-            'rules' => 'required|max_length[10]',
+            'rules' => 'max_length[10]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -200,7 +200,7 @@ $config = array(
         array(
             'field' => 'provider_rate_followUpVisitOffice',
             'label' => 'Follow up visit Office',
-            'rules' => 'required|max_length[10]',
+            'rules' => 'max_length[10]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -307,7 +307,7 @@ $config = array(
         array(
             'field' => 'provider_rate_initialVisitOffice',
             'label' => 'Initial Visit Office',
-            'rules' => 'required|max_length[10]',
+            'rules' => 'max_length[10]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
@@ -323,7 +323,7 @@ $config = array(
         array(
             'field' => 'provider_rate_followUpVisitOffice',
             'label' => 'Follow up visit Office',
-            'rules' => 'required|max_length[10]',
+            'rules' => 'max_length[10]',
             'errors' => array(
                 'required' => 'This field is required.'
             )

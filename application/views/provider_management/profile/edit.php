@@ -198,7 +198,7 @@
 									
 
 										<label class="control-label">Initial Visit <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_initialVisit" value="{{ set_value('provider_rate_initialVisit', record.provider_rate_initialVisit) }}">
+										<input type="text" required="true" class="form-control" name="provider_rate_initialVisit" value="{{ set_value('provider_rate_initialVisit', record.provider_rate_initialVisit) }}">
 
 										
 									</div>
@@ -206,8 +206,8 @@
 									<div class="col-md-3 {{ form_error('provider_rate_initialVisitOffice') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Initial Visit <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_initialVisitOffice" value="{{ set_value('provider_rate_initialVisitOffice', record.provider_rate_initialVisit) }}">
+										<label class="control-label">Initial Visit Office</label>
+										<input type="text" class="form-control" name="provider_rate_initialVisitOffice" value="{{ set_value('provider_rate_initialVisitOffice', record.provider_rate_initialVisitOffice) }}">
 
 										
 									</div>
@@ -216,7 +216,7 @@
 									
 
 										<label class="control-label">Follow-up Visit <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_followUpVisit" value="{{ set_value('provider_rate_followUpVisit', record.provider_rate_followUpVisit) }}">
+										<input type="text" required="true" class="form-control" name="provider_rate_followUpVisit" value="{{ set_value('provider_rate_followUpVisit', record.provider_rate_followUpVisit) }}">
 
 										
 									</div>
@@ -224,66 +224,66 @@
 									<div class="col-md-3 {{ form_error('provider_rate_followUpVisitOffice') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Follow-up Visit <span>*</span></label>
+										<label class="control-label">Follow-up Visit Office</label>
 										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" value="{{ set_value('provider_rate_followUpVisitOffice', record.provider_rate_followUpVisitOffice) }}">
 
 										
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_initialVisit') }}</span>
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_initialVisitOffice') }}</span>
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_followUpVisitOffice') }}</span>
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_followUpVisit') }}</span>
 									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Annual Wellness <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_aw" value="{{ set_value('provider_rate_aw', record.provider_rate_aw) }}">
+										<input type="text" required="true" class="form-control" name="provider_rate_aw" value="{{ set_value('provider_rate_aw', record.provider_rate_aw) }}">
 
 										
 									</div>
-
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('provider_rate_aw') }}</span>
-									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_acp') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_acp') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">ACP <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_acp" value="{{ set_value('provider_rate_acp', record.provider_rate_acp) }}">
+										<input type="text" required="true" class="form-control" name="provider_rate_acp" value="{{ set_value('provider_rate_acp', record.provider_rate_acp) }}">
 
 										
 									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_noShowPT') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_noShowPT') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">No Show <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_noShowPT" value="{{ set_value('provider_rate_noShowPT', record.provider_rate_noShowPT) }}">
+										<input type="text" required="true" class="form-control" name="provider_rate_noShowPT" value="{{ set_value('provider_rate_noShowPT', record.provider_rate_noShowPT) }}">
 
 										
 									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Mileage <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_mileage" value="{{ set_value('provider_rate_mileage', record.provider_rate_mileage) }}">
+										<input type="text" required="true" class="form-control" name="provider_rate_mileage" value="{{ set_value('provider_rate_mileage', record.provider_rate_mileage) }}">
 
 										
+									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('provider_rate_aw') }}</span>
 									</div>
 
 									<div class="col-md-3 has-error">
@@ -298,7 +298,7 @@
 										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
 									
-									<div class="col-md-3 xrx-btn-handler">
+									<div class="col-md-12 xrx-btn-handler">
                                         <a href="{{ site_url('provider_management/profile') }}" class="btn btn-default xrx-btn cancel">
 											Cancel
 										</a>

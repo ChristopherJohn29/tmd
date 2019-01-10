@@ -205,8 +205,8 @@
 
 									<div class="col-md-3 {{ form_error('provider_rate_initialVisitOffice') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Initial Visit Office <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_initialVisitOffice" required="true" value="{{ set_value('provider_rate_initialVisitOffice') }}">
+										<label class="control-label">Initial Visit Office</label>
+										<input type="text" class="form-control" name="provider_rate_initialVisitOffice"  value="{{ set_value('provider_rate_initialVisitOffice') }}">
 
 										
 									</div>
@@ -223,8 +223,8 @@
 									<div class="col-md-3 {{ form_error('provider_rate_followUpVisitOffice') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Follow-up Visit <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" required="true" value="{{ set_value('provider_rate_followUpVisitOffice') }}">
+										<label class="control-label">Follow-up Visit Office</label>
+										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" value="{{ set_value('provider_rate_followUpVisitOffice') }}">
 
 										
 									</div>

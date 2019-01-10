@@ -143,10 +143,13 @@ class Payroll_entity {
 		
 		$computed['total_salary'] += $computed['initial_visit_facility']['total'];
 
-		$computed['initial_visit_office']['total'] = $computed['initial_visit_office']['qty'] * 
-			$computed['initial_visit_office']['amount'];
-		
-		$computed['total_salary'] += $computed['initial_visit_office']['total'];
+		if ( ! empty($this->provider_details->provider_rate_initialVisitOffice))
+		{
+			$computed['initial_visit_office']['total'] = $computed['initial_visit_office']['qty'] * 
+				$computed['initial_visit_office']['amount'];
+
+			$computed['total_salary'] += $computed['initial_visit_office']['total'];
+		}
 
 		$computed['follow_up_home']['total'] = $computed['follow_up_home']['qty'] * 
 			$computed['follow_up_home']['amount'];
@@ -158,10 +161,13 @@ class Payroll_entity {
 
 		$computed['total_salary'] += $computed['follow_up_facility']['total'];
 
-		$computed['follow_up_office']['total'] = $computed['follow_up_office']['qty'] * 
-			$computed['follow_up_office']['amount'];
+		if ( ! empty($this->provider_details->provider_rate_followUpVisitOffice))
+		{
+			$computed['follow_up_office']['total'] = $computed['follow_up_office']['qty'] * 
+				$computed['follow_up_office']['amount'];
 
-		$computed['total_salary'] += $computed['follow_up_office']['total'];
+			$computed['total_salary'] += $computed['follow_up_office']['total'];
+		}
 		
 		$computed['no_show']['total'] = $computed['no_show']['qty'] * 
 			$computed['no_show']['amount'];
