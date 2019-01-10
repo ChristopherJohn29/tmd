@@ -33,7 +33,7 @@ class Payroll_entity {
 			],
 			'initial_visit_office' => [
 				'qty' => 0,
-				'amount' => $this->provider_details->provider_rate_initialVisit,
+				'amount' => $this->provider_details->provider_rate_initialVisitOffice,
 				'total' => 0
 			],
 			'follow_up_home' => [
@@ -48,7 +48,7 @@ class Payroll_entity {
 			],
 			'follow_up_office' => [
 				'qty' => 0,
-				'amount' => $this->provider_details->provider_rate_followUpVisit,
+				'amount' => $this->provider_details->provider_rate_followUpVisitOffice,
 				'total' => 0
 			],
 			'no_show' => [

@@ -194,7 +194,7 @@
 										<p class="lead subheader">Rates</p>
 									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_initialVisit') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_initialVisit') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Initial Visit <span>*</span></label>
@@ -202,8 +202,17 @@
 
 										
 									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_initialVisitOffice') ? 'has-error' : '' }}">
 									
-									<div class="col-md-4 {{ form_error('provider_rate_followUpVisit') ? 'has-error' : '' }}">
+
+										<label class="control-label">Initial Visit <span>*</span></label>
+										<input type="text" class="form-control" name="provider_rate_initialVisitOffice" value="{{ set_value('provider_rate_initialVisitOffice', record.provider_rate_initialVisit) }}">
+
+										
+									</div>
+									
+									<div class="col-md-3 {{ form_error('provider_rate_followUpVisit') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Follow-up Visit <span>*</span></label>
@@ -211,12 +220,12 @@
 
 										
 									</div>
-									
-									<div class="col-md-4 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
+
+									<div class="col-md-3 {{ form_error('provider_rate_followUpVisitOffice') ? 'has-error' : '' }}">
 									
 
-										<label class="control-label">Annual Wellness <span>*</span></label>
-										<input type="text" class="form-control" name="provider_rate_aw" value="{{ set_value('provider_rate_aw', record.provider_rate_aw) }}">
+										<label class="control-label">Follow-up Visit <span>*</span></label>
+										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" value="{{ set_value('provider_rate_followUpVisitOffice', record.provider_rate_followUpVisitOffice) }}">
 
 										
 									</div>
@@ -226,7 +235,24 @@
 									</div>
 
 									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_initialVisitOffice') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('provider_rate_followUpVisitOffice') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
 										<span class="help-block">{{ form_error('provider_rate_followUpVisit') }}</span>
+									</div>
+									
+									<div class="col-md-4 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
+									
+
+										<label class="control-label">Annual Wellness <span>*</span></label>
+										<input type="text" class="form-control" name="provider_rate_aw" value="{{ set_value('provider_rate_aw', record.provider_rate_aw) }}">
+
+										
 									</div>
 
 									<div class="col-md-4 has-error">
@@ -260,19 +286,19 @@
 										
 									</div>
 
-									<div class="col-md-4 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_acp') }}</span>
 									</div>
 
-									<div class="col-md-8 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_noShowPT') }}</span>
 									</div>
 
-									<div class="col-md-12 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
 									
-									<div class="col-md-12 xrx-btn-handler">
+									<div class="col-md-3 xrx-btn-handler">
                                         <a href="{{ site_url('provider_management/profile') }}" class="btn btn-default xrx-btn cancel">
 											Cancel
 										</a>

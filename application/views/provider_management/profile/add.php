@@ -194,7 +194,7 @@
 										<p class="lead subheader">Rates</p>
 									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_initialVisit') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_initialVisit') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Initial Visit <span>*</span></label>
@@ -202,8 +202,16 @@
 
 										
 									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_initialVisitOffice') ? 'has-error' : '' }}">
 									
-									<div class="col-md-4 {{ form_error('provider_rate_followUpVisit') ? 'has-error' : '' }}">
+										<label class="control-label">Initial Visit Office <span>*</span></label>
+										<input type="text" class="form-control" name="provider_rate_initialVisitOffice" required="true" value="{{ set_value('provider_rate_initialVisitOffice') }}">
+
+										
+									</div>
+									
+									<div class="col-md-3 {{ form_error('provider_rate_followUpVisit') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Follow-up Visit <span>*</span></label>
@@ -211,8 +219,33 @@
 
 										
 									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_followUpVisitOffice') ? 'has-error' : '' }}">
 									
-									<div class="col-md-4 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
+
+										<label class="control-label">Follow-up Visit <span>*</span></label>
+										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" required="true" value="{{ set_value('provider_rate_followUpVisitOffice') }}">
+
+										
+									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('provider_rate_initialVisit') }}</span>
+									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('provider_rate_initialVisitOffice') }}</span>
+									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('provider_rate_followUpVisit') }}</span>
+									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('provider_rate_followUpVisitOffice') }}</span>
+									</div>
+									
+									<div class="col-md-3 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Annual Wellness <span>*</span></label>
@@ -220,20 +253,8 @@
 
 										
 									</div>
-
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('provider_rate_initialVisit') }}</span>
-									</div>
-
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('provider_rate_followUpVisit') }}</span>
-									</div>
-
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('provider_rate_aw') }}</span>
-									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_acp') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_acp') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">ACP <span>*</span></label>
@@ -242,7 +263,7 @@
 										
 									</div>
 									
-									<div class="col-md-4 {{ form_error('provider_rate_noShowPT') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_noShowPT') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">No Show <span>*</span></label>
@@ -251,7 +272,7 @@
 										
 									</div>
 
-									<div class="col-md-4 {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_mileage') ? 'has-error' : '' }}">
 									
 
 										<label class="control-label">Mileage <span>*</span></label>
@@ -259,16 +280,20 @@
 
 										
 									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('provider_rate_aw') }}</span>
+									</div>
 									
-									<div class="col-md-4 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_acp') }}</span>
 									</div>
 
-									<div class="col-md-8 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_noShowPT') }}</span>
 									</div>
 									
-									<div class="col-md-12 has-error">
+									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
 									
