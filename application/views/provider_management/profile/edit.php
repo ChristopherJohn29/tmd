@@ -223,8 +223,8 @@
 
 									<div class="col-md-3 {{ form_error('provider_rate_followUpVisitOffice') ? 'has-error' : '' }}">
 									
-
 										<label class="control-label">Follow-up Visit Office</label>
+
 										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" value="{{ set_value('provider_rate_followUpVisitOffice', record.provider_rate_followUpVisitOffice) }}">
 
 										
