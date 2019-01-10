@@ -93,8 +93,12 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 		foreach ($transactions as $transaction)
 		{
-			if ( ! $transaction->is_aw_performed() && empty($this->pt_aw_ippe_code) && 
+			if ( ! $transaction->is_aw_performed() &&
 				(empty($transaction->pt_aw_ippe_code) || (  ! empty($transaction->pt_aw_ippe_code))))
+			{
+				continue;
+			}
+			else if ($transaction->is_aw_performed() && empty($transaction->pt_aw_ippe_code))
 			{
 				continue;
 			}
