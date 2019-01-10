@@ -7,7 +7,6 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_id;
 	protected $patient_name;
 	protected $patient_gender;
-	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
 	protected $patient_dateOfBirth; 
 	protected $patient_phoneNum;

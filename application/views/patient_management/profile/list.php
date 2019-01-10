@@ -31,7 +31,7 @@
 				<thead>
 				  <tr>
 					<th>Patient Name</th>
-					<th>Referral Date</th>
+					<th>Date of Referral</th>
 					<th>ICD10 - Code Diagnoses</th>
 					<th>Date of Service</th>
 					<th>Provider</th>

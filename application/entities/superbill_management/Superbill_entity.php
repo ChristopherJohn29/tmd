@@ -32,7 +32,8 @@ class Superbill_entity {
 
 		foreach ($this->transactions as $transaction)
 		{
-			if ( ! $transaction->is_aw_performed())
+			if ( ! $transaction->is_aw_performed() && 
+				(empty($transaction->pt_aw_ippe_code) || (  ! empty($transaction->pt_aw_ippe_code))))
 			{
 				continue;
 			}

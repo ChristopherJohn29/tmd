@@ -19,12 +19,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('list_pt');
 
-		$params = [
-			'key' => 'patient_referralDate',
-			'order_by' => 'DESC'
-		];
-
-		$patients = $this->profile_model->records($params);
+		$patients = $this->profile_model->records();
 
 		$page_data['records'] = $this->profile_model->get_pt_profile_trans($patients);
 		$page_data['profile_entity'] = new \Mobiledrs\entities\patient_management\pages\Profile_entity();

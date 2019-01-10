@@ -433,14 +433,6 @@ $config = array(
             )
         ),
         array(
-            'field' => 'patient_referralDate',
-            'label' => 'Referral Date',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
             'field' => 'patient_medicareNum',
             'label' => 'Medicare Number',
             'rules' => 'required|max_length[45]|is_unique[patient.patient_medicareNum]',
@@ -495,14 +487,6 @@ $config = array(
             'field' => 'patient_gender',
             'label' => 'Gender',
             'rules' => 'required|max_length[10]',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'patient_referralDate',
-            'label' => 'Referral Date',
-            'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'
             )

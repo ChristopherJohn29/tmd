@@ -20,7 +20,6 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 		return [
 			'patient_name' => $this->record_entity->patient_name,
 			'patient_gender' => $this->record_entity->patient_gender,
-			'patient_referralDate' => $this->record_entity->set_date_format($this->record_entity->patient_referralDate),
 			'patient_medicareNum' => $this->record_entity->patient_medicareNum,
 			'patient_dateOfBirth' => $this->record_entity->set_date_format($this->record_entity->patient_dateOfBirth),
 			'patient_phoneNum' => $this->record_entity->patient_phoneNum,
@@ -78,7 +77,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'patientId' => $records[$i]->patient_id,
 				'pt_tovID' => $patient_trans ? $patient_trans->pt_tovID : '',
 				'patientName' => $records[$i]->patient_name,
-				'patientReferralDate' => $records[$i]->get_date_format($records[$i]->patient_referralDate),
+				'patientReferralDate' => ($patient_trans && $patient_trans->pt_dateRef != '0000-00-00') ? $patient_trans->pt_dateRef : '',
 				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
 				'notes' => $patient_trans ? $patient_trans->pt_notes : '',
 				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',

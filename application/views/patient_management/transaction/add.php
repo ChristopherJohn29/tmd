@@ -57,6 +57,28 @@
 									
 									<div class="form-container">
 
+										<div class="col-md-6 form-group  {{ form_error('pt_dateRef') ? 'has-error' : '' }}">
+											
+											<label class="control-label">Date of Referral</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateRef" value="">
+
+										</div>
+
+										<div class="col-md-6 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
+										
+											<label class="control-label">Date Referral was Emailed</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateRefEmailed" value="">
+											
+										</div>
+
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_dateRef') }}</span>
+										</div>
+
+										<div class="col-md-6 has-error">
+											<span class="help-block">{{ form_error('pt_dateRefEmailed') }}</span>
+										</div>
+
 										<div class="col-md-6 form-group {{ form_error('pt_tovID') ? 'has-error' : '' }}">
 										
 											<label class="control-label">Type of Visit <span>*</span></label>
@@ -237,17 +259,6 @@
 
 										<div class="col-md-12 has-error">
 											<span class="help-block">{{ form_error('pt_icd10_codes') }}</span>
-										</div>
-										
-										<div class="col-md-12 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
-										
-											<label class="control-label">Date Referral was Emailed</label>
-											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateRefEmailed" value="">
-											
-										</div>
-
-										<div class="col-md-12 has-error">
-											<span class="help-block">{{ form_error('pt_dateRefEmailed') }}</span>
 										</div>
 										
 										<div class="col-md-12 form-group">

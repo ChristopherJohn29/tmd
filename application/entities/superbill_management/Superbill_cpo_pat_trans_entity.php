@@ -10,7 +10,6 @@ class Superbill_cpo_pat_trans_entity {
 	protected $patient_id;
 	protected $patient_name;
 	protected $patient_gender;
-	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
 	protected $patient_dateOfBirth; 
 	protected $patient_phoneNum;
@@ -37,6 +36,7 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_icd10_codes;
 	protected $pt_dateBilled;
 	protected $pt_visitBilled;
+	protected $pt_dateRef;
 	protected $pt_dateRefEmailed;
 	protected $pt_notes;
 	protected $pt_dateCreated;

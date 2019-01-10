@@ -23,10 +23,6 @@
              				
              				<table class="table xrx-table">
              					<tr>
-             						<th>Referral Date:</th>
-             						<td>{{ record.get_date_format(record.patient_referralDate) }}</td>
-             					</tr>
-             					<tr>
              						<th>Medicare:</th>
              						<td>{{ record.patient_medicareNum }}</td>
              					</tr>

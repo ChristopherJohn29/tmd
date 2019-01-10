@@ -22,6 +22,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_icd10_codes;
 	protected $pt_dateBilled;
 	protected $pt_visitBilled;
+	protected $pt_dateRef;
 	protected $pt_dateRefEmailed;
 	protected $pt_notes;
 	protected $pt_dateCreated;
@@ -62,7 +63,6 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_id;
 	protected $patient_name;
 	protected $patient_gender;
-	protected $patient_referralDate; 
 	protected $patient_medicareNum; 
 	protected $patient_dateOfBirth; 
 	protected $patient_phoneNum;
@@ -93,7 +93,8 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 		foreach ($transactions as $transaction)
 		{
-			if ( ! $transaction->is_aw_performed())
+			if ( ! $transaction->is_aw_performed() && empty($this->pt_aw_ippe_code) && 
+				(empty($transaction->pt_aw_ippe_code) || (  ! empty($transaction->pt_aw_ippe_code))))
 			{
 				continue;
 			}
