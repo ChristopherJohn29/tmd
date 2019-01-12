@@ -50,15 +50,20 @@
 		margin-bottom: 15px;
         }
 	
-	/*.xrx-form input,
+	.xrx-form input,
 	.xrx-form textarea,
 	.xrx-form select {
-		border: 0 !important;
-		border-bottom: 1px solid #d2d6de !important;
-		background: #d2d6de !important;
-		border-radius: 0 !important;
+		background: #fff !important;
+		border-radius: 4px !important;
 		}
-		*/
+
+    .xrx-form input[type=text]:focus,
+    .xrx-form textarea[type=text]:focus,
+    .xrx-form textarea[type=text]:focus {
+        background: #f8f9fa !important;
+        border: 1px solid #b9beca;
+        }
+		
 		
 	.xrx-form label {
 		color: #979797 !important;
