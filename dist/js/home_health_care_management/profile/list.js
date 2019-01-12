@@ -1,5 +1,5 @@
   $(function () {
-   $('#all-homehealthcare-list').DataTable({
+   var table = $('#all-homehealthcare-list').DataTable({
       dom: "<'row'<'col-sm-9'<\".toolbar\">><'col-sm-3'f>>tp",
       initComplete: function(){
         var url = window.location.href  + '/add';
@@ -11,4 +11,9 @@
       },
       "pageLength": 100
     });
+
+   table
+    .column( '2:visible' )
+    .order( 'asc' )
+    .draw();
   });
