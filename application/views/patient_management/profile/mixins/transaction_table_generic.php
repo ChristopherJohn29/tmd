@@ -8,7 +8,7 @@
                 <th>AW/IPPE</th>
                 <th>Performed</th>
                 <th>AW/IPPE Date</th>
-                <th width="110px">Date Billed</th>
+                <th width="110px">AW Billed</th>
             </tr>
 
         </thead>
@@ -39,7 +39,7 @@
                 <th>ICD-Code Diagnoses</th>
                 <th>Date of Referral</th>
                 <th>Date Referral was Emailed</th>
-                <th width="110px">Visit Billed</th>
+                <th width="110px">Visits Billed</th>
             </tr>
         </thead>
 
