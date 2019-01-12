@@ -125,6 +125,14 @@
              				
              			</div>
              		</div>
+                    
+                    <div class="col-md-12 text-center">
+                        <a href="#">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="fa fa-edit"></i> Update Entry
+                            </button>
+                        </a>
+                    </div>
 
                 </section>
 
