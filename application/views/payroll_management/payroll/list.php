@@ -19,7 +19,7 @@
                         <td>{{ result['provider_name'] }}</td>
                         <td>{{ result['total_visits'] }}</td>
                         <td>${{ result['total_salary'] }}</td>
-                        <td><a href="{{ site_url("payroll_management/payroll/details/#{ result['provider_id'] }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View</span></a></td>
+                        <td><a target="_blank" href="{{ site_url("payroll_management/payroll/details/#{ result['provider_id'] }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View</span></a></td>
                     </tr>
 
                 {% endfor %}
