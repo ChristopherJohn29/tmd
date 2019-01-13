@@ -251,18 +251,13 @@
 
                             {% endif %}
 
-                                
-                            {% if CPO_entity.cpo_cert_button() %}
+                            {% if roles_permission_entity.has_permission_name(['add_cpo']) %}
 
-                                {% if roles_permission_entity.has_permission_name(['add_cpo']) %}
-
-        							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
-        								<button type="button" class="btn btn-default">
-        									<i class="fa fa-plus"></i> Add Certification
-        								</button>
-        							</a>
-
-                                {% endif %}
+    							<a href="{{ site_url("patient_management/CPO/add/#{ record.patient_id }") }}" title="">
+    								<button type="button" class="btn btn-default">
+    									<i class="fa fa-plus"></i> Add Certification
+    								</button>
+    							</a>
 
                             {% endif %}
 							         				
