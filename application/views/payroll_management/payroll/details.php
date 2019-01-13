@@ -120,48 +120,84 @@
 										</thead>
 										
 										<tbody>
-											<tr>
-												<th>Initial Visit (Home)</th>
-												<td>{{ provider_payment_summary['initial_visit_home']['qty'] }}</td>
-												<td>${{ provider_payment_summary['initial_visit_home']['amount'] }}</td>
-												<td>${{ provider_payment_summary['initial_visit_home']['total'] }}</td>
-											</tr>
-											<tr>
-												<th>Initial Visit (Facility)</th>
-												<td>{{ provider_payment_summary['initial_visit_facility']['qty'] }}</td>
-												<td>${{ provider_payment_summary['initial_visit_facility']['amount'] }}</td>
-												<td>${{ provider_payment_summary['initial_visit_facility']['total'] }}</td>
-											</tr>
-											<tr>
-												<th>Initial Visit (Office)</th>
-												<td>{{ provider_payment_summary['initial_visit_office']['qty'] }}</td>
-												<td>${{ provider_payment_summary['initial_visit_office']['amount'] != '' ? provider_payment_summary['initial_visit_office']['amount'] : 0 }}</td>
-												<td>${{ provider_payment_summary['initial_visit_office']['total'] }}</td>
-											</tr>
-											<tr>
-												<th>Follow-Up Visit (Home)</th>
-												<td>{{ provider_payment_summary['follow_up_home']['qty'] }}</td>
-												<td>${{ provider_payment_summary['follow_up_home']['amount'] }}</td>
-												<td>${{ provider_payment_summary['follow_up_home']['total'] }}</td>
-											</tr>
-											<tr>
-												<th>Follow-Up Visit (Facility)</th>
-												<td>{{ provider_payment_summary['follow_up_facility']['qty'] }}</td>
-												<td>${{ provider_payment_summary['follow_up_facility']['amount'] }}</td>
-												<td>${{ provider_payment_summary['follow_up_facility']['total'] }}</td>
-											</tr>
-											<tr>
-												<th>Follow-Up Visit (Office)</th>
-												<td>{{ provider_payment_summary['follow_up_office']['qty'] }}</td>
-												<td>${{ provider_payment_summary['follow_up_office']['amount'] != '' ? provider_payment_summary['follow_up_office']['amount'] : 0 }}</td>
-												<td>${{ provider_payment_summary['follow_up_office']['total'] }}</td>
-											</tr>
-											<tr>
-												<th>No Show</th>
-												<td>{{ provider_payment_summary['no_show']['qty'] }}</td>
-												<td>${{ provider_payment_summary['no_show']['amount'] }}</td>
-												<td>${{ provider_payment_summary['no_show']['total'] }}</td>
-											</tr>
+
+											{% if provider_payment_summary['initial_visit_home']['total'] != 0 %}
+
+												<tr>
+													<th>Initial Visit (Home)</th>
+													<td>{{ provider_payment_summary['initial_visit_home']['qty'] }}</td>
+													<td>${{ provider_payment_summary['initial_visit_home']['amount'] }}</td>
+													<td>${{ provider_payment_summary['initial_visit_home']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+
+											{% if provider_payment_summary['initial_visit_facility']['total'] != 0 %}
+
+												<tr>
+													<th>Initial Visit (Facility)</th>
+													<td>{{ provider_payment_summary['initial_visit_facility']['qty'] }}</td>
+													<td>${{ provider_payment_summary['initial_visit_facility']['amount'] }}</td>
+													<td>${{ provider_payment_summary['initial_visit_facility']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+
+											{% if provider_payment_summary['initial_visit_office']['total'] != 0 %}
+
+												<tr>
+													<th>Initial Visit (Office)</th>
+													<td>{{ provider_payment_summary['initial_visit_office']['qty'] }}</td>
+													<td>${{ provider_payment_summary['initial_visit_office']['amount'] != '' ? provider_payment_summary['initial_visit_office']['amount'] : 0 }}</td>
+													<td>${{ provider_payment_summary['initial_visit_office']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+
+											{% if provider_payment_summary['follow_up_home']['total'] != 0 %}
+
+												<tr>
+													<th>Follow-Up Visit (Home)</th>
+													<td>{{ provider_payment_summary['follow_up_home']['qty'] }}</td>
+													<td>${{ provider_payment_summary['follow_up_home']['amount'] }}</td>
+													<td>${{ provider_payment_summary['follow_up_home']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+
+											{% if provider_payment_summary['follow_up_facility']['total'] != 0 %}
+
+												<tr>
+													<th>Follow-Up Visit (Facility)</th>
+													<td>{{ provider_payment_summary['follow_up_facility']['qty'] }}</td>
+													<td>${{ provider_payment_summary['follow_up_facility']['amount'] }}</td>
+													<td>${{ provider_payment_summary['follow_up_facility']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+
+											{% if provider_payment_summary['follow_up_office']['total'] != 0 %}
+
+												<tr>
+													<th>Follow-Up Visit (Office)</th>
+													<td>{{ provider_payment_summary['follow_up_office']['qty'] }}</td>
+													<td>${{ provider_payment_summary['follow_up_office']['amount'] != '' ? provider_payment_summary['follow_up_office']['amount'] : 0 }}</td>
+													<td>${{ provider_payment_summary['follow_up_office']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+
+											{% if provider_payment_summary['no_show']['total'] != 0 %}
+
+												<tr>
+													<th>No Show</th>
+													<td>{{ provider_payment_summary['no_show']['qty'] }}</td>
+													<td>${{ provider_payment_summary['no_show']['amount'] }}</td>
+													<td>${{ provider_payment_summary['no_show']['total'] }}</td>
+												</tr>
+
+											{% endif %}
+												
 											<tr>
 												<th>AW / IPPE</th>
 												<td>{{ provider_payment_summary['aw_ippe']['qty'] }}</td>
