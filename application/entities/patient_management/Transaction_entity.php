@@ -91,6 +91,11 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->pt_aw_ippe_code == $code ? 'selected=true' : '';
 	}
 
+	public function get_aw_ippe_format(string $aw_ippe_code) : string
+	{
+		return ( ! empty($this->pt_aw_ippe_code)) ? 'Yes' : 'No';
+	}
+
 	public function has_performed_in_list(array $transactions) : array
 	{
 		$data = [];

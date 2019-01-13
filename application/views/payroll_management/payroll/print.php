@@ -56,7 +56,7 @@
 										<tr>
 											<td>{{ provider_transaction.get_date_format(provider_transaction.pt_dateOfService) }}</td>
 											<td>{{ provider_transaction.tov_name }}</td>
-											<td>{{ provider_transaction.pt_aw_ippe_code }}</td>
+											<td>{{ provider_transaction.get_aw_ippe_format(provider_transaction.pt_aw_ippe_code) }}</td>
 											<td>{{ provider_transaction.get_selected_choice_format(provider_transaction.pt_acp) }}</td>
 											<td>{{ provider_transaction.patient_name }}</td>
 											<td>{{ provider_transaction.pt_mileage }}</td>
