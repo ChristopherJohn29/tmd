@@ -35,7 +35,9 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		'1' => '99345', // Initial Visit (Home)
 		'3' => '99350', // Facility Visit (Home)
 		'2' => '99328', // Initial Visit (Facility)
-		'4' => '99337' // Facility Visit (Facility)
+		'4' => '99337', // Facility Visit (Facility)
+		'7' => '99205', // Initial Visit (Office)
+		'8' => '99215' // Facility Visit (Office)
 	];
 
 	protected $provider_id;
