@@ -123,8 +123,8 @@
 										</div>
 										
 										<div class="col-md-6 form-group {{ form_error('pt_dateOfService') ? 'has-error' : '' }}">
-											<label>Date of Service <span>*</span></label>
-											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="pt_dateOfService" value="">
+											<label>Date of Service</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateOfService" value="">
 										</div>
 										
 										<div class="col-md-6 form-group">

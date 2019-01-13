@@ -566,14 +566,6 @@ $config = array(
             )
         ),
         array(
-            'field' => 'pt_dateOfService',
-            'label' => 'Date of Service',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
             'field' => 'pt_others',
             'label' => 'Others',
             'rules' => 'max_length[45]',
@@ -602,14 +594,6 @@ $config = array(
         array(
             'field' => 'pt_tovID',
             'label' => 'Type of Visit',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'This field is required.'
-            )
-        ),
-        array(
-            'field' => 'pt_dateOfService',
-            'label' => 'Date of Service',
             'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'
