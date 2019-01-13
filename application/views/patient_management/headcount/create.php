@@ -2,6 +2,12 @@
 
 {% set page_title = '' %}
 
+{% 
+  set scripts = [
+    'dist/js/libraries/year_incrementor',
+  ]
+%}
+
 {% block content %}
 
 <div class="row">
@@ -19,14 +25,14 @@
                         <div class="col-lg-6 col-lg-offset-3">
                             <div class="search-handler">
                                 
-                                {{ form_open("payroll_management/payroll", {"class": "xrx-form"}) }}
+                                {{ form_open("patient_management/headcount/generate", {"class": "xrx-form"}) }}
                                     
                                     <p class="lead">Headcount</p>
                                         
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label class="control-label">Month <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="month" id="dob" required="true">
+                                            <select class="form-control" style="width: 100%;" name="month" required="true">
                                                 <option selected="selected" value="1">January</option>
                                                 <option value="2">February</option>
                                                 <option value="3">March</option>
@@ -44,7 +50,7 @@
                                         
                                         <div class="col-md-4 form-group">
                                             <label class="control-label">Year <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="year" id="dob" required="true">
+                                            <select class="form-control" style="width: 100%;" name="year" required="true">
                                             </select>
                                         </div>
                                         
@@ -69,11 +75,11 @@
                             
                             <div class="table-responsive">
 
-                                {% if results is defined and results|length > 0 %}
+                                {% if headcounts is defined and headcounts|length > 0 %}
 
-                                    {{ include('payroll_management/payroll/list.php') }}
+                                    {{ include('patient_management/headcount/list.php') }}
 
-                                {% elseif results is defined and results|length == 0 %}
+                                {% elseif headcounts is defined and headcounts|length == 0 %}
 
                                     <div class="no-data-handler">
 
