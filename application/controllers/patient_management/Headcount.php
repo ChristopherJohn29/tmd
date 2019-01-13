@@ -29,6 +29,8 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			$this->input->post('year')
 		);
 
+		$page_data['headcounts_total'] = count($page_data['headcounts']);
+
 		$this->twig->view('patient_management/headcount/create', $page_data);
 	}
 }

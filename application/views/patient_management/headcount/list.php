@@ -26,6 +26,14 @@
 
                 {% endfor %}
 
+                {% if headcounts_total %}
+
+                    <tr>
+                        <td style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</td>
+                    </tr>
+
+                {% endif %}
+
             </tbody>
         </table>
     </div>
