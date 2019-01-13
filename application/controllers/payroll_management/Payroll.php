@@ -67,6 +67,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 		$page_data = $this->get_provider_details_data($provider_id, $fromDate, $toDate);
 		$page_data['notes'] = $this->input->post('notes');
+		$page_data['others_field'] = $this->input->post('others_field');
 		$page_data['others'] = $this->input->post('others');
 		$page_data['total'] = $this->input->post('total');
 

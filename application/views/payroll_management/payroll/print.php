@@ -187,7 +187,7 @@
 										<td>${{ provider_payment_summary['mileage']['total'] }}</td>
 									</tr>
 									<tr>
-										<td colspan="3"><strong>Others</strong></td>
+										<td colspan="3"><strong>{{ others_field }}</strong></td>
 										<td>{{ others }}</td>
 									</tr>
 									<tr class="total">

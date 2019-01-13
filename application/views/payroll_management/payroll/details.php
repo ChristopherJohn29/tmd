@@ -217,7 +217,7 @@
 												<td>${{ provider_payment_summary['mileage']['total'] }}</td>
 											</tr>
 											<tr>
-												<th>Others</th>
+												<th><input type="text" name="others_field" class="form-control"></th>
 												<td>-</td>
 												<td>
 		                                            <div class="input-group">
