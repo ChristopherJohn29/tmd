@@ -1,9 +1,16 @@
 <div class="box-body">
-    
     <div class="table-responsive">
-        <table id="all-patient-list" class="table no-margin table-hover">
+
+        {% if headcounts_total %}
+
+            <p style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</p>
+
+        {% endif %}
+
+        <table id="headcount-list" class="table no-margin table-hover">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Patient Name</th>
                     <th>Provider</th>
                     <th>Deductible</th>
@@ -17,6 +24,7 @@
                 {% for headcount in headcounts %}
 
                     <tr>
+                        <td>{{ loop.index }}</td>
                         <td>{{ headcount['patient_name'] }}</td>
                         <td>{{ headcount['provider'] }}</td>
                         <td>{{ headcount['deductible'] }}</td>
@@ -25,14 +33,6 @@
                     </tr>
 
                 {% endfor %}
-
-                {% if headcounts_total %}
-
-                    <tr>
-                        <td style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</td>
-                    </tr>
-
-                {% endif %}
 
             </tbody>
         </table>

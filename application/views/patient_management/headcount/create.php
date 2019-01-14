@@ -5,6 +5,7 @@
 {% 
   set scripts = [
     'dist/js/libraries/year_incrementor',
+    'dist/js/patient_management/headcount/list'
   ]
 %}
 
