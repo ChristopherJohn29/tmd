@@ -50,6 +50,13 @@
 		margin-bottom: 15px;
         }
 	
+    .xrx-form input,
+	.xrx-form textarea,
+	.xrx-form select {
+		border-radius: 4px !important;
+		}
+
+/*
 	.xrx-form input,
 	.xrx-form textarea,
 	.xrx-form select {
@@ -63,6 +70,7 @@
         background: #f8f9fa !important;
         border: 1px solid #b9beca;
         }
+*/
 		
 		
 	.xrx-form label {

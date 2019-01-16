@@ -60,7 +60,7 @@
 
 										<div class="col-md-6 form-group {{ form_error('pt_dateRef') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Date of Referral</label>
+											<label class="control-label">Referral Date</label>
 											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask  name="pt_dateRef" value="{{ set_value('pt_dateRef', transaction.get_date_format(transaction.pt_dateRef)) }}">
 											
 										</div>
