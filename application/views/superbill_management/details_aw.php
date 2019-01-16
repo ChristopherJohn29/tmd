@@ -134,7 +134,7 @@
 	                            </button>
 
 	                            <button type="submit" class="btn btn-danger xrx-btn pull-right" value="paid" style="margin-right: 5px;">
-	                            <i class="fa fa-credit-card"></i> Paid
+	                            <i class="fa fa-credit-card"></i> AW Billed
 	                            </button>
 	                        </div>
 
