@@ -63,7 +63,7 @@
 
                                             <tr>
                                                 <td>{{ record['patientName'] }}</td>
-                                                <td></td>
+                                                <td>{{ record['patientReferralDate'] }}</td>
                                                 <td>{{ record['ICD10'] }}</td>
                                                 <td>{{ record['dateOfService'] }}</td>
                                                 <td>{{ record['provider'] }}</td>
