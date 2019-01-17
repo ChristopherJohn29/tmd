@@ -54,7 +54,7 @@ Mobiledrs.Payroll_details = (function() {
 
 					total.val(newTotal);
 
-					$('.others-amount').html(others);
+					$('.others-amount').html(moneySign + others);
 					$('.total-amount').html(newTotal);
 				}
 			});
