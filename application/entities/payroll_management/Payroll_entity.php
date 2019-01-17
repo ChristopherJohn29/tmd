@@ -77,6 +77,11 @@ class Payroll_entity {
 
 		foreach ($this->provider_transactions as $provider_transaction) 
 		{
+			if ((int) $provider_transaction->tov_id == $this->type_of_visits::CANCELLED)
+			{
+				break;
+			}
+
 			if ((int) $provider_transaction->tov_id == $this->type_of_visits::INITIAL_VISIT_HOME)
 			{
 				$computed['initial_visit_home']['qty'] += 1;
