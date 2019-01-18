@@ -97,6 +97,11 @@ class Superbill_cpo_pat_trans_entity {
 
 					break;
 				}
+				else
+				{
+					$data[$i]['patient_name'] = '';
+					$data[$i]['icd10'] = '';
+				}
 			}
 
 			$last_ptcpo_patientID = $cpo->ptcpo_patientID;
