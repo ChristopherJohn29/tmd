@@ -101,6 +101,8 @@ class Superbill_cpo_pat_trans_entity {
 				{
 					$data[$i]['patient_name'] = '';
 					$data[$i]['icd10'] = '';
+
+					break;
 				}
 			}
 
