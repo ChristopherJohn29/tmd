@@ -20,13 +20,13 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_tcm;
 	protected $pt_others;
 	protected $pt_icd10_codes;
-	protected $pt_dateBilled;
 	protected $pt_visitBilled;
 	protected $pt_dateRef;
 	protected $pt_dateRefEmailed;
 	protected $pt_notes;
 	protected $pt_dateCreated;
 	protected $pt_mileage;
+	protected $pt_aw_billed;
 
 	protected $tov_id; 
 	protected $tov_name;

@@ -34,13 +34,13 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_tcm;
 	protected $pt_others;
 	protected $pt_icd10_codes;
-	protected $pt_dateBilled;
 	protected $pt_visitBilled;
 	protected $pt_dateRef;
 	protected $pt_dateRefEmailed;
 	protected $pt_notes;
 	protected $pt_dateCreated;
 	protected $pt_mileage;
+	protected $pt_aw_billed;
 
 	private $cpo = null;
 	private $pat_trans = null;
@@ -84,7 +84,9 @@ class Superbill_cpo_pat_trans_entity {
 				'Refirst_Month_CPO' => '',
 				'Resecond_Month_CPO' => '',
 				'Rethird_Month_CPO' => '',
-				'Redischarge_date' => ''
+				'Redischarge_date' => '',
+				'patient_name' => '',
+				'icd10' => ''
 			];
 
 			foreach ($this->pat_trans as $pat_tran)
@@ -94,13 +96,6 @@ class Superbill_cpo_pat_trans_entity {
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
 					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
-
-					break;
-				}
-				else
-				{
-					$data[$i]['patient_name'] = '';
-					$data[$i]['icd10'] = '';
 
 					break;
 				}
