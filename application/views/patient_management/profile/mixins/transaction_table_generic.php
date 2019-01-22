@@ -54,6 +54,7 @@
                 <td>{{ transaction.pt_icd10_codes }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateRef) }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateRefEmailed) }}</td>
+                <td></td>
             </tr>
         </tbody>
 

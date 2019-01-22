@@ -30,16 +30,16 @@
 				<table id="all-patient-list" class="table no-margin table-hover">
 				<thead>
 				  <tr>
-					<th>Patient Name</th>
+					<th width="250px">Patient Name</th>
 					<th>Referral Date</th>
 					<th>ICD10 - Code Diagnoses</th>
 					<th>Date of Service</th>
-					<th>Provider</th>
+					<th width="200px">Provider</th>
 					<th>PAID</th>
                     <th>AW Billed</th>
                     <th>Visits Billed</th>
 					<th>CPO Billed</th>
-					<th width="140px">Actions</th>
+					<th width="130px">Actions</th>
 				  </tr>
 				  </thead>
 				  
