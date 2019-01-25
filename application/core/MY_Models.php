@@ -75,6 +75,11 @@ class MY_Models extends \CI_Model {
 			$this->db->where_in($params['where_in']['column'], $params['where_in']['values']);
 		}
 
+		if (isset($params['limit']))
+		{
+			$this->db->limit($params['limit']);
+		}
+
 		$query = $this->db->get($this->table_name, $this->limit, $this->offset);
 
 		return $query->custom_result_object($this->entity);
@@ -131,6 +136,11 @@ class MY_Models extends \CI_Model {
 		if (isset($params['order'])) 
 		{
 			$this->db->order_by($params['order']['key'], $params['order']['by']);
+		}
+
+		if (isset($params['limit']))
+		{
+			$this->db->limit($params['limit']);
 		}
 
 		$query = $this->db->get($this->table_name);

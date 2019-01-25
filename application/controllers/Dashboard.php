@@ -18,7 +18,8 @@ class Dashboard extends \Mobiledrs\core\MY_Controller {
 	{
 		$pt_params = [
 			'key' => 'patient.patient_dateCreated',
-			'order_by' => 'DESC'
+			'order_by' => 'DESC',
+			'limit' => '15'
 		];
 
 		$patients = $this->pt_profile_model->records($pt_params);
@@ -37,6 +38,7 @@ class Dashboard extends \Mobiledrs\core\MY_Controller {
 				'key' => 'provider_route_sheet.prs_dateOfService',
 				'by' => 'DESC'
 			],
+			'limit' => '15',
 			'return_type' => 'object'
 		];
 
