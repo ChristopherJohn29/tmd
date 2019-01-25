@@ -21,7 +21,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$patients = $this->profile_model->records();
 
-		$page_data['records'] = $this->profile_model->get_pt_profile_trans($patients);
+		$page_data['records'] = array_reverse($this->profile_model->get_pt_profile_trans($patients));
+
 		$page_data['profile_entity'] = new \Mobiledrs\entities\patient_management\pages\Profile_entity();
 
 		$this->twig->view('patient_management/profile/list', $page_data);

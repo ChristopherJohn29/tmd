@@ -1,6 +1,6 @@
  $(function () {
     $('#all-patient-list').DataTable({
-        "order": [[ 1, 'asc' ]],
+        "order": [],
         "pageLength": 100,
         'dom': "<'row'<'col-sm-12'<\".toolbar\">>>tp",
         initComplete: function(){
