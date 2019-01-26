@@ -1,0 +1,806 @@
+/*!
+ *   TheMobileDrs.com Custom CSS
+ *   Author: Jayson Arcayna
+ *	 Website: Jaysonarcayna.com
+ */
+ 
+/*
+ * Core: General Layout Style
+ * -------------------------
+ */
+
+/* Remove date, page title, page url in a print page */
+@page { size: auto;  margin: 0mm; }
+ 
+.xrx-round-corners {
+	border-radius:6px !important;
+	}
+	
+.xrx-box-padding {
+	padding: 60px !important;
+	}
+	
+.xrx-row {
+	padding: 20px 0;
+	}
+	
+.xrx-btn-handler,
+.xrx-spacer-top-bottom {
+	padding-top: 20px !important;
+	padding-bottom: 0px !important;
+	}
+
+.xrx-btn-handler a.cancel {
+    margin-right: 6px !important;
+    }
+	
+/* forms */
+
+.xrx-form {
+	display:block;
+    padding: 20px 0;
+	}
+
+    .xrx-form p.lead {
+        font-weight: 400;
+		font-size: 17px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #777777;
+		margin-bottom: 15px;
+        }
+	
+    .xrx-form input,
+	.xrx-form textarea,
+	.xrx-form select {
+		border-radius: 4px !important;
+		}
+
+/*
+	.xrx-form input,
+	.xrx-form textarea,
+	.xrx-form select {
+		background: #fff !important;
+		border-radius: 4px !important;
+		}
+
+    .xrx-form input[type=text]:focus,
+    .xrx-form textarea[type=text]:focus,
+    .xrx-form textarea[type=text]:focus {
+        background: #f8f9fa !important;
+        border: 1px solid #b9beca;
+        }
+*/
+		
+		
+	.xrx-form label {
+		color: #979797 !important;
+		}
+	
+	.xrx-form .subheader {
+		margin: 20px 0 20px !important;
+		}
+	
+	.xrx-form .subheader p {
+		margin-bottom: 0 !important;	
+		}
+
+    .xrx-form .form-group {
+        margin-bottom: 0 !important;
+        }
+	
+/* xrx buttons */
+.xrx-btn {
+	border-radius: 6px !important;
+	letter-spacing: 1px;
+	text-transform: uppercase !important;
+	border: 0 !important;
+	padding: 13px 34px !important;
+	}
+	
+	.btn-no-border {
+		border: 0 !important;
+		}
+
+.xrx-custom-btn-payroll {
+    margin-top: 25px;
+    }
+
+.xrx-upload-file {
+    position: relative !important;
+    overflow: hidden !important;
+    }
+
+.xrx-upload-file input[type=file] {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    font-size: 100px !important;
+    text-align: right !important;
+    filter: alpha(opacity=0) !important;
+    opacity: 0 !important;
+    outline: none !important;
+    background: white !important;
+    cursor: inherit !important;
+    display: block !important;
+    }
+
+#img-upload{
+    width: 200px !important;
+    height: auto ! important;
+    margin: 0 auto;
+    }
+	
+.xrx-container {
+	height: 800px;
+	position: relative;
+	}
+	
+.xrx-404 {
+	text-align: center;
+	color: #494949;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	}
+	
+	.xrx-404 img {
+		width: 80%;
+		margin-bottom: 20px;
+		}
+	
+	.xrx-404 h1 {
+		font-size: 120px;
+		margin: 0 !important;
+		line-height: 1;
+		font-weight: 700;
+		}
+		
+	.xrx-404 h1 small {
+		clear: both;
+		display: block;
+		font-size: 21px;
+		text-transform: uppercase;
+		}
+		
+.xrx-no-border {
+	border: 0 !important;
+	}
+	
+.xrx-row-spacer {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	}
+	
+.xrx-info-handler {
+	color: #999999 !important;
+	}
+	
+	.xrx-info-handler .form-group {
+		margin-bottom: 0 !important;
+		}
+		
+	.xrx-info-handler .form-group p.lead {
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 2;
+		margin-bottom: 0 !important;
+		}
+		
+.xrx-info {
+	display: block;
+	min-height: 70px;
+	}
+	
+	.xrx-info h1.name {
+		font-weight: 300;
+		margin-bottom: 30px;
+		}
+
+		.xrx-info h1 small {
+			display: block;
+			clear: both;
+			font-size: 14px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			padding: 3px 0;
+			}
+
+            .xrx-info .success {
+                color: #3c763d !important;
+                font-weight: bold;
+                }
+			
+            /*
+			.xrx-info h1::after {
+				display: block;
+				clear: both;
+				font-size: 14px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				content: 'Route Sheet for';
+				}
+                */
+
+	.xrx-info p.lead {
+		font-weight: 400;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #777777;
+		margin-bottom: 15px;
+		}
+		
+		.xrx-info p.lead span {
+			display: inline-block;
+			text-transform: none !important;
+			letter-spacing: normal !important;
+			font-weight: 700 !important;
+			}
+
+        .xrx-info .blue-bg {
+            background: #548bb8 !important;
+            padding: 5px 0 5px 8px !important;
+            color: #ffffff !important;
+            }
+
+        .xrx-info .route-sheet p {
+            font-size: 18px;
+            font-weight: 500;
+            }
+
+            .xrx-info .route-sheet p span {
+                display: block;
+                clear: both;
+                font-size: 14px;
+                font-weight: 500 !important;
+                }
+		
+	.xrx-info .total {
+		font-weight: 700;
+		font-size: 18px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		}
+		
+	.xrx-info table {
+		margin-bottom: 15px !important;
+		}
+
+    .xrx-info .spacer-bottom {
+        margin-bottom: 20px;
+        }
+
+    .xrx-info .no-print {
+        border-top: 1px solid #efefef;
+        border-width: 90%;
+        }
+
+    .xrx-info .search-handler {
+        padding: 70px 0 0;
+        min-height: 180px;
+        }
+
+        .xrx-info .search-handler input {
+            border-top: 0 !important;
+            border-right: 0 !important;
+            border-left: 0 !important;
+            border-bottom: 0 !important;
+            font-size: 26px;
+            font-weight: 300;
+            }
+
+            .xrx-info .search-handler .input-group-addon {
+                border-top: 0 !important;
+                border-right: 0 !important;
+                border-left: 0 !important;
+                border-bottom: 0 !important;
+                }
+
+            .xrx-info .search-handler .input-group {
+                 border-bottom: 1px solid #d2d6de;
+                }
+
+        .xrx-info .search-handler .payroll input {
+            border-top: 1px !important;
+            border-right: 0 !important;
+            border-left: 0 !important;
+            border-bottom: 0 !important;
+            font-size: 26px;
+            font-weight: 300;
+            }
+		
+        .xrx-info .nav-tabs-custom {
+            border-radius: 0px !important;
+            box-shadow: 0px 1px 0px rgba(0,0,0,0);
+            border: 1px solid #efefef;
+            }
+
+            .xrx-info .nav-tabs-custom ul.nav-tabs li {
+                /* font-weight: 700 !important; */
+                text-transform: uppercase !important;
+                
+                }
+
+                .xrx-info .nav-tabs-custom ul.nav-tabs li a {
+                    color: #333 !important;
+                    }
+
+                .xrx-info .nav-tabs-custom ul.nav-tabs li.active a {
+                    font-weight: 700 !important;
+                    color: #548bb8 !important;
+                    }
+
+    .xrx-info .no-data-handler {
+        display: block;
+        padding: 20px 0 !important;
+        border: 1px solid #efefef !important;
+        margin-bottom: 20px;
+        }
+
+        .xrx-info .no-data-handler p {
+            margin-bottom: 0 !important;
+            }
+		
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    border-top: 1px solid #d2d6de !important;
+}
+
+.xrx-table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+	}
+	
+	.xrx-table tr {
+		border: 0 !important;
+		}
+		
+.xrx-table > thead > tr > th,
+.xrx-table > tbody > tr > th,
+.xrx-table > tfoot > tr > th,
+.xrx-table > thead > tr > td,
+.xrx-table > tbody > tr > td,
+.xrx-table > tfoot > tr > td {
+	border-top: 0 solid #f4f4f4 !important;
+	padding: 4px 8px 4px 0 !important;
+	}
+	
+.xrx-table > thead > tr > th:first-child,
+.xrx-table > tbody > tr > th:first-child,
+.xrx-table > tfoot > tr > th:first-child,
+.xrx-table > thead > tr > td:first-child,
+.xrx-table > tbody > tr > td:first-child,
+.xrx-table > tfoot > tr > td:first-child {
+	width: 30% !important;
+	}
+
+
+		
+/* text */
+
+/* for print */
+
+body.print {
+    font-size: 13px !important;
+    }
+
+body.print h3 small {display: block; clear: both;}
+body.print table tr td,
+body.print table tr th {
+    padding: 3px !important;
+    }
+
+body.print table th {
+    background: none !Important;
+    }
+
+body.print table td {
+    border-color: #bababa !important;
+    }
+
+body.print .xrx-info .route-sheet p {
+    font-size: 14px !important;
+    }
+
+
+
+/* over write original css */
+
+body {
+	min-height: 100vh !important;
+    font-size: 13px !important;
+	}
+
+body,
+h1, h2, h3, h4, h5, h6 {
+	font-family: proxima-nova, sans-serif !important;
+	} 
+	
+    /* box padding adjustments */
+		.box-header {
+		padding: 15px 0 15px 18px !important;
+		}
+	
+	
+		.box-header .box-title {
+			font-size: 21px !important
+			}
+		
+			
+		.box-header .box-tools {
+			top: 10px !important;
+			}
+			
+	/* content */
+	
+	.content {
+		padding: 30px !important;
+		}
+			
+	/* box border-top adjustment */
+
+	.box {
+		border-top: 0 solid #5b86c5 !important;
+		border-radius: 8px !important;
+		box-shadow: 0 0 0 !important;
+		}
+		
+		.box-body {
+			padding: 20px !important;
+			}
+			
+		.box-footer {
+			border-bottom-right-radius: 8px !important;
+			border-bottom-left-radius: 8px !important;
+			}
+		
+		
+	/* Data tables */
+	
+	.dataTables_info,
+	.dataTables_length {
+		padding: 10px 0 10px 8px !important;
+		}
+
+	
+	/* login */
+	
+	.login-box {
+		margin: 12% auto;
+		}
+		
+	.login-logo img {
+/*		width: 90% !important;*/
+		}
+		
+		
+	/* alerts */
+	
+	.alert-success {
+		color: #3c763d !important;
+		background-color: #dff0d8 !important;
+		border-color: #d6e9c6 !important;
+		}
+		
+	.alert-info {
+		color: #317094 !important;
+		background-color: #d9edf7 !important;
+		border-color: #bce8f1 !important
+		}
+		
+	.alert-warning {
+		color: #8a6d3b !important;
+		background-color: #fcf8e3 !important;
+		border-color: #faebcc !important
+		}
+		
+	.alert-danger {
+		color: #a94442 !important;
+		background-color: #f2dede !important;
+		border-color: #ebccd1 !important
+		}
+
+/* forms */
+.btn-default {
+    background-color: #e3e3e3 !important
+    }
+
+textarea {
+    resize: none !important;
+    }
+
+label span {
+    color: #a94442 !important;
+    }
+
+/*
+input[type="file"] {
+    display: none;
+    }
+
+    .xrx-file-upload-btn {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        }
+*/
+    
+
+
+/* user profile */
+
+.navbar-nav>.user-menu>.dropdown-menu {
+    width: 250px !important;
+    }
+
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer {
+    padding-left: 20px !important;
+    }
+
+li.user-header {
+    text-align: left !important;
+    height: 100px !important;
+    background: #fefefe !important;
+    padding: 10px 20px !important;
+    }
+
+li.user-header p {
+    font-size: 14px !important;
+    color: #333333 !important;
+    font-weight: 700;
+    }
+
+li.user-header p span {
+    display: block;
+    clear: both;
+    color: #777777 !important;
+    padding-bottom: 8px;
+    font-weight: 300 !important;
+    }
+
+li.user-header p span a {
+    font-weight: 500 !important;
+    color: #777777 !important;
+    text-decoration: underline !important;
+    }
+
+
+/* Mobiledrs-autosuggest-select plugin */
+[data-mobiledrs_autosuggest_dropdown] {
+	position: relative;
+	top: 0;
+	}
+
+[data-mobiledrs_autosuggest_dropdown] ul {
+	max-height: 160px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: auto;
+	}
+
+/* Mobiledrs-timepicker plugin */
+.bootstrap-timepicker-widget table tr td:nth-child(3) {
+ 	display: none !important;
+ 	}
+
+.bootstrap-timepicker-widget table tr .separator  {
+	display: none !important;
+	}
+
+.bootstrap-timepicker-hour,
+.bootstrap-timepicker-meridian{
+    border: 0 !important;
+    }
+
+/* datatables toolbar buttons */
+.table-responsive .toolbar {
+    display: block;
+    min-height: 50px;
+    padding: 5px 0 10px 0 !important;
+	text-align: right;
+	}
+
+.table-responsive .toolbar a span {
+	padding: 5px 15px 5px 15px;
+    text-transform: uppercase !important;
+    font-size: 13px !important;
+	}
+
+
+/* tables */
+
+table thead,
+table tfoot{
+    background: #548bb8 !important;
+    color: #fff !important;
+    }
+	
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+    
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg img {
+        width: 40%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 24px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 12px !important;
+        border-radius: 4px !important;
+        padding: 12px 30px !important;
+        }
+    
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 0;
+        min-height: 180px;
+        }
+    
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 40%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 24px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 12px !important;
+        border-radius: 4px !important;
+        padding: 15px 48px !important;
+        }
+    
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 0;
+        min-height: 180px;
+        }
+    
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    
+    /* login logo */
+    .login-logo img {
+        width: 40% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 60%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 24px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        padding: 15px 48px !important;
+        }
+    
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 40px 0 0;
+        min-height: 180px;
+        }
+    
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 60%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 30px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        padding: 15px 48px !important;
+        }
+
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 70px 0 0;
+        min-height: 180px;
+        }
+    
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+    /* login logo */
+    .login-logo img {
+        width: 100% !important;
+		}
+    
+    /* inside logo */
+    .main-header .logo .logo-lg  img {
+        width: 60%;
+        }
+    
+    /* patient details */
+    
+    .xrx-info h1.name {
+        font-size: 36px !important;
+        }
+    
+    /* buttons */
+    
+    .xrx-btn {
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        padding: 13px 34px !important;
+        }
+    
+    /* search pages */
+    
+    .xrx-info .search-handler {
+        padding: 70px 0 0;
+        min-height: 180px;
+        }
+    
+}
