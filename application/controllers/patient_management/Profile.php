@@ -19,10 +19,14 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('list_pt');
 
-		$patients = $this->profile_model->records();
+		$trans_params = [
+			'key' => 'patient_transactions.pt_dateRef',
+			'order_by' => 'DESC'
+		];
 
-		$page_data['records'] = array_reverse($this->profile_model->get_pt_profile_trans($patients));
+		$patients = $this->transaction_model->records($trans_params);
 
+		$page_data['records'] = $this->profile_model->get_pt_profile_trans($patients);
 		$page_data['profile_entity'] = new \Mobiledrs\entities\patient_management\pages\Profile_entity();
 
 		$this->twig->view('patient_management/profile/list', $page_data);
