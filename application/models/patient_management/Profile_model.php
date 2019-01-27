@@ -47,10 +47,52 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 		$records = $this->find($patients_params);
 
-		return $this->get_pt_profile_trans($records);
+		return $this->get_pt_profile_trans_recently_added($records);
 	}
 	
 	public function get_pt_profile_trans(array $records) : array
+	{
+		$new_records = [];
+
+		for ($i = 0; $i < count($records); $i++) {
+			$patientDetails_params = [
+				'key' => 'patient.patient_id',
+				'value' => $records[$i]->pt_patientID
+			];
+
+			$trans_params = [
+				'key' => 'patient_transactions.pt_id',
+				'value' => $records[$i]->pt_id,
+				'joins' => [
+					[
+						'join_table_name' => 'provider',
+						'join_table_key' => 'provider.provider_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'patient_transactions.pt_providerID',
+						'join_table_type' => 'left'
+					]
+				]
+			];
+
+			$patientDetails = $this->profile_model->record($patientDetails_params);
+			$patient_trans = $this->transaction_model->record($trans_params);
+
+			$new_records[] = [
+				'patientId' => $patientDetails->patient_id,
+				'pt_tovID' => $patient_trans ? $patient_trans->pt_tovID : '',
+				'patientName' => $patientDetails->patient_name,
+				'patientReferralDate' => ($patient_trans && $patient_trans->pt_dateRef != '0000-00-00') ? $patient_trans->get_date_format($patient_trans->pt_dateRef) : '',
+				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
+				'notes' => $patient_trans ? $patient_trans->pt_notes : '',
+				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',
+				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : ''
+			];
+		}
+
+		return $new_records;
+	}
+
+	public function get_pt_profile_trans_recently_added(array $records) : array
 	{
 		$new_records = [];
 
@@ -66,9 +108,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 						'join_table_value' => 'patient_transactions.pt_providerID',
 						'join_table_type' => 'left'
 					]
-				],
-				'order_key' => 'patient_transactions.pt_dateOfService',
-				'order_by' => 'DESC'
+				]
 			];
 
 			$patient_trans = $this->transaction_model->record($trans_params);
