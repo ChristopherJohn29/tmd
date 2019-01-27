@@ -47,7 +47,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 		$records = $this->find($patients_params);
 
-		return $this->get_pt_profile_trans($records);
+		return $this->get_pt_profile_trans_recently_added($records);
 	}
 	
 	public function get_pt_profile_trans(array $records) : array
