@@ -710,6 +710,14 @@ $config = array(
             )
         ),
         array(
+            'field' => 'prsl_dateRef[]',
+            'label' => 'Date of Referral',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
             'field' => 'prsl_notes[]',
             'label' => 'Notes',
             'rules' => 'required|max_length[255]',

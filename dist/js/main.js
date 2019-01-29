@@ -103,7 +103,8 @@ Mobiledrs.Main =  (function() {
 	return {
 		init: init,
 		autosuggest: autosuggest,
-		timePicker: timePicker
+		timePicker: timePicker,
+		inputMask : inputMask
 	};
 })();
 

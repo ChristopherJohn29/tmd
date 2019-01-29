@@ -161,7 +161,7 @@
 											<div class="col-md-6 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
 									
 												<label class="control-label">Date of Referral <span>*</span></label>
-												<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef">
+												<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef[]">
 												
 											</div>
 

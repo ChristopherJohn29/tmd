@@ -11,7 +11,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'provider_route_sheet_management/route_sheet_model' => 'rs_model',
 			'provider_route_sheet_management/Route_sheet_list_model' => 'rs_list_model',
 			'patient_management/Type_visit_model' => 'tov_model',
-			'patient_management/Profile_model' => 'pt_model'
+			'patient_management/Profile_model' => 'pt_model',
+			'patient_management/transaction_model' => 'pat_trans_model'
 		));
 
 		$this->load->library('Time_converter');
@@ -39,6 +40,7 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$page_data['records'] = $this->rs_model->get_records_by_join($params);
+		$page_data['routesheet_entity'] = new \Mobiledrs\entities\provider_route_sheet_management\Routesheet_entity();
 
 		$this->twig->view('provider_route_sheet_management/route_sheet/list', $page_data);
 	}
@@ -196,7 +198,7 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'validation_group' => 'provider_route_sheet_management/route_sheet/save'
 		];
 
-		parent::save_data($params);
+		$this->save_data($params);
 	}
 
 	public function details(string $prs_id)

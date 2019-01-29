@@ -93,6 +93,7 @@
 										{% for index, list in lists %}								
 
 											<input type="hidden" name="prsl_ids[]" value="{{ list.prsl_id }}">
+											<input type="hidden" name="patientTransDateIDs[]" value="{{ list.prsl_patientTransID }}">
 
 											<div class="patient-details-item" {{ index > 0 ? "data-item-num=#{ index + 1 }" }}>
 
@@ -175,8 +176,7 @@
 												<div class="col-md-6 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
 									
 													<label class="control-label">Date of Referral <span>*</span></label>
-													<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef">
-													
+													<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef[]" value="{{ list.get_date_format(list.prsl_dateRef) }}">
 												</div>
 
 												<div class="col-md-6 has-error">
