@@ -21,6 +21,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$page_data['records'] = $this->profile_model->records($params);
+		$page_data['total'] = count($page_data['records']);
 
 		$this->twig->view('home_health_care_management/profile/list', $page_data);
 	}

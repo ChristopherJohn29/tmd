@@ -27,6 +27,8 @@
             <div class="box-body">
                 
                 <div class="table-responsive">
+                    <input type="hidden" name="total" value="{{ total }}">
+
                     <table id="all-homehealthcare-list" class="table no-margin table-hover">
                         <thead>
                             <tr>
