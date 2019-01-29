@@ -94,7 +94,7 @@ Mobiledrs.Main =  (function() {
 		if (timePickers.length)
 		{
 			$('[data-timepicker]').timepicker({
-				minuteStep: 60,
+				minuteStep: 30,
 				defaultTime: '8:00 AM'
 			});
 		}

@@ -1,19 +1,19 @@
-  $(function () {
-   var table = $('#all-homehealthcare-list').DataTable({
-      dom: "<'row'<'col-sm-9'<\".toolbar\">><'col-sm-3'f>>tp",
-      initComplete: function(){
-        var url = window.location.href  + '/add';
-        var button = $('<a href="#"><span class="label label-primary">Add</span></a>');
-        
-        button.attr('href', url);
+$(function () {
+ var table = $('#all-homehealthcare-list').DataTable({
+    dom: "<'row'<'col-sm-9'<\".toolbar\">><'col-sm-3'f>>tp",
+    initComplete: function(){
+      var url = window.location.href  + '/add';
+      var button = $('<a href="#"><span class="label label-primary">Add</span></a>');
+      
+      button.attr('href', url);
 
-        $("div.toolbar").append(button);      
-      },
-      "pageLength": 100
-    });
-
-   table
-    .column( '2:visible' )
-    .order( 'asc' )
-    .draw();
+      $("div.toolbar").append(button);      
+    },
+    "pageLength": 100
   });
+
+ table
+  .column( '0:visible' )
+  .order( 'asc' )
+  .draw();
+});

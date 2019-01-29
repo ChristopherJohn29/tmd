@@ -589,16 +589,9 @@ li.user-header p span a {
 	}
 
 /* Mobiledrs-timepicker plugin */
-.bootstrap-timepicker-widget table tr td:nth-child(3) {
- 	display: none !important;
- 	}
-
-.bootstrap-timepicker-widget table tr .separator  {
-	display: none !important;
-	}
-
 .bootstrap-timepicker-hour,
-.bootstrap-timepicker-meridian{
+.bootstrap-timepicker-meridian,
+.bootstrap-timepicker-minute {
     border: 0 !important;
     }
 
