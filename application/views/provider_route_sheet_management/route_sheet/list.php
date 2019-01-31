@@ -49,7 +49,7 @@
 											
 											{% if roles_permission_entity.has_permission_name(['view_prs']) %}
 
-												<a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View</span></a>
+												<a target="_blank" href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ record.prs_id }") }}'><span class="label label-primary">View</span></a>
 
 											{% endif %}
 

@@ -54,7 +54,7 @@
 										
 										{% if roles_permission_entity.has_permission_name(['view_provider']) %}
 
-											<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View</span></a>
+											<a target="_blank" href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View</span></a>
 
 										{% endif %}
 
