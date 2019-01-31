@@ -25,7 +25,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 		]);
 
 		$prs_id = $this->db->insert_id();
-		$patientTransIDs = $this->insert_patientTransData($this->input->post(), 'new');
+		$patientTransIDs = $this->insert_patientTransData($this->input->post());
 
 		$this->db->insert_batch(
 			'provider_route_sheet_list', 
@@ -58,7 +58,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 		$this->db->delete('provider_route_sheet_list');
 
-		$patientTransIDs = $this->insert_patientTransData($this->input->post(), 'update');
+		$patientTransIDs = $this->insert_patientTransData($this->input->post());
 
 		$this->db->insert_batch(
 			'provider_route_sheet_list', 
@@ -74,7 +74,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 	{
 	}
 
-	public function insert_patientTransData(array $inputPost, string $type) : array
+	public function insert_patientTransData(array $inputPost) : array
 	{
 		$this->table_name = 'patient_transactions';
 
@@ -89,11 +89,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 				'pt_dateRef' => $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i])
 			];
 
-			if ($type == 'new')
-			{
-				$data[] = parent::insert(['data' => $dataToDB]);
-			}
-			else if ($type == 'update')
+			if (isset($inputPost['patientTransDateIDs'][$i]))
 			{
 				$patientTransID = $inputPost['patientTransDateIDs'][$i];
 
@@ -105,8 +101,26 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 				$data[] = $patientTransID;
 			}
+			else
+			{
+				$data[] = parent::insert(['data' => $dataToDB]);
+			}
 		}
 
+		for ($i = 0; $i < count($inputPost['patientTransDateIDs']); $i++) 
+		{
+			if (isset($inputPost['patientTransDateIDs'][$i]) &&
+				(! isset($inputPost['prsl_dateRef'][$i]))
+			) {
+				$patientTransID = $inputPost['patientTransDateIDs'][$i];
+
+				parent::delete_data([
+					'table_key' => 'patient_transactions.pt_id',
+					'record_id' => $patientTransID
+				]);
+			}
+		}
+		
 		$this->table_name = 'provider_route_sheet';
 
 		return $data;
