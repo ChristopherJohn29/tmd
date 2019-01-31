@@ -51,7 +51,7 @@
 
 							<tr>
 								<td>{{ record['patientName'] }}</td>
-								<td>{{ record['patientReferralDate'] }}</td>
+								<td data-order="{{ record['patientReferralDate']|date("Ymd") }}">{{ record['patientReferralDate'] }}</td>
 
 								{% if profile_entity.is_sel_noshow_cancelled(record['pt_tovID']) %}
 
