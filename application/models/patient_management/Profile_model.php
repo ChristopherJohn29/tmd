@@ -53,16 +53,24 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 	public function get_pt_profile_trans(array $records) : array
 	{
 		$new_records = [];
+		$added_patients = [];
 
 		for ($i = 0; $i < count($records); $i++) {
+			// no duplicate of patient name in the list
+			if (in_array($records[$i]->pt_patientID, $added_patients))
+			{
+				continue;
+			}
+
 			$patientDetails_params = [
 				'key' => 'patient.patient_id',
 				'value' => $records[$i]->pt_patientID
 			];
 
+			// get the latest date of referral and date of service
 			$trans_params = [
-				'key' => 'patient_transactions.pt_id',
-				'value' => $records[$i]->pt_id,
+				'key' => 'patient_transactions.pt_patientID',
+				'value' => $records[$i]->pt_patientID,
 				'joins' => [
 					[
 						'join_table_name' => 'provider',
@@ -70,6 +78,16 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 						'join_table_condition' => '=',
 						'join_table_value' => 'patient_transactions.pt_providerID',
 						'join_table_type' => 'left'
+					]
+				],
+				'orders' => [
+					[
+						'column' => 'patient_transactions.pt_dateRef',
+						'direction' => 'desc'
+					],
+					[
+						'column' => 'patient_transactions.pt_dateOfService',
+						'direction' => 'desc'
 					]
 				]
 			];
@@ -87,6 +105,8 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',
 				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : ''
 			];
+
+			$added_patients[] = $records[$i]->pt_patientID;
 		}
 
 		return $new_records;

@@ -47,6 +47,14 @@ class MY_Models extends \CI_Model {
 			}
 		}
 
+		if (isset($params['orders'])) 
+		{
+			foreach ($params['orders'] as $key => $value) 
+			{
+				$this->db->order_by($value['column'], $value['direction']);
+			}
+		}
+
 		$query = $this->db->get($this->table_name);
 
 		return $query->custom_row_object(0, $this->entity);
