@@ -612,7 +612,7 @@ $config = array(
         array(
             'field' => 'ptcn_message',
             'label' => 'Message',
-            'rules' => 'required|max_length[255]',
+            'rules' => 'required',
             'errors' => array(
                 'required' => 'This field is required.'
             )
