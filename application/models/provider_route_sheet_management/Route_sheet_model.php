@@ -85,6 +85,7 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 			$dataToDB = [
 				'pt_tovID' => $inputPost['prsl_tovID'][$i],
 				'pt_patientID' => $inputPost['prsl_patientID'][$i],
+				'pt_providerID' => $inputPost['prs_providerID'],
 				'pt_dateOfService' => $this->pt_trans_entity->set_date_format($inputPost['prs_dateOfService']),
 				'pt_dateRef' => $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i])
 			];
