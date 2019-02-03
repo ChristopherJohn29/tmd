@@ -24,6 +24,12 @@ set scripts = [
                 <section class="xrx-info">
 
                     <div class="row">
+
+                        <div class="col-xs-12">
+                          {% if states %}
+                            {{ include('commons/alerts.php') }}
+                          {% endif %}
+                        </div>
                         
                         <div class="col-lg-8 col-lg-offset-2">
                             <div class="search-handler">

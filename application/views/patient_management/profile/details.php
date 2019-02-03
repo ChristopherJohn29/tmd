@@ -108,7 +108,13 @@
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ index }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                                <li class="{{ index < 1 ? 'active' : '' }}">
+                                                    <a href="#tab_{{ index }}" data-toggle="tab" aria-expanded="true">  {{ transaction.tov_name }}
+
+                                                        <span class="text-red"><strong>{{ transaction.is_provider_paid() ? 'PAID' : '' }}</strong></span>
+                                                    </a>
+
+                                                </li>
 
                                             {% endif %}
 

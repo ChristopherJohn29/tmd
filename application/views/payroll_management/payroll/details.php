@@ -10,8 +10,8 @@
 
 {% block content %}
 <div class="row">
-        <div class="col-md-12">
-          <div class="box">
+    <div class="col-md-12">
+      	<div class="box">
             
             <!-- /.box-header -->
             <div class="box-body">
@@ -19,6 +19,12 @@
              	<section class="xrx-info">
              		
              		<div class="row">
+             			<div class="col-xs-12">
+						  {% if states %}
+							{{ include('commons/alerts.php') }}
+						  {% endif %}
+						</div>
+
              			<div class="col-md-12">
              				<h1 class="name">{{ provider_details.get_fullname() }}<small>Provider Name</small></h1>
              			</div>
@@ -26,7 +32,15 @@
                     
                     <div class="row spacer-bottom">
                         <div class="col-md-12">
-                            <h4>Pay Period: {{ pay_period }}</h4>
+                            <h4>
+                        		Pay Period: {{ pay_period }} 
+
+                        		<span class="text-red">
+                        			<strong>
+                        				{{ transaction_entity.hasNotAllPaidProvider(provider_transactions) ? '' : 'PAID' }}
+                        			</strong>
+                        		</span>
+                        	</h4>
                         </div>
                     </div>
                     
@@ -50,49 +64,51 @@
              				</table>
              			</div>
              		</div>
-             		
-             		<div class="row xrx-row-spacer">
-             		
-             			<div class="col-md-12">
-             			
-             				<p class="lead">Visits</p>
-                            
-             				<div class="table-responsive">
-             				<table class="table no-margin table-striped">
-								<thead>
-									<tr>
-										<th>Date of Service</th>
-										<th>Type of Visit</th>
-										<th>AW / IPPE</th>
-										<th>ACP</th>
-										<th>Patient Name</th>
-										<th width="120px">Mileage</th>
-									</tr>
-								</thead>
-								
-								<tbody>
 
-									{% for provider_transaction in provider_transactions %}
-
-										<tr>
-											<td>{{ provider_transaction.get_date_format(provider_transaction.pt_dateOfService) }}</td>
-											<td>{{ provider_transaction.tov_name }}</td>
-											<td>{{ provider_transaction.get_aw_ippe_format(provider_transaction.pt_aw_ippe_code) }}</td>
-											<td>{{ provider_transaction.get_selected_choice_format(provider_transaction.pt_acp) }}</td>
-											<td>{{ provider_transaction.patient_name }}</td>
-											<td>{{ provider_transaction.pt_mileage }}</td>
-										</tr>
-
-									{% endfor %}
-
-								</tbody>
-								
-							</table>
-                            </div>
-             			</div>
-             		</div>
-             		
              		{{ form_open("payroll_management/payroll/form/#{ provider_details.provider_id }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}
+             		
+	             		<div class="row xrx-row-spacer">
+	             		
+	             			<div class="col-md-12">
+	             			
+	             				<p class="lead">Visits</p>
+	                            
+	             				<div class="table-responsive">
+	             				<table class="table no-margin table-striped">
+									<thead>
+										<tr>
+											<th>Date of Service</th>
+											<th>Type of Visit</th>
+											<th>AW / IPPE</th>
+											<th>ACP</th>
+											<th>Patient Name</th>
+											<th width="120px">Mileage</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+
+										{% for provider_transaction in provider_transactions %}
+
+											<tr>
+												<input type="hidden" name="pt_id[]" value="{{ provider_transaction.pt_id }}">
+
+												<td>{{ provider_transaction.get_date_format(provider_transaction.pt_dateOfService) }}</td>
+												<td>{{ provider_transaction.tov_name }}</td>
+												<td>{{ provider_transaction.get_aw_ippe_format(provider_transaction.pt_aw_ippe_code) }}</td>
+												<td>{{ provider_transaction.get_selected_choice_format(provider_transaction.pt_acp) }}</td>
+												<td>{{ provider_transaction.patient_name }}</td>
+												<td>{{ provider_transaction.pt_mileage }}</td>
+											</tr>
+
+										{% endfor %}
+
+									</tbody>
+									
+								</table>
+	                            </div>
+	             			</div>
+	             		</div>
 					
 						<div class="row xrx-row-spacer">
 						
@@ -252,18 +268,20 @@
 	                            		<i class="fa fa-print"></i> Print
 	                            	</button>
 
-	                                <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-	                                <i class="fa fa-download"></i> Generate PDF
+	                                <button type="submit" class="btn btn-primary xrx-btn" name="submit_type" style="margin-right: 5px;" value="pdf">
+	                                	<i class="fa fa-download"></i> Generate PDF
 	                                </button>
 	                                
-	                                <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
-	                                <i class="fa fa-envelope-o"></i> Email to Provider
+	                                <button type="submit" class="btn btn-primary xrx-btn" name="submit_type"style="margin-right: 5px;" value="email">
+	                                	<i class="fa fa-envelope-o"></i> Email to Provider
 	                                </button>
 
-	                                <button type="button" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
-	                                <i class="fa fa-credit-card"></i> Paid
+	                                <button type="submit" class="btn btn-danger xrx-btn pull-right" name="submit_type" style="margin-right: 5px;" value="paid" {{ transaction_entity.hasNotAllPaidProvider(provider_transactions) ? '' : 'disabled=true' }}>
+	                                	<i class="fa fa-credit-card"></i> Paid
 	                                </button>
+
 	                            </div>
+
 	                        </div>
 
 	                    </div>
@@ -274,9 +292,8 @@
               
             </div>
             <!-- /.box-body -->
-          </div>
+      	</div>
           <!-- /.box -->
-          </div>
-
-      </div>
+  	</div>
+</div>
 {% endblock %}

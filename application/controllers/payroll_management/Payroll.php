@@ -75,6 +75,26 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		{
 			$this->twig->view('payroll_management/payroll/print', $page_data);
 		}
+		elseif ($this->input->post('submit_type') == 'paid')
+		{
+			$details_params = [
+				$this->uri->segment(4), // provider id
+				$this->uri->segment(5), // from date
+				$this->uri->segment(6) // to date
+			];
+
+			$redirect_url = 'payroll_management/payroll/details/' . implode('/', $details_params);
+
+			$transaction_params = [
+				'data' => $this->input->post('pt_id'),
+				'columnPaid' => 'pt_service_billed',
+				'columnID' => 'pt_id',
+				'model' => 'transaction_model',
+				'redirect_url' => $redirect_url
+			];
+
+			parent::make_paid($transaction_params);
+		}
 		else
 		{
 			redirect('errors/page_not_found');
@@ -100,6 +120,8 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 			$page_data['fromDate'],
 			$page_data['toDate']
 		);
+
+		$page_data['transaction_entity'] = new \Mobiledrs\entities\patient_management\Transaction_entity();
 
 		if (empty($page_data['provider_transactions']))
 		{

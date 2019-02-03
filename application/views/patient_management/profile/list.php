@@ -65,9 +65,9 @@
 
 								<td>{{ record['dateOfService'] }}</td>
 								<td>{{ record['provider'] }}</td>
-								<td></td>
-								<td></td>
-                                <td></td>
+								<td><span class="text-red"><strong>{{ record['provider_paid'] }}</strong></span></td>
+								<td><span class="text-red"><strong>{{ record['aw_billed'] }}</strong></span></td>
+                                <td><span class="text-red"><strong>{{ record['visit_billed'] }}</strong></span></td>
 								<td></td>
 								<td>
 									

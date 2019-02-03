@@ -120,14 +120,16 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 				$type_of_visit = (new Superbill_entity())->get_sel_type_visit($type);
 			}
 
-			$page_data['transactions'] = $this->superbill_model->get_transaction(
+			$transactions = $this->superbill_model->get_transaction(
 				$fromDate,
 				$toDate,
-				empty($type_of_visit) ? [] : $type_of_visit 
+				empty($type_of_visit) ? [] : $type_of_visit,
+				$type
 			);
 
 			$page_data['transaction_entity'] = new Transaction_entity();
 			$page_data['POS_entity'] = new POS_entity();
+			$page_data['transactions'] = $page_data['transaction_entity']->get_notBilled($transactions);
 
 			if ( ! empty($page_data['transactions']))
 			{
@@ -165,6 +167,47 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			redirect('errors/page_not_found');
 		}
 
+		$page_data['fromDate'] = str_replace('_', '/', $fromDate);
+		$page_data['toDate'] = str_replace('_', '/', $toDate);
+
 		return $page_data;
+	}
+
+	public function form($type, $fromDate, string $toDate)
+	{
+		$roles_permissions = [
+			'generate_sbawr',
+			'generate_sbhvr',
+			'generate_sbfvr',
+			'generate_sbcpor'
+		];
+
+		foreach ($roles_permissions as $roles_permission)
+		{
+			$this->check_permission($roles_permission);	
+		}
+
+		$columnPaidTypes = [
+			'aw' => 'pt_aw_billed',
+			'hv' => 'pt_visitBilled',
+			'fv' => 'pt_visitBilled'
+		];
+
+		if ($this->input->post('submit_type') == 'paid')
+		{
+			$transaction_params = [
+				'data' => $this->input->post('pt_id'),
+				'columnPaid' => $columnPaidTypes[$type],
+				'columnID' => 'pt_id',
+				'model' => 'transaction_model',
+				'redirect_url' => 'superbill_management/superbill'
+			];
+
+			parent::make_paid($transaction_params);
+		}
+		else
+		{
+			redirect('errors/page_not_found');
+		}
 	}
 }
