@@ -10,7 +10,6 @@
         <table id="headcount-list" class="table no-margin table-hover">
             <thead>
                 <tr>
-                    <th></th>
                     <th>Patient Name</th>
                     <th>Provider</th>
                     <th>Deductible</th>
@@ -24,7 +23,6 @@
                 {% for headcount in headcounts %}
 
                     <tr>
-                        <td>{{ loop.index }}</td>
                         <td>{{ headcount['patient_name'] }}</td>
                         <td>{{ headcount['provider'] }}</td>
                         <td>{{ headcount['deductible'] }}</td>

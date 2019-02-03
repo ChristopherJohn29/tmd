@@ -138,7 +138,7 @@
 												<span class="help-block">{{ form_error('prsl_tovID') }}</span>
 											</div>	
 											
-											<div class="col-md-12 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
+											<div class="col-md-6 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Patient Name <span>*</span></label>
 
@@ -158,8 +158,19 @@
 												
 											</div>
 
-											<div class="col-md-12 has-error">
+											<div class="col-md-6 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
+									
+												<label class="control-label">Date of Referral <span>*</span></label>
+												<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef[]">
+												
+											</div>
+
+											<div class="col-md-6 has-error">
 												<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+											</div>
+
+											<div class="col-md-6 has-error">
+												<span class="help-block">{{ form_error('prsl_dateRef') }}</span>
 											</div>
 											
 											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">

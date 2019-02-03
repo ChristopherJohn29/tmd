@@ -32,7 +32,7 @@
                             <th>Refferal Date</th>
                             <th>ICD10 - Code Diagnoses</th>
                             <th>Date of Service</th>
-                            <th width="170px">Actions</th>
+                            <th width="120px">Actions</th>
                         </tr>
                     </thead>
 
@@ -62,13 +62,13 @@
 
                                         {% if roles_permission_entity.has_permission_name(['view_pt']) %}
                                             
-                                            <a href="{{ site_url("patient_management/profile/details/#{ patient['patientId'] }") }}"><span class="label label-primary">View Details</span></a>
+                                            <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ patient['patientId'] }") }}"><span class="label label-primary">View</span></a>
 
                                         {% endif %}
 
                                         {% if roles_permission_entity.has_permission_name(['add_tr']) %}
 
-                                            <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add Visit</span></a>
+                                            <a href="{{ site_url("patient_management/transaction/add/#{ patient['patientId'] }") }}" title=""><span class="label label-primary">Add</span></a>
 
                                         {% endif %}
                                     </td>
@@ -131,7 +131,7 @@
                         <tr>
                             <th>Date of Service</th>
                             <th>Provider</th>
-                            <th width="160px">Actions</th>
+                            <th width="120px">Actions</th>
                         </tr>
                     </thead>
 
@@ -148,7 +148,7 @@
                                         
                                         {% if roles_permission_entity.has_permission_name(['view_prs']) %}
 
-                                            <a href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ provider_route_sheet.prs_id }") }}'><span class="label label-primary">View Details</span></a>
+                                            <a target="_blank" href='{{ site_url("provider_route_sheet_management/route_sheet/details/#{ provider_route_sheet.prs_id }") }}'><span class="label label-primary">View</span></a>
                                         
                                         {% endif %}
 

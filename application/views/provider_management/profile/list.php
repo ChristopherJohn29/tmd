@@ -26,6 +26,8 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
+                	<input type="hidden" name="total" value="{{ total }}">
+
 				    <table id="all-patient-list" class="table no-margin table-hover">
 					<thead>
 						<tr>
@@ -52,7 +54,7 @@
 										
 										{% if roles_permission_entity.has_permission_name(['view_provider']) %}
 
-											<a href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View</span></a>
+											<a target="_blank" href="{{ site_url("provider_management/profile/details/#{ record.provider_id }") }}" title="Edit"><span class="label label-primary">View</span></a>
 
 										{% endif %}
 

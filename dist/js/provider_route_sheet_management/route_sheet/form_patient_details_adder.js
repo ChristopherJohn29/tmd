@@ -54,6 +54,7 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 
 			Mobiledrs.Main.autosuggest();
 			Mobiledrs.Main.timePicker();
+			Mobiledrs.Main.inputMask();
 		});
 	};
 

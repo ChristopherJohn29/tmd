@@ -93,6 +93,7 @@
 										{% for index, list in lists %}								
 
 											<input type="hidden" name="prsl_ids[]" value="{{ list.prsl_id }}">
+											<input type="hidden" name="patientTransDateIDs[]" value="{{ list.prsl_patientTransID }}">
 
 											<div class="patient-details-item" {{ index > 0 ? "data-item-num=#{ index + 1 }" }}>
 
@@ -151,29 +152,39 @@
 													<span class="help-block">{{ form_error('prsl_tovID') }}</span>
 												</div>	
 												
-												<div class="col-md-12 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
+												<div class="col-md-6 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
 												
 													<label class="control-label">Patient Name <span>*</span></label>
 
 													<div class="dropdown mobiledrs-autosuggest-select">
-													<input type="hidden" name="prsl_patientID[]" required="true" value="{{ list.patient_id }}">
+														<input type="hidden" name="prsl_patientID[]" required="true" value="{{ list.patient_id }}">
 
-												  	<input class="form-control" 
-												  		type="text" 
-												  		required="true"
-												  		data-mobiledrs_autosuggest 
-												  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
-												  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}"
-												  		value="{{ list.patient_name }}">
+													  	<input class="form-control" 
+													  		type="text" 
+													  		required="true"
+													  		data-mobiledrs_autosuggest 
+													  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
+													  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}"
+													  		value="{{ list.patient_name }}">
 
-												  	<div data-mobiledrs_autosuggest_dropdown id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}" style="width: 100%;">
-											  	  	</div>
-												</div>
+													  	<div data-mobiledrs_autosuggest_dropdown id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}" style="width: 100%;">
+												  	  	</div>
+													</div>
 													
 												</div>
 
-												<div class="col-md-12 has-error">
+												<div class="col-md-6 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
+									
+													<label class="control-label">Date of Referral <span>*</span></label>
+													<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef[]" value="{{ list.get_date_format(list.prsl_dateRef) }}">
+												</div>
+
+												<div class="col-md-6 has-error">
 													<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+												</div>
+
+												<div class="col-md-6 has-error">
+													<span class="help-block">{{ form_error('prsl_dateRef') }}</span>
 												</div>
 												
 												<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">

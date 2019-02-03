@@ -12,6 +12,8 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $prsl_hhcID;
 	protected $prsl_tovID;
 	protected $prsl_notes;
+	protected $prsl_patientTransID;
+	protected $prsl_dateRef;
 
 	protected $patient_id;
 	protected $patient_name;

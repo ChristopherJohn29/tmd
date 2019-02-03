@@ -51,7 +51,7 @@
 
 							<tr>
 								<td>{{ record['patientName'] }}</td>
-								<td>{{ record['patientReferralDate'] }}</td>
+								<td data-order="{{ record['patientReferralDate']|date("Ymd") }}">{{ record['patientReferralDate'] }}</td>
 
 								{% if profile_entity.is_sel_noshow_cancelled(record['pt_tovID']) %}
 
@@ -73,7 +73,7 @@
 									
 									{% if roles_permission_entity.has_permission_name(['view_pt']) %}
 										
-										<a href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View</span></a>
+										<a target="_blank" href="{{ site_url("patient_management/profile/details/#{ record['patientId'] }") }}"><span class="label label-primary">View</span></a>
 									{% endif %}
 
 									{% if roles_permission_entity.has_permission_name(['add_tr']) %}

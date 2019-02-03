@@ -83,7 +83,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
     public function get_provider_fullname() : string
 	{
-		return $this->provider_firstname . ' ' . $this->provider_lastname;
+		return ($this->provider_firstname != '' ? ($this->provider_firstname . ' ') : '') . $this->provider_lastname;
 	}
 
 	public function get_selected_aw_ippe_code(string $code) : string
