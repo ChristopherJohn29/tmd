@@ -95,6 +95,16 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 			parent::make_paid($transaction_params);
 		}
+		elseif ($this->input->post('submit_type') == 'pdf')
+		{
+			$this->load->library('PDF');
+			
+			$html = $this->load->view('payroll_management/payroll/pdf', $page_data, true);
+			$filename = $this->input->post('providerName') . ' Payroll Period: ';
+			$filename .= $this->input->post('payPeriod');
+
+			$this->pdf->generate($html, $filename);
+		}
 		else
 		{
 			redirect('errors/page_not_found');

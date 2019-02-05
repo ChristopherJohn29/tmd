@@ -17,55 +17,57 @@
             <div class="box-body">
               
              	<section class="xrx-info">
-             		
-             		<div class="row">
-             			<div class="col-xs-12">
-						  {% if states %}
-							{{ include('commons/alerts.php') }}
-						  {% endif %}
-						</div>
-
-             			<div class="col-md-12">
-             				<h1 class="name">{{ provider_details.get_fullname() }}<small>Provider Name</small></h1>
-             			</div>
-                    </div>
-                    
-                    <div class="row spacer-bottom">
-                        <div class="col-md-12">
-                            <h4>
-                        		Pay Period: {{ pay_period }} 
-
-                        		<span class="text-red">
-                        			<strong>
-                        				{{ transaction_entity.hasNotAllPaidProvider(provider_transactions) ? '' : 'PAID' }}
-                        			</strong>
-                        		</span>
-                        	</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-             			<div class="col-md-6">
-             				<p class="lead">Contact Information</p>
-             				
-             				<table class="table xrx-table">
-             					<tr>
-             						<th>Address:</th>
-             						<td>{{ provider_details.provider_address }}</td>
-             					</tr>
-             					<tr>
-             						<th>Phone:</th>
-             						<td>{{ provider_details.provider_contactNum }}</td>
-             					</tr>
-             					<tr>
-             						<th>Email:</th>
-             						<td>{{ provider_details.provider_email }}</td>
-             					</tr>
-             				</table>
-             			</div>
-             		</div>
 
              		{{ form_open("payroll_management/payroll/form/#{ provider_details.provider_id }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}
+             		
+	             		<div class="row">
+	             			<div class="col-xs-12">
+							  {% if states %}
+								{{ include('commons/alerts.php') }}
+							  {% endif %}
+							</div>
+
+	             			<div class="col-md-12">
+	             				<input type="hidden" name="providerName" value="{{ provider_details.get_fullname() }}">
+	             				<h1 class="name">{{ provider_details.get_fullname() }}<small>Provider Name</small></h1>
+	             			</div>
+	                    </div>
+	                    
+	                    <div class="row spacer-bottom">
+	                        <div class="col-md-12">
+	                        	<input type="hidden" name="payPeriod" value="{{ pay_period }}">
+	                            <h4>
+	                        		Pay Period: {{ pay_period }} 
+
+	                        		<span class="text-red">
+	                        			<strong>
+	                        				{{ transaction_entity.hasNotAllPaidProvider(provider_transactions) ? '' : 'PAID' }}
+	                        			</strong>
+	                        		</span>
+	                        	</h4>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="row">
+	             			<div class="col-md-6">
+	             				<p class="lead">Contact Information</p>
+	             				
+	             				<table class="table xrx-table">
+	             					<tr>
+	             						<th>Address:</th>
+	             						<td>{{ provider_details.provider_address }}</td>
+	             					</tr>
+	             					<tr>
+	             						<th>Phone:</th>
+	             						<td>{{ provider_details.provider_contactNum }}</td>
+	             					</tr>
+	             					<tr>
+	             						<th>Email:</th>
+	             						<td>{{ provider_details.provider_email }}</td>
+	             					</tr>
+	             				</table>
+	             			</div>
+	             		</div>             		
              		
 	             		<div class="row xrx-row-spacer">
 	             		
