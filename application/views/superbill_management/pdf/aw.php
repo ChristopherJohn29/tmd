@@ -52,7 +52,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($transactions as $transaction): ?>
+		<?php foreach($transaction_entity->has_performed_in_list($transactions) as $transaction): ?>
 			<tr>
 				<td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_name; ?></td>
 				<td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_medicareNum; ?></td>
