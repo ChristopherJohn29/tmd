@@ -153,6 +153,16 @@
                                                         </a>
 
                                                     {% endif %}
+
+                                                    {% if roles_permission_entity.has_permission_name(['delete_tr']) %}
+
+                                                        <a href="{{ site_url("ajax/patient_management/transaction/delete/#{ transaction.pt_id }") }}" data-delete-btn>
+                                                            <button type="button" class="btn btn-primary btn-sm">
+                                                                <i class="fa fa-trash"></i> Delete Entry
+                                                            </button>
+                                                        </a>
+
+                                                    {% endif %}
                                                     
                                                 </div>
 
