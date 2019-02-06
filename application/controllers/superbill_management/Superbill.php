@@ -173,7 +173,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		return $page_data;
 	}
 
-	public function form($type, $fromDate, string $toDate)
+	public function form(string $type, string $fromDate, string $toDate)
 	{
 		$roles_permissions = [
 			'generate_sbawr',
@@ -187,23 +187,52 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			$this->check_permission($roles_permission);	
 		}
 
-		$columnPaidTypes = [
-			'aw' => 'pt_aw_billed',
-			'hv' => 'pt_visitBilled',
-			'fv' => 'pt_visitBilled'
+		$types = [
+			'aw' => [
+				'column' => 'pt_aw_billed',
+				'filename' => 'Superbill Annual Wellness',
+				'html' => 'aw'
+			],
+			'hv' => [
+				'column' => 'pt_visitBilled',
+				'filename' => 'Superbill Home Visits',
+				'html' => 'hv'
+			],
+			'fv' => [
+				'column' => 'pt_visitBilled',
+				'filename' => 'Superbill Facility Visits',
+				'html' => 'fv'
+			]
 		];
+
+		$page_data = $this->get_superbill_data($type, $fromDate, $toDate);
+		$page_data['notes'] = $this->input->post('notes');
+
+		$new_fromDate = str_replace('_', '/', $fromDate);
+		$new_toDate = str_replace('_', '/', $toDate);
+
+		$page_data['date_billed'] = date('m/d/y');
 
 		if ($this->input->post('submit_type') == 'paid')
 		{
 			$transaction_params = [
 				'data' => $this->input->post('pt_id'),
-				'columnPaid' => $columnPaidTypes[$type],
+				'columnPaid' => $types[$type]['column'],
 				'columnID' => 'pt_id',
 				'model' => 'transaction_model',
 				'redirect_url' => 'superbill_management/superbill'
 			];
 
 			parent::make_paid($transaction_params);
+		}
+		elseif ($this->input->post('submit_type') == 'pdf')
+		{
+			$this->load->library('PDF');
+
+			$html = $this->load->view('superbill_management/pdf/' . $types[$type]['html'], $page_data, true);
+			$filename = $types[$type]['filename'];
+
+			$this->pdf->generate($html, $filename);
 		}
 		else
 		{
