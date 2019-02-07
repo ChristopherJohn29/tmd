@@ -109,7 +109,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		{
 			$this->load->library(['email', 'PDF']);
 
-			$tmpDir = ini_get('upload_tmp_dir');
+			$tmpDir = sys_get_temp_dir() . '/';
 			$page_data['payPeriod'] = $this->input->post('payPeriod');
 			$page_data['providerName'] = $this->input->post('providerName');
 			$emailTemplate = $this->load->view('payroll_management/payroll/email_template', $page_data, true);
