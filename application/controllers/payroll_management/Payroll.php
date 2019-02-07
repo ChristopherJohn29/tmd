@@ -11,7 +11,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		$this->load->model(array(
 			'patient_management/transaction_model',
 			'payroll_management/payroll_model',
-			'provider_management/profile_model'
+			'provider_management/profile_model',
 		));
 
 		$this->load->library('Date_formatter');
@@ -104,6 +104,55 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 			$filename .= $this->input->post('payPeriod');
 
 			$this->pdf->generate($html, $filename);
+		}
+		elseif ($this->input->post('submit_type') == 'email')
+		{
+			$this->load->library(['email', 'PDF']);
+
+			$tmpDir = ini_get('upload_tmp_dir');
+			$page_data['payPeriod'] = $this->input->post('payPeriod');
+			$page_data['providerName'] = $this->input->post('providerName');
+			$emailTemplate = $this->load->view('payroll_management/payroll/email_template', $page_data, true);
+
+			$filename = $page_data['providerName'] . ' Payroll Period: ';
+			$filename .= $page_data['payPeriod'];
+
+			$html = $this->load->view('payroll_management/payroll/pdf', $page_data, true);
+			$this->pdf->generate_as_attachement($html, $tmpDir . $filename);
+
+			$provider_params = [
+				'key' => 'provider.provider_id',
+				'value' => $provider_id
+			];
+
+			$providerDetails = $this->profile_model->record($provider_params);
+			
+			$this->email->from('info@themobiledrs.com', 'The MobileDrs');
+			$this->email->to($providerDetails->provider_email);
+			$this->email->subject('Your payment summary for ' . $page_data['payPeriod']);
+			$this->email->message($emailTemplate);
+			$this->email->attach($tmpDir . $filename . '.pdf', 'attachment', $filename . '.pdf');
+
+			$send = $this->email->send();
+
+			if ($send)
+			{
+				$this->session->set_flashdata('success', $this->lang->line('success_email'));
+			}
+			else
+			{
+				$this->session->set_flashdata('danger', $this->lang->line('danger_email'));	
+			}
+
+			$details_params = [
+				$this->uri->segment(4), // provider id
+				$this->uri->segment(5), // from date
+				$this->uri->segment(6) // to date
+			];
+
+			$redirect_url = 'payroll_management/payroll/details/' . implode('/', $details_params);
+
+			redirect($redirect_url);
 		}
 		else
 		{

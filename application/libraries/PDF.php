@@ -4,27 +4,42 @@ require_once('TCPDF/tcpdf.php');
 
 class PDF {
 
-	public function generate($html, $filename)
+	private $pdf = null;
+
+	private function prepare(string $html) 
 	{
 		// create new PDF document
-		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, 'pt', PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, 'pt', PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 		// set margins
-		$pdf->SetMargins(36, 36, 36);
+		$this->pdf->SetMargins(36, 36, 36);
 
-		$pdf->setPrintHeader(false);
-		$pdf->setPrintFooter(false);
+		$this->pdf->setPrintHeader(false);
+		$this->pdf->setPrintFooter(false);
 
 		// add a page
-		$pdf->AddPage();
+		$this->pdf->AddPage();
 
 		// output the HTML content
-		$pdf->writeHTML($html, true, false, true, false, '');
+		$this->pdf->writeHTML($html, true, false, true, false, '');
 		
 		// reset pointer to the last page
-		$pdf->lastPage();
+		$this->pdf->lastPage();
+	}
+
+	public function generate(string $html, string $filename)
+	{
+		$this->prepare($html);
 
 		//Close and output PDF document
-		$pdf->Output($filename . '.pdf', 'D');
+		$this->pdf->Output($filename . '.pdf', 'D');
+	}
+
+	public function generate_as_attachement(string $html, string $filename)
+	{
+		$this->prepare($html);
+
+		//Close and output PDF document
+		$this->pdf->Output($filename . '.pdf', 'F');
 	}
 }
