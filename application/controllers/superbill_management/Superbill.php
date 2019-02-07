@@ -190,27 +190,23 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		$types = [
 			'aw' => [
 				'column' => 'pt_aw_billed',
-				'filename' => 'Superbill Annual Wellness',
+				'filename' => 'Superbill_Annual_Wellness_',
 				'html' => 'aw'
 			],
 			'hv' => [
 				'column' => 'pt_visitBilled',
-				'filename' => 'Superbill Home Visits',
+				'filename' => 'Superbill_Home_Visits_',
 				'html' => 'hv'
 			],
 			'fv' => [
 				'column' => 'pt_visitBilled',
-				'filename' => 'Superbill Facility Visits',
+				'filename' => 'Superbill_Facility_Visits_',
 				'html' => 'fv'
 			]
 		];
 
 		$page_data = $this->get_superbill_data($type, $fromDate, $toDate);
 		$page_data['notes'] = $this->input->post('notes');
-
-		$new_fromDate = str_replace('_', '/', $fromDate);
-		$new_toDate = str_replace('_', '/', $toDate);
-
 		$page_data['date_billed'] = date('m/d/y');
 
 		if ($this->input->post('submit_type') == 'paid')
@@ -227,10 +223,16 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		}
 		elseif ($this->input->post('submit_type') == 'pdf')
 		{
-			$this->load->library('PDF');
+			$this->load->library(['Date_formatter', 'PDF']);
+
+			$new_fromDate = str_replace('_', '/', $fromDate);
+			$new_toDate = str_replace('_', '/', $toDate);
+
+			$this->date_formatter->set_date($new_fromDate, $new_toDate);
+			$date_period = $this->date_formatter->format();
 
 			$html = $this->load->view('superbill_management/pdf/' . $types[$type]['html'], $page_data, true);
-			$filename = $types[$type]['filename'];
+			$filename = $types[$type]['filename'] . $date_period;
 
 			$this->pdf->generate($html, $filename);
 		}
