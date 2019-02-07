@@ -32,7 +32,7 @@
 							<tr>
 								<th>Date of Service</th>
 								<th>Provider</th>
-								<th width="80px">Action</th>
+								<th width="130px">Action</th>
 							</tr>
 						</thead>
                   
