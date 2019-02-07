@@ -1,98 +1,40 @@
 <img src="<?php echo base_url() ?>/dist/img/pdf_header.png">
 
-<br>
-<br>
+<p style="margin:0; padding:0;"><span style="font-size:16px;"><?php echo $provider_details->get_fullname(); ?></span><br>
+<span style="font-size:10px; color: gray; padding-top:6px">Pay Period:</span> <?php echo $pay_period; ?></p>
 
-<table>
-	<tr>
-		<td style="font-size: 20px;"><strong><?php echo $provider_details->get_fullname(); ?></strong></td>
-	</tr>
-	<tr>
-		<td style="color: gray;">PROVIDER NAME</td>
-	</tr>
-</table>
+<p style="font-size:8px; color: gray;">VISITS</p>
 
-<br>
-<br>
-<br>
-
-<table>
-	<tr>
-		<td>Pay Period: <?php echo $pay_period; ?></td>
-	</tr>
-</table>
-
-<br>
-<br>
-
-<table>
-	<tr>
-		<td style="color: gray;">CONTACT INFORMATION</td>
-	</tr>
-</table>
-
-<br>
-<br>
-
-<table>
-	<tr>
-		<td style="width: 15%;">Address:</td>
-		<td><?php echo $provider_details->provider_address; ?></td>
-	</tr>
-	<tr>
-		<td style="width: 15%;">Phone:</td>
-		<td><?php echo $provider_details->provider_contactNum; ?></td>
-	</tr>
-	<tr>
-		<td style="width: 15%;">Email:</td>
-		<td><?php echo $provider_details->provider_email; ?></td>
-	</tr>
-</table>
-
-<br>
-<br>
-<br>
-<br>
-
-<table>
-	<tr>
-		<td style="color: gray;">VISITS</td>
-	</tr>
-</table>
-
-<br>
-<br>
-
-<table style="font-size: 9px;padding: 10px;">
+<table style="font-size: 7px;padding: 5px;">
 	<thead>
 		<tr>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Date of Service</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Type of Visit</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">AW / IPPE</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ACP</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Mileage</th>
+			<th width="80px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Date of Service</th>
+			<th width="120px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Type of Visit</th>
+			<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">AW / IPPE</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ACP</th>
+			<th width="160px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Mileage</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach($provider_transactions as $provider_transaction): ?>
 			<tr>
-				<td  style="border-bottom: 1px solid #d2d6de;">
+				<td width="80px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $provider_transaction->get_date_format($provider_transaction->pt_dateOfService); ?>
 				</td>
-				<td  style="border-bottom: 1px solid #d2d6de;">
+				<td width="120px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $provider_transaction->tov_name; ?>
 				</td>
-				<td  style="border-bottom: 1px solid #d2d6de;">
+				<td width="60px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $provider_transaction->get_aw_ippe_format($provider_transaction->pt_aw_ippe_code); ?>
 				</td>
-				<td  style="border-bottom: 1px solid #d2d6de;">
+				<td width="50px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $provider_transaction->get_selected_choice_format($provider_transaction->pt_acp); ?>
 				</td>
-				<td  style="border-bottom: 1px solid #d2d6de;">
+				<td width="160px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $provider_transaction->patient_name; ?>
 				</td>
-				<td  style="border-bottom: 1px solid #d2d6de;">
+				<td width="50px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $provider_transaction->pt_mileage; ?>
 				</td>
 			</tr>			
@@ -100,51 +42,48 @@
 	</tbody>
 </table>
 
-<br>
-<br>
-<br>
-
-<table>
-	<tr>
-		<td style="color: gray;width: 50%;">NOTES</td>
-		<td style="color: gray;width: 50%;">PAYMENT SUMMARY</td>
-	</tr>
-</table>
-
-<br>
-<br>
-
 <table>
 	<tr>
 		<td style="width: 50%;">
+            
+            <p style="font-size:8px; color: gray; margin-bottom:10px; margin-left:5px;">NOTES</p>
+            
+            <span style="font-size: 7px;">
 			<?php if ( ! empty($notes)): ?>
 
 				<?php echo $notes; ?>
 
 			<?php else: ?>
 
-				There are no additional notes.
+            There are no additional notes.
 
 			<?php endif; ?>
+                
+            </span>
+            
 		</td>
+        
 		<td style="width: 50%;">
-			<table style="font-size: 7px;padding: 5px;">
+            
+            <p style="font-size:8px; color: gray; margin-bottom:10px; margin-left:5px;">PAYMENT SUMMARY</p>
+            
+			<table style="font-size: 8px;padding: 5px;">
 				<thead>
 					<tr>
-						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Description</th>
-						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Quantity</th>
-						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Amount</th>
-						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Total Amount</th>
+						<th width="110px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Description</th>
+						<th width="45px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Quantity</th>
+						<th width="45px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Amount</th>
+						<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Total Amount</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if ($provider_payment_summary['initial_visit_home']['total'] != 0): ?>
 
 						<tr>
-							<th>Initial Visit (Home)</th>
-							<td><?php echo $provider_payment_summary['initial_visit_home']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['initial_visit_home']['amount'] ?></td>
-							<td>$<?php echo $provider_payment_summary['initial_visit_home']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">Initial Visit (Home)</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['initial_visit_home']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['initial_visit_home']['amount'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['initial_visit_home']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
@@ -152,10 +91,10 @@
 					<?php if ($provider_payment_summary['initial_visit_facility']['total'] != 0 ): ?>
 
 						<tr>
-							<th>Initial Visit (Facility)</th>
-							<td><?php echo $provider_payment_summary['initial_visit_facility']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['initial_visit_facility']['amount'] ?></td>
-							<td>$<?php echo $provider_payment_summary['initial_visit_facility']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">Initial Visit (Facility)</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['initial_visit_facility']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['initial_visit_facility']['amount'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['initial_visit_facility']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
@@ -163,10 +102,10 @@
 					<?php if ($provider_payment_summary['initial_visit_office']['total'] != 0 ): ?>
 
 						<tr>
-							<th>Initial Visit (Office)</th>
-							<td><?php echo $provider_payment_summary['initial_visit_office']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['initial_visit_office']['amount'] != '' ? $provider_payment_summary['initial_visit_office']['amount'] : 0 ?></td>
-							<td>$<?php echo $provider_payment_summary['initial_visit_office']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">Initial Visit (Office)</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['initial_visit_office']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['initial_visit_office']['amount'] != '' ? $provider_payment_summary['initial_visit_office']['amount'] : 0 ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['initial_visit_office']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
@@ -174,10 +113,10 @@
 					<?php if ($provider_payment_summary['follow_up_home']['total'] != 0 ): ?>
 
 						<tr>
-							<th>Follow-Up Visit (Home)</th>
-							<td><?php echo $provider_payment_summary['follow_up_home']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['follow_up_home']['amount'] ?></td>
-							<td>$<?php echo $provider_payment_summary['follow_up_home']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">Follow-Up Visit (Home)</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['follow_up_home']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['follow_up_home']['amount'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['follow_up_home']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
@@ -185,10 +124,10 @@
 					<?php if ($provider_payment_summary['follow_up_facility']['total'] != 0 ): ?>
 
 						<tr>
-							<th>Follow-Up Visit (Facility)</th>
-							<td><?php echo $provider_payment_summary['follow_up_facility']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['follow_up_facility']['amount'] ?></td>
-							<td>$<?php echo $provider_payment_summary['follow_up_facility']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">Follow-Up Visit (Facility)</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['follow_up_facility']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['follow_up_facility']['amount'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['follow_up_facility']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
@@ -196,10 +135,10 @@
 					<?php if ($provider_payment_summary['follow_up_office']['total'] != 0 ): ?>
 
 						<tr>
-							<th>Follow-Up Visit (Office)</th>
-							<td><?php echo $provider_payment_summary['follow_up_office']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['follow_up_office']['amount'] != '' ? $provider_payment_summary['follow_up_office']['amount'] : 0 ?></td>
-							<td>$<?php echo $provider_payment_summary['follow_up_office']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">Follow-Up Visit (Office)</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['follow_up_office']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['follow_up_office']['amount'] != '' ? $provider_payment_summary['follow_up_office']['amount'] : 0 ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['follow_up_office']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
@@ -207,39 +146,39 @@
 					<?php if ($provider_payment_summary['no_show']['total'] != 0 ): ?>
 
 						<tr>
-							<th>No Show</th>
-							<td><?php echo $provider_payment_summary['no_show']['qty'] ?></td>
-							<td>$<?php echo $provider_payment_summary['no_show']['amount'] ?></td>
-							<td>$<?php echo $provider_payment_summary['no_show']['total'] ?></td>
+							<th style="border-bottom: 1px solid #d2d6de;">No Show</th>
+							<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['no_show']['qty'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['no_show']['amount'] ?></td>
+							<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['no_show']['total'] ?></td>
 						</tr>
 
 					<?php endif; ?>
 						
 					<tr>
-						<th>AW / IPPE</th>
-						<td><?php echo $provider_payment_summary['aw_ippe']['qty'] ?></td>
-						<td>$<?php echo $provider_payment_summary['aw_ippe']['amount'] ?></td>
-						<td>$<?php echo $provider_payment_summary['aw_ippe']['total'] ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">AW / IPPE</th>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['aw_ippe']['qty'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['aw_ippe']['amount'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['aw_ippe']['total'] ?></td>
 					</tr>
 					<tr>
-						<th>ACP</th>
-						<td><?php echo $provider_payment_summary['acp']['qty'] ?></td>
-						<td>$<?php echo $provider_payment_summary['acp']['amount'] ?></td>
-						<td>$<?php echo $provider_payment_summary['acp']['total'] ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">ACP</th>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['acp']['qty'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['acp']['amount'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['acp']['total'] ?></td>
 					</tr>
 					<tr>
-						<th>Mileage</th>
-						<td><?php echo $provider_payment_summary['mileage']['qty'] ?></td>
-						<td><?php echo $provider_payment_summary['mileage']['amount'] ?>¢</td>
-						<td>$<?php echo $provider_payment_summary['mileage']['total'] ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">Mileage</th>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['mileage']['qty'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['mileage']['amount'] ?>¢</td>
+						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['mileage']['total'] ?></td>
 					</tr>
 					<tr>
-						<td colspan="3"><strong><?php echo $others_field; ?></strong></td>
-						<td><?php echo $others; ?></td>
+						<td colspan="3" style="border-bottom: 1px solid #d2d6de;"><strong><?php echo $others_field; ?></strong></td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $others; ?></td>
 					</tr>
 					<tr>
-						<td colspan="3"><strong>Total</strong></td>
-						<td>$<?php echo $total; ?></td>
+						<td colspan="3" style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px">Grand Total</span></td>
+						<td style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px; font-weight:bold;">$<?php echo $total; ?></span></td>
 					</tr>
 				</tbody>
 			</table>
