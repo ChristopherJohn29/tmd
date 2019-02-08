@@ -152,7 +152,7 @@
                                         
                                         {% endif %}
 
-                                        {% if roles_permission_entity.has_permission_name(['edit_prs']) %}
+                                        {% if roles_permission_entity.has_permission_name(['edit_prs']) and routesheet_entity.isDateServiceNotExpired(provider_route_sheet.prs_dateOfService) %}
 
                                             <a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ provider_route_sheet.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
 

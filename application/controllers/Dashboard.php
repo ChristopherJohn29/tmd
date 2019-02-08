@@ -45,7 +45,8 @@ class Dashboard extends \Mobiledrs\core\MY_Controller {
 		$page_data['patients'] = $this->pt_profile_model->get_pt_profile_trans_recently_added($patients);
 		$page_data['pt_profile_entity'] = new \Mobiledrs\entities\patient_management\pages\Profile_entity();
 		$page_data['provider_route_sheets'] = $this->rs_model->get_records_by_join($prs_params);
-
+		$page_data['routesheet_entity'] = new \Mobiledrs\entities\provider_route_sheet_management\Routesheet_entity();
+		
 		$this->twig->view('home', $page_data);
 	}
 }
