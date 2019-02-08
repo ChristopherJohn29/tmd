@@ -103,6 +103,9 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'ICD10' => $patient_trans ? $patient_trans->pt_icd10_codes : '',
 				'notes' => $patient_trans ? $patient_trans->pt_notes : '',
 				'dateOfService' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_dateOfService) : '',
+				'provider_paid' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_service_billed) : '',
+				'aw_billed' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_aw_billed) : '',
+				'visit_billed' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_visitBilled) : '',
 				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : ''
 			];
 

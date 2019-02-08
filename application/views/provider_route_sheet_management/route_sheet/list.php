@@ -32,7 +32,7 @@
 							<tr>
 								<th>Date of Service</th>
 								<th>Provider</th>
-								<th width="80px">Action</th>
+								<th width="130px">Action</th>
 							</tr>
 						</thead>
                   
@@ -56,6 +56,12 @@
 											{% if roles_permission_entity.has_permission_name(['edit_prs']) and routesheet_entity.isDateServiceNotExpired(record.prs_dateOfService)  %}
 												
 												<a href='{{ site_url("provider_route_sheet_management/route_sheet/edit/#{ record.prs_id }") }}' title="Edit"><span class="label label-primary">Update</span></a>
+
+											{% endif %}
+
+											{% if roles_permission_entity.has_permission_name(['delete_prs']) and routesheet_entity.isDateServiceNotExpired(record.prs_dateOfService)  %}
+												
+												<a href='{{ site_url("ajax/provider_route_sheet_management/route_sheet/delete/#{ record.prs_id }") }}' title="Delete" data-delete-btn><span class="label label-primary">Delete</span></a>
 
 											{% endif %}
 

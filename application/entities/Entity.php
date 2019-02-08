@@ -41,7 +41,7 @@ class Entity {
 
     public function get_date_format(string $date) : string
     {
-    	return ( ! empty($date)) ? date_format(date_create($date), 'm/d/Y') : '';
+    	return ( ! empty($date) && $date != '0000-00-00') ? date_format(date_create($date), 'm/d/Y') : '';
     }
 
     public function get_number_format(string $number) : string

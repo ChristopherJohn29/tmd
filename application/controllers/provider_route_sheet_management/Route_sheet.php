@@ -12,7 +12,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'provider_route_sheet_management/Route_sheet_list_model' => 'rs_list_model',
 			'patient_management/Type_visit_model' => 'tov_model',
 			'patient_management/Profile_model' => 'pt_model',
-			'patient_management/transaction_model' => 'pat_trans_model'
+			'patient_management/transaction_model' => 'pat_trans_model',
+			'provider_management/profile_model' => 'pr_model'
 		));
 
 		$this->load->library('Time_converter');
@@ -289,5 +290,56 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		$page_data['lists'] = $this->rs_list_model->get_records_by_join($lists_params);
 
 		return $page_data;
+	}
+
+	public function form(string $prs_id)
+	{
+		$this->check_permission('download_prs');
+
+		$this->load->library('PDF');
+
+		$page_data = $this->get_routesheet_details_data($prs_id);
+		$submit_type = $this->input->post('submit_type');
+		$dateOfService = $page_data['record']->get_date_format($page_data['record']->prs_dateOfService);
+		$filename = $page_data['record']->get_provider_fullname() . '_routesheet_';
+		$filename .= str_replace('/', '_', $dateOfService);
+
+		if ($submit_type == 'email') {
+			$this->load->library('email');			
+
+			$tmpDir = sys_get_temp_dir() . '/';
+			$emailTemplate = $this->load->view('provider_route_sheet_management/route_sheet/email_template', $page_data, true);
+
+			$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf', $page_data, true);
+			$this->pdf->generate_as_attachement($html, $tmpDir . $filename);
+
+			$this->email->from('info@themobiledrs.com', 'The MobileDrs');
+			$this->email->to($page_data['record']->provider_email);
+			$this->email->subject('Your routesheet for the date of ' . $dateOfService);
+			$this->email->message($emailTemplate);
+			$this->email->attach($tmpDir . $filename . '.pdf', 'attachment', $filename . '.pdf');
+
+			$send = $this->email->send();
+
+			if ($send)
+			{
+				unlink($tmpDir . $filename . '.pdf');
+
+				$this->session->set_flashdata('success', $this->lang->line('success_email'));
+			}
+			else
+			{
+				$this->session->set_flashdata('danger', $this->lang->line('danger_email'));	
+			}
+
+			$redirect_url = 'provider_route_sheet_management/route_sheet/details/' . $prs_id;
+
+			redirect($redirect_url);
+
+		} elseif ($submit_type == 'pdf') {
+			$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf', $page_data, true);
+
+			$this->pdf->generate($html, $filename);
+		}
 	}
 }
