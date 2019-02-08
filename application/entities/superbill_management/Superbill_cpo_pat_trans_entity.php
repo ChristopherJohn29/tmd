@@ -24,7 +24,7 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_providerID;
 	protected $pt_dateOfService;
 	protected $pt_deductible;
-	protected $pt_serviceStatus;
+	protected $pt_service_billed;
 	protected $pt_aw_ippe_date;
 	protected $pt_aw_ippe_code;
 	protected $pt_performed;

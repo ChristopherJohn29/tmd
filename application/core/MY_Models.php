@@ -175,4 +175,19 @@ class MY_Models extends \CI_Model {
 			$this->record_entity->$key = $value;
 		}
 	}
+
+	public function make_paid(array $params)
+	{
+		$dataToInsert = [];
+
+		for ($i = 0; $i < count($params['data']); $i++)
+		{ 
+			$dataToInsert[] = [
+				$params['columnID'] => $params['data'][$i],
+				$params['columnPaid'] => date('Y-m-d')
+			];
+		}
+
+		return $this->db->update_batch($this->table_name, $dataToInsert, $params['columnID']);
+	}
 }

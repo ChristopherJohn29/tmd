@@ -119,4 +119,20 @@ class MY_Controller extends \CI_Controller {
 
         return redirect($params['redirect_url']);
 	}
+
+    public function make_paid(array $params)
+    {
+        $save = $this->{$params['model']}->make_paid($params);
+
+        if ($save) 
+        {
+            $this->session->set_flashdata('success', $this->lang->line('success_save'));
+        } 
+        else 
+        {
+            $this->session->set_flashdata('danger', $this->lang->line('danger_save'));
+        }
+
+        return redirect($params['redirect_url']);
+    }
 }

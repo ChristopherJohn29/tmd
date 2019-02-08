@@ -10,8 +10,14 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function get_transaction(string $fromDate, string $toDate, array $type_of_visit = []) : array
+	public function get_transaction(string $fromDate, string $toDate, array $type_of_visit = [], string $type) : array
 	{
+		$billed_columns = [
+			'aw' => 'pt_aw_billed',
+			'hv' => 'pt_visitBilled',
+			'fv' => 'pt_visitBilled'
+		];
+
 		$transaction_params = [
 			'joins' => [
 				[

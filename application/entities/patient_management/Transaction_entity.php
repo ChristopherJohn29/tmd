@@ -10,7 +10,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_providerID;
 	protected $pt_dateOfService;
 	protected $pt_deductible;
-	protected $pt_serviceStatus;
+	protected $pt_service_billed;
 	protected $pt_aw_ippe_date;
 	protected $pt_aw_ippe_code;
 	protected $pt_performed;
@@ -156,5 +156,37 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	public function has_mileage() : bool
 	{
 		return (float) $this->pt_mileage > 0;
+	}
+
+	public function is_provider_paid() : bool
+	{
+		return ! empty($this->pt_service_billed);
+	}
+
+	public function hasNotAllPaidProvider(array $transactions) : bool
+	{
+		// just look at the first data since marking as paid is a batch operation.
+		return empty($transactions[0]->pt_service_billed);
+	}
+
+	public function get_notBilled(array $transactions) : array
+	{
+		$data = [];
+		;
+
+		for ($i = 0, $totalRecords = count($transactions); $i < $totalRecords; $i++)
+		{
+			$transaction = $transactions[$i];
+			if (( ! empty($transaction->pt_aw_billed)) && ($transaction->pt_aw_billed != '0000-00-00') ||  
+				( ! empty($transaction->pt_visitBilled)) && ($transaction->pt_visitBilled != '0000-00-00')
+			)
+			{
+				continue;
+			}
+
+			$data[] = $transactions[$i];
+		}
+
+		return $data;
 	}
 }

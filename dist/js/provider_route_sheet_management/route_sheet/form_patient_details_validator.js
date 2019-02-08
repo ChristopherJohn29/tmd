@@ -1,23 +1,47 @@
 var Mobiledrs =  Mobiledrs || {};
 
 Mobiledrs.Routesheet_form_patient_details_validator = (function() {
+	var patientsNameList = {};
 
-	var init = function () {			
+	var init = function () {
+		patientDefaultList();
 		patientsName();
 	};
 
-	var patientsName = function() {
-		var patientsNameList = [];
+	var patientDefaultList = function() {
+		var attrName = 'data-mobiledrs_autosuggest_dropdown_id';
+		var defaultList = $('[' + attrName + ']');
 
+		for (var i = 0, ilen = defaultList.length; i < ilen; i++) {
+			var item = $(defaultList[i]);
+			var key = item.attr(attrName);
+			var value = item.prev().val();
+
+			patientsNameList[key] = value;
+		}
+	};
+
+	var isPatientExist = function(key, value, list) {
+		for (k in list) {
+			if (list[k] == value && k != key) {
+				return true;
+			}
+		}
+
+		return false;
+	};
+
+	var patientsName = function() {
 		$('.patient-details-container [data-mobiledrs_autosuggest]').on('blur', function() {
 			var value = $(this).prev().val();
+			var key = $(this).attr('data-mobiledrs_autosuggest_dropdown_id');
 
 			if (value == '')
 			{
 				return false;
 			}
 
-			if (patientsNameList.includes(value))
+			if (isPatientExist(key, value, patientsNameList))
 			{
 				alert('Duplication of Patient Name is not allowed.');
 
@@ -26,7 +50,7 @@ Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 				return false;
 			}
 
-			patientsNameList.push(value);
+			patientsNameList[key] = value;
 		});
 	};
 

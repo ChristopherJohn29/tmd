@@ -60,9 +60,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 			$headcount_list[] = [
 				'patient_name' => $patient_details->patient_name,
 				'provider' => $transaction->get_provider_fullname(),
+				'dateOfService' => $transaction->get_date_format($transaction->pt_dateOfService),
 				'deductible' => $transaction->pt_deductible,
 				'home_health' => $patient_details->hhc_name,
-				'visit_billed' => $transaction->pt_visitBilled
+				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled)
 			];
 
 			$dup_patient_id_list[] = $transaction->pt_patientID;

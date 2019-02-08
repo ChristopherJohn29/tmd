@@ -21,7 +21,7 @@
                 <td>{{ transaction.pt_aw_ippe_code }}</td>
                 <td>{{ transaction.get_selected_choice_format(transaction.pt_performed) }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_aw_ippe_date) }}</td>
-                <td></td>
+                <td><span class="text-red"><strong>{{ transaction.get_date_format(transaction.pt_aw_billed) }}</strong></span></td>
             </tr>
         </tbody>
     </table>
@@ -54,7 +54,7 @@
                 <td>{{ transaction.pt_icd10_codes }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateRef) }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateRefEmailed) }}</td>
-                <td></td>
+                <td><span class="text-red"><strong>{{ transaction.get_date_format(transaction.pt_visitBilled) }}</strong></span></td>
             </tr>
         </tbody>
 

@@ -108,7 +108,13 @@
 
                                             {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
 
-                                                <li class="{{ index < 1 ? 'active' : '' }}"><a href="#tab_{{ index }}" data-toggle="tab" aria-expanded="true">{{ transaction.tov_name }}</a></li>
+                                                <li class="{{ index < 1 ? 'active' : '' }}">
+                                                    <a href="#tab_{{ index }}" data-toggle="tab" aria-expanded="true">  {{ transaction.tov_name }}
+
+                                                        <span class="text-red"><strong>{{ transaction.is_provider_paid() ? 'PAID' : '' }}</strong></span>
+                                                    </a>
+
+                                                </li>
 
                                             {% endif %}
 
@@ -143,6 +149,16 @@
                                                         <a href="{{ site_url("patient_management/transaction/edit/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}">
                                                             <button type="button" class="btn btn-primary btn-sm">
                                                                 <i class="fa fa-edit"></i> Update Entry
+                                                            </button>
+                                                        </a>
+
+                                                    {% endif %}
+
+                                                    {% if roles_permission_entity.has_permission_name(['delete_tr']) %}
+
+                                                        <a href="{{ site_url("ajax/patient_management/transaction/delete/#{ transaction.pt_id }") }}" data-delete-btn>
+                                                            <button type="button" class="btn btn-primary btn-sm">
+                                                                <i class="fa fa-trash"></i> Delete Entry
                                                             </button>
                                                         </a>
 
