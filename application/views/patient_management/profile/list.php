@@ -39,7 +39,7 @@
                     <th>AW Billed</th>
                     <th>Visits Billed</th>
 					<th>CPO Billed</th>
-					<th width="130px">Actions</th>
+					<th width="150px">Actions</th>
 				  </tr>
 				  </thead>
 				  
