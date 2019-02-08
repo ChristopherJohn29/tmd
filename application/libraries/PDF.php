@@ -6,10 +6,12 @@ class PDF {
 
 	private $pdf = null;
 
+	public $page_orientation = PDF_PAGE_ORIENTATION;
+
 	private function prepare(string $html) 
 	{
 		// create new PDF document
-		$this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, 'pt', PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$this->pdf = new TCPDF($this->page_orientation, 'pt', PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 		// set margins
 		$this->pdf->SetMargins(36, 36, 36);

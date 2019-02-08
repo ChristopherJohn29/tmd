@@ -1,4 +1,4 @@
-<img src="<?php echo base_url() ?>/dist/img/pdf_header.png">
+<img src="<?php echo base_url() ?>/dist/img/pdf_header_landscape.png">
 
 <br>
 <br>

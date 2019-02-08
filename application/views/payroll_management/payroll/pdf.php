@@ -1,4 +1,4 @@
-<img src="<?php echo base_url() ?>/dist/img/pdf_header.png">
+<img src="<?php echo base_url() ?>/dist/img/pdf_header_portrait.png">
 
 <p style="margin:0; padding:0;"><span style="font-size:16px;"><?php echo $provider_details->get_fullname(); ?></span><br>
 <span style="font-size:10px; color: gray; padding-top:6px">Pay Period:</span> <?php echo $pay_period; ?></p>
@@ -41,6 +41,9 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+
+<br>
+<br><br>
 
 <table>
 	<tr>

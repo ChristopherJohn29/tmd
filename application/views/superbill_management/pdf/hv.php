@@ -1,4 +1,4 @@
-<img src="<?php echo base_url() ?>/dist/img/pdf_header.png">
+<img src="<?php echo base_url() ?>/dist/img/pdf_header_landscape.png">
 
 <br>
 <br>
@@ -121,7 +121,7 @@
 
 <table>
 	<tr>
-		<td style="width: 50%;">
+		<td style="width: 90%;">
 			<?php if ( ! empty($notes)): ?>
 
 				<?php echo $notes; ?>
@@ -132,7 +132,7 @@
 
 			<?php endif; ?>
 		</td>
-		<td style="width: 50%;">
+		<td style="width: 10%;">
 			<table style="font-size: 7px;padding: 2px;">
 				<tbody>
 					<tr>

@@ -234,6 +234,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			$html = $this->load->view('superbill_management/pdf/' . $types[$type]['html'], $page_data, true);
 			$filename = $types[$type]['filename'] . $date_period;
 
+			$this->pdf->page_orientation = 'L';
 			$this->pdf->generate($html, $filename);
 		}
 		else
