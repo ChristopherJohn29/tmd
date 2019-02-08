@@ -59,7 +59,7 @@
 
 											{% endif %}
 
-											{% if roles_permission_entity.has_permission_name(['delete_prs']) and routesheet_entity.isDateServiceNotExpired(record.prs_dateOfService)  %}
+											{% if roles_permission_entity.has_permission_name(['delete_prs']) %}
 												
 												<a href='{{ site_url("ajax/provider_route_sheet_management/route_sheet/delete/#{ record.prs_id }") }}' title="Delete" data-delete-btn><span class="label label-primary">Delete</span></a>
 
