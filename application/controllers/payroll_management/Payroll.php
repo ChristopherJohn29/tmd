@@ -137,6 +137,8 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 			if ($send)
 			{
+				unlink($tmpDir . $filename . '.pdf');
+				
 				$this->session->set_flashdata('success', $this->lang->line('success_email'));
 			}
 			else
