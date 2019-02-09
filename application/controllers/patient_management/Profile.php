@@ -240,4 +240,9 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$this->twig->view('patient_management/profile/search', $page_data);
 	}
+
+	public function print()
+	{
+		$this->twig->view('patient_management/profile/print', []);
+	}
 }

@@ -363,7 +363,7 @@
 
                             {% if roles_permission_entity.has_permission_name(['print_pt']) %}
                                 
-                                <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+                                <a href="{{ site_url('patient_management/profile/print') }}" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
                             {% endif %}
 
