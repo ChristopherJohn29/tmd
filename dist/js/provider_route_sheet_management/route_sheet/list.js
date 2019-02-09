@@ -8,6 +8,7 @@ $(function () {
       button.attr('href', url);
 
       $("div.toolbar").append(button);      
-    }
+    },
+    'order': [[0, "desc"]],
   });
 });
