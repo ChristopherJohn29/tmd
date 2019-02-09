@@ -10,9 +10,15 @@ Mobiledrs.Payroll_list =  (function() {
       'paging'      : false,
       'lengthChange': false,
       'searching'   : false,
-      'ordering'    : false,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'order': [[0, "asc"]],
+      "columnDefs": [
+        { "orderable": false, "targets": 0 },
+        { "orderable": false, "targets": 1},
+        { "orderable": false, "targets": 2},
+        { "orderable": false, "targets": 3}
+      ]
     })
   };
 
