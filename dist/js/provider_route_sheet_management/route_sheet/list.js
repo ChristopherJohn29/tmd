@@ -10,5 +10,6 @@ $(function () {
       $("div.toolbar").append(button);      
     },
     'order': [[0, "desc"]],
+    "iDisplayLength": 100
   });
 });
