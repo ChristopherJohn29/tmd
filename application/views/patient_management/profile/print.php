@@ -4,10 +4,16 @@
 {% set body_class = 'print' %}
 
 {% block content %}
- 
- <script type="text/javascript">
- 	window.print();
- </script>
+
+<style type="text/css">
+    @media print {
+        @page {size: A4 landscape; }
+    }
+</style>
+    
+<script type="text/javascript">
+	window.print();
+</script>
 
 <div class="row">
     <div class="col-md-12">
@@ -21,7 +27,7 @@
                 <div class="row">
 
                         <div class="col-md-12">
-                            <h3 class="name rs">Patient Name</h3>
+                            <h3 class="name rs">{{ record.patient_name }}</h3>
                         </div>
                         
                         <div class="col-md-4">
@@ -29,20 +35,20 @@
              				
              				<table class="table xrx-table">
              					<tr>
-             						<th>Medicare:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Date of Birth:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Gender:</th>
-             						<td>a</td>
-             					</tr>
+                                    <th>Medicare:</th>
+                                    <td>{{ record.patient_medicareNum }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date of Birth:</th>
+                                    <td>{{ record.get_date_format(record.patient_dateOfBirth) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Gender:</th>
+                                    <td>{{ record.patient_gender }}</td>
+                                </tr>
                                 <tr>
                                     <th>Place of Service:</th>
-                                    <td>a</td>
+                                    <td>{{ record.get_fullpos_name() }}</td>
                                 </tr>
              				</table>
              			</div>
@@ -52,17 +58,17 @@
              				
              				<table class="table xrx-table">
              					<tr>
-             						<th>Address:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Phone:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Caregiver/Family:</th>
-             						<td>a</td>
-             					</tr>
+                                    <th>Address:</th>
+                                    <td>{{ record.patient_address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone:</th>
+                                    <td>{{ record.patient_phoneNum }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Caregiver/Family:</th>
+                                    <td>{{ record.patient_caregiver_family }}</td>
+                                </tr>
              				</table>
              			</div>
              			
@@ -71,21 +77,21 @@
              				
              				<table class="table xrx-table">
              					<tr>
-             						<th>Home Health:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Contact Person:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Phone:</th>
-             						<td>a</td>
-             					</tr>
-             					<tr>
-             						<th>Email:</th>
-             						<td>a</td>
-             					</tr>
+                                    <th>Home Health:</th>
+                                    <td>{{ record.hhc_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Contact Person:</th>
+                                    <td>{{ record.hhc_contact_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone:</th>
+                                    <td>{{ record.hhc_phoneNumber }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ record.hhc_email }}</td>
+                                </tr>
              				</table>
              			</div>
                     
@@ -98,68 +104,27 @@
                         <p class="lead">Visits</p>
                         
                         <div class="table-responsive">
+
+                            {% for transaction in transactions %}
+
+                                {% if transaction_entity.not_in_tab_list(transaction.tov_id) %}
                             
-                            <p>Type of visit : a</p>
-                            
-                            <table id="" class="table no-margin table-striped">
+                                    <p>Type of visit : {{ transaction.tov_name }}</p>
+
+                                {% endif %}
                                 
-                                <thead>
-                                    <tr>
-                                        <th>Provider</th>
-                                        <th>Date of Service</th>
-                                        <th>Deductible</th>
-                                        <th>AW/IPPE</th>
-                                        <th>Performed</th>
-                                        <th>AW/IPPE Date</th>
-                                        <th width="200px">AW Billed</th>
-                                    </tr>
-                                </thead>
+                                {% if transaction_entity.is_tov_sel_noshow_cancelled(transaction.pt_tovID) %}
 
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
+                                    {{ include('patient_management/profile/mixins/transaction_table_noshow_cancelled.php') }}
 
-                            </table>
-                            
-                            <table id="" class="table no-margin table-striped">
-                                
-                                <thead>
-                                    <tr>
-                                        <th>ACP</th>
-                                        <th>Diabetes</th>
-                                        <th>Tobacco</th>
-                                        <th>TCM</th>
-                                        <th>Others</th>
-                                        <th>ICD-Code Diagnoses</th>
-                                        <th>Referral Date</th>
-                                        <th>Date Referral was Emailed</th>
-                                        <th width="200px">Visit Billed</th>
-                                    </tr>
-                                </thead>
+                                {% else %}
 
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
+                                    {{ include('patient_management/profile/mixins/transaction_table_generic.php') }}
 
-                            </table>
+                                {% endif %}
+
+                            {% endfor %}
+
                         </div>
                         
                     </div>
@@ -173,15 +138,13 @@
                         <p class="lead">Certifications</p>
                         
                         <div class="table-responsive">
-                            
-                            <p>ICD Code Diagnoses : a</p>
-                            
+                                                                                    
                             <table id="" class="table no-margin table-striped">
                                 
                                 <thead>
                                     <tr>
-                                        <th>Cert Period</th>
-                                        <th>485 Date Signed</th>
+                                        <th></th>
+                                        <th>485 Cert Date Signed</th>
                                         <th>1st month CPO</th>
                                         <th>2nd month CPO</th>
                                         <th>3rd month CPO</th>
@@ -190,40 +153,20 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
 
-                            </table>
-                            
-                            <table id="" class="table no-margin table-striped">
-                                
-                                <thead>
-                                    <tr>
-                                        <th>Re-cert Period</th>
-                                        <th>485 Re-cert Date Signed</th>
-                                        <th>1st month CPO</th>
-                                        <th>2nd month CPO</th>
-                                        <th>3rd month CPO</th>
-                                        <th width="200px">Discharge Date</th>
-                                    </tr>
-                                </thead>
+                                    {% for cpo in cpos %}
 
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                        <tr>
+                                            <th>{{ cpo.ptcpo_status }}</th>
+                                            <td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
+                                            <td>{{ cpo.ptcpo_firstMonthCPO }}</td>
+                                            <td>{{ cpo.ptcpo_secondMonthCPO }}</td>
+                                            <td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
+                                            <td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
+                                        </tr>
+
+                                    {% endfor %}
+
                                 </tbody>
 
                             </table>
@@ -251,10 +194,16 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+
+                                    {% for cn in communication_notes %}
+
+                                        <tr>
+                                            <th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
+                                            <td>{{ cn.ptcn_message }}</td>
+                                        </tr>
+
+                                    {% endfor %}
+
                                 </tbody>
 
                             </table>

@@ -15,6 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ base_url }}dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="{{ base_url }}dist/css/tmd.css">
+
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ base_url }}plugins/iCheck/square/blue.css">
 
