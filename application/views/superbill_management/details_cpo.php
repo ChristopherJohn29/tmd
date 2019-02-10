@@ -27,63 +27,63 @@
              				</table>
              			</div>
              		</div>
-             		
-             		<div class="row xrx-row-spacer">
-             		
-             			<div class="col-md-12">
-             			
-             				<p class="lead">Transactions</p>
-             				<div class="table-responsive">
-             				   <table class="table no-margin table-striped">
-								<thead>
-									<tr>
-										<th width="200px">Patient Name</th>
-										<th>ICD-Code Diagnoses</th>
-										<th>Cert Period</th>
-										<th>485 Date Signed</th>
-										<th>1st Month CPO</th>
-										<th>2nd Month CPO</th>
-										<th>3rd Month CPO</th>
-										<th>Discharge Date</th>
-										<th>Re-cert Period</th>
-										<th>485 Re-cert Date Signed</th>
-										<th>1st Month CPO</th>
-										<th>2nd Month CPO</th>
-										<th>3rd Month CPO</th>
-										<th>Discharge Date</th>
-									</tr>
-								</thead>
-								
-								<tbody>
+         			
+         			{{ form_open("superbill_management/superbill/form/cpo/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}
 
-									{% for transaction in transactions %}
-
+	             		<div class="row xrx-row-spacer">
+	             		
+	             			<div class="col-md-12">
+	             			
+	             				<p class="lead">Transactions</p>
+	             				<div class="table-responsive">
+	             				   <table class="table no-margin table-striped">
+									<thead>
 										<tr>
-											<td>{{ transaction['patient_name'] }}</td>
-											<td>{{ transaction['icd10'] }}</td>
-											<td>{{ transaction['cert_Period'] }}</td>
-											<td>{{ transaction['date_Signed'] }}</td>
-											<td>{{ transaction['first_Month_CPO'] }}</td>
-											<td>{{ transaction['second_Month_CPO'] }}</td>
-											<td>{{ transaction['third_Month_CPO'] }}</td>
-											<td>{{ transaction['discharge_Date'] }}</td>
-											<td>{{ transaction['Recert_Period'] }}</td>
-											<td>{{ transaction['Recert_Date_Signed'] }}</td>
-											<td>{{ transaction['Refirst_Month_CPO'] }}</td>
-											<td>{{ transaction['Resecond_Month_CPO'] }}</td>
-											<td>{{ transaction['Rethird_Month_CPO'] }}</td>
-											<td>{{ transaction['Redischarge_date'] }}</td>
+											<th width="200px">Patient Name</th>
+											<th>ICD-Code Diagnoses</th>
+											<th></th>
+											<th>Cert Period</th>
+											<th>485 Date Signed</th>
+											<th>1st Month CPO</th>
+											<th>2nd Month CPO</th>
+											<th>3rd Month CPO</th>
+											<th>Discharge Date</th>
 										</tr>
+									</thead>
+									
+									<tbody>
 
-									{% endfor %}
+										{% for index, transaction in transactions %}
+											{% set borderTopStyle = '1px solid #d2d6de !important;' %}
 
-								</tbody>
-							</table>
-                            </div>
-             			</div>
-             		</div>
-             		
-             		<form>
+											<tr>
+												<input type="hidden" name="ptcpo_id[]" value="{{ transaction['ptcpo_id'] }}">
+												{% if index > 0 and attribute(transactions, index - 1).patient_name == 	transaction['patient_name'] %}
+													{% set borderTopStyle = 'border-top: 0 !important;' %}
+
+													<td style="{{ borderTopStyle  }}"></td>
+													<td style="{{ borderTopStyle  }}"></td>
+												{% else %}
+													<td style="{{ borderTopStyle  }}">{{ transaction['patient_name'] }}</td>
+													<td style="{{ borderTopStyle  }}">{{ transaction['icd10'] }}</td>
+												{% endif %}
+
+												<td style="{{ borderTopStyle  }}">{{ transaction['status'] }}</td>
+												<td style="{{ borderTopStyle  }}">{{ transaction['cert_Period'] }}</td>
+												<td style="{{ borderTopStyle  }}">{{ transaction['date_Signed'] }}</td>
+												<td style="{{ borderTopStyle  }}">{{ transaction['first_Month_CPO'] }}</td>
+												<td style="{{ borderTopStyle  }}">{{ transaction['second_Month_CPO'] }}</td>
+												<td style="{{ borderTopStyle  }}">{{ transaction['third_Month_CPO'] }}</td>
+												<td style="{{ borderTopStyle  }}">{{ transaction['discharge_Date'] }}</td>
+											</tr>
+
+										{% endfor %}
+
+									</tbody>
+								</table>
+	                            </div>
+	             			</div>
+	             		</div>
 					
 						<div class="row xrx-row-spacer">
 						
@@ -126,31 +126,6 @@
 											<td>3rd Month CPO</td>
 											<td>{{ summary['third_Month_CPO'] }}</td>
 										</tr>
-										
-										<tr>
-											<th>G0179</th>
-											<td>Re-cert Signed</td>
-											<td>{{ summary['Recert_Date_Signed'] }}</td>
-										</tr>
-										
-										<tr>
-											<th>G0181</th>
-											<td>1st Month CPO</td>
-											<td>{{ summary['Refirst_Month_CPO'] }}</td>
-										</tr>
-										
-										<tr>
-											<th>G0181</th>
-											<td>2nd Month CPO</td>
-											<td>{{ summary['Resecond_Month_CPO'] }}</td>
-										</tr>
-										
-										<tr>
-											<th>G0181</th>
-											<td>3rd Month CPO</td>
-											<td>{{ summary['Rethird_Month_CPO'] }}</td>
-										</tr>
-										
 										<tr class="total">
 											<th colspan="2">TOTAL</th>
 											<th>{{ summary['total'] }}</th>
@@ -166,11 +141,11 @@
 	             		<div class="row no-print">
 	          	
 	                        <div class="col-xs-12 xrx-btn-handler">
-	                            <button type="submit" value="pdf" formtarget="_blank" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+	                            <button type="submit" value="pdf" name="submit_type" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
 	                            	<i class="fa fa-download"></i> Generate PDF
 	                            </button>
 
-	                            <button type="submit" value="paid" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
+	                            <button type="submit" value="paid" name="submit_type" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
 	                            	<i class="fa fa-credit-card"></i> Billed
 	                            </button>
 	                        </div>

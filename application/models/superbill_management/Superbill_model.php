@@ -74,8 +74,6 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		$new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
 
 		$cpo_trans = [
-			'key' => 'ptcpo_patientID',
-			'order_by' => 'ASC',
 			'where' => [
 				[
 					'key' => 'patient_CPO.ptcpo_dateCreated',
@@ -86,6 +84,16 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_CPO.ptcpo_dateCreated',
 					'condition' => '<=',
 					'value' => $new_toDate
+				]
+			],
+			'orders' => [
+				[
+					'column' => 'patient_CPO.ptcpo_patientID',
+					'direction' => 'ASC'
+				],
+				[
+					'column' => 'patient_CPO.ptcpo_dateCreated',
+					'direction' => 'ASC'
 				]
 			]
 		];

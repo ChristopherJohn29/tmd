@@ -106,7 +106,8 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'provider_paid' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_service_billed) : '',
 				'aw_billed' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_aw_billed) : '',
 				'visit_billed' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_visitBilled) : '',
-				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : ''
+				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : '',
+				'cpo_billed' => ''
 			];
 
 			$added_patients[] = $records[$i]->pt_patientID;

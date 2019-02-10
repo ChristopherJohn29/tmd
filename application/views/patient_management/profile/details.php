@@ -239,7 +239,7 @@
         										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
         										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
         										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
-        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
+        										<td><span class="text-red"><strong>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</strong></span></td>
                                                 <td>
                                                     {% if roles_permission_entity.has_permission_name(['edit_cpo']) %}
 

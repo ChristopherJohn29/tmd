@@ -59,19 +59,6 @@ class Superbill_cpo_pat_trans_entity {
 
 		foreach ($this->cpo as $i => $cpo)
 		{
-			if ($last_ptcpo_patientID == $cpo->ptcpo_patientID && 
-				$cpo->ptcpo_status == CPO_entity::RECERTIFICATION)
-			{
-				$data[$i - 1]['Recert_Period'] = $cpo->ptcpo_period;
-				$data[$i - 1]['Recert_Date_Signed'] = $cpo->get_date_format($cpo->ptcpo_dateSigned);
-				$data[$i - 1]['Refirst_Month_CPO'] = $cpo->ptcpo_firstMonthCPO;
-				$data[$i - 1]['Resecond_Month_CPO'] = $cpo->ptcpo_secondMonthCPO;
-				$data[$i - 1]['Rethird_Month_CPO'] = $cpo->ptcpo_thirdMonthCPO;
-				$data[$i - 1]['Redischarge_date'] = $cpo->get_date_format($cpo->ptcpo_dischargeDate);
-
-				continue;
-			}
-
 			$data[$i] = [
 				'cert_Period' => $cpo->ptcpo_period,
 				'date_Signed' => $cpo->get_date_format($cpo->ptcpo_dateSigned),
@@ -79,20 +66,17 @@ class Superbill_cpo_pat_trans_entity {
 				'second_Month_CPO' => $cpo->ptcpo_secondMonthCPO,
 				'third_Month_CPO' => $cpo->ptcpo_thirdMonthCPO,
 				'discharge_Date' => $cpo->get_date_format($cpo->ptcpo_dischargeDate),
-				'Recert_Period' => '',
-				'Recert_Date_Signed' => '',
-				'Refirst_Month_CPO' => '',
-				'Resecond_Month_CPO' => '',
-				'Rethird_Month_CPO' => '',
-				'Redischarge_date' => '',
 				'patient_name' => '',
-				'icd10' => ''
+				'icd10' => '',
+				'status' => $cpo->ptcpo_status,
+				'ptcpo_id' => $cpo->ptcpo_id
 			];
 
 			foreach ($this->pat_trans as $pat_tran)
 			{
 				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID && 
-					in_array($pat_tran->pt_tovID, Type_visit_entity::get_all_visits_list()))
+					in_array($pat_tran->pt_tovID, Type_visit_entity::get_all_visits_list())
+				)
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
 					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
