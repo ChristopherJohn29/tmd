@@ -6,6 +6,7 @@ Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 	var init = function () {
 		patientDefaultList();
 		patientsName();
+		dateOfService();
 	};
 
 	var patientDefaultList = function() {
@@ -51,6 +52,23 @@ Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 			}
 
 			patientsNameList[key] = value;
+		});
+	};
+
+	var dateOfService = function() {
+		$('[name="prs_dateOfService"]').on('change', function() {
+			var dateOfService = $(this);
+			var dateOfServiceVal = dateOfService.val();
+			var dateOfServiceDate = new Date(dateOfServiceVal);
+			var currentDate = new Date();
+
+			if (dateOfServiceDate < currentDate) {
+				alert('Adding past the current date is not allowed.');
+
+				dateOfService.val('');
+
+				return;
+			}
 		});
 	};
 
