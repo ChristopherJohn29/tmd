@@ -84,6 +84,16 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_CPO.ptcpo_dateCreated',
 					'condition' => '<=',
 					'value' => $new_toDate
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_dischargeDate',
+					'condition' => '<>',
+					'value' => NULL
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_dateBilled',
+					'condition' => '=',
+					'value' => NULL
 				]
 			],
 			'orders' => [
@@ -97,7 +107,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 				]
 			]
 		];
-
+		
 		$CPO =  $this->CPO_model->records($cpo_trans);
 
 		$pat_trans_params = [
