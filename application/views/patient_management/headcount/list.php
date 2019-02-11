@@ -16,6 +16,7 @@
                     <th>Deductible</th>
                     <th>Home Health</th>
                     <th>Visit Billed</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -30,6 +31,9 @@
                         <td>{{ headcount['deductible'] }}</td>
                         <td>{{ headcount['home_health'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
+                        <td>
+                            <a href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
+                        </td>
                     </tr>
 
                 {% endfor %}
