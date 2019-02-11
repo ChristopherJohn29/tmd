@@ -52,6 +52,11 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
 	        		'value' => $toDate
+        		],
+        		[
+					'key' => 'patient_transactions.pt_deductible',
+					'condition' => '<>',
+	        		'value' => 'Hospice'
         		]
 			],
 			'return_type' => 'object'
