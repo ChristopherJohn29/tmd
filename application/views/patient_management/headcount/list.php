@@ -8,8 +8,8 @@
                     <p style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</p>        
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="{{ site_url("patient_management/headcount/print/#{ month }/#{ year }") }}" target="_blank"><span class="label label-primary">Print</span></a>
-                    <a href="{{ site_url("patient_management/headcount/pdf/#{ month }/#{ year }") }}"><span class="label label-primary">Generate PDF</span></a>
+                    <a href="{{ site_url("patient_management/headcount/print/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="label label-primary">Print</span></a>
+                    <a href="{{ site_url("patient_management/headcount/pdf/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}"><span class="label label-primary">Generate PDF</span></a>
                 </div>
             </div>
 

@@ -7,7 +7,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function get_headcount(string $month, string $year) : array
+	public function get_headcount(string $month, string $fromDate, string $toDate, string $year) : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -27,12 +27,12 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '>=',
-	        		'value' => $year . '-' . $month . '-01'
+	        		'value' => $year . '-' . $month . '-' . $fromDate
         		],
         		[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
-	        		'value' => $year . '-' . $month . '-31'
+	        		'value' => $year . '-' . $month . '-' . $toDate
         		]
 			],
 			'return_type' => 'object'

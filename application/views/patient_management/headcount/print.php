@@ -1,43 +1,50 @@
-<img src="<?php echo base_url() ?>/dist/img/pdf_header_portrait.png">
+<div class="box-body">
+    <div class="table-responsive">
 
-<?php if ($headcounts_total): ?>
+        {% if headcounts_total %}
 
-   <p style="font-size: 1.5em;"><strong>Total: </strong> <?php echo $headcounts_total; ?></p>  
+            <p style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</p>    
 
-<?php endif; ?>
+        {% endif %}
 
-<table id="headcount-list" class="table no-margin table-hover">
-    <thead>
-        <tr>
-            <th>Patient Name</th>
-            <th>Provider</th>
-            <th>Date of Service</th>
-            <th>Deductible</th>
-            <th>Home Health</th>
-            <th>Visit Billed</th>
-        </tr>
-    </thead>
+        <table id="headcount-list" class="table no-margin table-hover">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Provider</th>
+                    <th>Date of Service</th>
+                    <th>Deductible</th>
+                    <th>Home Health</th>
+                    <th>Visit Billed</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-    <tbody>
+            <tbody>
 
-        <?php foreach($headcounts as $headcount): ?>
+                {% for headcount in headcounts %}
 
-            <tr>
-                <td><?php echo $headcount['patient_name']; ?></td>
-                <td><?php echo $headcount['provider']; ?></td>
-                <td><?php echo $headcount['dateOfService']; ?></td>
-                <td>
-                    <?php if ($headcount['deductible'] == '$185'): ?>
-                        <span class="text-red"><strong><?php echo $headcount['deductible']; ?></strong></span>
-                    <?php else: ?>
-                        <?php echo $headcount['deductible']; ?>
-                    <?php endif; ?>
-                </td>
-                <td><?php echo $headcount['home_health']; ?></td>
-                <td><?php echo $headcount['visit_billed']; ?></td>
-            </tr>
+                    <tr>
+                        <td>{{ headcount['patient_name'] }}</td>
+                        <td>{{ headcount['provider'] }}</td>
+                        <td>{{ headcount['dateOfService'] }}</td>
+                        <td>
+                            {% if headcount['deductible'] == '$185' %}
+                                <span class="text-red"><strong>{{ headcount['deductible'] }}</strong></span>
+                            {% else %}
+                                {{ headcount['deductible'] }}
+                            {% endif %}
+                        </td>
+                        <td>{{ headcount['home_health'] }}</td>
+                        <td>{{ headcount['visit_billed'] }}</td>
+                        <td>
+                            <a href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
+                        </td>
+                    </tr>
 
-        <?php endforeach; ?>
+                {% endfor %}
 
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</div>

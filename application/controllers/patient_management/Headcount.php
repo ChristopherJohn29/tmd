@@ -26,20 +26,26 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['headcounts'] = $this->headcount_model->get_headcount(
 			$this->input->post('month'),
+			$this->input->post('fromDate'),
+			$this->input->post('toDate'),
 			$this->input->post('year')
 		);
 
 		$page_data['headcounts_total'] = count($page_data['headcounts']);
 		$page_data['month'] = $this->input->post('month');
+		$page_data['fromDate'] = $this->input->post('fromDate');
+		$page_data['toDate'] = $this->input->post('toDate');
 		$page_data['year'] = $this->input->post('year');
 
 		$this->twig->view('patient_management/headcount/create', $page_data);
 	}
 
-	public function print(string $month, string $year)
+	public function print(string $month, string $fromDate, string $toDate, string $year)
 	{
 		$page_data['headcounts'] = $this->headcount_model->get_headcount(
 			$month,
+			$fromDate,
+			$toDate,
 			$year
 		);
 
@@ -48,12 +54,14 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('patient_management/headcount/print', $page_data);
 	}
 
-	public function pdf(string $month, string $year)
+	public function pdf(string $month, string $fromDate, string $toDate, string $year)
 	{
 		$this->load->library('PDF');
 
 		$page_data['headcounts'] = $this->headcount_model->get_headcount(
 			$month,
+			$fromDate,
+			$toDate,
 			$year
 		);
 
