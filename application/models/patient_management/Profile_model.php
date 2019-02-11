@@ -92,8 +92,16 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				]
 			];
 
+			$cpo_params = [
+				'order_key' => 'patient_CPO.ptcpo_dateBilled',
+				'order_by' => 'DESC',
+				'key' => 'patient_CPO.ptcpo_patientID',
+				'value' => $records[$i]->pt_patientID
+			];
+
 			$patientDetails = $this->profile_model->record($patientDetails_params);
 			$patient_trans = $this->transaction_model->record($trans_params);
+			$patient_CPO = $this->CPO_model->record($cpo_params);
 
 			$new_records[] = [
 				'patientId' => $patientDetails->patient_id,
@@ -107,7 +115,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 				'aw_billed' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_aw_billed) : '',
 				'visit_billed' => $patient_trans ? $patient_trans->get_date_format($patient_trans->pt_visitBilled) : '',
 				'provider' => $patient_trans ? $patient_trans->get_provider_fullname() : '',
-				'cpo_billed' => ''
+				'cpo_billed' => $patient_CPO ? $patient_CPO->get_date_format($patient_CPO->ptcpo_dateBilled) : ''
 			];
 
 			$added_patients[] = $records[$i]->pt_patientID;
