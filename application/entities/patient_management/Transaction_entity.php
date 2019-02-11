@@ -165,8 +165,15 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 	public function hasNotAllPaidProvider(array $transactions) : bool
 	{
-		// just look at the first data since marking as paid is a batch operation.
-		return empty($transactions[0]->pt_service_billed);
+		foreach ($transactions as $transaction) 
+		{
+			if (empty($transaction->pt_service_billed))
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public function get_notBilled(array $transactions) : array

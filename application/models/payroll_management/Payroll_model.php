@@ -87,7 +87,8 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 				'provider_id' => $provider_list->provider_id,
 				'provider_name' => $provider_list->get_provider_fullname(),
 				'total_visits' => $provider_payment_summary['total_visits'],
-				'total_salary' => $provider_payment_summary['total_salary']
+				'total_salary' => $provider_payment_summary['total_salary'],
+				'paid' => (new \Mobiledrs\entities\patient_management\Transaction_entity)->hasNotAllPaidProvider($provider_transactions) ? '' : 'PAID'
 			];
 		}
 
