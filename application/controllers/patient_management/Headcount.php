@@ -30,7 +30,39 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		);
 
 		$page_data['headcounts_total'] = count($page_data['headcounts']);
+		$page_data['month'] = $this->input->post('month');
+		$page_data['year'] = $this->input->post('year');
 
 		$this->twig->view('patient_management/headcount/create', $page_data);
+	}
+
+	public function print(string $month, string $year)
+	{
+		$page_data['headcounts'] = $this->headcount_model->get_headcount(
+			$month,
+			$year
+		);
+
+		$page_data['headcounts_total'] = count($page_data['headcounts']);
+
+		$this->twig->view('patient_management/headcount/print', $page_data);
+	}
+
+	public function pdf(string $month, string $year)
+	{
+		$this->load->library('PDF');
+
+		$page_data['headcounts'] = $this->headcount_model->get_headcount(
+			$month,
+			$year
+		);
+
+		$page_data['headcounts_total'] = count($page_data['headcounts']);
+
+		$html = $this->load->view('patient_management/headcount/print', $page_data, true);
+		$filename = 'Headcount_' . $month . '_' . $year;
+
+		$this->pdf->page_orientation = 'L';
+		$this->pdf->generate($html, $filename);
 	}
 }
