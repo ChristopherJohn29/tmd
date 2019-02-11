@@ -28,7 +28,13 @@
                         <td>{{ headcount['patient_name'] }}</td>
                         <td>{{ headcount['provider'] }}</td>
                         <td>{{ headcount['dateOfService'] }}</td>
-                        <td>{{ headcount['deductible'] }}</td>
+                        <td>
+                            {% if headcount['deductible'] == '$185' %}
+                                <span class="text-red"><strong>{{ headcount['deductible'] }}</strong></span>
+                            {% else %}
+                                {{ headcount['deductible'] }}
+                            {% endif %}
+                        </td>
                         <td>{{ headcount['home_health'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
                         <td>
