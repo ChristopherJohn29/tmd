@@ -67,7 +67,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['headcounts_total'] = count($page_data['headcounts']);
 
-		$html = $this->load->view('patient_management/headcount/print', $page_data, true);
+		$html = $this->load->view('patient_management/headcount/pdf', $page_data, true);
 		$filename = 'Headcount_' . $month . '_' . $year;
 
 		$this->pdf->page_orientation = 'L';
