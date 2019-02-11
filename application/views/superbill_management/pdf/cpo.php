@@ -8,15 +8,15 @@
 <table style="font-size: 7px;padding: 5px;">
 	<thead>
 		<tr>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ICD-Code Diagnoses</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8"></th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Cert Period</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">485 Date Signed</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">1st Month CPO</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">2nd Month CPO</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">3rd Month CPO</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Discharge Date</th>
+			<th width="100px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
+			<th width="240px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ICD-Code Diagnoses</th>
+			<th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8"></th>
+			<th width="90px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Cert Period</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">485 Date Signed</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">1st Month CPO</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">2nd Month CPO</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">3rd Month CPO</th>
+			<th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Discharge Date</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,20 +28,20 @@
 				<?php if ($i > 0 && $transactions[$i - 1]['patient_name'] == $transaction['patient_name']) : ?>
 					<?php $borderStyle = ''; ?>
 
-					<td style="<?php echo $borderStyle; ?>"></td>
-					<td style="<?php echo $borderStyle; ?>"></td>
+					<td width="100px" style="<?php echo $borderStyle; ?>"></td>
+					<td width="100px" style="<?php echo $borderStyle; ?>"></td>
 				<?php else: ?>
-					<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['patient_name']; ?></td>
-					<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['icd10']; ?></td>
+					<td width="100px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['patient_name']; ?></td>
+					<td width="240px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['icd10']; ?></td>
 				<?php endif; ?>
 
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['status']; ?></td>
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['cert_Period']; ?></td>
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['date_Signed']; ?></td>
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['first_Month_CPO']; ?></td>
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['second_Month_CPO']; ?></td>
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['third_Month_CPO']; ?></td>
-				<td style="<?php echo $borderStyle; ?>"><?php echo $transaction['discharge_Date']; ?></td>
+				<td width="70px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['status']; ?></td>
+				<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['cert_Period']; ?></td>
+				<td width="50px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['date_Signed']; ?></td>
+				<td width="50px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['first_Month_CPO']; ?></td>
+				<td width="50px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['second_Month_CPO']; ?></td>
+				<td width="50px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['third_Month_CPO']; ?></td>
+				<td width="70px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['discharge_Date']; ?></td>
 			</tr>
 
 		<?php endforeach; ?>
@@ -73,33 +73,40 @@
             <p style="font-size:8px; color: gray; margin-bottom:10px; margin-left:5px;">SUMMARY</p>
             
 			<table style="font-size: 8px;padding: 5px;">
+                <thead>
+					<tr>
+						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Code</th>
+						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Name</th>
+						<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Total</th>
+					</tr>
+				</thead>
 				<tbody>
 					<tr>
-						<th>G0180</th>
-						<td>485 Signed</td>
-						<td><?php echo  $summary['date_Signed'] ; ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">G0180</th>
+						<td style="border-bottom: 1px solid #d2d6de;">485 Signed</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['date_Signed'] ; ?></td>
 					</tr>
 					
 					<tr>
-						<th>G0181</th>
-						<td>1st Month CPO</td>
-						<td><?php echo  $summary['first_Month_CPO'] ; ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">G0181</th>
+						<td style="border-bottom: 1px solid #d2d6de;">1st Month CPO</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['first_Month_CPO'] ; ?></td>
 					</tr>
 					
 					<tr>
-						<th>G0181</th>
-						<td>2nd Month CPO</td>
-						<td><?php echo  $summary['second_Month_CPO'] ; ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">G0181</th>
+						<td style="border-bottom: 1px solid #d2d6de;">2nd Month CPO</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['second_Month_CPO'] ; ?></td>
 					</tr>
 					
 					<tr>
-						<th>G0181</th>
-						<td>3rd Month CPO</td>
-						<td><?php echo  $summary['third_Month_CPO'] ; ?></td>
+						<th style="border-bottom: 1px solid #d2d6de;">G0181</th>
+						<td style="border-bottom: 1px solid #d2d6de;">3rd Month CPO</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['third_Month_CPO'] ; ?></td>
 					</tr>
 					<tr class="total">
-						<th colspan="2">TOTAL</th>
-						<th><?php echo  $summary['total'] ; ?></th>
+						<th colspan="2" style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px">Total</span></th>
+                        <th style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px; font-weight:bold;"><?php echo  $summary['total'] ; ?></span></th>
 					</tr>
 				</tbody>
 			</table>
