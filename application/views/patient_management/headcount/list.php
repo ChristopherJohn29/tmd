@@ -45,8 +45,8 @@
                         </td>
                         <td>{{ headcount['home_health'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
-                        <td>
-                            <a href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
+                        <td width="80px">
+                            <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
                         </td>
                     </tr>
 

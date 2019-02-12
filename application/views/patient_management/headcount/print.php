@@ -1,3 +1,14 @@
+{% extends "basic.php" %}
+
+{% set page_title = 'Print Headcount' %}
+{% set body_class = 'print' %}
+
+{% block content %}
+    
+<script type="text/javascript">
+	window.print();
+</script>
+
 <div class="box-body">
     <div class="table-responsive">
 
@@ -16,7 +27,6 @@
                     <th>Deductible</th>
                     <th>Home Health</th>
                     <th>Visit Billed</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -37,9 +47,6 @@
                         </td>
                         <td>{{ headcount['home_health'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
-                        <td>
-                            <a href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
-                        </td>
                     </tr>
 
                 {% endfor %}
@@ -48,3 +55,5 @@
         </table>
     </div>
 </div>
+
+{% endblock %}
