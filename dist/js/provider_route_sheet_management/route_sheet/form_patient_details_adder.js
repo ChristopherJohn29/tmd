@@ -17,11 +17,13 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 			.append('<a class="removeItemBtn" href="#" style="float:right;clear:both;">Remove Item</a>');
 
 		patientCount = $('.patient-details-container')
-			.find('.patient-details-item').length;				
+			.find('.patient-details-item').length;
 
 		addPatient();
 
 		removePatientItem($('.removeItemBtn'));
+
+		getPatientVisitRecord($('.patient-details-item').find('[data-mobiledrs_autosuggest]'));
 	};
 
 	var addPatient = function() {
@@ -48,6 +50,8 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 			// autosuggest dropdown
 			autosuggest_input.next().attr('id', new_autosuggest_dropdown_id);
 
+			getPatientVisitRecord(autosuggest_input);
+
 			$(this).parent()
 				.prev()
 				.append(tmpTpl);
@@ -55,6 +59,28 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 			Mobiledrs.Main.autosuggest();
 			Mobiledrs.Main.timePicker();
 			Mobiledrs.Main.inputMask();
+		});
+	};
+
+	var getPatientVisitRecord = function(el) {
+		$(el).on('blur', function() {
+			var patientID = $(this).prev().val();
+			var tovEl = $(this).closest('.patient-details-item')
+				.find('[name="prsl_tovID[]"]');
+			var patientTovUrl = tovEl.attr('data-tov_url');
+
+			if (patientID == '') {
+				return false;
+			}
+
+			$.ajax({
+				method: 'GET',
+				url: window.location.origin + patientTovUrl,
+				data: '&patientID='+patientID,
+				success: function(data) {
+					tovEl.html(data);
+				}
+			});			
 		});
 	};
 
