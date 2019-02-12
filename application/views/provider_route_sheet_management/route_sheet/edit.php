@@ -12,7 +12,8 @@
   	'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
   	'plugins/timepicker/bootstrap-timepicker.min',
   	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_validator',
-  	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_adder'
+  	'dist/js/provider_route_sheet_management/route_sheet/form_patient_details_adder',
+  	'dist/js/provider_route_sheet_management/route_sheet/edit'
   ]
 %}
 
@@ -123,36 +124,7 @@
 													
 												</div>
 												
-												<div class="col-md-4 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
-												
-													<label class="control-label">Type of Visit <span>*</span></label>
-													
-													<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]">
-														<option value="">Select</option>
-
-														{% for tov in tovs %}
-
-															<option value="{{ tov.tov_id }}" {{ list.get_selected_tov(tov.tov_id) }}>{{ tov.tov_name }}</option>
-
-														{% endfor %}
-
-													</select>
-													
-												</div>
-
-												<div class="col-md-4 has-error">
-													<span class="help-block">{{ form_error('prsl_fromTime') }}</span>
-												</div>
-
-												<div class="col-md-4 has-error">
-													<span class="help-block">{{ form_error('prsl_toTime') }}</span>
-												</div>
-
-												<div class="col-md-4 has-error">
-													<span class="help-block">{{ form_error('prsl_tovID') }}</span>
-												</div>	
-												
-												<div class="col-md-6 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
+												<div class="col-md-4 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
 												
 													<label class="control-label">Patient Name <span>*</span></label>
 
@@ -173,6 +145,27 @@
 													
 												</div>
 
+												<div class="col-md-4 has-error">
+													<span class="help-block">{{ form_error('prsl_fromTime') }}</span>
+												</div>
+
+												<div class="col-md-4 has-error">
+													<span class="help-block">{{ form_error('prsl_toTime') }}</span>
+												</div>
+
+												<div class="col-md-4 has-error">
+													<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+												</div>
+
+												<div class="col-md-6 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
+												
+													<label class="control-label">Type of Visit <span>*</span></label>
+													
+													<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]" data-tov_url="{{ site_url('ajax/patient_management/profile/get_tov') }}">
+													</select>
+													
+												</div>
+												
 												<div class="col-md-6 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
 									
 													<label class="control-label">Date of Referral <span>*</span></label>
@@ -180,7 +173,7 @@
 												</div>
 
 												<div class="col-md-6 has-error">
-													<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+													<span class="help-block">{{ form_error('prsl_tovID') }}</span>
 												</div>
 
 												<div class="col-md-6 has-error">
