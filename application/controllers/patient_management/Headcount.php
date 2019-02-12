@@ -56,7 +56,12 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 	public function pdf(string $month, string $fromDate, string $toDate, string $year)
 	{
-		$this->load->library('PDF');
+		$this->load->library(['PDF', 'Date_formatter']);
+
+		$newFromDate = $year . '-' . $month . '-' . $fromDate;
+		$newToDate = $year . '-' . $month . '-' . $toDate;
+		$this->date_formatter->set_date($newFromDate, $newToDate);
+		$dateFormat = $this->date_formatter->format();
 
 		$page_data['headcounts'] = $this->headcount_model->get_headcount(
 			$month,
@@ -68,7 +73,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$page_data['headcounts_total'] = count($page_data['headcounts']);
 
 		$html = $this->load->view('patient_management/headcount/pdf', $page_data, true);
-		$filename = 'Headcount_' . $month . '_' . $year;
+		$filename = 'Headcount_' . $dateFormat;
 
 		$this->pdf->page_orientation = 'L';
 		$this->pdf->generate($html, $filename);
