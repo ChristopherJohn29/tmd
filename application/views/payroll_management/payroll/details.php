@@ -28,7 +28,7 @@
 							</div>
 
 	             			<div class="col-md-12">
-	             				<input type="hidden" name="providerName" value="{{ provider_details.get_fullname() }}">
+	             				<input type="hidden" name="providerName" value="{{ provider_details.provider_firstname }}">
 	             				<h1 class="name">{{ provider_details.get_fullname() }}<small>Provider Name</small></h1>
 	             			</div>
 	                    </div>
