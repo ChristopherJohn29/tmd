@@ -1,5 +1,7 @@
 <?php
 
+use \Mobiledrs\entities\patient_management\Type_visit_entity;
+
 class Headcount_model extends \Mobiledrs\core\MY_Models {
 	
 	public function __construct()
@@ -34,6 +36,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'condition' => '<=',
 	        		'value' => $year . '-' . $month . '-' . $toDate
         		]
+			],
+			'where_in_list' => [
+				'key' => 'patient_transactions.pt_tovID',
+				'values' => Type_visit_entity::get_visits_list()
 			],
 			'return_type' => 'object'
 		];
