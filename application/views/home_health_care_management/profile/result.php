@@ -5,11 +5,11 @@
     <table id="all-patient-list" class="table no-margin table-hover">
         <thead>
             <tr>
-                <th class="text-center">Patient Name</th>
-                <th class="text-center">Referral Date</th>
+                <th>Patient Name</th>
+                <th>Referral Date</th>
                 <th>Provider</th>
-                <th class="text-center">Date of Service</th>
-                <th class="text-center">Home Health</th>
+                <th>Date of Service</th>
+                <th>Home Health</th>
                 <th width="70px">Action</th>
             </tr>
         </thead>

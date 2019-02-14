@@ -31,7 +31,7 @@ set scripts = [
                           {% endif %}
                         </div>
                         
-                        <div class="col-md-12">
+                        <div class="col-lg-8 col-lg-offset-2">
                             <div class="search-handler">
                                 
                                 {{ form_open("home_health_care_management/profile/search", {"class": "xrx-form"}) }}
@@ -85,13 +85,13 @@ set scripts = [
                                             </select>
                                         </div>
                                         
-                                        <div class="col-md-2 form-group">
+                                        <div class="col-md-1 form-group">
                                             <label class="control-label">Year <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="year" required="true">
                                             </select>
                                         </div>
                                         
-                                        <div class="col-md-1 form-group">
+                                        <div class="col-md-2 form-group">
     					              		<button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
     											Submit
     										</button>
