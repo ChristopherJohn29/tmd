@@ -162,7 +162,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$transaction_params = [
 			'order' => [
-				'key' => 'patient_transactions.pt_dateCreated',
+				'key' => 'patient_transactions.pt_dateOfService',
 				'by' => 'DESC'
 			],
 			'joins' => [
