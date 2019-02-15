@@ -81,12 +81,12 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		$cpo_trans = [
 			'where' => [
 				[
-					'key' => 'patient_CPO.ptcpo_dateCreated',
+					'key' => 'patient_CPO.ptcpo_dateSigned',
 					'condition' => '>=',
 					'value' => $new_fromDate
 				],
 				[
-					'key' => 'patient_CPO.ptcpo_dateCreated',
+					'key' => 'patient_CPO.ptcpo_dateSigned',
 					'condition' => '<=',
 					'value' => $new_toDate
 				],
