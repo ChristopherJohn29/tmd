@@ -37,7 +37,7 @@
                         <td>{{ headcount['provider'] }}</td>
                         <td>{{ headcount['dateOfService'] }}</td>
                         <td>
-                            {% if headcount['deductible'] == '$185' %}
+                            {% if headcount['deductible'] starts with '$' %}
                                 <span class="text-red"><strong>{{ headcount['deductible'] }}</strong></span>
                             {% else %}
                                 {{ headcount['deductible'] }}
