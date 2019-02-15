@@ -41,9 +41,9 @@
                  				   <table id="" class="table no-margin table-striped route-sheet">
     								<thead>
     									<tr>
-    										<th>Time</th>
-    										<th>Patient's Info</th>
-    										<th>Home Health Info</th>
+    										<th width="12%">Time</th>
+    										<th width="22%">Patient's Info</th>
+    										<th width="22%">Home Health Info</th>
     										<th>Notes</th>
     									</tr>
     								</thead>
