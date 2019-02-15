@@ -168,7 +168,7 @@
 											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Notes <span>*</span></label>
-												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]"></textarea>
+												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]" rows="5"></textarea>
 												
 											</div>
 
