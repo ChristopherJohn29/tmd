@@ -45,7 +45,7 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		echo json_encode($search_data);
 	}
 
-	public function get_tov()
+	public function get_tov($type = 'add')
 	{
 		$patient_params = [
 			'where' => [
@@ -64,10 +64,10 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		$res = $this->pt_trans_model->records($patient_params);
 
 		$tov_datas = [];
-		if ($res) {
+		if ($type == 'add' && $res) {
 			$tov_datas = (new Type_visit_entity)->get_followup_list();
 		}
-		else {
+		else if ($type == 'edit') {
 			$tov_datas = Type_visit_entity::get_visits_list();
 		}
 

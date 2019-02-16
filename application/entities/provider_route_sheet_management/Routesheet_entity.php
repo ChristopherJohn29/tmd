@@ -37,11 +37,4 @@ class Routesheet_entity extends \Mobiledrs\entities\Entity {
 	{
 		return $this->provider_firstname . ' ' . $this->provider_lastname;
 	}
-
-	public function isDateServiceNotExpired(string $prs_dateOfService) : bool
-	{
-		$currentDate = date('Y-m-d');
-		
-		return $currentDate <= $prs_dateOfService;
-	}
 }

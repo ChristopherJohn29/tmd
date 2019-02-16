@@ -162,7 +162,7 @@
 													<label class="control-label">Type of Visit <span>*</span></label>
 													
 													<input type="hidden" name="prsl_tovIDSel" value="{{ list.prsl_tovID }}">
-													<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]" data-tov_url="{{ site_url('ajax/patient_management/profile/get_tov') }}">
+													<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]" data-tov_url="{{ site_url('ajax/patient_management/profile/get_tov/edit') }}">
 													</select>
 													
 												</div>
