@@ -68,7 +68,7 @@
 								<td><span class="text-red"><strong>{{ record['provider_paid'] }}</strong></span></td>
 								<td><span class="text-red"><strong>{{ record['aw_billed'] }}</strong></span></td>
                                 <td><span class="text-red"><strong>{{ record['visit_billed'] }}</strong></span></td>
-								<td></td>
+								<td><span class="text-red"><strong>{{ record['cpo_billed'] }}</strong></span></td>
 								<td>
 									
 									{% if roles_permission_entity.has_permission_name(['view_pt']) %}

@@ -141,6 +141,8 @@
 
 					{% endif %}
 
+					<li><a href="{{ site_url('home_health_care_management/profile/search') }}"><i class="fa fa-angle-right"></i> Search</a></li>
+
 				</ul>
 			</li>
 

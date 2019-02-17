@@ -182,57 +182,28 @@ class Superbill_entity {
 
 		foreach ($this->CPOs as $cpo)
 		{
-			if ($cpo->ptcpo_status == CPO_entity::CERTIFICATION)
+			if ($cpo->ptcpo_dateSigned)
 			{
-				if ($cpo->ptcpo_dateSigned)
-				{
-					$summary['date_Signed'] += 1;
-					$summary['total'] += 1;
-				}
-
-				if ($cpo->ptcpo_firstMonthCPO)
-				{
-					$summary['first_Month_CPO'] += 1;
-					$summary['total'] += 1;
-				}
-
-				if ($cpo->ptcpo_secondMonthCPO)
-				{
-					$summary['second_Month_CPO'] += 1;
-					$summary['total'] += 1;
-				}
-
-				if ($cpo->ptcpo_thirdMonthCPO)
-				{
-					$summary['third_Month_CPO'] += 1;
-					$summary['total'] += 1;
-				}
+				$summary['date_Signed'] += 1;
+				$summary['total'] += 1;
 			}
-			else if ($cpo->ptcpo_status == CPO_entity::RECERTIFICATION)
+
+			if ($cpo->ptcpo_firstMonthCPO)
 			{
-				if ($cpo->ptcpo_dateSigned)
-				{
-					$summary['Recert_Date_Signed'] += 1;
-					$summary['total'] += 1;
-				}
+				$summary['first_Month_CPO'] += 1;
+				$summary['total'] += 1;
+			}
 
-				if ($cpo->ptcpo_firstMonthCPO)
-				{
-					$summary['Refirst_Month_CPO'] += 1;
-					$summary['total'] += 1;
-				}
+			if ($cpo->ptcpo_secondMonthCPO)
+			{
+				$summary['second_Month_CPO'] += 1;
+				$summary['total'] += 1;
+			}
 
-				if ($cpo->ptcpo_secondMonthCPO)
-				{
-					$summary['Resecond_Month_CPO'] += 1;
-					$summary['total'] += 1;
-				}
-
-				if ($cpo->ptcpo_thirdMonthCPO)
-				{
-					$summary['Rethird_Month_CPO'] += 1;
-					$summary['total'] += 1;
-				}
+			if ($cpo->ptcpo_thirdMonthCPO)
+			{
+				$summary['third_Month_CPO'] += 1;
+				$summary['total'] += 1;
 			}
 		}
 

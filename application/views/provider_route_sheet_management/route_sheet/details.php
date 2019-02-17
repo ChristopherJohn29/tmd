@@ -41,9 +41,9 @@
                  				   <table id="" class="table no-margin table-striped route-sheet">
     								<thead>
     									<tr>
-    										<th>Time</th>
-    										<th>Patient's Info</th>
-    										<th>Home Health Info</th>
+    										<th width="12%">Time</th>
+    										<th width="22%">Patient's Info</th>
+    										<th width="22%">Home Health Info</th>
     										<th>Notes</th>
     									</tr>
     								</thead>
@@ -56,7 +56,7 @@
     											<td>{{ list.get_combined_time() }}</td>
     											<td><p>{{ list.patient_name }}<span>{{ list.patient_address }}<br>{{ list.patient_phoneNum }}</span></p></td>
     	                                        <td><p>{{ list.hhc_name }}<span>{{ list.hhc_contact_name }}<br>{{ list.hhc_phoneNumber }}</span></p></td>
-    											<td><p>Type of Visit : {{ list.tov_name }}<span>Other Notes: {{ list.prsl_notes }}</span></p></td>
+    											<td><p>Type of Visit : {{ list.tov_name }}<span>Other Notes: <br>{{ list.prsl_notes|nl2br }}</span></p></td>
     										</tr>
 
     									{% endfor %}

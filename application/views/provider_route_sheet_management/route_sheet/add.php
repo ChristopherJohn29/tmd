@@ -108,37 +108,8 @@
                                                 <input  data-timepicker type="text" class="form-control" id="" placeholder="" required="true" name="prsl_toTime[]">
 												
 											</div>
-											
-											<div class="col-md-4 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
-											
-												<label class="control-label">Type of Visit <span>*</span></label>
-												
-												<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]">
-													<option value="">Select</option>
 
-													{% for tov in tovs %}
-
-														<option value="{{ tov.tov_id }}">{{ tov.tov_name }}</option>
-
-													{% endfor %}
-
-												</select>
-												
-											</div>
-
-											<div class="col-md-4 has-error">
-												<span class="help-block">{{ form_error('prsl_fromTime') }}</span>
-											</div>
-
-											<div class="col-md-4 has-error">
-												<span class="help-block">{{ form_error('prsl_toTime') }}</span>
-											</div>
-
-											<div class="col-md-4 has-error">
-												<span class="help-block">{{ form_error('prsl_tovID') }}</span>
-											</div>	
-											
-											<div class="col-md-6 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
+											<div class="col-md-4 form-group {{ form_error('prsl_patientID') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Patient Name <span>*</span></label>
 
@@ -157,6 +128,27 @@
 												</div>
 												
 											</div>
+											
+											<div class="col-md-4 has-error">
+												<span class="help-block">{{ form_error('prsl_fromTime') }}</span>
+											</div>
+
+											<div class="col-md-4 has-error">
+												<span class="help-block">{{ form_error('prsl_toTime') }}</span>
+											</div>
+
+											<div class="col-md-4 has-error">
+												<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+											</div>
+
+											<div class="col-md-6 form-group {{ form_error('prsl_tovID') ? 'has-error' : '' }}">
+											
+												<label class="control-label">Type of Visit <span>*</span></label>
+												
+												<select class="form-control" style="width: 100%;" required="true" name="prsl_tovID[]" data-tov_url="{{ site_url('ajax/patient_management/profile/get_tov') }}">
+												</select>
+												
+											</div>
 
 											<div class="col-md-6 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
 									
@@ -165,8 +157,8 @@
 												
 											</div>
 
-											<div class="col-md-6 has-error">
-												<span class="help-block">{{ form_error('prsl_patientID') }}</span>
+											<div class="col-md-4 has-error">
+												<span class="help-block">{{ form_error('prsl_tovID') }}</span>
 											</div>
 
 											<div class="col-md-6 has-error">
@@ -176,7 +168,7 @@
 											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
 											
 												<label class="control-label">Notes <span>*</span></label>
-												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]"></textarea>
+												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]" rows="5"></textarea>
 												
 											</div>
 

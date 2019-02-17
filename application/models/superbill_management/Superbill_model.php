@@ -52,6 +52,11 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
 	        		'value' => $toDate
+        		],
+        		[
+					'key' => 'patient_transactions.pt_deductible',
+					'condition' => '<>',
+	        		'value' => 'Hospice'
         		]
 			],
 			'return_type' => 'object'
@@ -74,22 +79,40 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		$new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
 
 		$cpo_trans = [
-			'key' => 'ptcpo_patientID',
-			'order_by' => 'ASC',
 			'where' => [
 				[
-					'key' => 'patient_CPO.ptcpo_dateCreated',
+					'key' => 'patient_CPO.ptcpo_dateSigned',
 					'condition' => '>=',
 					'value' => $new_fromDate
 				],
 				[
-					'key' => 'patient_CPO.ptcpo_dateCreated',
+					'key' => 'patient_CPO.ptcpo_dateSigned',
 					'condition' => '<=',
 					'value' => $new_toDate
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_dischargeDate',
+					'condition' => '<>',
+					'value' => NULL
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_dateBilled',
+					'condition' => '=',
+					'value' => NULL
+				]
+			],
+			'orders' => [
+				[
+					'column' => 'patient_CPO.ptcpo_patientID',
+					'direction' => 'ASC'
+				],
+				[
+					'column' => 'patient_CPO.ptcpo_dateCreated',
+					'direction' => 'ASC'
 				]
 			]
 		];
-
+		
 		$CPO =  $this->CPO_model->records($cpo_trans);
 
 		$pat_trans_params = [

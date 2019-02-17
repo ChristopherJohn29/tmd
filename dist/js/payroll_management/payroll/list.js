@@ -6,13 +6,30 @@ Mobiledrs.Payroll_list =  (function() {
   };
 
   var tableList = function() {
+    var oldStart = 0;
+    
     $('#all-patient-list').DataTable({
       'paging'      : false,
       'lengthChange': false,
       'searching'   : false,
-      'ordering'    : false,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'order': [[0, "asc"]],
+      "columnDefs": [
+        { "orderable": false, "targets": 0 },
+        { "orderable": false, "targets": 1},
+        { "orderable": false, "targets": 2},
+        { "orderable": false, "targets": 3}
+      ],
+      "fnDrawCallback": function (o) {
+        if ( o._iDisplayStart != oldStart ) {
+          var targetOffset = $('table').offset().top;
+
+          $('html,body').scrollTop(targetOffset);            
+
+          oldStart = o._iDisplayStart;
+        }
+      }
     })
   };
 

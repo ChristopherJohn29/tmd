@@ -7,7 +7,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
-			'home_health_care_management/profile_model'
+			'home_health_care_management/profile_model',
+			'patient_management/transaction_model'
 		));
 	}
 
@@ -95,5 +96,19 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		];
 
 		parent::save_data($params);   
+	}
+
+	public function search()
+	{
+
+		$page_data = [];
+
+		if ( ! empty($this->input->post('hhcID')))
+		{
+			$page_data['records'] = $this->profile_model->search();
+			$page_data['total'] = count($page_data['records']);
+		}
+
+		$this->twig->view('home_health_care_management/profile/search', $page_data);
 	}
 }
