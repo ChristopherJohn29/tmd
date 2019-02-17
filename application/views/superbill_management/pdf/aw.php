@@ -9,9 +9,9 @@
 	<thead>
 		<tr>
 			<th width="130px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Patient Name</th>
-			<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Medicare</th>
+			<th width="65px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Medicare</th>
 			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">DOB</th>
-			<th width="130px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Address</th>
+			<th width="125px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Address</th>
 			<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Phone</th>
 			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">AW/IPPE</th>
 			<th width="110px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Provider</th>
@@ -24,9 +24,9 @@
 		<?php foreach($transaction_entity->has_performed_in_list($transactions) as $transaction): ?>
 			<tr>
 				<td width="130px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_name; ?></td>
-				<td width="60px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_medicareNum; ?></td>
+				<td width="65px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_medicareNum; ?></td>
 				<td width="50px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->get_date_format($transaction->patient_dateOfBirth); ?></td>
-				<td width="130px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_address; ?></td>
+				<td width="125px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_address; ?></td>
 				<td width="60px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_phoneNum; ?></td>
 				<td width="40px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->pt_aw_ippe_code; ?></td>
 				<td width="110px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->get_provider_fullname(); ?></td>

@@ -78,6 +78,14 @@ class MY_Models extends \CI_Model {
 			}
 		}
 
+		if (isset($params['orders'])) 
+		{
+			foreach ($params['orders'] as $key => $value) 
+			{
+				$this->db->order_by($value['column'], $value['direction']);
+			}
+		}
+
 		if (isset($params['where_in']))
 		{
 			$this->db->where_in($params['where_in']['column'], $params['where_in']['values']);

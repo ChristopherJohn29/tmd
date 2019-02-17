@@ -239,7 +239,7 @@
         										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>
         										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
         										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
-        										<td>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</td>
+        										<td><span class="text-red"><strong>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</strong></span></td>
                                                 <td>
                                                     {% if roles_permission_entity.has_permission_name(['edit_cpo']) %}
 
@@ -363,15 +363,15 @@
 
                             {% if roles_permission_entity.has_permission_name(['print_pt']) %}
                                 
-                                <a href="xindex.html" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
+                                <a href="{{ site_url("patient_management/profile/print/#{ record.patient_id }") }}" target="_blank" class="btn btn-primary xrx-btn"><i class="fa fa-print"></i> Print</a>
 
                             {% endif %}
 
                             {% if roles_permission_entity.has_permission_name(['downoad_pt']) %}
 
-                                <button type="button" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+                                <a href="{{ site_url("patient_management/profile/pdf/#{ record.patient_id }") }}" target="_blank" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
                                     <i class="fa fa-download"></i> Generate PDF
-                                </button>
+                                </a>
 
                             {% endif %}
 

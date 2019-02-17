@@ -1,17 +1,20 @@
+{% extends "basic.php" %}
+
+{% set page_title = 'Print Headcount' %}
+{% set body_class = 'print' %}
+
+{% block content %}
+    
+<script type="text/javascript">
+	window.print();
+</script>
+
 <div class="box-body">
     <div class="table-responsive">
 
         {% if headcounts_total %}
 
-            <div class="row">
-                <div class="col-md-6">
-                    <p style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</p>        
-                </div>
-                <div class="col-md-6 text-right">
-                    <a href="{{ site_url("patient_management/headcount/print/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="label label-primary">Print</span></a>
-                    <a href="{{ site_url("patient_management/headcount/pdf/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}"><span class="label label-primary">Generate PDF</span></a>
-                </div>
-            </div>
+            <p style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</p>    
 
         {% endif %}
 
@@ -24,7 +27,6 @@
                     <th>Deductible</th>
                     <th>Home Health</th>
                     <th>Visit Billed</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -37,7 +39,7 @@
                         <td>{{ headcount['provider'] }}</td>
                         <td>{{ headcount['dateOfService'] }}</td>
                         <td>
-                            {% if headcount['deductible'] starts with '$' %}
+                            {% if headcount['deductible'] == '$185' %}
                                 <span class="text-red"><strong>{{ headcount['deductible'] }}</strong></span>
                             {% else %}
                                 {{ headcount['deductible'] }}
@@ -45,9 +47,6 @@
                         </td>
                         <td>{{ headcount['home_health'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
-                        <td width="80px">
-                            <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
-                        </td>
                     </tr>
 
                 {% endfor %}
@@ -56,3 +55,5 @@
         </table>
     </div>
 </div>
+
+{% endblock %}

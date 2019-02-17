@@ -50,24 +50,7 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('add_prs');
 
-		$tov_params = [
-			'where' => [
-				[
-					'key' => 'type_of_visits.tov_id',
-					'condition' => '<>',
-					'value' => '5'
-				],
-				[
-					'key' => 'type_of_visits.tov_id',
-					'condition' => '<>',
-					'value' => '6'
-				]
-			]
-		];
-
-		$page_data['tovs'] = $this->tov_model->records($tov_params);
-
-		$this->twig->view('provider_route_sheet_management/route_sheet/add', $page_data);
+		$this->twig->view('provider_route_sheet_management/route_sheet/add', []);
 	}
 
 	public function edit(string $prs_id)

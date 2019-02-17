@@ -1,5 +1,7 @@
 <?php
 
+use \Mobiledrs\entities\patient_management\Type_visit_entity;
+
 class Headcount_model extends \Mobiledrs\core\MY_Models {
 	
 	public function __construct()
@@ -7,7 +9,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function get_headcount(string $month, string $year) : array
+	public function get_headcount(string $month, string $fromDate, string $toDate, string $year) : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -27,13 +29,17 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '>=',
-	        		'value' => $year . '-' . $month . '-01'
+	        		'value' => $year . '-' . $month . '-' . $fromDate
         		],
         		[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
-	        		'value' => $year . '-' . $month . '-31'
+	        		'value' => $year . '-' . $month . '-' . $toDate
         		]
+			],
+			'where_in_list' => [
+				'key' => 'patient_transactions.pt_tovID',
+				'values' => Type_visit_entity::get_visits_list()
 			],
 			'return_type' => 'object'
 		];
@@ -58,6 +64,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 			$patient_details = $this->get_patient_details($transaction->pt_patientID);
 
 			$headcount_list[] = [
+				'patient_id' => $patient_details->patient_id,
 				'patient_name' => $patient_details->patient_name,
 				'provider' => $transaction->get_provider_fullname(),
 				'dateOfService' => $transaction->get_date_format($transaction->pt_dateOfService),

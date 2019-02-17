@@ -191,17 +191,34 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			'aw' => [
 				'column' => 'pt_aw_billed',
 				'filename' => 'Superbill_Annual_Wellness_',
-				'html' => 'aw'
+				'model' => 'transaction_model',
+				'html' => 'aw',
+				'data' => 'pt_id',
+				'columnID' => 'pt_id'
 			],
 			'hv' => [
 				'column' => 'pt_visitBilled',
 				'filename' => 'Superbill_Home_Visits_',
-				'html' => 'hv'
+				'model' => 'transaction_model',
+				'html' => 'hv',
+				'data' => 'pt_id',
+				'columnID' => 'pt_id'
 			],
 			'fv' => [
 				'column' => 'pt_visitBilled',
 				'filename' => 'Superbill_Facility_Visits_',
-				'html' => 'fv'
+				'model' => 'transaction_model',
+				'html' => 'fv',
+				'data' => 'pt_id',
+				'columnID' => 'pt_id'
+			],
+			'cpo' => [
+				'column' => 'ptcpo_dateBilled',
+				'filename' => 'Superbill_CPO_',
+				'model' => 'CPO_model',
+				'html' => 'cpo',
+				'data' => 'ptcpo_id',
+				'columnID' => 'ptcpo_id'
 			]
 		];
 
@@ -212,10 +229,10 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		if ($this->input->post('submit_type') == 'paid')
 		{
 			$transaction_params = [
-				'data' => $this->input->post('pt_id'),
+				'data' => $this->input->post($types[$type]['data']),
 				'columnPaid' => $types[$type]['column'],
-				'columnID' => 'pt_id',
-				'model' => 'transaction_model',
+				'columnID' => $types[$type]['columnID'],
+				'model' => $types[$type]['model'],
 				'redirect_url' => 'superbill_management/superbill'
 			];
 
