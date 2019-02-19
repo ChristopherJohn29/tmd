@@ -67,6 +67,9 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		if ($type == 'add' && $res) {
 			$tov_datas = (new Type_visit_entity)->get_followup_list();
 		}
+		else if ($type == 'add' && empty($res)) {
+			$tov_datas = Type_visit_entity::get_visits_list();
+		}
 		else if ($type == 'edit') {
 			$tov_datas = Type_visit_entity::get_visits_list();
 		}
