@@ -52,15 +52,9 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		}
 
 		$headcount_list = [];
-		$dup_patient_id_list = [];
 
 		foreach ($transactions as $index => $transaction) 
 		{
-			// if (in_array($transaction->pt_patientID, $dup_patient_id_list))
-			// {
-			// 	continue;
-			// }
-
 			$patient_details = $this->get_patient_details($transaction->pt_patientID);
 
 			$headcount_list[] = [
@@ -72,8 +66,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'home_health' => $patient_details->hhc_name,
 				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled)
 			];
-
-			$dup_patient_id_list[] = $transaction->pt_patientID;
 		}
 
 		return $headcount_list;
