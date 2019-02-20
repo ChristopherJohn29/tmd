@@ -56,10 +56,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 		foreach ($transactions as $index => $transaction) 
 		{
-			if (in_array($transaction->pt_patientID, $dup_patient_id_list))
-			{
-				continue;
-			}
+			// if (in_array($transaction->pt_patientID, $dup_patient_id_list))
+			// {
+			// 	continue;
+			// }
 
 			$patient_details = $this->get_patient_details($transaction->pt_patientID);
 
