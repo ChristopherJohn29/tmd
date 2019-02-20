@@ -129,7 +129,16 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 
 			$page_data['transaction_entity'] = new Transaction_entity();
 			$page_data['POS_entity'] = new POS_entity();
-			$page_data['transactions'] = $page_data['transaction_entity']->get_notBilled($transactions);
+			$page_data['transactions'] = '';
+
+			if (in_array($type, ['hv', 'fv']))
+			{
+				$page_data['transactions'] = $page_data['transaction_entity']->get_notBilledVisit($transactions);
+			}
+			else if ($type == 'aw') 
+			{
+				$page_data['transactions'] = $page_data['transaction_entity']->get_notBilledAW($transactions);				
+			}
 
 			if ( ! empty($page_data['transactions']))
 			{

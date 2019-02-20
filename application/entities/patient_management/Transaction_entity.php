@@ -169,17 +169,14 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return empty($transactions[0]->pt_service_billed);
 	}
 
-	public function get_notBilled(array $transactions) : array
+	public function get_notBilledVisit(array $transactions) : array
 	{
 		$data = [];
-		;
 
 		for ($i = 0, $totalRecords = count($transactions); $i < $totalRecords; $i++)
 		{
 			$transaction = $transactions[$i];
-			if (( ! empty($transaction->pt_aw_billed)) && ($transaction->pt_aw_billed != '0000-00-00') ||  
-				( ! empty($transaction->pt_visitBilled)) && ($transaction->pt_visitBilled != '0000-00-00')
-			)
+			if (( ! empty($transaction->pt_visitBilled)) && ($transaction->pt_visitBilled != '0000-00-00'))
 			{
 				continue;
 			}
@@ -189,4 +186,22 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 		return $data;
 	}
+
+	public function get_notBilledAW(array $transactions) : array
+	{
+		$data = [];
+
+		for ($i = 0, $totalRecords = count($transactions); $i < $totalRecords; $i++)
+		{
+			$transaction = $transactions[$i];
+			if (( ! empty($transaction->pt_aw_billed)) && ($transaction->pt_aw_billed != '0000-00-00'))
+			{
+				continue;
+			}
+
+			$data[] = $transactions[$i];
+		}
+
+		return $data;
+	}	
 }
