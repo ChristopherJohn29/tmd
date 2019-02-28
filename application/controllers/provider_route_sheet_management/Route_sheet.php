@@ -259,10 +259,6 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 					'value' => $prs_id
 				]
 			],
-			'order' => [
-				'key' => 'provider_route_sheet_list.prsl_fromTime',
-				'by' => 'ASC'
-			],
 			'return_type' => 'object'
 		];
 
