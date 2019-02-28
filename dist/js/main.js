@@ -2,6 +2,8 @@ var Mobiledrs =  Mobiledrs || {};
 
 Mobiledrs.Main =  (function() {
 	var init = function () {
+		paid_btn();
+
 		delete_btn();
 
 		autosuggest();
@@ -9,6 +11,36 @@ Mobiledrs.Main =  (function() {
 		inputMask();
 
 		timePicker();
+	};
+
+	var paid_btn = function() {
+		$('[data-paid-btn]').on('click', function(e) {
+			e.preventDefault();
+
+			var action_url = $(this).attr('href');
+
+			if (confirm('Are you sure you want to mark this data as paid?'))
+			{
+				$.ajax({
+					"method": "POST",
+					"url": action_url,
+					"success": function(data) {
+						var result = JSON.parse(data);
+
+						if (result.state) 
+						{
+							alert(result.msg);
+
+							window.location.href = window.location.href;
+						}
+						else 
+						{
+							alert(result.msg);
+						}
+					}
+				});
+			}
+		});
 	};
 
 	var delete_btn = function() {
