@@ -81,6 +81,7 @@
 									<div class="col-md-12 form-group {{ form_error('prs_dateOfService') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Date of Service <span>*</span></label>
+										<input type="hidden" name="currentDate" value="{{ current_date }}">
 										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prs_dateOfService" value="{{ set_value('prs_dateOfService', record.get_date_format(record.prs_dateOfService)) }}">
 										
 									</div>
