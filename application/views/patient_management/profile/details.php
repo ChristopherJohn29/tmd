@@ -233,7 +233,7 @@
     										<th>3rd Month CPO</th>
     										<th>Discharged</th>
     										<th>Date Billed</th>
-                                            <th width="90px">Actions</th>
+                                            <th width="120px">Actions</th>
     									</tr>
     								</thead>
     								
