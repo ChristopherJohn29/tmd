@@ -86,11 +86,14 @@
 
 									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('prs_dateOfService') }}</span>
-									</div>									
+									</div>
+								</div>
+
+								<div class="row">						
 
 									<div class="patient-details-container">
-										
-										<div class="patient-details-item">
+
+										<div class="patient-details-item ui-state-default pull-left" style="border:none;">
 
 											<div class="col-md-12 subheader">
 												<p class="lead">Patient <span class="item-num">1</span> Details</p>

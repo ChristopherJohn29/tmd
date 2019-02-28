@@ -24,6 +24,17 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 		removePatientItem($('.removeItemBtn'));
 
 		getPatientVisitRecord($('.patient-details-item').find('[data-mobiledrs_autosuggest]'));
+
+	    $( ".patient-details-container" ).sortable({
+		  	items: "> .patient-details-item",
+		  	update:  function() {
+				$('.item-num').each(function(index, element) {
+					$(element).html(index + 1);
+				});
+			}
+		});
+
+		$( ".patient-details-container" ).disableSelection();
 	};
 
 	var addPatient = function() {
@@ -116,7 +127,7 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 			patientCount -= 1;
 		});
 	};
-
+	
 	return {
 		init: init
 	};
