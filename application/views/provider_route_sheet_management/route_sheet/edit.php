@@ -88,8 +88,10 @@
 
 									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('prs_dateOfService') }}</span>
-									</div>									
+									</div>		
+								</div>
 
+								<div class="row">
 									<div class="patient-details-container">
 										
 										{% for index, list in lists %}								
@@ -97,7 +99,7 @@
 											<input type="hidden" name="prsl_ids[]" value="{{ list.prsl_id }}">
 											<input type="hidden" name="patientTransDateIDs[]" value="{{ list.prsl_patientTransID }}">
 
-											<div class="patient-details-item" {{ index > 0 ? "data-item-num=#{ index + 1 }" }}>
+											<div class="patient-details-item ui-state-default pull-left" style="border:none;"" {{ index > 0 ? "data-item-num=#{ index + 1 }" }}>
 
 												<div class="col-md-12 subheader">
 													<p class="lead">Patient <span class="item-num">{{ index + 1 }}</span> Details
