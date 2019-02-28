@@ -38,4 +38,34 @@ class Transaction extends \Mobiledrs\core\MY_AJAX_Controller {
 			]);
 		}
 	}
+
+	public function mark_service_paid(string $pt_id)
+	{
+		$this->check_permission('mark_service_paid');
+
+		$params = [
+			'key' => 'pt_id',
+			'value' => $pt_id,
+			'data' => [
+				'pt_service_billed' => date('Y-m-d')
+			]
+		];
+
+		$res = $this->transaction_model->update($params);
+
+		if ($res)
+		{
+			echo json_encode([
+				'state' => true,
+				'msg' => $this->lang->line('success_paid')
+			]);
+		}
+		else 
+		{
+			echo json_encode([
+				'state' => false,
+				'msg' => $this->lang->line('danger_paid')
+			]);
+		}
+	}
 }

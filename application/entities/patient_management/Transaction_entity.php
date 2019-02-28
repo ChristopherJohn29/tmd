@@ -2,6 +2,8 @@
 
 namespace Mobiledrs\entities\patient_management;
 
+use \Mobiledrs\entities\patient_management\Type_visit_entity as tv_entity;
+
 class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 	protected $pt_id;
@@ -203,5 +205,15 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		}
 
 		return $data;
-	}	
+	}
+
+	public function notCancelledTOV() : bool
+	{
+		return $this->pt_tovID != tv_entity::CANCELLED;
+	}
+
+	public function notServicePaid() : bool
+	{
+		return empty($this->pt_service_billed) || $this->pt_service_billed == '0000-00-00';
+	}
 }
