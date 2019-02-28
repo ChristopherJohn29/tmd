@@ -9,6 +9,12 @@
  * -------------------------
  */
 
+.bg-btn-red,
+.bg-btn-red:hover {
+    background-color: #e34b45;
+    border-color: #e34b45;
+}
+
 /* Remove date, page title, page url in a print page */
 @page { size: auto;  margin: 0mm; }
  
