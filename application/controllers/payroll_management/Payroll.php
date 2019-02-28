@@ -127,7 +127,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 
 			$providerDetails = $this->profile_model->record($provider_params);
 			
-			$this->email->from('info@themobiledrs.com', 'The MobileDrs');
+			$this->email->from('michelle@themobiledrs.com', 'The MobileDrs');
 			$this->email->to($providerDetails->provider_email);
 			$this->email->subject('Your payment summary for ' . $page_data['payPeriod']);
 			$this->email->message($emailTemplate);

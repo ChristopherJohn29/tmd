@@ -32,7 +32,8 @@
 	            </td>
 				<td width="200px" style="border-bottom: 1px solid #d2d6de;">
 					Type of Visit : <?php echo $list->tov_name; ?><br>
-					Other Notes: <?php echo $list->prsl_notes; ?>
+					Other Notes: <br>
+					<?php echo nl2br($list->prsl_notes); ?>
 				</td>
 			</tr>			
 		<?php endforeach; ?>
