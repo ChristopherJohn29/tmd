@@ -122,7 +122,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'record_id' => $patient_id,
 			'table_key' => 'patient_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'patient_management/profile',
+			'redirect_url_details' => 'patient_management/profile/details/',
 			'validation_group' => $validation_group
 		];
 
