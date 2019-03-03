@@ -3,17 +3,11 @@
 	<ul class="sidebar-menu" data-widget="tree">
 		<li class="header">MAIN NAVIGATION</li>
 
-		<li class="treeview">
-			<a href="#">
+		<li>
+			<a href="{{ site_url('dashboard') }}">
 				<i class="fa fa-dashboard"></i>
 				<span>Dashboard</span>
-				<span class="pull-right-container">
-					<i class="fa fa-angle-left pull-right"></i>
-				</span>
 			</a>
-			<ul class="treeview-menu">
-				<li><a href="{{ site_url('dashboard') }}"><i class="fa fa-angle-right"></i> Home</a></li>
-			</ul>
 		</li>
 
 		{% if roles_permission_entity.has_permission_module(['PTPM']) %}
