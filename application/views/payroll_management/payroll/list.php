@@ -7,7 +7,7 @@
                     <th>Provider Name</th>
                     <th>Total Visits</th>
                     <th>Total Salary</th>
-                    <th>Date Billed</th>
+                    <th>Date Paid</th>
                     <th width="60px">Action</th>
                 </tr>
             </thead>
