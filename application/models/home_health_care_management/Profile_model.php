@@ -81,9 +81,9 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 			$page_data['records'][] = [
 				'patientName' => $patient_tran->patient_name,
-				'refDate' => $patient_tran->pt_dateRef,
+				'refDate' => $patient_tran->get_date_format($patient_tran->pt_dateRef),
 				'providerName' => $patient_tran->get_provider_fullname(),
-				'dateOfService' => $patient_tran->pt_dateOfService,
+				'dateOfService' => $patient_tran->get_date_format($patient_tran->pt_dateOfService),
 				'homeHealth' => $homeHealthInfo->hhc_name,
 				'patientID' => $patient_tran->patient_id,
 			];

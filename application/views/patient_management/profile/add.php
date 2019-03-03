@@ -128,8 +128,17 @@
 
 									</div>
 
+									<div class="col-md-6"></div>
+
 									<div class="col-md-6 has-error">
 										<span class="help-block">{{ form_error('patient_caregiver_family') }}</span>
+									</div>
+
+									<div class="col-md-6 form-group {{ form_error('patient_supervising_MD') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Supervising MD</label>
+										<input type="text" class="form-control" id="supervisingMD" placeholder="" name="patient_supervising_MD" value="{{ set_value('patient_supervising_MD') }}">
+										
 									</div>
 									
 									<div class="col-md-12 subheader">

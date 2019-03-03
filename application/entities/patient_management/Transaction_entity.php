@@ -77,6 +77,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
 	protected $patient_placeOfService;
+	protected $patient_supervising_MD;
 
     public function get_selected_choice_format(string $choice) : string
     {
