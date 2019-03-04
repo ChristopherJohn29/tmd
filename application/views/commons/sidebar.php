@@ -47,6 +47,8 @@
                     	<li><a href="{{ site_url('patient_management/headcount') }}"><i class="fa fa-angle-right"></i> Headcount </a></li>
 
                 	{% endif %}
+
+                	<li><a href="{{ site_url('patient_management/DFV') }}"><i class="fa fa-angle-right"></i> Due For Visits </a></li>
 					
 				</ul>
 			</li>
