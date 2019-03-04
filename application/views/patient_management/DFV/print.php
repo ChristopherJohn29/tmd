@@ -11,12 +11,7 @@
 
 <div class="box-body">
     <div class="table-responsive">
-
-        {% if totalRecords %}
-
-            <p style="font-size: 1.5em;"><strong>Total: </strong> {{ totalRecords }}</p>    
-
-        {% endif %}
+        <h3 class="box-title">Due For Visits</h3><br>
 
         <table id="headcount-list" class="table no-margin table-hover">
             <thead>

@@ -63,7 +63,6 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$page_data['records'] = $this->transaction_model->get_records_by_join($transaction_params);
-		$page_data['totalRecords'] = count($page_data['records']);
 
 		return $page_data;
 	}

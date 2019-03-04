@@ -9,19 +9,13 @@
 
     <div class="table-responsive">	
 
-        {% if totalRecords %}
-
-            <div class="row">
-                <div class="col-md-6">
-                    <p style="font-size: 1.5em;"><strong>Total: </strong> {{ totalRecords }}</p>        
-                </div>
-                <div class="col-md-6 text-right">
-                    <a href="{{ site_url("patient_management/DFV/print") }}" target="_blank"><span class="label label-primary">Print</span></a>
-                    <a href="{{ site_url("patient_management/DFV/pdf") }}"><span class="label label-primary">Generate PDF</span></a>
-                </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <a href="{{ site_url("patient_management/DFV/print") }}" target="_blank"><span class="label label-primary">Print</span></a>
+                <a href="{{ site_url("patient_management/DFV/pdf") }}"><span class="label label-primary">Generate PDF</span></a>
             </div>
-
-        {% endif %}
+        </div>
+        <br>
 
         <table id="dfv-list" class="table no-margin table-hover">
             <thead>
