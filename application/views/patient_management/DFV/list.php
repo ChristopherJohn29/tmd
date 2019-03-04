@@ -4,19 +4,29 @@
 
 {% block content %}
 
+<div class="col-xs-12">
+    
+    <div class="box">
+        
+        <div class="box-header with-border">
+            <h3 class="box-title">Due For Visits</h3>
+        </div>
+        <!-- /.box-header -->
+              
 <div class="box-body">
-	<h3 class="box-title">Due For Visits</h3><br>
 
-    <div class="table-responsive">	
-
-        <div class="row">
-            <div class="col-md-12 text-right">
-                <a href="{{ site_url("patient_management/DFV/print") }}" target="_blank"><span class="label label-primary">Print</span></a>
-                <a href="{{ site_url("patient_management/DFV/pdf") }}"><span class="label label-primary">Generate PDF</span></a>
+    <div class="table-responsive">
+        
+        <div class="xrx-button-handler">
+            <div class="pull-left">
+                <p style="font-size: 1.3em; margin-top:5px;">Date:</p>
+            </div>
+            <div class="pull-right text-right">
+                <a href="{{ site_url("patient_management/DFV/print") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+                <a href="{{ site_url("patient_management/DFV/pdf") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
             </div>
         </div>
-        <br>
-
+        
         <table id="dfv-list" class="table no-margin table-hover">
             <thead>
                 <tr>
@@ -47,6 +57,10 @@
             </tbody>
         </table>
     </div>
+</div>
+        
+    </div>
+    
 </div>
 
 {% endblock %}
