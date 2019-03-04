@@ -17,7 +17,7 @@
 
     <div class="table-responsive">
         
-        <div class="xrx-button-handler">
+        <div class="xrx-tabletop-info">
             <div class="pull-left">
                 <p style="font-size: 1.3em; margin-top:5px;">Date:</p>
             </div>
