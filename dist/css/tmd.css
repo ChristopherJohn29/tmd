@@ -350,6 +350,13 @@
         .xrx-info .no-data-handler p {
             margin-bottom: 0 !important;
             }
+
+.xrx-tabletop-info {
+    display: block;
+    height: 30px;
+    margin-bottom: 20px;
+    clear: both;
+}
 		
 .table>thead>tr>th,
 .table>tbody>tr>th,
