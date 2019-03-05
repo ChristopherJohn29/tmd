@@ -99,6 +99,24 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return ( ! empty($this->pt_aw_ippe_code) && $this->is_aw_performed()) ? 'Yes' : 'No';
 	}
 
+	public function getLatestServiceBilledDate($transactions) : string
+	{
+		$dateList = [];
+
+		foreach($transactions as $transaction) {
+			$dateList[] = $transaction->pt_service_billed;
+		}
+
+		rsort($dateList);
+
+		return (! empty($dateList[0]) || $dateList[0] != NULL) ? parent::get_date_format($dateList[0]) : '';
+	}
+
+	public function is_service_paid() : bool
+	{
+		return ( ! empty($this->pt_service_billed)) && $this->pt_service_billed != '0000-00-00';
+	}
+
 	public function has_performed_in_list(array $transactions) : array
 	{
 		$data = [];
@@ -164,12 +182,6 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	public function is_provider_paid() : bool
 	{
 		return ! empty($this->pt_service_billed);
-	}
-
-	public function hasNotAllPaidProvider(array $transactions) : bool
-	{
-		// just check the first row since this is a batch operations
-		return empty($transactions[0]->pt_service_billed);
 	}
 
 	public function get_notBilledVisit(array $transactions) : array

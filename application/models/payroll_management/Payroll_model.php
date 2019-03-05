@@ -89,7 +89,7 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 				'provider_name' => $provider_list->get_provider_fullname(),
 				'total_visits' => $provider_payment_summary['total_visits'],
 				'total_salary' => $provider_payment_summary['total_salary'],
-				'dateBilled' => $transaction_entity->hasNotAllPaidProvider($provider_transactions) ? '' : $transaction_entity->get_date_format($provider_transactions[0]->pt_service_billed)
+				'dateBilled' => $transaction_entity->getLatestServiceBilledDate($provider_transactions)
 			];
 		}
 

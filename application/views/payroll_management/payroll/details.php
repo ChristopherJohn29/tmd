@@ -37,13 +37,7 @@
 	                        <div class="col-md-12">
 	                        	<input type="hidden" name="payPeriod" value="{{ pay_period }}">
 	                            <h4>
-	                        		Pay Period: {{ pay_period }} 
-
-	                        		<span class="text-red">
-	                        			<strong>
-	                        				{{ transaction_entity.hasNotAllPaidProvider(provider_transactions) ? '' : 'PAID' }}
-	                        			</strong>
-	                        		</span>
+	                        		Pay Period: {{ pay_period }}
 	                        	</h4>
 	                        </div>
 	                    </div>
@@ -79,6 +73,7 @@
 	             				<table class="table no-margin table-striped">
 									<thead>
 										<tr>
+											<th><input type="checkbox" id="checkAll"></th>
 											<th>Date of Service</th>
 											<th>Type of Visit</th>
 											<th>AW / IPPE</th>
@@ -93,8 +88,9 @@
 										{% for provider_transaction in provider_transactions %}
 
 											<tr>
-												<input type="hidden" name="pt_id[]" value="{{ provider_transaction.pt_id }}">
-
+												<td>
+													<input type="checkbox" {{ provider_transaction.is_service_paid() ? 'disabled="true"' : 'name="pt_id[]"' }} value="{{ provider_transaction.pt_id }}">
+												</td>
 												<td>{{ provider_transaction.get_date_format(provider_transaction.pt_dateOfService) }}</td>
 												<td>{{ provider_transaction.tov_name }}</td>
 												<td>{{ provider_transaction.get_aw_ippe_format(provider_transaction.pt_aw_ippe_code) }}</td>
@@ -278,7 +274,7 @@
 	                                	<i class="fa fa-envelope-o"></i> Email to Provider
 	                                </button>
 
-	                                <button type="submit" class="btn btn-danger xrx-btn pull-right" name="submit_type" style="margin-right: 5px;" value="paid" {{ transaction_entity.hasNotAllPaidProvider(provider_transactions) ? '' : 'disabled=true' }}>
+	                                <button type="submit" class="btn btn-danger xrx-btn pull-right" name="submit_type" style="margin-right: 5px;" value="paid" disabled="true" id="paidBtn">
 	                                	<i class="fa fa-credit-card"></i> Paid
 	                                </button>
 
