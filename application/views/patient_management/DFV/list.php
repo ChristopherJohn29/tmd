@@ -19,7 +19,7 @@
         
         <div class="xrx-tabletop-info">
             <div class="pull-left">
-                <p style="font-size: 1.3em; margin-top:5px;">Date:</p>
+                <p style="font-size: 1.3em; margin-top:5px;">Date: {{ currentDate }}</p>
             </div>
             <div class="pull-right text-right">
                 <a href="{{ site_url("patient_management/DFV/print") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>

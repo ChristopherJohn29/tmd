@@ -26,9 +26,10 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		$this->load->library('PDF');
 
 		$page_data = $this->get_dfv_data();
+		$currentDate = date_format(date_create($page_data['currentDate']), 'F_j_Y');
 
 		$html = $this->load->view('patient_management/DFV/pdf', $page_data, true);
-		$filename = 'Due_for_Visits';
+		$filename = 'Due_for_Visits_' . $currentDate;
 
 		$this->pdf->generate($html, $filename);
 	}
@@ -63,6 +64,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$page_data['records'] = $this->transaction_model->get_records_by_join($transaction_params);
+		$page_data['currentDate'] = date('m/d/Y');
 
 		return $page_data;
 	}
