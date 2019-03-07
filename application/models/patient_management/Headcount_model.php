@@ -12,10 +12,13 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
+	public function prepare_dateRange(string $month, string $fromDate, string $toDate, string $year) {
+		$this->fromDate = $year . '-' . $month . '-' . $fromDate;
+		$this->toDate = $year . '-' . $month . '-' . $toDate;
+	}
+
 	public function get_total_patients() : array
 	{
-		$this->prepare_dateRange();
-
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -82,8 +85,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_unbilled_cpo() : array 
 	{
-		$this->prepare_dateRange();
-
 		$cpo_params = [
 			'where' => [
 				[
@@ -133,8 +134,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_unbilled_aw() : array
 	{
-		$this->prepare_dateRange();
-
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -206,8 +205,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_unbilled_visits() : array
 	{
-		$this->prepare_dateRange();
-
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -279,8 +276,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_unpaid_providers() : array
 	{
-		$this->prepare_dateRange();
-
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -352,8 +347,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_blank_diagnoses() : array
 	{
-		$this->prepare_dateRange();
-
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -425,8 +418,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_noshow_patients() : array
 	{
-		$this->prepare_dateRange();
-
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -582,15 +573,5 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		];
 
 		return $this->transaction_model->get_records_by_join($transaction_params);
-	}
-
-	private function prepare_dateRange() {
-		$this->fromDate = $this->input->post('year'). '-' .
-			 $this->input->post('month') . '-' . 
-			 $this->input->post('fromDate');
-
-		$this->toDate = $this->input->post('year') . '-' . 
-			$this->input->post('month') . '-' . 
-			$this->input->post('toDate');
 	}
 }

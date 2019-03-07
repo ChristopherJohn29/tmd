@@ -7,8 +7,8 @@
                 <p style="font-size: 1.3em; margin-top:5px;">Total: {{ headcounts_total }}</p>
             </div>
             <div class="pull-right text-right">
-                <a href="{{ site_url("patient_management/headcount/print/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-            <a href="{{ site_url("patient_management/headcount/pdf/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
+                <a href="{{ site_url("patient_management/headcount/print/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+            <a href="{{ site_url("patient_management/headcount/pdf/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
             </div>
         </div>
         {% endif %}
