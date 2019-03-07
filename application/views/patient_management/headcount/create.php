@@ -105,7 +105,7 @@
 
                                 {% if headcounts is defined and headcounts|length > 0 %}
 
-                                    {{ include('patient_management/headcount/list.php') }}
+                                    {{ include("patient_management/headcount/#{ viewName }.php") }}
 
                                 {% elseif headcounts is defined and headcounts|length == 0 %}
 

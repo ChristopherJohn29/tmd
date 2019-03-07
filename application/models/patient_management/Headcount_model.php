@@ -274,77 +274,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $headcount_list;
 	}
 
-	public function get_unpaid_providers() : array
-	{
-		$transaction_params = [
-			'order' => [
-				'key' => 'patient_transactions.pt_dateOfService',
-				'by' => 'DESC'
-			],
-			'joins' => [
-				[
-					'join_table_name' => 'provider',
-					'join_table_key' => 'provider.provider_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'patient_transactions.pt_providerID',
-					'join_table_type' => 'left'
-				]
-			],
-			'where' => [
-				[
-					'key' => 'patient_transactions.pt_dateOfService',
-					'condition' => '>=',
-	        		'value' => $this->fromDate
-        		],
-        		[
-					'key' => 'patient_transactions.pt_dateOfService',
-					'condition' => '<=',
-	        		'value' => $this->toDate
-        		],
-        		[
-					'key' => 'patient_transactions.pt_service_billed',
-					'condition' => '=',
-	        		'value' => NULL
-        		]
-			],
-			'where_in_list' => [
-				'key' => 'patient_transactions.pt_tovID',
-				'values' => Type_visit_entity::get_visits_list()
-			],
-			'return_type' => 'object'
-		];
-
-		$transactions = $this->transaction_model->get_records_by_join($transaction_params);
-
-		if (empty($transactions))
-		{
-			return [];
-		}
-
-		$headcount_list = [];
-
-		foreach ($transactions as $index => $transaction) 
-		{
-			$patient_details = $this->get_patient_details($transaction->pt_patientID);
-			$cpo_details = $this->get_cpo_details($transaction->pt_patientID);
-
-			$headcount_list[] = [
-				'patient_id' => $patient_details->patient_id,
-				'patient_name' => $patient_details->patient_name,
-				'provider' => $transaction->get_provider_fullname(),
-				'dateOfService' => $transaction->get_date_format($transaction->pt_dateOfService),
-				'deductible' => $transaction->pt_deductible,
-				'home_health' => $patient_details->hhc_name,
-				'paid' => $transaction->get_date_format($transaction->pt_service_billed),
-				'aw_billed' => $transaction->get_date_format($transaction->pt_aw_billed),
-				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
-				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : ''
-			];
-		}
-
-		return $headcount_list;
-	}
-
 	public function get_blank_diagnoses() : array
 	{
 		$transaction_params = [
@@ -504,7 +433,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 			'return_type' => 'row'
 		];
 
-		return $this->profile_model->get_records_by_join($patient_params);
+		return $this->pt_profile_model->get_records_by_join($patient_params);
 	}
 
 	private function get_cpo_details(string $patient_id)
