@@ -10,6 +10,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			'patient_management/profile_model',
 			'patient_management/transaction_model',
 			'patient_management/headcount_model',
+			'patient_management/CPO_model'
 		));
 	}
 
@@ -24,13 +25,20 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('headcount_pt');
 
-		$page_data['headcounts'] = $this->headcount_model->get_headcount(
-			$this->input->post('month'),
-			$this->input->post('fromDate'),
-			$this->input->post('toDate'),
-			$this->input->post('year')
-		);
+		$heacount_type_func = [
+			'1' => 'get_total_patients',
+			'2' => 'get_unbilled_cpo',
+			'3' => 'get_unbilled_aw',
+			'4' => 'get_unbilled_visits',
+			'5' => 'get_unpaid_providers',
+			'6' => 'get_blank_diagnoses',
+			'7' => 'get_noshow_patients'
+		];
 
+		$selected_type = $this->input->post('type');
+		$selected_func = $heacount_type_func[$selected_type];
+
+		$page_data['headcounts'] = $this->headcount_model->$selected_func();
 		$page_data['headcounts_total'] = count($page_data['headcounts']);
 		$page_data['month'] = $this->input->post('month');
 		$page_data['fromDate'] = $this->input->post('fromDate');
