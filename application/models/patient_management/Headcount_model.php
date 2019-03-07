@@ -64,7 +64,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'dateOfService' => $transaction->get_date_format($transaction->pt_dateOfService),
 				'deductible' => $transaction->pt_deductible,
 				'home_health' => $patient_details->hhc_name,
-				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled)
+				'paid' => '',
+				'aw_billed' => '',
+				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
+				'cpo_billed' => ''
 			];
 		}
 

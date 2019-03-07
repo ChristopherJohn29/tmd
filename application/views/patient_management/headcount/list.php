@@ -21,7 +21,10 @@
                     <th>Date of Service</th>
                     <th>Deductible</th>
                     <th>Home Health</th>
+                    <th>Paid</th>
+                    <th>AW Billed</th>
                     <th>Visit Billed</th>
+                    <th>CPO Billed</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -42,7 +45,10 @@
                             {% endif %}
                         </td>
                         <td>{{ headcount['home_health'] }}</td>
+                        <td>{{ headcount['paid'] }}</td>
+                        <td>{{ headcount['aw_billed'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
+                        <td>{{ headcount['cpo_billed'] }}</td>
                         <td width="80px">
                             <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
                         </td>
