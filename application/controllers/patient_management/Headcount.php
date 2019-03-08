@@ -12,6 +12,32 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		'6' => 'get_blank_diagnoses',
 		'7' => 'get_noshow_patients'
 	];
+
+	private $typeDropdown = [
+		'1' => [
+			'1' => 'Total Patients',
+            '2' => 'Unbilled CPO',
+            '3' => 'Unbilled AW',
+            '4' => 'Unbilled Visits',
+            '5' => 'Unpaid Providers',
+            '6' => 'Blank / empty Diagnoses',
+            '7' => 'No Show Patients'
+		],
+		'2' => [
+			'1' => 'Total Patients',
+            '2' => 'Unbilled CPO',
+            '3' => 'Unbilled AW',
+            '4' => 'Unbilled Visits',
+            '5' => 'Unpaid Providers',
+            '6' => 'Blank / empty Diagnoses',
+            '7' => 'No Show Patients'
+		],
+		'3' => [
+			'1' => 'Total Patients',
+			'6' => 'Blank / empty Diagnoses',
+			'7' => 'No Show Patients'
+		]
+	];
 	
 	public function __construct()
 	{
@@ -23,14 +49,15 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			'patient_management/CPO_model',
 			'payroll_management/payroll_model'			
 		));
-
 	}
 
 	public function index()
 	{
 		$this->check_permission('headcount_pt');
 
-		$this->twig->view('patient_management/headcount/create');
+		$page_data['typeList'] = $this->typeDropdown[$this->session->userdata('user_roleID')];
+
+		$this->twig->view('patient_management/headcount/create', $page_data);
 	}
 
 	public function generate()
@@ -44,6 +71,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$page_data['toDate'] = $this->input->post('toDate');
 		$page_data['year'] = $this->input->post('year');
 		$page_data['type'] = $selected_type;
+		$page_data['typeList'] = $this->typeDropdown[$this->session->userdata('user_roleID')];
 
 		if ($selected_type == 5) {
 			$this->load->model('provider_management/profile_model', 'pr_profile_model');

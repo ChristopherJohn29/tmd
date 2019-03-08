@@ -36,13 +36,12 @@
                                             <label class="control-label">Type <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="type" id="dob" required="true">
                                                 <option value="">Select</option>
-                                                <option value="1">Total Patients</option>
-                                                <option value="2">Unbilled CPO</option>
-                                                <option value="3">Unbilled AW</option>
-                                                <option value="4">Unbilled Visits</option>
-                                                <option value="5">Unpaid Providers</option>
-                                                <option value="6">Blank / empty Diagnoses</option>
-                                                <option value="7">No Show Patients</option>
+
+                                                {% for id, type in typeList %}
+
+                                                    <option value="{{ id }}">{{ type }}</option>
+
+                                                {% endfor %}
                                             </select>
                                         </div>
 
