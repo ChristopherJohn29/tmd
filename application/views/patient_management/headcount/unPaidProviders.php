@@ -33,7 +33,7 @@
                         <td>{{ headcount['total_visits'] }}</td>
                         <td>${{ headcount['total_salary'] }}</td>
                         <td><span class="text-red"><strong>{{ headcount['dateBilled'] }}</strong></span></td>
-                        <td><a target="_blank" href="{{ site_url("payroll_management/payroll/details/#{ headcount['provider_id'] }/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View</span></a></td>
+                        <td><a target="_blank" href="{{ site_url("payroll_management/payroll/details/#{ headcount['provider_id'] }/#{ newfromDate|replace({'/': '_'}) }/#{ newToDate|replace({'/': '_'}) }") }}"><span class="label label-primary">View</span></a></td>
                     </tr>
 
                 {% endfor %}

@@ -104,12 +104,16 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		$dateList = [];
 
 		foreach($transactions as $transaction) {
+			if (empty($transaction->pt_service_billed)) {
+				continue;
+			}
+
 			$dateList[] = $transaction->pt_service_billed;
 		}
 
 		rsort($dateList);
 
-		return (! empty($dateList[0]) || $dateList[0] != NULL) ? parent::get_date_format($dateList[0]) : '';
+		return ( ! empty($dateList)) ? parent::get_date_format($dateList[0]) : '';
 	}
 
 	public function is_service_paid() : bool

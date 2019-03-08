@@ -45,25 +45,24 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$page_data['year'] = $this->input->post('year');
 		$page_data['type'] = $selected_type;
 
-
 		if ($selected_type == 5) {
 			$this->load->model('provider_management/profile_model', 'pr_profile_model');
 
-			$newfromDate = implode('/', [
-				$this->input->post('year'),
-				$this->input->post('month'),
-				$this->input->post('fromDate')
+			$page_data['newfromDate'] = implode('/', [
+				$page_data['year'],
+				$page_data['month'],
+				$page_data['fromDate']
 			]);
 
-			$newToDate = implode('/', [
-				$this->input->post('year'),
-				$this->input->post('month'),
-				$this->input->post('toDate')
+			$page_data['newToDate'] = implode('/', [
+				$page_data['year'],
+				$page_data['month'],
+				$page_data['toDate']
 			]);
 
 			$headcounts = $this->payroll_model->get_unpaid_providers(
-				$newfromDate,
-				$newToDate
+				$page_data['newfromDate'],
+				$page_data['newToDate']
 			);
 
 			$payroll_entity = new Payroll_entity([], $headcounts);
