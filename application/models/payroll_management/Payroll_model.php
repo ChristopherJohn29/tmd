@@ -176,14 +176,12 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 			);
 
 			$provider_payment_summary = $payroll_entity->compute_payment_summary();
-			$transaction_entity = new \Mobiledrs\entities\patient_management\Transaction_entity;
 
 			$payroll_list[] = [
 				'provider_id' => $provider_list->provider_id,
 				'provider_name' => $provider_list->get_provider_fullname(),
 				'total_visits' => $provider_payment_summary['total_visits'],
-				'total_salary' => $provider_payment_summary['total_salary'],
-				'dateBilled' => $transaction_entity->getLatestServiceBilledDate($provider_transactions)
+				'total_salary' => $provider_payment_summary['total_salary']
 			];
 		}
 
