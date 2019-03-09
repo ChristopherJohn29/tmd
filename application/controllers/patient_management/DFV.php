@@ -13,19 +13,29 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 
 	public function index()
 	{
-		$this->twig->view('patient_management/DFV/list', $this->get_dfv_data());
+		$page_data = [];
+
+		if ($this->input->post('submit')) {
+			$page_data = $this->get_dfv_data(
+				$this->input->post('year'),
+				$this->input->post('month'),
+				$this->input->post('day')
+			);
+		}
+
+		$this->twig->view('patient_management/DFV/create', $page_data);
 	}
 
-	public function print()
+	public function print(string $year, string $month, string $day)
 	{
-		$this->twig->view('patient_management/DFV/print', $this->get_dfv_data());
+		$this->twig->view('patient_management/DFV/print', $this->get_dfv_data($year, $month, $day));
 	}
 
-	public function pdf()
+	public function pdf(string $year, string $month, string $day)
 	{
 		$this->load->library('PDF');
 
-		$page_data = $this->get_dfv_data();
+		$page_data = $this->get_dfv_data($year, $month, $day);
 		$currentDate = date_format(date_create($page_data['currentDate']), 'F_j_Y');
 
 		$html = $this->load->view('patient_management/DFV/pdf', $page_data, true);
@@ -34,8 +44,10 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		$this->pdf->generate($html, $filename);
 	}
 
-	public function get_dfv_data()
+	public function get_dfv_data(string $year, string $month, string $day)
 	{
+		$dateSelected = implode('-', [$year, $month, $day]);
+
 		$transaction_params = [
 			'joins' => [
 				[
@@ -55,7 +67,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 			],
 			'where' => [
 				[
-					'key' => 'patient_transactions.pt_dateOfService = DATE_SUB(CURDATE(), INTERVAL 45 DAY)',
+					'key' => "patient_transactions.pt_dateOfService = DATE_SUB('" . $dateSelected . "', INTERVAL 45 DAY)",
 					'condition' => NULL,
 	        		'value' => NULL
         		]
@@ -64,7 +76,10 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$page_data['records'] = $this->transaction_model->get_records_by_join($transaction_params);
-		$page_data['currentDate'] = date('m/d/Y');
+		$page_data['currentDate'] = date_format(date_create($dateSelected), 'm/d/Y');
+		$page_data['year'] = $year;
+		$page_data['month'] = $month;
+		$page_data['day'] = $day;
 
 		return $page_data;
 	}

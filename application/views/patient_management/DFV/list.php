@@ -1,20 +1,4 @@
-{% extends "main.php" %}
-
-{% set page_title = 'Due For Visits' %}
-
-{% block content %}
-
-<div class="col-xs-12">
-    
-    <div class="box">
-        
-        <div class="box-header with-border">
-            <h3 class="box-title">Due For Visits</h3>
-        </div>
-        <!-- /.box-header -->
-              
 <div class="box-body">
-
     <div class="table-responsive">
         
         <div class="xrx-tabletop-info">
@@ -22,8 +6,8 @@
                 <p style="font-size: 1.3em; margin-top:5px;">Date: {{ currentDate }}</p>
             </div>
             <div class="pull-right text-right">
-                <a href="{{ site_url("patient_management/DFV/print") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-                <a href="{{ site_url("patient_management/DFV/pdf") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
+                <a href="{{ site_url("patient_management/DFV/print/#{ year }/#{ month }/#{ day }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+                <a href="{{ site_url("patient_management/DFV/pdf/#{ year }/#{ month }/#{ day }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
             </div>
         </div>
         
@@ -58,9 +42,3 @@
         </table>
     </div>
 </div>
-        
-    </div>
-    
-</div>
-
-{% endblock %}
