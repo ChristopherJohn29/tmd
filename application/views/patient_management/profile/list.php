@@ -27,19 +27,31 @@
 			<div class="box-body">
 				<div class="table-responsive">
 					
-				<table id="all-patient-list" class="table no-margin table-hover">
+				<table id="all-patient-list" class="table no-margin table-hover fixed">
+                <colgroup>
+                    <col width="250px">
+                    <col>
+                    <col width="450px">
+                    <col>
+                    <col width="200px">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col width="150px">
+                </colgroup>
 				<thead>
 				  <tr>
-					<th width="250px">Patient Name</th>
+					<th>Patient Name</th>
 					<th>Referral Date</th>
 					<th>ICD10 - Code Diagnoses</th>
 					<th>Date of Service</th>
-					<th width="200px">Provider</th>
+					<th>Provider</th>
 					<th>PAID</th>
                     <th>AW Billed</th>
                     <th>Visits Billed</th>
 					<th>CPO Billed</th>
-					<th width="150px">Actions</th>
+					<th>Actions</th>
 				  </tr>
 				  </thead>
 				  
