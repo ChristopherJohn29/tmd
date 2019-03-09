@@ -9,6 +9,12 @@
  * -------------------------
  */
 
+/* Fixed Table Cell Width */
+
+table.fixed { table-layout:fixed; }
+table.fixed th { overflow: hidden; }
+
+
 .bg-btn-red,
 .bg-btn-red:hover {
     background-color: #e34b45;
