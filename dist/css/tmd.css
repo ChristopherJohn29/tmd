@@ -11,8 +11,30 @@
 
 /* Fixed Table Cell Width */
 
-table.fixed { table-layout:fixed; }
-table.fixed th { overflow: hidden; }
+table.fix-width { table-layout:fixed; }
+
+table.fix-width th,
+table.fix-width td { overflow: hidden; }
+
+table.fix-width th.patient {
+    width: 200px !important;
+    max-width: 200px !important;
+    }
+
+table.fix-width th.icd10 {
+    width: 250px !important;
+    max-width: 250px !important;
+    }
+
+table.fix-width th.provider {
+    width: 180px !important;
+    max-width: 180px !important;
+    }
+
+table.fix-width th.actions {
+    width: 120px !important;
+    max-width: 120px !important;
+    }
 
 
 .bg-btn-red,

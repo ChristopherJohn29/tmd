@@ -27,33 +27,22 @@
 			<div class="box-body">
 				<div class="table-responsive">
 					
-				<table id="all-patient-list" class="table no-margin table-hover fixed">
-                <colgroup>
-                    <col width="250px">
-                    <col>
-                    <col width="450px">
-                    <col>
-                    <col width="200px">
-                    <col>
-                    <col>
-                    <col>
-                    <col>
-                    <col width="150px">
-                </colgroup>
-				<thead>
-				  <tr>
-					<th>Patient Name</th>
-					<th>Referral Date</th>
-					<th>ICD10 - Code Diagnoses</th>
-					<th>Date of Service</th>
-					<th>Provider</th>
-					<th>PAID</th>
-                    <th>AW Billed</th>
-                    <th>Visits Billed</th>
-					<th>CPO Billed</th>
-					<th>Actions</th>
-				  </tr>
-				  </thead>
+                    <table id="all-patient-list" class="table no-margin table-hover fix-width">
+                        
+                    <thead>
+                        <tr>
+                            <th class="patient">Patient Name</th>
+                            <th>Referral Date</th>
+                            <th class="icd10">ICD10 - Code Diagnoses</th>
+                            <th>Date of Service</th>
+                            <th class="provider">Provider</th>
+                            <th>PAID</th>
+                            <th>AW Billed</th>
+                            <th>Visits Billed</th>
+                            <th>CPO Billed</th>
+                            <th class="actions">Actions</th>
+                        </tr>
+                    </thead>
 				  
 				  <tbody>
 
@@ -62,7 +51,7 @@
 						{% for record in records %}
 
 							<tr>
-								<td>{{ record['patientName'] }}</td>
+								<td width="250px">{{ record['patientName'] }}</td>
 								<td data-order="{{ record['patientReferralDate']|date("Ymd") }}">{{ record['patientReferralDate'] }}</td>
 
 								{% if profile_entity.is_sel_noshow_cancelled(record['pt_tovID']) %}
@@ -76,12 +65,12 @@
 								{% endif %}
 
 								<td>{{ record['dateOfService'] }}</td>
-								<td>{{ record['provider'] }}</td>
+								<td width="200px">{{ record['provider'] }}</td>
 								<td><span class="text-red"><strong>{{ record['provider_paid'] }}</strong></span></td>
 								<td><span class="text-red"><strong>{{ record['aw_billed'] }}</strong></span></td>
                                 <td><span class="text-red"><strong>{{ record['visit_billed'] }}</strong></span></td>
 								<td><span class="text-red"><strong>{{ record['cpo_billed'] }}</strong></span></td>
-								<td>
+								<td width="150px">
 									
 									{% if roles_permission_entity.has_permission_name(['view_pt']) %}
 										
