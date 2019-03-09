@@ -4,7 +4,11 @@
         {% if headcounts_total %}
             <div class="xrx-tabletop-info">
                 <div class="pull-left">
-                    <p style="font-size: 1.3em; margin-top:5px;">Total: {{ headcounts_total }}</p>
+                    <p style="font-size: 1.3em; margin-top:5px;">
+                        {{ typeTitle }}<br>
+                        {{ datePeriod }}<br>
+                        Total: {{ headcounts_total }}
+                    </p>
                 </div>
                 <div class="pull-right text-right">
                     <a href="{{ site_url("patient_management/headcount/print/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>

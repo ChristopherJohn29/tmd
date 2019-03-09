@@ -20,7 +20,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
             '3' => 'Unbilled AW',
             '4' => 'Unbilled Visits',
             '5' => 'Unpaid Providers',
-            '6' => 'Blank / empty Diagnoses',
+            '6' => 'Blank / Empty Diagnoses',
             '7' => 'No Show Patients'
 		],
 		'2' => [
@@ -29,12 +29,12 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
             '3' => 'Unbilled AW',
             '4' => 'Unbilled Visits',
             '5' => 'Unpaid Providers',
-            '6' => 'Blank / empty Diagnoses',
+            '6' => 'Blank / Empty Diagnoses',
             '7' => 'No Show Patients'
 		],
 		'3' => [
 			'1' => 'Total Patients',
-			'6' => 'Blank / empty Diagnoses',
+			'6' => 'Blank / Empty Diagnoses',
 			'7' => 'No Show Patients'
 		]
 	];
@@ -64,6 +64,8 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('headcount_pt');
 
+		$this->load->library('Date_formatter');
+
 		$selected_type = $this->input->post('type');
 
 		$page_data['month'] = $this->input->post('month');
@@ -72,6 +74,12 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$page_data['year'] = $this->input->post('year');
 		$page_data['type'] = $selected_type;
 		$page_data['typeList'] = $this->typeDropdown[$this->session->userdata('user_roleID')];
+		$page_data['typeTitle'] = $this->typeDropdown[$this->session->userdata('user_roleID')][$selected_type];
+
+		$newFromDate = $page_data['year'] . '-' . $page_data['month'] . '-' . $page_data['fromDate'];
+		$newToDate = $page_data['year'] . '-' . $page_data['month'] . '-' . $page_data['toDate'];
+		$this->date_formatter->set_date($newFromDate, $newToDate);
+		$page_data['datePeriod'] = $this->date_formatter->format();
 
 		if ($selected_type == 5) {
 			$this->load->model('provider_management/profile_model', 'pr_profile_model');
@@ -172,11 +180,15 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$newFromDate = $year . '-' . $month . '-' . $fromDate;
 		$newToDate = $year . '-' . $month . '-' . $toDate;
 		$this->date_formatter->set_date($newFromDate, $newToDate);
-		$dateFormat = $this->date_formatter->format();
+		$page_data['dateFormat'] = $this->date_formatter->format();
 
 		$selected_type = $type;
 		$html = '';
 		$filename = '';
+
+		$selectedTitle = $this->typeDropdown[$this->session->userdata('user_roleID')][$selected_type];
+		$selectedTitle = str_replace(' ', '_', $selectedTitle);
+		$selectedTitle = str_replace('/', '', $selectedTitle);
 
 		if ($selected_type == 5) {
 			$this->load->model('provider_management/profile_model', 'pr_profile_model');
@@ -205,7 +217,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			$page_data['headcounts_total'] = count($page_data['headcounts']);
 
 			$html = $this->load->view('patient_management/headcount/pdfUnPaidProviders', $page_data, true);
-			$filename = 'Headcount_' . $dateFormat;
+			$filename = 'Headcount_' . $selectedTitle . '_' . $page_data['dateFormat'];
 		}
 		else {
 			$this->load->model('patient_management/profile_model', 'pt_profile_model');
@@ -219,7 +231,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			$page_data['headcounts_total'] = count($page_data['headcounts']);
 
 			$html = $this->load->view('patient_management/headcount/pdf', $page_data, true);
-			$filename = 'Headcount_' . $dateFormat;	
+			$filename = 'Headcount_' . $selectedTitle . '_' . $page_data['dateFormat'];
 		}
 
 		$this->pdf->page_orientation = 'L';

@@ -3,7 +3,7 @@
 <?php if ($headcounts_total): ?>
 
 <p style="margin:0; padding:0;"><span style="font-size:16px;">HEAD COUNT</span><br>
-<span style="font-size:10px; color: gray; padding-top:6px">Date:</span> </p>
+<span style="font-size:10px; color: gray; padding-top:6px">Date:</span> <?php echo $dateFormat; ?></p>
 
 <p style="font-size:12px;">Total: <strong><?php echo $headcounts_total; ?></strong></p>  
 
