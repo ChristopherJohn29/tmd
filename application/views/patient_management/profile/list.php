@@ -31,16 +31,16 @@
                         
                     <thead>
                         <tr>
-                            <th class="patient">Patient Name</th>
+                            <th>Patient Name</th>
                             <th>Referral Date</th>
-                            <th class="icd10">ICD10 - Code Diagnoses</th>
+                            <th>ICD10 - Code Diagnoses</th>
                             <th>Date of Service</th>
-                            <th class="provider">Provider</th>
+                            <th>Provider</th>
                             <th>PAID</th>
                             <th>AW Billed</th>
                             <th>Visits Billed</th>
                             <th>CPO Billed</th>
-                            <th class="actions">Actions</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 				  
@@ -51,7 +51,7 @@
 						{% for record in records %}
 
 							<tr>
-								<td width="250px">{{ record['patientName'] }}</td>
+								<td class="patient">{{ record['patientName'] }}</td>
 								<td data-order="{{ record['patientReferralDate']|date("Ymd") }}">{{ record['patientReferralDate'] }}</td>
 
 								{% if profile_entity.is_sel_noshow_cancelled(record['pt_tovID']) %}
@@ -65,12 +65,12 @@
 								{% endif %}
 
 								<td>{{ record['dateOfService'] }}</td>
-								<td width="200px">{{ record['provider'] }}</td>
+								<td class="provider">{{ record['provider'] }}</td>
 								<td><span class="text-red"><strong>{{ record['provider_paid'] }}</strong></span></td>
 								<td><span class="text-red"><strong>{{ record['aw_billed'] }}</strong></span></td>
                                 <td><span class="text-red"><strong>{{ record['visit_billed'] }}</strong></span></td>
 								<td><span class="text-red"><strong>{{ record['cpo_billed'] }}</strong></span></td>
-								<td width="150px">
+								<td class="actions">
 									
 									{% if roles_permission_entity.has_permission_name(['view_pt']) %}
 										

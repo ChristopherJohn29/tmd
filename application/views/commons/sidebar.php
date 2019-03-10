@@ -5,8 +5,8 @@
 
 		<li>
 			<a href="{{ site_url('dashboard') }}">
-				<i class="fa fa-dashboard"></i>
-				<span>Dashboard</span>
+				<i class="fa fa-home"></i>
+				<span>Home</span>
 			</a>
 		</li>
 
