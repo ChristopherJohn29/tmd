@@ -32,6 +32,7 @@ class Routesheet_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_mileage;
 	protected $provider_rate_initialVisitOffice;
 	protected $provider_rate_followUpVisitOffice;
+	protected $provider_supervising_MD;
 
 	public function get_provider_fullname() : string
 	{

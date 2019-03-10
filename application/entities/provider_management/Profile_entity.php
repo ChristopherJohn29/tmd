@@ -26,6 +26,7 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_mileage;
 	protected $provider_rate_initialVisitOffice;
 	protected $provider_rate_followUpVisitOffice;
+	protected $provider_supervising_MD;
 
 	public function get_fullname() : string
 	{
@@ -41,6 +42,16 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	{
 		return ($gender == $this->provider_gender) ? 'selected=true' : '';
 	}
+
+	public function get_selected_supervising_MD(string $supervising_md) : string
+	{
+		return ($supervising_md == $this->provider_supervising_MD) ? 'checked=true' : '';
+	}
+
+	public function get_format_supervising_MD(string $supervising_md) : string
+	{
+		return $this->provider_supervising_MD == '1' ? 'Yes' : 'No';
+	}	
 
 	public function has_changed_email(string $email) : bool
 	{

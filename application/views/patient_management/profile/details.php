@@ -40,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <th>Supervising MD:</th>
-                                    <td>{{ record.patient_supervising_MD }}</td>
+                                    <td>{{ record.get_supervising_md_fullname() }}</td>
                                 </tr>
              				</table>
              			</div>

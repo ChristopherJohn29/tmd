@@ -60,6 +60,13 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient.patient_placeOfService',
 					'join_table_type' => 'left'
+				],
+				[
+					'join_table_name' => 'provider',
+					'join_table_key' => 'provider.provider_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_supervising_mdID',
+					'join_table_type' => 'left'	
 				]
 			],
 			'where' => [
@@ -148,6 +155,13 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient.patient_placeOfService',
 					'join_table_type' => 'left'
+				],
+				[
+					'join_table_name' => 'provider',
+					'join_table_key' => 'provider.provider_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_supervising_mdID',
+					'join_table_type' => 'left'	
 				]
 			],
 			'where' => [

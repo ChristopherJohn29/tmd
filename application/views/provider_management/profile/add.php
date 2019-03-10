@@ -154,6 +154,11 @@
 									</div>
 									
 									<div class="col-md-12">
+										<input type="checkbox" name="provider_supervising_MD" id="provider_supervising_MD" value="1">
+										<label class="control-label" for="provider_supervising_MD" style="vertical-align: 3px;">Assign as Supervising MD</label>
+									</div>
+									
+									<div class="col-md-12">
 										<p class="lead subheader">Credentials</p>
 									</div>
 									

@@ -62,6 +62,10 @@
                                         <th>Areas:</th>
                                         <td>{{ record.provider_areas }}</td>
                                     </tr>
+                                    <tr>
+                                        <th>Supervising MD:</th>
+                                        <td>{{ record.get_format_supervising_MD(record.provider_supervising_MD) }}</td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
