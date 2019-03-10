@@ -65,6 +65,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_mileage;
 	protected $provider_rate_initialVisitOffice;
 	protected $provider_rate_followUpVisitOffice;
+	protected $provider_supervising_MD;
 
 	protected $patient_id;
 	protected $patient_name;
@@ -77,7 +78,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
 	protected $patient_placeOfService;
-	protected $patient_supervising_MD;
+	protected $patient_supervising_mdID;
 
     public function get_selected_choice_format(string $choice) : string
     {

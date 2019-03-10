@@ -37,7 +37,8 @@ class Profile_model extends Mobiledrs\core\MY_Models {
 			'provider_rate_aw' => $this->record_entity->provider_rate_aw,
 			'provider_rate_acp' => $this->record_entity->provider_rate_acp,
 			'provider_rate_noShowPT' => $this->record_entity->provider_rate_noShowPT,
-			'provider_rate_mileage' => $this->record_entity->provider_rate_mileage
+			'provider_rate_mileage' => $this->record_entity->provider_rate_mileage,
+			'provider_supervising_MD' => $this->record_entity->provider_supervising_MD
 		];
 	}
 }

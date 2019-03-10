@@ -15,7 +15,7 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
 	protected $patient_placeOfService;
-	protected $patient_supervising_MD;
+	protected $patient_supervising_mdID;
 
 	protected $hhc_id;
 	protected $hhc_name;
@@ -30,9 +30,38 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $pos_code;
 	protected $pos_name;
 
+	protected $provider_id;
+	protected $provider_firstname;
+	protected $provider_lastname;
+	protected $provider_contactNum;
+	protected $provider_email;
+	protected $provider_address;
+	protected $provider_dateOfBirth;
+	protected $provider_languages;
+	protected $provider_areas;
+	protected $provider_npi;
+	protected $provider_dea;
+	protected $provider_license;
+	protected $provider_gender;
+	protected $provider_dateCreated;
+	protected $provider_rate_initialVisit;
+	protected $provider_rate_followUpVisit;
+	protected $provider_rate_aw;
+	protected $provider_rate_acp;
+	protected $provider_rate_noShowPT;
+	protected $provider_rate_mileage;
+	protected $provider_rate_initialVisitOffice;
+	protected $provider_rate_followUpVisitOffice;
+	protected $provider_supervising_MD;
+
 	public function get_selected_gender(string $gender) : string
 	{
 		return $gender == $this->patient_gender ? 'selected=true' : '';
+	}
+
+	public function get_supervising_md_fullname(): string
+	{
+		return $this->provider_firstname . ' ' . $this->provider_lastname; 
 	}
 
 	public function has_changed_medicareNum(string $medicareNum) : bool

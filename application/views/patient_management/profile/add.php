@@ -137,7 +137,19 @@
 									<div class="col-md-6 form-group {{ form_error('patient_supervising_MD') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Supervising MD</label>
-										<input type="text" class="form-control" id="supervisingMD" placeholder="" name="patient_supervising_MD" value="{{ set_value('patient_supervising_MD') }}">
+
+										<div class="dropdown mobiledrs-autosuggest-select">
+											<input type="hidden" name="patient_supervising_mdID" required="true">
+
+										  	<input class="form-control" 
+										  		type="text" 
+										  		data-mobiledrs_autosuggest 
+										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/supervising_md_search') }}"
+										  		data-mobiledrs_autosuggest_dropdown_id="patient_supervising_mdID_dropdown">
+
+										  	<div data-mobiledrs_autosuggest_dropdown id="patient_supervising_mdID_dropdown" style="width: 100%;">
+									  	  	</div>
+										</div>
 										
 									</div>
 									

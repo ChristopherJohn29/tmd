@@ -27,7 +27,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 			'patient_hhcID' => $this->record_entity->patient_hhcID,
 			'patient_caregiver_family' => $this->record_entity->patient_caregiver_family,
 			'patient_placeOfService' => $this->record_entity->patient_placeOfService == '' ? NULL : $this->record_entity->patient_placeOfService,
-			'patient_supervising_MD' => $this->record_entity->patient_supervising_MD
+			'patient_supervising_mdID' => $this->record_entity->patient_supervising_mdID == '' ? NULL : $this->record_entity->patient_supervising_mdID
 		];
 	}
 
