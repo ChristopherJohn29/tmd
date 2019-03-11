@@ -40,4 +40,37 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 		echo json_encode($search_data);
 	}
+
+	public function supervising_md_search()
+	{
+		$this->check_permission('add_tr');
+
+		$params = [
+			'where_data' => [
+				['key' => 'provider_firstname', 'value' =>  $this->input->get('term')],
+				['key' => 'provider_lastname', 'value' =>  $this->input->get('term')]
+			]
+		];
+
+		$res = $this->pt_model->find($params);
+
+		$search_data = [];
+
+		if ($res)
+		{
+			for ($i = 0; $i < count($res); $i++) 
+			{
+				if ($res[$i]->provider_supervising_MD == '0') {
+					continue;
+				} 
+
+				$search_data[] = [
+					'id' => $res[$i]->provider_id,
+					'value' => $res[$i]->get_fullname()
+				];
+			}
+		}
+
+		echo json_encode($search_data);
+	}
 }

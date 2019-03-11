@@ -141,16 +141,19 @@
 									</div>
 									
 									<div class="col-md-12 {{ form_error('provider_address') ? 'has-error' : '' }}">
-									
 
 										<label class="control-label">Address <span>*</span></label>
 										<input type="text" class="form-control" name="provider_address" value="{{ set_value('provider_address', record.provider_address) }}">
 
-										
 									</div>
 
 									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('provider_address') }}</span>
+									</div>
+
+									<div class="col-md-12">
+										<input type="checkbox" name="provider_supervising_MD" id="provider_supervising_MD" value="1" {{ record.get_selected_supervising_MD('1') }}>
+										<label class="control-label" for="provider_supervising_MD" style="vertical-align: 3px;">Assign as Supervising MD</label>
 									</div>
 									
 									<div class="col-md-12">

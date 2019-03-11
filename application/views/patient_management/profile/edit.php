@@ -127,8 +127,30 @@
 
 									</div>
 
+									<div class="col-md-6"></div>
+
 									<div class="col-md-6 has-error">
 										<span class="help-block">{{ form_error('patient_caregiver_family') }}</span>
+									</div>
+
+									<div class="col-md-6 form-group {{ form_error('patient_supervising_MD') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Supervising MD</label>
+
+										<div class="dropdown mobiledrs-autosuggest-select">
+											<input type="hidden" name="patient_supervising_mdID" required="true" value="{{ record.patient_supervising_mdID }}">
+
+										  	<input class="form-control" 
+										  		type="text" 
+										  		data-mobiledrs_autosuggest 
+										  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/provider_management/profile/supervising_md_search') }}"
+										  		data-mobiledrs_autosuggest_dropdown_id="patient_supervising_mdID_dropdown"
+										  		value="{{ record.get_supervising_md_fullname() }}">
+
+										  	<div data-mobiledrs_autosuggest_dropdown id="patient_supervising_mdID_dropdown" style="width: 100%;">
+									  	  	</div>
+										</div>
+										
 									</div>
 									
 									<div class="col-md-12 subheader">

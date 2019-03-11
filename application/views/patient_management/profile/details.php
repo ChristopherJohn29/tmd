@@ -38,6 +38,10 @@
                                     <th>Place of Service:</th>
                                     <td>{{ record.get_fullpos_name() }}</td>
                                 </tr>
+                                <tr>
+                                    <th>Supervising MD:</th>
+                                    <td>{{ record.get_supervising_md_fullname() }}</td>
+                                </tr>
              				</table>
              			</div>
              			

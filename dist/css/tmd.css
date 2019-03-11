@@ -9,6 +9,34 @@
  * -------------------------
  */
 
+/* Fixed Table Cell Width */
+
+table.fix-width { table-layout:fixed; }
+
+table.fix-width th,
+table.fix-width td { overflow: hidden; }
+
+table.fix-width th.patient {
+    width: 200px !important;
+    max-width: 200px !important;
+    }
+
+table.fix-width th.icd10 {
+    width: 250px !important;
+    max-width: 250px !important;
+    }
+
+table.fix-width th.provider {
+    width: 180px !important;
+    max-width: 180px !important;
+    }
+
+table.fix-width th.actions {
+    width: 120px !important;
+    max-width: 120px !important;
+    }
+
+
 .bg-btn-red,
 .bg-btn-red:hover {
     background-color: #e34b45;
@@ -350,6 +378,13 @@
         .xrx-info .no-data-handler p {
             margin-bottom: 0 !important;
             }
+
+.xrx-tabletop-info {
+    display: block;
+    height: 30px;
+    margin-bottom: 20px;
+    clear: both;
+}
 		
 .table>thead>tr>th,
 .table>tbody>tr>th,
