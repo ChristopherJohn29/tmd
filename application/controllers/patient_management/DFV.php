@@ -76,6 +76,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$page_data['records'] = $this->transaction_model->get_records_by_join($transaction_params);
+		$page_data['total'] = count($page_data['records']);
 		$page_data['currentDate'] = date_format(date_create($dateSelected), 'm/d/Y');
 		$page_data['year'] = $year;
 		$page_data['month'] = $month;
