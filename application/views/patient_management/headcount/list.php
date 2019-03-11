@@ -2,17 +2,19 @@
     <div class="table-responsive">
 
         {% if headcounts_total %}
-
-            <div class="row">
-                <div class="col-md-6">
-                    <p style="font-size: 1.5em;"><strong>Total: </strong> {{ headcounts_total }}</p>        
-                </div>
-                <div class="col-md-6 text-right">
-                    <a href="{{ site_url("patient_management/headcount/print/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="label label-primary">Print</span></a>
-                    <a href="{{ site_url("patient_management/headcount/pdf/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}"><span class="label label-primary">Generate PDF</span></a>
-                </div>
+        <div class="xrx-tabletop-info">
+            <div class="pull-left">
+                <p style="font-size: 1.3em; margin-top:5px;">
+                    {{ typeTitle }}<br>
+                    {{ datePeriod }}<br>
+                    Total: {{ headcounts_total }}
+                </p>
             </div>
-
+            <div class="pull-right text-right">
+                <a href="{{ site_url("patient_management/headcount/print/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+            <a href="{{ site_url("patient_management/headcount/pdf/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
+            </div>
+        </div>
         {% endif %}
 
         <table id="headcount-list" class="table no-margin table-hover">
@@ -23,7 +25,10 @@
                     <th>Date of Service</th>
                     <th>Deductible</th>
                     <th>Home Health</th>
+                    <th>Paid</th>
+                    <th>AW Billed</th>
                     <th>Visit Billed</th>
+                    <th>CPO Billed</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -44,7 +49,10 @@
                             {% endif %}
                         </td>
                         <td>{{ headcount['home_health'] }}</td>
+                        <td>{{ headcount['paid'] }}</td>
+                        <td>{{ headcount['aw_billed'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
+                        <td>{{ headcount['cpo_billed'] }}</td>
                         <td width="80px">
                             <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
                         </td>

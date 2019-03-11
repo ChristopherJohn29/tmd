@@ -4,6 +4,7 @@ Mobiledrs.Payroll_details = (function() {
 
 	var init = function() {
 		others();
+		checkToPaid();
 	};
 
 	var	others = function() {
@@ -58,6 +59,45 @@ Mobiledrs.Payroll_details = (function() {
 					$('.total-amount').html(newTotal);
 				}
 			});
+		});
+	};
+
+	var checkToPaid = function() {
+		var checkBoxes = $('[name="pt_id[]"]');
+		var paidBtn = $('#paidBtn');
+
+		$('#checkAll').on('change', function() {
+			var isChecked = $(this).prop('checked');
+
+			if (isChecked) {
+				checkBoxes.prop('checked', true);
+				paidBtn.removeAttr('disabled');
+			}
+			else {
+				checkBoxes.prop('checked', false);
+				paidBtn.attr('disabled', true);
+			}
+		});
+
+		checkBoxes.on('change', function() {
+			var isChecked = $(this).prop('checked');
+
+			if (isChecked) {
+				paidBtn.removeAttr('disabled');
+			}
+			else {
+				var unChecksNum = 0;
+
+				$.each(checkBoxes, function(i, value) {
+					if ($(value).prop('checked')) {
+						unChecksNum += 1;
+					}
+				});
+
+				if (unChecksNum == 0) {
+					paidBtn.attr('disabled', true);
+				}
+			}
 		});
 	};
 

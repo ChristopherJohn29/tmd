@@ -27,8 +27,8 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 	public function search()
 	{
-		$newFromDate = $this->input->post('year') . '-' . $this->input->post('month')  . '-' . $this->input->post('fromDate');
-		$newToDate = $this->input->post('year') . '-' . $this->input->post('month')  . '-' . $this->input->post('toDate');
+		$newFromDate = $this->input->post('year') . '-' . $this->input->post('fromMonth')  . '-' . $this->input->post('fromDate');
+		$newToDate = $this->input->post('year') . '-' . $this->input->post('toMonth')  . '-' . $this->input->post('toDate');
 
 		$record_params = [
 			'joins' => [
@@ -81,9 +81,9 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 
 			$page_data['records'][] = [
 				'patientName' => $patient_tran->patient_name,
-				'refDate' => $patient_tran->pt_dateRef,
+				'refDate' => $patient_tran->get_date_format($patient_tran->pt_dateRef),
 				'providerName' => $patient_tran->get_provider_fullname(),
-				'dateOfService' => $patient_tran->pt_dateOfService,
+				'dateOfService' => $patient_tran->get_date_format($patient_tran->pt_dateOfService),
 				'homeHealth' => $homeHealthInfo->hhc_name,
 				'patientID' => $patient_tran->patient_id,
 			];

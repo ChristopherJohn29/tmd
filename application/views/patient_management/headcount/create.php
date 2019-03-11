@@ -24,7 +24,7 @@
 
                     <div class="row">
                         
-                        <div class="col-lg-6 col-lg-offset-3">
+                        <div class="col-lg-11 col-sm-offset-1">
                             <div class="search-handler">
                                 
                                 {{ form_open("patient_management/headcount/generate", {"class": "xrx-form"}) }}
@@ -32,7 +32,20 @@
                                     <p class="lead">Headcount</p>
                                 
                                     <div class="row">
-                                        <div class="col-md-3 form-group">
+                                        <div class="col-md-2 form-group">
+                                            <label class="control-label">Type <span>*</span></label>
+                                            <select class="form-control" style="width: 100%;" name="type" id="dob" required="true">
+                                                <option value="">Select</option>
+
+                                                {% for id, type in typeList %}
+
+                                                    <option value="{{ id }}">{{ type }}</option>
+
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-2 form-group">
                                             <label class="control-label">Month <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="month" id="dob" required="true">
                                                 <option selected="selected" value="1">January</option>
@@ -67,12 +80,12 @@
                                             <select class="form-control" style="width: 100%;" name="year" required="true">
                                             </select>
                                         </div>
-                                        
-                                        <div class="col-md-3 form-group">
-    					              		<button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
-    											Submit
-    										</button>
-    					              	</div>
+
+                                        <div class="col-md-2">
+                                             <button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
+                                                Submit
+                                            </button>
+                                        </div>
                                         
                                     </div>
                                     
@@ -91,7 +104,7 @@
 
                                 {% if headcounts is defined and headcounts|length > 0 %}
 
-                                    {{ include('patient_management/headcount/list.php') }}
+                                    {{ include("patient_management/headcount/#{ viewName }.php") }}
 
                                 {% elseif headcounts is defined and headcounts|length == 0 %}
 

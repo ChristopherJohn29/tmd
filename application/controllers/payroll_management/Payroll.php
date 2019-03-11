@@ -182,8 +182,6 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 			$page_data['toDate']
 		);
 
-		$page_data['transaction_entity'] = new \Mobiledrs\entities\patient_management\Transaction_entity();
-
 		if (empty($page_data['provider_transactions']))
 		{
 			redirect('errors/page_not_found');

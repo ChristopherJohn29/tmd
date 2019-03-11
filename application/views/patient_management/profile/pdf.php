@@ -28,6 +28,10 @@
                         <th>Place of Service:</th>
                         <td><?php echo  $record->get_fullpos_name(); ?></td>
                     </tr>
+                    <tr>
+                        <th>Supervising MD:</th>
+                        <td><?php echo  $record->patient_supervising_MD; ?></td>
+                    </tr>
                 </table>
             </td>
             <td>

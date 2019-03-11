@@ -79,7 +79,17 @@ class MY_Controller extends \CI_Controller {
         	$this->session->set_flashdata('danger', $this->lang->line('danger_save'));
         }
 
-        return redirect($params['redirect_url']);
+        if (isset($params['redirect_url']))
+        {
+            return redirect($params['redirect_url']);
+        }
+
+        if (isset($params['redirect_url_details'])) 
+        {
+            $recordID = ( ! empty($params['record_id'])) ? $params['record_id'] : $save;
+            $redirect_url = $params['redirect_url_details'] . $recordID; 
+            return redirect($redirect_url);   
+        }
 	}
 
 	public function save_sub_data(array $params)

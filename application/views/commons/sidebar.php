@@ -3,17 +3,11 @@
 	<ul class="sidebar-menu" data-widget="tree">
 		<li class="header">MAIN NAVIGATION</li>
 
-		<li class="treeview">
-			<a href="#">
+		<li>
+			<a href="{{ site_url('dashboard') }}">
 				<i class="fa fa-dashboard"></i>
-				<span>Dashboard</span>
-				<span class="pull-right-container">
-					<i class="fa fa-angle-left pull-right"></i>
-				</span>
+				<span>Home</span>
 			</a>
-			<ul class="treeview-menu">
-				<li><a href="{{ site_url('dashboard') }}"><i class="fa fa-angle-right"></i> Home</a></li>
-			</ul>
 		</li>
 
 		{% if roles_permission_entity.has_permission_module(['PTPM']) %}
@@ -53,6 +47,10 @@
                     	<li><a href="{{ site_url('patient_management/headcount') }}"><i class="fa fa-angle-right"></i> Headcount </a></li>
 
                 	{% endif %}
+
+                	<li><a href="{{ site_url('patient_management/DFV') }}"><i class="fa fa-angle-right"></i> Due For Visits </a></li>
+
+                	<li><a href="{{ site_url('patient_management/supervising_MD') }}"><i class="fa fa-angle-right"></i> Supervisng MD</a></li>
 					
 				</ul>
 			</li>
