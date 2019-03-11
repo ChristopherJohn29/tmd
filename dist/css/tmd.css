@@ -16,24 +16,24 @@
 table.fix-width th,
 table.fix-width td { overflow: hidden; }
 
-table.fix-width td.patient {
+table.fix-width th.patient {
     width: 180px !important;
     max-width: 180px !important;
     }
 
-table.fix-width td.icd10 {
+table.fix-width th.icd10 {
     width: 250px !important;
     max-width: 250px !important;
     }
 
-table.fix-width td.provider {
+table.fix-width th.provider {
     width: 180px !important;
     max-width: 180px !important;
     }
 
-table.fix-width td.actions {
-    width: 130px !important;
-    max-width: 130px !important;
+table.fix-width th.actions {
+    width: 140px !important;
+    max-width: 140px !important;
     }
 
 

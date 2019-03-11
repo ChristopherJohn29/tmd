@@ -21,6 +21,8 @@
                     <th>Referral Date</th>
                     <th>Date of Service</th>
                     <th>Provider</th>
+                    <th>Home Health</th>
+                    <th>Contact</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -34,6 +36,8 @@
                         <td>{{ record.get_date_format(record.pt_dateRef) }}</td>
                         <td>{{ record.get_date_format(record.pt_dateOfService) }}</td>
                         <td>{{ record.get_provider_fullname() }}</td>
+                        <td></td>
+                        <td></td>
                         <td width="80px">
                             <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}" title=""><span class="label label-primary">View</span></a>
                         </td>
