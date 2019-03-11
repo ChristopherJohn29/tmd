@@ -3,7 +3,10 @@
         
         <div class="xrx-tabletop-info">
             <div class="pull-left">
-                <p style="font-size: 1.3em; margin-top:5px;">Date: {{ currentDate }}</p>
+                <p style="font-size: 1.3em; margin-top:5px;">
+                    Date: {{ currentDate }}<br>
+                    Total : {{ total }}
+                </p>
             </div>
             <div class="pull-right text-right">
                 <a href="{{ site_url("patient_management/DFV/print/#{ year }/#{ month }/#{ day }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
@@ -18,7 +21,7 @@
                     <th>Referral Date</th>
                     <th>Date of Service</th>
                     <th>Provider</th>
-                   <th>Action</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 

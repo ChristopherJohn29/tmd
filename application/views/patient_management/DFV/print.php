@@ -13,6 +13,11 @@
     <div class="table-responsive">
         <h3 class="box-title">Due For Visits</h3><br>
 
+        <p>
+            Date: {{ currentDate }}<br>
+            Total: {{ total }}
+        </p>
+
         <table id="headcount-list" class="table no-margin table-hover">
             <thead>
                 <tr>

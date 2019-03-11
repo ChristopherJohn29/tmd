@@ -2,6 +2,11 @@
 
 <h3 class="box-title">Due For Visits</h3><br>
 
+Date: <?php echo  $currentDate; ?><br>
+Total: <?php echo  $total; ?><br>
+
+<br>
+
 <table class="table no-margin table-hover" style="font-size: 7px;padding: 5px;">
     <thead>
         <tr>
