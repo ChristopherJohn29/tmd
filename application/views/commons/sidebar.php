@@ -1,11 +1,23 @@
 <section class="sidebar">
 	<!-- sidebar menu: : style can be found in sidebar.less -->
+    
+    <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+    
 	<ul class="sidebar-menu" data-widget="tree">
 		<li class="header">MAIN NAVIGATION</li>
 
 		<li>
 			<a href="{{ site_url('dashboard') }}">
-				<i class="fa fa-dashboard"></i>
+				<i class="fa fa-home"></i>
 				<span>Home</span>
 			</a>
 		</li>
