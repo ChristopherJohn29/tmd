@@ -20,9 +20,9 @@
                     <th>Patient Name</th>
                     <th>Referral Date</th>
                     <th>Date of Service</th>
-                    <th>Provider</th>
                     <th>Home Health</th>
-                    <th>Contact</th>
+                    <th>Contact Person</th>
+                    <th>Phone</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -35,7 +35,7 @@
                         <td>{{ record.patient_name }}</td>
                         <td>{{ record.get_date_format(record.pt_dateRef) }}</td>
                         <td>{{ record.get_date_format(record.pt_dateOfService) }}</td>
-                        <td>{{ record.get_provider_fullname() }}</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td width="80px">
