@@ -24,7 +24,9 @@
                     <th>Patient Name</th>
                     <th>Referral Date</th>
                     <th>Date of Service</th>
-                    <th>Provider</th>
+                    <th>Home Health</th>
+                    <th>Contact Person</th>
+                    <th>Phone</th>
                 </tr>
             </thead>
 
@@ -33,10 +35,12 @@
                 {% for record in records %}
 
                     <tr>
-                        <td>{{ record.patient_name }}</td>
-                        <td>{{ record.get_date_format(record.pt_dateRef) }}</td>
-                        <td>{{ record.get_date_format(record.pt_dateOfService) }}</td>
-                        <td>{{ record.get_provider_fullname() }}</td>
+                        <td>{{ record['patientName'] }}</td>
+                        <td>{{ record['refDate'] }}</td>
+                        <td>{{ record['dos'] }}</td>
+                        <td>{{ record['homeHealth'] }}</td>
+                        <td>{{ record['contactPerson'] }}</td>
+                        <td>{{ record['phone'] }}</td>
                     </tr>
 
                 {% endfor %}

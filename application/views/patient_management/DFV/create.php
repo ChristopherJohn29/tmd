@@ -5,7 +5,8 @@
 {% 
   set scripts = [
     'dist/js/libraries/year_incrementor',
-    'dist/js/libraries/month_day_incrementor'
+    'dist/js/libraries/month_day_incrementor',
+    'dist/js/patient_management/dfv/list'
   ]
 %}
 
@@ -49,13 +50,19 @@
                                             </select>
                                         </div>
                                         
-                                        <div class="col-md-3 form-group">
-                                            <label class="control-label">Day <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="day" required="true" data-month-day-incrementor>
+                                        <div class="col-md-2 form-group">
+                                            <label class="control-label">From <span>*</span></label>
+                                            <select class="form-control" style="width: 100%;" name="fromDate" required="true" data-month-day-incrementor>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-md-2 form-group">
+                                            <label class="control-label">To <span>*</span></label>
+                                            <select class="form-control" style="width: 100%;" name="toDate" required="true" data-month-day-incrementor>
                                             </select>
                                         </div>
                                                                                 
-                                        <div class="col-md-3 form-group">
+                                        <div class="col-md-2 form-group">
                                             <label class="control-label">Year <span>*</span></label>
                                             <select class="form-control" style="width: 100%;" name="year" required="true">
                                             </select>

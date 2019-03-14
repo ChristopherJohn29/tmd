@@ -13,7 +13,9 @@ Total: <?php echo  $total; ?><br>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Patient Name</th>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Referral Date</th>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Date of Service</th>
-            <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Provider</th>
+            <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Home Health</th>
+            <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Contact Person</th>
+            <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Phone</th>
         </tr>
     </thead>
 
@@ -23,16 +25,22 @@ Total: <?php echo  $total; ?><br>
 
             <tr>
                 <td style="border-bottom: 1px solid #d2d6de;">
-                    <?php echo $record->patient_name; ?>
+                    <?php echo $record['patientName']; ?>
                 </td>
                 <td style="border-bottom: 1px solid #d2d6de;">
-                    <?php echo $record->get_date_format($record->pt_dateRef); ?>
+                    <?php echo $record['refDate']; ?>
                 </td>
                 <td style="border-bottom: 1px solid #d2d6de;">
-                    <?php echo $record->get_date_format($record->pt_dateOfService); ?>
+                    <?php echo $record['dos']; ?>
                 </td>
                 <td style="border-bottom: 1px solid #d2d6de;">
-                    <?php echo $record->get_provider_fullname(); ?>
+                    <?php echo $record['homeHealth']; ?>
+                </td>
+                <td style="border-bottom: 1px solid #d2d6de;">
+                    <?php echo $record['contactPerson']; ?>
+                </td>
+                <td style="border-bottom: 1px solid #d2d6de;">
+                    <?php echo $record['phone']; ?>
                 </td>
             </tr>
 

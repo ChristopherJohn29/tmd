@@ -9,10 +9,11 @@
                 </p>
             </div>
             <div class="pull-right text-right">
-                <a href="{{ site_url("patient_management/DFV/print/#{ year }/#{ month }/#{ day }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-                <a href="{{ site_url("patient_management/DFV/pdf/#{ year }/#{ month }/#{ day }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
+                <a href="{{ site_url("patient_management/DFV/print/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+                <a href="{{ site_url("patient_management/DFV/pdf/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
             </div>
         </div>
+
         
         <table id="dfv-list" class="table no-margin table-hover">
             <thead>
@@ -32,14 +33,14 @@
                 {% for record in records %}
 
                     <tr>
-                        <td>{{ record.patient_name }}</td>
-                        <td>{{ record.get_date_format(record.pt_dateRef) }}</td>
-                        <td>{{ record.get_date_format(record.pt_dateOfService) }}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ record['patientName'] }}</td>
+                        <td>{{ record['refDate'] }}</td>
+                        <td>{{ record['dos'] }}</td>
+                        <td>{{ record['homeHealth'] }}</td>
+                        <td>{{ record['contactPerson'] }}</td>
+                        <td>{{ record['phone'] }}</td>
                         <td width="80px">
-                            <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}" title=""><span class="label label-primary">View</span></a>
+                            <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ record['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
                         </td>
                     </tr>
 
