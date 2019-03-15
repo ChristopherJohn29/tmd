@@ -8,9 +8,8 @@
 
 	{% for result in results %}
 
-		<h3><a target="_blank" {{ result['url'] }}>{{ result['moduleName'] }}</a></h3>
 		<p>
-			<strong>Name:</strong> {{ result['name'] }}<br>
+			<a target="_blank" {{ result['url'] }}>{{ result['name'] }}</a><br>
 			<strong>{{ result['value']['field'] }}:</strong> {{ result['value']['value'] }}
 		</p>
 

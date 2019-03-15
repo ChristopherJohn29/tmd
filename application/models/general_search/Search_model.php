@@ -18,36 +18,41 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 		$results = [];
 		$user_access_module = $this->access_modules[$this->session->userdata('user_roleID')];
 
+		$searchTerm = $this->input->post('q');
+		if (substr_count($searchTerm, '/') == 2) {
+			$searchTerm = date_format(date_create($searchTerm), 'Y-m-d');
+		}
+
 		if (in_array('patient', $user_access_module)) {
-			$patient_module = $this->search_patient_module($this->input->post('q'));
+			$patient_module = $this->search_patient_module($searchTerm);
 			if ( ! empty($patient_module)) {
 				$results['patient'] = $patient_module;
 			}
 		}
 
 		if (in_array('provider', $user_access_module)) {
-			$provider_module = $this->search_provider_module($this->input->post('q'));
+			$provider_module = $this->search_provider_module($searchTerm);
 			if ( ! empty($provider_module)) {
 				$results['provider'] = $provider_module;
 			}
 		}
 
 		if (in_array('facilities', $user_access_module)) {
-			$homehealth_module = $this->search_homehealth_module($this->input->post('q'));
+			$homehealth_module = $this->search_homehealth_module($searchTerm);
 			if ( ! empty($homehealth_module)) {
 				$results['facilities'] = $homehealth_module;
 			}
 		}
 
 		if (in_array('user', $user_access_module)) {
-			$user_module = $this->search_user_module($this->input->post('q'));
+			$user_module = $this->search_user_module($searchTerm);
 			if ( ! empty($user_module)) {
 				$results['user'] = $user_module;
 			}
 		}
 
 		if (in_array('routesheet', $user_access_module)) {
-			$routesheet_module = $this->search_routesheet_module($this->input->post('q'));
+			$routesheet_module = $this->search_routesheet_module($searchTerm);
 			if ( ! empty($routesheet_module)) {
 				$results['routesheet'] = $routesheet_module;
 			}

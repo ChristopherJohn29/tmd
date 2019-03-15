@@ -25,19 +25,25 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 		foreach($this->results as $moduleName => $result) {		
 
 			if ($moduleName == 'patient') {
+				$patient_list = [];
+
 				foreach ($result as $key => $value) {
+					if (in_array($value['patient_name'], $patient_list)) {
+						continue;
+					}
+
 					$display[] = [
-						'moduleName' => ucfirst($moduleName),
 						'name' => $value['patient_name'],
 						'url' => 'href=patient_management/profile/details/' . $value['patient_id'],
 						'value' => $this->get_patient_keyword($value)
 					];
+
+					$patient_list[] = $value['patient_name'];
 				}
 			}
 			else if ($moduleName == 'provider') {
 				foreach ($result as $key => $value) {
 					$display[] = [
-						'moduleName' => ucfirst($moduleName),
 						'name' => $value['provider_firstname'] . ' ' . $value['provider_lastname'],
 						'url' => 'href=provider_management/profile/details/' . $value['provider_id'],
 						'value' => $this->get_provider_keyword($value)
@@ -47,7 +53,6 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			else if ($moduleName == 'facilities') {
 				foreach ($result as $key => $value) {
 					$display[] = [
-						'moduleName' => ucfirst($moduleName),
 						'name' => $value['hhc_name'],
 						'url' => '',
 						'value' => $this->get_facilities_keyword($value)
@@ -57,7 +62,6 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			else if ($moduleName == 'user') {
 				foreach ($result as $key => $value) {
 					$display[] = [
-						'moduleName' => ucfirst($moduleName),
 						'name' => $value['user_firstname'] . ' ' . $value['user_lastname'],
 						'url' => '',
 						'value' => $this->get_user_keyword($value)
@@ -67,7 +71,6 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			else if ($moduleName == 'routesheet') {
 				foreach ($result as $key => $value) {
 					$display[] = [
-						'moduleName' => ucfirst($moduleName),
 						'name' => $value['provider_firstname'] . ' ' . $value['provider_lastname'],
 						'url' => 'href=provider_route_sheet_management/route_sheet/details/' . $value['prs_id'],
 						'value' => $this->get_routesheet_keyword($value)
