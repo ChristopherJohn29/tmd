@@ -118,7 +118,6 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 			$page_data['records'][] = [
 				'patient_id' => $record->patient_id,
 				'patientName' => $record->patient_name,
-				'refDate' => $record->get_date_format($record->pt_dateRef),
 				'dos' => $record->get_date_format($record->pt_dateOfService),
 				'homeHealth' => $patient_info->hhc_name,
 				'contactPerson' => $patient_info->hhc_contact_name,

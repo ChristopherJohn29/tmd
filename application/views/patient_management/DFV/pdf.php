@@ -11,7 +11,6 @@ Total: <?php echo  $total; ?><br>
     <thead>
         <tr>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Patient Name</th>
-            <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Referral Date</th>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Date of Service</th>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Home Health</th>
             <th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8; font-weight:bold;">Contact Person</th>
@@ -26,9 +25,6 @@ Total: <?php echo  $total; ?><br>
             <tr>
                 <td style="border-bottom: 1px solid #d2d6de;">
                     <?php echo $record['patientName']; ?>
-                </td>
-                <td style="border-bottom: 1px solid #d2d6de;">
-                    <?php echo $record['refDate']; ?>
                 </td>
                 <td style="border-bottom: 1px solid #d2d6de;">
                     <?php echo $record['dos']; ?>

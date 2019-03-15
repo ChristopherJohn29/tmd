@@ -22,7 +22,6 @@
             <thead>
                 <tr>
                     <th>Patient Name</th>
-                    <th>Referral Date</th>
                     <th>Date of Service</th>
                     <th>Home Health</th>
                     <th>Contact Person</th>
@@ -36,7 +35,6 @@
 
                     <tr>
                         <td>{{ record['patientName'] }}</td>
-                        <td>{{ record['refDate'] }}</td>
                         <td>{{ record['dos'] }}</td>
                         <td>{{ record['homeHealth'] }}</td>
                         <td>{{ record['contactPerson'] }}</td>
