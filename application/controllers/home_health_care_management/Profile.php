@@ -12,7 +12,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		));
 	}
 
-	public function index()
+	public function index(string $highlight = '')
 	{
 		$this->check_permission('list_hhc');
 
@@ -21,6 +21,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'order_type' => 'DESC'
 		];
 
+		$page_data['highlight'] = $highlight;
 		$page_data['records'] = $this->profile_model->records($params);
 		$page_data['total'] = count($page_data['records']);
 

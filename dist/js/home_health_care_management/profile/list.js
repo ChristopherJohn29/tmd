@@ -7,9 +7,12 @@ $(function () {
       
       button.attr('href', url);
 
-      $("div.toolbar").append(button);      
+      $("div.toolbar").append(button);  
     },
-    "pageLength": 100
+    "pageLength": 100,
+    "search": {
+        "search": $('#highlight').val()
+      }
   });
 
  table

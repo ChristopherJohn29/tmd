@@ -24,6 +24,7 @@
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
+
 			<div class="table-responsive">
 				<table id="" class="table no-margin table-hover">
 
@@ -43,9 +44,9 @@
 					  {% for record in records %}
 						
 						<tr>
-							<td>{{ record.get_fullname }}</td>
-							<td>{{ record.user_email }}</td>
-							<td>{{ record.roles_name }}</td>
+							<td>{{ highlight_phrase(record.get_fullname, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+							<td>{{ highlight_phrase(record.user_email, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+							<td>{{ highlight_phrase(record.roles_name, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
 							<td>
 
 								{% if roles_permission_entity.has_permission_name(['edit_user']) %}

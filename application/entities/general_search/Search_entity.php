@@ -52,19 +52,23 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			}
 			else if ($moduleName == 'facilities') {
 				foreach ($result as $key => $value) {
+					$userKeyword = $this->get_facilities_keyword($value);
+
 					$display[] = [
 						'name' => $value['hhc_name'],
-						'url' => '',
-						'value' => $this->get_facilities_keyword($value)
+						'url' => 'href=home_health_care_management/profile/index/' . $userKeyword['value'],
+						'value' => $userKeyword
 					];
 				}
 			}
 			else if ($moduleName == 'user') {
 				foreach ($result as $key => $value) {
+					$userKeyword = $this->get_user_keyword($value);
+
 					$display[] = [
 						'name' => $value['user_firstname'] . ' ' . $value['user_lastname'],
-						'url' => '',
-						'value' => $this->get_user_keyword($value)
+						'url' => 'href=user_management/profile/index/' . $userKeyword['value'],
+						'value' => $userKeyword
 					];
 				}
 			}
@@ -384,7 +388,6 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			$searchValue['value'] = $data['roles_name'];
 		}
 
-		$this->db->or_like('roles.roles_name', $searchTerm);
 		return $searchValue;
 	}
 
