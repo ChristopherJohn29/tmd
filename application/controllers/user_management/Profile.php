@@ -13,7 +13,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		));
 	}
 
-	public function index()
+	public function index(string $highlight = '')
 	{
 		$this->check_permission('list_user');
 
@@ -37,6 +37,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'return_type' => 'result'
 		];
 		
+		$page_data['highlight'] = $highlight;
 		$page_data['records'] = $this->profile_model->get_records_by_join($params);
 
 		$this->twig->view('user_management/profile/list', $page_data);

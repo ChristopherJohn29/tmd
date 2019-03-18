@@ -28,6 +28,7 @@
                 
                 <div class="table-responsive">
                     <input type="hidden" name="total" value="{{ total }}">
+                    <input type="hidden" id="highlight" value="{{ highlight }}">
 
                     <table id="all-homehealthcare-list" class="table no-margin table-hover">
                         <thead>
@@ -49,12 +50,12 @@
                                 {% for record in records %}
 
                                     <tr>
-                                        <td>{{ record.hhc_name }}</td>
-                                        <td>{{ record.hhc_contact_name }}</td>
-                                        <td>{{ record.hhc_phoneNumber }}</td>
-                                        <td>{{ record.hhc_faxNumber }}</td>
-                                        <td>{{ record.hhc_email }}</td>
-                                        <td>{{ record.hhc_address }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_name, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_contact_name, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_phoneNumber, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_faxNumber, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_email, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_address, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>
 
                                             {% if roles_permission_entity.has_permission_name(['edit_hhc']) %}
