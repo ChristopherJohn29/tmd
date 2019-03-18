@@ -1,16 +1,16 @@
 <section class="sidebar">
 	<!-- sidebar menu: : style can be found in sidebar.less -->
     
-    <form action="#" method="get" class="sidebar-form">
+	 {{ form_open("general_search", {"class": "sidebar-form"}) }}
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="q" class="form-control" placeholder="Search..." required="true">
           <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                   <i class="fa fa-search"></i>
                 </button>
               </span>
         </div>
-      </form>
+  	</form>
     
 	<ul class="sidebar-menu" data-widget="tree">
 		<li class="header">MAIN NAVIGATION</li>

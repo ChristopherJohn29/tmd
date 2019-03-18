@@ -19,7 +19,8 @@ class Twig {
 		'site_url',
 		'set_value',
 		'form_error',
-		'form_open_multipart'
+		'form_open_multipart',
+		'highlight_phrase'
 	];
 
 	private $CI = null;
