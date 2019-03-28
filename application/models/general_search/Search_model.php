@@ -25,6 +25,7 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 
 		if (in_array('patient', $user_access_module)) {
 			$patient_module = $this->search_patient_module($searchTerm);
+
 			if ( ! empty($patient_module)) {
 				$results['patient'] = $patient_module;
 			}
@@ -78,7 +79,7 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 		$this->db->join(
 			'place_of_service',
 			'place_of_service.pos_id = patient.patient_placeOfService',
-			'INNER'
+			'left'
 		);
 
 		$this->db->join(
@@ -204,7 +205,7 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 		$this->db->join(
 			'provider_route_sheet_list',
 			'provider_route_sheet_list.prsl_prsID = provider_route_sheet.prs_id',
-			'inner'
+			'left'
 		);
 
 		$this->db->join(
