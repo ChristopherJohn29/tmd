@@ -30,7 +30,7 @@ Mobiledrs.Routesheet_form_patient_details_edit = (function() {
 				tovEl.html(data);
 				tovEl.find('[value="' + tovIDSel + '"]').attr('selected', 'true');
 			}
-		});		
+		});
 	};
 
 	return {
