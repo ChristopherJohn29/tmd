@@ -79,6 +79,7 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 			var tovEl = $(this).closest('.patient-details-item')
 				.find('[name="prsl_tovID[]"]');
 			var patientTovUrl = tovEl.attr('data-tov_url');
+			var tovIDSel = tovEl.prev().val();
 
 			if (patientID == '') {
 				return false;
@@ -90,6 +91,7 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 				data: '&patientID='+patientID,
 				success: function(data) {
 					tovEl.html(data);
+					tovEl.find('[value="' + tovIDSel + '"]').attr('selected', 'true');
 				}
 			});			
 		});
