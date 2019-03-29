@@ -64,13 +64,10 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		$res = $this->pt_trans_model->records($patient_params);
 
 		$tov_datas = [];
-		if ($type == 'add' && $res) {
+		if ($res) {
 			$tov_datas = (new Type_visit_entity)->get_followup_list();
 		}
-		else if ($type == 'add' && empty($res)) {
-			$tov_datas = Type_visit_entity::get_visits_list();
-		}
-		else if ($type == 'edit') {
+		else {
 			$tov_datas = Type_visit_entity::get_visits_list();
 		}
 
