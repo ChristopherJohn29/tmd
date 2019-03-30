@@ -143,6 +143,7 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 	{
 		$this->db->like('provider.provider_firstname', $searchTerm);
 		$this->db->or_like('provider.provider_lastname', $searchTerm);
+		$this->db->or_like("CONCAT_WS(' ', provider.provider_firstname, provider.provider_lastname)", $searchTerm);
 		$this->db->or_like('provider.provider_contactNum', $searchTerm);
 		$this->db->or_like('provider.provider_email', $searchTerm);
 		$this->db->or_like('provider.provider_address', $searchTerm);
@@ -214,12 +215,26 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 			'left'
 		);
 
+		$this->db->join(
+			'patient',
+			'patient.patient_id = provider_route_sheet_list.prsl_patientID',
+			'left'
+		);
+
 		$this->db->like('provider_route_sheet.prs_dateOfService', $searchTerm);
 
 		$this->db->or_like('provider_route_sheet_list.prsl_fromTime', $searchTerm);
 		$this->db->or_like('provider_route_sheet_list.prsl_toTime', $searchTerm);
 		$this->db->or_like('provider_route_sheet_list.prsl_notes', $searchTerm);
 		$this->db->or_like('provider_route_sheet_list.prsl_dateRef', $searchTerm);
+
+		$this->db->or_like('provider.provider_firstname', $searchTerm);
+		$this->db->or_like('provider.provider_lastname', $searchTerm);
+		$this->db->or_like("CONCAT_WS(' ', provider.provider_firstname, provider.provider_lastname)", $searchTerm);
+
+		$this->db->or_like('patient.patient_name', $searchTerm);
+
+		$this->db->group_by("provider_route_sheet_list.prsl_prsID");
 
 		$query = $this->db->get('provider_route_sheet');
 

@@ -25,6 +25,12 @@
                     <p style="margin-bottom:20px;">
                         <span style="font-size:15px;"><a target="_blank" {{ result['url'] }}>{{ result['name'] }}</a></span><br>
                         <strong>{{ result['value']['field'] }}:</strong> {{ result['value']['value'] }}
+
+                        {% if result['value']['dateField'] is defined %}
+                        	<br>
+                        	<strong>{{ result['value']['dateField'] }}:</strong> {{ result['value']['dateValue'] }}
+
+                        {% endif %}
                     </p>
 
                 {% endfor %}
