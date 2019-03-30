@@ -428,19 +428,25 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 		}
 		else if (stripos($data['provider_firstname'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Provider firstname';
-			$searchValue['value'] =$data['provider_firstname'];
+			$searchValue['value'] = $data['provider_firstname'];
+			$searchValue['dateField'] = 'Date of Service';
+			$searchValue['dateValue'] = date_format(date_create($data['prs_dateOfService']), 'm/d/Y');
 		}
 		else if (stripos($data['provider_lastname'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Provider lastname';
 			$searchValue['value'] = $data['provider_lastname'];
+			$searchValue['dateField'] = 'Date of Service';
+			$searchValue['dateValue'] = date_format(date_create($data['prs_dateOfService']), 'm/d/Y');
 		}
 		else if (stripos($provider_fullname, $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Provider name';
-			$searchValue['value'] = $provider_fullname;	
+			$searchValue['value'] = $provider_fullname;
+			$searchValue['dateField'] = 'Date of Service';
+			$searchValue['dateValue'] = date_format(date_create($data['prs_dateOfService']), 'm/d/Y');
 		}
 		else if (stripos($data['patient_name'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Patient name';
-			$searchValue['value'] = $data['patient_name'];	
+			$searchValue['value'] = $data['patient_name'];
 		}
 
 		return $searchValue;
