@@ -245,6 +245,8 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			'value' => ''
 		];
 
+		$provider_fullname = $data['provider_firstname'] . ' ' . $data['provider_lastname'];
+
 		if (stripos($data['provider_firstname'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Firstname';
 			$searchValue['value'] = $data['provider_firstname'];
@@ -252,6 +254,10 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 		else if (stripos($data['provider_lastname'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Lastname';
 			$searchValue['value'] = $data['provider_lastname'];
+		}
+		else if (stripos($provider_fullname, $this->searchTerm) !== FALSE) {
+			$searchValue['field'] = 'Provider fullname';
+			$searchValue['value'] = $provider_fullname;
 		}
 		else if (stripos($data['provider_contactNum'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Contact #';
@@ -398,6 +404,8 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			'value' => ''
 		];
 
+		$provider_fullname = $data['provider_firstname'] . ' ' . $data['provider_lastname'];
+
 		if (stripos($data['prs_dateOfService'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Date of Service';
 			$searchValue['value'] = $data['prs_dateOfService'];
@@ -417,6 +425,22 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 		else if (stripos($data['prsl_dateRef'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Date Referral';
 			$searchValue['value'] = $data['prsl_dateRef'];
+		}
+		else if (stripos($data['provider_firstname'], $this->searchTerm) !== FALSE) {
+			$searchValue['field'] = 'Provider firstname';
+			$searchValue['value'] =$data['provider_firstname'];
+		}
+		else if (stripos($data['provider_lastname'], $this->searchTerm) !== FALSE) {
+			$searchValue['field'] = 'Provider lastname';
+			$searchValue['value'] = $data['provider_lastname'];
+		}
+		else if (stripos($provider_fullname, $this->searchTerm) !== FALSE) {
+			$searchValue['field'] = 'Provider name';
+			$searchValue['value'] = $provider_fullname;	
+		}
+		else if (stripos($data['patient_name'], $this->searchTerm) !== FALSE) {
+			$searchValue['field'] = 'Patient name';
+			$searchValue['value'] = $data['patient_name'];	
 		}
 
 		return $searchValue;
