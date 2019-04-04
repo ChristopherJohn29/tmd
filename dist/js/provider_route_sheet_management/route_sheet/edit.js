@@ -13,10 +13,12 @@ Mobiledrs.Routesheet_form_patient_details_edit = (function() {
 
 	var getPatientVisitRecord = function(el) {
 		var patientID = $(el).prev().val();
-		var tovEl = $(el).closest('.patient-details-item')
+		var tovDropDwnEl = $(el).closest('.patient-details-item')
 			.find('[name="prsl_tovID[]"]');
-		var patientTovUrl = tovEl.attr('data-tov_url');
-		var tovIDSel = tovEl.prev().val();
+		var tovElCont = tovDropDwnEl.parent();
+		var patientTovUrl = tovDropDwnEl.attr('data-tov_url');
+		var tovIDSel = tovElCont.find('[name="prsl_tovIDSel"]').val();
+		var patientTransID = tovElCont.find('#prsl_patientID').val();
 
 		if (patientID == '') {
 			return false;
@@ -25,10 +27,10 @@ Mobiledrs.Routesheet_form_patient_details_edit = (function() {
 		$.ajax({
 			method: 'GET',
 			url: window.location.origin + patientTovUrl,
-			data: '&patientID='+patientID,
+			data: '&patientID='+patientID + '&patientTransID=' + patientTransID,
 			success: function(data) {
-				tovEl.html(data);
-				tovEl.find('[value="' + tovIDSel + '"]').attr('selected', 'true');
+				tovDropDwnEl.html(data);
+				tovDropDwnEl.find('[value="' + tovIDSel + '"]').attr('selected', 'true');
 			}
 		});
 	};
