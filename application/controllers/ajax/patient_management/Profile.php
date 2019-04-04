@@ -68,7 +68,7 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		];
 
 		$initialTrans = null;
-		if ($type == 'edit') {
+		if ($type == 'edit' && ! empty($this->input->get('patientTransID'))) {
 			$initial_params = [
 				'key' => 'patient_transactions.pt_id',
 				'value' => $this->input->get('patientTransID')
@@ -88,7 +88,8 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 				$tov_datas = Type_visit_entity::get_visits_list();
 			}	
 		} else {
-			if ( ! empty($initialTrans) && in_array($initialTrans->pt_tovID, $initial_list)) {
+			if ((! empty($initialTrans) && in_array($initialTrans->pt_tovID, $initial_list)) ||
+				($type == 'edit' && empty($this->input->get('patientTransID')))) {
 				$tov_datas = Type_visit_entity::get_visits_list();
 			}
 			else {
