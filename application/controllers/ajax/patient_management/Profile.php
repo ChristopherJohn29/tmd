@@ -47,6 +47,12 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 	public function get_tov($type = 'add')
 	{
+		$initial_list = [
+			Type_visit_entity::INITIAL_VISIT_HOME, 
+			Type_visit_entity::INITIAL_VISIT_FACILITY, 
+			Type_visit_entity::INITIAL_VISIT_OFFICE
+		];
+
 		$patient_params = [
 			'where' => [
 				[
@@ -57,19 +63,39 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			],
 			'where_in' => [
 				'column' => 'patient_transactions.pt_tovID',
-				'values' => [Type_visit_entity::INITIAL_VISIT_HOME, Type_visit_entity::INITIAL_VISIT_FACILITY, Type_visit_entity::INITIAL_VISIT_OFFICE]
+				'values' => $initial_list
 			]
 		];
 
-		$res = $this->pt_trans_model->records($patient_params);
+		$initialTrans = null;
+		if ($type == 'edit' && ! empty($this->input->get('patientTransID'))) {
+			$initial_params = [
+				'key' => 'patient_transactions.pt_id',
+				'value' => $this->input->get('patientTransID')
+			];
 
+			$initialTrans = $this->pt_trans_model->record($initial_params);
+		}
+
+		$patientTrans = $this->pt_trans_model->records($patient_params);
+		
 		$tov_datas = [];
-		if ($res) {
-			$tov_datas = (new Type_visit_entity)->get_followup_list();
-		}
-		else {
-			$tov_datas = Type_visit_entity::get_visits_list();
-		}
+		if ($type == 'add') {
+			if ($patientTrans) {
+				$tov_datas = (new Type_visit_entity)->get_followup_list();
+			}
+			else {
+				$tov_datas = Type_visit_entity::get_visits_list();
+			}	
+		} else {
+			if ((! empty($initialTrans) && in_array($initialTrans->pt_tovID, $initial_list)) ||
+				($type == 'edit' && empty($this->input->get('patientTransID')))) {
+				$tov_datas = Type_visit_entity::get_visits_list();
+			}
+			else {
+				$tov_datas = (new Type_visit_entity)->get_followup_list();
+			}
+		}		
 
 		$tov_list = '<option value="">Select</option>';
 
