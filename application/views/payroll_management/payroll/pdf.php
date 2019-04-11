@@ -51,18 +51,19 @@
             
             <p style="font-size:8px; color: gray; margin-bottom:10px; margin-left:5px;">NOTES</p>
             
-            <span style="font-size: 7px;">
-			<?php if ( ! empty($notes)): ?>
+            <div style="font-size: 7px;">
 
-				<?php echo $notes; ?>
+				<?php if ( ! empty($notes)): ?>
 
-			<?php else: ?>
+					<?php echo nl2br($notes); ?>
 
-            There are no additional notes.
+				<?php else: ?>
 
-			<?php endif; ?>
+	            There are no additional notes.
+
+				<?php endif; ?>
                 
-            </span>
+            </div>
             
 		</td>
         
