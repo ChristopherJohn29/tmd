@@ -320,7 +320,7 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 
 		} elseif ($submit_type == 'pdf') {
 			$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf', $page_data, true);
-
+			$this->pdf->page_orientation = 'L';
 			$this->pdf->generate($html, $filename);
 		}
 	}
