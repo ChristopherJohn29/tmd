@@ -293,6 +293,7 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			$emailTemplate = $this->load->view('provider_route_sheet_management/route_sheet/email_template', $page_data, true);
 
 			$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf', $page_data, true);
+			$this->pdf->page_orientation = 'L';
 			$this->pdf->generate_as_attachement($html, $tmpDir . $filename);
 
 			$this->email->from('info@themobiledrs.com', 'The MobileDrs');
