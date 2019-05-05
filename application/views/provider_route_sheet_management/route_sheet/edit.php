@@ -82,7 +82,7 @@
 									
 										<label class="control-label">Date of Service <span>*</span></label>
 										<input type="hidden" name="currentDate" value="{{ current_date }}">
-										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prs_dateOfService" value="{{ set_value('prs_dateOfService', record.get_date_format(record.prs_dateOfService)) }}">
+										<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prs_dateOfService" value="{{ set_value('prs_dateOfService', record.get_date_format(record.prs_dateOfService)) }}" data-ajaxUrl="{{ site_url('ajax/provider_route_sheet_management/route_sheet/check_provider_routesheet_by_date') }}">
 										
 									</div>
 

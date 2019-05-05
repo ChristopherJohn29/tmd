@@ -56,7 +56,10 @@ Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 	};
 
 	var dateOfService = function() {
-		$('[name="prs_dateOfService"]').on('change', function() {
+		var dateOfServiceEl = $('[name="prs_dateOfService"]');
+		var origDateVal = (origDateVal == null && dateOfServiceEl.val() != '') ? dateOfServiceEl.val() : null;
+
+		dateOfServiceEl.on('change', function() {
 			var dateOfService = $(this);
 			var dateOfServiceVal = dateOfService.val().split('/');
 			var dateOfServiceFormat = dateOfServiceVal[2] + '-' + 
@@ -72,6 +75,29 @@ Mobiledrs.Routesheet_form_patient_details_validator = (function() {
 
 				return;
 			}
+
+			var providerID = $('[name="prs_providerID"]').val();
+			var providerName = $('[name="prs_providerID"]').next().val();
+
+			if (dateOfService.val() == origDateVal) {
+				return;
+			}
+
+			$.ajax({
+				"method": 'get',
+				"url": dateOfService.attr('data-ajaxUrl'),
+				"data": '&providerID=' + providerID + '&dateOfService=' + dateOfService.val() + '&providerName=' + providerName,
+				success: function(data) {
+					var result = JSON.parse(data);
+					if (result.state == true) {
+						alert(result.msg);
+
+						dateOfService.val('');
+
+						return;
+					}
+				}				
+			});
 		});
 	};
 
