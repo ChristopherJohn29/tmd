@@ -56,7 +56,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		$dateList = '';
 		foreach(range((int) $fromDate, (int) $toDate) as $dateDay) {
 			$date = implode('-', [$year, $month, $dateDay]);
-			$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 55 DAY)';	
+			$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 50 DAY)';	
 		}
 
 		$transaction_params = [
