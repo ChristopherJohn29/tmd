@@ -188,29 +188,47 @@ class Superbill_entity {
 			{
 				$summary['certification'] += 1;
 				$summary['total'] += 1;
+
+				if ($cpo->ptcpo_firstMonthCPO)
+				{
+					$summary['first_Month_CPO'] += 1;
+					$summary['total'] += 1;
+				}
+
+				if ($cpo->ptcpo_secondMonthCPO)
+				{
+					$summary['second_Month_CPO'] += 1;
+					$summary['total'] += 1;
+				}
+
+				if ($cpo->ptcpo_thirdMonthCPO)
+				{
+					$summary['third_Month_CPO'] += 1;
+					$summary['total'] += 1;
+				}
 			} 
 			else if ($cpo->ptcpo_status == CPO_entity::RECERTIFICATION) 
 			{
 				$summary['recertification'] += 1;
 				$summary['total'] += 1;
-			}
 
-			if ($cpo->ptcpo_firstMonthCPO)
-			{
-				$summary['first_Month_CPO'] += 1;
-				$summary['total'] += 1;
-			}
+				if ($cpo->ptcpo_firstMonthCPO)
+				{
+					$summary['Refirst_Month_CPO'] += 1;
+					$summary['total'] += 1;
+				}
 
-			if ($cpo->ptcpo_secondMonthCPO)
-			{
-				$summary['second_Month_CPO'] += 1;
-				$summary['total'] += 1;
-			}
+				if ($cpo->ptcpo_secondMonthCPO)
+				{
+					$summary['Resecond_Month_CPO'] += 1;
+					$summary['total'] += 1;
+				}
 
-			if ($cpo->ptcpo_thirdMonthCPO)
-			{
-				$summary['third_Month_CPO'] += 1;
-				$summary['total'] += 1;
+				if ($cpo->ptcpo_thirdMonthCPO)
+				{
+					$summary['Rethird_Month_CPO'] += 1;
+					$summary['total'] += 1;
+				}
 			}
 		}
 

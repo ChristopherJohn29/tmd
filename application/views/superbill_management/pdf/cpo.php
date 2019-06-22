@@ -81,11 +81,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th style="border-bottom: 1px solid #d2d6de;">G0179</th>
-						<td style="border-bottom: 1px solid #d2d6de;">Recertification</td>
-						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['recertification'] ; ?></td>
-					</tr>
 
 					<tr>
 						<th style="border-bottom: 1px solid #d2d6de;">G0180</th>
@@ -110,6 +105,31 @@
 						<td style="border-bottom: 1px solid #d2d6de;">3rd Month CPO</td>
 						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['third_Month_CPO'] ; ?></td>
 					</tr>
+
+					<tr>
+						<th style="border-bottom: 1px solid #d2d6de;">G0179</th>
+						<td style="border-bottom: 1px solid #d2d6de;">Recertification</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['recertification'] ; ?></td>
+					</tr>
+
+					<tr>
+						<th style="border-bottom: 1px solid #d2d6de;">G0181</th>
+						<td style="border-bottom: 1px solid #d2d6de;">1st Month CPO</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['Refirst_Month_CPO'] ; ?></td>
+					</tr>
+					
+					<tr>
+						<th style="border-bottom: 1px solid #d2d6de;">G0181</th>
+						<td style="border-bottom: 1px solid #d2d6de;">2nd Month CPO</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['Resecond_Month_CPO'] ; ?></td>
+					</tr>
+					
+					<tr>
+						<th style="border-bottom: 1px solid #d2d6de;">G0181</th>
+						<td style="border-bottom: 1px solid #d2d6de;">3rd Month CPO</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['Rethird_Month_CPO'] ; ?></td>
+					</tr>
+
 					<tr class="total">
 						<th colspan="2" style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px">Total</span></th>
                         <th style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px; font-weight:bold;"><?php echo  $summary['total'] ; ?></span></th>

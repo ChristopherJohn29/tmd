@@ -18,11 +18,11 @@
     <tbody>
         <tr>
             <td>CPO-485</td>
-            <td class="text-center">{{ summary['date_Signed'] }}</td>
+            <td class="text-center">{{ summary['certification'] }}</td>
             <td class="text-center">{{ summary['first_Month_CPO'] }}</td>
             <td class="text-center">{{ summary['second_Month_CPO'] }}</td>
             <td class="text-center">{{ summary['third_Month_CPO'] }}</td>
-            <td class="text-center">{{ summary['Recert_Date_Signed'] }}</td>
+            <td class="text-center">{{ summary['recertification'] }}</td>
             <td class="text-center">{{ summary['Refirst_Month_CPO'] }}</td>
             <td class="text-center">{{ summary['Resecond_Month_CPO'] }}</td>
             <td class="text-center">{{ summary['Rethird_Month_CPO'] }}</td>
