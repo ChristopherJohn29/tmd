@@ -103,13 +103,8 @@
 	             				<table class="table no-margin">
 						
 					 				<tbody>
-										<tr>
-											<th>G0179</th>
-											<td>Recertification</td>
-											<td>{{ summary['recertification'] }}</td>
-										</tr>
 
-										<tr>
+					 					<tr>
 											<th>G0180</th>
 											<td>Certification</td>
 											<td>{{ summary['certification'] }}</td>
@@ -132,6 +127,31 @@
 											<td>3rd Month CPO</td>
 											<td>{{ summary['third_Month_CPO'] }}</td>
 										</tr>
+
+										<tr>
+											<th>G0179</th>
+											<td>Recertification</td>
+											<td>{{ summary['recertification'] }}</td>
+										</tr>
+
+										<tr>
+											<th>G0181</th>
+											<td>1st Month CPO</td>
+											<td>{{ summary['Refirst_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>2nd Month CPO</td>
+											<td>{{ summary['Resecond_Month_CPO'] }}</td>
+										</tr>
+										
+										<tr>
+											<th>G0181</th>
+											<td>3rd Month CPO</td>
+											<td>{{ summary['Rethird_Month_CPO'] }}</td>
+										</tr>
+										
 										<tr class="total">
 											<th colspan="2">TOTAL</th>
 											<th>{{ summary['total'] }}</th>
