@@ -169,6 +169,8 @@ class Superbill_entity {
 	public function compute_CPO() : array
 	{
 		$summary = [
+			'certification' => 0,
+			'recertification' => 0,
 			'date_Signed' => 0,
 			'first_Month_CPO' => 0,
 			'second_Month_CPO' => 0,
@@ -182,9 +184,14 @@ class Superbill_entity {
 
 		foreach ($this->CPOs as $cpo)
 		{
-			if ($cpo->ptcpo_dateSigned)
+			if ($cpo->ptcpo_status == CPO_entity::CERTIFICATION)
 			{
-				$summary['date_Signed'] += 1;
+				$summary['certification'] += 1;
+				$summary['total'] += 1;
+			} 
+			else if ($cpo->ptcpo_status == CPO_entity::RECERTIFICATION) 
+			{
+				$summary['recertification'] += 1;
 				$summary['total'] += 1;
 			}
 
