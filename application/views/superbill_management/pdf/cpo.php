@@ -82,9 +82,15 @@
 				</thead>
 				<tbody>
 					<tr>
+						<th style="border-bottom: 1px solid #d2d6de;">G0179</th>
+						<td style="border-bottom: 1px solid #d2d6de;">Recertification</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['recertification'] ; ?></td>
+					</tr>
+
+					<tr>
 						<th style="border-bottom: 1px solid #d2d6de;">G0180</th>
-						<td style="border-bottom: 1px solid #d2d6de;">485 Signed</td>
-						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['date_Signed'] ; ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;">Certification</td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo  $summary['certification'] ; ?></td>
 					</tr>
 					
 					<tr>

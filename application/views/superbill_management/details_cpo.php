@@ -104,9 +104,15 @@
 						
 					 				<tbody>
 										<tr>
+											<th>G0179</th>
+											<td>Recertification</td>
+											<td>{{ summary['recertification'] }}</td>
+										</tr>
+
+										<tr>
 											<th>G0180</th>
-											<td>485 Signed</td>
-											<td>{{ summary['date_Signed'] }}</td>
+											<td>Certification</td>
+											<td>{{ summary['certification'] }}</td>
 										</tr>
 										
 										<tr>
