@@ -60,6 +60,23 @@
 										</div>
 										
 									</div>									
+
+									<div class="col-md-12 form-group">
+										<div class="row">
+											<div class="col-lg-6">
+												<label class="control-label">Status <span>*</span></label>
+												<select class="form-control" name="ptcpo_status">
+													<option value="">Select</option>
+													<option value="Certification" {{ cpo.ptcpo_status == 'Certification' ? 'selected=true' : ''}}>Certification</option>
+													<option value="Re-Certification" {{ cpo.ptcpo_status == 'Re-Certification' ? 'selected=true' : ''}}>Re-Certification</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block"></span>
+									</div>
 									
 									<div class="col-md-6 form-group {{ form_error('ptcpo_period') ? 'has-error' : '' }}">
 									
