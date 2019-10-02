@@ -57,6 +57,7 @@
 											<th>Tobacco</th>
 											<th>TCM</th>
 											<th>Provider</th>
+                                            <th>Supervising MD</th>
 											<th>Date of Service</th>
 											<th>Type of Visit</th>
 											<th>Place of Service</th>
@@ -82,6 +83,7 @@
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_tcm) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_provider_fullname }}</td>
+                                                <td></td>
 												<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
 												<td>{{ transaction.get_tov_code(transaction.tov_id) }}</td>
 												<td>{{ POS_entity.get_pos_name(transaction.patient_placeOfService) }}</td>

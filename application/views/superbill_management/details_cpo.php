@@ -41,7 +41,8 @@
 										<tr>
 											<th width="200px">Patient Name</th>
 											<th>ICD-Code Diagnoses</th>
-											<th></th>
+											<th>Supervising MD</th>
+                                            <th></th>
 											<th>Cert Period</th>
 											<th>485 Date Signed</th>
 											<th>1st Month CPO</th>
@@ -67,7 +68,7 @@
 													<td style="{{ borderTopStyle  }}">{{ transaction['patient_name'] }}</td>
 													<td style="{{ borderTopStyle  }}">{{ transaction['icd10'] }}</td>
 												{% endif %}
-
+                                                <td></td>
 												<td style="{{ borderTopStyle  }}">{{ transaction['status'] }}</td>
 												<td style="{{ borderTopStyle  }}">{{ transaction['cert_Period'] }}</td>
 												<td style="{{ borderTopStyle  }}">{{ transaction['date_Signed'] }}</td>
