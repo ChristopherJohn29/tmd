@@ -36,7 +36,7 @@
 					<td width="180px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['icd10']; ?></td>
 				<?php endif; ?>
 
-                <td width="70px" style="<?php echo $borderStyle; ?>"></td>
+                <td width="70px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['supervisingMD_fullname']; ?></td>
 				<td width="70px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['status']; ?></td>
 				<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['cert_Period']; ?></td>
 				<td width="50px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['date_Signed']; ?></td>

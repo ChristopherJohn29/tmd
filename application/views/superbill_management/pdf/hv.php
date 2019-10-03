@@ -26,7 +26,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($transactions as $transaction): ?>
+		<?php foreach($newTransactions as $transaction): ?>
 			<tr>
 				<td width="70px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->patient_name; ?>
@@ -59,7 +59,7 @@
 					<?php echo $transaction->get_provider_fullname(); ?>
 				</td>
                 <td width="50px" style="border-bottom: 1px solid #d2d6de;">
-					
+					<?php echo $transaction->supervisingMD_firstname . ' ' . $transaction->supervisingMD_lastname ?>
 				</td>
 				<td width="50px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_date_format($transaction->pt_dateOfService); ?>

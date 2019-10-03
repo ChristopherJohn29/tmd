@@ -66,7 +66,7 @@
 									
 									<tbody>
 
-										{% for transaction in transactions %}
+										{% for transaction in newTransactions %}
 										
 											<tr>
 												<input type="hidden" name="pt_id[]" value="{{ transaction.pt_id }}">
@@ -81,7 +81,7 @@
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_tcm) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_provider_fullname }}</td>
-                                                <td></td>
+                                                <td>{{ transaction.supervisingMD_firstname ~ ' ' ~ transaction.supervisingMD_lastname }}</td>
 												<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
 												<td>{{ transaction.get_tov_code(transaction.tov_id) }}</td>
 												<td>{{ POS_entity.get_pos_name(transaction.patient_placeOfService) }}</td>

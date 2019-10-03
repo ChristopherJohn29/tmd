@@ -22,7 +22,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($transaction_entity->has_performed_in_list($transactions) as $transaction): ?>
+		<?php foreach($transaction_entity->has_performed_in_list($newTransactions) as $transaction): ?>
 			<tr>
 				<td width="110px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_name; ?></td>
 				<td width="65px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_medicareNum; ?></td>
@@ -31,7 +31,7 @@
 				<td width="60px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->patient_phoneNum; ?></td>
 				<td width="40px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->pt_aw_ippe_code; ?></td>
 				<td width="80px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->get_provider_fullname(); ?></td>
-                <td width="80px" style="border-bottom: 1px solid #d2d6de;"></td>
+                <td width="80px" style="border-bottom: 1px solid #d2d6de;"><?php echo $transaction->supervisingMD_firstname . ' ' . $transaction->supervisingMD_lastname ?></td>
 				<td width="50px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->get_date_format($transaction->pt_dateOfService); ?></td>
 				<td width="40px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $POS_entity->get_pos_name($transaction->patient_placeOfService); ?></td>
 				<td width="90px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->pt_icd10_codes; ?></td>

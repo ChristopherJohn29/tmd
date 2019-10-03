@@ -62,7 +62,7 @@
 										
 										<tbody>
 
-											{% for transaction in transaction_entity.has_performed_in_list(transactions) %}
+											{% for transaction in transaction_entity.has_performed_in_list(newTransactions) %}
 
 												<tr>
 													<input type="hidden" name="pt_id[]" value="{{ transaction.pt_id }}">
@@ -74,7 +74,7 @@
 													<td>{{ transaction.patient_phoneNum }}</td>
 													<td>{{ transaction.pt_aw_ippe_code }}</td>
 													<td>{{ transaction.get_provider_fullname }}</td>
-                                                    <td></td>
+                                                    <td>{{ transaction.supervisingMD_firstname ~ ' ' ~ transaction.supervisingMD_lastname }}</td>
 													<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
 													<td>{{ POS_entity.get_pos_name(transaction.patient_placeOfService) }}</td>
 													<td>{{ transaction.pt_icd10_codes }}</td>

@@ -130,10 +130,12 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 
 		$prof_trans = $this->get_records_by_join($pat_trans_params);
 
+		$newProf_trans = $this->supervising_md_model->get_supervisingMD_details($prof_trans);
+
 		$pat_trans_entity = new \Mobiledrs\entities\superbill_management\Superbill_cpo_pat_trans_entity();
 		$pat_trans_entity->set_display_data(
 			$CPO,
-			$prof_trans
+			$newProf_trans
 		);
 
 		return [

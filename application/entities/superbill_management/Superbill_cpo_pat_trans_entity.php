@@ -42,6 +42,9 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_mileage;
 	protected $pt_aw_billed;
 
+	public $supervisingMD_firstname;
+	public $supervisingMD_lastname;
+
 	private $cpo = null;
 	private $pat_trans = null;
 
@@ -69,7 +72,8 @@ class Superbill_cpo_pat_trans_entity {
 				'patient_name' => '',
 				'icd10' => '',
 				'status' => $cpo->ptcpo_status,
-				'ptcpo_id' => $cpo->ptcpo_id
+				'ptcpo_id' => $cpo->ptcpo_id,
+				'supervisingMD_fullname' => ''
 			];
 
 			foreach ($this->pat_trans as $pat_tran)
@@ -80,6 +84,10 @@ class Superbill_cpo_pat_trans_entity {
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
 					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
+
+					if ( ! empty($pat_tran->supervisingMD_firstname)) {
+						$data[$i]['supervisingMD_fullname'] = $pat_tran->supervisingMD_firstname . ' ' . $pat_tran->supervisingMD_lastname;
+					}
 
 					break;
 				}

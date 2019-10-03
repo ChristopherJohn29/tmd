@@ -68,7 +68,7 @@
 													<td style="{{ borderTopStyle  }}">{{ transaction['patient_name'] }}</td>
 													<td style="{{ borderTopStyle  }}">{{ transaction['icd10'] }}</td>
 												{% endif %}
-                                                <td></td>
+                                                <td>{{ transaction.supervisingMD_fullname }}</td>
 												<td style="{{ borderTopStyle  }}">{{ transaction['status'] }}</td>
 												<td style="{{ borderTopStyle  }}">{{ transaction['cert_Period'] }}</td>
 												<td style="{{ borderTopStyle  }}">{{ transaction['date_Signed'] }}</td>
