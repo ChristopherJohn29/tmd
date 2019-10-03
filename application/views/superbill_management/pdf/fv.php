@@ -8,30 +8,31 @@
 <table style="font-size: 6px;padding: 5px;">
 	<thead>
 		<tr>
-			<th width="80px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Patient Name</th>
-			<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Medicare</th>
+			<th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Patient Name</th>
+			<th width="55px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Medicare</th>
 			<th width="45px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">DOB</th>
 			<th width="80px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Address</th>
-			<th width="55px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Phone</th>
+			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Phone</th>
 			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">AW/IPPE</th>
 			<th width="25px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">ACP</th>
-			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Diabetes</th>
-			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Tobacco</th>
+			<th width="35px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Diabetes</th>
+			<th width="35px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Tobacco</th>
 			<th width="25px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">TCM</th>
-			<th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Provider</th>
-			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Date of Service</th>
-			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Type of Visit</th>
-			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Place of Service</th>
+			<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Provider</th>
+            <th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Supervising MD</th>
+			<th width="45px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Date of Service</th>
+			<th width="35px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Type of Visit</th>
+			<th width="35px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Place of Service</th>
 			<th width="80px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">ICD-Code Diagnoses</th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($transactions as $transaction): ?>
+		<?php foreach($newTransactions as $transaction): ?>
 			<tr>
-				<td width="80px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="70px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->patient_name; ?>
 				</td>
-				<td width="60px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="55px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->patient_medicareNum; ?>
 				</td>
 				<td width="45px" style="border-bottom: 1px solid #d2d6de;">
@@ -40,7 +41,7 @@
 				<td width="80px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->patient_address; ?>
 				</td>
-				<td width="55px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="50px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->patient_phoneNum; ?>
 				</td>
 				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
@@ -49,25 +50,28 @@
 				<td width="25px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_selected_choice_format($transaction->pt_acp) == 'Yes' ? 1 : '0'; ?>
 				</td>
-				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_selected_choice_format($transaction->pt_diabetes) == 'Yes' ? 1 : '0'; ?>
 				</td>
-				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_selected_choice_format($transaction->pt_tobacco) == 'Yes' ? 1 : '0'; ?>
 				</td>
 				<td width="25px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_selected_choice_format($transaction->pt_tcm) == 'Yes' ? 1 : '0'; ?>
 				</td>
-				<td width="70px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="60px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_provider_fullname(); ?>
 				</td>
-				<td width="50px" style="border-bottom: 1px solid #d2d6de;">
+                <td width="50px" style="border-bottom: 1px solid #d2d6de;">
+                    <?php echo $transaction->supervisingMD_firstname . ' ' . $transaction->supervisingMD_lastname ?>
+				</td>
+				<td width="45px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_date_format($transaction->pt_dateOfService); ?>
 				</td>
-				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_tov_code($transaction->tov_id); ?>
 				</td>
-				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $POS_entity->get_pos_name($transaction->patient_placeOfService); ?>
 				</td>
 				<td width="80px" style="border-bottom: 1px solid #d2d6de;">

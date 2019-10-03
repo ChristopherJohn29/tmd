@@ -11,7 +11,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'patient_management/transaction_model',
 			'patient_management/communication_notes_model',
 			'patient_management/CPO_model',
-			'patient_management/POS_model'
+			'patient_management/POS_model',
+			'provider_management/Supervising_md_model'
 		));
 	}
 
@@ -37,6 +38,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('add_pt');
 
 		$page_data['place_of_service'] = $this->POS_model->records();
+		
+		$page_data['supervisingMDs'] = $this->Supervising_md_model->supervisingMD_records();
 
 		$this->twig->view('patient_management/profile/add', $page_data);
 	}
@@ -87,6 +90,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		}
 
 		$page_data['place_of_service'] = $this->POS_model->records();
+
+		$page_data['supervisingMDs'] = $this->Supervising_md_model->supervisingMD_records();
 
 		$this->twig->view('patient_management/profile/edit', $page_data);
 	}
