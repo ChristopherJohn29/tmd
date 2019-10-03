@@ -8,8 +8,9 @@
 <table style="font-size: 7px;padding: 5px;">
 	<thead>
 		<tr>
-			<th width="100px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
-			<th width="240px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ICD-Code Diagnoses</th>
+			<th width="90px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
+			<th width="180px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ICD-Code Diagnoses</th>
+            <th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Supervising MD</th>
 			<th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8"></th>
 			<th width="90px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Cert Period</th>
 			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">485 Date Signed</th>
@@ -31,10 +32,11 @@
 					<td width="100px" style="<?php echo $borderStyle; ?>"></td>
 					<td width="100px" style="<?php echo $borderStyle; ?>"></td>
 				<?php else: ?>
-					<td width="100px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['patient_name']; ?></td>
-					<td width="240px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['icd10']; ?></td>
+					<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['patient_name']; ?></td>
+					<td width="180px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['icd10']; ?></td>
 				<?php endif; ?>
 
+                <td width="70px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['supervisingMD_fullname']; ?></td>
 				<td width="70px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['status']; ?></td>
 				<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['cert_Period']; ?></td>
 				<td width="50px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['date_Signed']; ?></td>

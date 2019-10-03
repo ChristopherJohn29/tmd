@@ -80,6 +80,9 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_placeOfService;
 	protected $patient_supervising_mdID;
 
+	protected $supervisingMD_firstname;
+	protected $supervisingMD_lastname;
+
     public function get_selected_choice_format(string $choice) : string
     {
 		return ($choice == '1') ? 'Yes' : (($choice == '2') ? 'No' : '');

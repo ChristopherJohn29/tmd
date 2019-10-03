@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th>Patient Name</th>
-                            <th>Refferal Date</th>
+                            <th>Referral Date</th>
                             <th>ICD10 - Code Diagnoses</th>
                             <th>Date of Service</th>
                             <th width="120px">Actions</th>

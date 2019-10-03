@@ -15,6 +15,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		$this->load->model(array(
 			'patient_management/CPO_model',
 			'patient_management/profile_model',
+			'provider_management/supervising_md_model',
 			'patient_management/transaction_model',
 			'superbill_management/superbill_model'
 		));
@@ -137,7 +138,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			}
 			else if ($type == 'aw') 
 			{
-				$page_data['transactions'] = $page_data['transaction_entity']->get_notBilledAW($transactions);				
+				$page_data['transactions'] = $page_data['transaction_entity']->get_notBilledAW($transactions);
 			}
 
 			if ( ! empty($page_data['transactions']))
@@ -147,10 +148,13 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 				$summary_func = 'compute_transaction_' . $type . '_summary';
 
 				$page_data['summary'] = $superbill_entity->$summary_func();
+
+				$page_data['newTransactions'] = $this->supervising_md_model->get_supervisingMD_details($page_data['transactions']);
 			}
 			else
 			{
 				$page_data['summary'] = [];
+				$page_data['newTransactions'] = [];
 			}
 		}
 		else if ($type == 'cpo')

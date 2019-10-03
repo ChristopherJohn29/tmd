@@ -41,4 +41,16 @@ class Profile_model extends Mobiledrs\core\MY_Models {
 			'provider_supervising_MD' => $this->record_entity->provider_supervising_MD
 		];
 	}
+
+	public function supervisingMD_records() {
+		return $this->records([
+			'where' => [
+				[
+					'key' => 'provider_supervising_MD',
+					'condition' => '',
+					'value' => '1',
+				]
+			]
+		]);
+	}
 }
