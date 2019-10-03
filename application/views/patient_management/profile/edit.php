@@ -142,7 +142,7 @@
 
 											{% for supervisingMD in supervisingMDs %}
 
-												<option value="{{ supervisingMD.provider_id }}" {{ supervisingMD.provider_id == record.patient_supervising_mdID ? 'selected=true' : '' }}>{{ supervisingMD.provider_firstname ~ supervisingMD.provider_lastname }}</option>
+												<option value="{{ supervisingMD.provider_id }}" {{ supervisingMD.provider_id == record.patient_supervising_mdID ? 'selected=true' : '' }}>{{ supervisingMD.provider_firstname ~ ' ' ~ supervisingMD.provider_lastname }}</option>
 
 											{% endfor %}
 										</select>
