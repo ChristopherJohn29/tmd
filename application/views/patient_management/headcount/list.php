@@ -41,7 +41,7 @@
                     <tr>
                         <td>{{ headcount['patient_name'] }}</td>
                         <td>{{ headcount['provider'] }}</td>
-                        <td></td>
+                        <td>{{ headcount['supervisingMD_firstname'] ~ ' ' ~ headcount['supervisingMD_lastname'] }}</td>
                         <td>{{ headcount['dateOfService'] }}</td>
                         <td>
                             {% if headcount['deductible'] starts with '$' %}

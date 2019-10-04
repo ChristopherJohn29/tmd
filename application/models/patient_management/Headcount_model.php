@@ -76,7 +76,8 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction->get_date_format($transaction->pt_service_billed),
 				'aw_billed' => $transaction->get_date_format($transaction->pt_aw_billed),
 				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
-				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : ''
+				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : '',
+				'pt_supervising_mdID' => $transaction->pt_supervising_mdID
 			];
 		}
 
@@ -125,7 +126,8 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction_details ? $transaction_details->get_date_format($transaction_details->pt_service_billed) : '',
 				'aw_billed' => $transaction_details ? $transaction_details->get_date_format($transaction_details->pt_aw_billed) : '',
 				'visit_billed' => $transaction_details ? $transaction_details->get_date_format($transaction_details->pt_visitBilled) : '',
-				'cpo_billed' => $cpo->get_date_format($cpo->ptcpo_dateBilled)
+				'cpo_billed' => $cpo->get_date_format($cpo->ptcpo_dateBilled),
+				'pt_supervising_mdID' => $transaction_details ? $transaction_details->pt_supervising_mdID : ''
 			];
 		}
 
@@ -196,7 +198,8 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction->get_date_format($transaction->pt_service_billed),
 				'aw_billed' => $transaction->get_date_format($transaction->pt_aw_billed),
 				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
-				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : ''
+				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : '',
+				'pt_supervising_mdID' => $transaction->pt_supervising_mdID
 			];
 		}
 
@@ -267,7 +270,8 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction->get_date_format($transaction->pt_service_billed),
 				'aw_billed' => $transaction->get_date_format($transaction->pt_aw_billed),
 				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
-				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : ''
+				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : '',
+				'pt_supervising_mdID' => $transaction->pt_supervising_mdID
 			];
 		}
 
@@ -338,7 +342,8 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction->get_date_format($transaction->pt_service_billed),
 				'aw_billed' => $transaction->get_date_format($transaction->pt_aw_billed),
 				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
-				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : ''
+				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : '',
+				'pt_supervising_mdID' => $transaction->pt_supervising_mdID
 			];
 		}
 
@@ -404,7 +409,8 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction->get_date_format($transaction->pt_service_billed),
 				'aw_billed' => $transaction->get_date_format($transaction->pt_aw_billed),
 				'visit_billed' => $transaction->get_date_format($transaction->pt_visitBilled),
-				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : ''
+				'cpo_billed' => $cpo_details ? $cpo_details->get_date_format($cpo_details->ptcpo_dateBilled) : '',
+				'pt_supervising_mdID' => $transaction->pt_supervising_mdID
 			];
 		}
 
