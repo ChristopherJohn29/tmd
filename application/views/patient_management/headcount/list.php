@@ -22,6 +22,7 @@
                 <tr>
                     <th>Patient Name</th>
                     <th>Provider</th>
+                    <th>Supervising MD</th>
                     <th>Date of Service</th>
                     <th>Deductible</th>
                     <th>Home Health</th>
@@ -40,6 +41,7 @@
                     <tr>
                         <td>{{ headcount['patient_name'] }}</td>
                         <td>{{ headcount['provider'] }}</td>
+                        <td></td>
                         <td>{{ headcount['dateOfService'] }}</td>
                         <td>
                             {% if headcount['deductible'] starts with '$' %}
