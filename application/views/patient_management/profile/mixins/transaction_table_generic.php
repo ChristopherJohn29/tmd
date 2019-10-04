@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Provider</th>
+                <th>Superviding MD</th>
                 <th>Date of Service</th>
                 <th>Deductible</th>
                 <th>AW/IPPE</th>
@@ -16,6 +17,7 @@
         <tbody>
             <tr>
                 <td>{{ transaction.get_provider_fullname() }}</td>
+                <td>{{ transaction.supervisingMD_firstname ~ ' ' ~ transaction.supervisingMD_lastname }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
                 <td>{{ transaction.pt_deductible }}</td>
                 <td>{{ transaction.pt_aw_ippe_code }}</td>

@@ -29,6 +29,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_dateCreated;
 	protected $pt_mileage;
 	protected $pt_aw_billed;
+	protected $pt_supervising_mdID;
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -78,7 +79,6 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
 	protected $patient_placeOfService;
-	protected $patient_supervising_mdID;
 
 	protected $supervisingMD_firstname;
 	protected $supervisingMD_lastname;

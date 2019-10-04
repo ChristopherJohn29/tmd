@@ -39,13 +39,12 @@ class Supervising_md_model extends Mobiledrs\core\MY_Models {
 		foreach ($datas as $data) {
 			$tmpData = $data;
 
-			$supervisingMD_detail = $this->get_supervisingMD_detail($data->patient_supervising_mdID);
+			$supervisingMD_detail = $this->get_supervisingMD_detail($data->pt_supervising_mdID);
 
 			if ($supervisingMD_detail) {
 				$tmpData->supervisingMD_firstname = $supervisingMD_detail->provider_firstname;
 				$tmpData->supervisingMD_lastname = $supervisingMD_detail->provider_lastname;	
 			}
-			
 
 			$newDatas[] = $tmpData;
 		}

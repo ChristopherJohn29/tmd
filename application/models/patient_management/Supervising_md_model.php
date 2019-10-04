@@ -45,7 +45,7 @@ class Supervising_md_model extends \Mobiledrs\core\MY_Models {
 	        		'value' => $newToDate
         		],
         		[
-					'key' => 'patient.patient_supervising_mdID',
+					'key' => 'patient_transactions.pt_supervising_mdID',
 					'condition' => '=',
 	        		'value' => $this->input->post('patient_supervising_mdID')
         		]

@@ -133,22 +133,6 @@
 									<div class="col-md-6 has-error">
 										<span class="help-block">{{ form_error('patient_caregiver_family') }}</span>
 									</div>
-
-									<div class="col-md-6 form-group {{ form_error('patient_supervising_MD') ? 'has-error' : '' }}">
-									
-										<label class="control-label">Supervising MD</label>
-										<select class="form-control" name="patient_supervising_mdID">
-											<option value="">Select</option>
-
-											{% for supervisingMD in supervisingMDs %}
-
-												<option value="{{ supervisingMD.provider_id }}">{{ supervisingMD.provider_firstname ~ ' ' ~ supervisingMD.provider_lastname }}</option>
-
-											{% endfor %}
-											
-										</select>
-																				
-									</div>
 									
 									<div class="col-md-12 subheader">
 										<p class="lead ">Home Health Care</p>

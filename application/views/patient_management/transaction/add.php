@@ -57,6 +57,26 @@
 									
 									<div class="form-container">
 
+										<div class="col-md-12 form-group">
+										
+											<label class="control-label">Supervising MD <span>*</span></label>
+											<select class="form-control" style="width: 100%;" required="true" name="pt_supervising_mdID">
+												<option value="" selected="true">Select</option>
+
+												{% for supervisingMD in supervisingMDs %}
+
+													<option value="{{ supervisingMD.provider_id }}">
+														{{ supervisingMD.provider_firstname ~ ' ' ~ supervisingMD.provider_lastname }}
+													</option>
+
+												{% endfor %}
+
+											</select>
+
+											<br>
+											
+										</div>
+
 										<div class="col-md-6 form-group  {{ form_error('pt_dateRef') ? 'has-error' : '' }}">
 											
 											<label class="control-label">Referral Date</label>
