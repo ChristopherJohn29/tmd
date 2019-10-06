@@ -8,11 +8,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$this->load->model(array(
 			'patient_management/profile_model',
+			'provider_management/supervising_md_model',
 			'patient_management/transaction_model',
 			'patient_management/communication_notes_model',
 			'patient_management/CPO_model',
-			'patient_management/POS_model',
-			'provider_management/Supervising_md_model'
+			'patient_management/POS_model'
 		));
 	}
 
@@ -38,8 +38,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('add_pt');
 
 		$page_data['place_of_service'] = $this->POS_model->records();
-		
-		$page_data['supervisingMDs'] = $this->Supervising_md_model->supervisingMD_records();
 
 		$this->twig->view('patient_management/profile/add', $page_data);
 	}
@@ -63,13 +61,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient.patient_placeOfService',
 					'join_table_type' => 'left'
-				],
-				[
-					'join_table_name' => 'provider',
-					'join_table_key' => 'provider.provider_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'patient.patient_supervising_mdID',
-					'join_table_type' => 'left'	
 				]
 			],
 			'where' => [
@@ -90,8 +81,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		}
 
 		$page_data['place_of_service'] = $this->POS_model->records();
-
-		$page_data['supervisingMDs'] = $this->Supervising_md_model->supervisingMD_records();
 
 		$this->twig->view('patient_management/profile/edit', $page_data);
 	}
@@ -160,13 +149,6 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient.patient_placeOfService',
 					'join_table_type' => 'left'
-				],
-				[
-					'join_table_name' => 'provider',
-					'join_table_key' => 'provider.provider_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'patient.patient_supervising_mdID',
-					'join_table_type' => 'left'	
 				]
 			],
 			'where' => [
@@ -237,7 +219,10 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			redirect('errors/page_not_found');
 		}
 
-		$page_data['transactions'] = $this->transaction_model->get_records_by_join($transaction_params);
+		$page_data['transactions'] = $this->supervising_md_model->get_supervisingMD_details(
+			$this->transaction_model->get_records_by_join($transaction_params)
+		);
+
 		$page_data['communication_notes'] = $this->communication_notes_model->records($communication_params);
 		$page_data['cpos'] = $this->CPO_model->records($cpo_params);
 		$page_data['transaction_entity'] = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();

@@ -37,7 +37,8 @@ class Transaction_model extends \Mobiledrs\core\MY_Models {
 			'pt_icd10_codes' => $this->record_entity->pt_icd10_codes,
 			'pt_dateRef' => $this->record_entity->set_date_format($this->record_entity->pt_dateRef),
 			'pt_dateRefEmailed' => $this->record_entity->set_date_format($this->record_entity->pt_dateRefEmailed),
-			'pt_notes' => $this->record_entity->pt_notes
+			'pt_notes' => $this->record_entity->pt_notes,
+			'pt_supervising_mdID' => empty($this->record_entity->pt_supervising_mdID) ? null : $this->record_entity->pt_supervising_mdID
 		];
 	}
 }
