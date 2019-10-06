@@ -47,7 +47,8 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			'patient_management/transaction_model',
 			'patient_management/headcount_model',
 			'patient_management/CPO_model',
-			'payroll_management/payroll_model'			
+			'payroll_management/payroll_model',
+			'provider_management/supervising_md_model'		
 		));
 	}
 
@@ -118,7 +119,10 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 				$page_data['year']
 			);
 
-			$page_data['headcounts'] = $this->headcount_model->$selected_func();
+			$page_data['headcounts'] = $this->supervising_md_model->get_supervisingMD_details(
+				$this->headcount_model->$selected_func()
+			);
+			
 			$page_data['headcounts_total'] = count($page_data['headcounts']);
 			
 			$page_data['viewName'] = 'list';
