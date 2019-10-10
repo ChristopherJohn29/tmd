@@ -38,7 +38,35 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 
 	protected $tov_id; 
 	protected $tov_name;
-	
+
+	protected $pt_id;
+	protected $pt_tovID;
+	protected $pt_patientID;
+	protected $pt_providerID;
+	protected $pt_dateOfService;
+	protected $pt_deductible;
+	protected $pt_service_billed;
+	protected $pt_aw_ippe_date;
+	protected $pt_aw_ippe_code;
+	protected $pt_performed;
+	protected $pt_acp;
+	protected $pt_diabetes;
+	protected $pt_tobacco;
+	protected $pt_tcm;
+	protected $pt_others;
+	protected $pt_icd10_codes;
+	protected $pt_visitBilled;
+	protected $pt_dateRef;
+	protected $pt_dateRefEmailed;
+	protected $pt_notes;
+	protected $pt_dateCreated;
+	protected $pt_mileage;
+	protected $pt_aw_billed;
+	protected $pt_supervising_mdID;
+
+	protected $supervisingMD_firstname;
+	protected $supervisingMD_lastname;
+
 	public function get_selected_tov(string $tov_id) : string
 	{
 		return ($tov_id == $this->tov_id) ? 'selected=true' : '';
