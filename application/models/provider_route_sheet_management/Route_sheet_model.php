@@ -87,7 +87,8 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 				'pt_patientID' => $inputPost['prsl_patientID'][$i],
 				'pt_providerID' => $inputPost['prs_providerID'],
 				'pt_dateOfService' => $this->pt_trans_entity->set_date_format($inputPost['prs_dateOfService']),
-				'pt_dateRef' => $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i])
+				'pt_dateRef' => $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i]),
+				'pt_supervising_mdID' => $inputPost['pt_supervising_mdID'][$i]
 			];
 
 			if (isset($inputPost['patientTransDateIDs'][$i]))

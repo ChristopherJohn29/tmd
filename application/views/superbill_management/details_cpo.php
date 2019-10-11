@@ -2,6 +2,12 @@
 
 {% set page_title = 'CPO-485' %}
 
+{% 
+  set scripts = [
+    'dist/js/superbill_management/details_checkboxes'
+  ]
+%}
+
 {% block content %}
 	<div class="row">
         <div class="col-md-12">
@@ -39,6 +45,7 @@
 	             				   <table class="table no-margin table-striped">
 									<thead>
 										<tr>
+											<th><input type="checkbox" id="checkAll"></th>
 											<th width="200px">Patient Name</th>
 											<th>ICD-Code Diagnoses</th>
 											<th>Supervising MD</th>
@@ -58,7 +65,9 @@
 											{% set borderTopStyle = '1px solid #d2d6de !important;' %}
 
 											<tr>
-												<input type="hidden" name="ptcpo_id[]" value="{{ transaction['ptcpo_id'] }}">
+												<td>
+													<input type="checkbox" class="superbill_checkboxes" name="ptcpo_id[]" value="{{ transaction['ptcpo_id'] }}">
+												</td>
 												{% if index > 0 and attribute(transactions, index - 1).patient_name == 	transaction['patient_name'] %}
 													{% set borderTopStyle = 'border-top: 0 !important;' %}
 
@@ -168,11 +177,11 @@
 	             		<div class="row no-print">
 	          	
 	                        <div class="col-xs-12 xrx-btn-handler">
-	                            <button type="submit" value="pdf" name="submit_type" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+	                            <button type="submit" id="generatePDF" value="pdf" name="submit_type" class="btn btn-primary xrx-btn" style="margin-right: 5px;" disabled="true">
 	                            	<i class="fa fa-download"></i> Generate PDF
 	                            </button>
 
-	                            <button type="submit" value="paid" name="submit_type" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
+	                            <button type="submit" id="billedBtn" value="paid" name="submit_type" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;" disabled="true">
 	                            	<i class="fa fa-credit-card"></i> Billed
 	                            </button>
 	                        </div>

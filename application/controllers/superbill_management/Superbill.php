@@ -110,7 +110,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 	private function get_superbill_data(
 		string $type,
 		string $fromDate,
-		string $toDate
+		string $toDate,
+		array $ids = []
 	)
 	{
 		if (in_array($type, $this->transactions))
@@ -125,7 +126,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 				$fromDate,
 				$toDate,
 				empty($type_of_visit) ? [] : $type_of_visit,
-				$type
+				$type,
+				$ids
 			);
 
 			$page_data['transaction_entity'] = new Transaction_entity();
@@ -161,7 +163,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		{
 			$page_data = $this->superbill_model->get_CPO(
 				$fromDate,
-				$toDate
+				$toDate,
+				$ids
 			);
 
 			if ( ! empty($page_data['CPOs']))
@@ -235,7 +238,12 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			]
 		];
 
-		$page_data = $this->get_superbill_data($type, $fromDate, $toDate);
+		$page_data = $this->get_superbill_data(
+			$type, 
+			$fromDate, 
+			$toDate,
+			$this->input->post($types[$type]['data'])
+		);
 		$page_data['notes'] = $this->input->post('notes');
 		$page_data['date_billed'] = date('m/d/y');
 
