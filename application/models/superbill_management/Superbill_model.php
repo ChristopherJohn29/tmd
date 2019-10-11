@@ -10,7 +10,13 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function get_transaction(string $fromDate, string $toDate, array $type_of_visit = [], string $type) : array
+	public function get_transaction(
+		string $fromDate, 
+		string $toDate, 
+		array $type_of_visit = [], 
+		string $type,
+		array $ids
+	) : array
 	{
 		$billed_columns = [
 			'aw' => 'pt_aw_billed',
@@ -62,6 +68,13 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			'return_type' => 'object'
 		];
 
+		if ( ! empty($ids)) {
+			$transaction_params['where_in_list'] = [
+				'key' => 'patient_transactions.pt_id',
+				'values' => $ids
+			];
+		}
+
 		if ( ! empty($type_of_visit))
 		{
 			$transaction_params['where_in_list'] = [
@@ -73,7 +86,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		return $this->transaction_model->get_records_by_join($transaction_params);
 	}
 
-	public function get_CPO(string $fromDate, string $toDate) : array
+	public function get_CPO(string $fromDate, string $toDate, array $ids) : array
 	{
 		$new_fromDate = str_replace('/', '-', $fromDate) . ' 00:00:00';
 		$new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
@@ -112,6 +125,13 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 				]
 			]
 		];
+
+		if ( ! empty($ids)) {
+			$cpo_trans['where_in'] = [
+				'column' => 'ptcpo_id',
+				'values' => $ids
+			];
+		}
 		
 		$CPO =  $this->CPO_model->records($cpo_trans);
 

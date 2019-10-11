@@ -2,6 +2,12 @@
 
 {% set page_title = 'Facility Visits' %}
 
+{% 
+  set scripts = [
+    'dist/js/superbill_management/details_checkboxes'
+  ]
+%}
+
 {% block content %}
 	<div class="row">
         <div class="col-md-12">
@@ -45,6 +51,7 @@
 	             				   <table class="table no-margin table-striped">
 									<thead>
 										<tr>
+											<th><input type="checkbox" id="checkAll"></th>
 	                                        <th>&nbsp;</th>
 											<th width="200px">Patient Name</th>
 											<th>Medicare</th>
@@ -70,7 +77,9 @@
 										{% for transaction in newTransactions %}
 
 											<tr>
-												<input type="hidden" name="pt_id[]" value="{{ transaction.pt_id }}">
+												<td>
+													<input type="checkbox" class="superbill_checkboxes" name="pt_id[]" value="{{ transaction.pt_id }}">
+												</td>
 												<td class="text-center">{{ loop.index }}</td>
 												<td>{{ transaction.patient_name }}</td>
 												<td>{{ transaction.patient_medicareNum }}</td>
@@ -161,11 +170,11 @@
 	             		<div class="row no-print">
 	          	
 	                        <div class="col-xs-12 xrx-btn-handler">
-	                            <button type="submit" name="submit_type"  value="pdf" formtarget="_blank" class="btn btn-primary xrx-btn" style="margin-right: 5px;">
+	                            <button type="submit" id="generatePDF" name="submit_type"  value="pdf" formtarget="_blank" class="btn btn-primary xrx-btn" style="margin-right: 5px;" disabled="true">
 	                            <i class="fa fa-download"></i> Generate PDF
 	                            </button>
 	                            
-	                            <button type="submit" name="submit_type"  value="paid" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;">
+	                            <button type="submit" id="billedBtn" name="submit_type"  value="paid" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;" disabled="true">
 	                            <i class="fa fa-credit-card"></i> Visit Billed
 	                            </button>
 	                        </div>

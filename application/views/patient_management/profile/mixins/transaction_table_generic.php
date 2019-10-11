@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>Provider</th>
-                <th>Superviding MD</th>
+                <th>Supervising MD</th>
                 <th>Date of Service</th>
                 <th>Deductible</th>
                 <th>AW/IPPE</th>
