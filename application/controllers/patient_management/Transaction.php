@@ -113,7 +113,10 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['record'] = $this->profile_model->get_records_by_join($profile_params);
 		$page_data['transaction'] = $this->transaction_model->get_records_by_join($transaction_params);
-		$page_data['type_visits'] = $this->type_visit_model->records();
+		$page_data['type_visits'] = (new Type_visit_entity())->filterRecords(
+			$page_data['transaction']->pt_tovID,
+			$this->type_visit_model->records()
+		);
 
 		$page_data['supervisingMDs'] = $this->supervising_md_model->supervisingMD_records();
 
