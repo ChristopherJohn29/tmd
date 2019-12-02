@@ -59,4 +59,36 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 			self::FOLLOW_UP_OFFICE
 		];
 	}
+
+	public function filterRecords($trans_id, $tovs) : array
+	{
+		$filteredTovs = [];
+
+		$otherList = [
+			self::NO_SHOW,
+			self::CANCELLED
+		];
+
+		foreach ($tovs as $tov) {
+			$tovInitialType = in_array($trans_id, $this->get_initial_list()) && 
+				in_array($tov->tov_id, $this->get_initial_list());
+
+			$tovFollowupType = in_array($trans_id, $this->get_followup_list()) && 
+				in_array($tov->tov_id, $this->get_followup_list());
+
+			if ($tovInitialType) {
+				$filteredTovs[] = $tov;
+			}
+
+			if ($tovFollowupType) {
+				$filteredTovs[] = $tov;
+			}
+
+			if (in_array($tov->tov_id, $otherList)) {
+				$filteredTovs[] = $tov;	
+			}
+		}
+
+		return $filteredTovs;
+	}
 }
