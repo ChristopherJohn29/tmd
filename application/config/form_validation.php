@@ -620,7 +620,23 @@ $config = array(
     ),
     'patient_management/cpo/save' => array(
         array(
-            'field' => 'ptcpo_period',
+            'field' => 'ptcpo_status',
+            'label' => 'Certification Status',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'ptcpo_start_period',
+            'label' => 'Certification Period',
+            'rules' => 'required|max_length[45]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'ptcpo_end_period',
             'label' => 'Certification Period',
             'rules' => 'required|max_length[45]',
             'errors' => array(
@@ -658,7 +674,15 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
-        )
+        ),
+        array(
+            'field' => 'ptcpo_dateOfService',
+            'label' => 'Date Of Service',
+            'rules' => 'required|max_length[45]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
     ),
     'provider_route_sheet_management/route_sheet/save' => array(
         array(

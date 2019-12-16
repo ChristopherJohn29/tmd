@@ -63,13 +63,28 @@
 
 									<div class="col-md-12 form-group">
 										<div class="row">
-											<div class="col-lg-6">
+											<div class="col-lg-6 {{ form_error('ptcpo_status') ? 'has-error' : '' }}">
 												<label class="control-label">Status <span>*</span></label>
 												<select class="form-control" name="ptcpo_status">
 													<option value="">Select</option>
 													<option value="Certification" {{ cpo.ptcpo_status == 'Certification' ? 'selected=true' : ''}}>Certification</option>
 													<option value="Re-Certification" {{ cpo.ptcpo_status == 'Re-Certification' ? 'selected=true' : ''}}>Re-Certification</option>
 												</select>
+											</div>
+
+											<div class="col-lg-6 {{ form_error('ptcpo_dateOfService') ? 'has-error' : '' }}">
+												<label class="control-label">Date of Service <span>*</span></label>
+												<input type="text" class="form-control" name="ptcpo_dateOfService" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dateOfService', cpo.get_date_format(cpo.ptcpo_dateOfService)) }}">
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-6 has-error">
+												<span class="help-block">{{ form_error('ptcpo_status') }}</span>
+											</div>
+
+											<div class="col-lg-6 has-error">
+												<span class="help-block">{{ form_error('ptcpo_dateOfService') }}</span>
 											</div>
 										</div>
 									</div>
@@ -78,10 +93,17 @@
 										<span class="help-block"></span>
 									</div>
 									
-									<div class="col-md-6 form-group {{ form_error('ptcpo_period') ? 'has-error' : '' }}">
+									<div class="col-md-3 form-group {{ form_error('ptcpo_start_period') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Certification Period <span>*</span></label>
-										<input type="text" class="form-control" required="true" name="ptcpo_period" value="{{ set_value('ptcpo_period', cpo.ptcpo_period) }}">
+										<label class="control-label">Certification Start Period <span>*</span></label>
+										<input type="text" class="form-control" name="ptcpo_start_period" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_start_period', cpo.get_start_date_period(cpo.ptcpo_period)) }}">
+
+									</div>
+
+									<div class="col-md-3 form-group {{ form_error('ptcpo_end_period') ? 'has-error' : '' }}">
+										<label class="control-label">Certification End Period <span>*</span></label>
+
+										<input type="text" class="form-control" name="ptcpo_end_period" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_end_period', cpo.get_end_date_period(cpo.ptcpo_period)) }}">
 										
 									</div>
 									
@@ -92,8 +114,12 @@
 										
 									</div>
 
-									<div class="col-md-6 has-error">
-										<span class="help-block">{{ form_error('ptcpo_period') }}</span>
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('ptcpo_start_period') }}</span>
+									</div>
+
+									<div class="col-md-3 has-error">
+										<span class="help-block">{{ form_error('ptcpo_end_period') }}</span>
 									</div>
 
 									<div class="col-md-6 has-error">

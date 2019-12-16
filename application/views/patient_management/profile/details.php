@@ -227,6 +227,7 @@
     									<tr>
     										<th></th>
     										<th>Period</th>
+                                            <th>Date of Service</th>
     										<th>485 Date Signed</th>
     										<th>1st Month CPO</th>
     										<th>2nd Month CPO</th>
@@ -244,6 +245,7 @@
                                             <tr>
         										<th>{{ cpo.ptcpo_status }}</th>
         										<td>{{ cpo.ptcpo_period }}</td>
+                                                <td>{{ cpo.get_date_format(cpo.ptcpo_dateOfService) }}</td>
         										<td>{{ cpo.get_date_format(cpo.ptcpo_dateSigned) }}</td>
         										<td>{{ cpo.ptcpo_firstMonthCPO }}</td>
         										<td>{{ cpo.ptcpo_secondMonthCPO }}</td>

@@ -88,18 +88,21 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_CPO(string $fromDate, string $toDate, array $ids) : array
 	{
-		$new_fromDate = str_replace('/', '-', $fromDate) . ' 00:00:00';
-		$new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
+		// $new_fromDate = str_replace('/', '-', $fromDate) . ' 00:00:00';
+		// $new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
+
+		$new_fromDate = date_format(date_create($fromDate), 'm/d/Y');
+		$new_toDate = date_format(date_create($toDate), 'm/d/Y');
 
 		$cpo_trans = [
 			'where' => [
 				[
-					'key' => 'patient_CPO.ptcpo_dateSigned',
+					'key' => "SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - '))",
 					'condition' => '>=',
 					'value' => $new_fromDate
 				],
 				[
-					'key' => 'patient_CPO.ptcpo_dateSigned',
+					'key' => "SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - '))",
 					'condition' => '<=',
 					'value' => $new_toDate
 				],
