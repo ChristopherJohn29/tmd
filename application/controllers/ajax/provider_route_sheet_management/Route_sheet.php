@@ -19,21 +19,28 @@ class Route_sheet extends \Mobiledrs\core\MY_AJAX_Controller {
 	{
 		$this->check_permission('delete_prs');
 
-		$rs_list_params = [
-			'table_key' => 'prsl_prsID',
-			'record_id' => $prs_id
-		];
-
 		$rs_params = [
 			'table_key' => 'prs_id',
-			'record_id' => $prs_id
+			'record_id' => $prs_id,
+			'column_archive' => 'prs_archive'
 		];
 
-		$rs_list_model_res = $this->rs_list_model->delete_data($rs_list_params);
 		$rs_model_res = $this->rs_model->delete_data($rs_params);
 
-		if ($rs_list_model_res && $rs_model_res)
+		if ($rs_model_res)
 		{
+			if ($this->session->userdata('user_roleID') != '1') {
+				$this->logs_model->insert([
+					'data' => [
+						'user_log_userID' => $this->session->userdata('user_id'),
+						'user_log_time' => date('H:m:s'),
+						'user_log_date' => date('Y-m-d'),
+						'user_log_description' => 'Deletes a route sheet record.',
+						'user_log_link' => 'provider_route_sheet_management/route_sheet/details/'.$prs_id
+					]
+				]);
+			}
+
 			echo json_encode([
 				'state' => true,
 				'msg' => $this->lang->line('success_delete')
@@ -63,6 +70,11 @@ class Route_sheet extends \Mobiledrs\core\MY_AJAX_Controller {
 					'key' => 'provider_route_sheet.prs_dateOfService',
 					'condition' => '',
 					'value' => $newDateFormat
+				],
+				[
+					'key' => 'provider_route_sheet.prs_archive',
+					'condition' => '=',
+					'value' => NULL
 				]
 			]
 		];

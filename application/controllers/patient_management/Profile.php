@@ -22,7 +22,14 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$trans_params = [
 			'key' => 'patient_transactions.pt_dateRef',
-			'order_by' => 'DESC'
+			'order_by' => 'DESC',
+			'where' => [
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+					'value' => NULL
+				]
+			]
 		];
 
 		$patients = $this->transaction_model->records($trans_params);
@@ -91,6 +98,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		// only check for duplicate medicare number when the medicare number field has been changed
 		$validation_group = '';
+		$log = [];
 		if ($formtype == 'edit')
 		{
 			$params = [
@@ -113,10 +121,14 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			{
 				$validation_group = 'patient_management/profile/save_update';
 			}
+
+			$log = ['description' => 'Updates a patient profile.'];
 		}
 		else
 		{
 			$validation_group = 'patient_management/profile/save';
+
+			$log = ['description' => 'Added a new patient profile.'];
 		}
 
 		$params = [
@@ -127,7 +139,23 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'validation_group' => $validation_group
 		];
 
-		parent::save_data($params);
+		parent::save_data($params, $log, false);
+
+		$lastRecordID = $formtype == 'edit' ? $patient_id : $this->db->insert_id();
+
+		if ( ! empty($log) && $this->session->userdata('user_roleID') != '1') {
+            $this->logs_model->insert([
+                'data' => [
+                    'user_log_userID' => $this->session->userdata('user_id'),
+                    'user_log_time' => date('H:m:s'),
+                    'user_log_date' => date('Y-m-d'),
+                    'user_log_description' => $log['description'],
+                    'user_log_link' => $params['redirect_url_details'] . $lastRecordID
+                ]
+            ]);
+        }
+
+        return redirect($params['redirect_url_details'] . $lastRecordID);
 	}
 
 	public function details(string $patient_id)
@@ -187,6 +215,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'key' => 'patient_transactions.pt_patientID',
 					'condition' => '',
 	        		'value' => $patient_id
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'return_type' => 'object'
@@ -198,6 +231,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'key' => 'patient_communication_notes.ptcn_patientID',
 					'condition' => '',
 	        		'value' => $patient_id
+        		],
+        		[
+					'key' => 'patient_communication_notes.ptcn_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			]
 		];
@@ -208,6 +246,20 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'key' => 'patient_CPO.ptcpo_patientID',
 					'condition' => '',
 	        		'value' => $patient_id
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_archive',
+					'condition' => '=',
+	        		'value' => NULL
+				]
+			],
+			'joins' => [
+				[
+					'join_table_name' => 'user',
+					'join_table_key' => 'user.user_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_CPO.ptcpo_addedByUserID',
+					'join_table_type' => 'RIGHT'
 				]
 			]
 		];
@@ -224,7 +276,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		);
 
 		$page_data['communication_notes'] = $this->communication_notes_model->records($communication_params);
-		$page_data['cpos'] = $this->CPO_model->records($cpo_params);
+		$page_data['cpos'] = $this->CPO_model->get_records_by_join($cpo_params);
 		$page_data['transaction_entity'] = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();
 
 		$this->twig->view('patient_management/profile/details', $page_data);

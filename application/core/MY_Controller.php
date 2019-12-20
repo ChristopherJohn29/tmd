@@ -18,6 +18,8 @@ class MY_Controller extends \CI_Controller {
             'form_validation'
 		));
 
+        $this->load->model('user_management/logs_model');
+
         $this->form_validation->set_error_delimiters('', '');
 	}
 
@@ -46,7 +48,7 @@ class MY_Controller extends \CI_Controller {
 		}
 	}
 
-	public function save_data(array $params)
+	public function save_data(array $params, array $log = [], $redirect = true)
 	{
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
@@ -79,20 +81,21 @@ class MY_Controller extends \CI_Controller {
         	$this->session->set_flashdata('danger', $this->lang->line('danger_save'));
         }
 
-        if (isset($params['redirect_url']))
+        if (isset($params['redirect_url']) && $redirect)
         {
             return redirect($params['redirect_url']);
         }
 
-        if (isset($params['redirect_url_details'])) 
+        if (isset($params['redirect_url_details']) && $redirect) 
         {
             $recordID = ( ! empty($params['record_id'])) ? $params['record_id'] : $save;
-            $redirect_url = $params['redirect_url_details'] . $recordID; 
+            $redirect_url = $params['redirect_url_details'] . $recordID;
+
             return redirect($redirect_url);   
         }
 	}
 
-	public function save_sub_data(array $params)
+	public function save_sub_data(array $params, array $log = [], $redirect = true)
 	{
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
@@ -127,7 +130,9 @@ class MY_Controller extends \CI_Controller {
         	$this->session->set_flashdata('danger', $this->lang->line('danger_save'));
         }
 
-        return redirect($params['redirect_url']);
+        if ($redirect) {
+            return redirect($params['redirect_url']);
+        }
 	}
 
     public function make_paid(array $params)

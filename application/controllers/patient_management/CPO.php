@@ -96,6 +96,37 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 			'sub_data_id' => $ptcpo_id
 		];
 
-		parent::save_sub_data($params);
+		$log = [];
+		if ($page_type == 'edit') {
+			$log = ['description' => 'Updates a patient certification record.'];
+		} else {
+			$log = ['description' => 'Added a new patient certification record.'];
+		}
+
+		parent::save_sub_data($params, $log, false);
+
+		$lastRecordID = $page_type == 'edit' ? $ptcpo_id : $this->db->insert_id();
+
+		if ($this->session->userdata('user_roleID') != '1') {
+			$this->CPO_model->update([
+				'data' => ['ptcpo_addedByUserID' => $this->session->userdata('user_id')],
+				'key' => 'ptcpo_id',
+				'value' => $lastRecordID
+			]);
+		}
+
+		if ( ! empty($log) && $this->session->userdata('user_roleID') != '1') {
+            $this->logs_model->insert([
+                'data' => [
+                    'user_log_userID' => $this->session->userdata('user_id'),
+                    'user_log_time' => date('H:m:s'),
+                    'user_log_date' => date('Y-m-d'),
+                    'user_log_description' => $log['description'],
+                    'user_log_link' => 'patient_management/CPO/edit/'.$ptcpo_patientID.'/'.$lastRecordID
+                ]
+            ]);
+        }
+
+		return redirect($params['redirect_url']);
 	}
 }

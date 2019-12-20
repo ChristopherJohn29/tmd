@@ -18,6 +18,17 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	protected $ptcpo_status;
 	protected $ptcpo_dateCreated;
 	protected $ptcpo_dateOfService;
+	protected $ptcpo_archive;
+	protected $ptcpo_addedByUserID;
+
+	protected $user_id;
+	protected $user_firstname;
+	protected $user_lastname;
+	protected $user_email;
+	protected $user_dateCreated;
+	protected $user_password;
+	protected $user_roleID;
+	protected $user_sessionID;
 
 	public const CERTIFICATION = 'Certification';
 	public const RECERTIFICATION = 'Re-Certification';

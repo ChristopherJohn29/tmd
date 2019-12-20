@@ -156,7 +156,7 @@
 
                                                     {% if roles_permission_entity.has_permission_name(['delete_tr']) %}
 
-                                                        <a href="{{ site_url("ajax/patient_management/transaction/delete/#{ transaction.pt_id }") }}" data-delete-btn>
+                                                        <a href="{{ site_url("ajax/patient_management/transaction/delete/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}" data-delete-btn>
                                                             <button type="button" class="btn btn-primary btn-sm">
                                                                 <i class="fa fa-trash"></i> Delete Entry
                                                             </button>
@@ -166,7 +166,7 @@
 
                                                     {% if roles_permission_entity.has_permission_name(['mark_service_paid']) and transaction.notCancelledTOV() and transaction.notServicePaid() %}
 
-                                                        <a href="{{ site_url("ajax/patient_management/transaction/mark_service_paid/#{ transaction.pt_id }") }}" data-paid-btn>
+                                                        <a href="{{ site_url("ajax/patient_management/transaction/mark_service_paid/#{ transaction.pt_patientID }/#{ transaction.pt_id }") }}" data-paid-btn>
                                                             <button type="button" class="btn btn-primary btn-sm bg-btn-red">
                                                                 <i class="fa fa-money"></i> Mark as Service Paid
                                                             </button>
@@ -234,6 +234,7 @@
     										<th>3rd Month CPO</th>
     										<th>Discharged</th>
     										<th>Date Billed</th>
+                                            <th>Added By User</th>
                                             <th width="120px">Actions</th>
     									</tr>
     								</thead>
@@ -252,6 +253,7 @@
         										<td>{{ cpo.ptcpo_thirdMonthCPO }}</td>
         										<td>{{ cpo.get_date_format(cpo.ptcpo_dischargeDate) }}</td>
         										<td><span class="text-red"><strong>{{ cpo.get_date_format(cpo.ptcpo_dateBilled) }}</strong></span></td>
+                                                <td>{{ cpo.user_firstname ~ ' ' ~ cpo.user_lastname }}</td>
                                                 <td>
                                                     {% if roles_permission_entity.has_permission_name(['edit_cpo']) %}
 
@@ -261,7 +263,7 @@
 
                                                     {% if roles_permission_entity.has_permission_name(['delete_cpo']) %}
 
-                                                        <a href="{{ site_url("ajax/patient_management/certifications/delete/#{ cpo.ptcpo_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+                                                        <a href="{{ site_url("ajax/patient_management/certifications/delete/#{ cpo.ptcpo_patientID }/#{ cpo.ptcpo_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
 
                                                     {% endif %}
 
@@ -336,7 +338,7 @@
 
                                                 {% if roles_permission_entity.has_permission_name(['delete_cn']) %}
 
-                                                    <a href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+                                                    <a href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_patientID }/#{ cn.ptcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
 
                                                 {% endif %}
 

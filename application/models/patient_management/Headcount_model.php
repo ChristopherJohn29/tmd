@@ -43,6 +43,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
 	        		'value' => $this->toDate
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'where_in_list' => [
@@ -100,6 +105,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				],
 				[
 					'key' => 'patient_CPO.ptcpo_dateBilled',
+					'condition' => '=',
+	        		'value' => NULL
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_archive',
 					'condition' => '=',
 	        		'value' => NULL
 				]
@@ -163,6 +173,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
         		],
         		[
 					'key' => 'patient_transactions.pt_aw_billed',
+					'condition' => '=',
+	        		'value' => NULL
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
 					'condition' => '=',
 	        		'value' => NULL
         		]
@@ -237,6 +252,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_visitBilled',
 					'condition' => '=',
 	        		'value' => NULL
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'where_in_list' => [
@@ -309,6 +329,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_icd10_codes',
 					'condition' => '',
 	        		'value' => ''
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'where_in_list' => [
@@ -376,6 +401,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
 	        		'value' => $this->toDate
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'where_in_list' => [
@@ -460,6 +490,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_CPO.ptcpo_dateSigned',
 					'condition' => '<=',
 	        		'value' => $this->toDate
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_archive',
+					'condition' => '=',
+	        		'value' => NULL
 				]
 			],
 			'return_type' => 'row'
@@ -498,6 +533,11 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_patientID',
 					'condition' => '',
 	        		'value' => $patient_id
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'where_in_list' => [

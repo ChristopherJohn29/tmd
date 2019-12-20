@@ -228,6 +228,12 @@
 
 					{% endif %}
 
+					{% if roles_permission_entity.has_permission_name(['logs']) %}
+
+						<li><a href="{{ site_url('user_management/logs') }}"><i class="fa fa-angle-right"></i> Logs</a></li>
+
+					{% endif %}
+
 				</ul>
 			</li>
 

@@ -63,6 +63,11 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_deductible',
 					'condition' => '<>',
 	        		'value' => 'Hospice'
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'return_type' => 'object'
@@ -113,6 +118,11 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 				],
 				[
 					'key' => 'patient_CPO.ptcpo_dateBilled',
+					'condition' => '=',
+					'value' => NULL
+				],
+				[
+					'key' => 'patient_CPO.ptcpo_archive',
 					'condition' => '=',
 					'value' => NULL
 				]

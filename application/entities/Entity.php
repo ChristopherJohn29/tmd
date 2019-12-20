@@ -48,4 +48,9 @@ class Entity {
     {
 		return ( ! empty($number)) ? ('$' . number_format($number, 2)) : '';
     }
+
+    public function get_time_format(string $time)
+    {
+    	return date('h:i:s A', strtotime($time));
+    }
 }

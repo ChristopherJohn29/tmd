@@ -108,7 +108,7 @@ class MY_Models extends \CI_Model {
 
 			$this->db->$like_func($search['key'], $search['value']);
 		}
-
+		
 		$query = $this->db->get($this->table_name);
 
 		return $query->custom_result_object($this->entity);
@@ -168,7 +168,11 @@ class MY_Models extends \CI_Model {
 
 	public function delete_data(array $params)
 	{
-		return $this->db->delete($this->table_name, [$params['table_key'] => $params['record_id']]);
+		$this->db->where($params['table_key'], $params['record_id']);
+
+		return $this->db->update($this->table_name, [
+			$params['column_archive'] => '1'
+		]);
 	}
 
 	public function prepare_entity_data()

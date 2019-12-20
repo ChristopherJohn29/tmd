@@ -49,6 +49,11 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 	        		'value' => $toDate
 				],
 				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
+				],
+				[
 					'key' => 'patient_transactions.pt_tovID',
 					'condition' => '<>',
 	        		'value' => \Mobiledrs\entities\patient_management\Type_visit_entity::CANCELLED
@@ -136,6 +141,11 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
 	        		'value' => $toDate
+				],
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
 				],
 				[
 					'key' => 'patient_transactions.pt_tovID',
@@ -230,6 +240,11 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 	        		'value' => $toDate
 				],
 				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
+				],
+				[
 					'key' => 'patient_transactions.pt_tovID',
 					'condition' => '<>',
 	        		'value' => \Mobiledrs\entities\patient_management\Type_visit_entity::CANCELLED
@@ -291,6 +306,11 @@ class Payroll_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '>=',
 	        		'value' => $fromDate
+				],
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
 				],
 				[
 					'key' => 'patient_transactions.pt_dateOfService',

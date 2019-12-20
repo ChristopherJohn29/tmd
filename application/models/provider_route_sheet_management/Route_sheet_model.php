@@ -25,6 +25,19 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 		]);
 
 		$prs_id = $this->db->insert_id();
+
+		if ($this->session->userdata('user_roleID') != '1') {
+            $this->logs_model->insert([
+                'data' => [
+                    'user_log_userID' => $this->session->userdata('user_id'),
+                    'user_log_time' => date('H:m:s'),
+                    'user_log_date' => date('Y-m-d'),
+                    'user_log_description' => 'Added a new route sheet record.',
+                    'user_log_link' => 'provider_route_sheet_management/route_sheet/details/'.$prs_id
+                ]
+            ]);
+        }
+
 		$patientTransIDs = $this->insert_patientTransData($this->input->post());
 
 		$this->db->insert_batch(
@@ -53,6 +66,18 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 			'prs_providerID' => $this->input->post('prs_providerID'),
 			'prs_dateOfService' => $entity->set_date_format($this->input->post('prs_dateOfService'))
 		]);
+
+		if ($this->session->userdata('user_roleID') != '1') {
+            $this->logs_model->insert([
+                'data' => [
+                    'user_log_userID' => $this->session->userdata('user_id'),
+                    'user_log_time' => date('H:m:s'),
+                    'user_log_date' => date('Y-m-d'),
+                    'user_log_description' => 'Updates a route sheet record.',
+                    'user_log_link' => 'provider_route_sheet_management/route_sheet/details/'.$params['value']
+                ]
+            ]);
+        }
 
 		$this->db->where_in('provider_route_sheet_list.prsl_id', $this->input->post('prsl_ids'));
 
