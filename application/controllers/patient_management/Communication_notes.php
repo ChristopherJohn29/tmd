@@ -107,7 +107,7 @@ class Communication_notes extends \Mobiledrs\core\MY_Controller {
 
 		$lastRecordID = $page_type == 'edit' ? $ptcn_id : $this->db->insert_id();
 
-		if ( ! empty($log) && $this->session->userdata('user_roleID') != '1') {
+		if ($this->session->userdata('user_roleID') != '1') {
             $this->logs_model->insert([
                 'data' => [
                     'user_log_userID' => $this->session->userdata('user_id'),

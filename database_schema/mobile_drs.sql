@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `mobile_drs`.`patient_communication_notes` (
   `ptcn_patientID` INT UNSIGNED NULL,
   `ptcn_message` LONGTEXT NULL,
   `ptcn_dateCreated` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `ptcn_archive` VARCHAR(45) NULL,
+  `ptcn_archive` TINYINT(1) NULL,
   PRIMARY KEY (`ptcn_id`),
   INDEX `ptcn_patientID_idx` (`ptcn_patientID` ASC),
   CONSTRAINT `ptcn_patientID`

@@ -259,7 +259,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'join_table_key' => 'user.user_id',
 					'join_table_condition' => '=',
 					'join_table_value' => 'patient_CPO.ptcpo_addedByUserID',
-					'join_table_type' => 'RIGHT'
+					'join_table_type' => 'LEFT'
 				]
 			]
 		];
