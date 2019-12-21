@@ -54,13 +54,13 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['fromDate'] = implode('/', [
 			$this->input->post('year'),
-			$this->input->post('month'),
+			$this->input->post('fromMonth'),
 			$this->input->post('fromDate')
 		]);
 
 		$page_data['toDate'] = implode('/', [
 			$this->input->post('year'),
-			$this->input->post('month'),
+			$this->input->post('toMonth'),
 			$this->input->post('toDate')
 		]);
 

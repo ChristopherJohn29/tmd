@@ -86,6 +86,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 			];
 		}
 
+		usort($headcount_list, function($a, $b) {
+			return $a["patient_name"] > $b["patient_name"];
+		});
+
 		return $headcount_list;
 	}
 

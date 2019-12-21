@@ -79,12 +79,13 @@ class Superbill_cpo_pat_trans_entity {
 
 			foreach ($this->pat_trans as $pat_tran)
 			{
-				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID && 
-					in_array($pat_tran->pt_tovID, Type_visit_entity::get_all_visits_list())
-				)
+				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID)
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
-					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
+
+					if ($pat_tran->pt_dateOfService == $cpo->ptcpo_dateOfService) {
+						$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
+					}
 
 					if ( ! empty($pat_tran->supervisingMD_firstname)) {
 						$data[$i]['supervisingMD_fullname'] = $pat_tran->supervisingMD_firstname . ' ' . $pat_tran->supervisingMD_lastname;
@@ -93,7 +94,6 @@ class Superbill_cpo_pat_trans_entity {
 					break;
 				}
 			}
-
 			$last_ptcpo_patientID = $cpo->ptcpo_patientID;
 		}
 

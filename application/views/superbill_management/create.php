@@ -5,8 +5,8 @@
 {%
 
 set scripts = [
-    'dist/js/libraries/year_incrementor',
-    'dist/js/libraries/month_day_incrementor'
+    'dist/js/superbill_management/dateRange',
+    'dist/js/libraries/year_incrementor'
 ]
 
 %}
@@ -31,7 +31,7 @@ set scripts = [
                           {% endif %}
                         </div>
                         
-                        <div class="col-lg-8 col-lg-offset-2">
+                        <div class="col-lg-11 col-lg-offset-1">
                             <div class="search-handler">
                                 
                                 {{ form_open("superbill_management/superbill/generate", {"class": "xrx-form"}) }}
@@ -52,7 +52,7 @@ set scripts = [
                                         
                                         <div class="col-md-2 form-group">
                                             <label class="control-label">Month <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="month" required="true">
+                                            <select class="form-control" style="width: 100%;" name="fromMonth" required="true">
                                                 <option value="1">January</option>
                                                 <option value="2">February</option>
                                                 <option value="3">March</option>
@@ -68,15 +68,33 @@ set scripts = [
                                             </select>
                                         </div>
                                         
-                                        <div class="col-md-2 form-group">
+                                        <div class="col-md-1 form-group">
                                             <label class="control-label">From <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="fromDate" required="true" data-month-day-incrementor>
+                                            <select class="form-control" style="width: 100%;" name="fromDate" required="true" data-fromDate-incrementor>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-2 form-group">
+                                            <label class="control-label">Month <span>*</span></label>
+                                            <select class="form-control" style="width: 100%;" name="toMonth" required="true">
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
                                             </select>
                                         </div>
                                         
-                                        <div class="col-md-2 form-group">
+                                        <div class="col-md-1 form-group">
                                             <label class="control-label">To <span>*</span></label>
-                                            <select class="form-control" style="width: 100%;" name="toDate" required="true" data-month-day-incrementor>
+                                            <select class="form-control" style="width: 100%;" name="toDate" required="true" data-toDate-incrementor>
                                             </select>
                                         </div>
                                         
@@ -85,8 +103,8 @@ set scripts = [
                                             <select class="form-control" style="width: 100%;" name="year" required="true">
                                             </select>
                                         </div>
-                                        
-                                        <div class="col-md-2 form-group">
+
+                                        <div class="col-md-1 form-group text-center">
     					              		<button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
     											Submit
     										</button>
