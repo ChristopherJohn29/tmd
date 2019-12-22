@@ -1,4 +1,3 @@
-
 {% extends "main.php" %}
 
 {% 
@@ -8,12 +7,16 @@
     'plugins/input-mask/jquery.inputmask.date.extensions',
     'plugins/input-mask/jquery.inputmask.extensions',
     'bower_components/moment/min/moment.min',
+    'plugins/timepicker/bootstrap-timepicker.min',
+    'dist/js/patient_management/cpo/form'
+  ]
+%}
+
+{# 
     'bower_components/bootstrap-daterangepicker/daterangepicker',
     'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
     'bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
-    'plugins/timepicker/bootstrap-timepicker.min',
-  ]
-%}
+#}
 
 {% set page_title = 'Add CPO' %}
 
@@ -36,6 +39,7 @@
 							{{ form_open("patient_management/CPO/save/add/#{ record.patient_id }", {"class": "xrx-form"}) }}
 							
 								<input type="hidden" name="ptcpo_patientID" value="{{ record.patient_id }}">
+								<input type="hidden" id="scheduledHolidayList" value="{{ site_url('ajax/scheduled_holidays_management/scheduled_holidays/list') }}">
 
 								<div class="row">
 								
@@ -129,21 +133,21 @@
 									<div class="col-md-4 form-group {{ form_error('ptcpo_firstMonthCPO') ? 'has-error' : '' }}">
 									
 										<label class="control-label">1st Month CPO</label>
-										<input type="text" class="form-control" name="ptcpo_firstMonthCPO" value="{{ set_value('ptcpo_firstMonthCPO') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPO" value="{{ set_value('ptcpo_firstMonthCPO') }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error('ptcpo_secondMonthCPO') ? 'has-error' : '' }}">
 									
 										<label class="control-label">2nd Month CPO</label>
-										<input type="text" class="form-control" name="ptcpo_secondMonthCPO" value="{{ set_value('ptcpo_secondMonthCPO') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPO" value="{{ set_value('ptcpo_secondMonthCPO') }}">
 										
 									</div>
 									
 									<div class="col-md-4 form-group {{ form_error('ptcpo_thirdMonthCPO') ? 'has-error' : '' }}">
 									
 										<label class="control-label">3rd Month CPO</label>
-										<input type="text" class="form-control" name="ptcpo_thirdMonthCPO" value="{{ set_value('ptcpo_thirdMonthCPO') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPO" value="{{ set_value('ptcpo_thirdMonthCPO') }}">
 										
 									</div>
 

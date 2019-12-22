@@ -238,5 +238,35 @@
 			</li>
 
 		{% endif %}
+
+		{% if roles_permission_entity.has_permission_module(['UM']) %}
+
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-calendar"></i>
+					<span>Scheduled Holidays</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+
+				<ul class="treeview-menu">
+
+					{% if roles_permission_entity.has_permission_name(['scheduled_holidays']) %}
+
+						<li><a href="{{ site_url('scheduled_holidays_management/scheduled_holidays') }}"><i class="fa fa-angle-right"></i> View</a></li>
+
+					{% endif %}
+
+					{% if roles_permission_entity.has_permission_name(['scheduled_holidays']) %}
+
+						<li><a href="{{ site_url('scheduled_holidays_management/scheduled_holidays/add') }}"><i class="fa fa-angle-right"></i> Add</a></li>
+
+					{% endif %}
+
+				</ul>
+			</li>
+
+		{% endif %}
 	</ul>
 </section>

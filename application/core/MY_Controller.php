@@ -48,7 +48,7 @@ class MY_Controller extends \CI_Controller {
 		}
 	}
 
-	public function save_data(array $params, array $log = [], $redirect = true)
+	public function save_data(array $params, $redirect = true)
 	{
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {
@@ -95,7 +95,7 @@ class MY_Controller extends \CI_Controller {
         }
 	}
 
-	public function save_sub_data(array $params, array $log = [], $redirect = true)
+	public function save_sub_data(array $params, $redirect = true)
 	{
 		if ($this->form_validation->run($params['validation_group']) == FALSE)
         {

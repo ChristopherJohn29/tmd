@@ -103,7 +103,7 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 			$log = ['description' => 'Added a new patient certification record.'];
 		}
 
-		parent::save_sub_data($params, $log, false);
+		parent::save_sub_data($params, false);
 
 		$lastRecordID = $page_type == 'edit' ? $ptcpo_id : $this->db->insert_id();
 

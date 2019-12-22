@@ -139,7 +139,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'validation_group' => $validation_group
 		];
 
-		parent::save_data($params, $log, false);
+		parent::save_data($params, false);
 
 		$lastRecordID = $formtype == 'edit' ? $patient_id : $this->db->insert_id();
 

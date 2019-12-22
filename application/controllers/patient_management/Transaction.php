@@ -151,7 +151,7 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 			$log = ['description' => 'Added a new patient transaction record.'];
 		}
 
-		parent::save_sub_data($params, $log, false);
+		parent::save_sub_data($params, false);
 
 		$lastRecordID = $page_type == 'edit' ? $pt_id : $this->db->insert_id();
 

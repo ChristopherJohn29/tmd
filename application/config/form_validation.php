@@ -749,5 +749,42 @@ $config = array(
                 'required' => 'This field is required.'
             )
         )
+    ),
+    'scheduled_holidays_management/scheduled_holidays/save' => array(
+        array(
+            'field' => 'sh_description',
+            'label' => 'Description',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'sh_date',
+            'label' => 'Date',
+            'rules' => 'required|callback_scheduled_holidays_date_check',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        )
+    ),
+    'scheduled_holidays_management/scheduled_holidays/update' => array(
+        array(
+            'field' => 'sh_description',
+            'label' => 'Description',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'sh_date',
+            'label' => 'Date',
+            'rules' => 'required',
+            'errors' => array(
+                'is_unique' => 'This %s already exists.',
+                'required' => 'This field is required.'
+            )
+        )
     )
 );

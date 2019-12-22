@@ -103,7 +103,7 @@ class Communication_notes extends \Mobiledrs\core\MY_Controller {
 			$log = ['description' => 'Added a new patient communication notes record.'];
 		}
 
-		parent::save_sub_data($params, $log, false);
+		parent::save_sub_data($params, false);
 
 		$lastRecordID = $page_type == 'edit' ? $ptcn_id : $this->db->insert_id();
 
