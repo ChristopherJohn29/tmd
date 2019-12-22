@@ -2,6 +2,12 @@
 
 {% set page_title = 'Patients Details' %}
 
+{% 
+  set scripts = [
+    'dist/js/patient_management/profile/details'
+  ]
+%}
+
 {% block content %}
      <div class="row">
         <div class="col-md-12">
@@ -222,11 +228,11 @@
                             {% if cpos %}
 
                                 <div class="table-responsive">
-                 				   <table class="table no-margin table-hover">
+                 				   <table class="table no-margin table-hover" id="certificationsTable">
     								<thead>
     									<tr>
     										<th></th>
-    										<th>Period</th>
+    										<th style="width: 118px;">Period</th>
                                             <th>Date of Service</th>
     										<th>485 Date Signed</th>
     										<th>1st Month CPO</th>
