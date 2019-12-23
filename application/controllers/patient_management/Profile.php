@@ -279,6 +279,14 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		$page_data['cpos'] = $this->CPO_model->get_records_by_join($cpo_params);
 		$page_data['transaction_entity'] = new \Mobiledrs\entities\patient_management\pages\Transactions_entity();
 
+		uasort($page_data['cpos'], function($a, $b) {
+			$startDateA = explode(' - ', $a->ptcpo_period)[0];
+			$startDateB = explode(' - ', $b->ptcpo_period)[0];
+
+			return strtotime($startDateA) < strtotime($startDateB);
+
+		});
+
 		$this->twig->view('patient_management/profile/details', $page_data);
 	}
 

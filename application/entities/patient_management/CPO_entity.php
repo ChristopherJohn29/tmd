@@ -11,8 +11,14 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	protected $ptcpo_end_period;
 	protected $ptcpo_dateSigned;
 	protected $ptcpo_firstMonthCPO;
+	protected $ptcpo_firstMonthCPOFromDate;
+	protected $ptcpo_firstMonthCPOToDate;
 	protected $ptcpo_secondMonthCPO;
+	protected $ptcpo_secondMonthCPOFromDate;
+	protected $ptcpo_secondMonthCPOToDate;
 	protected $ptcpo_thirdMonthCPO;
+	protected $ptcpo_thirdMonthCPOFromDate;
+	protected $ptcpo_thirdMonthCPOToDate;
 	protected $ptcpo_dischargeDate;
 	protected $ptcpo_dateBilled;
 	protected $ptcpo_status;
@@ -33,11 +39,15 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	public const CERTIFICATION = 'Certification';
 	public const RECERTIFICATION = 'Re-Certification';
 
-	public function get_start_date_period($date) {
-		return explode(' - ', $date)[0];
+	public function get_start_date($date) {
+		$startDate = explode(' - ', $date);
+
+		return $startDate[0] ?? '';
 	} 
 
-	public function get_end_date_period($date) {
-		return explode(' - ', $date)[1];
+	public function get_end_date($date) {
+		$endDate = explode(' - ', $date);
+
+		return $endDate[1] ?? '';
 	}
 }

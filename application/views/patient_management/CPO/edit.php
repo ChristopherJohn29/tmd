@@ -102,14 +102,14 @@
 									<div class="col-md-3 form-group {{ form_error('ptcpo_start_period') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Certification Start Period <span>*</span></label>
-										<input type="text" class="form-control" name="ptcpo_start_period" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_start_period', cpo.get_start_date_period(cpo.ptcpo_period)) }}">
+										<input type="text" class="form-control" name="ptcpo_start_period" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_start_period', cpo.get_start_date(cpo.ptcpo_period)) }}">
 
 									</div>
 
 									<div class="col-md-3 form-group {{ form_error('ptcpo_end_period') ? 'has-error' : '' }}">
 										<label class="control-label">Certification End Period <span>*</span></label>
 
-										<input type="text" class="form-control" name="ptcpo_end_period" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_end_period', cpo.get_end_date_period(cpo.ptcpo_period)) }}">
+										<input type="text" class="form-control" name="ptcpo_end_period" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_end_period', cpo.get_end_date(cpo.ptcpo_period)) }}">
 										
 									</div>
 									
@@ -132,37 +132,71 @@
 										<span class="help-block">{{ form_error('ptcpo_dateSigned') }}</span>
 									</div>
 									
-									<div class="col-md-4 form-group {{ form_error('ptcpo_firstMonthCPO') ? 'has-error' : '' }}">
+									<div class="col-md-2 form-group {{ form_error('ptcpo_firstMonthCPOFromDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">1st Month CPO</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPO" value="{{ set_value('ptcpo_firstMonthCPO', cpo.ptcpo_firstMonthCPO) }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPOFromDate" value="{{ set_value('ptcpo_firstMonthCPOFromDate', cpo.get_start_date(cpo.ptcpo_firstMonthCPO)) }}">
+										
+									</div>
+
+									<div class="col-md-2 form-group {{ form_error('ptcpo_firstMonthCPOToDate') ? 'has-error' : '' }}">
+									
+										<label class="control-label">&nbsp;</label>
+										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPOToDate" value="{{ set_value('ptcpo_firstMonthCPOToDate', cpo.get_end_date(cpo.ptcpo_firstMonthCPO)) }}">
 										
 									</div>
 									
-									<div class="col-md-4 form-group {{ form_error('ptcpo_secondMonthCPO') ? 'has-error' : '' }}">
+									<div class="col-md-2 form-group {{ form_error('ptcpo_secondMonthCPOFromDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">2nd Month CPO</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPO" value="{{ set_value('ptcpo_secondMonthCPO', cpo.ptcpo_secondMonthCPO) }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPOFromDate" value="{{ set_value('ptcpo_secondMonthCPOFromDate', cpo.get_start_date(cpo.ptcpo_secondMonthCPO)) }}">
+										
+									</div>
+
+									<div class="col-md-2 form-group {{ form_error('ptcpo_secondMonthCPOToDate') ? 'has-error' : '' }}">
+									
+										<label class="control-label">&nbsp;</label>
+										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPOToDate" value="{{ set_value('ptcpo_secondMonthCPOToDate', cpo.get_end_date(cpo.ptcpo_secondMonthCPO)) }}">
 										
 									</div>
 									
-									<div class="col-md-4 form-group {{ form_error('ptcpo_thirdMonthCPO') ? 'has-error' : '' }}">
+									<div class="col-md-2 form-group {{ form_error('ptcpo_thirdMonthCPOFromDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">3rd Month CPO</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPO" value="{{ set_value('ptcpo_thirdMonthCPO', cpo.ptcpo_thirdMonthCPO) }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPOFromDate" value="{{ set_value('ptcpo_thirdMonthCPOFromDate', cpo.get_start_date(cpo.ptcpo_thirdMonthCPO)) }}">
+										
+									</div>
+
+									<div class="col-md-2 form-group {{ form_error('ptcpo_thirdMonthCPOToDate') ? 'has-error' : '' }}">
+									
+										<label class="control-label">&nbsp;</label>
+										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPOToDate" value="{{ set_value('ptcpo_thirdMonthCPOToDate', cpo.get_end_date(cpo.ptcpo_thirdMonthCPO)) }}">
 										
 									</div>
 									
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('ptcpo_firstMonthCPO') }}</span>
+									<div class="col-md-2 has-error">
+										<span class="help-block">{{ form_error('ptcpo_firstMonthCPOFromDate') }}</span>
 									</div>
 
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('ptcpo_secondMonthCPO') }}</span>
+									<div class="col-md-2 has-error">
+										<span class="help-block">{{ form_error('ptcpo_firstMonthCPOToDate') }}</span>
 									</div>
 
-									<div class="col-md-4 has-error">
-										<span class="help-block">{{ form_error('ptcpo_thirdMonthCPO') }}</span>
+
+									<div class="col-md-2 has-error">
+										<span class="help-block">{{ form_error('ptcpo_secondMonthCPOFromDate') }}</span>
+									</div>
+
+									<div class="col-md-2 has-error">
+										<span class="help-block">{{ form_error('ptcpo_secondMonthCPOToDate') }}</span>
+									</div>
+
+									<div class="col-md-2 has-error">
+										<span class="help-block">{{ form_error('ptcpo_thirdMonthCPOFromDate') }}</span>
+									</div>
+
+									<div class="col-md-2 has-error">
+										<span class="help-block">{{ form_error('ptcpo_thirdMonthCPOToDate') }}</span>
 									</div>
 									
 									<div class="col-md-6 form-group">

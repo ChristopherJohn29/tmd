@@ -20,14 +20,23 @@ class CPO_model extends \Mobiledrs\core\MY_Models {
 		return [
 			'ptcpo_id' => $this->record_entity->ptcpo_id,
 			'ptcpo_patientID' => $this->record_entity->ptcpo_patientID,
-			'ptcpo_period' => $this->formatDatePeriod(
+			'ptcpo_period' => $this->formatDate(
 				$this->record_entity->ptcpo_start_period,
 				$this->record_entity->ptcpo_end_period
 			),
 			'ptcpo_dateSigned' =>  $this->record_entity->set_date_format($this->record_entity->ptcpo_dateSigned),
-			'ptcpo_firstMonthCPO' => $this->record_entity->ptcpo_firstMonthCPO,
-			'ptcpo_secondMonthCPO' => $this->record_entity->ptcpo_secondMonthCPO,
-			'ptcpo_thirdMonthCPO' => $this->record_entity->ptcpo_thirdMonthCPO,
+			'ptcpo_firstMonthCPO' => $this->formatDate(
+				$this->record_entity->ptcpo_firstMonthCPOFromDate,
+				$this->record_entity->ptcpo_firstMonthCPOToDate
+			),
+			'ptcpo_secondMonthCPO' => $this->formatDate(
+				$this->record_entity->ptcpo_secondMonthCPOFromDate,
+				$this->record_entity->ptcpo_secondMonthCPOToDate
+			),
+			'ptcpo_thirdMonthCPO' => $this->formatDate(
+				$this->record_entity->ptcpo_thirdMonthCPOFromDate,
+				$this->record_entity->ptcpo_thirdMonthCPOToDate
+			),
 			'ptcpo_dischargeDate' => $this->record_entity->set_date_format($this->record_entity->ptcpo_dischargeDate),
 			'ptcpo_dateBilled' => $this->record_entity->set_date_format($this->record_entity->ptcpo_dateBilled),
 			'ptcpo_status' => $this->record_entity->ptcpo_status,
@@ -35,7 +44,7 @@ class CPO_model extends \Mobiledrs\core\MY_Models {
 		];
 	}
 
-	public function formatDatePeriod($startDate, $endDate) : string
+	public function formatDate($startDate, $endDate) : string
 	{
 		return $startDate . ' - ' . $endDate;
 	}
