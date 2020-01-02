@@ -59,8 +59,6 @@ class Superbill_cpo_pat_trans_entity {
 	{
 		$data = [];
 
-		$last_ptcpo_patientID = 0;
-
 		foreach ($this->cpo as $i => $cpo)
 		{
 			$data[$i] = [
@@ -90,11 +88,8 @@ class Superbill_cpo_pat_trans_entity {
 					if ( ! empty($pat_tran->supervisingMD_firstname)) {
 						$data[$i]['supervisingMD_fullname'] = $pat_tran->supervisingMD_firstname . ' ' . $pat_tran->supervisingMD_lastname;
 					}
-
-					break;
 				}
 			}
-			$last_ptcpo_patientID = $cpo->ptcpo_patientID;
 		}
 
 		return $data;
