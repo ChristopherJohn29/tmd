@@ -17,7 +17,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		$this->toDate = $year . '-' . $month . '-' . $toDate;
 	}
 
-	public function get_total_patients() : array
+	public function get_total_patients($tableColumn = '', $sortDirection = '') : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -86,14 +86,40 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 			];
 		}
 
-		usort($headcount_list, function($a, $b) {
-			return $a["patient_name"] > $b["patient_name"];
+		usort($headcount_list, function($a, $b) use ($tableColumn, $sortDirection) {
+			if ($tableColumn == 'patient_name') {
+				return $sortDirection == 'ascending' ? 
+					strcmp($a["patient_name"], $b["patient_name"]) :
+					strcmp($b["patient_name"], $a["patient_name"]);
+			} else if ($tableColumn == 'provider') {
+				return $sortDirection == 'ascending' ? 
+					strcmp($a["provider"], $b["provider"]) :
+					strcmp($b["provider"], $a["provider"]);
+			} else if ($tableColumn == 'dateOfService') {
+				return $sortDirection == 'ascending' ? 
+					strtotime($a["dateOfService"]) > strtotime($b["dateOfService"]) :
+					strtotime($a["dateOfService"]) < strtotime($b["dateOfService"]);
+			} else if ($tableColumn == 'deductible') {
+				return $sortDirection == 'ascending' ? 
+					$a["deductible"] > $b["deductible"] : 
+					$a["deductible"] < $b["deductible"];
+			} else if ($tableColumn == 'home_health') {
+				return $sortDirection == 'ascending' ? 
+					strcmp($a["home_health"], $b["home_health"]) :
+					strcmp($b["home_health"], $a["home_health"]);
+			} else if ($tableColumn == 'visit_billed') {
+				return $sortDirection == 'ascending' ? 
+					strtotime($a["visit_billed"]) > strtotime($b["visit_billed"]) : 
+					strtotime($a["visit_billed"]) < strtotime($b["visit_billed"]);
+			} else {
+				return $a["patient_name"] > $b["patient_name"];
+			}
 		});
 
 		return $headcount_list;
 	}
 
-	public function get_unbilled_cpo() : array 
+	public function get_unbilled_cpo($tableColumn = '', $sortDirection = '') : array 
 	{
 		$cpo_params = [
 			'where' => [
@@ -148,7 +174,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $headcount_list;
 	}
 
-	public function get_unbilled_aw() : array
+	public function get_unbilled_aw($tableColumn = '', $sortDirection = '') : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -225,7 +251,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $headcount_list;
 	}
 
-	public function get_unbilled_visits() : array
+	public function get_unbilled_visits($tableColumn = '', $sortDirection = '') : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -302,7 +328,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $headcount_list;
 	}
 
-	public function get_blank_diagnoses() : array
+	public function get_blank_diagnoses($tableColumn = '', $sortDirection = '') : array
 	{
 		$transaction_params = [
 			'order' => [
@@ -379,7 +405,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $headcount_list;
 	}
 
-	public function get_noshow_patients() : array
+	public function get_noshow_patients($tableColumn = '', $sortDirection = '') : array
 	{
 		$transaction_params = [
 			'order' => [

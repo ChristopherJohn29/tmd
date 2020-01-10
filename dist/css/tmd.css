@@ -839,10 +839,6 @@ table tfoot{
     
 }
 
-.ui-datepicker-year {
-    display:none;   
-}
-
 .holiday-date-color {
     background-color: red;
     opacity: 1 !important;

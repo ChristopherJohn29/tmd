@@ -93,21 +93,23 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 
 	public function get_CPO(string $fromDate, string $toDate, array $ids) : array
 	{
-		// $new_fromDate = str_replace('/', '-', $fromDate) . ' 00:00:00';
-		// $new_toDate = str_replace('/', '-', $toDate) . ' 23:59:00';
+		$new_fromDate = date_format(date_create($fromDate), 'Y-m-d');
+		$new_toDate = date_format(date_create($toDate), 'Y-m-d');
 
-		$new_fromDate = date_format(date_create($fromDate), 'm/d/Y');
-		$new_toDate = date_format(date_create($toDate), 'm/d/Y');
+		// SELECT * 
+		// FROM `patient_CPO`
+		// WHERE STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y') >= '2019-11-01' AND 
+		// STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, INSTR(patient_CPO.ptcpo_period, ' - ') + 3), '%m/%d/%Y') <= '2019-12-31'
 
 		$cpo_trans = [
 			'where' => [
 				[
-					'key' => "SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - '))",
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
 					'condition' => '>=',
 					'value' => $new_fromDate
 				],
 				[
-					'key' => "SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - '))",
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, INSTR(patient_CPO.ptcpo_period, ' - ') + 3), '%m/%d/%Y')",
 					'condition' => '<=',
 					'value' => $new_toDate
 				],

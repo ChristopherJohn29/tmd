@@ -11,7 +11,7 @@ $(function () {
 
       $("div.toolbar").append(button);      
     },
-    'order': [[0, "desc"]],
+    'order': [],
     "iDisplayLength": 100,
     "fnDrawCallback": function (o) {
       if ( o._iDisplayStart != oldStart ) {

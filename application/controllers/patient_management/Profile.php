@@ -237,7 +237,9 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'condition' => '=',
 	        		'value' => NULL
         		]
-			]
+			],
+			'key' => 'patient_communication_notes.ptcn_dateCreated',
+			'order_by' => 'DESC'
 		];
 
 		$cpo_params = [

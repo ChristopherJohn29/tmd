@@ -20,6 +20,12 @@
 		<div class="box-body">
 
 			<div class="table-responsive">
+				<div id="" class="toolbar">
+					<a href="{{ site_url('scheduled_holidays_management/scheduled_holidays/add') }}" class="pull-right">
+						<span class="label label-primary">Add</span>
+					</a>
+				</div>
+
 				<table id="" class="table no-margin table-hover">
 
 				  <thead>
@@ -41,7 +47,7 @@
 								{{ scheduledHoliday.sh_description }}
 							</td>
 							<td>
-								{{ scheduledHoliday.get_date_format(scheduledHoliday.sh_date) }}
+								{{ scheduledHoliday.get_date_format(scheduledHoliday.sh_date)|date("F d, Y") }}
 							</td>
 							<td>
 

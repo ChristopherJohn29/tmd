@@ -38,7 +38,7 @@
 									</div>
 
 									<div class="col-md-6 form-group {{ form_error('sh_date') ? 'has-error' : '' }}">
-										<label class="control-label">Description <span>*</span></label>
+										<label class="control-label">Date <span>*</span></label>
 										<input type="text"  data-inputmask="'alias': 'mm/dd/yyyy'" data-mask class="form-control" id="sh_date" placeholder="" required="true" name="sh_date" value="{{ set_value('sh_date') }}">
 									</div>
 
