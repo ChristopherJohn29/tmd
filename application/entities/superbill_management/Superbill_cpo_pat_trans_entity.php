@@ -69,6 +69,7 @@ class Superbill_cpo_pat_trans_entity {
 				'third_Month_CPO' => $cpo->ptcpo_thirdMonthCPO,
 				'discharge_Date' => $cpo->get_date_format($cpo->ptcpo_dischargeDate),
 				'patient_name' => '',
+				'medicare' => '',
 				'icd10' => '',
 				'status' => $cpo->ptcpo_status,
 				'ptcpo_id' => $cpo->ptcpo_id,
@@ -80,6 +81,7 @@ class Superbill_cpo_pat_trans_entity {
 				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID)
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
+					$data[$i]['medicare'] = $pat_tran->patient_medicareNum;
 
 					if ($pat_tran->pt_dateOfService == $cpo->ptcpo_dateOfService) {
 						$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
