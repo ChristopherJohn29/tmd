@@ -117,6 +117,11 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 					'value' => $new_fromDate
 				],
 				[
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
+					'condition' => '<=',
+					'value' => $new_toDate
+				],
+				[
 					'key' => 'patient_CPO.ptcpo_dischargeDate',
 					'condition' => '<>',
 					'value' => NULL
