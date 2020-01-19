@@ -19,6 +19,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			'patient_management/transaction_model',
 			'superbill_management/superbill_model'
 		));
+
+		$this->load->library('Date_formatter');
 	}
 
 	public function index()

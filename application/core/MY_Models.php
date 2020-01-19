@@ -62,6 +62,11 @@ class MY_Models extends \CI_Model {
 
 	public function records(array $params = [])
 	{
+		if (isset($params['select']))
+		{
+			$this->db->select($params['select']);
+		}
+
 		if (isset($params['order_by'])) 
 		{
 			$this->db->order_by($params['key'], $params['order_by']);

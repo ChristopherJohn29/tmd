@@ -110,6 +110,7 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 		// 	STR_TO_DATE(TRIM(SUBSTRING(patient_CPO.ptcpo_period, INSTR(patient_CPO.ptcpo_period, ' - ') + 3)), '%m/%d/%Y')  <= '2018-10-30'
 
 		$cpo_trans = [
+			'select' => "*, STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y') AS cpoStartDate",
 			'where' => [
 				[
 					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
@@ -138,12 +139,16 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 				]
 			],
 			'orders' => [
-				[
+				/*[
 					'column' => 'patient_CPO.ptcpo_patientID',
 					'direction' => 'ASC'
 				],
 				[
 					'column' => 'patient_CPO.ptcpo_dateCreated',
+					'direction' => 'ASC'
+				],*/
+				[
+					'column' => "cpoStartDate",
 					'direction' => 'ASC'
 				]
 			]
@@ -181,9 +186,14 @@ class Superbill_model extends \Mobiledrs\core\MY_Models {
 			$newProf_trans
 		);
 
+		$dateFormatter = new Date_formatter();
+		$dateFormatter->set_date($new_fromDate, $new_toDate);
+		$datePeriod = $dateFormatter->format();
+
 		return [
 			'transactions' => $pat_trans_entity->format_display(),
-			'CPOs' => $CPO
+			'CPOs' => $CPO,
+			'datePeriod' => $datePeriod
 		];
 	}
 }

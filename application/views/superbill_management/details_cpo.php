@@ -30,6 +30,10 @@
              						<th>Date Billed:</th>
              						<td>{{ date_billed }}</td>
              					</tr>
+             					<tr>
+             						<th>Date Period:</th>
+             						<td>{{ datePeriod }}</td>
+             					</tr>
              				</table>
              			</div>
              		</div>
@@ -72,22 +76,22 @@
 												{% if index > 0 and attribute(transactions, index - 1).patient_name == 	transaction['patient_name'] %}
 													{% set borderTopStyle = 'border-top: 0 !important;' %}
 
-													<td style="{{ borderTopStyle  }}"></td>
-													<td style="{{ borderTopStyle  }}"></td>
-													<td style="{{ borderTopStyle  }}"></td>
+													<td style="{{ borderTopStyle }}"></td>
+													<td style="{{ borderTopStyle }}"></td>
+													<td style="{{ borderTopStyle }}"></td>
 												{% else %}
-													<td style="{{ borderTopStyle  }}">{{ transaction['patient_name'] }}</td>
-													<td style="{{ borderTopStyle  }}">{{ transaction['medicare'] }}</td>
-													<td style="{{ borderTopStyle  }}">{{ transaction['icd10'] }}</td>
+													<td style="{{ borderTopStyle }}">{{ transaction['patient_name'] }}</td>
+													<td style="{{ borderTopStyle }}">{{ transaction['medicare'] }}</td>
+													<td style="{{ borderTopStyle }}">{{ transaction['icd10'] }}</td>
 												{% endif %}
                                                 <td>{{ transaction.supervisingMD_fullname }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['status'] }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['cert_Period'] }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['date_Signed'] }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['first_Month_CPO'] }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['second_Month_CPO'] }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['third_Month_CPO'] }}</td>
-												<td style="{{ borderTopStyle  }}">{{ transaction['discharge_Date'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['status'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['cert_Period'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['date_Signed'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['first_Month_CPO'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['second_Month_CPO'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['third_Month_CPO'] }}</td>
+												<td style="{{ borderTopStyle }}">{{ transaction['discharge_Date'] }}</td>
 											</tr>
 
 										{% endfor %}
