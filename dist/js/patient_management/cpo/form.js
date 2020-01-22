@@ -19,12 +19,13 @@ $(function () {
 	  	dateFormat: 'mm/dd',
 	  	changeYear:false,
 	  	beforeShowDay: function(date) {
-		   	var month = date.getMonth();
+		   	var month = date.getMonth() + 1;
 		   	var monthDay = date.getDate();
 		   	var year = date.getFullYear();
 		   	var weekDay = date.getDay();
-		    
-		   	var dateFormat = year+'-'+(parseInt(month) + 1)+'-'+monthDay;
+	    	
+	    	var formattedMonth = month.toString().length === 1 ? '0'+month : month;
+		   	var dateFormat = year+'-'+formattedMonth+'-'+monthDay;
 		   	
 		   	var dateExists = null;
 		   	if (weekDay == sunday) {
