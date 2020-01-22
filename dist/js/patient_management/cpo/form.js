@@ -25,7 +25,8 @@ $(function () {
 		   	var weekDay = date.getDay();
 	    	
 	    	var formattedMonth = month.toString().length === 1 ? '0'+month : month;
-		   	var dateFormat = year+'-'+formattedMonth+'-'+monthDay;
+	    	var formattedMonthDay = monthDay.toString().length === 1 ? '0'+monthDay : monthDay;
+		   	var dateFormat = year+'-'+formattedMonth+'-'+formattedMonthDay;
 		   	
 		   	var dateExists = null;
 		   	if (weekDay == sunday) {
