@@ -261,6 +261,10 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		}
 		elseif ($this->input->post('submit_type') == 'pdf')
 		{
+			// temporary remove the max exceed time execution
+			ini_set('max_execution_time', 0);
+			ini_set('memory_limit', '2048M');
+
 			$this->load->library(['Date_formatter', 'PDF']);
 
 			$new_fromDate = str_replace('_', '/', $fromDate);
