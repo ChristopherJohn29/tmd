@@ -133,42 +133,42 @@
 									<div class="col-md-2 form-group {{ form_error('ptcpo_firstMonthCPOFromDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">1st Month CPO</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPOFromDate" value="{{ set_value('ptcpo_firstMonthCPOFromDate') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPOFromDate" value="{{ set_value('ptcpo_firstMonthCPOFromDate') }}" autocomplete="off">
 										
 									</div>
 
 									<div class="col-md-2 form-group {{ form_error('ptcpo_firstMonthCPOToDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">&nbsp;</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPOToDate" value="{{ set_value('ptcpo_firstMonthCPOToDate') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_firstMonthCPOToDate" value="{{ set_value('ptcpo_firstMonthCPOToDate') }}" autocomplete="off">
 										
 									</div>
 									
 									<div class="col-md-2 form-group {{ form_error('ptcpo_secondMonthCPOFromDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">2nd Month CPO</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPOFromDate" value="{{ set_value('ptcpo_secondMonthCPOFromDate') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPOFromDate" value="{{ set_value('ptcpo_secondMonthCPOFromDate') }}" autocomplete="off">
 										
 									</div>
 
 									<div class="col-md-2 form-group {{ form_error('ptcpo_secondMonthCPOToDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">&nbsp;</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPOToDate" value="{{ set_value('ptcpo_secondMonthCPOToDate') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_secondMonthCPOToDate" value="{{ set_value('ptcpo_secondMonthCPOToDate') }}" autocomplete="off">
 										
 									</div>
 									
 									<div class="col-md-2 form-group {{ form_error('ptcpo_thirdMonthCPOFromDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">3rd Month CPO</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPOFromDate" value="{{ set_value('ptcpo_thirdMonthCPOFromDate') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPOFromDate" value="{{ set_value('ptcpo_thirdMonthCPOFromDate') }}" autocomplete="off">
 										
 									</div>
 
 									<div class="col-md-2 form-group {{ form_error('ptcpo_thirdMonthCPOToDate') ? 'has-error' : '' }}">
 									
 										<label class="control-label">&nbsp;</label>
-										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPOToDate" value="{{ set_value('ptcpo_thirdMonthCPOToDate') }}">
+										<input type="text" class="form-control holiday-date" name="ptcpo_thirdMonthCPOToDate" value="{{ set_value('ptcpo_thirdMonthCPOToDate') }}" autocomplete="off">
 										
 									</div>
 
