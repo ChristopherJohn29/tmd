@@ -38,6 +38,20 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			'7' => 'No Show Patients'
 		]
 	];
+
+	private $tableColumns = [
+		'1' => 'patient_name',
+        '2' => 'provider',
+        '3' => 'pt_supervising_mdID',
+        '4' => 'dateOfService',
+        '5' => 'deductible',
+        '6' => 'home_health',
+        '7' => 'paid',
+        '8' => 'aw_billed',
+        '9' => 'visit_billed',
+        '10' => 'cpo_billed',
+        '11' => 'actions'
+	];
 	
 	public function __construct()
 	{
@@ -177,7 +191,11 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		}
 	}
 
-	public function pdf(string $type, string $month, string $fromDate, string $toDate, string $year)
+	public function pdf(
+		string $type, string $month, string $fromDate, 
+		string $toDate, string $year, string $tableColumndID = null, 
+		string $sortDirection = null
+	)
 	{
 		$this->load->library(['PDF', 'Date_formatter']);
 
@@ -231,7 +249,11 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 			$this->headcount_model->prepare_dateRange($month, $fromDate, $toDate, $year);
 
-			$page_data['headcounts'] = $this->headcount_model->$selected_func();
+			$page_data['headcounts'] = $this->headcount_model->$selected_func(
+				$this->tableColumns[$tableColumndID],
+				$sortDirection
+			);
+
 			$page_data['headcounts_total'] = count($page_data['headcounts']);
 
 			$html = $this->load->view('patient_management/headcount/pdf', $page_data, true);

@@ -62,6 +62,11 @@ class MY_Models extends \CI_Model {
 
 	public function records(array $params = [])
 	{
+		if (isset($params['select']))
+		{
+			$this->db->select($params['select']);
+		}
+
 		if (isset($params['order_by'])) 
 		{
 			$this->db->order_by($params['key'], $params['order_by']);
@@ -108,7 +113,7 @@ class MY_Models extends \CI_Model {
 
 			$this->db->$like_func($search['key'], $search['value']);
 		}
-
+		
 		$query = $this->db->get($this->table_name);
 
 		return $query->custom_result_object($this->entity);
@@ -168,7 +173,11 @@ class MY_Models extends \CI_Model {
 
 	public function delete_data(array $params)
 	{
-		return $this->db->delete($this->table_name, [$params['table_key'] => $params['record_id']]);
+		$this->db->where($params['table_key'], $params['record_id']);
+
+		return $this->db->update($this->table_name, [
+			$params['column_archive'] => '1'
+		]);
 	}
 
 	public function prepare_entity_data()

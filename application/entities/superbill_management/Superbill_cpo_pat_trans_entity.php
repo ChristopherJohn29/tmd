@@ -41,6 +41,7 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_dateCreated;
 	protected $pt_mileage;
 	protected $pt_aw_billed;
+	protected $pt_archive;
 
 	public $supervisingMD_firstname;
 	public $supervisingMD_lastname;
@@ -58,8 +59,6 @@ class Superbill_cpo_pat_trans_entity {
 	{
 		$data = [];
 
-		$last_ptcpo_patientID = 0;
-
 		foreach ($this->cpo as $i => $cpo)
 		{
 			$data[$i] = [
@@ -70,6 +69,7 @@ class Superbill_cpo_pat_trans_entity {
 				'third_Month_CPO' => $cpo->ptcpo_thirdMonthCPO,
 				'discharge_Date' => $cpo->get_date_format($cpo->ptcpo_dischargeDate),
 				'patient_name' => '',
+				'medicare' => '',
 				'icd10' => '',
 				'status' => $cpo->ptcpo_status,
 				'ptcpo_id' => $cpo->ptcpo_id,
@@ -78,22 +78,20 @@ class Superbill_cpo_pat_trans_entity {
 
 			foreach ($this->pat_trans as $pat_tran)
 			{
-				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID && 
-					in_array($pat_tran->pt_tovID, Type_visit_entity::get_all_visits_list())
-				)
+				if ($pat_tran->pt_patientID == $cpo->ptcpo_patientID)
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
-					$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
+					$data[$i]['medicare'] = $pat_tran->patient_medicareNum;
+
+					if ($pat_tran->pt_dateOfService == $cpo->ptcpo_dateOfService) {
+						$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
+					}
 
 					if ( ! empty($pat_tran->supervisingMD_firstname)) {
 						$data[$i]['supervisingMD_fullname'] = $pat_tran->supervisingMD_firstname . ' ' . $pat_tran->supervisingMD_lastname;
 					}
-
-					break;
 				}
 			}
-
-			$last_ptcpo_patientID = $cpo->ptcpo_patientID;
 		}
 
 		return $data;

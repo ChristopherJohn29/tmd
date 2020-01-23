@@ -38,6 +38,13 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				'key' => 'provider_route_sheet.prs_dateOfService',
 				'by' => 'DESC'
 			],
+			'where' => [
+				[
+					'key' => 'provider_route_sheet.prs_archive',
+					'condition' => '=',
+	        		'value' => NULL
+        		]
+			],
 			'return_type' => 'object'
 		];
 
@@ -198,7 +205,7 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'validation_group' => 'provider_route_sheet_management/route_sheet/save'
 		];
 
-		$this->save_data($params);
+		parent::save_data($params);
 	}
 
 	public function details(string $prs_id)

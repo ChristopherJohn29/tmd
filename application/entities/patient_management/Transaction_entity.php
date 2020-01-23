@@ -30,6 +30,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_mileage;
 	protected $pt_aw_billed;
 	protected $pt_supervising_mdID;
+	protected $pt_archive;
 
 	protected $tov_id; 
 	protected $tov_name;

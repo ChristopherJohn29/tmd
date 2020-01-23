@@ -839,3 +839,14 @@ table tfoot{
     
 }
 
+.holiday-date-color {
+    background-color: red;
+    opacity: 1 !important;
+    pointer-events: unset !important;
+}
+
+.holiday-date-color .ui-state-default {
+    background-color: red;
+    color: white;
+    border-color: red;
+}

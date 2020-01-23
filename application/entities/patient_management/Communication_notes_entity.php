@@ -8,4 +8,5 @@ class Communication_notes_entity extends \Mobiledrs\entities\Entity {
 	protected $ptcn_patientID;
 	protected $ptcn_message;
 	protected $ptcn_dateCreated;
+	protected $ptcn_archive;
 }

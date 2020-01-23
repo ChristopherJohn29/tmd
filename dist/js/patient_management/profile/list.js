@@ -1,4 +1,4 @@
- $(function () {
+$(function () {
   var oldStart = 0;
 
   $('#all-patient-list').DataTable({
