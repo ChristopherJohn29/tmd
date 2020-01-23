@@ -59,6 +59,11 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 					'key' => 'patient_transactions.pt_patientID',
 					'condition' => '=',
 					'value' => $this->input->get('patientID')
+				],
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+					'value' => NULL
 				]
 			],
 			'where_in' => [

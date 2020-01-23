@@ -8,6 +8,7 @@ class Routesheet_entity extends \Mobiledrs\entities\Entity {
 	protected $prs_providerID;
 	protected $prs_dateOfService;
 	protected $prs_dateCreated;
+	protected $prs_archive;
 
 	protected $provider_id;
 	protected $provider_firstname;

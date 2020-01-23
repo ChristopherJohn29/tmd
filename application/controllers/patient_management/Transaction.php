@@ -144,6 +144,29 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 			'sub_data_id' => $pt_id
 		];
 
-		parent::save_sub_data($params);   
+		$log = [];
+		if ($page_type == 'edit') {
+			$log = ['description' => 'Updates a patient transaction record.'];
+		} else {
+			$log = ['description' => 'Added a new patient transaction record.'];
+		}
+
+		parent::save_sub_data($params, false);
+
+		$lastRecordID = $page_type == 'edit' ? $pt_id : $this->db->insert_id();
+
+		if ( ! empty($log) && $this->session->userdata('user_roleID') != '1') {
+            $this->logs_model->insert([
+                'data' => [
+                    'user_log_userID' => $this->session->userdata('user_id'),
+                    'user_log_time' => date('H:m:s'),
+                    'user_log_date' => date('Y-m-d'),
+                    'user_log_description' => $log['description'],
+                    'user_log_link' => 'patient_management/transaction/edit/'.$pt_patientID.'/'.$lastRecordID
+                ]
+            ]);
+        }
+
+        return redirect($params['redirect_url']);
 	}
 }

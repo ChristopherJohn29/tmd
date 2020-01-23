@@ -620,7 +620,23 @@ $config = array(
     ),
     'patient_management/cpo/save' => array(
         array(
-            'field' => 'ptcpo_period',
+            'field' => 'ptcpo_status',
+            'label' => 'Certification Status',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'ptcpo_start_period',
+            'label' => 'Certification Period',
+            'rules' => 'required|max_length[45]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'ptcpo_end_period',
             'label' => 'Certification Period',
             'rules' => 'required|max_length[45]',
             'errors' => array(
@@ -658,7 +674,15 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
-        )
+        ),
+        array(
+            'field' => 'ptcpo_dateOfService',
+            'label' => 'Date Of Service',
+            'rules' => 'required|max_length[45]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
     ),
     'provider_route_sheet_management/route_sheet/save' => array(
         array(
@@ -722,6 +746,43 @@ $config = array(
             'label' => 'Notes',
             'rules' => 'required|max_length[255]',
             'errors' => array(
+                'required' => 'This field is required.'
+            )
+        )
+    ),
+    'scheduled_holidays_management/scheduled_holidays/save' => array(
+        array(
+            'field' => 'sh_description',
+            'label' => 'Description',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'sh_date',
+            'label' => 'Date',
+            'rules' => 'required|callback_scheduled_holidays_date_check',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        )
+    ),
+    'scheduled_holidays_management/scheduled_holidays/update' => array(
+        array(
+            'field' => 'sh_description',
+            'label' => 'Description',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'sh_date',
+            'label' => 'Date',
+            'rules' => 'required',
+            'errors' => array(
+                'is_unique' => 'This %s already exists.',
                 'required' => 'This field is required.'
             )
         )
