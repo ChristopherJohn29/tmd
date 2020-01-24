@@ -239,7 +239,7 @@
 
 		{% endif %}
 
-		{% if roles_permission_entity.has_permission_module(['UM']) %}
+		{% if roles_permission_entity.has_permission_module(['SHM']) %}
 
 			<li class="treeview">
 				<a href="#">
