@@ -46,6 +46,6 @@ class CPO_model extends \Mobiledrs\core\MY_Models {
 
 	public function formatDate($startDate, $endDate) : string
 	{
-		return $startDate . ' - ' . $endDate;
+		return (empty($startDate) ? '' : $startDate) . (empty($endDate) ? '' : ' - ') . (empty($endDate) ? '' : $endDate);
 	}
 }
