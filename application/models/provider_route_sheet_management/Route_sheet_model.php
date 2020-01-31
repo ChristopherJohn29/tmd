@@ -143,7 +143,8 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 				parent::delete_data([
 					'table_key' => 'patient_transactions.pt_id',
-					'record_id' => $patientTransID
+					'record_id' => $patientTransID,
+					'column_archive' => 'pt_archive'
 				]);
 			}
 		}
