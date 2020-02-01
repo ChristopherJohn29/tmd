@@ -85,10 +85,10 @@ class Superbill_cpo_pat_trans_entity {
 
 					if ($pat_tran->pt_dateOfService == $cpo->ptcpo_dateOfService) {
 						$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;
-					}
 
-					if ( ! empty($pat_tran->supervisingMD_firstname)) {
-						$data[$i]['supervisingMD_fullname'] = $pat_tran->supervisingMD_firstname . ' ' . $pat_tran->supervisingMD_lastname;
+						if ( ! empty($pat_tran->supervisingMD_firstname)) {
+							$data[$i]['supervisingMD_fullname'] = $pat_tran->supervisingMD_firstname . ' ' . $pat_tran->supervisingMD_lastname;
+						}
 					}
 				}
 			}
