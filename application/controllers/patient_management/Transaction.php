@@ -46,6 +46,11 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 					'key' => 'patient_transactions.pt_patientID',
 					'condition' => '',
 					'value' => $pt_patientID
+				],
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+					'value' => NULL
 				]
 			],
 			'where_in' => [
