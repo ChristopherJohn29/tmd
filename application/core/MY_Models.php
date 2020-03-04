@@ -67,6 +67,20 @@ class MY_Models extends \CI_Model {
 			$this->db->select($params['select']);
 		}
 
+		if (isset($params['joins'])) 
+		{
+			foreach ($params['joins'] as $key => $value) 
+			{
+				$this->db->join(
+					$value['join_table_name'],
+					$value['join_table_key'] . ' ' .
+					$value['join_table_condition'] . ' ' .
+					$value['join_table_value'],
+					$value['join_table_type']
+				);
+			}
+		}
+
 		if (isset($params['order_by'])) 
 		{
 			$this->db->order_by($params['key'], $params['order_by']);

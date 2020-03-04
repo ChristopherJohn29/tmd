@@ -54,6 +54,23 @@
 										
 									</div>
 
+									<div class="col-md-6 form-group {{ form_error('ptcn_category') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Category <span>*</span></label>
+                                        <select class="form-control" required="true" name="ptcn_category">
+                                        	<option value="">Select</option>
+
+                                        	{% for category in categories %}
+										        <option value="{{ category }}" {{ category == communication_note.ptcn_category ? 'selected=true' : '' }}>{{ category }}</option>
+										    {% endfor %}
+                                        </select>
+										
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('ptcn_category') }}</span>
+									</div>
+
 									<div class="col-md-12 form-group {{ form_error('ptcn_message') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Note <span>*</span></label>

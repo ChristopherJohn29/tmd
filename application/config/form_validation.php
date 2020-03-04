@@ -610,6 +610,14 @@ $config = array(
     ),
     'patient_management/communication_notes/save' => array(
         array(
+            'field' => 'ptcn_category',
+            'label' => 'Category',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
             'field' => 'ptcn_message',
             'label' => 'Message',
             'rules' => 'required',

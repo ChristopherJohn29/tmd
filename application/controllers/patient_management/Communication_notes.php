@@ -1,5 +1,7 @@
 <?php
 
+use Mobiledrs\entities\patient_management\Communication_notes_entity;
+
 class Communication_notes extends \Mobiledrs\core\MY_Controller {
 	
 	public function __construct()
@@ -38,6 +40,8 @@ class Communication_notes extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['record'] = $this->pt_model->get_records_by_join($profile_params);
 
+		$page_data['categories'] = (new Communication_notes_entity())->getCategories();
+
 		$this->twig->view('patient_management/notes/add', $page_data);
 	}
 
@@ -72,7 +76,7 @@ class Communication_notes extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['record'] = $this->pt_model->get_records_by_join($profile_params);
 		$page_data['communication_note'] = $this->cn_model->record($cn_params);
-
+		$page_data['categories'] = (new Communication_notes_entity())->getCategories();
 
 		if ( ! $page_data['record'])
 		{
