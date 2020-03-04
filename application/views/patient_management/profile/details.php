@@ -315,8 +315,10 @@
              				   <table class="table no-margin table-hover">
 								<thead>
 									<tr>
-										<th width="150px">Note Added</th>
+										<th width="150px">Date</th>
+                                        <th style="width: 200px;">Category</th>
 										<th>Note</th>
+                                        <th style="width: 150px;">Note from</th>
 										<th width="120px">Actions</th>
 									</tr>
 								</thead>
@@ -327,7 +329,9 @@
 
                                         <tr>
     										<th>{{ cn.get_date_format(cn.ptcn_dateCreated) }}</th>
+                                            <td>{{ cn.ptcn_category }}</td>
     										<td>{{ cn.ptcn_message }}</td>
+                                            <td>{{ cn.getNotesFromUserID() }}</td>
     										<td>
 
                                                 {% if roles_permission_entity.has_permission_name(['edit_cn']) %}

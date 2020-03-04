@@ -15,7 +15,9 @@ class Communication_notes_model extends \Mobiledrs\core\MY_Models {
 		return [
 			'ptcn_id' => $this->input->post('ptcn_id'),
 			'ptcn_patientID' => $this->input->post('ptcn_patientID'),
-			'ptcn_message' => $this->input->post('ptcn_message')
+			'ptcn_category' => $this->input->post('ptcn_category'),
+			'ptcn_message' => $this->input->post('ptcn_message'),
+			'ptcn_notesFromUserID' => $this->session->userdata('user_id')
 		];
 	}
 }

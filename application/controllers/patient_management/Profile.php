@@ -226,6 +226,15 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		];
 
 		$communication_params = [
+			'joins' => [
+				[
+					'join_table_name' => 'user',
+					'join_table_key' => 'user.user_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient_communication_notes.ptcn_notesFromUserID',
+					'join_table_type' => 'left'
+				]
+			],
 			'where' => [
 				[
 					'key' => 'patient_communication_notes.ptcn_patientID',
