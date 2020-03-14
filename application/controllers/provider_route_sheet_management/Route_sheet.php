@@ -180,6 +180,11 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 						'value' => $this->input->post('prs_providerID')
 					],
 					[
+						'key' => ' provider_route_sheet.prs_archive',
+						'condition' => '',
+						'value' => 'IS NOT NULL'
+					],
+					[
 						'key' => ' provider_route_sheet.prs_dateOfService',
 						'condition' => '=',
 						'value' => $entity->set_date_format($this->input->post('prs_dateOfService'))
