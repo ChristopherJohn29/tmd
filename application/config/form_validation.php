@@ -504,6 +504,30 @@ $config = array(
             'errors' => array(
                 'required' => 'This field is required.'
             )
+        ),
+        array(
+            'field' => 'patient_pharmacy',
+            'label' => 'Name',
+            'rules' => 'max_length[255]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'patient_pharmacyPhone',
+            'label' => 'Name',
+            'rules' => 'max_length[45]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        ),
+        array(
+            'field' => 'patient_drug_allergy',
+            'label' => 'Name',
+            'rules' => 'max_length[45]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
         )
     ),
     'patient_management/profile/save_update' => array(

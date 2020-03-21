@@ -18,7 +18,7 @@
 
              			</div>
              			
-             			<div class="col-md-4">
+             			<div class="col-md-3">
              				<p class="lead blue-bg">Basic Information</p>
              				
              				<table class="table xrx-table">
@@ -41,7 +41,7 @@
              				</table>
              			</div>
              			
-             			<div class="col-md-4">
+             			<div class="col-md-3">
              				<p class="lead blue-bg">Contact Information</p>
              				
              				<table class="table xrx-table">
@@ -59,8 +59,27 @@
              					</tr>
              				</table>
              			</div>
+
+                        <div class="col-md-3">
+                            <p class="lead blue-bg">Pharmacy Information</p>
+                            
+                            <table class="table xrx-table">
+                                <tr>
+                                    <th>Pharmacy:</th>
+                                    <td>{{ record.patient_pharmacy }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone:</th>
+                                    <td>{{ record.patient_pharmacyPhone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Drug Allergy:</th>
+                                    <td>{{ record.patient_drug_allergy }}</td>
+                                </tr>
+                            </table>
+                        </div>
              			
-             			<div class="col-md-4">
+             			<div class="col-md-3">
              				<p class="lead blue-bg">Home Health Information</p>
              				
              				<table class="table xrx-table">

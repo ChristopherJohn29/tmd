@@ -124,12 +124,12 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		$cpo_params = [
 			'where' => [
 				[
-					'key' => 'patient_CPO.ptcpo_dateSigned',
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
 					'condition' => '>=',
 	        		'value' => $this->fromDate
 				],
 				[
-					'key' => 'patient_CPO.ptcpo_dateSigned',
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
 					'condition' => '<=',
 	        		'value' => $this->toDate
 				],

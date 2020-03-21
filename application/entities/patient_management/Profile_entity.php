@@ -15,6 +15,9 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
 	protected $patient_placeOfService;
+	protected $patient_pharmacy;
+	protected $patient_pharmacyPhone;
+	protected $patient_drug_allergy;
 
 	protected $hhc_id;
 	protected $hhc_name;

@@ -63,6 +63,8 @@
                 	<li><a href="{{ site_url('patient_management/DFV') }}"><i class="fa fa-angle-right"></i> Due For Visits </a></li>
 
                 	<li><a href="{{ site_url('patient_management/supervising_MD') }}"><i class="fa fa-angle-right"></i> Supervisng MD</a></li>
+
+                	<li><a href="{{ site_url('patient_management/DFN') }}"><i class="fa fa-angle-right"></i> Due For 485 </a></li>
 					
 				</ul>
 			</li>

@@ -11,8 +11,10 @@ Mobiledrs.Year_incrementor = (function() {
 
 		for (var i = 0; i < diffYear; i++) {
 			var year = (i < 1) ? defaultYear : parseInt($(yearList[i]).html());
+			var updatedYear = year + 1;
+			var selectedYear = diffYear == (i + 1) ? 'selected="'+updatedYear+'"' : '';
 
-			yearList.push('<option>' + (year + 1) + '</option>');
+			yearList.push('<option '+selectedYear+'>' + updatedYear + '</option>');
 		}
 
 		yearEl.append(yearList);
