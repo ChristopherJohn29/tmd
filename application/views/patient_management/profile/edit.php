@@ -156,7 +156,7 @@
 									</div>
 
 									<div class="col-md-12 subheader">
-										<p class="lead ">Home Health Care</p>
+										<p class="lead ">Pharmacy Information</p>
 									</div>
 
 									<div class="col-md-4 form-group {{ form_error('patient_pharmacy') ? 'has-error' : '' }}">
