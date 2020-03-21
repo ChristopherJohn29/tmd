@@ -155,6 +155,10 @@
 										</div>
 									</div>
 
+									<div class="col-md-12 subheader">
+										<p class="lead ">Home Health Care</p>
+									</div>
+
 									<div class="col-md-4 form-group {{ form_error('patient_pharmacy') ? 'has-error' : '' }}">
 										<label class="control-label">Pharmacy</label>
 										<input type="text" class="form-control" id="name" placeholder="" name="patient_pharmacy" value="{{ set_value('patient_pharmacy', record.patient_pharmacy) }}">
