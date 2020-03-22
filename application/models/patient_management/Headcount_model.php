@@ -154,7 +154,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		foreach ($cpos as $index => $cpo) 
 		{
 			$patient_details = $this->get_patient_details($cpo->ptcpo_patientID);
-			$transaction_details = $this->get_transaction_details($cpo->ptcpo_patientID);
+			$transaction_details = $this->get_transaction_details(
+				$cpo->ptcpo_patientID,
+				$cpo->ptcpo_dateOfService
+			);
 
 			$headcount_list[] = [
 				'patient_id' => $patient_details->patient_id,
@@ -532,7 +535,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $this->CPO_model->get_records_by_join($cpo_params);
 	}
 
-	private function get_transaction_details(string $patient_id) {
+	private function get_transaction_details(string $patient_id, string $dateOfService) {
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -551,12 +554,12 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '>=',
-	        		'value' => $this->fromDate
+	        		'value' => $dateOfService
         		],
         		[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
-	        		'value' => $this->toDate
+	        		'value' => $dateOfService
         		],
         		[
 					'key' => 'patient_transactions.pt_patientID',
