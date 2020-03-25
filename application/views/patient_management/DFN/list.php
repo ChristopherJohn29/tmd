@@ -9,8 +9,8 @@
                 </p>
             </div>
             <div class="pull-right text-right">
-                <a href="{{ site_url("patient_management/DFN/print/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-                <a href="{{ site_url("patient_management/DFN/pdf/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
+                <a href="{{ site_url("patient_management/DFN/print/#{ fromDate }/#{ toDate }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+                <a href="{{ site_url("patient_management/DFN/pdf/#{ fromDate }/#{ toDate }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
             </div>
         </div>
 

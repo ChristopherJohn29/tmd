@@ -9,18 +9,18 @@
                 </p>
             </div>
             <div class="pull-right text-right">
-                <a href="{{ site_url("patient_management/DFV/print/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-                <a href="{{ site_url("patient_management/DFV/pdf/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
+                <a data-sortBtn href="{{ site_url("patient_management/DFV/print/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+                <a data-sortBtn href="{{ site_url("patient_management/DFV/pdf/#{ year }/#{ month }/#{ fromDate }/#{ toDate }") }}"><span class="btn btn-primary btn-sm">Generate PDF</span></a>
             </div>
         </div>
 
         
-        <table id="dfv-list" class="table no-margin table-hover">
+        <table data-sortTable id="dfv-list" class="table no-margin table-hover">
             <thead>
                 <tr>
                     <th>Patient Name</th>
-                    <th>Date of Service</th>
-                    <th>Home Health</th>
+                    <th data-columnid="1">Date of Service</th>
+                    <th data-columnid="2">Home Health</th>
                     <th>Contact Person</th>
                     <th>Phone</th>
                     <th>Action</th>

@@ -16,28 +16,38 @@ class DFN extends \Mobiledrs\core\MY_Controller {
 	{
 		$page_data = [];
 
-		if ($this->input->post('submit')) {
-			$page_data = $this->get_dfn_data(
+		if (!empty($this->input->post())) {
+			$fromDate = implode('/', [
 				$this->input->post('year'),
-				$this->input->post('month'),
-				$this->input->post('fromDate'),
+				$this->input->post('fromMonth'),
+				$this->input->post('fromDate')
+			]);
+
+			$toDate = implode('/', [
+				$this->input->post('year'),
+				$this->input->post('toMonth'),
 				$this->input->post('toDate')
+			]);
+
+			$page_data = $this->get_dfn_data(
+				$fromDate,
+				$toDate
 			);
 		}
 
 		$this->twig->view('patient_management/DFN/create', $page_data);
 	}
 
-	public function print(string $year, string $month, string $fromDate, string $toDate)
+	public function print(string $fromDate, string $toDate)
 	{
-		$this->twig->view('patient_management/DFN/print', $this->get_dfn_data($year, $month, $fromDate, $toDate));
+		$this->twig->view('patient_management/DFN/print', $this->get_dfn_data($fromDate, $toDate));
 	}
 
-	public function pdf(string $year, string $month, string $fromDate, string $toDate)
+	public function pdf(string $fromDate, string $toDate)
 	{
 		$this->load->library('PDF');
 
-		$page_data = $this->get_dfn_data($year, $month, $fromDate, $toDate);
+		$page_data = $this->get_dfn_data($fromDate, $toDate);
 		$currentDate = str_replace(' ', '_', $page_data['currentDate']);
 
 		$html = $this->load->view('patient_management/DFN/pdf', $page_data, true);
@@ -46,17 +56,22 @@ class DFN extends \Mobiledrs\core\MY_Controller {
 		$this->pdf->generate($html, $filename);
 	}
 
-	public function get_dfn_data(string $year, string $month, string $fromDate, string $toDate)
+	public function get_dfn_data(string $fromDate, string $toDate)
 	{
 		$this->load->library('Date_formatter');
 
-		$fromDateSelected = implode('-', [$year, $month, $fromDate]);
-		$toDateSelected = implode('-', [$year, $month, $toDate]);
+		$fromDateSelected = str_replace('/', '-', $fromDate);
+		$toDateSelected = str_replace('/', '-', $toDate);
 
 		$dateList = '';
-		foreach(range((int) $fromDate, (int) $toDate) as $dateDay) {
-			$date = implode('-', [$year, $month, $dateDay]);
-			$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 14 DAY)';	
+		$fromDateObj = date_create($fromDate);
+		$toDateObj = date_create($toDate);
+		$year = $fromDateObj->format('Y');
+		foreach (range((int) $fromDateObj->format('m'), (int) $toDateObj->format('m')) as $monthDate) {
+			foreach (range((int) $fromDateObj->format('d'), (int) $toDateObj->format('d')) as $dayDate) {
+				$date = implode('-', [$year, $monthDate, $dayDate]);
+				$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 14 DAY)';	
+			}
 		}
 
 		$transaction_params = [
@@ -127,10 +142,8 @@ class DFN extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['total'] = count($page_data['records']);
 		$page_data['currentDate'] = $dateSelected;
-		$page_data['year'] = $year;
-		$page_data['month'] = $month;
-		$page_data['fromDate'] = $fromDate;
-		$page_data['toDate'] = $toDate;
+		$page_data['fromDate'] = str_replace('/', '-', $fromDate);
+		$page_data['toDate'] = str_replace('/', '-', $toDate);
 
 		return $page_data;
 	}
