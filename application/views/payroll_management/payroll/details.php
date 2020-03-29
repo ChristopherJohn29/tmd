@@ -4,7 +4,8 @@
 
 {% 
   set scripts = [
-    'dist/js/payroll_management/payroll/details'
+    'dist/js/payroll_management/payroll/details',
+    'dist/js/payroll_management/payroll/mileageCalc'
   ]
 %}
 
@@ -226,9 +227,18 @@
 											</tr>
 											<tr>
 												<th>Mileage</th>
-												<td>{{ provider_payment_summary['mileage']['qty'] }}</td>
-												<td>{{ provider_payment_summary['mileage']['amount'] }}¢</td>
-												<td>${{ provider_payment_summary['mileage']['total'] }}</td>
+												<td>
+													<input type="number" id="mileageQty" name="mileageQty" value="{{ provider_payment_summary['mileage']['qty'] }}" style="width:50%;">
+												</td>
+												<td>
+													<input type="hidden" id="mileageAmount" name="mileageAmount" value="{{ provider_payment_summary['mileage']['amount'] }}">
+													<span id="mileageAmountOutput">{{ provider_payment_summary['mileage']['amount'] }}</span>¢
+												</td>
+												<td>
+													<input type="hidden" name="mileageTotal" id="mileageTotal" value="{{ provider_payment_summary['mileage']['total'] }}">
+
+													$<span id="mileageTotalOutput">{{ provider_payment_summary['mileage']['total'] }}</span>
+												</td>
 											</tr>
 											<tr>
 												<th><input type="text" name="others_field" class="form-control"></th>
@@ -247,7 +257,7 @@
 											</tr>
 											<tr class="total">
 												<th colspan="3">Total</th>
-												<input type="hidden" name="total" value="{{ provider_payment_summary['total_salary'] }}">
+												<input type="hidden" id="grandTotal" name="total" value="{{ provider_payment_summary['total_salary'] }}">
 												<td>$ <span class="total-amount">{{ provider_payment_summary['total_salary'] }}</span></td>
 											</tr>
 										</tbody>
