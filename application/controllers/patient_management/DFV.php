@@ -2,6 +2,11 @@
 
 class DFV extends \Mobiledrs\core\MY_Controller {
 	
+	private $tableColumns = [
+        '1' => 'dos',
+        '2' => 'homeHealth'
+	];
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -28,16 +33,43 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('patient_management/DFV/create', $page_data);
 	}
 
-	public function print(string $year, string $month, string $fromDate, string $toDate)
-	{
-		$this->twig->view('patient_management/DFV/print', $this->get_dfv_data($year, $month, $fromDate, $toDate));
+	public function print(
+		string $year, 
+		string $month, 
+		string $fromDate, 
+		string $toDate, 
+		string $tableColumndID = null, 
+		string $sortDirection = null
+	) {
+		$this->twig->view('patient_management/DFV/print', $this->get_dfv_data(
+			$year, 
+			$month, 
+			$fromDate, 
+			$toDate, 
+			$tableColumndID, 
+			$sortDirection
+		));
 	}
 
-	public function pdf(string $year, string $month, string $fromDate, string $toDate)
-	{
+	public function pdf(
+		string $year, 
+		string $month, 
+		string $fromDate, 
+		string $toDate,
+		string $tableColumndID = null,
+		string $sortDirection = null
+	) {
 		$this->load->library('PDF');
 
-		$page_data = $this->get_dfv_data($year, $month, $fromDate, $toDate);
+		$page_data = $this->get_dfv_data(
+			$year, 
+			$month, 
+			$fromDate, 
+			$toDate,
+			$tableColumndID, 
+			$sortDirection
+		);
+
 		$currentDate = str_replace(' ', '_', $page_data['currentDate']);
 
 		$html = $this->load->view('patient_management/DFV/pdf', $page_data, true);
@@ -46,8 +78,14 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		$this->pdf->generate($html, $filename);
 	}
 
-	public function get_dfv_data(string $year, string $month, string $fromDate, string $toDate)
-	{
+	public function get_dfv_data(
+		string $year, 
+		string $month, 
+		string $fromDate, 
+		string $toDate,
+		string $tableColumndID = null,
+		string $sortDirection = null
+	) {
 		$this->load->library('Date_formatter');
 
 		$fromDateSelected = implode('-', [$year, $month, $fromDate]);
@@ -123,6 +161,38 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 				'contactPerson' => $patient_info->hhc_contact_name,
 				'phone' => $patient_info->hhc_phoneNumber
 			];
+		}
+
+		if ((int)$tableColumndID) {
+			$tableColumns = $this->tableColumns;
+
+			usort($page_data['records'], function($a, $b) use (
+				$sortDirection, 
+				$tableColumndID,
+				$tableColumns
+			) {
+				$tableColumn = $tableColumns[$tableColumndID];
+				$aKey = $a[$tableColumn];
+				$bKey = $b[$tableColumn];
+
+				if ($aKey == $bKey) {
+					return 0;
+				}
+
+				if ($sortDirection === 'ascending') {
+					if ($aKey < $bKey) {
+						return -1;
+					} else {
+						return 1;
+					}
+				} else {
+					if ($aKey < $bKey) {
+						return 1;
+					} else {
+						return -1;
+					}
+				}
+			});
 		}
 
 		$page_data['total'] = count($page_data['records']);

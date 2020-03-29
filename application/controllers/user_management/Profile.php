@@ -32,6 +32,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 					'key' => 'user_roleID',
 					'condition' => '<>',
 					'value' => 1
+				],
+				[
+					'key' => 'user_archive',
+					'condition' => '=',
+					'value' => NULL
 				]
 			],
 			'return_type' => 'result'

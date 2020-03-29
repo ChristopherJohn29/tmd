@@ -15,8 +15,18 @@ class User_model extends \Mobiledrs\core\MY_Models {
 	public function verify() : bool
 	{
 		$user_params = [
-			'key' => 'user_email',
-			'value' => $this->input->post('user_email')
+			'where' => [
+				[
+					'key' => 'user_email',
+					'condition' => '=',
+					'value' => $this->input->post('user_email')
+				],
+				[
+					'key' => 'user_archive',
+					'condition' => '=',
+					'value' => NULL
+				]
+			]
 		];
 
 		$user_entity = $this->record($user_params);

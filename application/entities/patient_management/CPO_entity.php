@@ -38,6 +38,7 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	protected $user_password;
 	protected $user_roleID;
 	protected $user_sessionID;
+	protected $user_archive;
 
 	public const CERTIFICATION = 'Certification';
 	public const RECERTIFICATION = 'Re-Certification';
