@@ -31,7 +31,7 @@ class Communication_notes_entity extends \Mobiledrs\entities\Entity {
 			'Scheduling',
 			'Issues',
 			'HH Comm',
-			'CPO',
+			'485',
 			'Billing',
 			'Misc',
 		];
