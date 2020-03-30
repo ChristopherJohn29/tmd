@@ -2,6 +2,11 @@
 
 class DFN extends \Mobiledrs\core\MY_Controller {
 	
+	private $tableColumns = [
+        '1' => 'dfe',
+        '2' => 'homeHealth'
+	];
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -38,16 +43,35 @@ class DFN extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('patient_management/DFN/create', $page_data);
 	}
 
-	public function print(string $fromDate, string $toDate)
-	{
-		$this->twig->view('patient_management/DFN/print', $this->get_dfn_data($fromDate, $toDate));
+	public function print(
+		string $fromDate, 
+		string $toDate,
+		string $tableColumndID = null, 
+		string $sortDirection = null
+	) {
+		$this->twig->view('patient_management/DFN/print', $this->get_dfn_data(
+			$fromDate, 
+			$toDate,
+			$tableColumndID,
+			$sortDirection	
+		));
 	}
 
-	public function pdf(string $fromDate, string $toDate)
-	{
+	public function pdf(
+		string $fromDate, 
+		string $toDate,
+		string $tableColumndID = null, 
+		string $sortDirection = null
+	) {
 		$this->load->library('PDF');
 
-		$page_data = $this->get_dfn_data($fromDate, $toDate);
+		$page_data = $this->get_dfn_data(
+			$fromDate, 
+			$toDate,
+			$tableColumndID,
+			$sortDirection
+		);
+
 		$currentDate = str_replace(' ', '_', $page_data['currentDate']);
 
 		$html = $this->load->view('patient_management/DFN/pdf', $page_data, true);
@@ -56,8 +80,12 @@ class DFN extends \Mobiledrs\core\MY_Controller {
 		$this->pdf->generate($html, $filename);
 	}
 
-	public function get_dfn_data(string $fromDate, string $toDate)
-	{
+	public function get_dfn_data(
+		string $fromDate, 
+		string $toDate,
+		string $tableColumndID = null, 
+		string $sortDirection = null
+	) {
 		$this->load->library('Date_formatter');
 
 		$fromDateSelected = str_replace('/', '-', $fromDate);
@@ -138,6 +166,38 @@ class DFN extends \Mobiledrs\core\MY_Controller {
 				'contactPerson' => $patient_info->hhc_contact_name,
 				'phone' => $patient_info->hhc_phoneNumber
 			];
+		}
+
+		if ((int)$tableColumndID) {
+			$tableColumns = $this->tableColumns;
+
+			usort($page_data['records'], function($a, $b) use (
+				$sortDirection, 
+				$tableColumndID,
+				$tableColumns
+			) {
+				$tableColumn = $tableColumns[$tableColumndID];
+				$aKey = $a[$tableColumn];
+				$bKey = $b[$tableColumn];
+
+				if ($aKey == $bKey) {
+					return 0;
+				}
+
+				if ($sortDirection === 'ascending') {
+					if ($aKey < $bKey) {
+						return -1;
+					} else {
+						return 1;
+					}
+				} else {
+					if ($aKey < $bKey) {
+						return 1;
+					} else {
+						return -1;
+					}
+				}
+			});
 		}
 
 		$page_data['total'] = count($page_data['records']);

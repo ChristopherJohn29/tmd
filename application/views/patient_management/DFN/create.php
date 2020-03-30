@@ -6,6 +6,7 @@
   set scripts = [
     'dist/js/superbill_management/dateRange',
     'dist/js/libraries/year_incrementor',
+    'dist/js/libraries/sorting',
     'dist/js/patient_management/dfn/list'
   ]
 %}
