@@ -20,7 +20,7 @@ class Communication_notes_entity extends \Mobiledrs\entities\Entity {
 	protected $user_password;
 	protected $user_roleID;
 	protected $user_sessionID;
-
+	protected $user_archive;
 
 	public function getCategories()
 	{
@@ -31,7 +31,7 @@ class Communication_notes_entity extends \Mobiledrs\entities\Entity {
 			'Scheduling',
 			'Issues',
 			'HH Comm',
-			'CPO',
+			'485',
 			'Billing',
 			'Misc',
 		];

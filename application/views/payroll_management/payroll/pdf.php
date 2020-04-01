@@ -172,9 +172,9 @@
 					</tr>
 					<tr>
 						<th style="border-bottom: 1px solid #d2d6de;">Mileage</th>
-						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['mileage']['qty'] ?></td>
-						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $provider_payment_summary['mileage']['amount'] ?>¢</td>
-						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $provider_payment_summary['mileage']['total'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $mileageQty ?? $provider_payment_summary['mileage']['qty'] ?></td>
+						<td style="border-bottom: 1px solid #d2d6de;"><?php echo $mileageAmount ?? $provider_payment_summary['mileage']['amount'] ?>¢</td>
+						<td style="border-bottom: 1px solid #d2d6de;">$<?php echo $mileageTotal ?? $provider_payment_summary['mileage']['total'] ?></td>
 					</tr>
 					<tr>
 						<td colspan="3" style="border-bottom: 1px solid #d2d6de;"><strong><?php echo $others_field; ?></strong></td>

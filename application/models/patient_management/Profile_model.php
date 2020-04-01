@@ -26,7 +26,10 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 			'patient_address' => $this->record_entity->patient_address,
 			'patient_hhcID' => $this->record_entity->patient_hhcID,
 			'patient_caregiver_family' => $this->record_entity->patient_caregiver_family,
-			'patient_placeOfService' => $this->record_entity->patient_placeOfService == '' ? NULL : $this->record_entity->patient_placeOfService
+			'patient_placeOfService' => $this->record_entity->patient_placeOfService == '' ? NULL : $this->record_entity->patient_placeOfService,
+			'patient_pharmacy' => $this->record_entity->patient_pharmacy,
+			'patient_pharmacyPhone' => $this->record_entity->patient_pharmacyPhone,
+			'patient_drug_allergy' => $this->record_entity->patient_drug_allergy,
 		];
 	}
 
