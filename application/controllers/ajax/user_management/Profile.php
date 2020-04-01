@@ -20,7 +20,8 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 
 		$params = [
 			'table_key' => 'user_id',
-			'record_id' => $user_id
+			'record_id' => $user_id,
+			'column_archive' => 'user_archive'
 		];
 
 		$res = $this->profile_model->delete_data($params);

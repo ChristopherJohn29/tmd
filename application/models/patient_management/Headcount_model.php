@@ -124,12 +124,12 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		$cpo_params = [
 			'where' => [
 				[
-					'key' => 'patient_CPO.ptcpo_dateSigned',
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
 					'condition' => '>=',
 	        		'value' => $this->fromDate
 				],
 				[
-					'key' => 'patient_CPO.ptcpo_dateSigned',
+					'key' => "STR_TO_DATE(SUBSTRING(patient_CPO.ptcpo_period, 1, INSTR(patient_CPO.ptcpo_period, ' - ')), '%m/%d/%Y')",
 					'condition' => '<=',
 	        		'value' => $this->toDate
 				],
@@ -154,7 +154,10 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		foreach ($cpos as $index => $cpo) 
 		{
 			$patient_details = $this->get_patient_details($cpo->ptcpo_patientID);
-			$transaction_details = $this->get_transaction_details($cpo->ptcpo_patientID);
+			$transaction_details = $this->get_transaction_details(
+				$cpo->ptcpo_patientID,
+				$cpo->ptcpo_dateOfService
+			);
 
 			$headcount_list[] = [
 				'patient_id' => $patient_details->patient_id,
@@ -166,7 +169,6 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				'paid' => $transaction_details ? $transaction_details->get_date_format($transaction_details->pt_service_billed) : '',
 				'aw_billed' => $transaction_details ? $transaction_details->get_date_format($transaction_details->pt_aw_billed) : '',
 				'visit_billed' => $transaction_details ? $transaction_details->get_date_format($transaction_details->pt_visitBilled) : '',
-				'cpo_billed' => $cpo->get_date_format($cpo->ptcpo_dateBilled),
 				'pt_supervising_mdID' => $transaction_details ? $transaction_details->pt_supervising_mdID : ''
 			];
 		}
@@ -533,7 +535,7 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		return $this->CPO_model->get_records_by_join($cpo_params);
 	}
 
-	private function get_transaction_details(string $patient_id) {
+	private function get_transaction_details(string $patient_id, string $dateOfService) {
 		$transaction_params = [
 			'order' => [
 				'key' => 'patient_transactions.pt_dateOfService',
@@ -552,12 +554,12 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 				[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '>=',
-	        		'value' => $this->fromDate
+	        		'value' => $dateOfService
         		],
         		[
 					'key' => 'patient_transactions.pt_dateOfService',
 					'condition' => '<=',
-	        		'value' => $this->toDate
+	        		'value' => $dateOfService
         		],
         		[
 					'key' => 'patient_transactions.pt_patientID',

@@ -1,9 +1,9 @@
 <?php
 
-class DFV extends \Mobiledrs\core\MY_Controller {
+class DFN extends \Mobiledrs\core\MY_Controller {
 	
 	private $tableColumns = [
-        '1' => 'dos',
+        '1' => 'dfe',
         '2' => 'homeHealth'
 	];
 
@@ -21,80 +21,85 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 	{
 		$page_data = [];
 
-		if ($this->input->post('submit')) {
-			$page_data = $this->get_dfv_data(
+		if (!empty($this->input->post())) {
+			$fromDate = implode('/', [
 				$this->input->post('year'),
-				$this->input->post('month'),
-				$this->input->post('fromDate'),
+				$this->input->post('fromMonth'),
+				$this->input->post('fromDate')
+			]);
+
+			$toDate = implode('/', [
+				$this->input->post('year'),
+				$this->input->post('toMonth'),
 				$this->input->post('toDate')
+			]);
+
+			$page_data = $this->get_dfn_data(
+				$fromDate,
+				$toDate
 			);
 		}
 
-		$this->twig->view('patient_management/DFV/create', $page_data);
+		$this->twig->view('patient_management/DFN/create', $page_data);
 	}
 
 	public function print(
-		string $year, 
-		string $month, 
 		string $fromDate, 
-		string $toDate, 
+		string $toDate,
 		string $tableColumndID = null, 
 		string $sortDirection = null
 	) {
-		$this->twig->view('patient_management/DFV/print', $this->get_dfv_data(
-			$year, 
-			$month, 
+		$this->twig->view('patient_management/DFN/print', $this->get_dfn_data(
 			$fromDate, 
-			$toDate, 
-			$tableColumndID, 
-			$sortDirection
+			$toDate,
+			$tableColumndID,
+			$sortDirection	
 		));
 	}
 
 	public function pdf(
-		string $year, 
-		string $month, 
 		string $fromDate, 
 		string $toDate,
-		string $tableColumndID = null,
+		string $tableColumndID = null, 
 		string $sortDirection = null
 	) {
 		$this->load->library('PDF');
 
-		$page_data = $this->get_dfv_data(
-			$year, 
-			$month, 
+		$page_data = $this->get_dfn_data(
 			$fromDate, 
 			$toDate,
-			$tableColumndID, 
+			$tableColumndID,
 			$sortDirection
 		);
 
 		$currentDate = str_replace(' ', '_', $page_data['currentDate']);
 
-		$html = $this->load->view('patient_management/DFV/pdf', $page_data, true);
+		$html = $this->load->view('patient_management/DFN/pdf', $page_data, true);
 		$filename = 'Due_for_Visits_' . $currentDate;
 
 		$this->pdf->generate($html, $filename);
 	}
 
-	public function get_dfv_data(
-		string $year, 
-		string $month, 
+	public function get_dfn_data(
 		string $fromDate, 
 		string $toDate,
-		string $tableColumndID = null,
+		string $tableColumndID = null, 
 		string $sortDirection = null
 	) {
 		$this->load->library('Date_formatter');
 
-		$fromDateSelected = implode('-', [$year, $month, $fromDate]);
-		$toDateSelected = implode('-', [$year, $month, $toDate]);
+		$fromDateSelected = str_replace('/', '-', $fromDate);
+		$toDateSelected = str_replace('/', '-', $toDate);
 
 		$dateList = '';
-		foreach(range((int) $fromDate, (int) $toDate) as $dateDay) {
-			$date = implode('-', [$year, $month, $dateDay]);
-			$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 50 DAY)';	
+		$fromDateObj = date_create($fromDate);
+		$toDateObj = date_create($toDate);
+		$year = $fromDateObj->format('Y');
+		foreach (range((int) $fromDateObj->format('m'), (int) $toDateObj->format('m')) as $monthDate) {
+			foreach (range((int) $fromDateObj->format('d'), (int) $toDateObj->format('d')) as $dayDate) {
+				$date = implode('-', [$year, $monthDate, $dayDate]);
+				$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 14 DAY)';	
+			}
 		}
 
 		$transaction_params = [
@@ -116,7 +121,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 			],
 			'where' => [
 				[
-					'key' => "patient_transactions.pt_dateOfService IN (" . $dateList . ')',
+					'key' => "patient_transactions.pt_dateRefEmailed IN (" . $dateList . ')',
 					'condition' => NULL,
 	        		'value' => NULL
         		]
@@ -156,7 +161,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 			$page_data['records'][] = [
 				'patient_id' => $record->patient_id,
 				'patientName' => $record->patient_name,
-				'dos' => $record->get_date_format($record->pt_dateOfService),
+				'dfe' => $record->get_date_format($record->pt_dateRefEmailed),
 				'homeHealth' => $patient_info->hhc_name,
 				'contactPerson' => $patient_info->hhc_contact_name,
 				'phone' => $patient_info->hhc_phoneNumber
@@ -197,10 +202,8 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['total'] = count($page_data['records']);
 		$page_data['currentDate'] = $dateSelected;
-		$page_data['year'] = $year;
-		$page_data['month'] = $month;
-		$page_data['fromDate'] = $fromDate;
-		$page_data['toDate'] = $toDate;
+		$page_data['fromDate'] = str_replace('/', '-', $fromDate);
+		$page_data['toDate'] = str_replace('/', '-', $toDate);
 
 		return $page_data;
 	}

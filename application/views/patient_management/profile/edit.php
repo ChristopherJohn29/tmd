@@ -155,6 +155,37 @@
 										</div>
 									</div>
 
+									<div class="col-md-12 subheader">
+										<p class="lead ">Pharmacy Information</p>
+									</div>
+
+									<div class="col-md-4 form-group {{ form_error('patient_pharmacy') ? 'has-error' : '' }}">
+										<label class="control-label">Pharmacy</label>
+										<input type="text" class="form-control" id="name" placeholder="" name="patient_pharmacy" value="{{ set_value('patient_pharmacy', record.patient_pharmacy) }}">
+									</div>
+
+									<div class="col-md-4 form-group {{ form_error('patient_pharmacyPhone') ? 'has-error' : '' }}">
+										<label class="control-label">Phone</label>
+										<input type="text" class="form-control" id="name" placeholder="" name="patient_pharmacyPhone" value="{{ set_value('patient_pharmacyPhone', record.patient_pharmacyPhone) }}">
+									</div>
+
+									<div class="col-md-4 form-group {{ form_error('patient_drug_allergy') ? 'has-error' : '' }}">
+										<label class="control-label">Drug Allergy</label>
+										<input type="text" class="form-control" id="name" placeholder="" name="patient_drug_allergy" value="{{ set_value('patient_drug_allergy', record.patient_drug_allergy) }}">
+									</div>
+									
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('patient_pharmacy') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('patient_pharmacyPhone') }}</span>
+									</div>
+
+									<div class="col-md-4 has-error">
+										<span class="help-block">{{ form_error('patient_drug_allergy') }}</span>
+									</div>
+
 									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('patient_hhcID') }}</span>
 									</div>

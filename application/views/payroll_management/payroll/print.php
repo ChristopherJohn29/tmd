@@ -182,9 +182,9 @@
 									</tr>
 									<tr>
 										<td><strong>Mileage</strong></td>
-										<td>{{ provider_payment_summary['mileage']['qty'] }}</td>
-										<td>${{ provider_payment_summary['mileage']['amount'] }}</td>
-										<td>${{ provider_payment_summary['mileage']['total'] }}</td>
+										<td>{{ mileageQty ?? provider_payment_summary['mileage']['qty'] }}</td>
+										<td>${{ mileageAmount ?? provider_payment_summary['mileage']['amount'] }}</td>
+										<td>${{ mileageTotal ?? provider_payment_summary['mileage']['total'] }}</td>
 									</tr>
 									<tr>
 										<td colspan="3"><strong>{{ others_field }}</strong></td>

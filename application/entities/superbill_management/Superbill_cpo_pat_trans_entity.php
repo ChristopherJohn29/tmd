@@ -17,6 +17,9 @@ class Superbill_cpo_pat_trans_entity {
 	protected $patient_hhcID;
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
+	protected $patient_pharmacy;
+	protected $patient_pharmacyPhone;
+	protected $patient_drug_allergy;
 
 	protected $pt_id;
 	protected $pt_tovID;

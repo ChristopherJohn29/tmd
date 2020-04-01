@@ -66,6 +66,9 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('print_pr');
 
 		$page_data = $this->get_provider_details_data($provider_id, $fromDate, $toDate);
+		$page_data['mileageQty'] = $this->input->post('mileageQty');
+		$page_data['mileageAmount'] = $this->input->post('mileageAmount');
+		$page_data['mileageTotal'] = $this->input->post('mileageTotal');
 		$page_data['notes'] = $this->input->post('notes');
 		$page_data['others_field'] = $this->input->post('others_field');
 		$page_data['others'] = $this->input->post('others');

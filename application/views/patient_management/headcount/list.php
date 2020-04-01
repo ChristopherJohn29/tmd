@@ -12,14 +12,14 @@
             </div>
             <div class="pull-right text-right">
                 <a href="{{ site_url("patient_management/headcount/print/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-                <a id="pdfGenerationBtn" href="{{ site_url("patient_management/headcount/pdf/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}">
+                <a data-sortBtn href="{{ site_url("patient_management/headcount/pdf/#{ type }/#{ month }/#{ fromDate }/#{ toDate }/#{ year }") }}">
                     <span class="btn btn-primary btn-sm">Generate PDF</span>
                 </a>
             </div>
         </div>
         {% endif %}
 
-        <table id="headcount-list" class="table no-margin table-hover">
+        <table id="headcount-list" data-sortTable class="table no-margin table-hover">
             <thead>
                 <tr>
                     <th data-columnid="1">Patient Name</th>
@@ -31,8 +31,12 @@
                     <th data-columnid="7">Paid</th>
                     <th data-columnid="8">AW Billed</th>
                     <th data-columnid="9">Visit Billed</th>
-                    <th data-columnid="10">CPO Billed</th>
-                    <th data-columnid="11">Actions</th>
+
+                    {% if (headcounts[0]['cpo_billed'] is defined) %}
+                        <th data-columnid="10">CPO Billed</th>
+                    {% endif %}
+
+                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -56,7 +60,11 @@
                         <td>{{ headcount['paid'] }}</td>
                         <td>{{ headcount['aw_billed'] }}</td>
                         <td>{{ headcount['visit_billed'] }}</td>
-                        <td>{{ headcount['cpo_billed'] }}</td>
+                            
+                        {% if (headcount['cpo_billed'] is defined) %}
+                            <td>{{ headcount['cpo_billed'] }}</td>
+                        {% endif %}
+
                         <td width="80px">
                             <a target="_blank" href="{{ site_url("patient_management/profile/details/#{ headcount['patient_id'] }") }}" title=""><span class="label label-primary">View</span></a>
                         </td>

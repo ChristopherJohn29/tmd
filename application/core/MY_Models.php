@@ -26,7 +26,21 @@ class MY_Models extends \CI_Model {
 
 	public function record(array $params)
 	{
-		$this->db->where($params['key'], $params['value']);
+		if (isset($params['key']))
+		{
+			$this->db->where($params['key'], $params['value']);
+		}
+
+		if (isset($params['where'])) 
+		{
+			foreach ($params['where'] as $key => $value) {
+				$this->db->where(
+					$value['key'] . ' ' .
+					$value['condition'],
+					$value['value']
+				);
+			}
+		}
 
 		if (isset($params['order_by'])) 
 		{
