@@ -111,22 +111,6 @@
 										
 									</div>
 
-									<div class="col-md-6 form-group">
-										
-										<label class="control-label">Place of Service</label>
-										<select class="form-control" name="patient_placeOfService">
-											<option value="">Select</option>
-
-											{% for pos in place_of_service %}
-
-												<option value="{{ pos.pos_id }}" {{ record.get_selected_pos(pos.pos_id) }} >{{ pos.get_pos_completename(pos.pos_id) }}</option>
-
-											{% endfor %}
-
-										</select>
-
-									</div>
-
 									<div class="col-md-6"></div>
 
 									<div class="col-md-6 has-error">

@@ -38,7 +38,8 @@ class Transaction_model extends \Mobiledrs\core\MY_Models {
 			'pt_dateRef' => $this->record_entity->set_date_format($this->record_entity->pt_dateRef),
 			'pt_dateRefEmailed' => $this->record_entity->set_date_format($this->record_entity->pt_dateRefEmailed),
 			'pt_notes' => $this->record_entity->pt_notes,
-			'pt_supervising_mdID' => empty($this->record_entity->pt_supervising_mdID) ? null : $this->record_entity->pt_supervising_mdID
+			'pt_supervising_mdID' => empty($this->record_entity->pt_supervising_mdID) ? null : $this->record_entity->pt_supervising_mdID,
+			'pt_status' => empty($this->record_entity->pt_status) ? null : $this->record_entity->pt_status
 		];
 	}
 }
