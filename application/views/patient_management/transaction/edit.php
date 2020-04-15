@@ -59,25 +59,38 @@
 									<div class="form-container">
 
                                         <div class="row" style="margin:0 !important;">
-										<div class="col-md-6 form-group">
-										
-											<label class="control-label">Supervising MD <span>*</span></label>
-											<select class="form-control" style="width: 100%;" required="true" name="pt_supervising_mdID">
-												<option value="" selected="true">Select</option>
-
-												{% for supervisingMD in supervisingMDs %}
-
-													<option value="{{ supervisingMD.provider_id }}" {{ supervisingMD.provider_id == transaction.pt_supervising_mdID ? 'selected=true' : '' }}>
-														{{ supervisingMD.provider_firstname ~ ' ' ~ supervisingMD.provider_lastname }}
-													</option>
-
-												{% endfor %}
-
-											</select>
-
-											<br>
+											<div class="col-md-6 form-group">
 											
-										</div>
+												<label class="control-label">Supervising MD <span>*</span></label>
+												<select class="form-control" style="width: 100%;" required="true" name="pt_supervising_mdID">
+													<option value="" selected="true">Select</option>
+
+													{% for supervisingMD in supervisingMDs %}
+
+														<option value="{{ supervisingMD.provider_id }}" {{ supervisingMD.provider_id == transaction.pt_supervising_mdID ? 'selected=true' : '' }}>
+															{{ supervisingMD.provider_firstname ~ ' ' ~ supervisingMD.provider_lastname }}
+														</option>
+
+													{% endfor %}
+
+												</select>
+
+												<br>
+												
+											</div>
+
+											<div class="col-md-6 form-group">
+											
+												<label class="control-label">Status <span>*</span></label>
+												<select class="form-control" style="width: 100%;" required="true" name="pt_status">
+													<option value="" selected="true">Select</option>
+													<option value="1" {{ transaction.pt_status == '1' ? 'selected=true' : '' }}>Patient is medically stable</option>
+													<option value="2" {{ transaction.pt_status == '2' ? 'selected=true' : '' }}>Patient requires immediate medical attention</option>
+												</select>
+
+												<br>
+												
+											</div>
                                         </div>
                                         
 										<div class="col-md-6 form-group {{ form_error('pt_dateRef') ? 'has-error' : '' }}">

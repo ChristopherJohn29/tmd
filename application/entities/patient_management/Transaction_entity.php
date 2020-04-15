@@ -31,6 +31,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_aw_billed;
 	protected $pt_supervising_mdID;
 	protected $pt_archive;
+	protected $pt_status;
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -90,6 +91,11 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
     public function get_selected_choice_format(string $choice) : string
     {
 		return ($choice == '1') ? 'Yes' : (($choice == '2') ? 'No' : '');
+    }
+
+    public function get_selected_status(string $status) : string
+    {
+		return ($status == '1') ? 'Medically Stable' : (($status == '2') ? 'Needs Attention' : '');
     }
 
     public function get_provider_fullname() : string
@@ -161,9 +167,39 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->pt_tovID == $tov ? 'selected=true' : '';
 	}
 
-	public function get_tov_code(string $tov_id) : string
+	public function get_tov_code(string $tov_id, string $status) : string
 	{
-		return $this->tov_codes[$tov_id] ?? '';
+		if (empty($status)) {
+			return '';
+		}
+
+		if ($tov_id == tv_entity::INITIAL_VISIT_HOME) {
+			if ($status === '1') {
+				return '99344';
+			} else {
+				return '99345';
+			}
+		} else if ($tov_id == tv_entity::FOLLOW_UP_HOME) {
+			if ($status === '1') {
+				return '99349';
+			} else {
+				return '99350';
+			}
+		} else if ($tov_id == tv_entity::INITIAL_VISIT_FACILITY) {
+			if ($status === '1') {
+				return '99327';
+			} else {
+				return '99328';
+			}
+		} else if ($tov_id == tv_entity::FOLLOW_UP_FACILITY) {
+			if ($status === '1') {
+				return '99336';
+			} else {
+				return '99337';
+			}
+		} else {
+			return '';
+		}
 	}
 
 	public function is_aw_performed() : bool

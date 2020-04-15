@@ -45,6 +45,7 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_mileage;
 	protected $pt_aw_billed;
 	protected $pt_archive;
+	protected $pt_status;
 
 	public $supervisingMD_firstname;
 	public $supervisingMD_lastname;
