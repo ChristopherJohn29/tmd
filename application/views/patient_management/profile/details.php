@@ -34,10 +34,6 @@
              						<th>Gender:</th>
              						<td>{{ record.patient_gender }}</td>
              					</tr>
-                                <tr>
-                                    <th>Place of Service:</th>
-                                    <td>{{ record.get_fullpos_name() }}</td>
-                                </tr>
              				</table>
              			</div>
              			

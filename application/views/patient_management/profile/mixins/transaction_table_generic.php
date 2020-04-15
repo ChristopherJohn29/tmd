@@ -36,6 +36,7 @@
                 <th>ACP</th>
                 <th>Diabetes</th>
                 <th>Tobacco</th>
+                <th>Status</th>
                 <th>ICD-Code Diagnoses</th>
                 <th>Referral Date</th>
                 <th>Date Referral was Emailed</th>
@@ -48,6 +49,7 @@
                 <td>{{ transaction.get_selected_choice_format(transaction.pt_acp) }}</td>
                 <td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) }}</td>
                 <td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) }}</td>
+                <td>{{ transaction.get_selected_status(transaction.pt_status) }}</td>
                 <td>{{ transaction.pt_icd10_codes }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateRef) }}</td>
                 <td>{{ transaction.get_date_format(transaction.pt_dateRefEmailed) }}</td>
