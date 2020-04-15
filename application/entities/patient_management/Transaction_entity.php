@@ -169,7 +169,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 	public function get_tov_code(string $tov_id, string $status) : string
 	{
-		if (empty($status) || empty($tov_id)) {
+		if (empty($status)) {
 			return '';
 		}
 
@@ -197,6 +197,8 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 			} else {
 				return '99337';
 			}
+		} else {
+			return '';
 		}
 	}
 
