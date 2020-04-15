@@ -173,25 +173,25 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 			return '';
 		}
 
-		if ($tov_id === tv_entity::INITIAL_VISIT_HOME) {
+		if ($tov_id == tv_entity::INITIAL_VISIT_HOME) {
 			if ($status === '1') {
 				return '99344';
 			} else {
 				return '99345';
 			}
-		} else if ($tov_id === tv_entity::FOLLOW_UP_HOME) {
+		} else if ($tov_id == tv_entity::FOLLOW_UP_HOME) {
 			if ($status === '1') {
 				return '99349';
 			} else {
 				return '99350';
 			}
-		} else if ($tov_id === tv_entity::INITIAL_VISIT_FACILITY) {
+		} else if ($tov_id == tv_entity::INITIAL_VISIT_FACILITY) {
 			if ($status === '1') {
 				return '99327';
 			} else {
 				return '99328';
 			}
-		} else if ($tov_id === tv_entity::FOLLOW_UP_FACILITY) {
+		} else if ($tov_id == tv_entity::FOLLOW_UP_FACILITY) {
 			if ($status === '1') {
 				return '99336';
 			} else {
