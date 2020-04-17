@@ -72,27 +72,26 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			]
 		];
 
-		$initialTrans = null;
-		if ($type == 'edit' && ! empty($this->input->get('patientTransID'))) {
-			$initial_params = [
-				'key' => 'patient_transactions.pt_id',
-				'value' => $this->input->get('patientTransID')
-			];
-
-			$initialTrans = $this->pt_trans_model->record($initial_params);
-		}
-
-		$patientTrans = $this->pt_trans_model->records($patient_params);
-		
 		$tov_datas = [];
-		if ($type == 'add') {
+		/*if ($type == 'add') {
+			$patientTrans = $this->pt_trans_model->records($patient_params);
+
 			if ($patientTrans) {
 				$tov_datas = (new Type_visit_entity)->get_followup_list();
-			}
-			else {
+			} else {
 				$tov_datas = Type_visit_entity::get_visits_list();
-			}	
+			}
 		} else {
+			$initialTrans = null;
+			if ($type == 'edit' && ! empty($this->input->get('patientTransID'))) {
+				$initial_params = [
+					'key' => 'patient_transactions.pt_id',
+					'value' => $this->input->get('patientTransID')
+				];
+
+				$initialTrans = $this->pt_trans_model->record($initial_params);
+			}
+
 			if ((! empty($initialTrans) && in_array($initialTrans->pt_tovID, $initial_list)) ||
 				($type == 'edit' && empty($this->input->get('patientTransID')))) {
 				$tov_datas = Type_visit_entity::get_visits_list();
@@ -100,7 +99,15 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			else {
 				$tov_datas = (new Type_visit_entity)->get_followup_list();
 			}
-		}		
+		}*/
+
+		$patientTrans = $this->pt_trans_model->records($patient_params);
+
+		if ($patientTrans) {
+			$tov_datas = (new Type_visit_entity)->get_followup_list();
+		} else {
+			$tov_datas = Type_visit_entity::get_visits_list();
+		}
 
 		$tov_list = '<option value="">Select</option>';
 

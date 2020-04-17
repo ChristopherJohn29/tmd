@@ -776,7 +776,7 @@ $config = array(
         array(
             'field' => 'prsl_notes[]',
             'label' => 'Notes',
-            'rules' => 'required|max_length[255]',
+            'rules' => 'required|max_length[2000]',
             'errors' => array(
                 'required' => 'This field is required.'
             )
