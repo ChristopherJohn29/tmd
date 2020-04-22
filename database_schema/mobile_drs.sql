@@ -334,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `mobile_drs`.`provider_route_sheet_list` (
   `prsl_tovID` INT UNSIGNED NULL,
   `prsl_hhcID` INT UNSIGNED NULL,
   `prsl_patientID` INT UNSIGNED NULL,
-  `prsl_notes` VARCHAR(255) NULL,
+  `prsl_notes` VARCHAR(2000) NULL,
   `prsl_patientTransID` INT UNSIGNED NULL,
   `prsl_dateRef` DATE NULL,
   PRIMARY KEY (`prsl_id`),

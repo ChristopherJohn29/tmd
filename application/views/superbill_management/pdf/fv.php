@@ -69,10 +69,10 @@
 					<?php echo $transaction->get_date_format($transaction->pt_dateOfService); ?>
 				</td>
 				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
-					<?php echo $transaction->get_tov_code($transaction->tov_id); ?>
+					<?php echo $transaction->get_tov_code($transaction->tov_id, $transaction->pt_status); ?>
 				</td>
 				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
-					<?php echo $POS_entity->get_pos_name($transaction->patient_placeOfService); ?>
+					<?php echo $POS_entity->get_pos_name($transaction->pt_tovID); ?>
 				</td>
 				<td width="80px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->pt_icd10_codes; ?>
