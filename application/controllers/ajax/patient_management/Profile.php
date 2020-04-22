@@ -73,7 +73,7 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		];
 
 		$tov_datas = [];
-		/*if ($type == 'add') {
+		if ($type == 'add') {
 			$patientTrans = $this->pt_trans_model->records($patient_params);
 
 			if ($patientTrans) {
@@ -99,15 +99,15 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			else {
 				$tov_datas = (new Type_visit_entity)->get_followup_list();
 			}
-		}*/
-
-		$patientTrans = $this->pt_trans_model->records($patient_params);
-
-		if ($patientTrans) {
-			$tov_datas = (new Type_visit_entity)->get_followup_list();
-		} else {
-			$tov_datas = Type_visit_entity::get_visits_list();
 		}
+
+		// $patientTrans = $this->pt_trans_model->records($patient_params);
+
+		// if ($patientTrans) {
+		// 	$tov_datas = (new Type_visit_entity)->get_followup_list();
+		// } else {
+		// 	$tov_datas = Type_visit_entity::get_visits_list();
+		// }
 
 		$tov_list = '<option value="">Select</option>';
 
