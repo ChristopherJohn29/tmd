@@ -50,7 +50,7 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		$initial_list = [
 			Type_visit_entity::INITIAL_VISIT_HOME, 
 			Type_visit_entity::INITIAL_VISIT_FACILITY, 
-			Type_visit_entity::INITIAL_VISIT_OFFICE
+			Type_visit_entity::INITIAL_VISIT_TELEHEALTH
 		];
 
 		$patient_params = [
@@ -129,11 +129,11 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			{
 				$tov_list .= '<option value="4"> Follow-up Visit (Facility)</option>';
 			}
-			else if ($tov_data == Type_visit_entity::INITIAL_VISIT_OFFICE) 
+			else if ($tov_data == Type_visit_entity::INITIAL_VISIT_TELEHEALTH) 
 			{
 				$tov_list .= '<option value="7"> Initial Visit (Office)</option>';
 			}
-			else if ($tov_data == Type_visit_entity::FOLLOW_UP_OFFICE) 
+			else if ($tov_data == Type_visit_entity::FOLLOW_UP_TELEHEALTH) 
 			{
 				$tov_list .= '<option value="8"> Follow-up Visit (Office)</option>';
 			}

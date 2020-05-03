@@ -6,7 +6,7 @@ use \Mobiledrs\entities\patient_management\Transaction_entity;
 
 class Superbill extends \Mobiledrs\core\MY_Controller {
 
-	private $transactions = ['aw', 'hv', 'fv'];
+	private $transactions = ['aw', 'hv', 'fv', 'tv'];
 
 	public function __construct()
 	{
@@ -29,6 +29,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			'generate_sbawr',
 			'generate_sbhvr',
 			'generate_sbfvr',
+			'generate_sbtv',
 			'generate_sbcpor'
 		];
 
@@ -46,7 +47,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			'generate_sbawr',
 			'generate_sbhvr',
 			'generate_sbfvr',
-			'generate_sbcpor'
+			'generate_sbcpor',
+			'generate_sbtv'
 		];
 
 		foreach ($roles_permissions as $roles_permission)
@@ -85,6 +87,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			'generate_sbawr',
 			'generate_sbhvr',
 			'generate_sbfvr',
+			'generate_sbtv',
 			'generate_sbcpor'
 		];
 
@@ -119,7 +122,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		if (in_array($type, $this->transactions))
 		{
 			$type_of_visit = [];
-			if ($type == 'hv' || $type == 'fv')
+			if ($type == 'hv' || $type == 'fv' || $type == 'tv')
 			{
 				$type_of_visit = (new Superbill_entity())->get_sel_type_visit($type);
 			}
@@ -136,7 +139,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 			$page_data['POS_entity'] = new POS_entity();
 			$page_data['transactions'] = '';
 
-			if (in_array($type, ['hv', 'fv']))
+			if (in_array($type, ['hv', 'fv', 'tv']))
 			{
 				$page_data['transactions'] = $page_data['transaction_entity']->get_notBilledVisit($transactions);
 			}
@@ -196,6 +199,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		$roles_permissions = [
 			'generate_sbawr',
 			'generate_sbhvr',
+			'generate_sbtv',
 			'generate_sbfvr',
 			'generate_sbcpor'
 		];
@@ -227,6 +231,14 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 				'filename' => 'Superbill_Facility_Visits_',
 				'model' => 'transaction_model',
 				'html' => 'fv',
+				'data' => 'pt_id',
+				'columnID' => 'pt_id'
+			],
+			'tv' => [
+				'column' => 'pt_visitBilled',
+				'filename' => 'Superbill_TeleHealth_Visits_',
+				'model' => 'transaction_model',
+				'html' => 'tv',
 				'data' => 'pt_id',
 				'columnID' => 'pt_id'
 			],

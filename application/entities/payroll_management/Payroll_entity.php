@@ -31,7 +31,7 @@ class Payroll_entity {
 				'amount' => $this->provider_details->provider_rate_initialVisit,
 				'total' => 0
 			],
-			'initial_visit_office' => [
+			'initial_visit_telehealth' => [
 				'qty' => 0,
 				'amount' => $this->provider_details->provider_rate_initialVisitOffice,
 				'total' => 0
@@ -46,7 +46,7 @@ class Payroll_entity {
 				'amount' => $this->provider_details->provider_rate_followUpVisit,
 				'total' => 0
 			],
-			'follow_up_office' => [
+			'follow_up_telehealth' => [
 				'qty' => 0,
 				'amount' => $this->provider_details->provider_rate_followUpVisitOffice,
 				'total' => 0
@@ -94,9 +94,9 @@ class Payroll_entity {
 
 				$computed['total_visits'] += 1;
 			}
-			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::INITIAL_VISIT_OFFICE)
+			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::INITIAL_VISIT_TELEHEALTH)
 			{
-				$computed['initial_visit_office']['qty'] += 1;
+				$computed['initial_visit_telehealth']['qty'] += 1;
 
 				$computed['total_visits'] += 1;
 			}
@@ -112,9 +112,9 @@ class Payroll_entity {
 
 				$computed['total_visits'] += 1;
 			}
-			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_OFFICE)
+			else if ((int) $provider_transaction->tov_id == $this->type_of_visits::FOLLOW_UP_TELEHEALTH)
 			{
-				$computed['follow_up_office']['qty'] += 1;
+				$computed['follow_up_telehealth']['qty'] += 1;
 
 				$computed['total_visits'] += 1;
 			}
@@ -150,10 +150,10 @@ class Payroll_entity {
 
 		if ( ! empty($this->provider_details->provider_rate_initialVisitOffice))
 		{
-			$computed['initial_visit_office']['total'] = $computed['initial_visit_office']['qty'] * 
-				$computed['initial_visit_office']['amount'];
+			$computed['initial_visit_telehealth']['total'] = $computed['initial_visit_telehealth']['qty'] * 
+				$computed['initial_visit_telehealth']['amount'];
 
-			$computed['total_salary'] += $computed['initial_visit_office']['total'];
+			$computed['total_salary'] += $computed['initial_visit_telehealth']['total'];
 		}
 
 		$computed['follow_up_home']['total'] = $computed['follow_up_home']['qty'] * 
@@ -168,10 +168,10 @@ class Payroll_entity {
 
 		if ( ! empty($this->provider_details->provider_rate_followUpVisitOffice))
 		{
-			$computed['follow_up_office']['total'] = $computed['follow_up_office']['qty'] * 
-				$computed['follow_up_office']['amount'];
+			$computed['follow_up_telehealth']['total'] = $computed['follow_up_telehealth']['qty'] * 
+				$computed['follow_up_telehealth']['amount'];
 
-			$computed['total_salary'] += $computed['follow_up_office']['total'];
+			$computed['total_salary'] += $computed['follow_up_telehealth']['total'];
 		}
 		
 		$computed['no_show']['total'] = $computed['no_show']['qty'] * 

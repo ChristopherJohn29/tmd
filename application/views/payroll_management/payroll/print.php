@@ -113,13 +113,13 @@
 
 									{% endif %}
 
-									{% if provider_payment_summary['initial_visit_office']['total'] != 0 %}
+									{% if provider_payment_summary['initial_visit_telehealth']['total'] != 0 %}
 										
 										<tr>
 											<th><strong>Initial Visit (Office)</strong></th>
-											<td>{{ provider_payment_summary['initial_visit_office']['qty'] }}</td>
-											<td>${{ provider_payment_summary['initial_visit_office']['amount'] != '' ? provider_payment_summary['initial_visit_office']['amount'] : 0 }}</td>
-											<td>${{ provider_payment_summary['initial_visit_office']['total'] }}</td>
+											<td>{{ provider_payment_summary['initial_visit_telehealth']['qty'] }}</td>
+											<td>${{ provider_payment_summary['initial_visit_telehealth']['amount'] != '' ? provider_payment_summary['initial_visit_telehealth']['amount'] : 0 }}</td>
+											<td>${{ provider_payment_summary['initial_visit_telehealth']['total'] }}</td>
 										</tr>
 
 									{% endif %}
@@ -146,13 +146,13 @@
 
 									{% endif %}
 
-									{% if provider_payment_summary['follow_up_office']['total'] != 0 %}
+									{% if provider_payment_summary['follow_up_telehealth']['total'] != 0 %}
 										
 										<tr>
 											<th><strong>Follow-Up Visit (Office)</strong></th>
-											<td>{{ provider_payment_summary['follow_up_office']['qty'] }}</td>
-											<td>${{ provider_payment_summary['follow_up_office']['amount'] != '' ? provider_payment_summary['follow_up_office']['amount'] : 0 }}</td>
-											<td>${{ provider_payment_summary['follow_up_office']['total'] }}</td>
+											<td>{{ provider_payment_summary['follow_up_telehealth']['qty'] }}</td>
+											<td>${{ provider_payment_summary['follow_up_telehealth']['amount'] != '' ? provider_payment_summary['follow_up_telehealth']['amount'] : 0 }}</td>
+											<td>${{ provider_payment_summary['follow_up_telehealth']['total'] }}</td>
 										</tr>
 
 									{% endif %}
