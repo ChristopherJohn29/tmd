@@ -206,6 +206,11 @@ class Superbill_entity {
 			$sel_list[] = $this->type_of_visits::INITIAL_VISIT_FACILITY;
 			$sel_list[] = $this->type_of_visits::FOLLOW_UP_FACILITY;
 		}
+		else if ($sel_type == 'tv')
+		{
+			$sel_list[] = $this->type_of_visits::INITIAL_VISIT_TELEHEALTH;
+			$sel_list[] = $this->type_of_visits::FOLLOW_UP_TELEHEALTH;
+		}
 
 		return $sel_list;
 	}
