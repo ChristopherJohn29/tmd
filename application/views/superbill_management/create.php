@@ -46,6 +46,7 @@ set scripts = [
                                                 <option value="aw">Annual Wellness</option>
                                                 <option value="hv">Home Visits</option>
                                                 <option value="fv">Facility Visits</option>
+                                                <option value="tv">TeleHealth Visits</option>
                                                 <option value="cpo">CPO-485</option>
                                             </select>
                                         </div>

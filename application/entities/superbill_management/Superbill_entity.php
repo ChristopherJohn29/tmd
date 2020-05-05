@@ -148,6 +148,50 @@ class Superbill_entity {
 		return $summary;
 	}
 
+	public function compute_transaction_tv_summary() : array
+	{
+		$summary = [
+			'INITIAL_VISIT_TELEHEALTH' => 0,
+			'FOLLOW_UP_TELEHEALTH' => 0,
+			'AW_CODES_G0402' => 0,
+			'AW_CODE_G0438' => 0,
+			'AW_CODE_G0439' => 0,
+			'total' => 0
+		];
+
+		foreach ($this->transactions as $transaction)
+		{
+			if ($transaction->pt_aw_ippe_code == self::AW_CODES_G0402)
+			{
+				$summary['AW_CODES_G0402'] += 1;
+				$summary['total'] += 1;
+			}
+			else if ($transaction->pt_aw_ippe_code == self::AW_CODE_G0438)
+			{
+				$summary['AW_CODE_G0438'] += 1;
+				$summary['total'] += 1;
+			}
+			else if ($transaction->pt_aw_ippe_code == self::AW_CODE_G0439)
+			{
+				$summary['AW_CODE_G0439'] += 1;
+				$summary['total'] += 1;
+			}
+
+			if ($transaction->pt_tovID == $this->type_of_visits::INITIAL_VISIT_TELEHEALTH)
+			{
+				$summary['INITIAL_VISIT_TELEHEALTH'] += 1;
+				$summary['total'] += 1;
+			}
+			else if ($transaction->pt_tovID == $this->type_of_visits::FOLLOW_UP_TELEHEALTH)
+			{
+				$summary['FOLLOW_UP_TELEHEALTH'] += 1;
+				$summary['total'] += 1;
+			}
+		}
+
+		return $summary;
+	}
+
 	public function get_sel_type_visit(string $sel_type) : array
 	{
 		$sel_list = [];
@@ -161,6 +205,11 @@ class Superbill_entity {
 		{
 			$sel_list[] = $this->type_of_visits::INITIAL_VISIT_FACILITY;
 			$sel_list[] = $this->type_of_visits::FOLLOW_UP_FACILITY;
+		}
+		else if ($sel_type == 'tv')
+		{
+			$sel_list[] = $this->type_of_visits::INITIAL_VISIT_TELEHEALTH;
+			$sel_list[] = $this->type_of_visits::FOLLOW_UP_TELEHEALTH;
 		}
 
 		return $sel_list;
