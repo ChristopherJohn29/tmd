@@ -10,8 +10,8 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 	const FOLLOW_UP_FACILITY = 4;
 	const NO_SHOW = 5;
 	const CANCELLED = 6;
-	const INITIAL_VISIT_OFFICE = 7;
-	const FOLLOW_UP_OFFICE = 8;
+	const INITIAL_VISIT_TELEHEALTH = 7;
+	const FOLLOW_UP_TELEHEALTH = 8;
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -23,8 +23,8 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 			self::INITIAL_VISIT_FACILITY,
 			self::FOLLOW_UP_HOME,
 			self::FOLLOW_UP_FACILITY,
-			self::INITIAL_VISIT_OFFICE,
-			self::FOLLOW_UP_OFFICE,
+			self::INITIAL_VISIT_TELEHEALTH,
+			self::FOLLOW_UP_TELEHEALTH,
 		];
 	}
 
@@ -35,8 +35,8 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 			self::INITIAL_VISIT_FACILITY,
 			self::FOLLOW_UP_HOME,
 			self::FOLLOW_UP_FACILITY,
-			self::INITIAL_VISIT_OFFICE,
-			self::FOLLOW_UP_OFFICE,
+			self::INITIAL_VISIT_TELEHEALTH,
+			self::FOLLOW_UP_TELEHEALTH,
 			self::NO_SHOW,
 			self::CANCELLED,
 		];
@@ -47,7 +47,7 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 		return [
 			self::INITIAL_VISIT_HOME,
 			self::INITIAL_VISIT_FACILITY,
-			self::INITIAL_VISIT_OFFICE
+			self::INITIAL_VISIT_TELEHEALTH
 		];
 	}
 
@@ -56,7 +56,7 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 		return [
 			self::FOLLOW_UP_HOME,
 			self::FOLLOW_UP_FACILITY,
-			self::FOLLOW_UP_OFFICE
+			self::FOLLOW_UP_TELEHEALTH
 		];
 	}
 

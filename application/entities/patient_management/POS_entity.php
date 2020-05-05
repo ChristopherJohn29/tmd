@@ -19,13 +19,21 @@ class POS_entity extends \Mobiledrs\entities\Entity {
 
 	public function get_pos_name(string $tov_id) : string
 	{
-		if ($tov_id == tv_entity::INITIAL_VISIT_HOME) {
+		$pos12 = [
+			tv_entity::INITIAL_VISIT_HOME,
+			tv_entity::INITIAL_VISIT_TELEHEALTH,
+			tv_entity::FOLLOW_UP_HOME,
+			tv_entity::FOLLOW_UP_TELEHEALTH
+		];
+
+		$pos13 = [
+			tv_entity::INITIAL_VISIT_FACILITY,
+			tv_entity::FOLLOW_UP_FACILITY
+		];
+
+		if (in_array($tov_id, $pos12)) {
 			return 'POS12';
-		} else if ($tov_id == tv_entity::FOLLOW_UP_HOME) {
-			return 'POS12';
-		} else if ($tov_id == tv_entity::INITIAL_VISIT_FACILITY) {
-			return 'POS13';
-		} else if ($tov_id == tv_entity::FOLLOW_UP_FACILITY) {
+		} else if (in_array($tov_id, $pos13)) {
 			return 'POS13';
 		} else {
 			return '';

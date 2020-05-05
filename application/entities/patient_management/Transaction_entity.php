@@ -197,6 +197,18 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 			} else {
 				return '99337';
 			}
+		} else if ($tov_id == tv_entity::INITIAL_VISIT_TELEHEALTH) {
+			if ($status === '1') {
+				return '99344';
+			} else {
+				return '99345';
+			}
+		} else if ($tov_id == tv_entity::FOLLOW_UP_TELEHEALTH) {
+			if ($status === '1') {
+				return '99349';
+			} else {
+				return '99350';
+			}
 		} else {
 			return '';
 		}
