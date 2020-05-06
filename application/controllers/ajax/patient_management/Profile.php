@@ -131,11 +131,11 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 			}
 			else if ($tov_data == Type_visit_entity::INITIAL_VISIT_TELEHEALTH) 
 			{
-				$tov_list .= '<option value="7"> Initial Visit (Office)</option>';
+				$tov_list .= '<option value="7"> Initial Visit (TeleHealth)</option>';
 			}
 			else if ($tov_data == Type_visit_entity::FOLLOW_UP_TELEHEALTH) 
 			{
-				$tov_list .= '<option value="8"> Follow-up Visit (Office)</option>';
+				$tov_list .= '<option value="8"> Follow-up Visit (TeleHealth)</option>';
 			}
 		}
 
