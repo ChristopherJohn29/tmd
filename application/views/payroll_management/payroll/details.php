@@ -161,7 +161,7 @@
 											{% if provider_payment_summary['initial_visit_telehealth']['total'] != 0 %}
 
 												<tr>
-													<th>Initial Visit (Office)</th>
+													<th>Initial Visit (TeleHealth)</th>
 													<td>{{ provider_payment_summary['initial_visit_telehealth']['qty'] }}</td>
 													<td>${{ provider_payment_summary['initial_visit_telehealth']['amount'] != '' ? provider_payment_summary['initial_visit_telehealth']['amount'] : 0 }}</td>
 													<td>${{ provider_payment_summary['initial_visit_telehealth']['total'] }}</td>
@@ -194,7 +194,7 @@
 											{% if provider_payment_summary['follow_up_telehealth']['total'] != 0 %}
 
 												<tr>
-													<th>Follow-Up Visit (Office)</th>
+													<th>Follow-Up Visit (TeleHealth)</th>
 													<td>{{ provider_payment_summary['follow_up_telehealth']['qty'] }}</td>
 													<td>${{ provider_payment_summary['follow_up_telehealth']['amount'] != '' ? provider_payment_summary['follow_up_telehealth']['amount'] : 0 }}</td>
 													<td>${{ provider_payment_summary['follow_up_telehealth']['total'] }}</td>
