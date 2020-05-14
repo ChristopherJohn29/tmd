@@ -11,6 +11,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 		$this->load->model(array(
 			'patient_management/transaction_model',
 			'payroll_management/payroll_model',
+			'payroll_management/payroll_summary_model',
 			'provider_management/profile_model',
 		));
 
@@ -55,9 +56,17 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('generate_pr');
 
+		$payroll_summary = $this->payroll_summary_model->get($provider_id, $fromDate, $toDate);
+
+		$page_data = $this->get_provider_details_data($provider_id, $fromDate, $toDate);
+
+		if (!empty($payroll_summary)) {
+			$page_data['provider_payment_summary']['mileage']['qty'] = $payroll_summary->mileage;
+		}
+
 		$this->twig->view(
 			'payroll_management/payroll/details', 
-			$this->get_provider_details_data($provider_id, $fromDate, $toDate)
+			$page_data			
 		);
 	}
 
@@ -95,6 +104,12 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 				'model' => 'transaction_model',
 				'redirect_url' => $redirect_url
 			];
+
+			// save summary
+			$this->payroll_summary_model->save(
+				$details_params,
+				$page_data['mileageQty']
+			);
 
 			parent::make_paid($transaction_params);
 		}
