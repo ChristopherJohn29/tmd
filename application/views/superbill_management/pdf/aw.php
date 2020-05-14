@@ -33,7 +33,7 @@
 				<td width="80px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->get_provider_fullname(); ?></td>
                 <td width="80px" style="border-bottom: 1px solid #d2d6de;"><?php echo $transaction->supervisingMD_firstname . ' ' . $transaction->supervisingMD_lastname ?></td>
 				<td width="50px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->get_date_format($transaction->pt_dateOfService); ?></td>
-				<td width="40px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $POS_entity->get_pos_name($transaction->patient_placeOfService); ?></td>
+				<td width="40px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $POS_entity->get_pos_name($transaction->pt_tovID); ?></td>
 				<td width="90px" style="border-bottom: 1px solid #d2d6de;"><?php echo  $transaction->pt_icd10_codes; ?></td>
 			</tr>			
 		<?php endforeach; ?>

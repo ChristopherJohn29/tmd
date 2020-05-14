@@ -35,7 +35,7 @@ class POS_entity extends \Mobiledrs\entities\Entity {
 			return 'POS12';
 		} else if (in_array($tov_id, $pos13)) {
 			return 'POS13';
-		} else {
+		} else { echo '3';
 			return '';
 		}
 	}
