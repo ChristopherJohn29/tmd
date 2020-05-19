@@ -84,8 +84,9 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 				$filteredTovs[] = $tov;
 			}
 
-			if (in_array($tov->tov_id, $otherList)) {
-				$filteredTovs[] = $tov;	
+			$tovCancelledOrNoShowType = in_array($trans_id, $otherList);
+			if ($tovCancelledOrNoShowType) {
+				$filteredTovs[] = $tov;
 			}
 		}
 
