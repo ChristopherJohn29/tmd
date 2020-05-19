@@ -103,9 +103,9 @@
 								<thead>
 									<tr>
                                         <th>Initial Visit</th>
-										<th>Initial Visit Office</th>
+										<th>Initial Visit TeleHealth</th>
                                         <th>Follow-up Visit</th>
-										<th>Follow-up Visit Office</th>
+										<th>Follow-up Visit TeleHealth</th>
 										<th>Annual Wellness</th>
 										<th>ACP</th>
 										<th>No Show</th>
@@ -116,9 +116,9 @@
 								<tbody>
 									<tr>
                                         <td>{{ record.get_number_format(record.provider_rate_initialVisit) }}</td>
-										<td>{{ record.get_number_format(record.provider_rate_initialVisitOffice) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_initialVisit_TeleHealth) }}</td>
                                         <td>{{ record.get_number_format(record.provider_rate_followUpVisit) }}</td>
-										<td>{{ record.get_number_format(record.provider_rate_followUpVisitOffice) }}</td>
+										<td>{{ record.get_number_format(record.provider_rate_followUpVisit_TeleHealth) }}</td>
 										<td>{{ record.get_number_format(record.provider_rate_aw) }}</td>
 										<td>{{ record.get_number_format(record.provider_rate_acp) }}</td>
                                         <td>{{ record.get_number_format(record.provider_rate_noShowPT) }}</td>

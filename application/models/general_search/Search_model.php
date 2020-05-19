@@ -160,8 +160,8 @@ class Search_model extends \Mobiledrs\core\MY_Models {
 		$this->db->or_like('provider.provider_rate_noShowPT', $searchTerm);
 		$this->db->or_like('provider.provider_rate_mileage', $searchTerm);
 		$this->db->or_like('provider.provider_gender', $searchTerm);
-		$this->db->or_like('provider.provider_rate_initialVisitOffice', $searchTerm);
-		$this->db->or_like('provider.provider_rate_followUpVisitOffice', $searchTerm);
+		$this->db->or_like('provider.provider_rate_initialVisit_TeleHealth', $searchTerm);
+		$this->db->or_like('provider.provider_rate_followUpVisit_TeleHealth', $searchTerm);
 
 		$query = $this->db->get('provider');
 
