@@ -208,10 +208,10 @@
 										
 									</div>
 
-									<div class="col-md-3 {{ form_error('provider_rate_initialVisitOffice') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_initialVisit_TeleHealth') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Initial Visit Office</label>
-										<input type="text" class="form-control" name="provider_rate_initialVisitOffice"  value="{{ set_value('provider_rate_initialVisitOffice') }}">
+										<label class="control-label">Initial Visit TeleHealth</label>
+										<input type="text" class="form-control" name="provider_rate_initialVisit_TeleHealth"  value="{{ set_value('provider_rate_initialVisit_TeleHealth') }}">
 
 										
 									</div>
@@ -225,10 +225,10 @@
 										
 									</div>
 
-									<div class="col-md-3 {{ form_error('provider_rate_followUpVisitOffice') ? 'has-error' : '' }}">
+									<div class="col-md-3 {{ form_error('provider_rate_followUpVisit_TeleHealth') ? 'has-error' : '' }}">
 									
-										<label class="control-label">Follow-up Visit Office</label>
-										<input type="text" class="form-control" name="provider_rate_followUpVisitOffice" value="{{ set_value('provider_rate_followUpVisitOffice') }}">
+										<label class="control-label">Follow-up Visit TeleHealth</label>
+										<input type="text" class="form-control" name="provider_rate_followUpVisit_TeleHealth" value="{{ set_value('provider_rate_followUpVisit_TeleHealth') }}">
 										
 									</div>
 
@@ -237,7 +237,7 @@
 									</div>
 
 									<div class="col-md-3 has-error">
-										<span class="help-block">{{ form_error('provider_rate_initialVisitOffice') }}</span>
+										<span class="help-block">{{ form_error('provider_rate_initialVisit_TeleHealth') }}</span>
 									</div>
 
 									<div class="col-md-3 has-error">
@@ -245,7 +245,7 @@
 									</div>
 
 									<div class="col-md-3 has-error">
-										<span class="help-block">{{ form_error('provider_rate_followUpVisitOffice') }}</span>
+										<span class="help-block">{{ form_error('provider_rate_followUpVisit_TeleHealth') }}</span>
 									</div>
 									
 									<div class="col-md-3 {{ form_error('provider_rate_aw') ? 'has-error' : '' }}">
