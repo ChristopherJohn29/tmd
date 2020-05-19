@@ -182,7 +182,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'provider_rate_initialVisitOffice',
+            'field' => 'provider_rate_initialVisit_TeleHealth',
             'label' => 'Initial Visit Office',
             'rules' => 'max_length[10]',
             'errors' => array(
@@ -198,7 +198,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'provider_rate_followUpVisitOffice',
+            'field' => 'provider_rate_followUpVisit_TeleHealth',
             'label' => 'Follow up visit Office',
             'rules' => 'max_length[10]',
             'errors' => array(
@@ -305,7 +305,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'provider_rate_initialVisitOffice',
+            'field' => 'provider_rate_initialVisit_TeleHealth',
             'label' => 'Initial Visit Office',
             'rules' => 'max_length[10]',
             'errors' => array(
@@ -321,7 +321,7 @@ $config = array(
             )
         ),
         array(
-            'field' => 'provider_rate_followUpVisitOffice',
+            'field' => 'provider_rate_followUpVisit_TeleHealth',
             'label' => 'Follow up visit Office',
             'rules' => 'max_length[10]',
             'errors' => array(

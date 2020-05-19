@@ -323,13 +323,13 @@ class Search_entity extends \Mobiledrs\entities\Entity {
 			$searchValue['field'] = 'Gender';
 			$searchValue['value'] = $data['provider_gender'];
 		}
-		else if (stripos($data['provider_rate_initialVisitOffice'], $this->searchTerm) !== FALSE) {
+		else if (stripos($data['provider_rate_initialVisit_TeleHealth'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Rate - Initial visit office';
-			$searchValue['value'] = $data['provider_rate_initialVisitOffice'];
+			$searchValue['value'] = $data['provider_rate_initialVisit_TeleHealth'];
 		}
-		else if (stripos($data['provider_rate_followUpVisitOffice'], $this->searchTerm) !== FALSE) {
+		else if (stripos($data['provider_rate_followUpVisit_TeleHealth'], $this->searchTerm) !== FALSE) {
 			$searchValue['field'] = 'Rate - Follow-up visit office';
-			$searchValue['value'] = $data['provider_rate_followUpVisitOffice'];
+			$searchValue['value'] = $data['provider_rate_followUpVisit_TeleHealth'];
 		}
 
 		return $searchValue;
