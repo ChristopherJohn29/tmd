@@ -76,6 +76,8 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 			$tovFollowupType = in_array($trans_id, $this->get_followup_list()) && 
 				in_array($tov->tov_id, $this->get_followup_list());
 
+			$tovCancelledOrNoShowType = in_array($trans_id, $otherList);
+
 			if ($tovInitialType) {
 				$filteredTovs[] = $tov;
 			}
@@ -84,9 +86,14 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 				$filteredTovs[] = $tov;
 			}
 
-			$tovCancelledOrNoShowType = in_array($trans_id, $otherList);
 			if ($tovCancelledOrNoShowType) {
 				$filteredTovs[] = $tov;
+				continue;
+			}
+				
+			if (in_array((int)$tov->tov_id, $otherList)) {
+				$filteredTovs[] = $tov;
+				continue;
 			}
 		}
 
