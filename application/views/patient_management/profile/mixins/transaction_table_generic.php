@@ -38,7 +38,7 @@
                 <th>Tobacco</th>
                 <th>Status</th>
                 <th>ICD-Code Diagnoses</th>
-                <th>Referral Date</th>
+                <th>Intake Received</th>
                 <th>Date Referral was Emailed</th>
                 <th width="110px">Visits Billed</th>
             </tr>
