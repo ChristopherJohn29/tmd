@@ -39,9 +39,15 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 				$this->input->post('toDate')
 			]);
 
+			$payroll_summaries = $this->payroll_summary_model->get(
+				str_replace('/', '_', $page_data['fromDate']),
+				str_replace('/', '_', $page_data['toDate'])
+			);
+
 			$results = $this->payroll_model->list(
 				$page_data['fromDate'], 
-				$page_data['toDate']
+				$page_data['toDate'],
+				$payroll_summaries
 			);
 
 			$payroll_entity = new Payroll_entity([], $results);

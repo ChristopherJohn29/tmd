@@ -173,7 +173,7 @@
 												
 												<div class="col-md-4 form-group {{ form_error('prsl_dateRef') ? 'has-error' : '' }}">
 									
-													<label class="control-label">Date of Referral <span>*</span></label>
+													<label class="control-label">Intake Received <span>*</span></label>
 													<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask required="true" name="prsl_dateRef[]" value="{{ list.get_date_format(list.prsl_dateRef) }}">
 												</div>
 
