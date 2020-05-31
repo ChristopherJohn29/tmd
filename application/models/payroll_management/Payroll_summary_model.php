@@ -42,28 +42,33 @@ class Payroll_summary_model extends \Mobiledrs\core\MY_Models {
 		}
 	}
 
-	public function get($provider_id, $fromDate, $toDate)
+	public function get($fromDate, $toDate, $provider_id = null)
 	{
-		$params = [
-			'where' => [
-				[
-					'key' => 'provider_id',
-					'condition' => '=',
-					'value' => $provider_id
-				],
-				[
-					'key' => 'from',
-					'condition' => '=',
-					'value' => $fromDate
-				],
-				[
-					'key' => 'to',
-					'condition' => '=',
-					'value' => $toDate
-				]
+		$whereQuery = [
+			[
+				'key' => 'from',
+				'condition' => '=',
+				'value' => $fromDate
+			],
+			[
+				'key' => 'to',
+				'condition' => '=',
+				'value' => $toDate
 			]
 		];
 
-		return $this->record($params);
+		if (!empty($provider_id)) {
+			$whereQuery[] = [
+				'key' => 'provider_id',
+				'condition' => '=',
+				'value' => $provider_id
+			];
+		}
+
+		$params = [ 'where' => $whereQuery ];
+
+		return !empty($provider_id) ? 
+			$this->record($params) : 
+			$this->records($params);
 	}
 }
