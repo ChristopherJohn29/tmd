@@ -182,7 +182,7 @@
 					</tr>
 					<tr>
 						<td colspan="3" style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px">Grand Total</span></td>
-						<td style="border-bottom: 1px solid #d2d6de;"><span style="font-size:12px; font-weight:bold;">$<?php echo $total; ?></span></td>
+						<td style="border-bottom: 1px solid #d2d6de;"><span style="font-size:10px; font-weight:bold;">$<?php echo number_format($total, 2); ?></span></td>
 					</tr>
 				</tbody>
 			</table>
