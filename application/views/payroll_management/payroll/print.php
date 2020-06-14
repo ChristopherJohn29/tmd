@@ -192,7 +192,7 @@
 									</tr>
 									<tr class="total">
 										<td colspan="3"><strong>Total</strong></td>
-										<td>${{ total }}</td>
+										<td>${{ total|number_format(2) }}</td>
 									</tr>
 								</tbody>
 								
