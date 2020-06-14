@@ -62,7 +62,7 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('generate_pr');
 
-		$payroll_summary = $this->payroll_summary_model->get($provider_id, $fromDate, $toDate);
+		$payroll_summary = $this->payroll_summary_model->get($fromDate, $toDate, $provider_id);
 
 		$page_data = $this->get_provider_details_data($provider_id, $fromDate, $toDate);
 
