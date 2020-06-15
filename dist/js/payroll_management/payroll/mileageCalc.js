@@ -45,7 +45,7 @@ Mobiledrs.MileageCalc = (function() {
 		grantTotal.input.val(grandTotal);
 
 		total.output.html(newAmount.toFixed(2));
-		grantTotal.output.html(grandTotal.toLocaleString());
+		grantTotal.output.html(grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2}));
 	};
 
 	return {
