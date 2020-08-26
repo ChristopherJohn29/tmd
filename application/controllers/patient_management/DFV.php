@@ -119,6 +119,11 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 					'key' => "patient_transactions.pt_dateOfService IN (" . $dateList . ')',
 					'condition' => NULL,
 	        		'value' => NULL
+				],
+				[
+					'key' => "patient_transactions.pt_archive",
+					'condition' => 'IS NULL',
+	        		'value' => NULL
         		]
 			],
 			'return_type' => 'object'
