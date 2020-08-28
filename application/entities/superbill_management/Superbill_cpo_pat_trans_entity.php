@@ -74,6 +74,7 @@ class Superbill_cpo_pat_trans_entity {
 				'discharge_Date' => $cpo->get_date_format($cpo->ptcpo_dischargeDate),
 				'patient_name' => '',
 				'medicare' => '',
+				'dob' => '',
 				'icd10' => '',
 				'status' => $cpo->ptcpo_status,
 				'ptcpo_id' => $cpo->ptcpo_id,
@@ -86,6 +87,7 @@ class Superbill_cpo_pat_trans_entity {
 				{
 					$data[$i]['patient_name'] = $pat_tran->patient_name;
 					$data[$i]['medicare'] = $pat_tran->patient_medicareNum;
+					$data[$i]['dob'] = date_format(date_create($pat_tran->patient_dateOfBirth), 'm/d/Y');
 
 					if ($pat_tran->pt_dateOfService == $cpo->ptcpo_dateOfService) {
 						$data[$i]['icd10'] = $pat_tran->pt_icd10_codes;

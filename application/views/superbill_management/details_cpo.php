@@ -52,6 +52,7 @@
 											<th><input type="checkbox" id="checkAll"></th>
 											<th width="200px">Patient Name</th>
 											<th>Medicare</th>
+											<th>DOB</th>
 											<th>ICD-Code Diagnoses</th>
 											<th>Supervising MD</th>
                                             <th></th>
@@ -79,9 +80,11 @@
 													<td style="{{ borderTopStyle }}"></td>
 													<td style="{{ borderTopStyle }}"></td>
 													<td style="{{ borderTopStyle }}"></td>
+													<td style="{{ borderTopStyle }}"></td>
 												{% else %}
 													<td style="{{ borderTopStyle }}">{{ transaction['patient_name'] }}</td>
 													<td style="{{ borderTopStyle }}">{{ transaction['medicare'] }}</td>
+													<td style="{{ borderTopStyle }}">{{ transaction['dob'] }}</td>
 													<td style="{{ borderTopStyle }}">{{ transaction['icd10'] }}</td>
 												{% endif %}
                                                 <td>{{ transaction.supervisingMD_fullname }}</td>
