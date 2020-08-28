@@ -10,6 +10,7 @@
 		<tr>
 			<th width="90px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Patient Name</th>
 			<th width="90px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Medicare</th>
+			<th width="30px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">DOB</th>
 			<th width="90px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">ICD-Code Diagnoses</th>
             <th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Supervising MD</th>
 			<th width="70px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8"></th>
@@ -33,9 +34,11 @@
 					<td width="100px" style="<?php echo $borderStyle; ?>"></td>
 					<td width="90px" style="<?php echo $borderStyle; ?>"></td>
 					<td width="90px" style="<?php echo $borderStyle; ?>"></td>
+					<td width="90px" style="<?php echo $borderStyle; ?>"></td>
 				<?php else: ?>
 					<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['patient_name']; ?></td>
 					<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['medicare']; ?></td>
+					<td width="30px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['dob']; ?></td>
 					<td width="90px" style="<?php echo $borderStyle; ?>"><?php echo $transaction['icd10']; ?></td>
 				<?php endif; ?>
 
