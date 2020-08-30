@@ -8,6 +8,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 		$this->load->model(array(
 			'home_health_care_management/profile_model',
+			'home_health_care_management/notes_model',
 			'patient_management/transaction_model'
 		));
 	}
@@ -92,11 +93,11 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			'record_id' => $hhc_id,
 			'table_key' => 'hhc_id',
 			'save_model' => 'profile_model',
-			'redirect_url' => 'home_health_care_management/profile',
+			'redirect_url_details' => 'home_health_care_management/profile/details/',
 			'validation_group' => $validation_group
 		];
 
-		parent::save_data($params);   
+		parent::save_data($params);
 	}
 
 	public function search()
@@ -111,5 +112,50 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		}
 
 		$this->twig->view('home_health_care_management/profile/search', $page_data);
+	}
+
+	public function details($hhc_id)
+	{
+		$params = [
+			'key' => 'hhc_id',
+        	'value' => $hhc_id
+		];
+
+		$page_data['record'] = $this->profile_model->record($params);
+
+		if ( ! $page_data['record'])
+		{
+			redirect('errors/page_not_found');
+		}
+
+		$params = [
+			'joins' => [
+				[
+					'join_table_name' => 'user',
+					'join_table_key' => 'user.user_id',
+					'join_table_condition' => '=',
+					'join_table_value' => 'home_health_care_notes.hhcn_userID',
+					'join_table_type' => 'left'
+				]
+			],
+			'where' => [
+				[
+					'key' => 'hhcn_hhcID',
+					'condition' => '=',
+					'value' => $hhc_id
+				],
+        		[
+					'key' => 'home_health_care_notes.hhcn_archive',
+					'condition' => '=',
+	        		'value' => NULL
+        		]
+			],
+			'key' => 'home_health_care_notes.hhcn_date',
+			'order_by' => 'DESC'
+		];
+
+		$page_data['notes'] = $this->notes_model->records($params);
+
+		$this->twig->view('home_health_care_management/profile/details', $page_data);
 	}
 }

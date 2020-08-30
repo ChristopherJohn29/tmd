@@ -130,6 +130,11 @@ CREATE TABLE IF NOT EXISTS `mobile_drs`.`home_health_care` (
 ENGINE = InnoDB;
 
 
+
+
+CREATE TABLE `mobile_drs`.`home_health_care_notes` ( `hhcn_id` INT NOT NULL AUTO_INCREMENT , `hhcn_notes` VARCHAR(255) NOT NULL , `hhcn_date` DATE NOT NULL , `hhcn_userID` INT NOT NULL , `hhcn_hhcID` INT NOT NULL, `hhcn_archive` INT NULL PRIMARY KEY (`hhcn_id`)) ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `mobile_drs`.`place_of_service`
 -- -----------------------------------------------------
@@ -730,4 +735,3 @@ INSERT INTO `mobile_drs`.`type_of_visits` (`tov_id`, `tov_name`) VALUES (5, ' No
 INSERT INTO `mobile_drs`.`type_of_visits` (`tov_id`, `tov_name`) VALUES (6, ' Cancelled');
 
 COMMIT;
-
