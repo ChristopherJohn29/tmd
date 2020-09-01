@@ -132,7 +132,7 @@ ENGINE = InnoDB;
 
 
 
-CREATE TABLE `mobile_drs`.`home_health_care_notes` ( `hhcn_id` INT NOT NULL AUTO_INCREMENT , `hhcn_notes` VARCHAR(255) NOT NULL , `hhcn_date` DATE NOT NULL , `hhcn_userID` INT NOT NULL , `hhcn_hhcID` INT NOT NULL, `hhcn_archive` INT NULL PRIMARY KEY (`hhcn_id`)) ENGINE = InnoDB;
+CREATE TABLE `mobile_drs`.`home_health_care_notes` ( `hhcn_id` INT NOT NULL AUTO_INCREMENT , `hhcn_notes` VARCHAR(255) NOT NULL , `hhcn_date` DATE NOT NULL , `hhcn_userID` INT NOT NULL , `hhcn_hhcID` INT NOT NULL, `hhcn_archive` INT NULL, PRIMARY KEY (`hhcn_id`)) ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------

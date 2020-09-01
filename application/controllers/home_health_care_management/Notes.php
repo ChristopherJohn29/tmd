@@ -7,19 +7,34 @@ class Notes extends \Mobiledrs\core\MY_Controller {
 		parent::__construct();
 
 		$this->load->model(array(
+			'home_health_care_management/profile_model',
 			'home_health_care_management/notes_model'
 		));
 	}
 
 	public function add(string $hhc_id)
 	{
-        $page_data['hhc_id'] = $hhc_id;
+		$page_data['hhc_id'] = $hhc_id;
+		
+		$params = [
+			'key' => 'hhc_id',
+        	'value' => $hhc_id
+		];
+
+		$page_data['record'] = $this->profile_model->record($params);
 
 		$this->twig->view('home_health_care_management/notes/add', $page_data);
 	}
 
 	public function edit(string $hhc_id, string $hhcn_id)
 	{
+		$params = [
+			'key' => 'hhc_id',
+        	'value' => $hhc_id
+		];
+
+		$page_data['profile'] = $this->profile_model->record($params);
+
 		$params = [
 			'key' => 'hhcn_id',
         	'value' => $hhcn_id

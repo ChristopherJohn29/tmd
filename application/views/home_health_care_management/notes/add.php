@@ -22,6 +22,18 @@
 							
 								<div class="row">
 
+									<div class="xrx-info" style="min-height: initial;">
+										
+										<div class="col-lg-6">
+											<p class="lead"><span>Home Health Care: </span> {{ record.hhc_name }}</p>
+										</div>
+										
+										<div class="col-lg-6">
+											<p class="lead"><span>Contact Person: </span> {{ record.hhc_contact_name }}</p>
+										</div>
+										
+									</div>
+
 									<input type="hidden" name="hhcn_hhcID" value="{{ hhc_id }}">
 								
 									<div class="col-md-12 form-group {{ form_error('hhcn_notes') ? 'has-error' : '' }}">
