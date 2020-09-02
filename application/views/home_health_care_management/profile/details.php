@@ -92,10 +92,10 @@
                                             {% for note in notes %}
 
                                                 <tr>
-                                                    <th>{{ note.get_date_format(note.hhcn_date) }}</th>
+                                                    <th style="width: 150px;">{{ note.get_date_format(note.hhcn_date) }}</th>
                                                     <td>{{ note.hhcn_notes }}</td>
-                                                    <td>{{ note.getNotesFromUserID() }}</td>
-                                                    <td>
+                                                    <td style="width: 150px;">{{ note.getNotesFromUserID() }}</td>
+                                                    <td style="width: 120px;">
 
                                                         <a href="{{ site_url("home_health_care_management/notes/edit/#{ record.hhc_id }/#{ note.hhcn_id }") }}"><span class="label label-primary">Update</span></a>
 
