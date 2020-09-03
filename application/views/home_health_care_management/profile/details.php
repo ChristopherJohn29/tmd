@@ -81,7 +81,7 @@
                                         <thead>
                                             <tr>
                                                 <th width="150px">Date</th>
-                                                <th style="width: 200px;">Notes</th>
+                                                <th>Notes</th>
                                                 <th style="width: 150px;">Note from</th>
                                                 <th width="120px">Actions</th>
                                             </tr>
