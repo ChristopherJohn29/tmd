@@ -57,13 +57,7 @@
                                         <td>{{ highlight_phrase(record.hhc_email, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>{{ highlight_phrase(record.hhc_address, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>
-
-                                            {% if roles_permission_entity.has_permission_name(['edit_hhc']) %}
-                                            
-                                                <a href="{{ site_url("home_health_care_management/profile/edit/#{ record.hhc_id }") }}" title="Edit"><span class="label label-primary">Update</span></a>
-
-                                            {% endif %}
-
+                                            <a href="{{ site_url("home_health_care_management/profile/details/#{ record.hhc_id }") }}" target="_blank" title="Edit"><span class="label label-primary">View</span></a>
                                         </td>
                                     </tr>
 

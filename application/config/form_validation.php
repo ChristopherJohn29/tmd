@@ -361,6 +361,16 @@ $config = array(
             )
         )
     ),
+    'home_health_care_management/notes/save' => array(
+        array(
+            'field' => 'hhcn_notes',
+            'label' => 'notes',
+            'rules' => 'required|max_length[255]',
+            'errors' => array(
+                'required' => 'This field is required.'
+            )
+        )
+            ),
     'home_health_care_management/profile/save' => array(
         array(
             'field' => 'hhc_name',
