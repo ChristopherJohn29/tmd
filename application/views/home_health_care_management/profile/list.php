@@ -57,7 +57,7 @@
                                         <td>{{ highlight_phrase(record.hhc_email, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>{{ highlight_phrase(record.hhc_address, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>
-                                            <a href="{{ site_url("home_health_care_management/profile/details/#{ record.hhc_id }") }}" title="Edit"><span class="label label-primary">View</span></a>
+                                            <a href="{{ site_url("home_health_care_management/profile/details/#{ record.hhc_id }") }}" target="_blank" title="Edit"><span class="label label-primary">View</span></a>
                                         </td>
                                     </tr>
 
