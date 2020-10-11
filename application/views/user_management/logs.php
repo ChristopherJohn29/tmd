@@ -22,55 +22,19 @@
 			<div class="table-responsive">
 				<table id="logs" class="table no-margin table-hover">
 
-				  <thead>
-					<tr>
-						<th>Username</th>
-						<th>Time</th>
-						<th>Date</th>
-						<th>Description</th>
-						<th width="120px" class="text-center">Actions</th>
-					</tr>
-				  </thead>
-
-				  <tbody>
-
-					{% if logs %}
-
-					  {% for log in logs %}
-						
+					<thead>
 						<tr>
-							<td>
-								{{ log.user_firstname ~ ' ' ~ log.user_lastname }}
-							</td>
-							<td>
-								{{ log.get_time_format(log.user_log_time) }}
-							</td>
-							<td>
-								{{ log.get_date_format(log.user_log_date) }}
-							</td>
-							<td>
-								{{ log.user_log_description }}
-							</td>
-							<td class="text-center">
-								{% if log.user_log_link %}
-									<a href="{{ site_url(log.user_log_link) }}" target="_blank">
-										<span class="label label-primary">View</span>
-									</a>
-								{% endif %}
-							</td>
+							<th>Username</th>
+							<th>Time</th>
+							<th>Date</th>
+							<th>Description</th>
+							<th width="10px" class="text-center">Actions</th>
 						</tr>
+					</thead>
 
-					  {% endfor %}
-					  
-					{% else %}
-						
-						<tr>
-							<td colspan="4" class="text-center">No data available in table</td>
-						</tr>
+					<tbody>
 
-					{% endif %}
-
-				  </tbody>
+					</tbody>
 					
 					<tfoot>
 						<tr>
@@ -78,7 +42,7 @@
 							<th>Time</th>
 							<th>Date</th>
 							<th>Description</th>
-							<th class="text-center" width="120px">Actions</th>
+							<th class="text-center" width="10px">Actions</th>
 						</tr>
 				  	</tfoot>
 

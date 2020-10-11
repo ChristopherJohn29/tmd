@@ -365,7 +365,7 @@ $config = array(
         array(
             'field' => 'hhcn_notes',
             'label' => 'notes',
-            'rules' => 'required|max_length[255]',
+            'rules' => 'required|max_length[2000]',
             'errors' => array(
                 'required' => 'This field is required.'
             )

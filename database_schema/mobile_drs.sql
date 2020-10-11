@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `mobile_drs`.`user` (
   `user_password` VARCHAR(255) NULL,
   `user_roleID` INT UNSIGNED NULL,
   `user_sessionID` VARCHAR(255) NULL,
+  `user_archive` TINYINT(1) NULL
   PRIMARY KEY (`user_id`),
   INDEX `user_roleID_idx` (`user_roleID` ASC),
   CONSTRAINT `user_roleID`
@@ -132,7 +133,7 @@ ENGINE = InnoDB;
 
 
 
-CREATE TABLE `mobile_drs`.`home_health_care_notes` ( `hhcn_id` INT NOT NULL AUTO_INCREMENT , `hhcn_notes` VARCHAR(255) NOT NULL , `hhcn_date` DATE NOT NULL , `hhcn_userID` INT NOT NULL , `hhcn_hhcID` INT NOT NULL, `hhcn_archive` INT NULL, PRIMARY KEY (`hhcn_id`)) ENGINE = InnoDB;
+CREATE TABLE `mobile_drs`.`home_health_care_notes` ( `hhcn_id` INT NOT NULL AUTO_INCREMENT , `hhcn_notes` VARCHAR(2000) NOT NULL , `hhcn_date` DATE NOT NULL , `hhcn_userID` INT NOT NULL , `hhcn_hhcID` INT NOT NULL, `hhcn_archive` INT NULL, PRIMARY KEY (`hhcn_id`)) ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
