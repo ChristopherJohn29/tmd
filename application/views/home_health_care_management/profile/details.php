@@ -95,13 +95,18 @@
                                                     <th style="width: 150px;">{{ note.get_date_format(note.hhcn_date) }}</th>
                                                     <td>{{ note.hhcn_notes }}</td>
                                                     <td style="width: 150px;">{{ note.getNotesFromUserID() }}</td>
-                                                    <td style="width: 120px;">
 
-                                                        <a href="{{ site_url("home_health_care_management/notes/edit/#{ record.hhc_id }/#{ note.hhcn_id }") }}"><span class="label label-primary">Update</span></a>
+                                                    {% if session['user_id'] == note.hhcn_userID %}
 
-                                                        <a href="{{ site_url("ajax/home_health_care_management/notes/delete/#{ record.hhc_id }/#{ note.hhcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+                                                        <td style="width: 120px;">
 
-                                                    </td>
+                                                            <a href="{{ site_url("home_health_care_management/notes/edit/#{ record.hhc_id }/#{ note.hhcn_id }") }}"><span class="label label-primary">Update</span></a>
+
+                                                            <a href="{{ site_url("ajax/home_health_care_management/notes/delete/#{ record.hhc_id }/#{ note.hhcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+
+                                                        </td>
+
+                                                    {% endif %}
                                                 </tr>
 
                                             {% endfor %}
