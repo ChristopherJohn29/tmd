@@ -12,23 +12,7 @@ class Logs extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('logs');
 
-		$params = [
-			'order' => [
-				'key' => 'user_log_id',
-				'by' => 'DESC',
-			],
-			'joins' => [
-				[
-					'join_table_name' => 'user',
-					'join_table_key' => 'user.user_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'user_logs.user_log_userID',
-					'join_table_type' => 'INNER'
-				]
-			]
-		];
-
-		$page_data['logs'] = $this->logs_model->get_records_by_join($params);
+		$page_data['logs'] = [];
 
 		$this->twig->view('user_management/logs', $page_data);
 	}

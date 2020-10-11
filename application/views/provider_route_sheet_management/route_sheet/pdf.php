@@ -24,6 +24,7 @@
 					<?php echo $list->patient_name; ?><br>
 					<?php echo $list->patient_address; ?><br>
 					<?php echo $list->patient_phoneNum; ?><br><br>
+					<strong>Caregiver/Family:</strong> $list->patient_caregiver_family<br>
 					<strong>Supervising MD:</strong> <?php echo $list->supervisingMD_firstname . ' ' . $list->supervisingMD_lastname; ?>
 				</td>
 	            <td width="190px" style="border-bottom: 1px solid #d2d6de;">

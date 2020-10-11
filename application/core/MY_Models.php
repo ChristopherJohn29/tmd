@@ -174,6 +174,25 @@ class MY_Models extends \CI_Model {
 			}
 		}
 
+		if (isset($params['whereOr']))
+		{
+			foreach ($params['whereOr'] as $i => $value) {
+				if ($i > 0) {
+					$this->db->or_where(
+						$value['key'] . ' ' .
+						$value['condition'],
+						$value['value']
+					);	
+				} else {
+					$this->db->where(
+						$value['key'] . ' ' .
+						$value['condition'],
+						$value['value']
+					);
+				}
+			}
+		}
+
 		if (isset($params['where_in_list'])) 
 		{
 			$this->db->where_in(
@@ -187,9 +206,13 @@ class MY_Models extends \CI_Model {
 			$this->db->order_by($params['order']['key'], $params['order']['by']);
 		}
 
-		if (isset($params['limit']))
+		if (isset($params['offset']))
 		{
-			$this->db->limit($params['limit']);
+			$this->db->limit($params['limit'], $params['offset']);
+		} else {
+			if (isset($params['limit'])) {
+				$this->db->limit($params['limit']);
+			}
 		}
 
 		$query = $this->db->get($this->table_name);
