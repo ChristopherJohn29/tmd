@@ -349,15 +349,19 @@
                                             <td>{{ cn.getNotesFromUserID() }}</td>
     										<td>
 
-                                                {% if roles_permission_entity.has_permission_name(['edit_cn']) %}
+                                                {% if session['user_id'] == cn.ptcn_notesFromUserID %}
 
-                                                    <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
+                                                    {% if roles_permission_entity.has_permission_name(['edit_cn']) %}
 
-                                                {% endif %}
+                                                        <a href="{{ site_url("patient_management/communication_notes/edit/#{ record.patient_id }/#{ cn.ptcn_id }") }}"><span class="label label-primary">Update</span></a>
 
-                                                {% if roles_permission_entity.has_permission_name(['delete_cn']) %}
+                                                    {% endif %}
 
-                                                    <a href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_patientID }/#{ cn.ptcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+                                                    {% if roles_permission_entity.has_permission_name(['delete_cn']) %}
+
+                                                        <a href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_patientID }/#{ cn.ptcn_id }") }}" data-delete-btn><span class="label label-primary">Delete</span></a>
+
+                                                    {% endif %}
 
                                                 {% endif %}
 
