@@ -357,7 +357,7 @@
 
                                                 {% if roles_permission_entity.has_permission_name(['delete_cn']) %}
 
-                                                    <a {% if session['user_id'] == cn.ptcn_notesFromUserID %} href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_patientID }/#{ cn.ptcn_id }") }}"  {% endif %} data-delete-btn><span class="label label-primary">Delete</span></a>
+                                                    <a {% if session['user_id'] == cn.ptcn_notesFromUserID %} href="{{ site_url("ajax/patient_management/communication_notes/delete/#{ cn.ptcn_patientID }/#{ cn.ptcn_id }") }}" data-delete-btn  {% endif %}><span class="label label-primary">Delete</span></a>
 
                                                 {% endif %}
 
