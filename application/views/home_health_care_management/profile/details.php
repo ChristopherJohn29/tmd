@@ -100,7 +100,7 @@
 
                                                         <a {% if session['user_id'] == note.hhcn_userID %} href="{{ site_url("home_health_care_management/notes/edit/#{ record.hhc_id }/#{ note.hhcn_id }") }}" {% endif %}><span class="label label-primary">Update</span></a>
 
-                                                        <a {% if session['user_id'] == note.hhcn_userID %} href="{{ site_url("ajax/home_health_care_management/notes/delete/#{ record.hhc_id }/#{ note.hhcn_id }") }}" {% endif %} data-delete-btn><span class="label label-primary">Delete</span></a>
+                                                        <a {% if session['user_id'] == note.hhcn_userID %} href="{{ site_url("ajax/home_health_care_management/notes/delete/#{ record.hhc_id }/#{ note.hhcn_id }") }}" data-delete-btn {% endif %}><span class="label label-primary">Delete</span></a>
 
                                                     </td>
                                                     
