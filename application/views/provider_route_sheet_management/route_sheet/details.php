@@ -58,6 +58,7 @@
                                                     <p>
                                                         {{ list.patient_name }}
                                                         <span>
+                                                            {{ list.patient_medicareNum }}<br>
                                                             {{ list.patient_address }}<br>
                                                             {{ list.patient_phoneNum }}<br><br>
                                                             <strong>Caregiver/Family:</strong> {{ list.patient_caregiver_family }}<br>
