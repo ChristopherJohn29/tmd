@@ -3,7 +3,7 @@
         <tr>
             <th>Superbill</th>
             <th class="text-center">99345</th>
-            <th class="text-center">99350</th>
+            <th class="text-center">99349</th>
             <th class="text-center">99497</th>
             <th class="text-center">G0108</th>
             <th class="text-center">99407</th>
