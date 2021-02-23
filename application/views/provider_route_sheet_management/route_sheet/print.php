@@ -4,7 +4,7 @@
 {% set body_class = 'print' %}
 
 {% block content %}
- 
+
  <script type="text/javascript">
  	window.print();
  </script>
@@ -55,9 +55,10 @@
                                         <td>
                                             <p>{{ list.patient_name }}
                                                 <span>
-                                                    {{ list.patient_medicareNum }}<br>
-                                                    {{ list.patient_address }}<br>
-                                                    {{ list.patient_phoneNum }}<br><br>
+                                                    <strong>DOB:</strong> {{ list.get_date_format(list.patient_dateOfBirth) }}<br>
+                                                    <strong>Medicare:</strong> {{ list.patient_medicareNum }}<br>
+                                                    <strong>Address:</strong> {{ list.patient_address }}<br>
+                                                    <strong>Phone:</strong> {{ list.patient_phoneNum }}<br><br>
                                                     <strong>Caregiver/Family:</strong> {{ list.patient_caregiver_family }}<br>
                                                     <strong>Supervising MD:</strong> {{ list.supervisingMD_firstname ~ ' ' ~ list.supervisingMD_lastname }}
                                                 </span>
@@ -74,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-            
+
             </section>
 
         </div>
