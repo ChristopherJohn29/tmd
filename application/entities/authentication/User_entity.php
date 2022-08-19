@@ -13,6 +13,7 @@ class User_entity extends \Mobiledrs\entities\Entity {
 	protected $user_roleID;
 	protected $user_sessionID;
 	protected $user_archive;
+	protected $user_photo;
 
 	public function validate_password(string $password) : bool
 	{

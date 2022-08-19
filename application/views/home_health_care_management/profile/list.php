@@ -38,6 +38,7 @@
                                 <th>Phone</th>
                                 <th>Fax</th>
                                 <th>Email</th>
+                                <th>Second Email</th>
                                 <th>Address</th>
                                 <th width="50px">Action</th>
                             </tr>
@@ -55,6 +56,7 @@
                                         <td>{{ highlight_phrase(record.hhc_phoneNumber, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>{{ highlight_phrase(record.hhc_faxNumber, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>{{ highlight_phrase(record.hhc_email, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+                                        <td>{{ highlight_phrase(record.hhc_email_additional, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>{{ highlight_phrase(record.hhc_address, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
                                         <td>
                                             <a href="{{ site_url("home_health_care_management/profile/details/#{ record.hhc_id }") }}" target="_blank" title="Edit"><span class="label label-primary">View</span></a>

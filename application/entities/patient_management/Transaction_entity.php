@@ -15,6 +15,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_service_billed;
 	protected $pt_aw_ippe_date;
 	protected $pt_aw_ippe_code;
+	protected $msp;
 	protected $pt_performed;
 	protected $pt_acp;
 	protected $pt_diabetes;
@@ -32,6 +33,21 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_supervising_mdID;
 	protected $pt_archive;
 	protected $pt_status;
+	protected $lab_orders;
+	protected $pt_reasonForVisit;
+	protected $no_homehealth_ref;
+	protected $not_our_md;
+	protected $non_admit;
+	protected $no_homehealth_ref_checked_by;
+	protected $not_our_md_checked_by;
+	protected $non_admit_checked_by;
+	protected $pt_hypertension;
+	protected $is_ca;
+	protected $patient_homehealth;
+	protected $transaction_file;
+	protected $userId;
+	
+
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -69,6 +85,10 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_initialVisit_TeleHealth;
 	protected $provider_rate_followUpVisit_TeleHealth;
 	protected $provider_supervising_MD;
+	protected $provider_inactive;
+	protected $provider_photo;
+	protected $provider_rate_ca_homeHealth;
+	protected $provider_rate_ca_teleHealth;
 
 	protected $patient_id;
 	protected $patient_name;
@@ -78,15 +98,49 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_phoneNum;
 	protected $patient_address;
 	protected $patient_hhcID;
+	protected $patient_hhcID_2;
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
 	protected $patient_placeOfService;
 	protected $patient_pharmacy;
 	protected $patient_pharmacyPhone;
 	protected $patient_drug_allergy;
-
+	protected $patient_sub_note;
+	protected $patient_spouse;
 	protected $supervisingMD_firstname;
 	protected $supervisingMD_lastname;
+
+	protected $hhc_id;
+	protected $hhc_name;
+	protected $hhc_contact_name;
+	protected $hhc_phoneNumber;
+	protected $hhc_faxNumber;
+	protected $hhc_email;
+	protected $hhc_address;
+	protected $hhc_dateCreated;
+	protected $hhc_email_additional;
+
+	protected $user_id;
+	protected $user_firstname;
+	protected $user_lastname;
+	protected $user_email;
+	protected $user_dateCreated;
+	protected $user_password;
+	protected $user_roleID;
+	protected $user_sessionID;
+	protected $user_archive;
+	protected $user_photo;
+
+	protected $prsl_id;
+	protected $prsl_prsID;
+	protected $prsl_fromTime;
+	protected $prsl_toTime;
+	protected $prsl_patientID;
+	protected $prsl_hhcID;
+	protected $prsl_tovID;
+	protected $prsl_notes;
+	protected $prsl_patientTransID;
+	protected $prsl_dateRef;
 
     public function get_selected_choice_format(string $choice) : string
     {
@@ -209,7 +263,11 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 			} else {
 				return '99350';
 			}
-		} else {
+		} else if ($tov_id == tv_entity::COGNITIVE_HOME) {
+			return '99483';
+		} else if ($tov_id == tv_entity::COGNITIVE_TELEHEALTH) {
+			return '99483';
+		}  else {
 			return '';
 		}
 	}
@@ -229,6 +287,12 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		return $this->pt_diabetes == '1';
 	}
 
+	public function is_hypertension_selected() : bool
+	{
+		return $this->pt_hypertension == '1';
+	}
+
+
 	public function is_tobacco_selected() : bool
 	{
 		return $this->pt_tobacco == '1';
@@ -241,7 +305,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 
 	public function is_provider_paid() : bool
 	{
-		return ! empty($this->pt_service_billed);
+		return  ! empty($this->pt_visitBilled);
 	}
 
 	public function get_notBilledVisit(array $transactions) : array
@@ -270,6 +334,42 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 		{
 			$transaction = $transactions[$i];
 			if (( ! empty($transaction->pt_aw_billed)) && ($transaction->pt_aw_billed != '0000-00-00'))
+			{
+				continue;
+			}
+
+			$data[] = $transactions[$i];
+		}
+
+		return $data;
+	}
+
+	public function get_BilledVisit(array $transactions) : array
+	{
+		$data = [];
+
+		for ($i = 0, $totalRecords = count($transactions); $i < $totalRecords; $i++)
+		{
+			$transaction = $transactions[$i];
+			if ((  empty($transaction->pt_visitBilled)) || ($transaction->pt_visitBilled == '0000-00-00'))
+			{
+				continue;
+			}
+
+			$data[] = $transactions[$i];
+		}
+
+		return $data;
+	}
+
+	public function get_BilledAW(array $transactions) : array
+	{
+		$data = [];
+
+		for ($i = 0, $totalRecords = count($transactions); $i < $totalRecords; $i++)
+		{
+			$transaction = $transactions[$i];
+			if ((  empty($transaction->pt_aw_billed)) || ($transaction->pt_aw_billed == '0000-00-00'))
 			{
 				continue;
 			}

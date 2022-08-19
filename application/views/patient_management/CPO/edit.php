@@ -9,7 +9,8 @@
     'plugins/input-mask/jquery.inputmask.extensions',
     'bower_components/moment/min/moment.min',
     'plugins/timepicker/bootstrap-timepicker.min',
-    'dist/js/patient_management/cpo/form'
+    'dist/js/patient_management/cpo/form',
+	'dist/js/patient_management/cpo/files'
   ]
 %}
 
@@ -38,12 +39,14 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("patient_management/CPO/save/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }", {"class": "xrx-form"}) }}
+							{{ form_open_multipart("patient_management/CPO/save/edit/#{ record.patient_id }/#{ cpo.ptcpo_id }", {"class": "xrx-form"}) }}
 								
 								<input type="hidden" name="ptcpo_id" value="{{ cpo.ptcpo_id }}">
 								<input type="hidden" name="ptcpo_patientID" value="{{ record.patient_id }}">
 								<input type="hidden" id="scheduledHolidayList" value="{{ site_url('ajax/scheduled_holidays_management/scheduled_holidays/list') }}">
-								
+								<input type="hidden" class="{{ cpo.cpo_file|replace({'"': ''})|replace({'[': ''})|replace({']': ''})|replace({'.': ''})|replace({'(': ''})|replace({')': ''})|replace({',': ''}) }}" name="cpo_file" value="{{ cpo.cpo_file }}">
+								<input type="hidden" class="{{ cpo.cpo_file_cert|replace({'"': ''})|replace({'[': ''})|replace({']': ''})|replace({'.': ''})|replace({'(': ''})|replace({')': ''})|replace({',': ''}) }}" name="cpo_file_cert" value="{{ cpo.cpo_file_cert }}">
+
 								<div class="row">
 								
 									<!-- This is the patient's information -->
@@ -212,6 +215,44 @@
 										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="{{ set_value('ptcpo_dateBilled', cpo.get_date_format(cpo.ptcpo_dateBilled)) }}">
 										
 									</div>
+
+									<div class="col-md-6 form-check" style="margin-top: 10px;">
+										<label class="control-label">Upload 485 File</label>
+									    <input type="file" class="form-check-input" id="userfile" name="userfile" accept=".pdf,.jpg,.jpeg,.png,.gif">
+									    <!-- <label class="form-check-label" for="labOrdes">Files</label> -->
+									  </div>
+
+									 
+
+									  <div class="col-md-6 form-check" style="margin-top: 10px;">
+									  <label class="control-label">Upload Discharge File</label>
+									    <input type="file" class="form-check-input" id="userfile_cert" name="userfile_cert" accept=".pdf,.jpg,.jpeg,.png,.gif">
+									    <!-- <label class="form-check-label" for="labOrdes">Files</label> -->
+									  </div>
+
+									  {% if cpo.cpo_file %}
+									  <div class="col-md-6 form-check" style="margin-top: 5px;">
+										<label class="form-check-label" > {{ cpo.cpo_file }}<i class="fa fa-fw fa-remove remove-file" id="{{ cpo.cpo_file|replace({'"': ''})|replace({'[': ''})|replace({']': ''})|replace({'.': ''})|replace({'(': ''})|replace({')': ''})|replace({',': ''}) }}" style="cursor: pointer;"></i></label>
+										</div>
+										{% else %}
+
+										<div class="col-md-6 form-check" style="margin-top: 5px;">
+										</div>
+
+										{% endif %}
+
+									  {% if cpo.cpo_file_cert %}
+									  <div class="col-md-6 form-check" style="margin-top: 5px;">
+										<label class="form-check-label" > {{ cpo.cpo_file_cert }}<i class="fa fa-fw fa-remove remove-file" id="{{ cpo.cpo_file_cert|replace({'"': ''})|replace({'[': ''})|replace({']': ''})|replace({'.': ''})|replace({'(': ''})|replace({')': ''})|replace({',': ''}) }}" style="cursor: pointer;"></i></label>
+										</div>
+
+										{% else %}
+
+										<div class="col-md-6 form-check" style="margin-top: 5px;">
+										</div>
+
+										{% endif %}
+
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
                                         <a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}" class="btn btn-default xrx-btn cancel">

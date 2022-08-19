@@ -40,7 +40,9 @@ class CPO_model extends \Mobiledrs\core\MY_Models {
 			'ptcpo_dischargeDate' => $this->record_entity->set_date_format($this->record_entity->ptcpo_dischargeDate),
 			'ptcpo_dateBilled' => $this->record_entity->set_date_format($this->record_entity->ptcpo_dateBilled),
 			'ptcpo_status' => $this->record_entity->ptcpo_status,
-			'ptcpo_dateOfService' => $this->record_entity->set_date_format($this->record_entity->ptcpo_dateOfService)
+			'ptcpo_dateOfService' => $this->record_entity->set_date_format($this->record_entity->ptcpo_dateOfService),
+			'cpo_file' => $this->record_entity->cpo_file,
+			'cpo_file_cert' => $this->record_entity->cpo_file_cert,
 		];
 	}
 

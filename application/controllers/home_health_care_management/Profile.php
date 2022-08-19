@@ -31,6 +31,7 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 
 	public function add()
 	{
+
 		$this->check_permission('add_hhc');
 
 		$this->twig->view('home_health_care_management/profile/add');

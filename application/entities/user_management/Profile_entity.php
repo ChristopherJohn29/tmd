@@ -13,9 +13,11 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $user_roleID;
 	protected $user_sessionID;
 	protected $user_archive;
+	protected $user_photo;
 
 	protected $roles_id;
 	protected $roles_name;
+
 
 	public function get_fullname() : string
 	{

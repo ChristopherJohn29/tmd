@@ -26,6 +26,9 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	protected $ptcpo_dateOfService;
 	protected $ptcpo_archive;
 	protected $ptcpo_addedByUserID;
+	protected $cpo_file;
+	protected $cpo_file_cert;
+	
 	
 
 	protected $cpoStartDate = null;
@@ -39,6 +42,7 @@ class CPO_entity extends \Mobiledrs\entities\Entity {
 	protected $user_roleID;
 	protected $user_sessionID;
 	protected $user_archive;
+	protected $user_photo;
 
 	public const CERTIFICATION = 'Certification';
 	public const RECERTIFICATION = 'Re-Certification';

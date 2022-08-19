@@ -118,9 +118,10 @@
 												<label class="control-label">Patient Name <span>*</span></label>
 
 												<div class="dropdown mobiledrs-autosuggest-select">
-													<input type="hidden" name="prsl_patientID[]" required="true">
+													<input type="hidden" name="prsl_patientID[]" required="true" class="prsl_patientID">
 
 												  	<input class="form-control" 
+													  	name="prsl_patientID_name[]" 
 												  		type="text" 
 												  		required="true" 
 												  		data-mobiledrs_autosuggest 
@@ -186,8 +187,69 @@
 											<div class="col-md-4 has-error">
 												<span class="help-block">{{ form_error('prsl_dateRef') }}</span>
 											</div>
+
+											<div class="col-md-6 form-group">
+
+												<label>Reason for Visit <span>*</span></label>
+												<select class="form-control" required="true" name="pt_reasonForVisit[]">
+													<option value="">Select</option>
+														<option value="Follow-up Visit">Follow-up Visit</option>
+														<option value="Discharged from hospital">Discharged from hospital</option>
+														<option value="Patient is using assistive equipment">Patient is using assistive equipment</option>
+														<option value="Home Health Referral/Admission">Home Health Referral/Admission</option>
+														<option value="Transfer of Care">Transfer of Care</option>
+														<option value="Office Request Visit (Meds / Labs)">Office Request Visit (Meds / Labs)</option>
+												</select>
+											</div>
+
+											<div class="col-md-6 form-group }}">
 											
-											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
+													<label class="control-label">Home Health *</label>
+														
+													<div class="dropdown mobiledrs-autosuggest-select">
+															<input type="hidden" name="patient_hhcID[]" id="patient_hhcID" value="" required>
+
+															<input class="form-control" 
+																id="patient_hhcID_name"
+																name="patient_homehealth[]"
+																type="text" 
+																data-mobiledrs_autosuggest 
+																data-mobiledrs_autosuggest_url="{{ site_url('ajax/home_health_care_management/profile/search') }}"
+																data-mobiledrs_autosuggest_dropdown_id="patient_hhcID_dropdown"
+																required>
+
+															<div data-mobiledrs_autosuggest_dropdown id="patient_hhcID_dropdown" style="width: 100%;">
+															</div>
+													</div>
+
+													<br>
+														
+											</div>
+
+											<div class="col-md-6 form-group">
+
+												<label>MSP <span>*</span></label>
+												<select class="form-control" required="true" name="msp[]">
+													<option value="">Select</option>
+													<option value="yes">Yes</option>
+													<option value="no">No</option>
+														
+												</select>
+											</div>
+
+											<div class="col-md-6 form-group">
+
+												<label>AW/IPPE <span>*</span></label>
+												<select class="form-control" required="true" name="pt_aw_ippe_code[]">
+													<option value="">Select</option>
+													<option value="G0402">G0402 (With IPPE)</option>
+													<option value="G0438">G0438 (With AW)</option>
+													<option value="G0439">G0439 (With AW)</option>
+													<option value="">None</option>
+												</select>
+											</div>
+											
+											<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}"  style="margin-top: 10px;">
 											
 												<label class="control-label">Notes <span>*</span></label>
 												<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]" rows="5" maxlength="2000"></textarea>

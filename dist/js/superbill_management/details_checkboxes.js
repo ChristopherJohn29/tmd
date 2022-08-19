@@ -3,6 +3,16 @@ var Mobiledrs =  Mobiledrs || {};
 Mobiledrs.Superbill_details_checkboxes = (function() {
 	var init = function() {
 		checkBoxes();
+
+		jQuery('.unbill-btn').click(function(e){
+			e.preventDefault();
+
+
+			if (confirm('Are you sure you want to unbill this data?'))
+			{
+				jQuery(".unbill-btn").unbind('click').click();
+			}
+		});
 	};
 
 	var checkBoxes = function() {

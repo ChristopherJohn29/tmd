@@ -15,14 +15,14 @@
 			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Phone</th>
 			<th width="25px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">ACP</th>
 			<th width="25px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">DM</th>
-			<th width="35px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Tobacco</th>
-			<th width="30px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">TCM</th>
+			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Tobacco</th>
+			<th width="30px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">HTN</th>
 			<th width="60px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Provider</th>
             <th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Supervising MD</th>
 			<th width="50px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Date of Service</th>
 			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Type of Visit</th>
 			<th width="40px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Place of Service</th>
-			<th width="105px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">ICD-Code Diagnoses</th>
+			<th width="100px" bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">ICD-Code Diagnoses</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -49,11 +49,11 @@
 				<td width="25px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_selected_choice_format($transaction->pt_diabetes) == 'Yes' ? 1 : '0'; ?>
 				</td>
-				<td width="35px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_selected_choice_format($transaction->pt_tobacco) == 'Yes' ? 1 : '0'; ?>
 				</td>
 				<td width="30px" style="border-bottom: 1px solid #d2d6de;">
-					<?php echo $transaction->get_selected_choice_format($transaction->pt_tcm) == 'Yes' ? 1 : '0'; ?>
+					<?php echo $transaction->get_selected_choice_format($transaction->pt_hypertension) == 'Yes' ? 1 : '0'; ?>
 				</td>
 				<td width="60px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->get_provider_fullname(); ?>
@@ -70,7 +70,7 @@
 				<td width="40px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $POS_entity->get_pos_name($transaction->pt_tovID); ?>
 				</td>
-				<td width="105px" style="border-bottom: 1px solid #d2d6de;">
+				<td width="100px" style="border-bottom: 1px solid #d2d6de;">
 					<?php echo $transaction->pt_icd10_codes; ?>
 				</td>
 			</tr>

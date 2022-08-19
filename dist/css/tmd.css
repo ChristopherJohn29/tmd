@@ -264,7 +264,7 @@ table.fix-width th.actions {
 		font-size: 14px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: #777777;
+		color: #111111;
 		margin-bottom: 15px;
 		}
 		
@@ -850,3 +850,14 @@ table tfoot{
     color: white;
     border-color: red;
 }
+
+/* patient profile > visits tab */
+
+.visit_redbg {
+    background:#ff0000;
+    clear: both;
+    color:#ffffff;
+    display: inline-block;
+    padding:5px 7px 3px;
+    margin: 0 0 5px 0 !important;
+    }

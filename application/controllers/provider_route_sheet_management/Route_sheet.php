@@ -20,9 +20,13 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 		$this->load->library('Time_converter');
 	}
 
-	public function index()
+	public function index(string $is_ca = '')
 	{
 		$this->check_permission('list_prs');
+
+		if($is_ca == 'ca'){
+		
+		}
 
 		$params = [
 			'joins' => [
@@ -48,25 +52,57 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'return_type' => 'object'
 		];
 
+		if($is_ca == 'ca'){
+			$params['where'][] = 
+			[
+				'key' => 'provider_route_sheet.is_ca',
+				'condition' => '=',
+				'value' => 1
+			];
+		} else {
+			$params['where'][] = 
+			[
+				'key' => 'provider_route_sheet.is_ca',
+				'condition' => '=',
+				'value' => NULL
+			];
+		}
+		
+
 		$page_data['records'] = $this->rs_model->get_records_by_join($params);
 		$page_data['routesheet_entity'] = new \Mobiledrs\entities\provider_route_sheet_management\Routesheet_entity();
 
-		$this->twig->view('provider_route_sheet_management/route_sheet/list', $page_data);
+		if($is_ca == 'ca'){
+			$this->twig->view('provider_route_sheet_management/route_sheet/ca/list', $page_data);
+		} else {
+			$this->twig->view('provider_route_sheet_management/route_sheet/list', $page_data);
+		}
+
+	
 	}
 
-	public function add()
+	public function add(string $is_ca = '')
 	{
 		$this->check_permission('add_prs');
 
 		$supervisingMDs = $this->pr_supervisingMD_model->supervisingMD_records(); 
 
-		$this->twig->view('provider_route_sheet_management/route_sheet/add', [
-			'current_date' => date('Y-m-d'),
-			'supervisingMDs' => $supervisingMDs
-		]);
+		if($is_ca == 'ca') {
+			$this->twig->view('provider_route_sheet_management/route_sheet/ca/add', [
+				'current_date' => date('Y-m-d'),
+				'supervisingMDs' => $supervisingMDs
+			]);
+		} else {
+			$this->twig->view('provider_route_sheet_management/route_sheet/add', [
+				'current_date' => date('Y-m-d'),
+				'supervisingMDs' => $supervisingMDs
+			]);
+		}
+
+		
 	}
 
-	public function edit(string $prs_id)
+	public function edit(string $prs_id, string $is_ca = '')
 	{
 		$this->check_permission('edit_prs');
 
@@ -90,6 +126,23 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'return_type' => 'row'
 		];
 
+		if($is_ca == 'ca'){
+			$record_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet.is_ca',
+				'condition' => '=',
+				'value' => 1
+			];
+		} else {
+			$record_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet.is_ca',
+				'condition' => '=',
+				'value' => NULL
+			];
+		}
+
+		if($is_ca == 'ca'){
 		$lists_params = [
 			'joins' => [
 				[
@@ -129,7 +182,66 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				]
 			],
 			'return_type' => 'object'
-		];
+		];} else {
+			$lists_params = [
+				'joins' => [
+					[
+						'join_table_name' => 'patient',
+						'join_table_key' => 'patient.patient_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_patientID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'patient_transactions',
+						'join_table_key' => 'patient_transactions.pt_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_patientTransID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'home_health_care',
+						'join_table_key' => 'home_health_care.hhc_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'patient_transactions.patient_hhcID',
+						'join_table_type' => 'left'
+					],
+					[
+						'join_table_name' => 'type_of_visits',
+						'join_table_key' => 'type_of_visits.tov_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_tovID',
+						'join_table_type' => 'inner'
+					],
+					
+				],
+				'where' => [
+					[
+						'key' => 'provider_route_sheet_list.prsl_prsID',
+						'condition' =>  '=',
+						'value' => $prs_id
+					]
+				],
+				'return_type' => 'object'
+			];
+
+		}
+
+		if($is_ca == 'ca'){
+			$lists_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet_list.is_ca',
+				'condition' => '=',
+				'value' => 1
+			];
+		} else {
+			$lists_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet_list.is_ca',
+				'condition' => '=',
+				'value' => NULL
+			];
+		}
 
 		$tov_params = [
 			'where' => [
@@ -159,7 +271,14 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 
 		$page_data['supervisingMDs'] = $this->pr_supervisingMD_model->supervisingMD_records(); 
 
-		$this->twig->view('provider_route_sheet_management/route_sheet/edit', $page_data);
+		if($is_ca == 'ca'){
+			$this->twig->view('provider_route_sheet_management/route_sheet/ca/edit', $page_data);
+		} else {
+			$this->twig->view('provider_route_sheet_management/route_sheet/edit', $page_data);
+		}
+
+
+		
 	}
 
 	public function save(string $formtype, string $prs_id = '')
@@ -168,6 +287,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 
 		// check first if the provider has already been created
 		// a route sheet for the same day
+
+		$is_ca = $this->input->post('is_ca') ? $this->input->post('is_ca') : '';
 		if ($formtype == 'add')
 		{
 			$entity = new \Mobiledrs\entities\Entity();
@@ -202,36 +323,52 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			}
 		}
 
+		
+
 		$params = [
 			'record_id' => $prs_id,
 			'table_key' => 'provider_route_sheet.prs_id',
 			'save_model' => 'rs_model',
-			'redirect_url' => 'provider_route_sheet_management/route_sheet',
+			
 			'validation_group' => 'provider_route_sheet_management/route_sheet/save'
 		];
+
+		if ($is_ca == 1){
+			$params['redirect_url'] = 'provider_route_sheet_management/route_sheet/index/ca';
+		} else {
+			$params['redirect_url'] = 'provider_route_sheet_management/route_sheet';
+		}
+		
 
 		parent::save_data($params);
 	}
 
-	public function details(string $prs_id)
+	public function details(string $prs_id, string $is_ca = '')
 	{
 		$this->check_permission('view_prs');
 
-		$page_data = $this->get_routesheet_details_data($prs_id);
+		
+		$page_data = $this->get_routesheet_details_data($prs_id, $is_ca);
 
-		$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
+		if ($is_ca == 'ca'){
+			$this->twig->view('provider_route_sheet_management/route_sheet/ca/details', $page_data);
+		} else {
+			$this->twig->view('provider_route_sheet_management/route_sheet/details', $page_data);
+		}
+
+	
 	}
 
-	public function print(string $prs_id)
+	public function print(string $prs_id, string $is_ca = '')
 	{
 		$this->check_permission('print_prs');
 		
-		$page_data = $this->get_routesheet_details_data($prs_id);
+		$page_data = $this->get_routesheet_details_data($prs_id, $is_ca);
 
 		$this->twig->view('provider_route_sheet_management/route_sheet/print', $page_data);
 	}
 
-	private function get_routesheet_details_data(string $prs_id) : array
+	private function get_routesheet_details_data(string $prs_id, string $is_ca = '') : array
 	{
 		$record_params = [
 			'joins' => [
@@ -253,48 +390,127 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			'return_type' => 'row'
 		];
 
-		$lists_params = [
-			'joins' => [
-				[
-					'join_table_name' => 'patient',
-					'join_table_key' => 'patient.patient_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'provider_route_sheet_list.prsl_patientID',
-					'join_table_type' => 'inner'
+		if($is_ca == 'ca'){
+			$record_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet.is_ca',
+				'condition' => '=',
+				'value' => 1
+			];
+		} else {
+			$record_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet.is_ca',
+				'condition' => '=',
+				'value' => NULL
+			];
+		}
+		
+		if($is_ca == 'ca'){
+			$lists_params = [
+				'joins' => [
+					[
+						'join_table_name' => 'patient',
+						'join_table_key' => 'patient.patient_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_patientID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'home_health_care',
+						'join_table_key' => 'home_health_care.hhc_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_hhcID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'type_of_visits',
+						'join_table_key' => 'type_of_visits.tov_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_tovID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'patient_transactions',
+						'join_table_key' => 'patient_transactions.pt_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_patientTransID',
+						'join_table_type' => 'inner'
+					]
 				],
-				[
-					'join_table_name' => 'home_health_care',
-					'join_table_key' => 'home_health_care.hhc_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'provider_route_sheet_list.prsl_hhcID',
-					'join_table_type' => 'inner'
+				'where' => [
+					[
+						'key' => 'provider_route_sheet_list.prsl_prsID',
+						'condition' =>  '=',
+						'value' => $prs_id
+					]
 				],
-				[
-					'join_table_name' => 'type_of_visits',
-					'join_table_key' => 'type_of_visits.tov_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'provider_route_sheet_list.prsl_tovID',
-					'join_table_type' => 'inner'
+				'return_type' => 'object'
+			];
+
+		} else {
+			$lists_params = [
+				'joins' => [
+					[
+						'join_table_name' => 'patient',
+						'join_table_key' => 'patient.patient_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_patientID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'type_of_visits',
+						'join_table_key' => 'type_of_visits.tov_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_tovID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'patient_transactions',
+						'join_table_key' => 'patient_transactions.pt_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'provider_route_sheet_list.prsl_patientTransID',
+						'join_table_type' => 'inner'
+					],
+					[
+						'join_table_name' => 'home_health_care',
+						'join_table_key' => 'home_health_care.hhc_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'patient_transactions.patient_hhcID',
+						'join_table_type' => 'left'
+					],
 				],
-				[
-					'join_table_name' => 'patient_transactions',
-					'join_table_key' => 'patient_transactions.pt_id',
-					'join_table_condition' => '=',
-					'join_table_value' => 'provider_route_sheet_list.prsl_patientTransID',
-					'join_table_type' => 'inner'
-				]
-			],
-			'where' => [
-				[
-					'key' => 'provider_route_sheet_list.prsl_prsID',
-					'condition' =>  '=',
-					'value' => $prs_id
-				]
-			],
-			'return_type' => 'object'
-		];
+				'where' => [
+					[
+						'key' => 'provider_route_sheet_list.prsl_prsID',
+						'condition' =>  '=',
+						'value' => $prs_id
+					]
+				],
+				'return_type' => 'object'
+			];
+		}
+
+
+		if($is_ca == 'ca'){
+			$lists_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet_list.is_ca',
+				'condition' => '=',
+				'value' => 1
+			];
+		} else {
+			$lists_params['where'][] = 
+			[
+				'key' => 'provider_route_sheet_list.is_ca',
+				'condition' => '=',
+				'value' => NULL
+			];
+		}
 
 		$page_data['record'] = $this->rs_model->get_records_by_join($record_params);
+
+
 
 		if ( ! $page_data['record'])
 		{
@@ -305,16 +521,39 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 			$this->rs_list_model->get_records_by_join($lists_params)
 		);
 
+		$count = 0;
+		$page_data['spouse'] = array();
+
+		foreach($page_data['lists'] as $value){
+
+			$spouse = $this->pt_model->getSpouseData($page_data['lists'][$count]->patient_spouse); 
+			$page_data['spouse'][$page_data['lists'][$count]->patient_spouse] = $spouse;
+
+
+			if(empty($spouse)){
+
+				$page_data['spouse'][$page_data['lists'][$count]->patient_spouse] = array(
+					0 => array('patient_name' => '')
+				);
+			}
+
+
+
+
+			$count++;
+		}
+
 		return $page_data;
 	}
 
 	public function form(string $prs_id)
 	{
+		$is_ca  = $this->input->post('is_ca') ? 'ca' : '';
 		$this->check_permission('download_prs');
 
 		$this->load->library('PDF');
 
-		$page_data = $this->get_routesheet_details_data($prs_id);
+		$page_data = $this->get_routesheet_details_data($prs_id, $is_ca);
 		$submit_type = $this->input->post('submit_type');
 		$dateOfService = $page_data['record']->get_date_format($page_data['record']->prs_dateOfService);
 		$filename = $page_data['record']->get_provider_fullname() . '_routesheet_';
@@ -349,12 +588,24 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 				$this->session->set_flashdata('danger', $this->lang->line('danger_email'));	
 			}
 
-			$redirect_url = 'provider_route_sheet_management/route_sheet/details/' . $prs_id;
+			if($is_ca == 'ca'){
+				$redirect_url = 'provider_route_sheet_management/route_sheet/details/' . $prs_id. '/ca';
+			} else {
+				$redirect_url = 'provider_route_sheet_management/route_sheet/details/' . $prs_id;
+			}
+
+			
 
 			redirect($redirect_url);
 
 		} elseif ($submit_type == 'pdf') {
-			$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf', $page_data, true);
+			if($is_ca == 'ca'){
+				$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf_ca', $page_data, true);
+			} else {
+				$html = $this->load->view('provider_route_sheet_management/route_sheet/pdf', $page_data, true);
+			}
+			
+		
 			$this->pdf->page_orientation = 'L';
 			$this->pdf->generate($html, $filename);
 		}

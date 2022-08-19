@@ -27,6 +27,11 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_initialVisit_TeleHealth;
 	protected $provider_rate_followUpVisit_TeleHealth;
 	protected $provider_supervising_MD;
+	protected $provider_inactive;
+	protected $provider_photo;
+	protected $provider_rate_ca_homeHealth;
+	protected $provider_rate_ca_teleHealth;
+	protected $pt_tovID;
 
 	public function get_fullname() : string
 	{
@@ -46,6 +51,11 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	public function get_selected_supervising_MD(string $supervising_md) : string
 	{
 		return ($supervising_md == $this->provider_supervising_MD) ? 'checked=true' : '';
+	}
+
+	public function get_status(string $status) : string{
+
+		return ($status == $this->provider_inactive) ? 'checked=true' : '';
 	}
 
 	public function get_format_supervising_MD(string $supervising_md) : string

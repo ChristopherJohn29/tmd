@@ -75,6 +75,57 @@ class Route_sheet extends \Mobiledrs\core\MY_AJAX_Controller {
 					'key' => 'provider_route_sheet.prs_archive',
 					'condition' => '=',
 					'value' => NULL
+				],
+				[
+					'key' => 'provider_route_sheet.is_ca',
+					'condition' => '=',
+					'value' => NULL
+				]
+			]
+		];
+
+		$provider_routesheet = $this->rs_model->records($rs_param);
+
+		if ($provider_routesheet) {
+			echo json_encode([
+				'state' => true,
+				'msg' => 'The provider "' . $this->input->get('providerName') .'" has a previous routesheet for the selected date of "' . $this->input->get('dateOfService') . '".'
+			]);
+		}
+		else 
+		{
+			echo json_encode([
+				'state' => false,
+				'msg' => ''
+			]);
+		}
+	}
+
+	public function check_provider_routesheet_by_date_ca()
+	{
+		$newDateFormat = date_format(date_create($this->input->get('dateOfService')), 'Y-m-d');
+
+		$rs_param = [
+			'where' => [
+				[
+					'key' => 'provider_route_sheet.prs_providerID',
+					'condition' => '',
+					'value' => $this->input->get('providerID')
+				],
+				[
+					'key' => 'provider_route_sheet.prs_dateOfService',
+					'condition' => '',
+					'value' => $newDateFormat
+				],
+				[
+					'key' => 'provider_route_sheet.prs_archive',
+					'condition' => '=',
+					'value' => NULL
+				],
+				[
+					'key' => 'provider_route_sheet.is_ca',
+					'condition' => '=',
+					'value' => 1
 				]
 			]
 		];

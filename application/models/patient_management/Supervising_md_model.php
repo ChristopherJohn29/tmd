@@ -48,6 +48,11 @@ class Supervising_md_model extends \Mobiledrs\core\MY_Models {
 					'key' => 'patient_transactions.pt_supervising_mdID',
 					'condition' => '=',
 	        		'value' => $this->input->post('patient_supervising_mdID')
+        		],
+        		[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'return_type' => 'object'

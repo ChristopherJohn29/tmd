@@ -16,13 +16,61 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('list_provider');
 
-		$params = [
+		$paramsActive = [
 			'table_key' => 'provider_dateCreated',
-			'order_type' => 'DESC'
+			'order_type' => 'DESC',
+			'where' => [
+				[
+					'key' => 'provider_inactive',
+					'condition' => '',
+					'value' => '0',
+				],
+				[
+					'key' => 'provider_supervising_MD',
+					'condition' => '',
+					'value' => '0',
+				]
+			]
 		];
 
-		$page_data['records'] = $this->profile_model->records($params);
-		$page_data['total'] = count($page_data['records']);
+		$paramsInActive = [
+			'table_key' => 'provider_dateCreated',
+			'order_type' => 'DESC',
+			'where' => [
+				[
+					'key' => 'provider_inactive',
+					'condition' => '',
+					'value' => '1',
+				],
+			]
+		];
+
+		$paramsSuperVisingMd = [
+			'table_key' => 'provider_dateCreated',
+			'order_type' => 'DESC',
+			'where' => [
+				[
+					'key' => 'provider_supervising_MD',
+					'condition' => '',
+					'value' => '1',
+				],
+				[
+					'key' => 'provider_inactive',
+					'condition' => '',
+					'value' => '0',
+				],
+			]
+		];
+
+
+		$page_data['active_providers'] = $this->profile_model->records($paramsActive);
+		$page_data['inactive_providers'] = $this->profile_model->records($paramsInActive);
+		$page_data['supervising_mds'] = $this->profile_model->records($paramsSuperVisingMd);
+
+
+		$page_data['total'] = count($page_data['active_providers']);
+		$page_data['total2'] = count($page_data['inactive_providers']);
+		$page_data['total3'] = count($page_data['supervising_mds']);
 
 		$this->twig->view('provider_management/profile/list', $page_data);
 	}
@@ -66,6 +114,21 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	        	'value' => $provider_id,
 			];
 
+
+			$_SERVER["REQUEST_METHOD"] = "POST";
+	
+			$config['upload_path']          = './uploads/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+			$this->load->library('upload', $config);
+
+			if ( $this->upload->do_upload('userFile'))
+			{
+				$data = $this->upload->data();
+				$_POST['provider_photo'] = $data['file_name'];
+			}
+
+
 			$provider_record = $this->profile_model->record($params);
 
 			if ( ! $provider_record)
@@ -85,6 +148,22 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		else 
 		{
 			$validation_group = 'provider_management/profile/save';
+
+			$_SERVER["REQUEST_METHOD"] = "POST";
+	
+			$config['upload_path']          = './uploads/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+			$this->load->library('upload', $config);
+
+			if ( $this->upload->do_upload('userFile'))
+			{
+				$data = $this->upload->data();
+				$_POST['provider_photo'] = $data['file_name'];
+			}
+
+		
+
 		}
 
 		$params = [

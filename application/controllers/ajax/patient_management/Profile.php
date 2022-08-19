@@ -45,6 +45,14 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		echo json_encode($search_data);
 	}
 
+	public function get_hhc($type = 'add')
+	{
+		$res = $this->pt_model->findHhc($this->input->get('patientID'));
+
+		echo json_encode($res[0]);
+
+	}
+
 	public function get_tov($type = 'add')
 	{
 		$initial_list = [

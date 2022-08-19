@@ -1,0 +1,169 @@
+{% extends "main.php" %}
+
+{% set page_title = 'TeleHealth Visits' %}
+
+{%
+  set scripts = [
+    'dist/js/superbill_management/details_checkboxes'
+  ]
+%}
+
+{% block content %}
+	<div class="row">
+        <div class="col-md-12">
+          <div class="box">
+
+            <!-- /.box-header -->
+            <div class="box-body">
+
+             	<section class="xrx-info">
+
+             		<div class="row">
+             			<div class="col-xs-12">
+						  {% if states %}
+							{{ include('commons/alerts.php') }}
+						  {% endif %}
+						</div>
+
+             			<div class="col-md-12">
+             				<h1 class="name">Cognitive Assesment Visits<small>Superbill</small></h1>
+             			</div>
+
+             			<div class="col-md-6">
+
+             				<table class="table xrx-table">
+             					<tr>
+             						<th>Date Billed:</th>
+             						<td>{{ date_billed }}</td>
+             					</tr>
+             				</table>
+             			</div>
+             		</div>
+
+             		{{ form_open("superbill_management/superbill/form/ca/#{ fromDate|replace({'/': '_'}) }/#{ toDate|replace({'/': '_'}) }") }}
+
+	             		<div class="row xrx-row-spacer">
+
+	             			<div class="col-md-12">
+
+	             				<p class="lead">Transactions</p>
+	             				<div class="table-responsive">
+	             				   <table class="table no-margin table-striped">
+									<thead>
+										<tr>
+											<th><input type="checkbox" id="checkAll"></th>
+	                                        <th>&nbsp;</th>
+											<th width="200px">Patient Name</th>
+											<th>Medicare</th>
+											<th>DOB</th>
+											<th>Address</th>
+											<th>Phone</th>
+											<th>Provider</th>
+                                            <th>Supervising MD</th>
+											<th>Date of Service</th>
+											<th>Type of Visit</th>
+											<th>Place of Service</th>
+											<th>ICD-Code Diagnoses</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										{% for transaction in newTransactions %}
+
+											<tr>
+												<td>
+													<input type="checkbox" class="superbill_checkboxes" name="pt_id[]" value="{{ transaction.pt_id }}">
+												</td>
+												<td class="text-center">{{ loop.index }}</td>
+												<td>{{ transaction.patient_name }}</td>
+												<td>{{ transaction.patient_medicareNum }}</td>
+												<td>{{ transaction.get_date_format(transaction.patient_dateOfBirth) }}</td>
+												<td>{{ transaction.patient_address }}</td>
+												<td>{{ transaction.patient_phoneNum }}</td>
+												<td>{{ transaction.get_provider_fullname }}</td>
+                                                <td>{{ transaction.supervisingMD_firstname ~ ' ' ~ transaction.supervisingMD_lastname }}</td>
+												<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
+												<td>{{ transaction.get_tov_code(transaction.pt_tovID, 1) }}</td>
+												<td>{{ POS_entity.get_pos_name(transaction.pt_tovID) }}</td>
+												<td>{{ transaction.pt_icd10_codes }}</td>
+											</tr>
+
+										{% endfor %}
+
+									</tbody>
+	                                </table>
+	                            </div>
+	             			</div>
+	             		</div>
+
+						<div class="row xrx-row-spacer">
+
+	             			<div class="col-md-6">
+	             				<p class="lead">Notes</p>
+
+	                            <div class="form-handler">
+                                    <textarea class="form-control" name="notes"></textarea>
+	                            </div>
+
+	             			</div>
+
+	             			<div class="col-md-6">
+
+	             				<p class="lead">Summary</p>
+
+	             				<table class="table no-margin">
+
+									<tbody>
+										<tr>
+											<th>99483</th>
+											<td>HOME VISIT</td>
+											<td>{{ summary['COGNITIVE_HOME'] }}</td>
+										</tr>
+
+										<tr>
+											<th>99483</th>
+											<td>TELEHEALTH VISIT</td>
+											<td>{{ summary['COGNITIVE_TELEHEALTH'] }}</td>
+										</tr>
+
+							
+
+										<tr class="total">
+											<th colspan="2">TOTAL</th>
+											<th>{{ summary['total'] }}</th>
+										</tr>
+									</tbody>
+
+								</table>
+
+	             			</div>
+
+				 		</div>
+
+	             		<div class="row no-print">
+
+	                        <div class="col-xs-12 xrx-btn-handler">
+	                            <button type="submit" id="generatePDF" name="submit_type"  value="pdf" formtarget="_blank" class="btn btn-primary xrx-btn" style="margin-right: 5px;" disabled="true">
+	                            <i class="fa fa-download"></i> Generate PDF
+	                            </button>
+
+	                            <button type="submit" id="billedBtn" name="submit_type"  value="paid" class="btn btn-danger xrx-btn pull-right" style="margin-right: 5px;" disabled="true">
+	                            <i class="fa fa-credit-card"></i> Visit Billed
+	                            </button>
+	                        </div>
+
+	                    </div>
+
+                    </form>
+
+             	</section>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+      	</div>
+  	</div>
+
+{% endblock %}

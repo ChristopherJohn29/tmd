@@ -14,6 +14,30 @@ class Profile extends \Mobiledrs\core\MY_AJAX_Controller {
 		));
 	}
 
+	public function deleteCookies(string $user_id){
+		
+		$this->check_permission('cookie_restriction');
+
+		$res = $this->profile_model->delete_cookie($user_id);
+
+		if ($res)
+		{
+			echo json_encode([
+				'state' => true,
+				'msg' => $this->lang->line('success_delete')
+			]);
+		}
+		else 
+		{
+			echo json_encode([
+				'state' => false,
+				'msg' => $this->lang->line('danger_delete')
+			]);
+		}
+
+
+	}
+
 	public function delete(string $user_id)
 	{
 		$this->check_permission('delete_user');

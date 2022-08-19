@@ -140,7 +140,9 @@
 													  		data-mobiledrs_autosuggest 
 													  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
 													  		data-mobiledrs_autosuggest_dropdown_id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}"
-													  		value="{{ list.patient_name }}">
+													  		value="{{ list.patient_name }}"
+															 name="prsl_patientID_name[]" 
+															  >
 
 													  	<div data-mobiledrs_autosuggest_dropdown id="prsl_patientID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}" style="width: 100%;">
 												  	  	</div>
@@ -201,8 +203,71 @@
 												<div class="col-md-4 has-error">
 													<span class="help-block">{{ form_error('prsl_dateRef') }}</span>
 												</div>
+
+											<div class="col-md-6 form-group">
+
+												<label>Reason for Visit <span>*</span></label>
+												<select class="form-control" required="true" name="pt_reasonForVisit[]">
+													<option value="">Select</option>
+														<option value="Follow-up Visit" {{ list.pt_reasonForVisit == 'Follow-up Visit' ? 'selected=true' : '' }}>Follow-up Visit</option>
+														<option value="Discharged from hospital" {{ list.pt_reasonForVisit == 'Discharged from hospital' ? 'selected=true' : '' }}>Discharged from hospital</option>
+														<option value="Patient is using assistive equipment" {{ list.pt_reasonForVisit == 'Patient is using assistive equipment' ? 'selected=true' : '' }}>Patient is using assistive equipment</option>
+														<option value="Home Health Referral/Admission" {{ list.pt_reasonForVisit == 'Home Health Referral/Admission' ? 'selected=true' : '' }}>Home Health Referral/Admission</option>
+														<option value="Transfer of Care" {{ list.pt_reasonForVisit == 'Transfer of Care' ? 'selected=true' : '' }}>Transfer of Care</option>
+														<option value="Office Request Visit (Meds / Labs)" {{ list.pt_reasonForVisit == 'Other' ? 'selected=true' : '' }}{{ list.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit (Meds / Labs)</option>
+												</select>
+											</div>
+
+											<div class="col-md-6 form-group }}">
+											
+													<label class="control-label">Home Health *</label>
+														
+													<div class="dropdown mobiledrs-autosuggest-select">
+															<input type="hidden" name="patient_hhcID[]" id="patient_hhcID" value="{{ list.hhc_id }}" required>
+
+															<input class="form-control" 
+																id="patient_hhcID_name"
+																name="patient_homehealth[]"
+																type="text" 
+																data-mobiledrs_autosuggest 
+																data-mobiledrs_autosuggest_url="{{ site_url('ajax/home_health_care_management/profile/search') }}"
+																data-mobiledrs_autosuggest_dropdown_id="patient_hhcID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}"
+																required
+																value="{{ list.hhc_name }}"
+																>
+
+															<div data-mobiledrs_autosuggest_dropdown id="patient_hhcID_dropdown{{ index > 0 ? "_#{ index + 1 }" }}" style="width: 100%;">
+															</div>
+													</div>
+
+													<br>
+														
+											</div>
+
+											<div class="col-md-6 form-group">
+
+												<label>MSP <span>*</span></label>
+												<select class="form-control" required="true" name="msp[]">
+													<option value="">Select</option>
+														<option value="yes" {{ list.msp == 'yes' ? 'selected=true' : '' }}>Yes</option>
+														<option value="no" {{ list.msp == 'no' ? 'selected=true' : '' }}>No</option>
 												
-												<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}">
+													</select>
+											</div>
+
+											<div class="col-md-6 form-group">
+
+												<label>AW/IPPE  <span>*</span></label>
+												<select class="form-control" required="true" name="pt_aw_ippe_code[]" required="true">
+													<option value="">Select</option>
+														<option value="G0402" {{ list.pt_aw_ippe_code == 'G0402' ? 'selected=true' : '' }}>G0402 (With IPPE)</option>
+														<option value="G0438" {{ list.pt_aw_ippe_code == 'G0438' ? 'selected=true' : '' }}>G0438 (With AW)</option>
+														<option value="G0439" {{ list.pt_aw_ippe_code == 'G0439' ? 'selected=true' : '' }}>G0439 (With AW)</option>
+														<option value="" {{ list.pt_aw_ippe_code == '' ? 'selected=true' : '' }}>None</option>
+												</select>
+											</div>
+												
+												<div class="col-md-12 form-group {{ form_error('prsl_notes') ? 'has-error' : '' }}" style="margin-top: 10px;">
 												
 													<label class="control-label">Notes <span>*</span></label>
 													<textarea class="form-control" id="" placeholder="" required="true" name="prsl_notes[]" rows="5" maxlength="2000">{{ list.prsl_notes }}</textarea>

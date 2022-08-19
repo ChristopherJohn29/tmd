@@ -76,6 +76,17 @@
 									<div class="col-md-12 has-error">
 										<span class="help-block">{{ form_error('hhc_email') }}</span>
 									</div>
+
+									<div class="col-md-12 form-group {{ form_error('hhc_email_additional') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Second Email</label>
+										<input type="email" class="form-control" name="hhc_email_additional" value="{{ set_value('hhc_email_additional') }}">
+						                
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('hhc_email_additional') }}</span>
+									</div>
 									
 									<div class="col-md-12 form-group {{ form_error('hhc_address') ? 'has-error' : '' }}">
 									

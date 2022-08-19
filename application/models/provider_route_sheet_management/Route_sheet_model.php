@@ -21,7 +21,8 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 		$this->db->insert('provider_route_sheet', [
 			'prs_providerID' => $this->input->post('prs_providerID'),
-			'prs_dateOfService' => $entity->set_date_format($this->input->post('prs_dateOfService'))
+			'prs_dateOfService' => $entity->set_date_format($this->input->post('prs_dateOfService')),
+			'is_ca' => $this->input->post('is_ca') ? $this->input->post('is_ca') : NULL
 		]);
 
 		$prs_id = $this->db->insert_id();
@@ -64,7 +65,8 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 
 		$this->db->update('provider_route_sheet', [
 			'prs_providerID' => $this->input->post('prs_providerID'),
-			'prs_dateOfService' => $entity->set_date_format($this->input->post('prs_dateOfService'))
+			'prs_dateOfService' => $entity->set_date_format($this->input->post('prs_dateOfService')),
+			'is_ca' => $this->input->post('is_ca') ? $this->input->post('is_ca') : NULL
 		]);
 
 		if ($this->session->userdata('user_roleID') != '1') {
@@ -112,8 +114,13 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 				'pt_patientID' => $inputPost['prsl_patientID'][$i],
 				'pt_providerID' => $inputPost['prs_providerID'],
 				'pt_dateOfService' => $this->pt_trans_entity->set_date_format($inputPost['prs_dateOfService']),
-				'pt_dateRef' => $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i]),
-				'pt_supervising_mdID' => $inputPost['pt_supervising_mdID'][$i]
+				'pt_dateRef' => isset($inputPost['prsl_dateRef'][$i]) ? $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i]) : NULL,
+				'pt_supervising_mdID' => $inputPost['pt_supervising_mdID'][$i],
+				'pt_reasonForVisit' => isset($inputPost['pt_reasonForVisit'][$i]) ? $inputPost['pt_reasonForVisit'][$i] : NULL,
+				'is_ca' => isset($inputPost['is_ca']) ? $inputPost['is_ca'] : NULL,
+				'patient_hhcID' => isset($inputPost['patient_hhcID'][$i]) ? $inputPost['patient_hhcID'][$i] : NULL,
+				'pt_aw_ippe_code' => isset($inputPost['pt_aw_ippe_code'][$i]) ? $inputPost['pt_aw_ippe_code'][$i] : NULL,
+				'msp' => isset($inputPost['msp'][$i]) ? $inputPost['msp'][$i] : NULL
 			];
 
 			if (isset($inputPost['patientTransDateIDs'][$i]))
@@ -134,21 +141,24 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 			}
 		}
 
-		for ($i = 0; $i < count($inputPost['patientTransDateIDs']); $i++) 
-		{
-			if (isset($inputPost['patientTransDateIDs'][$i]) &&
-				(! isset($inputPost['prsl_dateRef'][$i]))
-			) {
-				$patientTransID = $inputPost['patientTransDateIDs'][$i];
-
-				parent::delete_data([
-					'table_key' => 'patient_transactions.pt_id',
-					'record_id' => $patientTransID,
-					'column_archive' => 'pt_archive'
-				]);
+		if(isset($inputPost['patientTransDateIDs'])){
+			for ($i = 0; $i < count($inputPost['patientTransDateIDs']); $i++) 
+			{
+				if (isset($inputPost['patientTransDateIDs'][$i]) &&
+					(! isset($inputPost['prsl_dateRef'][$i]))
+				) {
+					$patientTransID = $inputPost['patientTransDateIDs'][$i];
+	
+					parent::delete_data([
+						'table_key' => 'patient_transactions.pt_id',
+						'record_id' => $patientTransID,
+						'column_archive' => 'pt_archive'
+					]);
+				}
 			}
+			
 		}
-		
+	
 		$this->table_name = 'provider_route_sheet';
 
 		return $data;
@@ -179,7 +189,8 @@ class Route_sheet_model extends \Mobiledrs\core\MY_Models {
 				'prsl_tovID' => $inputPost['prsl_tovID'][$i],
 				'prsl_notes' => $inputPost['prsl_notes'][$i],
 				'prsl_patientTransID' => $patientTransIDs[$i],
-				'prsl_dateRef' => $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i])
+				'prsl_dateRef' => isset($inputPost['prsl_dateRef'][$i]) ?  $this->pt_trans_entity->set_date_format($inputPost['prsl_dateRef'][$i]) : NULL,
+				'is_ca' => isset($inputPost['is_ca']) ? $inputPost['is_ca'] : NULL
 			];
 		}
 

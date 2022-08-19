@@ -25,6 +25,8 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_hhcID;
 	protected $patient_dateCreated;
 	protected $patient_caregiver_family;
+	protected $patient_spouse;
+	protected $patient_sub_note;
 	protected $patient_placeOfService;
 	protected $patient_pharmacy;
 	protected $patient_pharmacyPhone;
@@ -38,6 +40,7 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $hhc_email;
 	protected $hhc_address;
 	protected $hhc_dateCreated;
+	protected $hhc_email_additional;
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -51,6 +54,7 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_service_billed;
 	protected $pt_aw_ippe_date;
 	protected $pt_aw_ippe_code;
+	protected $msp;
 	protected $pt_performed;
 	protected $pt_acp;
 	protected $pt_diabetes;
@@ -68,6 +72,17 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_supervising_mdID;
 	protected $pt_archive;
 	protected $pt_status;
+	protected $pt_reasonForVisit;
+	protected $no_homehealth_ref;
+	protected $not_our_md;
+	protected $non_admit;
+	protected $no_homehealth_ref_checked_by;
+	protected $not_our_md_checked_by;
+	protected $non_admit_checked_by;
+	protected $pt_hypertension;
+	protected $is_ca;
+	protected $transaction_file;
+	protected $userId;
 
 	protected $supervisingMD_firstname;
 	protected $supervisingMD_lastname;

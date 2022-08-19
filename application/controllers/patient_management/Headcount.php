@@ -10,7 +10,8 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		'3' => 'get_unbilled_aw',
 		'4' => 'get_unbilled_visits',
 		'6' => 'get_blank_diagnoses',
-		'7' => 'get_noshow_patients'
+		'7' => 'get_noshow_patients',
+		'8' => 'get_total_ca',
 	];
 
 	private $typeDropdown = [
@@ -21,7 +22,8 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
             '4' => 'Unbilled Visits',
             '5' => 'Unpaid Providers',
             '6' => 'Blank / Empty Diagnoses',
-            '7' => 'No Show Patients'
+            '7' => 'No Show Patients',
+			'8' => 'Total Cognitive Patients'
 		],
 		'2' => [
 			'1' => 'Total Patients',
@@ -30,7 +32,8 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
             '4' => 'Unbilled Visits',
             '5' => 'Unpaid Providers',
             '6' => 'Blank / Empty Diagnoses',
-            '7' => 'No Show Patients'
+            '7' => 'No Show Patients',
+			'8' => 'Total Cognitive Patients'
 		],
 		'3' => [
 			'1' => 'Total Patients',
@@ -126,6 +129,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 			$selected_func = $this->heacount_type_func[$selected_type];
 
+		
 			$this->headcount_model->prepare_dateRange(
 				$page_data['month'], 
 				$page_data['fromDate'], 
@@ -136,6 +140,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			$page_data['headcounts'] = $this->supervising_md_model->get_supervisingMD_details(
 				$this->headcount_model->$selected_func()
 			);
+
 			
 			$page_data['headcounts_total'] = count($page_data['headcounts']);
 			

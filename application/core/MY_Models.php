@@ -149,6 +149,11 @@ class MY_Models extends \CI_Model {
 
 	public function get_records_by_join(array $params)
 	{	
+		if (isset($params['select'])) 
+		{
+			$this->db->select($params['select']);
+		}
+
 		if (isset($params['joins'])) 
 		{
 			foreach ($params['joins'] as $key => $value) 
@@ -173,6 +178,12 @@ class MY_Models extends \CI_Model {
 				);
 			}
 		}
+
+		if (isset($params['whereCustom']))
+		{
+			$this->db->where($params['whereCustom']);
+		}
+
 
 		if (isset($params['whereOr']))
 		{
@@ -205,6 +216,10 @@ class MY_Models extends \CI_Model {
 		{
 			$this->db->order_by($params['order']['key'], $params['order']['by']);
 		}
+
+	
+
+	
 
 		if (isset($params['offset']))
 		{
@@ -253,6 +268,21 @@ class MY_Models extends \CI_Model {
 			$dataToInsert[] = [
 				$params['columnID'] => $params['data'][$i],
 				$params['columnPaid'] => date('Y-m-d')
+			];
+		}
+
+		return $this->db->update_batch($this->table_name, $dataToInsert, $params['columnID']);
+	}
+
+	public function make_unpaid(array $params)
+	{
+		$dataToInsert = [];
+
+		for ($i = 0; $i < count($params['data']); $i++)
+		{ 
+			$dataToInsert[] = [
+				$params['columnID'] => $params['data'][$i],
+				$params['columnPaid'] => NULL
 			];
 		}
 

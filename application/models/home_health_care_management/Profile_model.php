@@ -21,6 +21,7 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 			'hhc_phoneNumber' => $this->input->post('hhc_phoneNumber'),
 			'hhc_faxNumber' => $this->input->post('hhc_faxNumber'),
 			'hhc_email' => $this->input->post('hhc_email'),
+			'hhc_email_additional' => $this->input->post('hhc_email_additional'),
 			'hhc_address' => $this->input->post('hhc_address')
 		];
 	}
@@ -59,10 +60,17 @@ class Profile_model extends \Mobiledrs\core\MY_Models {
 	        		'value' => $newToDate
         		]
 			],
-			'return_type' => 'object'
+			'return_type' => 'object',
+			'select' => '*,patient_transactions.patient_hhcID as patient_hhcID,patient.patient_hhcID as patient_hhcID_2'
 		];
 
 		$patient_trans = $this->transaction_model->get_records_by_join($record_params);
+
+		// echo "<pre>";
+		// var_dump($patient_trans);
+		// echo "</pre>";
+		// exit;
+
 		$page_data['records'] = [];
 
 		foreach ($patient_trans as $patient_tran)

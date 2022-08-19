@@ -34,7 +34,7 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 
 		$( ".patient-details-container" ).disableSelection();
 
-		getPatientVisitRecord($('.patient-details-item').find('[data-mobiledrs_autosuggest]'));
+		getPatientVisitRecord();
 	};
 
 	var addPatient = function() {
@@ -52,36 +52,55 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 
 			removePatientItem(tmpTpl.find('.removeItemBtn'));
 
-			var autosuggest_input = tmpTpl.find('[data-mobiledrs_autosuggest]');
+			var autosuggest_input_2 = tmpTpl.find('.mobiledrs-autosuggest-select').find('[name="prsl_patientID_name[]"]');
+			var autosuggest_input = tmpTpl.find('.mobiledrs-autosuggest-select').find('[name="patient_homehealth[]"]');
+
 			var autosuggest_dropdown_id = autosuggest_input.attr('data-mobiledrs_autosuggest_dropdown_id');
+			var autosuggest_dropdown_id_2 = autosuggest_input_2.attr('data-mobiledrs_autosuggest_dropdown_id');
+
 			var new_autosuggest_dropdown_id = autosuggest_dropdown_id + '_' + patientCount;
+			var new_autosuggest_dropdown_id_2 = autosuggest_dropdown_id_2 + '_' + patientCount;
 
 			autosuggest_input.attr('data-mobiledrs_autosuggest_dropdown_id', new_autosuggest_dropdown_id);
+			autosuggest_input_2.attr('data-mobiledrs_autosuggest_dropdown_id', new_autosuggest_dropdown_id_2);
 
 			// autosuggest dropdown
 			autosuggest_input.next().attr('id', new_autosuggest_dropdown_id);
-
-			getPatientVisitRecord(autosuggest_input);
+			autosuggest_input_2.next().attr('id', new_autosuggest_dropdown_id_2);
 
 			$(this).parent()
 				.prev()
 				.append(tmpTpl);
+				
 
 			Mobiledrs.Main.autosuggest();
 			Mobiledrs.Main.timePicker();
 			Mobiledrs.Main.inputMask();
+			getPatientVisitRecord();
 		});
 	};
 
-	var getPatientVisitRecord = function(el) {
-		$(el).on('blur', function() {
-			var patientID = $(this).prev().val();
+	var getPatientVisitRecord = function() {
+		$('[name="prsl_patientID_name[]"]').on('change', function() {
+			var patientID = $(this).closest('.patient-details-item')
+			.find('[name="prsl_patientID[]"]').val();
 			var tovDrpDwnEl = $(this).closest('.patient-details-item')
 				.find('[name="prsl_tovID[]"]');
+
+			var tovDrpDwnEl = $(this).closest('.patient-details-item')
+			.find('[name="prsl_tovID[]"]');
+
+			var patient_hhcID  = $(this).closest('.patient-details-item')
+			.find('[name="patient_hhcID[]"]');
+
+			var patient_homehealth = $(this).closest('.patient-details-item')
+			.find('[name="patient_homehealth[]"]');
+
 			var tovElCont = tovDrpDwnEl.parent();
 			var patientTovUrl = tovDrpDwnEl.attr('data-tov_url');
 			var tovIDSel = tovElCont.find('[name="prsl_tovIDSel"]').val();
 			var patientTransID = tovElCont.find('#prsl_patientID').val();
+			
 
 			if (patientID == '') {
 				return false;
@@ -96,6 +115,22 @@ Mobiledrs.Routesheet_form_patient_details_adder = (function() {
 					tovDrpDwnEl.find('[value="' + tovIDSel + '"]').attr('selected', 'true');
 				}
 			});			
+
+			$.ajax({
+				method: 'GET',
+				url: window.location.origin + '/ajax/patient_management/profile/get_hhc',
+				data: '&patientID='+patientID,
+				success: function(data) {
+
+					response = JSON.parse(data);
+					patient_hhcID.val(response.hhc_id);
+					patient_homehealth.val(response.hhc_name);
+					
+				}
+			});		
+
+
+
 		});
 	};
 

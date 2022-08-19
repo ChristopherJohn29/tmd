@@ -26,12 +26,17 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("provider_management/profile/save/edit/#{ record.provider_id }", {"class": "xrx-form"}) }}
-							
+							{{ form_open_multipart("provider_management/profile/save/edit/#{ record.provider_id }", {"class": "xrx-form"}) }}
+							<input type="hidden" class="form-control" name="provider_photo" value="{{ set_value('provider_photo', record.provider_photo) }}">
 								<div class="row">
 								
 									<div class="col-md-12">
 										<p class="lead">Personal Information</p>
+									</div>
+
+									<div class="col-md-12" style="margin-bottom: 10px;">
+										<label class="control-label">Profile picture <span></span></label>
+										<input type="file" name="userFile" accept="image/*">
 									</div>
 									
 									<div class="col-md-6 {{ form_error('provider_firstname') ? 'has-error' : '' }}">
@@ -300,9 +305,37 @@
 									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_ca_homeHealth') ? 'has-error' : '' }}">
+									
+									<label class="control-label">Cognitive Assessment HomeHealth</label>
+
+									<input type="text" class="form-control" name="provider_rate_ca_homeHealth" value="{{ set_value('provider_rate_ca_homeHealth', record.provider_rate_ca_homeHealth) }}">
+
+									
+									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_ca_teleHealth') ? 'has-error' : '' }}">
+									
+									<label class="control-label">Cognitive Assessment TeleHealth</label>
+
+									<input type="text" class="form-control" name="provider_rate_ca_teleHealth" value="{{ set_value('provider_rate_ca_teleHealth', record.provider_rate_ca_teleHealth) }}">
+
+									
+									</div>
+
+									<div class="col-md-12 has-error">
+										<span class="help-block">{{ form_error('provider_rate_ca_homeHealth') }}</span>
+									</div>
+
+									
+									<div class="col-md-12">
+										<input type="checkbox" name="provider_inactive" id="provider_inactive" value="1" {{ record.get_status('1') }}>
+										<label class="control-label" for="provider_inactive" style="vertical-align: 3px;">This provider is currently inactive</label>
+									</div>
 									
 									<div class="col-md-12 xrx-btn-handler">
-                                        <a href="{{ site_url('provider_management/profile') }}" class="btn btn-default xrx-btn cancel">
+                         <a href="{{ site_url('provider_management/profile') }}" class="btn btn-default xrx-btn cancel">
 											Cancel
 										</a>
                                         

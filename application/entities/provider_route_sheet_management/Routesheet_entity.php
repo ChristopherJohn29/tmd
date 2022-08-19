@@ -9,6 +9,7 @@ class Routesheet_entity extends \Mobiledrs\entities\Entity {
 	protected $prs_dateOfService;
 	protected $prs_dateCreated;
 	protected $prs_archive;
+	protected $is_ca;
 
 	protected $provider_id;
 	protected $provider_firstname;
@@ -34,6 +35,10 @@ class Routesheet_entity extends \Mobiledrs\entities\Entity {
 	protected $provider_rate_initialVisit_TeleHealth;
 	protected $provider_rate_followUpVisit_TeleHealth;
 	protected $provider_supervising_MD;
+	protected $provider_inactive;
+	protected $provider_photo;
+	protected $provider_rate_ca_homeHealth;
+	protected $provider_rate_ca_teleHealth;
 
 	public function get_provider_fullname() : string
 	{

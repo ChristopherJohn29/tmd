@@ -23,7 +23,9 @@ class POS_entity extends \Mobiledrs\entities\Entity {
 			tv_entity::INITIAL_VISIT_HOME,
 			tv_entity::INITIAL_VISIT_TELEHEALTH,
 			tv_entity::FOLLOW_UP_HOME,
-			tv_entity::FOLLOW_UP_TELEHEALTH
+			tv_entity::FOLLOW_UP_TELEHEALTH,
+			tv_entity::COGNITIVE_HOME,
+			tv_entity::COGNITIVE_TELEHEALTH,
 		];
 
 		$pos13 = [

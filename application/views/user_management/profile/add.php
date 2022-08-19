@@ -41,7 +41,13 @@
 									<div class="col-md-12">
 										<p class="lead">Personal Information</p>
 									</div>
-									
+									<input type="hidden" class="form-control" name="user_photo" value="">
+
+									<div class="col-md-12" style="margin-bottom: 10px;">
+										<label class="control-label">Profile picture <span></span></label>
+										<input type="file" name="userFile" accept="image/*">
+									</div>
+
 									<div class="col-md-6 form-group {{ form_error('user_firstname') ? 'has-error' : '' }}">
 									
 

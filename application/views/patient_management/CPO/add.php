@@ -36,11 +36,13 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("patient_management/CPO/save/add/#{ record.patient_id }", {"class": "xrx-form"}) }}
+							{{ form_open_multipart("patient_management/CPO/save/add/#{ record.patient_id }", {"class": "xrx-form"}) }}
 							
 								<input type="hidden" name="ptcpo_patientID" value="{{ record.patient_id }}">
 								<input type="hidden" id="scheduledHolidayList" value="{{ site_url('ajax/scheduled_holidays_management/scheduled_holidays/list') }}">
-
+								<input type="hidden" name="cpo_file" value="">
+								<input type="hidden" name="cpo_file_cert" value="">
+								
 								<div class="row">
 								
 									<!-- This is the patient's information -->
@@ -209,6 +211,18 @@
 										<input type="text" class="form-control" name="ptcpo_dateBilled" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask value="">
 										
 									</div>
+
+									<div class="col-md-6 form-check" style="margin-top: 10px;">
+										<label class="control-label">Upload 485 File</label>
+									    <input type="file" class="form-check-input" id="userfile" name="userfile" accept=".pdf,.jpg,.jpeg,.png,.gif">
+									    <!-- <label class="form-check-label" for="labOrdes">Files</label> -->
+									  </div>
+
+									  <div class="col-md-6 form-check" style="margin-top: 10px;">
+									  <label class="control-label">Upload Discharge File</label>
+									    <input type="file" class="form-check-input" id="userfile_cert" name="userfile_cert" accept=".pdf,.jpg,.jpeg,.png,.gif">
+									    <!-- <label class="form-check-label" for="labOrdes">Files</label> -->
+									  </div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
                                         <a href="{{ site_url("patient_management/profile/details/#{ record.patient_id }") }}" class="btn btn-default xrx-btn cancel">

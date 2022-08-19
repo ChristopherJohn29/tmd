@@ -12,6 +12,8 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 	const CANCELLED = 6;
 	const INITIAL_VISIT_TELEHEALTH = 7;
 	const FOLLOW_UP_TELEHEALTH = 8;
+	const COGNITIVE_HOME = 9;
+	const COGNITIVE_TELEHEALTH = 10;
 
 	protected $tov_id; 
 	protected $tov_name;
@@ -48,6 +50,13 @@ class Type_visit_entity extends \Mobiledrs\entities\Entity {
 			self::INITIAL_VISIT_HOME,
 			self::INITIAL_VISIT_FACILITY,
 			self::INITIAL_VISIT_TELEHEALTH
+		];
+	}
+
+	public function get_ca_list() : array {
+		return [
+			self::COGNITIVE_HOME,
+			self::COGNITIVE_TELEHEALTH,
 		];
 	}
 

@@ -192,6 +192,145 @@ class Superbill_entity {
 		return $summary;
 	}
 
+	public function compute_transaction_aw_summary_unbill() : array
+	{
+		$summary = [];
+
+		foreach ($this->transactions as $transaction)
+		{
+
+			$billDate = date_format(date_create($transaction->pt_aw_billed), 'm/d/Y');
+			// $billDate = $transaction->pt_aw_billed;
+
+			if(isset($summary[$billDate])){
+				$summary[$billDate] = $summary[$billDate] + 1;
+			} else {
+				$summary[$billDate] = 1;
+			}
+		}
+
+
+		ksort($summary);
+		
+		return $summary;
+	}
+
+	public function compute_transaction_tv_summary_unbill() : array
+	{
+		$summary = [];
+
+		foreach ($this->transactions as $transaction)
+		{
+			$billDate = date_format(date_create($transaction->pt_visitBilled), 'm/d/Y');
+
+			if(isset($summary[$billDate])){
+				$summary[$billDate] = $summary[$billDate] + 1;
+			} else {
+				$summary[$billDate] = 1;
+			}
+		}
+
+		ksort($summary);
+
+		return $summary;
+	}
+
+	public function compute_transaction_fv_summary_unbill() : array
+	{
+		$summary = [];
+
+		foreach ($this->transactions as $transaction)
+		{
+			$billDate = date_format(date_create($transaction->pt_visitBilled), 'm/d/Y');
+
+			if(isset($summary[$billDate])){
+				$summary[$billDate] = $summary[$billDate] + 1;
+			} else {
+				$summary[$billDate] = 1;
+			}
+		}
+
+
+		ksort($summary);
+		
+		return $summary;
+	}
+
+	public function compute_transaction_hv_summary_unbill() : array
+	{
+		$summary = [];
+
+		foreach ($this->transactions as $transaction)
+		{
+			$billDate = date_format(date_create($transaction->pt_visitBilled), 'm/d/Y');
+
+			if(isset($summary[$billDate])){
+				$summary[$billDate] = $summary[$billDate] + 1;
+			} else {
+				$summary[$billDate] = 1;
+			}
+		}
+
+
+		ksort($summary);
+		
+		return $summary;
+	}
+
+
+	public function compute_transaction_ca_summary() : array
+	{
+		$summary = [
+			'COGNITIVE_HOME' => 0,
+			'COGNITIVE_TELEHEALTH' => 0,
+			'AW_CODES_G0402' => 0,
+			'AW_CODE_G0438' => 0,
+			'AW_CODE_G0439' => 0,
+			'total' => 0
+		];
+
+		foreach ($this->transactions as $transaction)
+		{
+	
+
+			if ($transaction->pt_tovID == $this->type_of_visits::COGNITIVE_HOME)
+			{
+				$summary['COGNITIVE_HOME'] += 1;
+				$summary['total'] += 1;
+			}
+			else if ($transaction->pt_tovID == $this->type_of_visits::COGNITIVE_TELEHEALTH)
+			{
+				$summary['COGNITIVE_TELEHEALTH'] += 1;
+				$summary['total'] += 1;
+			}
+		}
+
+		return $summary;
+	}
+
+	public function compute_transaction_ca_summary_unbill() : array
+	{
+		$summary = [];
+
+		foreach ($this->transactions as $transaction)
+		{
+			$billDate = date_format(date_create($transaction->pt_visitBilled), 'm/d/Y');
+
+			if(isset($summary[$billDate])){
+				$summary[$billDate] = $summary[$billDate] + 1;
+			} else {
+				$summary[$billDate] = 1;
+			}
+
+			
+		}
+
+
+		ksort($summary);
+		
+		return $summary;
+	}
+
 	public function get_sel_type_visit(string $sel_type) : array
 	{
 		$sel_list = [];
@@ -210,9 +349,39 @@ class Superbill_entity {
 		{
 			$sel_list[] = $this->type_of_visits::INITIAL_VISIT_TELEHEALTH;
 			$sel_list[] = $this->type_of_visits::FOLLOW_UP_TELEHEALTH;
+		}else if ($sel_type == 'ca')
+		{
+			$sel_list[] = $this->type_of_visits::COGNITIVE_HOME;
+			$sel_list[] = $this->type_of_visits::COGNITIVE_TELEHEALTH;
 		}
 
 		return $sel_list;
+	}
+
+	public function compute_CPO_unbill() : array
+	{
+		$summary = [];
+
+		
+
+		foreach ($this->CPOs as $transaction)
+		{
+			
+			$billDate = date_format(date_create($transaction->ptcpo_dateBilled), 'm/d/Y');
+
+			if(isset($summary[$billDate])){
+				$summary[$billDate] = $summary[$billDate] + 1;
+			} else {
+				$summary[$billDate] = 1;
+			}
+
+		}
+
+
+
+		ksort($summary);
+		
+		return $summary;
 	}
 
 	public function compute_CPO() : array

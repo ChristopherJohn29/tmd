@@ -27,6 +27,22 @@ class MY_Controller extends \CI_Controller {
 	{
         $this->load->model('authentication/user_model');
 
+
+        $cookie_name = "computer_cookie";
+        
+        if(!isset($_COOKIE[$cookie_name])) {
+           redirect('Cookie/generate_cookie');
+        } else {
+
+		
+			$result = $this->user_model->checkCookie($_COOKIE[$cookie_name]);
+
+			if(empty($result)) {
+				redirect('Cookie/generate_cookie');
+			}
+  
+        }
+
         $user_params = [
             'key' => 'user.user_id',
             'value' => $this->session->userdata('user_id')
@@ -138,6 +154,23 @@ class MY_Controller extends \CI_Controller {
     public function make_paid(array $params)
     {
         $save = $this->{$params['model']}->make_paid($params);
+
+        if ($save) 
+        {
+            $this->session->set_flashdata('success', $this->lang->line('success_save'));
+        } 
+        else 
+        {
+            $this->session->set_flashdata('danger', $this->lang->line('danger_save'));
+        }
+
+        return redirect($params['redirect_url']);
+    }
+
+
+    public function make_unpaid(array $params)
+    {
+        $save = $this->{$params['model']}->make_unpaid($params);
 
         if ($save) 
         {

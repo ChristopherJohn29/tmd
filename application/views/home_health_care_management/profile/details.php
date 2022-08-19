@@ -46,6 +46,10 @@
              						<th>Email:</th>
              						<td>{{ record.hhc_email }}</td>
              					</tr>
+                                 <tr>
+             						<th>Second Email:</th>
+             						<td>{{ record.hhc_email_additional }}</td>
+             					</tr>
              					<tr>
              						<th>Address:</th>
              						<td>{{ record.hhc_address }}</td>

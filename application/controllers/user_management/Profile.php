@@ -41,6 +41,40 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 			],
 			'return_type' => 'result'
 		];
+
+		if($this->session->userdata('user_roleID') == 1){
+			$params = [
+				'joins' => [
+					[
+						'join_table_name' => 'roles',
+						'join_table_key' => 'roles.roles_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'user.user_roleID',
+						'join_table_type' => 'inner',
+					]
+				],
+				'where' => [
+					[
+						'key' => 'user_email',
+						'condition' => '<>',
+						'value' => 'jayson.arcayna@gmail.com'
+					],
+					[
+						'key' => 'user_email',
+						'condition' => '<>',
+						'value' => 'christopherjohngamo@gmail.com'
+					],
+					[
+						'key' => 'user_archive',
+						'condition' => '=',
+						'value' => NULL
+					]
+				],
+				'return_type' => 'result'
+			];
+		}
+
+
 		
 		$page_data['highlight'] = $highlight;
 		$page_data['records'] = $this->profile_model->get_records_by_join($params);
@@ -71,6 +105,8 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 	{
 		$this->check_permission('edit_user');
 
+		
+
 		$params = [
 			'key' => 'user_id',
         	'value' => $user_id
@@ -82,16 +118,29 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		{
 			redirect('errors/page_not_found');
 		}
-		
-		$role_params = [
-			'where' => [
-				[
-					'key' => 'roles_id',
-					'condition' => '<>',
-					'value' => '1'
+
+		if($this->session->userdata('user_roleID') == 1){
+			$role_params = [
+				'where' => [
+					[
+						'key' => 'roles_id',
+						'condition' => '<>',
+						'value' => '0'
+					]
 				]
-			]
-		];
+			];
+		} else {
+			$role_params = [
+				'where' => [
+					[
+						'key' => 'roles_id',
+						'condition' => '<>',
+						'value' => '1'
+					]
+				]
+			];
+		}
+		
 
 		$page_data['roles'] = $this->roles_model->records($role_params);
 
@@ -110,6 +159,19 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 				'key' => 'user_id',
 	        	'value' => $user_id
 			];
+
+			$_SERVER["REQUEST_METHOD"] = "POST";
+	
+			$config['upload_path']          = './uploads/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+			$this->load->library('upload', $config);
+
+			if ( $this->upload->do_upload('userFile'))
+			{
+				$data = $this->upload->data();
+				$_POST['user_photo'] = $data['file_name'];
+			}
 
 			$user_record = $this->profile_model->record($params);
 
@@ -130,6 +192,19 @@ class Profile extends \Mobiledrs\core\MY_Controller {
 		else
 		{
 			$validation_group = 'user_management/profile/save';
+
+			$_SERVER["REQUEST_METHOD"] = "POST";
+	
+			$config['upload_path']          = './uploads/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+			$this->load->library('upload', $config);
+
+			if ( $this->upload->do_upload('userFile'))
+			{
+				$data = $this->upload->data();
+				$_POST['provider_photo'] = $data['file_name'];
+			}
 		}
 
 		$params = [

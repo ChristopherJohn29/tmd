@@ -35,10 +35,16 @@
 										<p class="lead">Personal Information</p>
 									</div>
 									
-									<div class="col-md-12 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
+									<div class="col-md-6 form-group {{ form_error('patient_name') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Last name, First name <span>*</span></label>
 										<input type="text" class="form-control" id="name" placeholder="" required="true" name="patient_name" value="{{ set_value('patient_name', record.patient_name) }}">
+									</div>
+
+									<div class="col-md-6 form-group">
+									
+										<label class="control-label">Sub note </label>
+										<input type="text" class="form-control" id="name" placeholder="" name="patient_sub_note" value="{{ set_value('patient_sub_note', record.patient_sub_note) }}">
 									</div>
                                     									
 									<div class="col-md-12 has-error">
@@ -96,7 +102,7 @@
 									<div class="col-md-12 form-group {{ form_error('patient_address') ? 'has-error' : '' }}">
 									
 										<label class="control-label">Address <span>*</span></label>
-										<input type="text" class="form-control" id="address" placeholder="" required="true" name="patient_address" value="{{ set_value('patient_address', record.patient_address) }}">
+										<textarea class="form-control" id="address" placeholder="" required="true" name="patient_address" value="{{ set_value('patient_address', record.patient_address) }}">{{ set_value('patient_address', record.patient_address) }}</textarea>
 										
 									</div>
 
@@ -111,7 +117,32 @@
 										
 									</div>
 
-									<div class="col-md-6"></div>
+								
+
+									<div class="col-md-6 form-group {{ form_error('patient_spouse') ? 'has-error' : '' }}">
+											
+												<label class="control-label">Spouse</label>
+
+												<div class="dropdown mobiledrs-autosuggest-select">
+													<input type="hidden" name="patient_spouse" value="{{ record.patient_spouse }}">
+
+												  	<input class="form-control" 
+													  	name="spouse_checker"
+												  		type="text"
+												  		data-mobiledrs_autosuggest 
+												  		data-mobiledrs_autosuggest_url="{{ site_url('ajax/patient_management/profile/search') }}"
+												  		data-mobiledrs_autosuggest_dropdown_id="patient_spouse_dropdown"
+												  		value="{{ spouse[0].patient_name }}">
+
+
+												  	<div data-mobiledrs_autosuggest_dropdown id="patient_spouse_dropdown" style="width: 100%;">
+											  	  	</div>
+												</div>
+												
+											</div>
+
+
+
 
 									<div class="col-md-6 has-error">
 										<span class="help-block">{{ form_error('patient_caregiver_family') }}</span>
@@ -175,7 +206,7 @@
 									</div>
 									
 									<div class="col-md-12 form-group xrx-btn-handler">
-                                        <a href="{{ site_url('patient_management/profile') }}" class="btn btn-default xrx-btn cancel">
+                                        <a href="{{ site_url('patient_management/profile/details') }}/{{ record.patient_id }}" class="btn btn-default xrx-btn cancel">
 											Cancel
 										</a>
                                         

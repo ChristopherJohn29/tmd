@@ -60,8 +60,8 @@
 											<th>Phone</th>
 											<th>ACP</th>
 											<th>DM</th>
+											<th>HTN</th>
 											<th>Tobacco</th>
-											<th>TCM</th>
 											<th>Provider</th>
                                             <th>Supervising MD</th>
 											<th>Date of Service</th>
@@ -87,8 +87,8 @@
 												<td>{{ transaction.patient_phoneNum }}</td>
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_acp) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_diabetes) == 'Yes' ? 1 : '0' }}</td>
+												<td>{{ transaction.get_selected_choice_format(transaction.pt_hypertension) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_selected_choice_format(transaction.pt_tobacco) == 'Yes' ? 1 : '0' }}</td>
-												<td>{{ transaction.get_selected_choice_format(transaction.pt_tcm) == 'Yes' ? 1 : '0' }}</td>
 												<td>{{ transaction.get_provider_fullname }}</td>
                                                 <td>{{ transaction.supervisingMD_firstname ~ ' ' ~ transaction.supervisingMD_lastname }}</td>
 												<td>{{ transaction.get_date_format(transaction.pt_dateOfService) }}</td>
@@ -124,7 +124,7 @@
 						
 									<tbody>
 										<tr>
-											<th>99345</th>
+											<th>99344</th>
 											<td>INITIAL VISIT</td>
 											<td>{{ summary['INITIAL_VISIT_HOME'] }}</td>
 										</tr>

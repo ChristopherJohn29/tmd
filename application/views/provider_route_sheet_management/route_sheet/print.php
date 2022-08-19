@@ -60,12 +60,18 @@
                                                     <strong>Address:</strong> {{ list.patient_address }}<br>
                                                     <strong>Phone:</strong> {{ list.patient_phoneNum }}<br><br>
                                                     <strong>Caregiver/Family:</strong> {{ list.patient_caregiver_family }}<br>
+                                                    <strong>Spouse:</strong> {{ spouse[list.patient_spouse][0].patient_name }}<br>
                                                     <strong>Supervising MD:</strong> {{ list.supervisingMD_firstname ~ ' ' ~ list.supervisingMD_lastname }}
                                                 </span>
                                             </p>
                                         </td>
                                         <td><p>{{ list.hhc_name }}<span>{{ list.hhc_contact_name }}<br>{{ list.hhc_phoneNumber }}</span></p></td>
-                                        <td><p>Type of Visit : {{ list.tov_name }}<span>Other Notes: {{ list.prsl_notes }}</span></p></td>
+                                        <td><p>Reason for Visit : {{ list.pt_reasonForVisit }}</p><p>Type of Visit : {{ list.tov_name }}
+                                        {{ list.pt_aw_ippe_code == 'G0402' ? '<br>With IPPE <br>' : ''}}
+                            {{ list.pt_aw_ippe_code == 'G0438' ? '<br>With AW <br>' : ''}}
+                            {{ list.pt_aw_ippe_code == 'G0439' ? '<br>With AW <br>' : ''}}
+                            {{ list.pt_aw_ippe_code ? '' : '<br>No AW / IPPE <br>'}}    
+                                        <span>Other Notes: <br>{{ list.prsl_notes|nl2br }}</span></p></td>
                                     </tr>
 
                                 {% endfor %}

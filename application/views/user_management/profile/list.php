@@ -16,6 +16,38 @@
 		{{ include('commons/alerts.php') }}
 	  {% endif %}
 	</div>
+	<style>
+		.tooltips {
+		position: relative;
+		cursor:pointer;
+		}
+		.wrapper{
+			overflow: hidden;
+		}
+
+		.table-responsive{
+			overflow: inherit;
+		}
+
+		.tooltips .tooltiptext {
+		visibility: hidden;
+		width: 50%;
+		background-color: black;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+
+		/* Position the tooltip */
+		position: absolute;
+		z-index: 1;
+		}
+
+		.tooltips:hover .tooltiptext {
+		visibility: visible;
+		}
+		
+	</style>
 
 	<div class="col-xs-12">
 	  <div class="box">
@@ -44,7 +76,11 @@
 					  {% for record in records %}
 						
 						<tr>
-							<td>{{ highlight_phrase(record.get_fullname, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
+							<td class="tooltips">{{ highlight_phrase(record.get_fullname, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}
+							{% if record.user_photo %}
+							<img class="tooltiptext" src="../../../uploads/{{ record.user_photo }}">
+							{% endif %}
+							</td>
 							<td>{{ highlight_phrase(record.user_email, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
 							<td>{{ highlight_phrase(record.roles_name, highlight, '<span style="background-color: #f1d40f;">', '</span>') }}</td>
 							<td>

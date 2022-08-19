@@ -106,6 +106,8 @@
 										<th>Initial Visit TeleHealth</th>
                                         <th>Follow-up Visit</th>
 										<th>Follow-up Visit TeleHealth</th>
+                                        <th>Cognitive Assessment HomeHealth</th>
+										<th>Cognitive Assessment TeleHealth</th>
 										<th>Annual Wellness</th>
 										<th>ACP</th>
 										<th>No Show</th>
@@ -119,6 +121,8 @@
 										<td>{{ record.get_number_format(record.provider_rate_initialVisit_TeleHealth) }}</td>
                                         <td>{{ record.get_number_format(record.provider_rate_followUpVisit) }}</td>
 										<td>{{ record.get_number_format(record.provider_rate_followUpVisit_TeleHealth) }}</td>
+                                        <td>{{ record.get_number_format(record.provider_rate_ca_homeHealth) }}</td>
+                                        <td>{{ record.get_number_format(record.provider_rate_ca_teleHealth) }}</td>
 										<td>{{ record.get_number_format(record.provider_rate_aw) }}</td>
 										<td>{{ record.get_number_format(record.provider_rate_acp) }}</td>
                                         <td>{{ record.get_number_format(record.provider_rate_noShowPT) }}</td>

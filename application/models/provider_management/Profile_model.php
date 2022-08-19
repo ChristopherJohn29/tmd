@@ -38,7 +38,12 @@ class Profile_model extends Mobiledrs\core\MY_Models {
 			'provider_rate_acp' => $this->record_entity->provider_rate_acp,
 			'provider_rate_noShowPT' => $this->record_entity->provider_rate_noShowPT,
 			'provider_rate_mileage' => $this->record_entity->provider_rate_mileage,
-			'provider_supervising_MD' => $this->record_entity->provider_supervising_MD
+			'provider_supervising_MD' => $this->record_entity->provider_supervising_MD,
+			'provider_inactive' => $this->record_entity->provider_inactive,
+			'provider_rate_ca_homeHealth' => $this->record_entity->provider_rate_ca_homeHealth,
+			'provider_rate_ca_teleHealth' => $this->record_entity->provider_rate_ca_teleHealth,
+			'provider_photo' => $this->record_entity->provider_photo
+
 		];
 	}
 

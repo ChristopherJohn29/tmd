@@ -11,6 +11,11 @@ Mobiledrs.Event_listener = (function() {
 				success: function(data) {
 					if (data)
 					{
+
+						if (data.indexOf("cookie") >= 0){
+							jQuery('.alert-cookie').text('The admin revoke your access on the system');
+						}
+
 						user_autologout_popup.modal({
 							backdrop: 'static',
 							keyboard: false,

@@ -3,6 +3,8 @@ var Mobiledrs = {} || Mobiledrs;
 Mobiledrs.PT_trans_form = (function() {
 	var noShow = 5;
 	var cancelled = 6;
+	var hRefused = 11;
+	var pRefused = 12;
 
 	var init = function() {
 		typeVisitsEvnt();
@@ -20,12 +22,12 @@ Mobiledrs.PT_trans_form = (function() {
 			var value = $(this).val();
 			var formContainerFields = $('.form-container').find('input, select');
 
-			if (value == noShow || value == cancelled)
+			if (value == noShow || value == cancelled || value == hRefused || value == pRefused) 
 			{
 				formContainerFields.attr('disabled', true);
 
-				$('[name="pt_providerID"]').removeAttr('disabled');
-				$('[data-mobiledrs_autosuggest]').removeAttr('disabled');
+				// alert('test');
+				
 				$('[name="pt_dateOfService"]').removeAttr('disabled');
 				$('[name="pt_tovID"]').removeAttr('disabled');
 				$('[name="pt_notes"]').removeAttr('disabled');
@@ -36,11 +38,33 @@ Mobiledrs.PT_trans_form = (function() {
 				{
 					$('[name="pt_mileage"]').removeAttr('disabled');
 				}
+
+				if (value == hRefused || value == pRefused)
+				{
+					label = $('[name="pt_dateOfService"]').parent();
+					label.find('label').text('Date Refused');
+				} else {
+					label = $('[name="pt_dateOfService"]').parent();
+					label.find('label').text('Date of Service');
+				}
+
+				
+
+				if (value == noShow || value == cancelled)
+				{
+					$('[name="patient_hhcID"]').removeAttr('disabled');
+					$('[data-mobiledrs_autosuggest]').removeAttr('disabled');
+					$('[name="pt_providerID"]').removeAttr('disabled');
+				}
+
+				
+
 			}
 			else 
 			{
-				formContainerFields.removeAttr('disabled');
+				formContainerFields.not('#p_refused').not('#hh_refused').removeAttr('disabled');
 
+				$('[name="pt_notes"]').val('');
 				$('[name="pt_notes"]').attr('disabled', true);
 			}
 

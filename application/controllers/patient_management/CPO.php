@@ -17,26 +17,76 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('add_cpo');
 
 		$profile_params = [
+			'limit' => 1,
+			'order' => [
+				'key' => 'patient_transactions.pt_dateOfService',
+				'by' => 'DESC'
+			],
 			'joins' => [
+				[
+					'join_table_name' => 'patient_transactions',
+					'join_table_key' => 'patient_transactions.pt_patientID',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_id',
+					'join_table_type' => 'inner'
+				],
 				[
 					'join_table_name' => 'home_health_care',
 					'join_table_key' => 'home_health_care.hhc_id',
 					'join_table_condition' => '=',
-					'join_table_value' => 'patient.patient_hhcID',
+					'join_table_value' => 'patient_transactions.patient_hhcID',
 					'join_table_type' => 'inner'
 				]
 			],
 			'where' => [
 				[
-					'key' => 'patient_id',
+					'key' => 'patient.patient_id',
 					'condition' => '',
 	        		'value' => $ptcpo_patientID
+        		],
+				[
+					'key' => 'patient_transactions.pt_dateOfService',
+					'condition' => '<>',
+	        		'value' => NULL
+        		],
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'return_type' => 'row'
 		];
 
+		
+
 		$page_data['record'] = $this->Profile_model->get_records_by_join($profile_params);
+
+
+		if(!$page_data['record']){
+			$profile_params = [
+				'joins' => [
+					[
+						'join_table_name' => 'home_health_care',
+						'join_table_key' => 'home_health_care.hhc_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'patient.patient_hhcID',
+						'join_table_type' => 'left'
+					]
+				],
+				'where' => [
+					[
+						'key' => 'patient_id',
+						'condition' => '',
+						'value' => $ptcpo_patientID
+					]
+				],
+				'return_type' => 'row'
+			];
+			
+			$page_data['record'] = $this->Profile_model->get_records_by_join($profile_params);
+		}
+
 
 		$this->twig->view('patient_management/CPO/add', $page_data);
 	}
@@ -46,26 +96,75 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 		$this->check_permission('edit_cpo');
 
 		$profile_params = [
+			'limit' => 1,
+			'order' => [
+				'key' => 'patient_transactions.pt_dateOfService',
+				'by' => 'DESC'
+			],
 			'joins' => [
+				[
+					'join_table_name' => 'patient_transactions',
+					'join_table_key' => 'patient_transactions.pt_patientID',
+					'join_table_condition' => '=',
+					'join_table_value' => 'patient.patient_id',
+					'join_table_type' => 'inner'
+				],
 				[
 					'join_table_name' => 'home_health_care',
 					'join_table_key' => 'home_health_care.hhc_id',
 					'join_table_condition' => '=',
-					'join_table_value' => 'patient.patient_hhcID',
+					'join_table_value' => 'patient_transactions.patient_hhcID',
 					'join_table_type' => 'inner'
 				]
 			],
 			'where' => [
 				[
-					'key' => 'patient_id',
+					'key' => 'patient.patient_id',
 					'condition' => '',
 	        		'value' => $ptcpo_patientID
+        		],
+				[
+					'key' => 'patient_transactions.pt_dateOfService',
+					'condition' => '<>',
+	        		'value' => NULL
+        		],
+				[
+					'key' => 'patient_transactions.pt_archive',
+					'condition' => '=',
+	        		'value' => NULL
         		]
 			],
 			'return_type' => 'row'
 		];
 
+		
+
 		$page_data['record'] = $this->Profile_model->get_records_by_join($profile_params);
+
+
+		if(!$page_data['record']){
+			$profile_params = [
+				'joins' => [
+					[
+						'join_table_name' => 'home_health_care',
+						'join_table_key' => 'home_health_care.hhc_id',
+						'join_table_condition' => '=',
+						'join_table_value' => 'patient.patient_hhcID',
+						'join_table_type' => 'left'
+					]
+				],
+				'where' => [
+					[
+						'key' => 'patient_id',
+						'condition' => '',
+						'value' => $ptcpo_patientID
+					]
+				],
+				'return_type' => 'row'
+			];
+
+			$page_data['record'] = $this->Profile_model->get_records_by_join($profile_params);
+		}
 
 		if ( ! $page_data['record'])
 		{
@@ -96,6 +195,26 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 			'sub_data_id' => $ptcpo_id
 		];
 
+		$_SERVER["REQUEST_METHOD"] = "POST";
+	
+		$config['upload_path']          = './uploads/';
+		$config['allowed_types']        = 'gif|jpg|png|pdf';
+		$config['max_size'] = 0;
+
+		$this->load->library('upload', $config);
+
+		if ( $this->upload->do_upload('userfile'))
+		{
+			$data = $this->upload->data();
+			$_POST['cpo_file'] = $data['file_name'];
+		}
+
+		if ( $this->upload->do_upload('userfile_cert'))
+		{
+			$data = $this->upload->data();
+			$_POST['cpo_file_cert'] = $data['file_name'];
+		}
+
 		$log = [];
 		if ($page_type == 'edit') {
 			$log = ['description' => 'Updates a patient certification record.'];
@@ -107,13 +226,12 @@ class CPO extends \Mobiledrs\core\MY_Controller {
 
 		$lastRecordID = $page_type == 'edit' ? $ptcpo_id : $this->db->insert_id();
 
-		if ($this->session->userdata('user_roleID') != '1') {
-			$this->CPO_model->update([
-				'data' => ['ptcpo_addedByUserID' => $this->session->userdata('user_id')],
-				'key' => 'ptcpo_id',
-				'value' => $lastRecordID
-			]);
-		}
+	
+		$this->CPO_model->update([
+			'data' => ['ptcpo_addedByUserID' => $this->session->userdata('user_id')],
+			'key' => 'ptcpo_id',
+			'value' => $lastRecordID
+		]);
 
 		if ($this->session->userdata('user_roleID') != '1') {
             $this->logs_model->insert([

@@ -26,12 +26,16 @@
 					<div class="col-lg-12">
 						<div class="box-body">
 						
-							{{ form_open("provider_management/profile/save/add", {"class": "xrx-form"}) }}
-							
+							{{ form_open_multipart("provider_management/profile/save/add", {"class": "xrx-form"}) }}
+							<input type="hidden" class="form-control" name="provider_photo" value="">
 								<div class="row">
 								
 									<div class="col-md-12">
 										<p class="lead">Personal Information</p>
+									</div>
+									<div class="col-md-12" style="margin-bottom: 10px;">
+										<label class="control-label">Profile picture <span></span></label>
+										<input type="file" name="userFile" accept="image/*">
 									</div>
 									
                                     <div class="col-md-6 {{ form_error('provider_firstname') ? 'has-error' : '' }}">
@@ -283,7 +287,6 @@
 
 										
 									</div>
-
 									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_aw') }}</span>
 									</div>
@@ -299,6 +302,22 @@
 									<div class="col-md-3 has-error">
 										<span class="help-block">{{ form_error('provider_rate_mileage') }}</span>
 									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_ca_homeHealth') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Cognitive Assessment HomeHealth</label>
+										<input type="text" class="form-control" name="provider_rate_ca_homeHealth" value="{{ set_value('provider_rate_ca_homeHealth') }}">
+										
+									</div>
+
+									<div class="col-md-3 {{ form_error('provider_rate_ca_homeHealth') ? 'has-error' : '' }}">
+									
+										<label class="control-label">Cognitive Assessment TeleHealth</label>
+										<input type="text" class="form-control" name="provider_rate_ca_teleHealth" value="{{ set_value('provider_rate_ca_teleHealth') }}">
+										
+									</div>
+
+							
 									
 									<div class="col-md-12 xrx-btn-handler">
                                         <a href="{{ site_url('provider_management/profile') }}" class="btn btn-default xrx-btn cancel">

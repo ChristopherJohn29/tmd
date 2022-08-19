@@ -4,7 +4,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <h2>Someone attempted to log into your account using other device / browser. Your session will end now.</h2>
+            <h2 class="alert-cookie">Someone attempted to log into your account using other device / browser. Your session will end now.</h2>
           </div>
         </div>
       </div>
