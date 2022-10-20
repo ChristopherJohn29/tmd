@@ -33,6 +33,7 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_supervising_mdID;
 	protected $pt_archive;
 	protected $pt_status;
+	protected $pt_bhi;
 	protected $lab_orders;
 	protected $pt_reasonForVisit;
 	protected $no_homehealth_ref;

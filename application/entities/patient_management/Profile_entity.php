@@ -19,8 +19,10 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_placeOfService;
 	protected $patient_pharmacy;
 	protected $patient_pharmacyPhone;
+	protected $patient_pharmacyAddress;
 	protected $patient_drug_allergy;
 	protected $spouse_checker;
+	
 
 	protected $hhc_id;
 	protected $hhc_name;
@@ -88,6 +90,7 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_dateCreated;
 	protected $pt_mileage;
 	protected $pt_aw_billed;
+	protected $pt_bhi;
 	protected $pt_supervising_mdID;
 	protected $pt_archive;
 	protected $pt_status;
