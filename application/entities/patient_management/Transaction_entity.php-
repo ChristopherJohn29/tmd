@@ -34,6 +34,8 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $pt_status;
 	protected $lab_orders;
 	protected $pt_reasonForVisit;
+	protected $is_early_discharge;
+	protected $early_discharge_date;
 
 
 	protected $tov_id; 

@@ -47,6 +47,8 @@ class Transaction_entity extends \Mobiledrs\entities\Entity {
 	protected $patient_homehealth;
 	protected $transaction_file;
 	protected $userId;
+	protected $is_early_discharge;
+	protected $early_discharge_date;
 	
 
 

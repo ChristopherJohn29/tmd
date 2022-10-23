@@ -87,6 +87,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$selected_type = $this->input->post('type');
 
 		$page_data['month'] = $this->input->post('month');
+		$page_data['tomonth'] = $this->input->post('tomonth');
 		$page_data['fromDate'] = $this->input->post('fromDate');
 		$page_data['toDate'] = $this->input->post('toDate');
 		$page_data['year'] = $this->input->post('year');
@@ -95,7 +96,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$page_data['typeTitle'] = $this->typeDropdown[$this->session->userdata('user_roleID')][$selected_type];
 
 		$newFromDate = $page_data['year'] . '-' . $page_data['month'] . '-' . $page_data['fromDate'];
-		$newToDate = $page_data['year'] . '-' . $page_data['month'] . '-' . $page_data['toDate'];
+		$newToDate = $page_data['year'] . '-' . $page_data['tomonth'] . '-' . $page_data['toDate'];
 		$this->date_formatter->set_date($newFromDate, $newToDate);
 		$page_data['datePeriod'] = $this->date_formatter->format();
 
@@ -110,7 +111,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 			$page_data['newToDate'] = implode('/', [
 				$page_data['year'],
-				$page_data['month'],
+				$page_data['tomonth'],
 				$page_data['toDate']
 			]);
 
@@ -132,6 +133,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		
 			$this->headcount_model->prepare_dateRange(
 				$page_data['month'], 
+				$page_data['tomonth'], 
 				$page_data['fromDate'], 
 				$page_data['toDate'], 
 				$page_data['year']
@@ -150,7 +152,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$this->twig->view('patient_management/headcount/create', $page_data);	
 	}
 
-	public function print(string $type, string $month, string $fromDate, string $toDate, string $year)
+	public function print(string $type, string $month, string $tomonth, string $fromDate, string $toDate, string $year)
 	{
 		$selected_type = $type;
 
@@ -165,7 +167,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 			$newToDate = implode('/', [
 				$year,
-				$month,
+				$tomonth,
 				$toDate
 			]);
 
@@ -187,7 +189,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 			$selected_func = $this->heacount_type_func[$selected_type];
 
-			$this->headcount_model->prepare_dateRange($month, $fromDate, $toDate, $year);
+			$this->headcount_model->prepare_dateRange($month, $tomonth, $fromDate, $toDate, $year);
 
 			$page_data['headcounts'] = $this->headcount_model->$selected_func();
 			$page_data['headcounts_total'] = count($page_data['headcounts']);
@@ -197,7 +199,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 	}
 
 	public function pdf(
-		string $type, string $month, string $fromDate, 
+		string $type, string $month, string $tomonth, string $fromDate, 
 		string $toDate, string $year, string $tableColumndID = null, 
 		string $sortDirection = null
 	)
@@ -205,7 +207,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 		$this->load->library(['PDF', 'Date_formatter']);
 
 		$newFromDate = $year . '-' . $month . '-' . $fromDate;
-		$newToDate = $year . '-' . $month . '-' . $toDate;
+		$newToDate = $year . '-' . $tomonth . '-' . $toDate;
 		$this->date_formatter->set_date($newFromDate, $newToDate);
 		$page_data['dateFormat'] = $this->date_formatter->format();
 
@@ -228,7 +230,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 
 			$newToDate = implode('/', [
 				$year,
-				$month,
+				$tomonth,
 				$toDate
 			]);
 
@@ -252,7 +254,7 @@ class Headcount extends \Mobiledrs\core\MY_Controller {
 			$selected_type = $type;
 			$selected_func = $this->heacount_type_func[$selected_type];
 
-			$this->headcount_model->prepare_dateRange($month, $fromDate, $toDate, $year);
+			$this->headcount_model->prepare_dateRange($month, $tomonth, $fromDate, $toDate, $year);
 
 			$page_data['headcounts'] = $this->headcount_model->$selected_func(
 				$this->tableColumns[$tableColumndID],

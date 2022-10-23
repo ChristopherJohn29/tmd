@@ -302,8 +302,8 @@ class Route_sheet extends \Mobiledrs\core\MY_Controller {
 					],
 					[
 						'key' => ' provider_route_sheet.prs_archive',
-						'condition' => '',
-						'value' => 'IS NOT NULL'
+						'condition' => '=',
+						'value' => NULL
 					],
 					[
 						'key' => ' provider_route_sheet.prs_dateOfService',

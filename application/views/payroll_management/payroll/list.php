@@ -26,7 +26,20 @@
 
                 {% endfor %}
 
+                   
+
             </tbody>
+            <tfoot>
+
+
+                <tr>
+                        <th></th>
+                        <th>{{ totalvisit }}</th>
+                        <th>${{ totalsalary|number_format(2) }}</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+            </tfoot>
         </table>
     </div>
 </div>

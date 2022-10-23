@@ -12,9 +12,9 @@ class Headcount_model extends \Mobiledrs\core\MY_Models {
 		parent::__construct();
 	}
 
-	public function prepare_dateRange(string $month, string $fromDate, string $toDate, string $year) {
+	public function prepare_dateRange(string $month, string $tomonth, string $fromDate, string $toDate, string $year) {
 		$this->fromDate = $year . '-' . $month . '-' . $fromDate;
-		$this->toDate = $year . '-' . $month . '-' . $toDate;
+		$this->toDate = $year . '-' . $tomonth . '-' . $toDate;
 	}
 
 	public function get_total_patients($tableColumn = '', $sortDirection = '') : array

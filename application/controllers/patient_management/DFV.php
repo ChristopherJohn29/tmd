@@ -210,8 +210,19 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 					'condition' => '=',
 	        		'value' => 0
         		],
+				[
+					'key' => "patient_transactions.is_early_discharge",
+					'condition' => '=',
+	        		'value' => 0
+        		],
 			],
-			'return_type' => 'object'
+			'groupby' => 'patient_transactions.pt_patientID',
+			'return_type' => 'object',
+			'order' => [
+				'key' => 'patient_transactions.pt_dateOfService',
+				'by' => 'DESC'
+			],
+			
 		];
 
 		$this->date_formatter->set_date($fromDateSelected, $toDateSelected);

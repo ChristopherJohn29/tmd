@@ -70,6 +70,16 @@ Mobiledrs.PT_trans_form = (function() {
 
 			$(this).val(value);
 		});
+
+		if(jQuery('#is_early_discharge').length){
+			jQuery('#is_early_discharge').on('click', function (){
+				if(jQuery('#is_early_discharge').is(":checked")){
+					jQuery('#early_discharge_date').attr('required','true');
+				} else {
+					jQuery('#early_discharge_date').removeAttr('required');
+				}
+			});
+		}
 	};
 
 	return {

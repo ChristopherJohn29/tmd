@@ -107,8 +107,8 @@
 
 										<div class="col-md-6 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Date Referral was Emailed <span>*</span></label>
-											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateRefEmailed" value="" required="true">
+											<label class="control-label">Date Referral was Emailed</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="pt_dateRefEmailed" value="">
 											
 										</div>
 
@@ -333,8 +333,19 @@
 
 												<br>
 
+									</div>
 
-										
+									<div class="col-md-12 form-group">
+										<label>Reason for Visit <span>*</span></label>
+										<select class="form-control" required="true" name="pt_reasonForVisit">
+											<option value="">Select</option>
+												<option value="Follow-up Visit">Follow-up Visit</option>
+												<option value="Discharged from hospital">Discharged from hospital</option>
+												<option value="Home Health Referral/Admission">Home Health Referral/Admission</option>
+												<option value="Transfer of Care">Transfer of Care</option>
+												<option value="Office Request Visit (Meds / Labs)">Office Request Visit (Meds / Labs)</option>
+										</select>
+										<br>
 									</div>
 
 									<div class="col-md-12 form-check" style="">
@@ -344,14 +355,20 @@
 										<br>
 									  </div>
 
-										<div class="col-md-12 form-check">
+									  <div class="col-md-12 form-check">
 									    <input type="checkbox" class="form-check-input" id="labOrdes" name="lab_orders">
 									    <label class="form-check-label" for="labOrdes">Create Lab Orders and Results Entry</label>
 									  </div>
+
+									  <div class="col-md-3 form-check mb-10">
+									    <input type="checkbox" class="form-check-input" id="is_early_discharge" name="is_early_discharge" value="1">
+									    <label class="form-check-label" for="labOrdes">Early Discharge</label>
+										<input type="text" class="form-control" id="early_discharge_date" placeholder="Date" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" name="early_discharge_date" value="">
+									  </div>
 									
 																			
-										<div class="col-md-12 form-group">
-										
+										<div class="col-md-12 form-group" style="margin-top:10px;">
+									
 											<label class="control-label">Notes</label>
 											<textarea class="form-control" name="pt_notes">{{ set_value('pt_notes') }}</textarea>
 											

@@ -47,6 +47,8 @@ class Superbill_cpo_pat_trans_entity {
 	protected $pt_archive;
 	protected $pt_status;
 	protected $pt_hypertension;
+	protected $is_early_discharge;
+	protected $early_discharge_date;
 
 	public $supervisingMD_firstname;
 	public $supervisingMD_lastname;

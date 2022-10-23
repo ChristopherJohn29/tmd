@@ -1,28 +1,50 @@
 var Mobiledrs =  Mobiledrs || {};
 
 Mobiledrs.Month_day_incrementor = (function() {
-	var monthDay = $('[data-month-day-incrementor]');
-	var monthEl = $('[name="month"]');
+
+	var monthFromDay = $('[data-month-day-incrementor][name="fromDate"]');
+	var monthToDay = $('[data-month-day-incrementor][name="toDate"]');
+
+	var monthFromEl = $('[name="month"]');
+	var monthToEl = $('[name="tomonth"]');
+
 	var yearEl = $('[name="year"]');
 
 	var init = function() {
-		monthEl.on('change', function() {
+		monthFromEl.on('change', function() {
 			var date = new Date(
 				yearEl.val(), 
-				monthEl.val(), 
+				monthFromEl.val(), 
 				0
 			);
 
 			var lastMonthDay = parseInt(date.getDate());
 
-			monthDay.html('');
+			monthFromDay.html('');
 
 			for (var i = 1; i < lastMonthDay + 1; i++) {
-				monthDay.append('<option>' + i + '</option>');
+				monthFromDay.append('<option>' + i + '</option>');
 			}
 		});
 
-		monthEl.trigger('change');
+		monthToEl.on('change', function() {
+			var date = new Date(
+				yearEl.val(), 
+				monthToEl.val(), 
+				0
+			);
+
+			var lastMonthDay = parseInt(date.getDate());
+
+			monthToDay.html('');
+
+			for (var i = 1; i < lastMonthDay + 1; i++) {
+				monthToDay.append('<option>' + i + '</option>');
+			}
+		});
+
+		monthFromEl.trigger('change');
+		monthToEl.trigger('change');
 	};
 
 	return {

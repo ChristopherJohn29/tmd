@@ -172,6 +172,16 @@ class Payroll extends \Mobiledrs\core\MY_Controller {
 			$payroll_entity = new Payroll_entity([], $results);
 
 			$page_data['results'] = $payroll_entity->format_display_list();
+
+			$totalvisit = 0;
+			$totalsalary= 0;
+			foreach ($page_data['results'] as $key => $value) {
+				$totalvisit = $totalvisit + $value['total_visits'];
+				$totalsalary = $totalsalary + $value['total_salary'];
+			}
+
+			$page_data['totalvisit'] = $totalvisit;
+			$page_data['totalsalary'] = $totalsalary;
 		}
 
 		$this->twig->view('payroll_management/payroll/search', $page_data);

@@ -106,6 +106,8 @@ class Profile_entity extends \Mobiledrs\entities\Entity {
 	protected $non_admit_checked_by;
 	protected $is_ca;
 	protected $userId;
+	protected $is_early_discharge;
+	protected $early_discharge_date;
 
 	protected $prsl_id;
 	protected $prsl_prsID;

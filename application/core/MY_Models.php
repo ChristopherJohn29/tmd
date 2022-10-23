@@ -212,10 +212,18 @@ class MY_Models extends \CI_Model {
 			);
 		}
 
+		if (isset($params['groupby'])) 
+		{
+			$this->db->group_by($params['groupby']);
+		}
+		
+
 		if (isset($params['order'])) 
 		{
 			$this->db->order_by($params['order']['key'], $params['order']['by']);
 		}
+
+		
 
 	
 

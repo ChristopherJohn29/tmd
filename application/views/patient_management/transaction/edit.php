@@ -127,8 +127,8 @@
 
 										<div class="col-md-6 form-group {{ form_error('pt_dateRefEmailed') ? 'has-error' : '' }}">
 										
-											<label class="control-label">Date Referral was Emailed <span>*</span></label>
-											<input type="text" required="true" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask  name="pt_dateRefEmailed" value="{{ set_value('pt_dateRefEmailed', transaction.get_date_format(transaction.pt_dateRefEmailed)) }}">
+											<label class="control-label">Date Referral was Emailed</label>
+											<input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask  name="pt_dateRefEmailed" value="{{ set_value('pt_dateRefEmailed', transaction.get_date_format(transaction.pt_dateRefEmailed)) }}">
 											
 										</div>
 
@@ -352,6 +352,20 @@
 											<br>
 										</div>
 
+										<div class="col-md-12 form-group">
+
+												<label>Reason for Visit <span>*</span></label>
+												<select class="form-control" required="true" name="pt_reasonForVisit">
+													<option value="">Select</option>
+														<option value="Follow-up Visit" {{ transaction.pt_reasonForVisit == 'Follow-up Visit' ? 'selected=true' : '' }}>Follow-up Visit</option>
+														<option value="Discharged from hospital" {{ transaction.pt_reasonForVisit == 'Discharged from hospital' ? 'selected=true' : '' }}>Discharged from hospital</option>
+														<option value="Home Health Referral/Admission" {{ transaction.pt_reasonForVisit == 'Home Health Referral/Admission' ? 'selected=true' : '' }}>Home Health Referral/Admission</option>
+														<option value="Transfer of Care" {{ transaction.pt_reasonForVisit == 'Transfer of Care' ? 'selected=true' : '' }}>Transfer of Care</option>
+														<option value="Office Request Visit (Meds / Labs)" {{ transaction.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit (Meds / Labs)</option>
+												</select>
+												<br>
+											</div>
+
 										<div class="col-md-12 form-check" style="">
 									    <label class="control-label">Upload Intake Form File </label>
 										<input type="file" class="form-check-input" id="userfile" name="userfile[]" multiple accept=".pdf,.jpg,.jpeg,.png,.gif">
@@ -397,9 +411,15 @@
 									    <label class="form-check-label" for="non_admit">Non-admit</label>
 									  </div>
 
+									  <div class="col-md-3 form-check mb-10">
+									    <input type="checkbox" class="form-check-input" id="is_early_discharge" name="is_early_discharge" value="1" {{ transaction.is_early_discharge ? 'checked' : '' }}>
+									    <label class="form-check-label" for="labOrdes">Early Discharge</label>
+										<input type="text" class="form-control" id="early_discharge_date" placeholder="Date" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" name="early_discharge_date" value="{{ set_value('early_discharge_date', transaction.early_discharge_date) }}" {{ transaction.is_early_discharge ? 'required' : '' }}>
+									  </div>
+
 
 										
-										<div class="col-md-12 form-group">
+										<div class="col-md-12 form-group" style="margin-top:10px;">
 										
 											<label class="control-label">Notes</label>
 											<textarea class="form-control" name="pt_notes">{{ set_value('pt_notes', transaction.pt_notes) }}</textarea>
