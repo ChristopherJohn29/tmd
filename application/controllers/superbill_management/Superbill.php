@@ -21,6 +21,9 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		));
 
 		$this->load->library('Date_formatter');
+		
+		ini_set('max_execution_time', 0);
+		ini_set('memory_limit', '2048M');
 	}
 
 	public function index()
@@ -484,6 +487,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 
 	public function form(string $type, string $fromDate, string $toDate)
 	{
+		ini_set('max_execution_time', 0);
+		ini_set('memory_limit', '2048M');
 		$roles_permissions = [
 			'generate_sbawr',
 			'generate_sbhvr',
