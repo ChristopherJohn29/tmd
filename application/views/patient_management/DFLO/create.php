@@ -5,7 +5,7 @@
 {% 
   set scripts = [
     'dist/js/libraries/year_incrementor',
-    'dist/js/libraries/month_day_incrementor',
+    'dist/js/libraries/month_day_incrementor_dues',
     'dist/js/libraries/sorting',
     'dist/js/patient_management/dflo/list'
   ]
