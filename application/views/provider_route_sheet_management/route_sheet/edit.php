@@ -211,7 +211,6 @@
 													<option value="">Select</option>
 														<option value="Follow-up Visit" {{ list.pt_reasonForVisit == 'Follow-up Visit' ? 'selected=true' : '' }}>Follow-up Visit</option>
 														<option value="Discharged from hospital" {{ list.pt_reasonForVisit == 'Discharged from hospital' ? 'selected=true' : '' }}>Discharged from hospital</option>
-														<option value="Patient is using assistive equipment" {{ list.pt_reasonForVisit == 'Patient is using assistive equipment' ? 'selected=true' : '' }}>Patient is using assistive equipment</option>
 														<option value="Home Health Referral/Admission" {{ list.pt_reasonForVisit == 'Home Health Referral/Admission' ? 'selected=true' : '' }}>Home Health Referral/Admission</option>
 														<option value="Transfer of Care" {{ list.pt_reasonForVisit == 'Transfer of Care' ? 'selected=true' : '' }}>Transfer of Care</option>
 														<option value="Office Request Visit (Meds / Labs)" {{ list.pt_reasonForVisit == 'Other' ? 'selected=true' : '' }}{{ list.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit (Meds / Labs)</option>

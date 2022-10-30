@@ -414,8 +414,9 @@
 									  <div class="col-md-3 form-check mb-10">
 									    <input type="checkbox" class="form-check-input" id="is_early_discharge" name="is_early_discharge" value="1" {{ transaction.is_early_discharge ? 'checked' : '' }}>
 									    <label class="form-check-label" for="labOrdes">Early Discharge</label>
-										<input type="text" class="form-control" id="early_discharge_date" placeholder="Date" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" name="early_discharge_date" value="{{ set_value('early_discharge_date', transaction.early_discharge_date) }}" {{ transaction.is_early_discharge ? 'required' : '' }}>
-									  </div>
+										<input type="text" class="form-control" id="early_discharge_date" placeholder="Date" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask name="early_discharge_date" value="{{ set_value('early_discharge_date', transaction.get_date_format(transaction.early_discharge_date)) }}" {{ transaction.is_early_discharge ? 'required' : '' }}>
+								
+									</div>
 
 
 										
