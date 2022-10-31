@@ -57,6 +57,17 @@ class Transaction_model extends \Mobiledrs\core\MY_Models {
 
 	}
 
+	public function get_latest_transaction_ids(){
+
+			$this->db->select('pt_id');
+			$this->db->from('patient_transactions');
+			$this->db->group_by('pt_patientID');
+			$this->db->order_by('pt_dateOfService', 'DESC');
+			$result = $this->db->get()->result_array();
+
+			return $result;
+	}
+
 	public function prepare_data() : array
 	{
 		$this->prepare_entity_data();
