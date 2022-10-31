@@ -158,11 +158,28 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 		}
 
 		$transactions = $this->transaction_model->get_latest_transaction_ids();
-		$transaction_ids = array();
 		
+
+		$transaction_ids = array();
+
+		$transactions_new = array();
+
 		foreach($transactions as $transaction){
+
+			if(isset($transactions_new[$transaction['pt_patientID']] )) {
+				if($transactions_new[$transaction['pt_patientID']]['pt_dateOfService'] < $transaction['pt_dateOfService']){
+					$transactions_new[$transaction['pt_patientID']] = $transaction;
+				}
+			} else {
+				$transactions_new[$transaction['pt_patientID']] = $transaction;
+			}
+		}
+
+		foreach($transactions_new as $transaction){
 			$transaction_ids[] = $transaction['pt_id'];
 		}
+
+	
 
 		$transaction_params = [
 			'joins' => [
