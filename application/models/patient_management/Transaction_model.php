@@ -61,8 +61,8 @@ class Transaction_model extends \Mobiledrs\core\MY_Models {
 
 			$this->db->select('pt_id');
 			$this->db->from('patient_transactions');
-			$this->db->order_by('pt_dateOfService', 'DESC');
 			$this->db->group_by('pt_patientID');
+			$this->db->order_by('pt_dateOfService', 'ASC');
 			$result = $this->db->get()->result_array();
 
 			return $result;
