@@ -343,7 +343,7 @@
 												<option value="Discharged from hospital">Discharged from hospital</option>
 												<option value="Home Health Referral/Admission">Home Health Referral/Admission</option>
 												<option value="Transfer of Care">Transfer of Care</option>
-												<option value="Office Request Visit (Meds / Labs)">Office Request Visit (Meds / Labs)</option>
+												<option value="Office Request Visit (Meds / Labs)">Office Request Visit</option>
 										</select>
 										<br>
 									</div>

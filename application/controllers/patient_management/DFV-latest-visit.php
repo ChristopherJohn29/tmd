@@ -157,6 +157,29 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 			$dateList .= (empty($dateList) ? '' : ',' ) . 'DATE_SUB("' . $date . '", INTERVAL 50 DAY)';	
 		}
 
+		$transactions = $this->transaction_model->get_latest_transaction_ids();
+		
+
+		$transaction_ids = array();
+
+		$transactions_new = array();
+
+		foreach($transactions as $transaction){
+
+			if(isset($transactions_new[$transaction['pt_patientID']] )) {
+				if($transactions_new[$transaction['pt_patientID']]['pt_dateOfService'] < $transaction['pt_dateOfService']){
+					$transactions_new[$transaction['pt_patientID']] = $transaction;
+				}
+			} else {
+				$transactions_new[$transaction['pt_patientID']] = $transaction;
+			}
+		}
+
+		foreach($transactions_new as $transaction){
+			$transaction_ids[] = $transaction['pt_id'];
+		}
+
+	
 
 		$transaction_params = [
 			'joins' => [
@@ -202,21 +225,6 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 	        		'value' => 0
         		],
 				[
-					'key' => "patient_transactions.pt_reasonForVisit",
-					'condition' => '<>',
-	        		'value' => 'Office Request Visit'
-        		],
-				[
-					'key' => "patient_transactions.pt_reasonForVisit",
-					'condition' => '<>',
-	        		'value' => 'Office Request Visit (Meds / Labs)'
-        		],
-				[
-					'key' => "patient_transactions.pt_reasonForVisit",
-					'condition' => '<>',
-	        		'value' => 'Patient only request for Assessment'
-        		],
-				[
 					'key' => "patient_transactions.not_our_md",
 					'condition' => '=',
 	        		'value' => 0
@@ -232,7 +240,16 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 	        		'value' => 0
         		],
 			],
+			'where_in_list' => [
+				'key' => 'patient_transactions.pt_id',
+				'values' => $transaction_ids
+			],
+			'groupby' => 'patient_transactions.pt_patientID',
 			'return_type' => 'object',
+			'order' => [
+				'key' => 'patient_transactions.pt_dateOfService',
+				'by' => 'DESC'
+			],
 			
 		];
 

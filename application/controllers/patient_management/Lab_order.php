@@ -121,7 +121,6 @@ class Lab_order extends \Mobiledrs\core\MY_Controller {
 
 		$data = array(
 			'patient_id' => $pt_patientID,
-			'date_referral' => $this->input->post('pt_dateRefEmailed'),
 			'provider_id' => $this->input->post('pt_providerID'),
 			'added_by' => $this->session->userdata('user_id'),
 			'status' => $this->input->post('pt_status'),
@@ -146,6 +145,7 @@ class Lab_order extends \Mobiledrs\core\MY_Controller {
 		} 
 
 		if ($page_type == 'add') {
+			$data['date_referral'] =  date('Y-m-d');
 			$this->lab_orders_model->addLabOrder($data);
 		} else {
 			$data['lab_order_id'] = $this->input->post('lab_order_id');

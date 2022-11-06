@@ -213,7 +213,7 @@
 														<option value="Discharged from hospital" {{ list.pt_reasonForVisit == 'Discharged from hospital' ? 'selected=true' : '' }}>Discharged from hospital</option>
 														<option value="Home Health Referral/Admission" {{ list.pt_reasonForVisit == 'Home Health Referral/Admission' ? 'selected=true' : '' }}>Home Health Referral/Admission</option>
 														<option value="Transfer of Care" {{ list.pt_reasonForVisit == 'Transfer of Care' ? 'selected=true' : '' }}>Transfer of Care</option>
-														<option value="Office Request Visit (Meds / Labs)" {{ list.pt_reasonForVisit == 'Other' ? 'selected=true' : '' }}{{ list.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit (Meds / Labs)</option>
+														<option value="Office Request Visit (Meds / Labs)" {{ list.pt_reasonForVisit == 'Other' ? 'selected=true' : '' }}{{ list.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit</option>
 												</select>
 											</div>
 

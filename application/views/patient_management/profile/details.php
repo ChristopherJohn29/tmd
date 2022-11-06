@@ -238,9 +238,16 @@
                                               
                                                 {% endif %}
 
+                                                
+
                                                 {%  if transaction.non_admit_checked_by %} 
                                                 - Last updated by {{transaction.non_admit_checked_by}}
                                                 {% endif %}
+
+                                                {%  if transaction.is_early_discharge %} 
+                                                - Early Discharged {{transaction.early_discharge_date|date('m/d/Y')}}
+                                                {% endif %}
+
                                                     </span>
                                                     
                                                 </div>

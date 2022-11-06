@@ -252,9 +252,9 @@ class Transaction extends \Mobiledrs\core\MY_Controller {
 		$is_ca = $this->input->post('is_ca') ? 'ca' : NULL;
 
 		if($is_ca == 'ca'){
-			$dateRefEmailed = $this->input->post('pt_dateOfService');
+			$dateRefEmailed = date('Y-m-d');
 		} else {
-			$dateRefEmailed = $this->input->post('pt_dateRefEmailed');
+			$dateRefEmailed =  date('Y-m-d');
 		}
 	
 		$providerId = $this->input->post('pt_providerID');
