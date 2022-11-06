@@ -362,6 +362,7 @@
 														<option value="Home Health Referral/Admission" {{ transaction.pt_reasonForVisit == 'Home Health Referral/Admission' ? 'selected=true' : '' }}>Home Health Referral/Admission</option>
 														<option value="Transfer of Care" {{ transaction.pt_reasonForVisit == 'Transfer of Care' ? 'selected=true' : '' }}>Transfer of Care</option>
 														<option value="Office Request Visit (Meds / Labs)" {{ transaction.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit</option>
+														<option value="Patient only request for Assessment" {{ transaction.pt_reasonForVisit == 'Patient only request for Assessment' ? 'selected=true' : '' }}>Patient only request for Assessment</option>
 												</select>
 												<br>
 											</div>
