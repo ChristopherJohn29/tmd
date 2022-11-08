@@ -213,10 +213,11 @@
                                                 {%  if transaction.not_our_md_checked_by %} 
                                                 - Last updated by {{transaction.not_our_md_checked_by}}
                                                 </span>
+                                                <br>
                                                 {% endif %}
                                                     
 
-                                                    <br>
+                                                    
                                                 {%  if transaction.no_homehealth_ref %}
                                                     <span class="visit_redbg">
                                                 
@@ -228,10 +229,11 @@
                                                 {%  if transaction.no_homehealth_ref_checked_by %} 
                                                 - Last updated by {{transaction.no_homehealth_ref_checked_by}}
                                                 </span>
+                                                <br>
                                                 {% endif %}
                                                     
 
-                                                    <br>
+                                                   
                                                 {%  if transaction.non_admit %}
                                                     <span class="visit_redbg">
                                                 
@@ -244,10 +246,11 @@
                                                 {%  if transaction.non_admit_checked_by %} 
                                                 - Last updated by {{transaction.non_admit_checked_by}}
                                                 </span>
+                                                <br>
                                                 {% endif %}
 
 
-                                                <br>
+                                             
 
                                                 {%  if transaction.is_early_discharge %} 
                                       
