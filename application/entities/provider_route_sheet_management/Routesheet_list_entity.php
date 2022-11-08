@@ -85,6 +85,7 @@ class Routesheet_list_entity extends \Mobiledrs\entities\Entity {
 	protected $userId;
 	protected $is_early_discharge;
 	protected $early_discharge_date;
+	protected $is_early_discharge_checked_by;
 
 	protected $supervisingMD_firstname;
 	protected $supervisingMD_lastname;

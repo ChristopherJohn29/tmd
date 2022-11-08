@@ -55,6 +55,7 @@
 										<input type="hidden" name="no_homehealth_ref_checked_by" value="{{ transaction.no_homehealth_ref_checked_by }}">
 										<input type="hidden" name="not_our_md_checked_by" value="{{ transaction.not_our_md_checked_by }}">
 										<input type="hidden" name="non_admit_checked_by" value="{{ transaction.non_admit_checked_by }}">
+										<input type="hidden" name="is_early_discharge_checked_by" value="{{ transaction.is_early_discharge_checked_by }}">
 										
 										<div class="col-lg-6">
 											<p class="lead"><span>Patient Name: </span> {{ record.patient_name }}</p>
