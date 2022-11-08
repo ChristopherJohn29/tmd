@@ -207,11 +207,12 @@
                                                     <span class="visit_redbg">
                                                     <input type="checkbox" class="form-check-input" id="not_our_md" name="not_our_md" value="1" checked="" onclick="return false;">
                                                     <label class="form-check-label" for="not_our_md">Not under our MD </label>
-                                                    </span>
+                                                    
                                                 {% endif %}
 
                                                 {%  if transaction.not_our_md_checked_by %} 
                                                 - Last updated by {{transaction.not_our_md_checked_by}}
+                                                </span>
                                                 {% endif %}
                                                     
 
