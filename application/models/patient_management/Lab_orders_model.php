@@ -47,7 +47,7 @@ class Lab_orders_model extends \Mobiledrs\core\MY_Models {
 
 	public function addLabOrder($data = array()){
 		$query['patient_id'] = $data['patient_id'];
-		$query['date_referral'] = date("Y-m-d", strtotime($data['date_referral']));
+		$query['date_referral'] = date("Y-m-d");
 		$query['provider_id'] = $data['provider_id'];
 		$query['from_visit'] = 0;
 		$query['added_by'] = $data['added_by'];
@@ -60,7 +60,7 @@ class Lab_orders_model extends \Mobiledrs\core\MY_Models {
 
 	public function editLabOrder($data = array()) {
 
-		$query['date_referral'] = date("Y-m-d", strtotime($data['date_referral']));
+		// $query['date_referral'] = date("Y-m-d", strtotime($data['date_referral']));
 		$query['provider_id'] = $data['provider_id'];
 		$query['added_by'] = $data['added_by'];
 		$query['notes'] = $data['notes'];
