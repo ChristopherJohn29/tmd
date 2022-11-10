@@ -54,7 +54,7 @@ set scripts = [
 
                            <div style="margin-bottom: 15px !important;" class="col-md-6 form-group {{ form_error('date_referral') ? 'has-error' : '' }}">
                               <label class="control-label">Date Referral was Emailed <span>*</span></label>
-                              <input type="text" required="true" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask  name="pt_dateRefEmailed" {{ lab_order.from_visit ? 'readonly' : '' }} value="{{ set_value('pt_dateRefEmailed', lab_order.get_date_format(lab_order.date_referral)) }}">
+                              <input type="text" required="true" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask readonly name="pt_dateRefEmailed" {{ lab_order.from_visit ? 'readonly' : '' }} value="{{ set_value('pt_dateRefEmailed', lab_order.get_date_format(lab_order.date_referral)) }}">
                            </div>
                       
 
