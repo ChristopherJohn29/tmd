@@ -214,7 +214,7 @@ class DFV extends \Mobiledrs\core\MY_Controller {
 				[
 					'key' => "patient_transactions.pt_reasonForVisit",
 					'condition' => '<>',
-	        		'value' => 'Patient only request for Assessment'
+	        		'value' => 'Patient Requested For Assessment Only'
         		],
 				[
 					'key' => "patient_transactions.not_our_md",

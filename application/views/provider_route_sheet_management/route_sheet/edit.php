@@ -214,7 +214,7 @@
 														<option value="Home Health Referral/Admission" {{ list.pt_reasonForVisit == 'Home Health Referral/Admission' ? 'selected=true' : '' }}>Home Health Referral/Admission</option>
 														<option value="Transfer of Care" {{ list.pt_reasonForVisit == 'Transfer of Care' ? 'selected=true' : '' }}>Transfer of Care</option>
 														<option value="Office Request Visit (Meds / Labs)" {{ list.pt_reasonForVisit == 'Other' ? 'selected=true' : '' }}{{ list.pt_reasonForVisit == 'Office Request Visit (Meds / Labs)' ? 'selected=true' : '' }}>Office Request Visit</option>
-														<option value="Patient only request for Assessment"  {{ list.pt_reasonForVisit == 'Patient only request for Assessment' ? 'selected=true' : '' }}>Patient only request for Assessment</option>
+														<option value="Patient Requested For Assessment Only"  {{ list.pt_reasonForVisit == 'Patient Requested For Assessment Only' ? 'selected=true' : '' }}>Patient Requested For Assessment Only</option>
 													</select>
 											</div>
 
