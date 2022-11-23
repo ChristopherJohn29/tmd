@@ -4,7 +4,7 @@
   set scripts = [
     'dist/js/payroll_management/payroll/listReport',
     'dist/js/libraries/sorting',
-    'dist/js/libraries/month_day_incrementor',
+    'dist/js/libraries/month_day_incrementor_dues',
     'dist/js/libraries/year_incrementor'
   ]
 %}
