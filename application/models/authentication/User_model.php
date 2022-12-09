@@ -21,6 +21,25 @@ class User_model extends \Mobiledrs\core\MY_Models {
 		return $result;
 	}
 
+	public function fetchHomeVisitRequest(){
+		$this->db->select('*');
+		$this->db->from('home_visit_request');
+
+		$result = $this->db->get()->result_array();
+
+		return $result;
+	}
+
+	public function fetchHomeVisitRequestById($id = ''){
+		$this->db->select('*');
+		$this->db->from('home_visit_request');
+		$this->db->where('id', $id);
+
+		$result = $this->db->get()->result_array();
+
+		return $result;
+	}
+
 	public function fetchCookieDetails($id = 0){
 		$this->db->select('*');
 		$this->db->from('cookie_restriction');

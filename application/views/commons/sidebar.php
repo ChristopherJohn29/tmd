@@ -336,5 +336,17 @@
 		</li>
 
 		{% endif %}
+
+
+		{% if roles_permission_entity.has_permission_module(['CR']) %}
+
+		<li>
+			<a href="{{ site_url('home_visit_request') }}">
+				<i class="fa fa-calendar"></i>
+				<span>Home Visit Request</span>
+			</a>
+		</li>
+
+		{% endif %}
 	</ul>
 </section>
