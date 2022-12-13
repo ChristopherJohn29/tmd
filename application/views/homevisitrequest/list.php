@@ -78,10 +78,12 @@
 						
 						<tfoot>
 							<tr>
-                                <th>Name</th>
+							<th>Home Health</th>
+								<th>Patient Name</th>
+								<th>Medicare</th>
 								<th>Date of Birth</th>
-								<th>Phone #</th>
-								<th>Gender</th>
+								<th>Type of Visit</th>
+								<th>Date of Sent</th>
 								<th style="width: 120px;">Action</th>
 							</tr>
 						</tfoot>
