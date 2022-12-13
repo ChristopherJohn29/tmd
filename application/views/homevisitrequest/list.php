@@ -41,10 +41,12 @@
                     <table id="all-routesheet-list" class="table no-margin table-hover">
 						<thead>
 							<tr>
-								<th>Name</th>
+								<th>Home Health</th>
+								<th>Patient Name</th>
+								<th>Medicare</th>
 								<th>Date of Birth</th>
-								<th>Phone #</th>
-								<th>Gender</th>
+								<th>Type of Visit</th>
+								<th>Date of Sent</th>
 								<th style="width: 120px;">Action</th>
 							</tr>
 						</thead>
@@ -56,10 +58,12 @@
 								{% for record in records %}
 
 									<tr>
+										<td>{{ record.pf_name_of_facility }}</td>
 										<td>{{ record.pi_patient_name }}</td>
+										<td>{{ record.ii_medicare }}</td>
 										<td>{{ record.pi_dob|date('m/d/Y') }}</td>
-										<td>{{ record.pi_phone }}</td>
-										<td>{{ record.pi_gender }}</td>
+										<td>{{ record.tov }}</td>
+										<td>{{ record.date_of_sent|date('m/d/Y') }}</td>
 										<td style="width: 120px;">
 										<a href='{{ site_url("home_visit_request/generate_pdf/#{ record.id }") }}' title="Edit"><span class="label label-primary">Email To Homehealth</span></a>
 										<a href='{{ site_url("home_visit_request/generate_pdf/#{ record.id }") }}' title="Edit"><span class="label label-primary">Email To Admin</span></a>
