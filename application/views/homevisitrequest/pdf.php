@@ -1,171 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    .main-body{
-        width:100%;
-        text-align: center;
-    }
-    .section {
-        border:1px solid;
-        margin-top:20px;
-
-        text-align:left;
-        padding:20px;
-    }
-
-    .group{
-        display:inline-block;
-    }
-
-    label{
-        display:block;
-    }
-
-    .row{
-        display:inline-block;
-    }
-
-</style>
-<body>
-    <div class="main-body">
-        <div>VISIT REQUEST FORM</div>
-        <div>DATE:<input type="text"></div>
-
-        <div class="personal-information section">
-            <div class="row">
-                <div class="group">
-                    <label>Patient Name</label>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <label>Date of Birth</label>
-                    <input type="text">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="group">
-                    <label>Sex</label>
-                    <input type="checkbox">MALE
-                    <input type="checkbox">FEMALE
-                </div>
-                <div class="group">
-                    <label>Phone Number</label>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <label>Language(s)</label>
-                    <input type="text">
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <label>Address</label>
-                <input type="text">
-            </div>
-        </div>
-
-        <div class="insurance-information section">
-            <div class="row">
-                <div class="group">
-                    <label>Medicare Part B Insurance ID Number</label>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <label>Social Security Number</label>
-                    <input type="text">
-                </div>
-            </div>
-        </div>
-
-        <div class="type-of-visit section">
-            <div class="row">
-                <input type="checkbox">Home Visit (Physical)
-                <input type="checkbox">Telehealth
-                <input type="checkbox">Either
-            </div>
-        </div>
-
-        <div class="reason-for-visit-request section">
-            <div class="row">
-                <input type="checkbox">Referral to Home Health 
-                <div class="group">
-                    <input type="checkbox">Discharge from Hospital
-                    <label>Details:</label>
-                </div>
-                <label>Discharge Date:</label>
-            </div>
-
-            <div class="row">
-                <input type="checkbox">Follow-up Visit
-                <div class="group">
-                    <input type="checkbox">Other reason (Please Specify)
-                    <label>Specify:</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <input type="checkbox">Transfer of care
-            </div>
-
-            <div class="row">
-                Additional Comment
-                <textarea></textarea>
-            </div>
-
-        </div>
-
-        <div class="prefferred-facility-home-health-care-agency section">
-            <div class="row">
-                <div class="group">
-                    <label>Name of Facility / Home Health Care Agency</label>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <label>Name of Contact Person (if Any)</label>
-                    <input type="text">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="group">
-                    <label>Phone Number</label>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <label>Fax Number</label>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <label>Email Address</label>
-                    <input type="text">
-                </div>
-            </div>
-
-            <div class="row">
-                <label>Address</label>
-                <input type="text">
-            </div>
-        </div>
-
-        <div class="prefferred-certifying-md section">
-            <div class="row">
-                <input type="checkbox">DR. MARIA LOURDES C. DELEON 
-                <input type="checkbox">DR. LINDA B. ENRIQUEZ
-                <input type="checkbox">DR. DAISY I. BAUTISTA
-            </div>
-
-        </div>
-
-
-    </div>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>The Mobile Drs - Intake Form</title>
+        
+        <style>
+            .content-handler {
+                display: block;
+                width:80%;
+                margin:70px auto 0;
+                }
+            
+            
+            .section-handler {
+                display: block;
+                width: 100%;
+                border: 1px solid #2f357d;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                }
+            
+            table {
+                font-family: helvetica;
+                width: 80%;
+                margin: 0 auto;
+                font-size: 14px;
+                border: 0;
+                padding: 0;
+                }
+            
+            table tr {
+                padding: 0;
+                }
+            
+            table td {
+                padding: 0 10px;
+                }
+            
+            table td.w-25 {
+                width: 25%;
+                }
+            
+            table td.w-33 {
+                width: 33.3%;
+                }
+            
+            table td.w-50 {
+                width: 50%;
+                }
+            
+            table td.w-75 {
+                width: 75%;
+                }
+            
+            .section-header {
+                border: 0;
+                padding: 0;
+                }
+            
+            .section-name {
+                color: #fff;
+                background-color: #2f357d;
+                text-transform: uppercase;
+                width: 180px;
+                padding: 10px 20px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                }
+            
+            .form-content {
+                color: #7d7d7d;
+                border: 1px solid #2f357d;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                padding: 20px;
+                }
+            
+            .bordered {
+                border: 1px solid #7d7d7d;
+                border-radius: 3px;
+                padding: 10px 20px;
+                margin: 5px 0 15px;
+                }
+            
+        </style>
+        
+    </head>
+    <body>
+        
+        
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="section-name">Patient Information</td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <table class="form-content">            
+            <tr>
+                <td class="" width="75%">
+                    <span>Patient Name</span>
+                    <div class="bordered">asdasd</div>
+                </td>
+                <td class="w-25">
+                    <span>Date of Birth</span>
+                    <div class="bordered">asdasd</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="w-75" colspan="2">
+                    <span>Address</span>
+                    <div class="bordered">asdasd</div>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </body>
     
-</body>
 </html>
