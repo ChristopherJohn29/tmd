@@ -41,10 +41,10 @@
                 </tr>
                 <tr>
                     <td colspan="2" width="347px" height="20px">
-                        asdadasd
+                        Christopher John Gamo
                     </td>
                     <td width="173px">
-                        asdasdasdasd
+                        May 29 1993
                     </td>
 
                 </tr>
@@ -62,20 +62,20 @@
                 </tr>
                 <tr>
                     <td width="173px" height="25px">
-                        asdasdasd
+                        Male
                     </td>
                     <td width="174px">
-                        asdasdasd
+                        09282805816
                     </td>
                     <td width="173px">
-                        asdasda
+                        Filipino
                     </td>
 
                 </tr>
                 <tr>
                     <td colspan="3" width="520px" height="18px">
                         <p class="label">Address</p>
-                        <p class="data">asdasdad</p>
+                        <p class="data">Mahabang Parang Angono Rizal</p>
                     </td>
                 </tr>
         </tbody>
