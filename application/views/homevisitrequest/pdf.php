@@ -6,50 +6,77 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>The Mobile Drs - Intake Form</title>
         
+        <style>
+            
+            p.label {
+                margin-bottom: 6px;
+                }
+            
+            p.data {
+                background-color: #f1f1f1;
+                padding: 5px;
+                }
+            
+        </style>
     </head>
     <body>
         
         
-    <table style="font-size: 8px;">
+    <table style="font-size: 9px;">
         <thead>
             <tr>
-                <th width="80px" bgcolor="#2f357d" style="color: white;">Patient Information</th>
+                <th width="80px" bgcolor="#2f357d" style="color: white;" height="25px">Patient Information</th>
                 <th colspan="2" width="440px" style="color: white;"></th>
             </tr>
         </thead>
         <tbody>
                 <tr>
-                    <td colspan="2" width="347px">
-                        Patient Name<br>
+                    <td colspan="2" width="347px" height="18px">
+                        Patient Name
+                    </td>
+                    <td width="173px">
+                        Date of Birth
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2" width="347px" height="20px">
                         asdadasd
                     </td>
                     <td width="173px">
-                        Date of Birth<br>
                         asdasdasdasd
                     </td>
 
                 </tr>
                 <tr>
+                    <td width="173px" height="18px">
+                        Gender
+                    </td>
+                    <td width="174px">
+                        Phone Number
+                    </td>
                     <td width="173px">
-                        Gender<br>
+                        Languages
+                    </td>
+
+                </tr>
+                <tr>
+                    <td width="173px" height="25px">
                         asdasdasd
                     </td>
                     <td width="174px">
-                        Phone Number<br>
                         asdasdasd
                     </td>
                     <td width="173px">
-                        Languages<br>
                         asdasda
                     </td>
 
                 </tr>
                 <tr>
-                    <td colspan="3" width="520px">
-                        Address<br>
-                        asdasdad
+                    <td colspan="3" width="520px" height="18px">
+                        <p class="label">Address</p>
+                        <p class="data">asdasdad</p>
                     </td>
-
                 </tr>
         </tbody>
     </table>
