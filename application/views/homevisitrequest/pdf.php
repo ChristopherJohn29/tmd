@@ -22,10 +22,10 @@
     <body>
         
         
-    <table style="font-size: 9px;">
+    <table style="font-size: 9px;" cellpadding="3">
         <thead>
             <tr>
-                <th width="80px" bgcolor="#2f357d" style="color: white;" height="25px">Patient Information</th>
+                <th width="120px" bgcolor="#2f357d" style="color: white;" height="25px">Patient Information</th>
                 <th colspan="2" width="440px" style="color: white;"></th>
             </tr>
         </thead>
@@ -34,17 +34,17 @@
                     <td colspan="2" width="347px" height="18px">
                         Patient Name
                     </td>
-                    <td width="173px">
+                    <td width="173px" height="18px">
                         Date of Birth
                     </td>
 
                 </tr>
                 <tr>
-                    <td colspan="2" width="347px" height="20px">
-                        Christopher John Gamo
+                    <td colspan="2" width="347px" bgcolor="#f1f1f1" height="20px">
+                        asdadasd
                     </td>
-                    <td width="173px">
-                        May 29 1993
+                    <td width="173px" bgcolor="#f1f1f1" height="20px">
+                        asdasdasdasd
                     </td>
 
                 </tr>
@@ -62,20 +62,20 @@
                 </tr>
                 <tr>
                     <td width="173px" height="25px">
-                        Male
+                        asdasdasd
                     </td>
                     <td width="174px">
-                        09282805816
+                        asdasdasd
                     </td>
                     <td width="173px">
-                        Filipino
+                        asdasda
                     </td>
 
                 </tr>
                 <tr>
                     <td colspan="3" width="520px" height="18px">
                         <p class="label">Address</p>
-                        <p class="data">Mahabang Parang Angono Rizal</p>
+                        <p class="data">asdasdad</p>
                     </td>
                 </tr>
         </tbody>
