@@ -1,87 +1,309 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>The Mobile Drs - Intake Form</title>
-        
-        <style>
-            
-            p.label {
-                margin-bottom: 6px;
-                }
-            
-            p.data {
-                background-color: #f1f1f1;
-                padding: 5px;
-                }
-            
-        </style>
-    </head>
-    <body>
-        
-        
-    <table style="font-size: 9px;" cellpadding="3">
-        <thead>
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>The Mobile Drs - Intake Form</title>
+      <style>
+         label {
+         margin-top: 6px;
+         padding-top: 5px;
+         }
+         p.data {
+         background-color: #f1f1f1;
+         }
+      </style>
+   </head>
+   <body>
+      <table style="font-size: 13px; margin-top: 100px;" cellpadding="3">
+         <tbody>
             <tr>
-                <th width="120px" bgcolor="#2f357d" style="color: white;" height="25px">Patient Information</th>
-                <th colspan="2" width="440px" style="color: white;"></th>
+               <td width="280px" >
+               </td>
+               <td width="173px" height="20px"  colspan="3" >
+                <?= date('m/d/Y', strtotime($date_of_sent)) ?>
+               </td>
+               <td width="200px" >
+               </td>
             </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td colspan="2" width="347px" height="18px">
-                        Patient Name
-                    </td>
-                    <td width="173px" height="18px">
-                        Date of Birth
-                    </td>
-
-                </tr>
-                <tr>
-                    <td colspan="2" width="347px" bgcolor="#f1f1f1" height="20px">
-                        Christopher John Gamo
-                    </td>
-                    <td width="173px" bgcolor="#f1f1f1" height="20px">
-                        May 29 1993
-                    </td>
-
-                </tr>
-                <tr>
-                    <td width="173px" height="18px">
-                        Gender
-                    </td>
-                    <td width="174px">
-                        Phone Number
-                    </td>
-                    <td width="173px">
-                        Languages
-                    </td>
-
-                </tr>
-                <tr>
-                    <td width="173px" height="25px">
-                        Male
-                    </td>
-                    <td width="174px">
-                        09282805816
-                    </td>
-                    <td width="173px">
-                        English
-                    </td>
-
-                </tr>
-                <tr>
-                    <td colspan="3" width="520px" height="18px">
-                        <p class="label">Address</p>
-                        <p class="data">437 Wood Street Independence, KY 41051</p>
-                    </td>
-                </tr>
-        </tbody>
-    </table>
-        
-        
-    </body>
-    
+            <tr>
+               <td colspan="2" width="488px"  height="20px" style="font-size: 11px;">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2" width="488px"  height="20px">
+               </td>
+               <td width="173px" height="20px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2" width="488px"  height="20px">
+               </td>
+               <td width="173px" height="20px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2" width="488px"  height="20px">
+                <?=$pi_patient_name?>
+               </td>
+               <td width="173px" height="20px">
+               <?=date('m/d/Y', strtotime($pi_dob))?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2" width="488px"  height="20px">
+               </td>
+               <td width="173px" height="20px">
+               </td>
+            </tr>
+            <tr>
+               <td width="65px" height="50px">
+               <b>/</b>
+               </td>
+               <td width="120px" height="50px">
+               <b>/</b>
+               </td>
+               <td width="240px">
+               <?=$pi_phone?>
+               </td>
+               <td width="173px">
+               <?=$pi_language?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               <?=$pi_address?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2" width="338px"  height="20px">
+                  <label></label><br>
+                  <label><?=$ii_medicare?></label>
+               </td>
+               <td width="173px" height="20px">
+                  <label></label><br>
+                  <label><?=$ii_ssn?></label>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="" width="205px" height="18px">
+                  <label></label><br>
+                  <label></label><br>
+                  <?php 
+                  if($tov == 'Home Visit (Physical)'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td colspan="" width="126px" height="18px">
+                  <label></label><br>
+                  <label></label><br>
+                  <?php 
+                  if($tov == 'Telehealth'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td colspan="" width="200px" height="18px">
+                  <label></label><br>
+                  <label></label><br>
+                  <?php 
+                  if($tov == 'Either'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="" width="205px" height="18px" style="font-size: 14px; ">
+               <?php 
+                  if($rvr_reason_for_visit == 'Referral from Home Health'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               
+               </td>
+               <td colspan="" width="278px" height="18px" style="font-size: 14px; ">
+               <?php 
+                  if($rvr_reason_for_visit == 'Discharged from Hospital'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td colspan="" width="100px" height="18px">
+               <?php
+               if($rvr_date_discharged != '1970-01-01'){
+                echo date('m/d/Y', strtotime($rvr_date_discharged));
+               }
+               ?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="" width="265px" height="15px" style="font-size: 14px; ">
+               <?php 
+                  if($rvr_reason_for_visit == 'Follow-up Visit'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td colspan="" width="285px" height="15px" valign="top">
+               <?=$rvr_hospital?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="" width="205px" height="15px" style="font-size: 14px; ">
+               <?php 
+                  if($rvr_reason_for_visit == 'Transfer of Care'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td colspan="" width="285px" height="15px" valign="top" style="font-size: 14px; ">
+               <?php 
+                  if($rvr_reason_for_visit == 'Other Reason'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="" width="265px" height="15px" style="font-size: 14px; ">
+               </td>
+               <td colspan="" width="285px" height="15px" valign="top" style="font-size: 14px; ">
+               <b><?=$rvr_reason_for_visit_request?></b>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="15px" style="font-size: 1px; ">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="15px" style="font-size: 11px; ">
+               <?=$rvr_additional_comment?>
+                  <br>
+                  <br>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="15px" style="font-size: 1px; ">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="15px" style="font-size: 10px; ">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="15px" style="font-size: 5px; ">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="15px">
+               </td>
+            </tr>
+            <tr>
+               <td height="15px" width="450px">
+               <?=$pf_name_of_facility?>
+               </td>
+               <td  height="15px">
+               <?=$pf_contact_person?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px" style="font-size: 16px; ">
+               </td>
+            </tr>
+            <tr>
+               <td width="230px" height="18px">
+               <?=$pf_phone?>
+               </td>
+               <td width="220px" height="18px">
+               <?=$pf_fax?>
+               </td>
+               <td width="220px" height="18px">
+               <?=$pf_email?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px" style="font-size: 17px;">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="18px" >
+               <?=$pf_address?>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="18px"  style="font-size: 10px;" >
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="18px" style="font-size: 10px;" >
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" height="18px" style="font-size: 10px;" >
+               </td>
+            </tr>
+            <tr>
+               <td width="230px" height="18px" >
+               <?php 
+                  if($preferred_smd == 'MARIA LOURDES DE LEON, MD '){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td width="180px" height="18px" >
+               <?php 
+                  if($preferred_smd == 'LINDA ENRIQUEZ, MD '){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+               <td width="220px" height="18px" >
+               <?php 
+                  if($preferred_smd == 'DAISY BAUTISTA, MD '){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
 </html>
