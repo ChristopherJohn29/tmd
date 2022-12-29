@@ -66,7 +66,7 @@
 										<td>{{ record.date_of_sent|date('m/d/Y') }}</td>
 										<td style="width: 120px;">
 										<a href='{{ site_url("home_visit_request/generate_pdf/#{ record.id }") }}' title="Edit"><span class="label label-primary">Email To Homehealth</span></a>
-										<a href='{{ site_url("home_visit_request/generate_pdf/#{ record.id }") }}' title="Edit"><span class="label label-primary">Email To Admin</span></a>
+										<a href='{{ site_url("home_visit_request/generate_pdf_admin/#{ record.id }") }}' title="Edit"><span class="label label-primary">Email To Admin</span></a>
 										</td>
 									</tr>
 

@@ -59,10 +59,20 @@
             </tr>
             <tr>
                <td width="65px" height="50px">
-               <b>/</b>
+               <?php 
+                  if($pi_gender == 'male'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
                </td>
                <td width="120px" height="50px">
-               <b>/</b>
+               <?php 
+                  if($pi_gender == 'female'){
+                    echo '<b>/</b>';
+                  }
+                  
+                  ?>
                </td>
                <td width="240px">
                <?=$pi_phone?>
