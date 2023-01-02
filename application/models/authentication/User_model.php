@@ -34,7 +34,7 @@ class User_model extends \Mobiledrs\core\MY_Models {
 		$this->db->select('*');
 		$this->db->from('home_visit_request');
 		$this->db->where('id', $id);
-		$this->db->order_by('id', 'ASC');
+		$this->db->order_by('id', 'DESC');
 
 		$result = $this->db->get()->result_array();
 
