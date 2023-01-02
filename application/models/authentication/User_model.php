@@ -24,6 +24,7 @@ class User_model extends \Mobiledrs\core\MY_Models {
 	public function fetchHomeVisitRequest(){
 		$this->db->select('*');
 		$this->db->from('home_visit_request');
+		$this->db->order_by('id', 'DESC');
 
 		$result = $this->db->get()->result_array();
 
