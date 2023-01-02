@@ -28,4 +28,8 @@ $(function () {
       }
     }
   });
+
+  jQuery('#home-visit-request').dataTable({
+      "order": []
+  });
 });
