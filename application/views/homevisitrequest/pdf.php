@@ -222,7 +222,13 @@
             </tr>
             <tr>
                <td colspan="3" height="15px" style="font-size: 11px; ">
-               <?=$rvr_additional_comment?>
+                  <?php
+                  if($rvr_additional_comment){
+                     echo $rvr_additional_comment;
+                  } else {
+                     echo '<br>';
+                  }
+                  ?>
                   <br>
                   <br>
                </td>
