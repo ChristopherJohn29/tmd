@@ -96,5 +96,9 @@
           </div>
 
       </div>
-        
+    <script>
+	 jQuery('#home-visit-request').dataTable({
+        "order": []
+    });
+		</script>
 {% endblock %}
