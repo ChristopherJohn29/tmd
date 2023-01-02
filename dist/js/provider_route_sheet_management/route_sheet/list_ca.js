@@ -29,7 +29,7 @@ $(function () {
     }
   });
 
-  // jQuery('#home-visit-request').dataTable({
-  //     "order": []
-  // });
+  jQuery('#home-visit-request').dataTable({
+      "order": []
+  });
 });
