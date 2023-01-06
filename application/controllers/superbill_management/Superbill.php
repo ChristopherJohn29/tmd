@@ -487,12 +487,14 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 
 	public function form(string $type, string $fromDate, string $toDate)
 	{
+		ini_set('max_execution_time', 0);
+		ini_set('memory_limit', '2048M');
+		ini_set('max_input_vars', 3000);
 		var_dump($_POST['submit_type']);
 		var_dump($this->input->post('submit_type'));
 		var_dump($_POST);
 		exit;
-		ini_set('max_execution_time', 0);
-		ini_set('memory_limit', '2048M');
+		
 		$roles_permissions = [
 			'generate_sbawr',
 			'generate_sbhvr',
