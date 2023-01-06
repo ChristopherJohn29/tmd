@@ -489,6 +489,7 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 	{
 		var_dump($_POST['submit_type']);
 		var_dump($this->input->post('submit_type'));
+		exit;
 		ini_set('max_execution_time', 0);
 		ini_set('memory_limit', '2048M');
 		$roles_permissions = [
