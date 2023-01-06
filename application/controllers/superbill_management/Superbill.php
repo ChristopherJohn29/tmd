@@ -489,12 +489,6 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 	{
 		ini_set('max_execution_time', 0);
 		ini_set('memory_limit', '2048M');
-		ini_set('max_input_vars', 3000);
-		var_dump($_POST['submit_type']);
-		var_dump($this->input->post('submit_type'));
-		var_dump($_POST);
-		exit;
-		
 		$roles_permissions = [
 			'generate_sbawr',
 			'generate_sbhvr',
@@ -602,8 +596,6 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		}
 		else
 		{
-			var_dump($this->input->post('submit_type'));
-			exit;
 			redirect('errors/page_not_found');
 		}
 	}
