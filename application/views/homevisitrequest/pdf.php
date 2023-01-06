@@ -101,11 +101,29 @@
             <tr>
                <td colspan="2" width="338px"  height="20px">
                   <label></label><br>
-                  <label><?=$ii_medicare?></label>
+                  <label>
+                     <?php
+                  if($ii_medicare){
+                     echo $ii_medicare;
+                  } else {
+                     echo '<br>';
+                  }
+                  ?>
+                  
+                  </label>
                </td>
                <td width="173px" height="20px">
                   <label></label><br>
-                  <label><?=$ii_ssn?></label>
+                  <label>
+                  <?php
+                  if($ii_ssn){
+                     echo $ii_ssn;
+                  } else {
+                     echo '<br>';
+                  }
+                  ?>
+               
+               </label>
                </td>
             </tr>
             <tr>
@@ -222,13 +240,13 @@
             </tr>
             <tr>
                <td colspan="3" height="15px" style="font-size: 11px; ">
-                  <?php
-                  if($rvr_additional_comment){
-                     echo $rvr_additional_comment;
-                  } else {
-                     echo '<br>';
-                  }
-                  ?>
+               <?php
+                if($rvr_additional_comment){
+                  echo $rvr_additional_comment;
+                } else {
+                  echo '<br>';
+                }
+               ?>
                   <br>
                   <br>
                </td>
