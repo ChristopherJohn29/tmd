@@ -596,6 +596,8 @@ class Superbill extends \Mobiledrs\core\MY_Controller {
 		}
 		else
 		{
+			var_dump($this->input->post('submit_type'));
+			exit;
 			redirect('errors/page_not_found');
 		}
 	}
