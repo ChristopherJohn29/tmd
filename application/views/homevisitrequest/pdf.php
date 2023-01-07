@@ -66,7 +66,7 @@
                   
                   ?>
                </td>
-               <td width="120px" height="50px">
+               <td width="118px" height="50px">
                <?php 
                   if($pi_gender == 'female'){
                     echo '<b>X</b>';
@@ -167,7 +167,11 @@
                </td>
             </tr>
             <tr>
-               <td colspan="3" width="520px" height="18px">
+               <td colspan="3" width="520px" height="18px" style="font-size: 1px; ">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3" width="520px" height="18px" style="font-size: 1px; ">
                </td>
             </tr>
             <tr>
