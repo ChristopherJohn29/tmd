@@ -61,7 +61,7 @@
                <td width="65px" height="50px">
                <?php 
                   if($pi_gender == 'male'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -69,7 +69,7 @@
                <td width="120px" height="50px">
                <?php 
                   if($pi_gender == 'female'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -136,7 +136,7 @@
                   <label></label><br>
                   <?php 
                   if($tov == 'Home Visit (Physical)'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -146,7 +146,7 @@
                   <label></label><br>
                   <?php 
                   if($tov == 'Telehealth'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -156,7 +156,7 @@
                   <label></label><br>
                   <?php 
                   if($tov == 'Either'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -174,7 +174,7 @@
                <td colspan="" width="205px" height="18px" style="font-size: 14px; ">
                <?php 
                   if($rvr_reason_for_visit == 'Referral from Home Health'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -183,7 +183,7 @@
                <td colspan="" width="278px" height="18px" style="font-size: 14px; ">
                <?php 
                   if($rvr_reason_for_visit == 'Discharged from Hospital'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -200,7 +200,7 @@
                <td colspan="" width="265px" height="15px" style="font-size: 14px; ">
                <?php 
                   if($rvr_reason_for_visit == 'Follow-up Visit'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -213,7 +213,7 @@
                <td colspan="" width="205px" height="15px" style="font-size: 14px; ">
                <?php 
                   if($rvr_reason_for_visit == 'Transfer of Care'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -221,7 +221,7 @@
                <td colspan="" width="285px" height="15px" valign="top" style="font-size: 14px; ">
                <?php 
                   if($rvr_reason_for_visit == 'Other Reason'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -315,7 +315,7 @@
                <td width="230px" height="18px" >
                <?php 
                   if($preferred_smd == '38'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -323,7 +323,7 @@
                <td width="180px" height="18px" >
                <?php 
                   if($preferred_smd == '53'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
@@ -331,7 +331,7 @@
                <td width="220px" height="18px" >
                <?php 
                   if($preferred_smd == '33'){
-                    echo '<b>✓</b>';
+                    echo '<b>X</b>';
                   }
                   
                   ?>
