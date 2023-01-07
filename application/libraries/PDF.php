@@ -101,7 +101,7 @@ class PDF {
 		// ---------------------------------------------------------
 
 		// set font
-		$pdf->SetFont('times', '', 48);
+		$pdf->SetFont('Montserrat', '', 48);
 
 		// --- example with background set on page ---
 
