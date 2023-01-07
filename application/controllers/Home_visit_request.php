@@ -81,6 +81,9 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 
 		$data = $this->user_model->fetchHomeVisitRequestById($id);
 
+		$this->load->view('homevisitrequest/pdf', $data[0]);
+		exit;
+
 		// echo "<pre>";
 		// var_dump($data);
 		// echo "</pre>";
