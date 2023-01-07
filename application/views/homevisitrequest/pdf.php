@@ -99,9 +99,12 @@
                </td>
             </tr>
             <tr>
+               <td colspan="3" width="520px" height="18px" style="font-size: 1px; ">
+               </td>
+            </tr>
+            <tr>
                <td colspan="2" width="338px"  height="20px">
-                  <label></label><br>
-                  <label>
+                  
                      <?php
                   if($ii_medicare){
                      echo $ii_medicare;
@@ -110,11 +113,9 @@
                   }
                   ?>
                   
-                  </label>
                </td>
                <td width="173px" height="20px">
-                  <label></label><br>
-                  <label>
+                  
                   <?php
                   if($ii_ssn){
                      echo $ii_ssn;
@@ -123,7 +124,6 @@
                   }
                   ?>
                
-               </label>
                </td>
             </tr>
             <tr>
