@@ -167,13 +167,10 @@
                </td>
             </tr>
             <tr>
-               <td colspan="3" width="520px" height="18px" style="font-size: 1px; ">
+               <td colspan="3" width="520px" height="18px" style="font-size: 14px; ">
                </td>
             </tr>
-            <tr>
-               <td colspan="3" width="520px" height="18px" style="font-size: 1px; ">
-               </td>
-            </tr>
+      
             <tr>
                <td colspan="" width="200px" height="18px" style="font-size: 14px; ">
                <?php 
