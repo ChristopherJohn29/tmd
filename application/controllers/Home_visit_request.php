@@ -81,35 +81,32 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 
 		$data = $this->user_model->fetchHomeVisitRequestById($id);
 
-		$this->load->view('homevisitrequest/pdf', $data[0]);
+		// echo "<pre>";
+		// var_dump($data);
+		// echo "</pre>";
 		// exit;
+		$tmpDir = sys_get_temp_dir() . '/';
+		$html = $this->load->view('homevisitrequest/pdf', $data[0], true);
 
-		// // echo "<pre>";
-		// // var_dump($data);
-		// // echo "</pre>";
-		// // exit;
-		// $tmpDir = sys_get_temp_dir() . '/';
-		// $html = $this->load->view('homevisitrequest/pdf', $data[0], true);
+		$this->load->library(['email', 'PDF']);
 
-		// $this->load->library(['email', 'PDF']);
+		$config = array(
+			'wordwrap'  => true,
+			'protocol'  => 'smtp',
+			'smtp_host' => 'ssl://smtp.bizmail.yahoo.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'info@themobiledrs.com',
+			'smtp_pass' => 'ucjemnxyefywdbyw',
+			'mailtype'  => 'html',
+			'newline' 	=> "\r\n"
+		);
 
-		// $config = array(
-		// 	'wordwrap'  => true,
-		// 	'protocol'  => 'smtp',
-		// 	'smtp_host' => 'ssl://smtp.bizmail.yahoo.com',
-		// 	'smtp_port' => 465,
-		// 	'smtp_user' => 'info@themobiledrs.com',
-		// 	'smtp_pass' => 'ucjemnxyefywdbyw',
-		// 	'mailtype'  => 'html',
-		// 	'newline' 	=> "\r\n"
-		// );
+		$this->email->initialize($config);
 
-		// $this->email->initialize($config);
-
-		// $filename = 'Home Visit Form PDF';
+		$filename = 'Home Visit Form PDF';
 		
 
-		// $this->pdf->generate_hv($html, $tmpDir . $filename);
+		$this->pdf->generate_hv($html, $tmpDir . $filename);
 
 		// $this->email->from('info@themobiledrs.com', 'The MobileDrs');
 		// // $this->email->reply_to('michelle@themobiledrs.com', 'The MobileDrs');
