@@ -190,7 +190,7 @@
                </td>
                <td colspan="" width="100px" height="18px">
                <?php
-               if($rvr_date_discharged != '1970-01-01'){
+               if($rvr_reason_for_visit){
                 echo date('m/d/Y', strtotime($rvr_date_discharged));
                }
                ?>
@@ -314,7 +314,7 @@
             <tr>
                <td width="230px" height="18px" >
                <?php 
-                  if($preferred_smd == 'MARIA LOURDES DE LEON, MD '){
+                  if($preferred_smd == '38'){
                     echo '<b>/</b>';
                   }
                   
@@ -322,7 +322,7 @@
                </td>
                <td width="180px" height="18px" >
                <?php 
-                  if($preferred_smd == 'LINDA ENRIQUEZ, MD '){
+                  if($preferred_smd == '53'){
                     echo '<b>/</b>';
                   }
                   
@@ -330,7 +330,7 @@
                </td>
                <td width="220px" height="18px" >
                <?php 
-                  if($preferred_smd == 'DAISY BAUTISTA, MD '){
+                  if($preferred_smd == '33'){
                     echo '<b>/</b>';
                   }
                   
