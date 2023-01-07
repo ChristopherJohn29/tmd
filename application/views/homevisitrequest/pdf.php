@@ -95,7 +95,7 @@
                </td>
             </tr>
             <tr>
-               <td colspan="3" width="520px" height="18px">
+               <td colspan="3" width="520px" height="18px" style="font-size: 1px; ">
                </td>
             </tr>
             <tr>
