@@ -110,7 +110,7 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 
 		$this->email->from('info@themobiledrs.com', 'The MobileDrs');
 		// $this->email->reply_to('michelle@themobiledrs.com', 'The MobileDrs');
-		$this->email->to('christopherjohngamo@gmail.com');
+		$this->email->to('Intake@themobilemd.com');
 		$this->email->subject('Home visit request form');
 		$this->email->message('Attached is a copy of the Home Visit Request form submitted to The Mobile Drs.');
 		$this->email->attach($tmpDir . $filename . '.pdf', 'attachment', $filename . '.pdf');
