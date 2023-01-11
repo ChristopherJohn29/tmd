@@ -15,7 +15,7 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
     public function index(){
 
         $this->check_permission('cookie_restriction');
-
+		$this->load->library(['Date_formatter']);
 		$page_data['fromDate'] = NULL;
 		$page_data['toDate'] = NULL;
 
@@ -35,6 +35,11 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 			]);
 		}
 
+		$new_fromDate = str_replace('_', '/', $page_data['fromDate']);
+		$new_toDate = str_replace('_', '/', $page_data['toDate']);
+
+		$this->date_formatter->set_date($newFromDate, $newToDate);
+		$page_data['datePeriod'] = $this->date_formatter->format();
         $page_data['records'] = $this->user_model->fetchHomeVisitRequest($page_data['fromDate'], $page_data['toDate']);
 
 		$page_data['fromDate'] = str_replace('/', '_', $page_data['fromDate']);
@@ -66,7 +71,9 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 		$page_data['fromDate'] =  str_replace('_', '/', $fromDate);
 		$page_data['toDate'] = str_replace('_', '/', $toDate);
 
-		$page_data['date_sent'] = $page_data['fromDate'] .' - '.$page_data['toDate'];
+		
+		$this->date_formatter->set_date($newFromDate, $newToDate);
+		$page_data['date_sent'] = $this->date_formatter->format();
 
 		$md = $this->user_model->getSuperMd();
 

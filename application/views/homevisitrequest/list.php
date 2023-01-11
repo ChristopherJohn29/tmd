@@ -102,11 +102,7 @@
 								<button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
 									Submit
 								</button>
-								{% if fromDate %}
-
-									<a href='{{ site_url("home_visit_request/generate_pdf_list/#{ fromDate }/#{ toDate }") }}' title="Edit"><span class="btn btn-primary xrx-custom-btn-payroll">Generate PDF</span></a>
-
-								{% endif %}
+							
 							</div>
 							
 						</div>
@@ -114,6 +110,24 @@
 					</form>
 
                 <div class="table-responsive">
+
+				{% if fromDate %}
+				<div class="xrx-tabletop-info">
+					<div class="pull-left">
+						<p style="font-size: 1.3em; margin-top:5px;">
+							Home visit request<br>
+							{{ datePeriod }}<br>
+							Total: {{ headcounts_total }}
+						</p>
+					</div>
+					<div class="pull-right text-right">
+						<a data-sortBtn href="{{ site_url("home_visit_request/generate_pdf_list/#{ fromDate }/#{ toDate }") }}">
+							<span class="btn btn-primary btn-sm">Generate PDF</span>
+						</a>
+					</div>
+				</div>
+				{% endif %}
+
                     <table id="home-visit-request" class="table no-margin table-hover">
 						<thead>
 							<tr>
