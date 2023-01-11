@@ -21,7 +21,7 @@
 		padding-bottom: 80px;
 	}
 </style>
-	<div class="row">
+	<div class="row hvr">
 
 		<div class="col-xs-12">
 		  {% if states %}

@@ -1,11 +1,10 @@
-
-<div class="box-body hvr">
+<div class="box-body">
     <div class="table-responsive">
-      
+
         {% if headcounts_total %}
         <div class="xrx-tabletop-info">
             <div class="pull-left">
-                <p style="font-size: 1.1em; margin-top:25px;">
+                <p style="font-size: 1.3em; margin-top:5px;">
                     {{ typeTitle }}<br>
                     {{ datePeriod }}<br>
                     Total: {{ headcounts_total }}
