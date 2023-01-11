@@ -4,7 +4,7 @@
         {% if headcounts_total %}
         <div class="xrx-tabletop-info" style="margin-bottom: 67px; margin-top:25px;">
             <div class="pull-left">
-                <p style="font-size: 1.1em; margin-top:5px;">
+                <p style="font-size: 1.1em; margin-top:25px;">
                     {{ typeTitle }}<br>
                     {{ datePeriod }}<br>
                     Total: {{ headcounts_total }}
