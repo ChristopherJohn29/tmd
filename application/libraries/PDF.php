@@ -101,7 +101,7 @@ class PDF {
 		// ---------------------------------------------------------
 
 		// set font
-		$pdf->SetFont('josefinsans', '', 48);
+		$pdf->SetFont('helvetica', '', 48);
 
 		// --- example with background set on page ---
 
