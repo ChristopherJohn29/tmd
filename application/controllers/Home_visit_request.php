@@ -16,10 +16,73 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 
         $this->check_permission('cookie_restriction');
 
-        $page_data['records'] = $this->user_model->fetchHomeVisitRequest();
-        
+		$page_data['fromDate'] = NULL;
+		$page_data['toDate'] = NULL;
+
+		if($this->input->post('year') && $this->input->post('fromMonth') && $this->input->post('fromDate')){
+			$page_data['fromDate'] = implode('/', [
+				$this->input->post('year'),
+				$this->input->post('fromMonth'),
+				$this->input->post('fromDate')
+			]);
+		}
+
+		if($this->input->post('year') && $this->input->post('toMonth') && $this->input->post('toDate')){
+			$page_data['toDate'] = implode('/', [
+				$this->input->post('year'),
+				$this->input->post('toMonth'),
+				$this->input->post('toDate')
+			]);
+		}
+
+        $page_data['records'] = $this->user_model->fetchHomeVisitRequest($page_data['fromDate'], $page_data['toDate']);
+
+		$page_data['fromDate'] = str_replace('/', '_', $page_data['fromDate']);
+		$page_data['toDate'] = str_replace('/', '_',$page_data['toDate']);
+
+
         $this->twig->view('homevisitrequest/list', $page_data);
+	}
+
+	public function generate_pdf_list($fromDate, $toDate){
+
+		$fromDate = str_replace('/', '_', $fromDate);
+		$toDate = str_replace('/', '_', $toDate);
 		
+		$page_data['records'] = $this->user_model->fetchHomeVisitRequest($fromDate,  $toDate);
+
+
+		ini_set('max_execution_time', 0);
+		ini_set('memory_limit', '2048M');
+
+		$this->load->library(['Date_formatter', 'PDF']);
+
+		$new_fromDate = str_replace('_', '/', $fromDate);
+		$new_toDate = str_replace('_', '/', $toDate);
+
+		$this->date_formatter->set_date($new_fromDate, $new_toDate);
+		$date_period = $this->date_formatter->format();
+
+		$page_data['fromDate'] =  str_replace('_', '/', $fromDate);
+		$page_data['toDate'] = str_replace('_', '/', $toDate);
+
+		$page_data['date_sent'] = $page_data['fromDate'] .' - '.$page_data['toDate'];
+
+		$md = $this->user_model->getSuperMd();
+
+		$mds = array();
+		foreach ($md as $key => $value) {
+			$mds[$value['provider_id']] = $value['provider_firstname'].' '.$value['provider_lastname'];
+		}
+
+		$page_data['mds'] = $mds;
+
+		$html = $this->load->view('homevisitrequest/pdflist', $page_data, true);
+		$filename = 'homevisitreport' . $date_period;
+
+		$this->pdf->page_orientation = 'L';
+		$this->pdf->generate($html, $filename);
+
 	}
 
 	public function generate_pdf($id){
