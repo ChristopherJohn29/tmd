@@ -1,25 +1,24 @@
 
-<div class="box-body">
-    {% if headcounts_total %}
-    <div class="xrx-tabletop-info" style="margin-bottom: 67px !important; margin-top:25px !important;">
-        <div class="pull-left">
-            <p style="font-size: 1.1em; margin-top:25px;">
-                {{ typeTitle }}<br>
-                {{ datePeriod }}<br>
-                Total: {{ headcounts_total }}
-            </p>
-        </div>
-        <div class="pull-right text-right">
-            <a href="{{ site_url("patient_management/headcount/print/#{ type }/#{ month }/#{ tomonth }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
-            <a data-sortBtn href="{{ site_url("patient_management/headcount/pdf/#{ type }/#{ month }/#{ tomonth }/#{ fromDate }/#{ toDate }/#{ year }") }}">
-                <span class="btn btn-primary btn-sm">Generate PDF</span>
-            </a>
-        </div>
-    </div>
-    {% endif %}
+<div class="box-body hvr">
     <div class="table-responsive">
       
-      
+        {% if headcounts_total %}
+        <div class="xrx-tabletop-info">
+            <div class="pull-left">
+                <p style="font-size: 1.1em; margin-top:25px;">
+                    {{ typeTitle }}<br>
+                    {{ datePeriod }}<br>
+                    Total: {{ headcounts_total }}
+                </p>
+            </div>
+            <div class="pull-right text-right">
+                <a href="{{ site_url("patient_management/headcount/print/#{ type }/#{ month }/#{ tomonth }/#{ fromDate }/#{ toDate }/#{ year }") }}" target="_blank"><span class="btn btn-primary btn-sm">Print</span></a>
+                <a data-sortBtn href="{{ site_url("patient_management/headcount/pdf/#{ type }/#{ month }/#{ tomonth }/#{ fromDate }/#{ toDate }/#{ year }") }}">
+                    <span class="btn btn-primary btn-sm">Generate PDF</span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
 
         <table id="headcount-list" data-sortTable class="table no-margin table-hover">
             <thead>

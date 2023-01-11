@@ -385,6 +385,12 @@ table.fix-width th.actions {
     margin-bottom: 20px;
     clear: both;
 }
+
+.hvr .xrx-tabletop-info{
+        margin-bottom: 67px !important;
+        margin-top:25px !important;
+    
+}
 		
 .table>thead>tr>th,
 .table>tbody>tr>th,
