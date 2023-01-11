@@ -41,7 +41,8 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 		$this->date_formatter->set_date($new_fromDate, $new_toDate);
 		$page_data['datePeriod'] = $this->date_formatter->format();
         $page_data['records'] = $this->user_model->fetchHomeVisitRequest($page_data['fromDate'], $page_data['toDate']);
-
+		$page_data['headcounts_total'] = count($page_data['records']);
+		
 		$page_data['fromDate'] = str_replace('/', '_', $page_data['fromDate']);
 		$page_data['toDate'] = str_replace('/', '_',$page_data['toDate']);
 
