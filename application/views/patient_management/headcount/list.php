@@ -1,12 +1,13 @@
+<style>
+.xrx-tabletop-info{
+    margin-bottom: 67px !important;
+    margin-top:25px !important;
+}
+
+</style>
 <div class="box-body">
     <div class="table-responsive">
-        <style>
-            .xrx-tabletop-info{
-                margin-bottom: 67px !important;
-                margin-top:25px !important;
-            }
-            
-            </style>
+      
         {% if headcounts_total %}
         <div class="xrx-tabletop-info">
             <div class="pull-left">
