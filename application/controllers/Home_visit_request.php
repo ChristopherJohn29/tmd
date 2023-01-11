@@ -56,7 +56,7 @@ class Home_visit_request extends \Mobiledrs\core\MY_Controller {
 		
 		$page_data['records'] = $this->user_model->fetchHomeVisitRequest($fromDate,  $toDate);
 
-
+		$page_data['headcounts_total'] = count($page_data['records']);
 		ini_set('max_execution_time', 0);
 		ini_set('memory_limit', '2048M');
 
