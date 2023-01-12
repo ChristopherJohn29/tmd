@@ -12,11 +12,10 @@
 			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Home Health</th>
 			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8;">Patient Name</th>
 			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Medicare</th>
-			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">DOB</th>
-			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Address</th>
-			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Phone</th>
-            <th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Supervising MD</th>
+			<th bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Date of Birth</th>
+            <th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Type of Visit</th>
 			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Date Sent</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -35,9 +34,7 @@
 				<td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $record['pi_patient_name']; ?></td>
 				<td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $record['ii_medicare']; ?></td>
                 <td  style="border-bottom: 1px solid #d2d6de;"><?php echo  date('m/d/Y', strtotime($record['pi_dob'])); ?></td>
-                <td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $record['pi_address']; ?></td>
-                <td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $format_phone ?></td>
-                <td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $mds[$record['preferred_smd']]; ?></td>
+                <td  style="border-bottom: 1px solid #d2d6de;"><?php echo  $record['tov']; ?></td>
                 <td  style="border-bottom: 1px solid #d2d6de;"><?php echo  date('m/d/Y', strtotime($record['date_of_sent'])); ?></td>
 			</tr>			
 		<?php endforeach; ?>

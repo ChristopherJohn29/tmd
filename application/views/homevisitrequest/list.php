@@ -136,7 +136,7 @@
 								<th>Medicare</th>
 								<th>Date of Birth</th>
 								<th>Type of Visit</th>
-								<th>Date of Sent</th>
+								<th>Date Sent</th>
 								<th style="width: 120px;">Action</th>
 							</tr>
 						</thead>
