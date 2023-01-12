@@ -16,7 +16,7 @@
 			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Phone</th>
 			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Provider</th>
             <th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Supervising MD</th>
-			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Date Request</th>
+			<th  bgcolor="#548bb8" style="color: white;border:1px solid #548bb8">Date Sent</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,7 +26,7 @@
 
 			// 👇 format phone number
 			$format_phone =
-				'('.substr($phone_no, -10, -7) . ")" .
+				'('.substr($phone_no, -10, -7) . ") " .
 				substr($phone_no, -7, -4) . "-" .
 				substr($phone_no, -4);
 			?>
