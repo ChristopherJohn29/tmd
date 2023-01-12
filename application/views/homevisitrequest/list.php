@@ -43,7 +43,7 @@
 						
 					
 							
-						<div class="row" style="width:60%; margin:auto auto;">
+						<div class="row" style="width:70%; margin:auto auto;">
 							<div class="col-md-3 form-group">
 								<label class="control-label">Month <span>*</span></label>
 								<select class="form-control" style="width: 100%;" name="fromMonth" required="true">
@@ -98,7 +98,7 @@
 								</select>
 							</div>
 
-							<div class="col-md-2 form-group text-center">
+							<div class="col-md-2 form-group">
 								<button type="submit" class="btn btn-primary xrx-custom-btn-payroll">
 									Submit
 								</button>

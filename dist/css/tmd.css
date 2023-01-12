@@ -391,6 +391,10 @@ table.fix-width th.actions {
         margin-top:25px !important;
     
 }
+
+.hvr .xrx-custom-btn-payroll {
+    margin-top: 22px;
+}
 		
 .table>thead>tr>th,
 .table>tbody>tr>th,
